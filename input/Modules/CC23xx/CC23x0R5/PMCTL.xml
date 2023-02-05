@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="PMCTL" HW_revision="" XML_version="1.0" description="This component is the Power Management controller. Together with the System Controller, it controls system resets and the power states of the device. 
+ 
+" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="DESC" width="32" description="Description Register. 
+This register provides IP module ID, revision information, instance index and standard MMR registers offset." id="DESC" offset="0x0">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Module identifier used to uniquely identify this IP." id="MODID" resetval="0xd741">
+      </bitfield>
+      <bitfield range="" begin="15" width="4" end="12" rwaccess="RO" description="Standard IP MMR block offset. Standard IP MMRs are the set of from aggregated IRQ registers till DTB.
+
+0: Standard IP MMRs do not exist
+0x1-0xF: Standard IP MMRs begin at offset of (64*STDIPOFF from the base IP address)" id="STDIPOFF" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="4" end="8" rwaccess="RO" description="IP Instance ID number. If multiple instances of IP exist in the device, this field can identify the instance number (0-15)." id="INSTIDX" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="Major revision of IP (0-15)." id="MAJREV" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Minor revision of IP (0-15)." id="MINREV" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DESCEX" width="32" description="Extended Description Register.
+This register shows ULL IP availability and memory size configuration." id="DESCEX" offset="0x4">
+      <bitfield range="" begin="31" width="2" end="30" rwaccess="RO" description="System flash availability" id="FLASHSZ" resetval="0x3">
+         <bitenum id="SZ3" value="3" token="Flash size set to level 3 (Max size)" description="Flash size set to level 3 (Max size)"/>
+         <bitenum id="SZ2" value="2" token="Flash size set to level 2" description="Flash size set to level 2"/>
+         <bitenum id="SZ1" value="1" token="Flash size set to level 1" description="Flash size set to level 1"/>
+         <bitenum id="SZ0" value="0" token="Flash size set to level 0 (Min size)" description="Flash size set to level 0 (Min size)"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="2" end="28" rwaccess="RO" description="System SRAM availability" id="SRAMSZ" resetval="0x3">
+         <bitenum id="SZ3" value="3" token="SRAM size set to level 3 (Max size)" description="SRAM size set to level 3 (Max size)"/>
+         <bitenum id="SZ2" value="2" token="SRAM size set to level 2" description="SRAM size set to level 2"/>
+         <bitenum id="SZ1" value="1" token="SRAM size set to level 1" description="SRAM size set to level 1"/>
+         <bitenum id="SZ0" value="0" token="SRAM size set to level 0 (Min size)" description="SRAM size set to level 0 (Min size)"/>
+      </bitfield>
+      <bitfield range="" begin="27" width="1" end="27" rwaccess="RO" description=" TSD (thermal shutdown) IP status on device" id="TSD" resetval="0x1">
+         <bitenum id="IP_AVAIL" value="1" token="IP is available" description="IP is available"/>
+         <bitenum id="IP_UNAVAIL" value="0" token="IP is unavailable" description="IP is unavailable"/>
+      </bitfield>
+      <bitfield range="" begin="26" width="1" end="26" rwaccess="RO" description="LPCMP (low power comparator) IP status on device" id="LPCMP" resetval="0x1">
+         <bitenum id="IP_AVAIL" value="1" token="IP is available" description="IP is available"/>
+         <bitenum id="IP_UNAVAIL" value="0" token="IP is unavailable" description="IP is unavailable"/>
+      </bitfield>
+      <bitfield range="" begin="25" width="26" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="SHTDWN" width="32" description="Shutdown Register.
+This register controls SHUTDOWN mode entry." id="SHTDWN" offset="0x8">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="WO" description="Setting a valid key will trigger the device to enter SHUTDOWN mode.
+" id="KEY" resetval="0x0">
+         <bitenum id="VALID" value="42405" token="This is the only valid key value that will trigger SHUTDOWN mode.
+All other values are invalid and will have no effect." description="This is the only valid key value that will trigger SHUTDOWN mode.
+All other values are invalid and will have no effect."/>
+      </bitfield>
+   </register>
+   <register acronym="SLPCTL" width="32" description="Sleep Control Register.
+This register controls I/O pad sleep mode. When I/O pad sleep mode is enabled all I/O pad outputs and I/O pad configurations are latched. Inputs are transparent if I/O pad is configured as input." id="SLPCTL" offset="0xc">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="The boot code will set this bit field and disable sleep mode, automatically unless waking up from a SHUTDOWN RSTSTA.SDDET is set.
+Application software must reconfigure the state for all IO&#39;s before setting this bit field upon waking up from a SHUTDOWN to avoid glitches on pins." id="SLPN" resetval="0x0">
+         <bitenum id="DIS" value="1" token="I/O pad sleep mode is disabled" description="I/O pad sleep mode is disabled"/>
+         <bitenum id="EN" value="0" token="I/O pad sleep mode is enabled" description="I/O pad sleep mode is enabled"/>
+      </bitfield>
+   </register>
+   <register acronym="WUSTA" width="32" description="Wakeup Status Register
+This register shows the device wakeup source. Used to distinguish between wakeup from STANDBY, SHUTDOWN and reset." id="WUSTA" offset="0x10">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="2" end="0" rwaccess="RO" description="This field shows the device wakeup source.
+" id="SRC" resetval="0x1">
+         <bitenum id="STBY" value="2" token="Wakeup from STANDBY mode." description="Wakeup from STANDBY mode."/>
+         <bitenum id="RST_SHTDWN" value="1" token="Wakeup from system reset / SHUTDOWN mode. 
+See RSTSTA for more status information." description="Wakeup from system reset / SHUTDOWN mode. 
+See RSTSTA for more status information."/>
+      </bitfield>
+   </register>
+   <register acronym="VDDRCTL" width="32" description="VDDR Control Register.
+This register contains VDDR regulator settings for the device." id="VDDRCTL" offset="0x14">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="STBY" resetval="0x0">
+         <bitenum id="PSUEDO" value="1" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="NORMAL" value="0" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Select between GLDO and DCDC as VDDR regulator (in ACTIVE, IDLE and STANDBY mode)." id="SELECT" resetval="0x0">
+         <bitenum id="DCDC" value="1" token="DCDC enabled for regulation of VDDR voltage" description="DCDC enabled for regulation of VDDR voltage"/>
+         <bitenum id="GLDO" value="0" token="GLDO enabled for regulation of VDDR voltage" description="GLDO enabled for regulation of VDDR voltage"/>
+      </bitfield>
+   </register>
+   <register acronym="IOSEGSET" width="32" description="Internal. Only to be used through TI provided API." id="IOSEGSET" offset="0x18">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="Internal. Only to be used through TI provided API." id="VDDS3" resetval="0x0">
+         <bitenum id="EN" value="1" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="NOEFF" value="0" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="Internal. Only to be used through TI provided API." id="VDDS2" resetval="0x0">
+         <bitenum id="EN" value="1" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="NOEFF" value="0" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+      </bitfield>
+   </register>
+   <register acronym="IOSEGCLR" width="32" description="Internal. Only to be used through TI provided API." id="IOSEGCLR" offset="0x1c">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="Internal. Only to be used through TI provided API." id="VDDS3" resetval="0x0">
+         <bitenum id="DIS" value="1" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="NOEFF" value="0" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="Internal. Only to be used through TI provided API." id="VDDS2" resetval="0x0">
+         <bitenum id="DIS" value="1" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="NOEFF" value="0" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+      </bitfield>
+   </register>
+   <register acronym="SYSFSET" width="32" description="Internal. Only to be used through TI provided API." id="SYSFSET" offset="0x20">
+      <bitfield range="" begin="31" width="29" end="3" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="WO" description="Internal. Only to be used through TI provided API." id="FLAG2" resetval="0x0">
+         <bitenum id="SET" value="1" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="NOEFF" value="0" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="Internal. Only to be used through TI provided API." id="FLAG1" resetval="0x0">
+         <bitenum id="SET" value="1" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="NOEFF" value="0" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="Internal. Only to be used through TI provided API." id="FLAG0" resetval="0x0">
+         <bitenum id="SET" value="1" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="NOEFF" value="0" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+      </bitfield>
+   </register>
+   <register acronym="SYSFCLR" width="32" description="Internal. Only to be used through TI provided API." id="SYSFCLR" offset="0x24">
+      <bitfield range="" begin="31" width="29" end="3" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="WO" description="Internal. Only to be used through TI provided API." id="FLAG2" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="NOEFF" value="0" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="Internal. Only to be used through TI provided API." id="FLAG1" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="NOEFF" value="0" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="Internal. Only to be used through TI provided API." id="FLAG0" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="NOEFF" value="0" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+      </bitfield>
+   </register>
+   <register acronym="SYSFSTA" width="32" description="Internal. Only to be used through TI provided API." id="SYSFSTA" offset="0x28">
+      <bitfield range="" begin="31" width="29" end="3" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="FLAG2" resetval="0x0">
+         <bitenum id="VAL1" value="1" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="VAL0" value="0" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="FLAG1" resetval="0x0">
+         <bitenum id="VAL1" value="1" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="FLAG0" resetval="0x0">
+         <bitenum id="VAL1" value="1" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="VAL0" value="0" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+      </bitfield>
+   </register>
+   <register acronym="RSTCTL" width="32" description="Reset Control Register.
+This register configures and controls system reset." id="RSTCTL" offset="0x2c">
+      <bitfield range="" begin="31" width="29" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="LF clock loss reset enable.
+Trigger system reset when LF clock loss is detected, which reset the entire device and causes a reboot of the system.
+The system reset event is captured as RSTSTA.RESETSRC set to SYSRESET and RSTSTA.SYSSRC set to LFLOSSEV." id="LFLOSS" resetval="0x0">
+         <bitenum id="ARMED" value="1" token="LF clock loss detection will trigger a system reset." description="LF clock loss detection will trigger a system reset."/>
+         <bitenum id="DISARMED" value="0" token="LF clock loss detection will not trigger a system reset." description="LF clock loss detection will not trigger a system reset."/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="TSD (Thermal Shutdown) enable.  
+TSD will trigger an immediate system reset, which reset the entire device and causes a reboot of the system.
+The device will be in reset until released by the TSD IP.
+The system reset event is captured as RSTSTA.TSDEV flag set." id="TSDEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Temperature shutdown comparator enable. 
+Note: If TSD IP not present, see DESCEX.TSD, enable will have no effect." description="Temperature shutdown comparator enable. 
+Note: If TSD IP not present, see DESCEX.TSD, enable will have no effect."/>
+         <bitenum id="NOEFF" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Trigger system reset, which will reset the entire device and causes a reboot of the system.
+The system reset event is captured as RSTSTA.RESETSRC set to SYSRESET and RSTSTA.SYSSRC set to SYSRSTEV." id="SYSRST" resetval="0x0">
+         <bitenum id="SET" value="1" token="Trigger a system reset." description="Trigger a system reset."/>
+         <bitenum id="NOEFF" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+   </register>
+   <register acronym="RSTSTA" width="32" description="Reset Status. 
+This register contains the reset source and SHUTDOWN wakeup source for the system.
+Check WUSTA.SRC first to ensure that wakeup from STANDBY is not set.
+The capture feature is not rearmed until all of the possible reset sources have been released and the result has been copied to this register. 
+During the copy and rearm process it is one 24MHz period in which an eventual new system reset will be reported as Power on reset regardless of the root cause." id="RSTSTA" offset="0x30">
+      <bitfield range="" begin="31" width="14" end="18" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED18" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="1" end="17" rwaccess="RO" description="Wakeup from SHUTDOWN flag.
+Note: This flag will be cleared when SLPCTL.SLPN is asserted." id="SDDET" resetval="0x0">
+         <bitenum id="TRIG" value="1" token="Wakeup from SHUTDOWN mode" description="Wakeup from SHUTDOWN mode"/>
+         <bitenum id="NO_TRIG" value="0" token="Wakeup from SHUTDOWN mode not triggered" description="Wakeup from SHUTDOWN mode not triggered"/>
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="RO" description="Wakeup from SHUTDOWN on an I/O event flag.
+Note: This flag will be cleared when SLPCTL.SLPN is asserted." id="IOWUSD" resetval="0x0">
+         <bitenum id="TRIG" value="1" token="Wakeup from SHUTDOWN triggered by an I/O event." description="Wakeup from SHUTDOWN triggered by an I/O event."/>
+         <bitenum id="NO_TRIG" value="0" token="Wakeup from SHUTDOWN not triggered by an I/O event." description="Wakeup from SHUTDOWN not triggered by an I/O event."/>
+      </bitfield>
+      <bitfield range="" begin="15" width="8" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="Shows which reset event that triggered SYSRESET in RESETSRC" id="SYSSRC" resetval="0x0">
+         <bitenum id="DERREV" value="15" token="Digital Error reset event" description="Digital Error reset event"/>
+         <bitenum id="AERREV" value="14" token="Analog Error reset event" description="Analog Error reset event"/>
+         <bitenum id="AFSMEV" value="6" token="Analog FSM timeout event" description="Analog FSM timeout event"/>
+         <bitenum id="SWDRSTEV" value="5" token="Serial Wire Debug reset event" description="Serial Wire Debug reset event"/>
+         <bitenum id="SYSRSTEV" value="4" token="System reset event" description="System reset event"/>
+         <bitenum id="WDTEV" value="3" token="Watchdog timeout event" description="Watchdog timeout event"/>
+         <bitenum id="LOCKUPEV" value="2" token="CPU LOCKUP event" description="CPU LOCKUP event"/>
+         <bitenum id="CPURSTEV" value="1" token="CPU reset event" description="CPU reset event"/>
+         <bitenum id="LFLOSSEV" value="0" token="LF clock loss event" description="LF clock loss event"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RO" description="System reset triggered by TSD event" id="TSDEV" resetval="0x0">
+         <bitenum id="TRIG" value="1" token="System reset triggered by TSD event" description="System reset triggered by TSD event"/>
+         <bitenum id="NO_TRIG" value="0" token="TSD event not triggered" description="TSD event not triggered"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RO" description="Shows the root cause of the last system reset. More than one reported reset source can have been active during the last system reset, but only the root cause is reported.
+If reset cause is SYSRESET or PINRESET, the other reset flags must be read to determine actual root cause." id="RESETSRC" resetval="0x0">
+         <bitenum id="SYSRESET" value="6" token="Digital system reset. Actual root cause is given by SYSSRC." description="Digital system reset. Actual root cause is given by SYSSRC."/>
+         <bitenum id="VDDRLOSS" value="4" token="Brown out detect on VDDR" description="Brown out detect on VDDR"/>
+         <bitenum id="VDDSLOSS" value="2" token="Brown out detect on VDDS" description="Brown out detect on VDDS"/>
+         <bitenum id="PINRESET" value="1" token="Reset pin. TSD will also trigger a pin reset, so actual root cause is given by TSDEV reset flag status." description="Reset pin. TSD will also trigger a pin reset, so actual root cause is given by TSDEV reset flag status."/>
+         <bitenum id="PWRON" value="0" token="Power on reset" description="Power on reset"/>
+      </bitfield>
+   </register>
+   <register acronym="BOOTSTA" width="32" description="Internal. Only to be used through TI provided API." id="BOOTSTA" offset="0x34">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="FLAG" resetval="0x0">
+         <bitenum id="APP_FAULT_HANDLER" value="255" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="APP_FAIL_APPTRANSFER" value="254" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="APP_FAIL_NOAPP" value="253" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="APP_WAITLOOP_DBGPROBE" value="193" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="MODE_APP" value="192" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="BLDR_FAULT_HANDLER" value="191" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="BLDR_FAIL_APPTRANSFER" value="190" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="BLDR_FAIL_EXECUTION_CONTEXT" value="189" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="BLDR_CMD_PROCESSING" value="188" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="BLDR_CMD_IDLE" value="187" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="BLDR_STARTED" value="186" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="BLDR_WAITLOOP_DBGPROBE" value="129" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="MODE_BLDR" value="128" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="BOOT_FAULT_HANDLER" value="63" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="BOOT_FAIL_SRAM_REPAIR" value="62" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="BOOT_WAITLOOP_DBGPROBE" value="56" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="BOOT_EXITED_SACI" value="55" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="BOOT_WAIT_SWD_DISCONNECT" value="54" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="BOOT_ENTERED_SACI" value="32" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="BOOT_GENERAL_TRIMS" value="3" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="BOOT_SRAM_REP_DONE" value="2" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="BOOT_COLD_BOOT" value="1" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="BOOT_RESET" value="0" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+      </bitfield>
+   </register>
+   <register acronym="AONRSTA1" width="32" description="AON Register Status 1.
+This register contains the general purpose AON flags for SW, and is updated through AONRSET1.FLAG and AONRCLR1.FLAG.
+The register is only reset on a POR event." id="AONRSTA1" offset="0x3c">
+      <bitfield range="" begin="31" width="14" end="18" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED18" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="18" end="0" rwaccess="RO" description="State of the AON register flags" id="FLAG" resetval="0x0">
+         <bitenum id="ALL_SET" value="262143" token="All flags set" description="All flags set"/>
+         <bitenum id="ALL_CLR" value="0" token="All flags cleared" description="All flags cleared"/>
+      </bitfield>
+   </register>
+   <register acronym="AONRSET1" width="32" description="AON Register Set 1.
+This register sets the AON flags that can be read through AONRSTA1.FLAG." id="AONRSET1" offset="0x40">
+      <bitfield range="" begin="31" width="14" end="18" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED18" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="18" end="0" rwaccess="WO" description="Write 1 to set AONRSTA1.FLAG" id="FLAG" resetval="0x0">
+         <bitenum id="ALL_SET" value="262143" token="Set all flags" description="Set all flags"/>
+         <bitenum id="NOEFF" value="0" token="No flags changed status" description="No flags changed status"/>
+      </bitfield>
+   </register>
+   <register acronym="AONRCLR1" width="32" description="AON Register Clear 1.
+This register clears the AON flags that can be read through AONRSTA1.FLAG." id="AONRCLR1" offset="0x44">
+      <bitfield range="" begin="31" width="14" end="18" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED18" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="18" end="0" rwaccess="WO" description="Write 1 to clear AONRSTA1.FLAG" id="FLAG" resetval="0x0">
+         <bitenum id="ALL_CLR" value="262143" token="Clear all flags" description="Clear all flags"/>
+         <bitenum id="NOEFF" value="0" token="No flags changed status" description="No flags changed status"/>
+      </bitfield>
+   </register>
+   <register acronym="DELTA" width="32" description="Delta Time Register.
+This register contains the measured delta time during wakeup from STANDBY mode." id="DELTA" offset="0x4c">
+      <bitfield range="" begin="31" width="2" end="30" rwaccess="RO" description="Slow part.
+States which of HFXT ready or SW ready that completed first during wakeup from STANDBY mode." id="SLWP" resetval="0x0">
+         <bitenum id="INVALID3" value="3" token="No valid measurement available" description="No valid measurement available"/>
+         <bitenum id="HFXT" value="2" token="HFXT ready set after SW ready (SWSTMP.SWRDY)" description="HFXT ready set after SW ready (SWSTMP.SWRDY)"/>
+         <bitenum id="SVT" value="1" token=" HFXT ready set before SW ready (SWSTMP.SWRDY)
+" description=" HFXT ready set before SW ready (SWSTMP.SWRDY)
+"/>
+         <bitenum id="INVALID0" value="0" token="No valid measurement available" description="No valid measurement available"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="18" end="12" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED12" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="12" end="0" rwaccess="RO" description="Delta time.
+Measured time in us between SWSTMP.SWRDY and HFXT ready. 
+This is a always a positive number, and SLWP is used to determine which event occurred first.
+Measurement is enabled when PREPUCTL.WUTIMEN is set. " id="TIME" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="WUTIME" width="32" description="WakeUp Time Register
+This register contains the measured wakeup times from STANDBY mode." id="WUTIME" offset="0x50">
+      <bitfield range="" begin="31" width="8" end="24" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED24" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="8" end="16" rwaccess="RO" description="Digital wakeup time. 
+Gives the time (in us) from HFSOC is running until CPU execution starts.
+Measurement is enabled when PREPUCTL.WUTIMEN is set. " id="DIGWU" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="8" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="HFXT wakeup time
+Gives the time (in us) from HFSOC is running until HFXT auto enable is triggered.
+Measurement is enabled when PREPUCTL.WUTIMEN is set." id="HFXTWU" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PREPUCTL" width="32" description="Pre Power-Up Control Register.
+This register contains settings and control for pre-powerup, STANDBY and wakeup measurements." id="PREPUCTL" offset="0x54">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Pre PowerUp Enable.
+When PREPUEN is set the device will start the wakeup process in advance of the RTC wakeup event.
+This to start HFXT settling earlier, so that HFXT can be ready when SW is ready." id="PREPUEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Enable pre-powerup" description="Enable pre-powerup"/>
+         <bitenum id="DIS" value="0" token="Disable pre-powerup" description="Disable pre-powerup"/>
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="Wakeup time measurement enable.
+When set will enable WUTIME.DIGWU,  WUTIME.HFXTWU and DELTA.TIME time measurements." id="WUTIMEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Enable wakeup time measurement " description="Enable wakeup time measurement "/>
+         <bitenum id="DIS" value="0" token="Disable wakeup time measurement " description="Disable wakeup time measurement "/>
+      </bitfield>
+      <bitfield range="" begin="29" width="14" end="16" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="8" end="8" rwaccess="RW" description="Conservative pre-wakeup time.
+When PREPUEN is set the device will start the wakeup process in advance of the RTC wakeup event.
+This field will give the conservative time in advance of a RTC event. Conservative value is used if a temperature change has been detected since STANDBY mode was entered.
+The time unit for the value is 8us." id="CONS" resetval="0x0">
+         <bitenum id="MAX" value="254" token="Highest possible value" description="Highest possible value"/>
+         <bitenum id="MIN" value="0" token="Smallest value" description="Smallest value"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Nominal pre-wakeup time.
+When PREPUEN is set the device will start the wakeup process in advance of the RTC wakeup event.
+This field will give the nominal time in advance of a RTC event. Nominal value is used if no temperature change has been detected since STANDBY mode was entered.
+The time unit for the value is 8us." id="NOM" resetval="0x0">
+         <bitenum id="MAX" value="254" token="Highest possible value" description="Highest possible value"/>
+         <bitenum id="MIN" value="0" token="Smallest value" description="Smallest value"/>
+      </bitfield>
+   </register>
+   <register acronym="SWSTMP" width="32" description="SW Time Stamp Register.
+This register is used to set the SW time stamp for the delta time measurement." id="SWSTMP" offset="0x58">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="SW ready 
+Set by SW to indicate when SW is ready. Used to measure DELTA.TIME and DELTA.SLWP.
+This bit is auto-cleared by HW." id="SWRDY" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set SW ready time stamp" description="Set SW ready time stamp"/>
+         <bitenum id="NOEFF" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+   </register>
+   <register acronym="ETPP" width="32" description="Internal. Only to be used through TI provided API." id="ETPP" offset="0x64">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="RETCFG0" width="32" description="Internal. Only to be used through TI provided API." id="RETCFG0" offset="0x7c">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="VAL" resetval="0x1">
+      </bitfield>
+   </register>
+   <register acronym="RETCFG1" width="32" description="Internal. Only to be used through TI provided API." id="RETCFG1" offset="0x80">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="RETCFG2" width="32" description="Internal. Only to be used through TI provided API." id="RETCFG2" offset="0x84">
+      <bitfield range="" begin="31" width="29" end="3" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="VAL" resetval="0x2">
+      </bitfield>
+   </register>
+   <register acronym="RETCFG3" width="32" description="Internal. Only to be used through TI provided API." id="RETCFG3" offset="0x88">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="RETCFG4" width="32" description="Internal. Only to be used through TI provided API." id="RETCFG4" offset="0x8c">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="RETCFG5" width="32" description="Internal. Only to be used through TI provided API." id="RETCFG5" offset="0x90">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="RETCFG6" width="32" description="Internal. Only to be used through TI provided API." id="RETCFG6" offset="0x94">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="RETCFG7" width="32" description="Internal. Only to be used through TI provided API." id="RETCFG7" offset="0x98">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+</module>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="Hidden" HW_revision="1" XML_version="1" description="" hidden="true">
+    <register id="TXD"      offset="0x0000" width="32" page="121" acronym="TXD"    />
+    <register id="TXCTL"    offset="0x0004" width="32" page="121" acronym="TXCTL"  />
+    <register id="RXD"      offset="0x0008" width="32" page="121" acronym="RXD"    />
+    <register id="RXCTL"    offset="0x000C" width="32" page="121" acronym="RXCTL"  />
+    <register id="TXDPEEK"  offset="0x0010" width="32" page="121" acronym="TXDPEEK"/>
+    <register id="RXDPEEK"  offset="0x0014" width="32" page="121" acronym="RXDPEEK"/>
+    <register id="RSTCTL"   offset="0x0018" width="32" page="121" acronym="RSTCTL" />
+    <register id="IDR"      offset="0x00FC" width="32" page="121" acronym="IDR"    />
+</module>

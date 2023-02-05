@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="SCB" HW_revision="" XML_version="1.0" description="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="CPUID" width="32" description="Read the CPU ID Base Register to determine: the ID number of the processor core, the version number of the processor core, the implementation details of the processor core." id="CPUID" offset="0x0">
+      <bitfield range="" begin="31" width="8" end="24" rwaccess="RO" description="Implementor code: 0x41 = ARM" id="IMPLEMENTER" resetval="0x41">
+      </bitfield>
+      <bitfield range="" begin="23" width="4" end="20" rwaccess="RO" description="Implementation defined variant number: 0x0 (for r0)" id="VARIANT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="19" width="4" end="16" rwaccess="RO" description="Reads as 0xC" id="CONSTANT" resetval="0xc">
+      </bitfield>
+      <bitfield range="" begin="15" width="12" end="4" rwaccess="RO" description="Number of processor within family: 0xC20" id="PARTNO" resetval="0xc60">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Implementation defined revision number: 0x1 = processor p1 revision." id="REVISION" resetval="0x1">
+      </bitfield>
+   </register>
+   <register acronym="ICSR" width="32" description="Use the Interrupt Control State Register to set a pending Non-Maskable Interrupt (NMI), set or clear a pending PendSV, set or clear a pending SysTick, check for pending exceptions, check the vector number of the highest priority pended exception, check the vector number of the active exception." id="ICSR" offset="0x4">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Setting this bit will activate an NMI. Since NMI is the highest priority exception, it will activate as soon as it is registered. Reads back with current state (1 if Pending, 0 if not).
+0x0:No effect
+0x1:Set pending nmi" id="NMIPENDSET" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="2" end="29" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED29" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="28" width="1" end="28" rwaccess="RW" description="Set pending PendSV bit. On reads this bit returns the pending state of PendSV
+0x0:No effect
+0x1:Set pending pendsv" id="PENDSVSET" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="27" width="1" end="27" rwaccess="WO" description="Clear pending PendSV bit
+0x0:No effect
+0x1:Clear pending pendsv" id="PENDSVCLR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="1" end="26" rwaccess="RW" description="Set a pending SysTick bit. On reads this bit returns the pending state of SysTick.
+0x0:No effect
+0x1:Set pending systick" id="PENDSTSET" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="25" width="1" end="25" rwaccess="WO" description="Clear pending SysTick bit
+0x0:No effect
+0x1:Clear pending systick" id="PENDSTCLR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="24" width="1" end="24" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED24" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="1" end="23" rwaccess="RO" description="The system can only access this bit when the core is halted. It indicates that a pending interrupt is to be taken in the next running cycle. If C_MASKINTS is clear in the Debug Halting Control and Status Register, the interrupt is serviced.
+0x0:A pending exception is not serviced.
+0x1:A pending exception is serviced on exit from the debug halt state" id="ISRPREEMPT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="22" width="1" end="22" rwaccess="RO" description="External interrupt pending flag
+0x0:Interrupt not pending
+0x1:Interrupt pending" id="ISRPENDING" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="1" end="21" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED21" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="20" width="9" end="12" rwaccess="RO" description="Indicates the exception number for the highest priority pending exception: 0 = no pending exceptions. Non zero = The pending state includes the effect of memory-mapped enable and mask registers. It does not include the PRIMASK special-purpose register qualifier." id="VECTPENDING" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="3" end="9" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED9" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="9" end="0" rwaccess="RO" description="Active exception number field. Reset clears the VECTACTIVE field." id="VECTACTIVE" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="VTOR" width="32" description="The VTOR holds the vector table offset address." id="VTOR" offset="0x8">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RW" description="Bits [31:8] of the indicate the vector table offset address." id="TBLOFF" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="AIRCR" width="32" description="Use the Application Interrupt and Reset Control Register to: determine data endianness, clear all active state information from debug halt mode, request a system reset." id="AIRCR" offset="0xc">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="WO" description="Register key. To write to other parts of this register, you must ensure 0x5FA is written into the VECTKEY field." id="VECTKEY" resetval="0xfa05">
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Data endianness bit. The read value depends on the endian configuration implemented
+0x0:Little endian
+0x1:Be-8 big-endian" id="ENDIANESS" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="14" width="12" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="WO" description="Writing 1 to this bit causes the SYSRESETREQ signal to the outer system to be asserted to request a reset. The intention is to force a large system reset of all major components except for debug. The C_HALT bit in the DHCSR is cleared as a result of the system reset requested. The debugger does not lose contact with the device." id="SYSRESETREQ" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="Clears all active state information for fixed and configurable exceptions. This bit: is self-clearing, can only be set by the DAP when the core is halted.  When set: clears all active exception status of the processor, forces a return to Thread mode, forces an IPSR of 0. A debugger must re-initialize the stack." id="VECTCLRACTIVE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="SCR" width="32" description="System Control Register. Use the System Control Register for power-management functions: signal to the system when the processor can enter a low power state, control how the processor enters and exits low power states." id="SCR" offset="0x10">
+      <bitfield range="" begin="31" width="27" end="5" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED5" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="When enabled, this causes WFE to wake up when an interrupt moves from inactive to pended. Otherwise, WFE only wakes up from an event signal, external and SEV instruction generated. The event input, RXEV, is registered even when not waiting for an event, and so effects the next WFE." id="SEVONPEND" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Sleep deep bit." id="SLEEPDEEP" resetval="0x0">
+         <bitenum id="DSLP_EN" value="1" token="indicates to the system that Cortex-M0 clock can be stopped. Setting this bit causes the SLEEPDEEP port to be asserted when the processor can be stopped." description="indicates to the system that Cortex-M0 clock can be stopped. Setting this bit causes the SLEEPDEEP port to be asserted when the processor can be stopped."/>
+         <bitenum id="DSLP_DIS" value="0" token="not OK to turn off system clock" description="not OK to turn off system clock"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Sleep on exit when returning from Handler mode to Thread mode. Enables interrupt driven applications to avoid returning to empty main application." id="SLEEPONEXIT" resetval="0x0">
+         <bitenum id="SLP_EN" value="1" token="Sleep on return to thread mode" description="Sleep on return to thread mode"/>
+         <bitenum id="SLP_DIS" value="0" token="Do not sleep when returning to thread mode" description="Do not sleep when returning to thread mode"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CCR" width="32" description="The Configuration and Control Register permanently enables stack alignment and causes unaligned accesses to result in a Hard Fault." id="CCR" offset="0x14">
+      <bitfield range="" begin="31" width="22" end="10" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED10" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RO" description="Always set to 1. On exception entry, all exceptions are entered with 8-byte stack alignment and the context to restore it is saved. The SP is restored on the associated exception return." id="STKALIGN" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="8" width="5" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RO" description="Indicates that all unaligned accesses results in a Hard Fault. Trap for unaligned access is fixed at 1." id="UNALIGN_TRP" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="SHPR2" width="32" description="System handlers are a special class of exception handler that can have their priority set to any of the priority levels. Use the System Handler Priority Register 2 to set the priority of SVCall." id="SHPR2" offset="0x1c">
+      <bitfield range="" begin="31" width="2" end="30" rwaccess="RW" description="Priority of system handler 11, SVCall" id="PRI_11" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="30" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="SHPR3" width="32" description="System handlers are a special class of exception handler that can have their priority set to any of the priority levels. Use the System Handler Priority Register 3 to set the priority of PendSV and SysTick." id="SHPR3" offset="0x20">
+      <bitfield range="" begin="31" width="2" end="30" rwaccess="RW" description="Priority of system handler 15, SysTick" id="PRI_15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="6" end="24" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED24" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RW" description="Priority of system handler 14, PendSV" id="PRI_14" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="22" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="SHCSR" width="32" description="Use the System Handler Control and State Register to determine or clear the pending status of SVCall." id="SHCSR" offset="0x24">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="Reads as 1 if SVCall is Pending.  Write 1 to set pending SVCall, write 0 to clear pending SVCall." id="SVCALLPENDED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="15" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+</module>

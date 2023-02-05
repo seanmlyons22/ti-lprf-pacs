@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="DCB" HW_revision="" XML_version="1.0" description="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="DFSR" width="32" description="Use the Debug Fault Status Register to monitor external debug requests, vector catches, data watchpoint match, BKPT instruction execution and BPU comparator matches, halt requests. Write one to clear. C_DEBUGEN must be set before any bits in DFSR are updated." id="DFSR" offset="0x0">
+      <bitfield range="" begin="31" width="27" end="5" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED5" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="External debug request flag
+0x0:No edbgrq external debug request occurred
+0x1:Edbgrq has halted the core" id="EXTERNAL" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Vector catch flag. When the VCATCH flag is set, a flag in the Debug Exception and Monitor Control Register is also set to indicate the type of vector catch.
+0x0:No vector catch occurred
+0x1:Vector catch occurred" id="VCATCH" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Data Watchpoint (DW) flag.
+0x0:No dw match
+0x1:Dw match" id="DWTRAP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="The BKPT flag is set by the execution of the BKPT instruction or on an instruction whose address triggered the breakpoint comparator match. When the processor has halted, the return PC points to the address of the breakpointed instruction.
+0x0:No bkpt instruction or hardware breakpoint match
+0x1:Bkpt instruction or hardware breakpoint match" id="BKPT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Halt request flag
+0x0:No halt request
+0x1:Halt requested by dap access to c_halt or halted with c_step asserted" id="HALTED" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DHCSR" width="32" description="The purpose of the Debug Halting Control and Status Register (DHCSR) is to provide status information about the state of the processor, enable core debug, halt and step the processor. For writes, 0xA05F must be written to bits [31:16], otherwise the write operation is ignored and no bits are written into the register." id="DHCSR" offset="0xc0">
+      <bitfield range="" begin="31" width="6" end="26" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED26" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="25" width="1" end="25" rwaccess="RO" description="Indicates that the core has been reset, or is now being reset, since the last time this bit was read. This a sticky bit that clears on read. So, reading twice and getting 1 then 0 means it was reset in the past. Reading twice and getting 1 both times means that it is currently reset and held in reset." id="S_RESET_ST" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="24" width="1" end="24" rwaccess="RO" description="Core has retired at least part of an instruction since last read. This is a sticky bit that clears on read." id="S_RETIRE_ST" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="6" end="18" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED18" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="1" end="17" rwaccess="RO" description="The core is halted in debug state only if S_HALT is set." id="S_HALT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="RO" description="Register Read/Write to the Debug Core Register Selector Register is available. Set in response to a successful register access." id="S_REGRDY" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="12" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="When this bit is set and debug is enabled, external interrupts, SysTick, and PendSV are masked. Does not affect NMI, Hard Fault or SVCall. When C_DEBUGEN = 0, this bit has no effect." id="C_MASKINTS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Causes a debug event on any instruction or exception being executed, resulting in the core single stepping." id="C_STEP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Halts the core. This bit is set automatically when the core triggers a debug event, for example, on a breakpoint. This bit clears on core reset. When C_DEBUGEN = 0, this bit has no effect." id="C_HALT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Enables or disable debug" id="C_DEBUGEN" resetval="0x0">
+         <bitenum id="DBG_EN" value="1" token="Debug enabled" description="Debug enabled"/>
+         <bitenum id="DBG_DIS" value="0" token="Debug disabled" description="Debug disabled"/>
+      </bitfield>
+   </register>
+   <register acronym="DCRSR" width="32" description="The purpose of the Debug Core Register Selector Register (DCRSR) is to select the processor register to transfer data to or from." id="DCRSR" offset="0xc4">
+      <bitfield range="" begin="31" width="15" end="17" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED17" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="WO" description="Register Write-not-Read
+0x0:Read
+0x1:Write" id="REGWnR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="11" end="5" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED5" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="5" end="0" rwaccess="WO" description="Select processor register
+0x00:R0
+0x01:R1
+0x02:R2
+0x03:R3
+0x04:R4
+0x05:R5
+0x06:R6
+0x07:R7
+0x08:R8
+0x09:R9
+0x0a:R10
+0x0b:R11
+0x0c:R12
+0x0d:Current sp
+0x0e:Lr
+0x0f:Debugreturnaddress
+0x10:Xpsr flags, execution number, and state information
+0x11:Msp (main sp)
+0x12:Psp (process sp)
+0x14:Control (dcrdr[25:24]), primask (dcrdr[0])" id="REGSEL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DCRDR" width="32" description="The purpose of the Debug Core Register Data Register (DCRDR) is to hold data read from or written to core registers." id="DCRDR" offset="0xc8">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Data temporary cache, for reading and writing registers." id="DBGTMP" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DEMCR" width="32" description="The purpose of the Debug Exception and Monitor Control Register (DEMCR) is: Global enable for the DW unit, Vector catching (that is, causes debug entry on execution of a specified vector.)" id="DEMCR" offset="0xcc">
+      <bitfield range="" begin="31" width="7" end="25" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED25" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="24" width="1" end="24" rwaccess="RW" description="Global enable or disable for the DW unit
+0x0:Dw unit disabled. watchpoint cannot halt the core. the dw pcsr reads as oxffffffff.
+0x1:Dw unit enabled" id="DWTENA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="13" end="11" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Debug trap on a Hard Fault" id="VC_HARDERR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="9" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Reset Vector Catch. Halt running system if HRESETn is asserted" id="VC_CORERESET" resetval="0x0">
+      </bitfield>
+   </register>
+</module>

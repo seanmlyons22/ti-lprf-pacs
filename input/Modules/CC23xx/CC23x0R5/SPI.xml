@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="SPI" HW_revision="" XML_version="1.0" description="Serial Peripheral Interface (SPI) module with peripheral and controller capabilities.
+
+" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="DESC" width="32" description="Description Register. This register provides IP module ID, revision information, instance index and standard MMR registers offset." id="DESC" offset="0x0">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RW" description="Module identifier used to uniquely identify this IP." id="MODID" resetval="0x604d">
+      </bitfield>
+      <bitfield range="" begin="15" width="4" end="12" rwaccess="RW" description="Standard IP MMR block offset. Standard IP MMRs are the set of from aggregated IRQ registers till DTB.
+
+0: Standard IP MMRs do not exist
+
+0x1-0xF: Standard IP MMRs begin at offset of (64*STDIPOFF from the base IP address)" id="STDIPOFF" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="11" width="4" end="8" rwaccess="RW" description="IP Instance ID number. If multiple instances of IP exist in the device, this field can identify the instance number (0-15)." id="INSTIDX" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RW" description="Major revision of IP (0-15)." id="MAJREV" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Minor revision of IP (0-15)." id="MINREV" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="IMASK" width="32" description="Interrupt mask. This register selects interrupt sources which are allowed to pass from RIS to MIS when the corresponding bit-fields are set to 1." id="IMASK" offset="0x44">
+      <bitfield range="" begin="31" width="23" end="9" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED9" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="DMA Done TX event mask." id="DMATX" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set Interrrupt Mask" description="Set Interrrupt Mask"/>
+         <bitenum id="CLR" value="0" token="Clear Interrupt Mask" description="Clear Interrupt Mask"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="DMA Done RX event mask." id="DMARX" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set Interrrupt Mask" description="Set Interrrupt Mask"/>
+         <bitenum id="CLR" value="0" token="Clear Interrupt Mask" description="Clear Interrupt Mask"/>
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="SPI Idle event mask." id="IDLE" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set Interrrupt Mask" description="Set Interrrupt Mask"/>
+         <bitenum id="CLR" value="0" token="Clear Interrupt Mask" description="Clear Interrupt Mask"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Transmit FIFO Empty event mask." id="TXEMPTY" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set Interrrupt Mask" description="Set Interrrupt Mask"/>
+         <bitenum id="CLR" value="0" token="Clear Interrupt Mask" description="Clear Interrupt Mask"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Transmit FIFO event mask. " id="TX" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set Interrrupt Mask" description="Set Interrrupt Mask"/>
+         <bitenum id="CLR" value="0" token="Clear Interrupt Mask" description="Clear Interrupt Mask"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Receive FIFO event." id="RX" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set Interrrupt Mask" description="Set Interrrupt Mask"/>
+         <bitenum id="CLR" value="0" token="Clear Interrupt Mask" description="Clear Interrupt Mask"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description=" SPI Receive Time-Out event mask." id="RTOUT" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set Interrrupt Mask" description="Set Interrrupt Mask"/>
+         <bitenum id="CLR" value="0" token="Clear Interrupt Mask" description="Clear Interrupt Mask"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Parity error event mask." id="PER" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set Interrrupt Mask" description="Set Interrrupt Mask"/>
+         <bitenum id="CLR" value="0" token="Clear Interrupt Mask" description="Clear Interrupt Mask"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="RXFIFO overflow event mask." id="RXOVF" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set Interrrupt Mask" description="Set Interrrupt Mask"/>
+         <bitenum id="CLR" value="0" token="Clear Interrupt Mask" description="Clear Interrupt Mask"/>
+      </bitfield>
+   </register>
+   <register acronym="RIS" width="32" description="Raw interrupt status. This register reflects the state of all pending interrupts, regardless of masking. This register allows the user to implement a poll scheme. A flag set in this register can be cleared by writing 1 to the corresponding ICLR register bit." id="RIS" offset="0x48">
+      <bitfield range="" begin="31" width="23" end="9" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED9" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="DMA Done event for TX. This interrupt is set if the TX DMA channel sends the DONE signal. This allows the handling of the TX DMA event inside SPI." id="DMATX" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt occurred" description="Interrupt occurred"/>
+         <bitenum id="CLR" value="0" token="Interrupt did not occur" description="Interrupt did not occur"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="DMA Done event for RX. This interrupt is set if the RX DMA channel sends the DONE signal. This allows handling of the DMA RX event inside SPI." id="DMARX" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt occurred" description="Interrupt occurred"/>
+         <bitenum id="CLR" value="0" token="Interrupt did not occur" description="Interrupt did not occur"/>
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="SPI has completed transfers and moved to IDLE mode. This bit is set when STAT.BUSY goes low." id="IDLE" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt occurred" description="Interrupt occurred"/>
+         <bitenum id="CLR" value="0" token="Interrupt did not occur" description="Interrupt did not occur"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Transmit FIFO Empty interrupt mask. This interrupt is set when all data in the Transmit FIFO has been moved to the shift register." id="TXEMPTY" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt occurred" description="Interrupt occurred"/>
+         <bitenum id="CLR" value="0" token="Interrupt did not occur" description="Interrupt did not occur"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Transmit FIFO event.This interrupt is set if the selected Transmit FIFO level has been reached." id="TX" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt occurred" description="Interrupt occurred"/>
+         <bitenum id="CLR" value="0" token="Interrupt did not occur" description="Interrupt did not occur"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Receive FIFO event.This interrupt is set if the selected Receive FIFO level has been reached" id="RX" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt occurred" description="Interrupt occurred"/>
+         <bitenum id="CLR" value="0" token="Interrupt did not occur" description="Interrupt did not occur"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="SPI Receive Time-Out event. This interrupt is set if no activity is detected on the input clock line within the time period dictated by CTL1.RTOUT value. This is applicable only in peripheral mode." id="RTOUT" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt occurred" description="Interrupt occurred"/>
+         <bitenum id="CLR" value="0" token="Interrupt did not occur" description="Interrupt did not occur"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Parity error event. This bit is set if a Parity error has been detected" id="PER" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt occurred" description="Interrupt occurred"/>
+         <bitenum id="CLR" value="0" token="Interrupt did not occur" description="Interrupt did not occur"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="RXFIFO overflow event. This interrupt is set if an RX FIFO overflow has been detected." id="RXOVF" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt occurred" description="Interrupt occurred"/>
+         <bitenum id="CLR" value="0" token="Interrupt did not occur" description="Interrupt did not occur"/>
+      </bitfield>
+   </register>
+   <register acronym="MIS" width="32" description="Masked interrupt status. This register is simply a bitwise AND of the contents of IMASK and RIS.*] registers. A flag set in this register can be cleared by writing 1 to the corresponding ICLR register bit." id="MIS" offset="0x4c">
+      <bitfield range="" begin="31" width="23" end="9" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED9" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Masked DMA Done event for TX." id="DMATX" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt occurred" description="Interrupt occurred"/>
+         <bitenum id="CLR" value="0" token="Interrupt did not occur" description="Interrupt did not occur"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Masked DMA Done event for RX." id="DMARX" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt occurred" description="Interrupt occurred"/>
+         <bitenum id="CLR" value="0" token="Interrupt did not occur" description="Interrupt did not occur"/>
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Masked SPI IDLE event.
+" id="IDLE" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt occurred" description="Interrupt occurred"/>
+         <bitenum id="CLR" value="0" token="Interrupt did not occur" description="Interrupt did not occur"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Masked Transmit FIFO Empty event." id="TXEMPTY" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt occurred" description="Interrupt occurred"/>
+         <bitenum id="CLR" value="0" token="Interrupt did not occur" description="Interrupt did not occur"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Masked Transmit FIFO event. " id="TX" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt occurred" description="Interrupt occurred"/>
+         <bitenum id="CLR" value="0" token="Interrupt did not occur" description="Interrupt did not occur"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Masked receive FIFO event." id="RX" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt occurred" description="Interrupt occurred"/>
+         <bitenum id="CLR" value="0" token="Interrupt did not occur" description="Interrupt did not occur"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Masked SPI Receive Time-Out event. " id="RTOUT" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt occurred" description="Interrupt occurred"/>
+         <bitenum id="CLR" value="0" token="Interrupt did not occur" description="Interrupt did not occur"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Masked Parity error event." id="PER" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt occurred" description="Interrupt occurred"/>
+         <bitenum id="CLR" value="0" token="Interrupt did not occur" description="Interrupt did not occur"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Masked RXFIFO overflow event. " id="RXOVF" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt occurred" description="Interrupt occurred"/>
+         <bitenum id="CLR" value="0" token="Interrupt did not occur" description="Interrupt did not occur"/>
+      </bitfield>
+   </register>
+   <register acronym="ISET" width="32" description="Interrupt set register. This register can used by software for diagnostics and safety checking purposes. Writing a 1 to a bit in this register will set the event and the corresponding RIS bit also gets set. If the corresponding IMASK bit is set, then the corresponding MIS register bit also gets set." id="ISET" offset="0x50">
+      <bitfield range="" begin="31" width="23" end="9" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED9" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Set DMA Done event for TX." id="DMATX" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set Interrupt" description="Set Interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Set DMA Done event for RX." id="DMARX" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set Interrupt" description="Set Interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Set SPI IDLE event.
+" id="IDLE" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set Interrupt" description="Set Interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Set Transmit FIFO Empty event." id="TXEMPTY" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set Interrupt" description="Set Interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Set Transmit FIFO event." id="TX" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set Interrupt" description="Set Interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Set Receive FIFO event." id="RX" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set Interrupt" description="Set Interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Set SPI Receive Time-Out Event." id="RTOUT" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set Interrrupt Mask" description="Set Interrrupt Mask"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Set Parity error event." id="PER" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set Interrupt" description="Set Interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Set RXFIFO overflow event." id="RXOVF" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set Interrupt" description="Set Interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+   </register>
+   <register acronym="ICLR" width="32" description="Interrupt clear register. This register allows software to clear interrupts. Writing a 1 to a bit in this register will clear the event and the corresponding RIS bit also gets cleared. If the corresponding IMASK bit is set, then the corresponding MIS register bit also gets cleared." id="ICLR" offset="0x54">
+      <bitfield range="" begin="31" width="23" end="9" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED9" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Clear DMA Done event for TX." id="DMATX" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear Interrupt" description="Clear Interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Clear DMA Done event for RX." id="DMARX" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear Interrupt" description="Clear Interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Clear SPI IDLE event." id="IDLE" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear Interrupt" description="Clear Interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Clear Transmit FIFO Empty event." id="TXEMPTY" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear Interrupt" description="Clear Interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Clear Transmit FIFO event." id="TX" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear Interrupt" description="Clear Interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Clear Receive FIFO event." id="RX" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear Interrupt" description="Clear Interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Clear SPI Receive Time-Out Event." id="RTOUT" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Set Interrrupt Mask" description="Set Interrrupt Mask"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Clear Parity error event." id="PER" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear Interrupt" description="Clear Interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Clear RXFIFO overflow event." id="RXOVF" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear Interrupt" description="Clear Interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+   </register>
+   <register acronym="IMSET" width="32" description="Interrupt mask set register. Writing a 1 to a bit in this register will set the corresponding IMASK bit." id="IMSET" offset="0x58">
+      <bitfield range="" begin="31" width="23" end="9" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED9" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Set DMA Done for TX event mask" id="DMATX" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set interrupt mask" description="Set interrupt mask"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Set DMA Done for RX event mask" id="DMARX" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set interrupt mask" description="Set interrupt mask"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Set SPI IDLE event mask
+" id="IDLE" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set interrupt mask" description="Set interrupt mask"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Set Transmit FIFO Empty event mask" id="TXEMPTY" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set interrupt mask" description="Set interrupt mask"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Set Transmit FIFO event mask" id="TX" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set interrupt mask" description="Set interrupt mask"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Set Receive FIFO event mask" id="RX" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set interrupt mask" description="Set interrupt mask"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Set SPI Receive Time-Out event mask" id="RTOUT" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set interrupt mask" description="Set interrupt mask"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Set Parity error event mask" id="PER" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set interrupt mask" description="Set interrupt mask"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Set RXFIFO overflow event mask" id="RXOVF" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set interrupt mask" description="Set interrupt mask"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+   </register>
+   <register acronym="IMCLR" width="32" description="Interrupt mask clear register. Writing a 1 to a bit in this register will clear the corresponding IMASK bit." id="IMCLR" offset="0x5c">
+      <bitfield range="" begin="31" width="23" end="9" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED9" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Clear DMA Done for TX event mask" id="DMATX" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear interrupt mask" description="Clear interrupt mask"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Clear DMA Done for RX event mask" id="DMARX" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear interrupt mask" description="Clear interrupt mask"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Clear SPI IDLE event mask" id="IDLE" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear interrupt mask" description="Clear interrupt mask"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Clear Transmit FIFO Empty event mask" id="TXEMPTY" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear interrupt mask" description="Clear interrupt mask"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Clear Transmit FIFO event mask" id="TX" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear interrupt mask" description="Clear interrupt mask"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Clear Receive FIFO event mask" id="RX" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear interrupt mask" description="Clear interrupt mask"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Clear SPI Receive Time-Out event mask" id="RTOUT" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear interrupt mask" description="Clear interrupt mask"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Clear Parity error event mask" id="PER" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear interrupt mask" description="Clear interrupt mask"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Clear RXFIFO overflow event mask" id="RXOVF" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear interrupt mask" description="Clear interrupt mask"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+   </register>
+   <register acronym="EMU" width="32" description="Emulation control register. This register controls the behavior of the IP related to core halted input." id="EMU" offset="0x60">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Halt control" id="HALT" resetval="0x0">
+         <bitenum id="STOP" value="1" token=" Freeze option. The IP freezes functionality when the core halted input is asserted, and resumes when it is deasserted. The freeze can either be immediate or after the IP has reached a boundary (end of word boundary, based on DSS configuration) from where it can resume without corruption." description=" Freeze option. The IP freezes functionality when the core halted input is asserted, and resumes when it is deasserted. The freeze can either be immediate or after the IP has reached a boundary (end of word boundary, based on DSS configuration) from where it can resume without corruption."/>
+         <bitenum id="RUN" value="0" token="Free run option. The IP ignores the state of the core halted input." description="Free run option. The IP ignores the state of the core halted input."/>
+      </bitfield>
+   </register>
+   <register acronym="DTB" width="32" description="Digital test bus control register. This register can be used to bring out IP internal signals to the pads for observation. 16 signals can be observed per select value." id="DTB" offset="0x64">
+      <bitfield range="" begin="31" width="29" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Digital test bus selection mux control.
+Non-zero select values output a 16 bit selected group of signals per value." id="SEL" resetval="0x0">
+         <bitenum id="DIS" value="0" token="All 16 observation signal outputs are set to zero." description="All 16 observation signal outputs are set to zero."/>
+      </bitfield>
+   </register>
+   <register acronym="CTL0" width="32" description="SPI control register 0" id="CTL0" offset="0x100">
+      <bitfield range="" begin="31" width="14" end="18" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED18" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="The Idle value of POCI - when TXFIFO is empty and before data is writtern into TXFIFO - can be controlled by this field." id="POCI_IDLEVAL" resetval="0x0">
+         <bitenum id="IDLE_ONE" value="1" token="POCI outputs idle value of &#39;1&#39;" description="POCI outputs idle value of &#39;1&#39;"/>
+         <bitenum id="IDLE_ZERO" value="0" token="POCI output idle value of &#39;0&#39;" description="POCI output idle value of &#39;0&#39;"/>
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="General purpose CRC enable. This bit enables transmit side CRC unit for general purpose use by software when SPI is disabled (CTL1.EN = 0). This bit must be 0 when SPI is enabled." id="GPCRCEN" resetval="0x0">
+         <bitenum id="ENA" value="1" token="Transmit side CRC unit is available for general purpose software use" description="Transmit side CRC unit is available for general purpose software use"/>
+         <bitenum id="DIS" value="0" token="Transmit side CRC unit is not available for general purpose software use" description="Transmit side CRC unit is not available for general purpose software use"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="CRC polynomial selection." id="CRCPOLY" resetval="0x0">
+         <bitenum id="BIT16" value="1" token="Selects 16-bit CCITT CRC polynomial" description="Selects 16-bit CCITT CRC polynomial"/>
+         <bitenum id="BIT8" value="0" token="Selects 8-bit CCITT CRC polynomial" description="Selects 8-bit CCITT CRC polynomial"/>
+      </bitfield>
+      <bitfield range="" begin="14" width="1" end="14" rwaccess="RW" description="Auto insert CRC" id="AUTO_CRC" resetval="0x0">
+         <bitenum id="ENA" value="1" token="Insert CRC into TXFIFO upon TXFIFO underflow" description="Insert CRC into TXFIFO upon TXFIFO underflow"/>
+         <bitenum id="DIS" value="0" token="Do not insert CRC into TXFIFO upon TXFIFO underflow
+" description="Do not insert CRC into TXFIFO upon TXFIFO underflow
+"/>
+      </bitfield>
+      <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="CRC16 Endianness" id="CRC_END" resetval="0x0">
+         <bitenum id="CRC_END_LSB" value="1" token="Auto-insertion of CRC16 is least-significant byte first" description="Auto-insertion of CRC16 is least-significant byte first"/>
+         <bitenum id="CRC_END_MSB" value="0" token="Auto-insertion of CRC16 is most-significant byte first
+
+" description="Auto-insertion of CRC16 is most-significant byte first
+
+"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Clear shift register counter on CS inactive.
+This bit is relevant only in the peripheral mode, when CTL1.MS=0.
+" id="CSCLR" resetval="0x0">
+         <bitenum id="ENA" value="1" token="Enable automatic clear of shift register when CS goes inactive." description="Enable automatic clear of shift register when CS goes inactive."/>
+         <bitenum id="DIS" value="0" token="Disable automatic clear of shift register when CS goes inactive." description="Disable automatic clear of shift register when CS goes inactive."/>
+      </bitfield>
+      <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="This bit is used to reset transmit and receive FIFO pointers. This bit is auto cleared once the FIFO pointer reset operation is completed." id="FIFORST" resetval="0x0">
+         <bitenum id="RST_TRIG" value="1" token="Trigger FIFO pointers reset when written to 1." description="Trigger FIFO pointers reset when written to 1."/>
+         <bitenum id="RST_DONE" value="0" token="FIFO pointers reset completed when 0 is read" description="FIFO pointers reset completed when 0 is read"/>
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Hardware controlled chip select (CS) value. When set CS is zero till TX FIFO is empty, as in - 
+a.	CS is de-asserted
+b.	All data bytes are transmitted
+c.	CS is asserted
+" id="HWCSN" resetval="0x0">
+         <bitenum id="ENA" value="1" token="HWCS Enable" description="HWCS Enable"/>
+         <bitenum id="DIS" value="0" token="HWCS Disable" description="HWCS Disable"/>
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="CLKOUT phase (Motorola SPI frame format only).
+This bit selects the clock edge that captures data and enables it to change state. 
+It has the most impact on the first bit transmitted by either permitting or not permitting a clock transition before the first data capture clock edge." id="SPH" resetval="0x0">
+         <bitenum id="SECOND" value="1" token="Data is captured on the second clock edge transition." description="Data is captured on the second clock edge transition."/>
+         <bitenum id="FIRST" value="0" token="Data is captured on the first clock edge transition." description="Data is captured on the first clock edge transition."/>
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="CLKOUT polarity (Motorola SPI frame format only)." id="SPO" resetval="0x0">
+         <bitenum id="HIGH" value="1" token="SPI produces a steady state HIGH value on the CLKOUT" description="SPI produces a steady state HIGH value on the CLKOUT"/>
+         <bitenum id="LOW" value="0" token="SPI produces a steady state LOW value on the CLKOUT" description="SPI produces a steady state LOW value on the CLKOUT"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED7" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="2" end="5" rwaccess="RW" description="Frame format select" id="FRF" resetval="0x0">
+         <bitenum id="MIRCOWIRE" value="3" token="National Microwire frame format" description="National Microwire frame format"/>
+         <bitenum id="TI_SYNC" value="2" token="TI synchronous serial frame format" description="TI synchronous serial frame format"/>
+         <bitenum id="MOTOROLA_4WIRE" value="1" token="Motorola SPI frame format (4 wire mode)" description="Motorola SPI frame format (4 wire mode)"/>
+         <bitenum id="MOTOROLA_3WIRE" value="0" token="Motorola SPI frame format (3 wire mode)" description="Motorola SPI frame format (3 wire mode)"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Data size select. Valid DSS values for controller mode operation are 0x3 to 0xF and for peripheral mode operation are 0x6 to 0xF. DSS values 0x0 to 0x2 are reserved and shall not be used." id="DSS" resetval="0x0">
+         <bitenum id="BITS_16" value="15" token="16-bits data size" description="16-bits data size"/>
+         <bitenum id="BITS_15" value="14" token="15-bits data size" description="15-bits data size"/>
+         <bitenum id="BITS_14" value="13" token="14-bits data size" description="14-bits data size"/>
+         <bitenum id="BITS_13" value="12" token="13-bits data size" description="13-bits data size"/>
+         <bitenum id="BITS_12" value="11" token="12-bits data size" description="12-bits data size"/>
+         <bitenum id="BITS_11" value="10" token="11-bits data size" description="11-bits data size"/>
+         <bitenum id="BITS_10" value="9" token="10-bits data size" description="10-bits data size"/>
+         <bitenum id="BITS_9" value="8" token="9-bits data size" description="9-bits data size"/>
+         <bitenum id="BITS_8" value="7" token="8-bits data size" description="8-bits data size"/>
+         <bitenum id="BITS_7" value="6" token="7-bits data size" description="7-bits data size"/>
+         <bitenum id="BITS_6" value="5" token="6-bits data size" description="6-bits data size"/>
+         <bitenum id="BITS_5" value="4" token="5-bits data size" description="5-bits data size"/>
+         <bitenum id="BITS_4" value="3" token="4-bits data size" description="4-bits data size"/>
+      </bitfield>
+   </register>
+   <register acronym="CTL1" width="32" description="SPI control register 1" id="CTL1" offset="0x104">
+      <bitfield range="" begin="31" width="2" end="30" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED30" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="6" end="24" rwaccess="RW" description="Receive Timeout (only for Peripheral mode)
+Defines the number of Clock Cycles before after which the Receive Timeout flag RIS.RTOUT is set.
+The time is calculated using the control register for the clock selection and divider in the Controller mode configuration.
+A value of 0 disables this function." id="RTOUT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="8" end="16" rwaccess="RW" description="Counter to repeat last transfer
+0: repeat last transfer is disabled.
+x: repeat the last transfer with the provided value.
+The transfer will be started with writing a data into the TX FIFO. Sending the data will be repeated provided value number of times, so the data will be transferred x+1 times in total.
+The behavior would be as if the data were be written into the TX FIFO as many times as defined by the value here additionally.
+It can be used to clean a transfer or to pull a certain amount of data by a peripheral.
+" id="REPTX" resetval="0x0">
+         <bitenum id="DIS" value="0" token="REPTX disable" description="REPTX disable"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="4" end="12" rwaccess="RW" description="Commnd Data Model. This bit field value determines the behavior of C/D or CS signal when CDEN = 1. CS pin held low indicates command phase and CS pin held high indicates data phase. 
+When CDMODE = 0x0, the CS pin is always held high during transfer indicating data phase only operation (manual mode). 
+When CDMODE = 0xF, the CS pin is always held low during transfer indicating command phase only operation (manual mode). 
+When CDMODE = 0x1 to 0xE, the CS pin is held low for the number of bytes indicated by CDMODE value for the command phase and held high for the remaining transfers in the data phase (automatic mode).
+When CDMODE is set to value 0x1 to 0xE, reading CDMODE at any time during operation indicates the remaining bytes to be transferred in the command phase.
+
+" id="CDMODE" resetval="0x0">
+         <bitenum id="COMMAND" value="15" token="Manual mode: Command" description="Manual mode: Command"/>
+         <bitenum id="DATA" value="0" token="Manual mode: Data" description="Manual mode: Data"/>
+      </bitfield>
+      <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="Command/Data mode enable. This feature is applicable only in controller mode and for 8-bit transfers (CTL0.DSS = 7). The chip select pin is used for command/data signaling in Motorola SPI frame format (3-wire) operation." id="CDEN" resetval="0x0">
+         <bitenum id="ENA" value="1" token="C/D Mode Enable" description="C/D Mode Enable"/>
+         <bitenum id="DIS" value="0" token="C/D Mode Disable" description="C/D Mode Disable"/>
+      </bitfield>
+      <bitfield range="" begin="10" width="3" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Parity bit select
+" id="PBS" resetval="0x0">
+         <bitenum id="BIT1" value="1" token="Bit 1 is used for Parity, Bit 0 is ignored
+" description="Bit 1 is used for Parity, Bit 0 is ignored
+"/>
+         <bitenum id="BIT0" value="0" token="Bit 0 is used for Parity
+" description="Bit 0 is used for Parity
+"/>
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Even parity select." id="PES" resetval="0x0">
+         <bitenum id="EVEN" value="1" token="Even Parity mode" description="Even Parity mode"/>
+         <bitenum id="ODD" value="0" token="Odd Parity mode" description="Odd Parity mode"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Parity enable. If enabled the last bit will be used as parity to evaluate the correct reception of the previous bits. 
+In case of parity mismatch the parity error flag RIS.PER will be set. This feature is available only in SPI controller mode. " id="PEN" resetval="0x0">
+         <bitenum id="ENA" value="1" token="Enable Parity function " description="Enable Parity function "/>
+         <bitenum id="DIS" value="0" token="Disable Parity function" description="Disable Parity function"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="MSB first select. Controls the direction of receive and transmit shift register. MSB first configuration (MSB = 1) must be selected when CRC feature is used for SPI communication." id="MSB" resetval="0x0">
+         <bitenum id="MSB" value="1" token="MSB first" description="MSB first"/>
+         <bitenum id="LSB" value="0" token="LSB first" description="LSB first"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Peripheral data output disable. 
+This bit is relevant only in the peripheral mode, MS=1. In multiple-peripheral systems, it is possible for a SPI controller to broadcast a message to all peripherals in the system while ensuring that only one peripheral drives data onto its serial output line. In such systems the POCI lines from multiple peripherals could be tied together. To operate in such systems, this bit field can be set if the SPI peripheral is not supposed to drive the POCI output." id="POD" resetval="0x0">
+         <bitenum id="ENA" value="1" token="SPI cannot drive the POCI output in peripheral mode." description="SPI cannot drive the POCI output in peripheral mode."/>
+         <bitenum id="DIS" value="0" token="SPI can drive the POCI output in peripheral mode." description="SPI can drive the POCI output in peripheral mode."/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Controller or peripheral mode select. This bit can be modified only when SPI is disabled, CTL1.EN=0.
+" id="MS" resetval="0x1">
+         <bitenum id="CONTROLLER" value="1" token="Select Controller mode" description="Select Controller mode"/>
+         <bitenum id="PERIPHERAL" value="0" token="Select Peripheral mode" description="Select Peripheral mode"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Loop back mode control" id="LBM" resetval="0x0">
+         <bitenum id="ENA" value="1" token="Enable loopback mode. Output of transmit serial shifter is connected to input of receive serial shifter internally." description="Enable loopback mode. Output of transmit serial shifter is connected to input of receive serial shifter internally."/>
+         <bitenum id="DIS" value="0" token="Disable loopback mode. Normal serial port operation enabled." description="Disable loopback mode. Normal serial port operation enabled."/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="SPI enable." id="EN" resetval="0x0">
+         <bitenum id="ENA" value="1" token="SPI Enabled and released for operation." description="SPI Enabled and released for operation."/>
+         <bitenum id="DIS" value="0" token="SPI is disabled" description="SPI is disabled"/>
+      </bitfield>
+   </register>
+   <register acronym="CLKCFG0" width="32" description="Clock configuration register 0. This register is used to configure the clock prescaler." id="CLKCFG0" offset="0x108">
+      <bitfield range="" begin="31" width="29" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Prescaler configuration" id="PRESC" resetval="0x0">
+         <bitenum id="DIV_BY_8" value="7" token="Divide clock source by 8" description="Divide clock source by 8"/>
+         <bitenum id="DIV_BY_7" value="6" token="Divide clock source by 7" description="Divide clock source by 7"/>
+         <bitenum id="DIV_BY_6" value="5" token="Divide clock source by 6" description="Divide clock source by 6"/>
+         <bitenum id="DIV_BY_5" value="4" token="Divide clock source by 5" description="Divide clock source by 5"/>
+         <bitenum id="DIV_BY_4" value="3" token="Divide clock source by 4" description="Divide clock source by 4"/>
+         <bitenum id="DIV_BY_3" value="2" token="Divide clock source by 3" description="Divide clock source by 3"/>
+         <bitenum id="DIV_BY_2" value="1" token="Divide clock source by 2" description="Divide clock source by 2"/>
+         <bitenum id="DIV_BY_1" value="0" token="Do not divide clock source" description="Do not divide clock source"/>
+      </bitfield>
+   </register>
+   <register acronym="CLKCFG1" width="32" description="Clock configuration register 1. This register is used to configure serial clock rate and clock count for delayed sampling in controller mode." id="CLKCFG1" offset="0x10c">
+      <bitfield range="" begin="31" width="12" end="20" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED20" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="19" width="4" end="16" rwaccess="RW" description="Delayed sampling. In controller mode the data on the input pin will be delayed sampled by the defined clock cycles. DSAMPLE values can range from 0 to SCR+1. Typically, values of 1 or 2 would suffice." id="DSAMPLE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="6" end="10" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED10" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="10" end="0" rwaccess="RW" description="Serial clock divider. This is used to generate the transmit and receive bit rate of the SPI.
+The SPI bit rate: (SPI&#39;s functional clock frequency)/((SCR+1)*2). SCR value can be from 0 to1023." id="SCR" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="IFLS" width="32" description="Interrupt FIFO level select register. This register can be used to define the levels at which the RIS.TX, RIS.RX flags are triggered. The interrupts are generated based on FIFO level. Out of reset, the IFLS.TXSEL and IFLS.RXSEL bits are configured so that the FIFOs trigger an interrupt at the half-way mark. " id="IFLS" offset="0x110">
+      <bitfield range="" begin="31" width="21" end="11" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="3" end="8" rwaccess="RW" description="Receive FIFO Level Select. The trigger points for the receive interrupt are as follows: " id="RXSEL" resetval="0x2">
+         <bitenum id="LEVEL_1" value="7" token="Trigger when RX FIFO contains $gt;= 1 byte
+" description="Trigger when RX FIFO contains $gt;= 1 byte
+"/>
+         <bitenum id="LVL_RES6" value="6" token="Reserved" description="Reserved"/>
+         <bitenum id="LVL_FULL" value="5" token="RX FIFO is full" description="RX FIFO is full"/>
+         <bitenum id="LVL_RES4" value="4" token="Reserved" description="Reserved"/>
+         <bitenum id="LVL_3_4" value="3" token="RX FIFO $gt;= 3/4 full" description="RX FIFO $gt;= 3/4 full"/>
+         <bitenum id="LVL_1_2" value="2" token="RX FIFO $gt;= 1/2 full (default)" description="RX FIFO $gt;= 1/2 full (default)"/>
+         <bitenum id="LVL_1_4" value="1" token="RX FIFO $gt;= 1/4 full" description="RX FIFO $gt;= 1/4 full"/>
+         <bitenum id="LVL_OFF" value="0" token="Reserved" description="Reserved"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="5" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Transmit FIFO Level Select. The trigger points for the transmit interrupt are as follows: " id="TXSEL" resetval="0x2">
+         <bitenum id="LEVEL_1" value="7" token="Trigger when TX FIFO has $gt;= 1 byte free
+" description="Trigger when TX FIFO has $gt;= 1 byte free
+"/>
+         <bitenum id="LVL_RES6" value="6" token="Reserved" description="Reserved"/>
+         <bitenum id="LVL_EMPTY" value="5" token="TX FIFO is empty" description="TX FIFO is empty"/>
+         <bitenum id="LVL_RES4" value="4" token="Reserved" description="Reserved"/>
+         <bitenum id="LVL_1_4" value="3" token="TX FIFO $lt;= 1/4 empty" description="TX FIFO $lt;= 1/4 empty"/>
+         <bitenum id="LVL_1_2" value="2" token="TX FIFO $lt;= 1/2 empty (default)" description="TX FIFO $lt;= 1/2 empty (default)"/>
+         <bitenum id="LVL_3_4" value="1" token="TX FIFO $lt;= 3/4 empty" description="TX FIFO $lt;= 3/4 empty"/>
+         <bitenum id="LVL_OFF" value="0" token="Reserved" description="Reserved"/>
+      </bitfield>
+   </register>
+   <register acronym="DMACR" width="32" description="DMA Control Register" id="DMACR" offset="0x114">
+      <bitfield range="" begin="31" width="23" end="9" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED9" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Transmit DMA enable. If this bit is set to 1, DMA for the trasmit FIFO is enabled." id="TXEN" resetval="0x0">
+         <bitenum id="ENA" value="1" token="Enable TX DMA" description="Enable TX DMA"/>
+         <bitenum id="DIS" value="0" token="Disable TX DMA" description="Disable TX DMA"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="7" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Receive DMA enable. If this bit is set to 1, DMA for the receive FIFO is enabled." id="RXEN" resetval="0x0">
+         <bitenum id="ENA" value="1" token="Enable RX DMA" description="Enable RX DMA"/>
+         <bitenum id="DIS" value="0" token="Disable RX DMA" description="Disable RX DMA"/>
+      </bitfield>
+   </register>
+   <register acronym="RXCRC" width="32" description="Receive CRC register. Reading this register provides the computed CRC value from the receive side CRC unit. Reading this register or writing to this register with any value auto initializes the seed. The seed value is 0xFF when CTL0.CRCPOLY = 0 and 0xFFFF when CTL0.CRCPOLY = 1 for CCITT CRC polynomials. Bits[15:8] are a don&#39;t care when CTL0.CRCPOLY = 0." id="RXCRC" offset="0x118">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="CRC value" id="DATA" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TXCRC" width="32" description="Transmit CRC register. Reading this register provides the computed CRC value from the transmit side CRC unit. Reading this register or writing to this register with any value auto initializes the seed. The seed value is 0xFF when CTL0.CRCPOLY = 0 and 0xFFFF when CTL0.CRCPOLY = 1 for CCITT CRC polynomials. Bits[15:8] are a don&#39;t care when CTL0.CRCPOLY = 0." id="TXCRC" offset="0x11c">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Status to indicate if Auto CRC has been inserted into TXFIFO.
+This is valid only if CTL0.AUTO_CRC enable bit is set" id="AUTO_CRC_INS_STAT" resetval="0x0">
+         <bitenum id="INS" value="1" token="Auto CRC inserted" description="Auto CRC inserted"/>
+         <bitenum id="NOTINS" value="0" token="Auto CRC not yet inserted" description="Auto CRC not yet inserted"/>
+      </bitfield>
+      <bitfield range="" begin="30" width="15" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="CRC value" id="DATA" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TXFHDR32" width="32" description="Header update reigster for 32 bits of header data." id="TXFHDR32" offset="0x120">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="WO" description="This field can be used to write four bytes of header data" id="DATA" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TXFHDR24" width="32" description="Header update reigster for 24 bits of header data." id="TXFHDR24" offset="0x124">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="WO" description="This field can be used to write three bytes of header data" id="DATA" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TXFHDR16" width="32" description="Header update reigster for 16 bits of data." id="TXFHDR16" offset="0x128">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="WO" description="This field can be used to write two bytes of header data" id="DATA" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TXFHDR8" width="32" description="Header update reigster for 8 bits of header data." id="TXFHDR8" offset="0x12c">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="WO" description="This field can be used to write one byte of header data" id="DATA" resetval="0x0">
+         <bitenum id="MAXIMUM" value="1" token="Highest possible value" description="Highest possible value"/>
+         <bitenum id="MINIMUM" value="0" token="Smallest possible value" description="Smallest possible value"/>
+      </bitfield>
+   </register>
+   <register acronym="TXFHDRC" width="32" description="Atomic Header Control register" id="TXFHDRC" offset="0x130">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Chip Select Gating control register. If this bit is set header update register writes are blocked when chip select (CS) is active low, and HDR_IGN bit is set
+This bit resets to 0.
+" id="CS_GATE" resetval="0x0">
+         <bitenum id="BLK" value="1" token="Header update register writes are blocked when CS is active (low)" description="Header update register writes are blocked when CS is active (low)"/>
+         <bitenum id="UNBLK" value="0" token="Header update register writes are not blocked based on CS status" description="Header update register writes are not blocked based on CS status"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Header Committed field. This bit is set when the HDR_EN bit is set and CS is sampled low. This bit remains 0 otherwise. When set, this bit can be written to a value of 0 to clear." id="HDR_CMT" resetval="0x0">
+         <bitenum id="SET" value="1" token="Header update is committed" description="Header update is committed"/>
+         <bitenum id="CLR" value="0" token="Header update is not committed" description="Header update is not committed"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Header Ignored field. When CS_GATE is set to BLK, this bit is set when the last Header update register(MMR_TXFHDRn.*) is written when CS is low or HDR_CMT is already set. When CS_GATE is set to UNBLK, this bit is set only when the header update register is written when HDR_CMT is already set. This bit remains 0 otherwise. When set, this bit can be written to a value of 0 to clear.
+" id="HDR_IGN" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Header update is not ignored" description="Header update is not ignored"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Header enable field. When CS_GATE is set to BLK, this bit has to be set by software to enable this feature. When CS_GATE is set to UNBLK, this field is set automatically whenever a write to header update registers occurs MMR_TXFHDRn" id="HDR_EN" resetval="0x0">
+         <bitenum id="ENA" value="1" token="Atomic header udpate feature enable" description="Atomic header udpate feature enable"/>
+         <bitenum id="DIS" value="0" token="Atomic header update feature disable" description="Atomic header update feature disable"/>
+      </bitfield>
+   </register>
+   <register acronym="RXDATA" width="32" description="RXDATA Register. Reading this register returns first value in the RX FIFO. If the FIFO is empty the last read value is returned. Writing has no effect and is ignored." id="RXDATA" offset="0x140">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RO" description="Received Data. When read, the entry in the receive FIFO, pointed to by the current FIFO read pointer is accessed. As data values are read by the receive logic from the incoming data frame, they are placed into the entry in the receive FIFO, pointed to by the current RX FIFO write pointer.
+Received data less than 16 bits is automatically right-justified in the receive buffer." id="DATA" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TXDATA" width="32" description="TXDATA Register. Writing a value in this register puts the data into the TX FIFO. Reading this register returns the last writen value.
+" id="TXDATA" offset="0x150">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Transmit Data. When read, the last entry in the transmit FIFO, pointed to by the current FIFO write pointer is accessed. 
+When written, the entry in the TX FIFO pointed to by the write pointer, is written to. Data values are read from the transmit FIFO by the transmit logic. It is loaded into the transmit serial shifter, then serially shifted out onto the output pin at the programmed bit rate.
+When a data size of less than 16 bits is selected, the user must right-justify data written to the transmit FIFO. The transmit logic ignores the unused bits. " id="DATA" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STAT" width="32" description="Status Register" id="STAT" offset="0x160">
+      <bitfield range="" begin="31" width="18" end="14" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED14" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="6" end="8" rwaccess="RO" description="Indicates how many locations of TXFIFO is currently filled with data" id="TXFIFO_FILL_LVL" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED7" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Transmit done. Indicates whether the last bit left the Shift register after a transmission
+" id="TRANS_DONE" resetval="0x0">
+         <bitenum id="TRANSMIT_DONE" value="1" token="Last bit has been shifted out, and the transmission is done" description="Last bit has been shifted out, and the transmission is done"/>
+         <bitenum id="TRANSMIT_ONGOING" value="0" token="Last bit has not yet left the Shift register, and the transmission is ongoing." description="Last bit has not yet left the Shift register, and the transmission is ongoing."/>
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Detection of CS deassertion in the middle of a word transmission results in this error being set. This feature is only available in the peripheral mode." id="CSD" resetval="0x0">
+         <bitenum id="ERR" value="1" token="An error is generated when CS posedge (deassertion) is detected before the entire word is transmitted." description="An error is generated when CS posedge (deassertion) is detected before the entire word is transmitted."/>
+         <bitenum id="NOERR" value="0" token="No CS posedge is detected before the entire word has been transmitted." description="No CS posedge is detected before the entire word has been transmitted."/>
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RO" description="SPI Busy status" id="BUSY" resetval="0x0">
+         <bitenum id="ACTIVE" value="1" token="SPI is currently transmitting and/or recieving data, or transmit FIFO is not empty." description="SPI is currently transmitting and/or recieving data, or transmit FIFO is not empty."/>
+         <bitenum id="IDLE" value="0" token="SPI is in idle mode." description="SPI is in idle mode."/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RO" description="Receive FIFO not full status." id="RNF" resetval="0x1">
+         <bitenum id="NOT_FULL" value="1" token="Receive FIFO is not full." description="Receive FIFO is not full."/>
+         <bitenum id="FULL" value="0" token="Receive FIFO is full." description="Receive FIFO is full."/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RO" description="Receive FIFO empty status." id="RFE" resetval="0x1">
+         <bitenum id="EMPTY" value="1" token="Receive FIFO is empty." description="Receive FIFO is empty."/>
+         <bitenum id="NOT_EMPTY" value="0" token="Receive FIFO is not empty." description="Receive FIFO is not empty."/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Transmit FIFO not full status." id="TNF" resetval="0x1">
+         <bitenum id="NOT_FULL" value="1" token="Transmit FIFO is not full." description="Transmit FIFO is not full."/>
+         <bitenum id="FULL" value="0" token="Transmit FIFO is full." description="Transmit FIFO is full."/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Transmit FIFO empty status." id="TFE" resetval="0x1">
+         <bitenum id="EMPTY" value="1" token="Transmit FIFO is empty." description="Transmit FIFO is empty."/>
+         <bitenum id="NOT_EMPTY" value="0" token="Transmit FIFO is not empty." description="Transmit FIFO is not empty."/>
+      </bitfield>
+   </register>
+</module>

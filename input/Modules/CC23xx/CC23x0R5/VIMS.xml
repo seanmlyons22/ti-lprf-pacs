@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="VIMS" HW_revision="" XML_version="1.0" description="Loki VIMS module toplevel" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="DESC" width="32" description="This register identifies the peripheral and its exact version.
+" id="DESC" offset="0x0">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Module identification contains a unique peripheral identification number." id="MODID" resetval="0xd140">
+      </bitfield>
+      <bitfield range="" begin="15" width="4" end="12" rwaccess="RO" description="Standard IP registers offset. Value 0 indicates Standard IP registers are not present. Any other value between 1 to 15 indicates standard IP registers start from address offset 64 * STDIPOFF from base address." id="STDIPOFF" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="4" end="8" rwaccess="RO" description="Instance Index within the device. This will be a parameter to the RTL for modules that can have multiple instances." id="INSTIDX" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="Major revision of IP" id="MAJREV" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Minor revision of IP" id="MINREV" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DESCEX" width="32" description="This register describes the configuration of VIMS.
+" id="DESCEX" offset="0x4">
+      <bitfield range="" begin="31" width="4" end="28" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED28" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="27" width="1" end="27" rwaccess="RO" description="Provides the FLASH Bank count" id="NBANK" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="26" width="12" end="15" rwaccess="RO" description="This provides the total FLASH size in Kilo Bytes. The total FLASH size is (FLSZ + 1)KB" id="FLSZ" resetval="0x1ff">
+      </bitfield>
+      <bitfield range="" begin="14" width="15" end="0" rwaccess="RO" description="Provides the size of ROM in Bytes." id="ROMSZ" resetval="0x3000">
+      </bitfield>
+   </register>
+   <register acronym="FLWS1T" width="32" description="This register is used to specify the number of waitstates necessary for accessing the flash in 1T mode. This register is retained.
+" id="FLWS1T" offset="0x8">
+      <bitfield range="" begin="31" width="29" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Specifies the waitstate value." id="VAL" resetval="0x7">
+         <bitenum id="WS7" value="7" token="Wait state value 7" description="Wait state value 7"/>
+         <bitenum id="WS6" value="6" token="Wait state value 6" description="Wait state value 6"/>
+         <bitenum id="WS5" value="5" token="Wait state value 5" description="Wait state value 5"/>
+         <bitenum id="WS4" value="4" token="Wait state value 4" description="Wait state value 4"/>
+         <bitenum id="WS3" value="3" token="Wait state value 3" description="Wait state value 3"/>
+         <bitenum id="WS2" value="2" token="Wait state value 2" description="Wait state value 2"/>
+         <bitenum id="WS1" value="1" token="Wait state value 1" description="Wait state value 1"/>
+         <bitenum id="WS0" value="0" token="Wait state value 0" description="Wait state value 0"/>
+      </bitfield>
+   </register>
+   <register acronym="FLWS2T" width="32" description="This register is used to specify the number of waitstates necessary for accessing the flash in 2T mode. This register is retained.
+" id="FLWS2T" offset="0xc">
+      <bitfield range="" begin="31" width="29" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Specifies the waitstate value." id="VAL" resetval="0x7">
+         <bitenum id="WS7" value="7" token="Wait state value 7" description="Wait state value 7"/>
+         <bitenum id="WS6" value="6" token="Wait state value 6" description="Wait state value 6"/>
+         <bitenum id="WS5" value="5" token="Wait state value 5" description="Wait state value 5"/>
+         <bitenum id="WS4" value="4" token="Wait state value 4" description="Wait state value 4"/>
+         <bitenum id="WS3" value="3" token="Wait state value 3" description="Wait state value 3"/>
+         <bitenum id="WS2" value="2" token="Wait state value 2" description="Wait state value 2"/>
+         <bitenum id="WS1" value="1" token="Wait state value 1" description="Wait state value 1"/>
+         <bitenum id="WS0" value="0" token="Wait state value 0" description="Wait state value 0"/>
+      </bitfield>
+   </register>
+   <register acronym="PTRMC0" width="32" description="Stores FLASH Pump trim values. This register is retained.
+" id="PTRMC0" offset="0x18">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Flash charge pump trim value." id="VAL" resetval="0x131a0000">
+      </bitfield>
+   </register>
+   <register acronym="B0TRMC1" width="32" description="This register is used to store flash bank 0 trim value 1. This register is retained.
+" id="B0TRMC1" offset="0x1c">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Flash bank trim value." id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="B0TRMC0" width="32" description="This register is used to store flash bank 0 trim value 0. This register is retained.
+" id="B0TRMC0" offset="0x20">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Flash bank trim value." id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="FLBLCK" width="32" description="This register is used to block user read, write and erase operation to flash. This register is sticky when written with value 1. This register is retained.
+" id="FLBLCK" offset="0x100">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Used to allow or block flash operation." id="VAL" resetval="0x0">
+         <bitenum id="BLOCK" value="1" token="Block" description="Block"/>
+         <bitenum id="ALLOW" value="0" token="Allow" description="Allow"/>
+      </bitfield>
+   </register>
+   <register acronym="CFG" width="32" description="This register is used for flash configuration. This register is retained.
+" id="CFG" offset="0x3fc">
+      <bitfield range="" begin="31" width="29" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="This bit is used to enable flash test mode." id="ATTEST" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="This bit indicates if flash charge pump and bank trim values are valid." id="TRMVLID" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="This bit is used to write protect flash 1T $amp; 2T waitstate registers, flash charge pump and bank trim registers, TRMVLID and ATTEST configuration registers. This register is sticky when written with value 0." id="WEPRTRM" resetval="0x1">
+         <bitenum id="ALLOW" value="1" token="Allow" description="Allow"/>
+         <bitenum id="RESTRICT" value="0" token="Block" description="Block"/>
+      </bitfield>
+   </register>
+   <register acronym="RDPRMN" width="32" description="Flash main region read protection register upto first 8KB. This register is sticky when written with value 0. This register is retained.
+" id="RDPRMN" offset="0x400">
+      <bitfield range="" begin="31" width="29" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Flash read protection configuration value." id="VAL" resetval="0x7">
+      </bitfield>
+   </register>
+   <register acronym="RDPRNMN" width="32" description="Flash non main region read protection register for last 512 B. This register is sticky when written with value 0. This register is retained.
+" id="RDPRNMN" offset="0x404">
+      <bitfield range="" begin="31" width="26" end="6" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="6" end="0" rwaccess="RW" description="Flash read protection configuration value." id="VAL" resetval="0x3f">
+      </bitfield>
+   </register>
+   <register acronym="RDPRTRM" width="32" description="Flash trim region read protection register for last 512 B. This register is sticky when written with value 0. This register is retained.
+" id="RDPRTRM" offset="0x408">
+      <bitfield range="" begin="31" width="26" end="6" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="6" end="0" rwaccess="RW" description="Flash read protection configuration value." id="VAL" resetval="0x3f">
+      </bitfield>
+   </register>
+   <register acronym="RDPREGR" width="32" description="Flash engr region read protection register. This register is sticky when written with value 0. This register is retained
+" id="RDPREGR" offset="0x40c">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Flash read protection configuration value." id="VAL" resetval="0x1">
+      </bitfield>
+   </register>
+   <register acronym="WEPRA" width="32" description="Flash main region write/erase protection for first 32 sectors. Nth bit corresponds to the Nth sector. This register is sticky when written with value 0. This register is retained.
+" id="WEPRA" offset="0x410">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Flash write/erase protection configuration value." id="VAL" resetval="0xffffffff">
+      </bitfield>
+   </register>
+   <register acronym="WEPRB" width="32" description="Flash main region write/erase protection for remaining sectors. Each bit corresponds to 8 sectors. Bit 0 corresponds to sector 32-39, bit 1 corresponds to sector 40-47 and so on. This register is sticky when written with value 0. This register is retained.
+" id="WEPRB" offset="0x414">
+      <bitfield range="" begin="31" width="4" end="28" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED28" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="27" width="28" end="0" rwaccess="RW" description="Flash write/erase protection configuration value." id="VAL" resetval="0xfffffff">
+      </bitfield>
+   </register>
+   <register acronym="WEPRAUX" width="32" description="Flash Write/Erase  protection for Non-Main, TRIM and ENGR Regions. This register is sticky when written with value 0. This register is retained.
+" id="WEPRAUX" offset="0x41c">
+      <bitfield range="" begin="31" width="29" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Flash engr region write/erase protection configuration value." id="WEPREGR" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Flash trim region write/erase protection configuration value." id="WEPRTRM" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Flash non main region write/erase protection configuration value." id="WEPRNMN" resetval="0x1">
+      </bitfield>
+   </register>
+   <register acronym="FLBSTAT" width="32" description="This register is used to indicate status of flash.
+" id="FLBSTAT" offset="0x420">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RO" description="This bit indicates parity error on write/erase $amp; read protection MMRs. This bit is sticky when set to 1 by hardware." id="PARERR" resetval="0x0">
+         <bitenum id="ERROR" value="1" token="Error" description="Error"/>
+         <bitenum id="NOERROR" value="0" token="No Error" description="No Error"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RO" description="This bit indicates if flash is busy." id="B0BSY" resetval="0x0">
+         <bitenum id="BUSY" value="1" token="Busy" description="Busy"/>
+         <bitenum id="IDLE" value="0" token="Idle" description="Idle"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="This bit indicates if flash is ready in 2T mode." id="B2TRDY" resetval="0x0">
+         <bitenum id="READY" value="1" token="Ready" description="Ready"/>
+         <bitenum id="NOTREADY" value="0" token="Not Ready" description="Not Ready"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="This bit indicates if flash is ready in 1T mode." id="B1TRDY" resetval="0x0">
+         <bitenum id="READY" value="1" token="Ready" description="Ready"/>
+         <bitenum id="NOTREADY" value="0" token="Not Ready" description="Not Ready"/>
+      </bitfield>
+   </register>
+   <register acronym="CCHCTRL" width="32" description="This register is used for enabling cache, prefetch $amp;amp; micropredictor units. This register is retained
+" id="CCHCTRL" offset="0x424">
+      <bitfield range="" begin="31" width="29" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="This bit is used to enable the micropredictor unit." id="CCHMPEN" resetval="0x1">
+         <bitenum id="ENABLE" value="1" token="Enable" description="Enable"/>
+         <bitenum id="DISABLE" value="0" token="Disable" description="Disable"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="This bit is used to enable the prefetch unit." id="CCHPFEN" resetval="0x1">
+         <bitenum id="ENABLE" value="1" token="Enable" description="Enable"/>
+         <bitenum id="DISABLE" value="0" token="Disable" description="Disable"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="This bit is used to enable the cache." id="CCHEN" resetval="0x1">
+         <bitenum id="ENABLE" value="1" token="Enable" description="Enable"/>
+         <bitenum id="DISABLE" value="0" token="Disable" description="Disable"/>
+      </bitfield>
+   </register>
+   <register acronym="DTB" width="32" description="Digital test bus mux selection
+" id="DTB" offset="0x800">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="DTB MUX select pin value" id="SEL" resetval="0x0">
+         <bitenum id="GRP15" value="15" token="Selects test group 15" description="Selects test group 15"/>
+         <bitenum id="GRP14" value="14" token="Selects test group 14" description="Selects test group 14"/>
+         <bitenum id="GRP13" value="13" token="Selects test group 13" description="Selects test group 13"/>
+         <bitenum id="GRP12" value="12" token="Selects test group 12" description="Selects test group 12"/>
+         <bitenum id="GRP11" value="11" token="Selects test group 11" description="Selects test group 11"/>
+         <bitenum id="GRP10" value="10" token="Selects test group 10" description="Selects test group 10"/>
+         <bitenum id="GRP9" value="9" token="Selects test group 9" description="Selects test group 9"/>
+         <bitenum id="GRP8" value="8" token="Selects test group 8" description="Selects test group 8"/>
+         <bitenum id="GRP7" value="7" token="Selects test group 7" description="Selects test group 7"/>
+         <bitenum id="GRP6" value="6" token="Selects test group 6" description="Selects test group 6"/>
+         <bitenum id="GRP5" value="5" token="Selects test group 5" description="Selects test group 5"/>
+         <bitenum id="GRP4" value="4" token="Selects test group 4" description="Selects test group 4"/>
+         <bitenum id="GRP3" value="3" token="Selects test group 3" description="Selects test group 3"/>
+         <bitenum id="GRP2" value="2" token="Selects test group 2" description="Selects test group 2"/>
+         <bitenum id="GRP1" value="1" token="Selects test group 1" description="Selects test group 1"/>
+         <bitenum id="DISABLE" value="0" token="DTB output from peripheral is 0x0." description="DTB output from peripheral is 0x0."/>
+      </bitfield>
+   </register>
+</module>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="Hidden" HW_revision="1" XML_version="1" description="" hidden="true">
+    <register id="TAR" offset="0x0004" width="32" page="121" acronym="TAR"/>
+    <register id="CSW" offset="0x0000" width="32" page="121" acronym="CSW"/>
+    <register id="DRW" offset="0x000C" width="32" page="121" acronym="DRW"/>
+    <register id="BD0" offset="0x0010" width="32" page="121" acronym="BD0"/>
+    <register id="BD1" offset="0x0014" width="32" page="121" acronym="BD1"/>
+    <register id="BD2" offset="0x0018" width="32" page="121" acronym="BD2"/>
+    <register id="BD3" offset="0x001C" width="32" page="121" acronym="BD3"/>
+    <register id="ROM" offset="0x00F8" width="32" page="121" acronym="ROM"/>
+    <register id="IDR" offset="0x00FC" width="32" page="121" acronym="IDR"/>
+</module>

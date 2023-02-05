@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<device id="CC2340R5" partnum="CC2340R5" HW_revision="1" XML_version="2" desc="CC2340R5" description="CC2340R5 SimpleLink(TM) Bluetooth(R) 5.2 Low Energy Wireless MCU">
+    <property Type="stringfield" Value="cmcu" id="AETT Platform"/>
+    <property Type="filepathfield" Value="../../emulation/analysis/dpk/devices/CC2340R5/AETT_database_cmcu_cc2340R5.jsonc" id="AETT Database File"/>
+    <!-- Filter to list device under in project wizard -->
+    <property Type="stringfield" Value="SimpleLink Wireless MCU" id="FilterString" />
+    <property Type="stringfield" Value="TIXDS110_Connection.xml" id="DefaultConnection" />
+    <property Type="stringfield" Value="TICLANG" id="DefaultToolChain" />
+    <jtag>
+        <!-- Select connect sequence -->
+        <property id="SWD.SWJ_DP_DEFAULT_MODE" Value="1" Type="hiddenfield">
+            <choice Name="DORMANT"/>
+        </property>
+        <!-- END: Select connect sequence -->
+
+        <!-- XDS100 Settings -->
+        <property Type="choicelist" Value="0" id="The Converter Usage">
+        </property>
+        <!-- END: XDS100 Settings -->
+
+        <!-- XDS110 Settings -->
+        <property Type="choicelist" Value="2" id="SWD Mode Settings">
+            <choice Name="SWD Mode - Aux COM port is target TDO pin"/>
+        </property>
+        <!-- XDS110 EnergyTrace settings -->
+        <property Type="choicelist" Value="1" id="Power Selection">
+            <choice Name="Probe supplied power" value="1">
+                <property Type="stringfield" Value="3.3" id="Voltage Level"/>
+            </choice>
+            <choice Name="Target supplied power" value="0">
+                <property Type="choicelist" Value="1" id="Voltage Selection">
+                    <choice Name="User specified value" value="1">
+                        <property Type="stringfield" Value="3.3" id="Voltage Level"/>
+                    </choice>
+                </property>
+            </choice>
+        </property>
+        <property Type="choicelist" Value="0" id="JTAG Signal Isolation" />
+        <!-- END: XDS110 EnergyTrace settings -->
+        <!-- END: XDS110 Settings -->
+
+        <!-- XDS200 Settings -->
+        <property Type="choicelist" Value="4" id="The cJTAG / SWD Features">
+            <choice Name="SWD Mode - Aux COM port is target TDO pin"/>
+        </property>
+        <!-- END: XDS200 Settings -->
+    </jtag>
+
+    <instance XML_revision="1.2" desc="CS_DAP_0" href="routers/cs_dap.xml" id="CS_DAP_0" xml="cs_dap.xml" xmlpath="Routers"/>
+    <router HW_revision="1.0" XML_version="1.2" description="CS_DAP Router" id="CS_DAP_0" isa="CS_DAP">
+        <property Type="stringfield" Value="true" id="CanFlashWhileDisconnected" />
+        <property Type="filepathfield" Value="../../../emulation/gel/cc23xx_dap.gel" id="GEL File"/>
+        <property Type="hiddenfield" Value="1" id="Use Board Reset" />
+        <instance href="../Modules/CC23xx/CC23x0R5/AP/AHBAP.xml"   xml="AHBAP.xml" xmlpath="../Modules/CC23xx/CC23x0R5/AP" HW_version="CS_DAP" id="AHBAP" description="AHBAP"    baseaddr="0x00020000" endaddr="0x000200FF" size="0x100" accessnumbytes="4" permissions="p" />
+        <instance href="../Modules/CC23xx/CC23x0R5/AP/CFGAP.xml"   xml="CFGAP.xml" xmlpath="../Modules/CC23xx/CC23x0R5/AP" HW_version="CS_DAP" id="CFGAP" description="CFGAP"    baseaddr="0x00020100" endaddr="0x000201FF" size="0x100" accessnumbytes="4" permissions="p" />
+        <instance href="../Modules/CC23xx/CC23x0R5/AP/SECAP.xml"   xml="SECAP.xml" xmlpath="../Modules/CC23xx/CC23x0R5/AP" HW_version="CS_DAP" id="SECAP" description="SECAP"    baseaddr="0x00020200" endaddr="0x000202FF" size="0x100" accessnumbytes="4" permissions="p" />
+        <subpath id="subpath_0">
+            <property Type="numericfield" Value="6" id="Port Number"/>
+            <property Type="choicelist" Value="1" id="Initial Configuration"/>
+            <property Type="choicelist" Value="1" id="Customer Configuration"/>
+            <instance XML_version="1.2" desc="Cortex_M0P" href="cpus/cortex_m0p.xml" id="Cortex_M0P" xml="cortex_m0p.xml" xmlpath="cpus"/>
+            <cpu HW_revision="1.0" XML_version="1.2" description="Cortex M0+ CPU" id="Cortex_M0P" isa="Cortex_M0P">
+                <property Type="stringfield" Value="true" id="CanFlashWhileDisconnected" />
+                <!-- Project Wizard Settings -->
+                <property Type="filepathfield" Value="../../../emulation/gel/cc23xx.gel" id="GEL File"/>
+                <property Type="numericfield" Value="0x02000000" id="Access Port Designator"/>
+                <property Type="stringfield" Value="cc23x0r5.cmd" id="LinkerCmd"/>
+                <property Type="stringfield" Value="cc23x0r5.cmd" id="TICLANGLinkerCmd"/>
+                <property Type="stringfield" Value=" -stack=256 -heap=0" id="LinkerBuildOptions"/>
+                <property Type="stringfield" Value="-romwidth=8 -memwidth=8" id="HexBuildOptions"/>
+                <property Type="stringfield" Value="--romwidth=8 --memwidth=8 --intel" id="TICLANGHexBuildOptions" />
+                <property Type="stringfield" Value="libc.a" id="RTSlib"/>
+                <property Type="stringfield" Value="true" id="IsElfDefault"/>
+                <property Type="stringfield" Value="little" id="Endianness"/>
+                <property Type="stringfield" Value="6.3.1" id="MinCodegenVersion"/>
+                <property Type="hiddenfield" Value="1" id="Use Board Reset" />
+                <property Type="hiddenfield" Value="1" id="Use Board Reset Free Run" />
+                <property Type="hiddenfield" Value="1" id="Block Target Access on Free Run" />
+                <!-- GNU options -->
+                <property Type="stringfield" Value="cc23x0r5.lds" id="GNULinkerCmd"/>
+                <property Type="stringfield" Value=" -mthumb -march=thumbv6m -mcpu=cortex-m0plus -mfloat-abi=soft -Os -Wall -fno-strict-aliasing -ffunction-sections -fdata-sections -std=c99 -c --asm -g" id="GNUCompilerBuildOptions"/>
+                <property Type="stringfield" Value=" " id="GNULinkerBuildOptions"/>
+                <property Type="stringfield" Value="-O ihex" id="GNUHexBuildOptions" />
+                <property Type="stringfield" Value="" id="GNUFilesToCopy"/>
+                <!-- END GNU options -->
+                <!-- END Project Wizard Settings -->
+                <!-- Device peripherals -->
+            <instance href="../Modules/CC23xx/CC23x0R5/FLASH_MAIN.xml" xml="FLASH_MAIN.xml" id="FLASH_MAIN" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x00000000" endaddr="0x0007FFFF" size="0x80000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/ROM.xml" xml="ROM.xml" id="ROM" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x0F000000" endaddr="0x0F002FFF" size="0x3000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/SRAM.xml" xml="SRAM.xml" id="SRAM" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x20000000" endaddr="0x20008FFF" size="0x9000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/PMCTL.xml" xml="PMCTL.xml" id="PMCTL" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x40000000" endaddr="0x40000FFF" size="0x1000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/CKMD.xml" xml="CKMD.xml" id="CKMD" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x40001000" endaddr="0x40001FFF" size="0x1000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/RTC.xml" xml="RTC.xml" id="RTC" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x40002000" endaddr="0x40002FFF" size="0x1000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/IOC.xml" xml="IOC.xml" id="IOC" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x40003000" endaddr="0x40003FFF" size="0x1000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/SYS0.xml" xml="SYS0.xml" id="SYS0" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x40004000" endaddr="0x40004FFF" size="0x1000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/EVTULL.xml" xml="EVTULL.xml" id="EVTULL" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x40005000" endaddr="0x40005FFF" size="0x1000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/PMUD.xml" xml="PMUD.xml" id="PMUD" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x40006000" endaddr="0x40006FFF" size="0x1000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/DBGSS.xml" xml="DBGSS.xml" id="DBGSS" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x4000F000" endaddr="0x4000FFFF" size="0x1000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/CLKCTL.xml" xml="CLKCTL.xml" id="CLKCTL" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x40020000" endaddr="0x40020FFF" size="0x1000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/FLASH.xml" xml="FLASH.xml" id="FLASH" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x40021000" endaddr="0x40021FFF" size="0x1000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/SYSTIM.xml" xml="SYSTIM.xml" id="SYSTIM" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x40022000" endaddr="0x40022FFF" size="0x1000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/GPIO.xml" xml="GPIO.xml" id="GPIO" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x40023000" endaddr="0x40023FFF" size="0x1000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/VIMS.xml" xml="VIMS.xml" id="VIMS" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x40024000" endaddr="0x40024FFF" size="0x1000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/EVTSVT.xml" xml="EVTSVT.xml" id="EVTSVT" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x40025000" endaddr="0x40025FFF" size="0x1000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/DMA.xml" xml="DMA.xml" id="DMA" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x40026000" endaddr="0x40026FFF" size="0x1000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/SPI.xml" xml="SPI.xml" id="SPI0" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x40030000" endaddr="0x40030FFF" size="0x1000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/UART.xml" xml="UART.xml" id="UART0" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x40034000" endaddr="0x40034FFF" size="0x1000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/I2C.xml" xml="I2C.xml" id="I2C0" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x40038000" endaddr="0x40038FFF" size="0x1000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/ADC.xml" xml="ADC.xml" id="ADC" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x40050000" endaddr="0x40050FFF" size="0x1000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/LGPT0.xml" xml="LGPT0.xml" id="LGPT0" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x40060000" endaddr="0x40060FFF" size="0x1000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/LGPT1.xml" xml="LGPT1.xml" id="LGPT1" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x40061000" endaddr="0x40061FFF" size="0x1000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/LGPT2.xml" xml="LGPT2.xml" id="LGPT2" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x40062000" endaddr="0x40062FFF" size="0x1000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/LGPT3.xml" xml="LGPT3.xml" id="LGPT3" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x40063000" endaddr="0x40063FFF" size="0x1000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/LRFDDBELL.xml" xml="LRFDDBELL.xml" id="LRFDDBELL" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x40080000" endaddr="0x40080FFF" size="0x1000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/LRFDTXF.xml" xml="LRFDTXF.xml" id="LRFDTXF" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x40081800" endaddr="0x40081BFF" size="0x400" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/LRFDRXF.xml" xml="LRFDRXF.xml" id="LRFDRXF" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x40081C00" endaddr="0x40081FFF" size="0x400" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/LRFD_PBERAM.xml" xml="LRFD_PBERAM.xml" id="LRFD_PBERAM" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x40090000" endaddr="0x40090FFF" size="0x1000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/LRFD_BUFRAM.xml" xml="LRFD_BUFRAM.xml" id="LRFD_BUFRAM" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x40092000" endaddr="0x400925FF" size="0x600" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/LRFD_MCERAM.xml" xml="LRFD_MCERAM.xml" id="LRFD_MCERAM" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x40094000" endaddr="0x400947FF" size="0x800" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/LRFD_RFERAM.xml" xml="LRFD_RFERAM.xml" id="LRFD_RFERAM" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x40096000" endaddr="0x40096FFF" size="0x1000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/AES.xml" xml="AES.xml" id="AES" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x400C0000" endaddr="0x400C0FFF" size="0x1000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/FCFG.xml" xml="FCFG.xml" id="FCFG" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x4E000000" endaddr="0x4E0003FF" size="0x400" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/CCFG.xml" xml="CCFG.xml" id="CCFG" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0x4E020000" endaddr="0x4E0207FF" size="0x800" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/BPU.xml" xml="BPU.xml" id="BPU" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0xE0002000" endaddr="0xE0002FFF" size="0x1000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/NVIC.xml" xml="NVIC.xml" id="NVIC" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0xE000E000" endaddr="0xE000EFFF" size="0x1000" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/SYSTICK.xml" xml="SYSTICK.xml" id="SYSTICK" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0xE000E010" endaddr="0xE000E01F" size="0x10" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/SCB.xml" xml="SCB.xml" id="SCB" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0xE000ED00" endaddr="0xE000ED3F" size="0x40" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/DCB.xml" xml="DCB.xml" id="DCB" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0xE000ED30" endaddr="0xE000EE2F" size="0x100" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/SCSCS.xml" xml="SCSCS.xml" id="SCSCS" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0xE000EFC0" endaddr="0xE000EFFF" size="0x40" accessnumbytes="4" permissions="p" />
+            <instance href="../Modules/CC23xx/CC23x0R5/CPU_ROM_TABLE.xml" xml="CPU_ROM_TABLE.xml" id="CPU_ROM_TABLE" xmlpath="../Modules/CC23xx/CC23x0R5" baseaddr="0xE00FF000" endaddr="0xE00FFFFF" size="0x1000" accessnumbytes="4" permissions="p" />
+                <!-- END Device peripherals -->
+            </cpu>
+        </subpath>
+
+        <subpath id="subpath_1">
+            <property Type="numericfield" Value="1" id="Port Number"/>
+             <instance XML_version="1.2" desc="SEC_AP" href="cpus/sec_ap.xml" id="SEC_AP" xml="sec_ap.xml" xmlpath="cpus"/>
+            <cpu HW_revision="1.0" XML_version="1.2" description="SEC_AP" deviceSim="false" id="SEC_AP" isa="SEC_AP">
+                <property Type="stringfield" Value="true" id="CanFlashWhileDisconnected" />
+                <property Type="numericfield" Value="0x02000002" id="Access Port Designator"/>
+            </cpu>
+        </subpath>
+
+    </router>
+</device>

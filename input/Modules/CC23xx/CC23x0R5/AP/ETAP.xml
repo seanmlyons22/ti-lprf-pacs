@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="Hidden" HW_revision="1" XML_version="1" description="" hidden="true">
+    <register id="REGSEL"   offset="0x0000" width="32" page="121" acronym="REGSEL"  />
+    <register id="CAPCTRL"  offset="0x0004" width="32" page="121" acronym="CAPCTRL" />
+    <register id="STATREAD" offset="0x0008" width="32" page="121" acronym="STATREAD"/>
+    <register id="DMNCTRL"  offset="0x000C" width="32" page="121" acronym="DMNCTRL" />
+    <register id="IDR"      offset="0x00FC" width="32" page="121" acronym="IDR"     />
+</module>

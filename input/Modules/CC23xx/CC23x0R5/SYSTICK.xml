@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="SYSTICK" HW_revision="" XML_version="1.0" description="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="CSR" width="32" description="Use the SysTick Control and Status Register to enable the SysTick features." id="CSR" offset="0x0">
+      <bitfield range="" begin="31" width="15" end="17" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED17" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="RO" description="Returns 1 if timer counted to 0 since last time this was read. Clears on read by application or debugger." id="COUNTFLAG" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="13" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RO" description="SysTick clock source. Always reads as one if STCALIB reports NOREF.
+0x0:Systick driven by external reference clock.
+0x1:Systick driven by processor clock, hclk." id="CLKSOURCE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="
+0x0:Counting down to zero does not pend the systick handler. software can use countflag to determine if the systick handler has ever counted to zero.
+0x1:Counting down to zero pends the systick handler." id="TICKINT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Enable SysTick counter
+0x0:Counter disabled
+0x1:Counter operates in a multi-shot way. that is, counter loads with the reload value and then begins counting down. on reaching 0, it sets the countflag to 1 and optionally pends the systick handler, based on tickint. it then loads the reload value again, and begins counting." id="ENABLE" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="RVR" width="32" description="Use the SysTick Reload Value Register to specify the start value to load into the current value register when the counter reaches 0. It can be any value between 0 and 0x00FFFFFF. A start value of 0 is possible, but has no effect because the SysTick interrupt and COUNTFLAG are activated when counting from 1 to 0. The reset value of this register is UNKNOWN." id="RVR" offset="0x4">
+      <bitfield range="" begin="31" width="8" end="24" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED24" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="24" end="0" rwaccess="RW" description="Value to load into the SysTick Current Value Register when the counter reaches 0." id="RELOAD" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CVR" width="32" description="Use the SysTick Current Value Register to find the current value in the register. The reset value of this register is UNKNOWN." id="CVR" offset="0x8">
+      <bitfield range="" begin="31" width="8" end="24" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED24" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="24" end="0" rwaccess="RW" description="Reads return the current value of the SysTick counter. This register is write-clear. Writing to it with any value clears the register to 0. Clearing this register also clears the COUNTFLAG bit of the SysTick Control and Status Register." id="CURRENT" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CALIB" width="32" description="Use the SysTick Calibration Value Register to enable software to scale to any required speed using divide and multiply." id="CALIB" offset="0xc">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="If reads as 1, the Reference clock is not provided - the CLKSOURCE bit of the SysTick Control and Status register will be forced to 1 and cannot be cleared to 0." id="NOREF" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RO" description="If reads as 1, the calibration value for 10ms is inexact (due to clock frequency)." id="SKEW" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="6" end="24" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED24" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="24" end="0" rwaccess="RO" description="An optional Reload value to be used for 10ms (100Hz) timing, subject to system clock skew errors. If the value reads as 0, the calibration value is not known." id="TENMS" resetval="0x0">
+      </bitfield>
+   </register>
+</module>

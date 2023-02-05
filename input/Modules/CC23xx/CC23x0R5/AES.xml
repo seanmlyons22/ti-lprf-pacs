@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="AES" HW_revision="" XML_version="1.0" description="The AES-128 crypto peripheral accellerates AES-128 block cipher encryption (ECB). The peripheral does also offer hardware features to accellerate cipher modes implemented in software: 
+
+* CBC-MAC
+* CBC
+* CTR
+* CFB
+* OFB
+* PCBC
+
+The module provides two data registers that can be input to ECB encryption. These are termed TXT and BUF. TXT is the AES-128 work buffer, and content changes during an ECB encryption. Software cannot update TXT during encryption. BUF is an auxiliary 128-bit buffer with multiple purposes:
+* initialization vector(IV) storage
+* counter in CTR cipher mode
+* hold next value of TXT
+
+Software can update BUF during an ECB enryption. This allows software to write next TXT during an encryption an hence save ECB idle times.
+
+
+" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="DESC" width="32" description="Description Register. This register provides IP module ID, revision information, instance index and standard MMR registers offset." id="DESC" offset="0x0">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Module identifier used to uniquely identify this IP" id="MODID" resetval="0x6b42">
+      </bitfield>
+      <bitfield range="" begin="15" width="4" end="12" rwaccess="RO" description="Standard IP MMR block offset. Standard IP MMRs are the set of from aggregated IRQ registers till DTB.
+
+0: Standard IP MMRs do not exist
+
+0x1-0xF: Standard IP MMRs begin at offset of (64*STDIPOFF from the base IP address)" id="STDIPOFF" resetval="0x4">
+      </bitfield>
+      <bitfield range="" begin="11" width="4" end="8" rwaccess="RO" description="IP Instance ID number. If multiple instances of IP exist in the device, this field can identify the instance number (0-15)." id="INSTIDX" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="Major revision of IP (0-15)." id="MAJREV" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Minor Revision of IP(0-15)." id="MINREV" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRG" width="32" description="Trigger
+
+Use this register to manually trigger operations." id="TRG" offset="0x10">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="WO" description="Reads to this field return zero, writes to this field are ignored." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="WO" description="Write 1 to this field to manually trigger channel A request." id="DMACHA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="WO" description="Write 1 to this field to manually trigger channel B request." id="DMACHB" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="2" end="0" rwaccess="WO" description="Electronic Codebook (ECB) Operation
+
+Write an enumerated value to this field when STA.STATE = IDLE to manually trigger an ECB encryption. If condition is not met, the trigger is ignored. Non-enumerated values are ignored. 
+Enumerated value indicates source of ECB operation" id="ECBOP" resetval="0x0">
+         <bitenum id="TXTXBUF" value="3" token="TXT = ECB(KEY, TXT XOR BUF)" description="TXT = ECB(KEY, TXT XOR BUF)"/>
+         <bitenum id="BUF" value="2" token="TXT = ECB(KEY,BUF)" description="TXT = ECB(KEY,BUF)"/>
+         <bitenum id="TXT" value="1" token="TXT = ECB(KEY,TXT)" description="TXT = ECB(KEY,TXT)"/>
+      </bitfield>
+   </register>
+   <register acronym="ABORT" width="32" description="Abort
+
+Use this register to abort current ECB encryption." id="ABORT" offset="0x14">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="WO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="Electronic Codebook
+
+Write 1 to this field to abort an ongoing ECB encryption. An abort will clear TXT, BUF, DMA, AUTOCFG registers" id="ECB" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CLR" width="32" description="Clear
+
+Use this register to clear contents of TXT and BUF when STA.STATE = IDLE. If condition is not met, the contents remain unchanged.
+" id="CLR" offset="0x18">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="WO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="Write 1 to this field to clear TXT." id="TXT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="Write 1 to this field to clear BUF." id="BUF" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STA" width="32" description="Status
+
+This register provides information on ECB accellerator state and BUF status." id="STA" offset="0x1c">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description=" BUF Status 
+
+Field gives the status of BUF, indicating EMPTY or FULL, when AUTOCFG.TRGECB = WRBUF3. 
+If AUTOCFG.TRGECB != WRBUF3, then STA.BUFSTA will hold the value 0.
+Note : Useful for CBC-MAC" id="BUFSTA" resetval="0x0">
+         <bitenum id="FULL" value="1" token="Data stored in BUF is not yet consumed by the AES engine. Next block of data cannot be written into BUF until STA.STATE = IDLE. " description="Data stored in BUF is not yet consumed by the AES engine. Next block of data cannot be written into BUF until STA.STATE = IDLE. "/>
+         <bitenum id="EMPTY" value="0" token="Data stored in BUF is already consumed by the AES engine and next block of data can be written in BUF" description="Data stored in BUF is already consumed by the AES engine and next block of data can be written in BUF"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="State
+
+Field gives the state of the ECB encryption engine." id="STATE" resetval="0x0">
+         <bitenum id="BUSY" value="1" token="ECB encryption active." description="ECB encryption active."/>
+         <bitenum id="IDLE" value="0" token="ECB is IDLE." description="ECB is IDLE."/>
+      </bitfield>
+   </register>
+   <register acronym="DMA" width="32" description="Direct Memory Access
+
+This register controls the conditions that will generate burst requests on each DMA channel." id="DMA" offset="0x20">
+      <bitfield range="" begin="31" width="12" end="20" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="19" width="4" end="16" rwaccess="RW" description="Done Action
+
+This field determines the side effects of DMA done. It is allowed to configure this field with an OR-combination of supported enums, with the exception that GATE_TRGECB_ON_CHA and GATE_TRGECB_ON_CHA_DEL shall be mutually exclusive" id="DONEACT" resetval="0x0">
+         <bitenum id="CLR_TXT_ON_CHB" value="8" token="DMA channel B done event clears TXT0 thru TXT3 if STA.STATE = IDLE. Event is ignored if condition is not met." description="DMA channel B done event clears TXT0 thru TXT3 if STA.STATE = IDLE. Event is ignored if condition is not met."/>
+         <bitenum id="CLR_TXT_ON_CHA" value="4" token="DMA channel A done event clears TXT0 thru TXT3 if STA.STATE = IDLE. Event is ignored if condition is not met." description="DMA channel A done event clears TXT0 thru TXT3 if STA.STATE = IDLE. Event is ignored if condition is not met."/>
+         <bitenum id="GATE_TRGECB_ON_CHA_DEL" value="2" token="Due to the pipelining of BUF writes, in certain modes, DMA CHA Done appears before the last but one ECB has completed. Setting this bit, will gate the triggers defined in AUTOCFG.TRGECB  only after the last write by CHA is consumed by AES FSM. Used in ECB,CBC,CBC-MAC modes (having multiple blocks encryption) to avoid spurious ECB triggered on last read by CHB. For single mode encryption, DMA.GATE_TRGECB_ON_CHA should be used." description="Due to the pipelining of BUF writes, in certain modes, DMA CHA Done appears before the last but one ECB has completed. Setting this bit, will gate the triggers defined in AUTOCFG.TRGECB  only after the last write by CHA is consumed by AES FSM. Used in ECB,CBC,CBC-MAC modes (having multiple blocks encryption) to avoid spurious ECB triggered on last read by CHB. For single mode encryption, DMA.GATE_TRGECB_ON_CHA should be used."/>
+         <bitenum id="GATE_TRGECB_ON_CHA" value="1" token="Triggers defined in AUTOCFG.TRGECB are gated when RIS.CHADONE  = SET." description="Triggers defined in AUTOCFG.TRGECB are gated when RIS.CHADONE  = SET."/>
+         <bitenum id="DIS" value="0" token="DMA done has no side effect." description="DMA done has no side effect."/>
+      </bitfield>
+      <bitfield range="" begin="15" width="2" end="14" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED14" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="2" end="12" rwaccess="RW" description="Channel B Read Write Address
+
+The DMA accesses DMACHB to read or write contents of TXT and BUF as a response to a burst request. This field specifes the start address of the first DMA transfer that follows the burst request. The internal address gets incremented automatically for subsequent accesses. The DMA shall transfer 8-bit, 16-bit, or 32-bit words, and shall always complete a 16-byte transfer before re-arbitration.
+
+" id="ADRCHB" resetval="0x0">
+         <bitenum id="TXTXBUF0" value="3" token="Start address is TXTXBUF0." description="Start address is TXTXBUF0."/>
+         <bitenum id="BUF0" value="2" token="Start address is BUF0." description="Start address is BUF0."/>
+         <bitenum id="TXTX0" value="1" token="Start address is TXTX0." description="Start address is TXTX0."/>
+         <bitenum id="TXT0" value="0" token="Start address is TXT0." description="Start address is TXT0."/>
+      </bitfield>
+      <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="3" end="8" rwaccess="RW" description="Channel B Trigger
+
+Select the condition that triggers DMA channel B request. Non-enumerated values are not supported and ignored." id="TRGCHB" resetval="0x0">
+         <bitenum id="RDTXT3" value="4" token="Reads of TXT3, or TXTXBUF3 trigger request.
+
+
+" description="Reads of TXT3, or TXTXBUF3 trigger request.
+
+
+"/>
+         <bitenum id="WRTXT3" value="3" token="Writes to TXT3, TXTX3, or TXTXBUF3 trigger request.
+
+
+" description="Writes to TXT3, TXTX3, or TXTXBUF3 trigger request.
+
+
+"/>
+         <bitenum id="ECBDONE" value="2" token="Completion of ECB encryption triggers request." description="Completion of ECB encryption triggers request."/>
+         <bitenum id="ECBSTART" value="1" token="Start of ECB encryption triggers request." description="Start of ECB encryption triggers request."/>
+         <bitenum id="DIS" value="0" token="DMA requests are disabled." description="DMA requests are disabled."/>
+      </bitfield>
+      <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Channel A Read Write Address
+
+The DMA accesses DMACHA to read or write contents of TXT and BUF as a response to a burst request. This field specifes the start address of the first DMA transfer that follows the burst request. The internal address gets incremented automatically for subsequent accesses. The DMA shall transfer 8-bit, 16-bit, or 32-bit words, and shall always complete a 16-byte transfer before re-arbitration.
+
+" id="ADRCHA" resetval="0x0">
+         <bitenum id="TXTXBUF0" value="3" token="Start address is TXTXBUF0." description="Start address is TXTXBUF0."/>
+         <bitenum id="BUF0" value="2" token="Start address is BUF0." description="Start address is BUF0."/>
+         <bitenum id="TXTX0" value="1" token="Start address is TXTX0." description="Start address is TXTX0."/>
+         <bitenum id="TXT0" value="0" token="Start address is TXT0." description="Start address is TXT0."/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Channel A Trigger
+
+Select the condition that triggers DMA channel A request. Non-enumerated values are not supported and ignored." id="TRGCHA" resetval="0x0">
+         <bitenum id="RDTXT3" value="4" token="Reads of TXT3 or TXTXBUF3 trigger request.
+
+
+" description="Reads of TXT3 or TXTXBUF3 trigger request.
+
+
+"/>
+         <bitenum id="WRTXT3" value="3" token="Writes to TXT3 or TXTX3 trigger request.
+
+
+" description="Writes to TXT3 or TXTX3 trigger request.
+
+
+"/>
+         <bitenum id="ECBDONE" value="2" token="Completion of ECB encryption triggers request." description="Completion of ECB encryption triggers request."/>
+         <bitenum id="ECBSTART" value="1" token="Start of ECB encryption triggers request." description="Start of ECB encryption triggers request."/>
+         <bitenum id="DIS" value="0" token="DMA requests are disabled." description="DMA requests are disabled."/>
+      </bitfield>
+   </register>
+   <register acronym="DMACHA" width="32" description="DMA Channel A data transfer
+
+DMA accesses this register to read or write contents from sequential addresses specifed by DMA.ADRCHA." id="DMACHA" offset="0x24">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Value transferred through DMA Channel A" id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DMACHB" width="32" description="DMA Channel B data transfer
+
+DMA accesses this register to read or write contents from sequential addresses specifed by DMA.ADRCHB." id="DMACHB" offset="0x28">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Value transferred through DMA Channel B" id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="AUTOCFG" width="32" description="Automatic Configuration
+
+This register configures automatic hardware updates to TXT and BUF. Configure this register to reduce software overhead during cipher modes." id="AUTOCFG" offset="0x2c">
+      <bitfield range="" begin="31" width="3" end="29" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED29" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="28" width="1" end="28" rwaccess="RW" description="This field enable auto-clear of RIS.CHBDONE interrupt on read/write of TXT3/BUF3/TXTX3/TXTXBUF3 . 
+			
+" id="CHBDONECLR" resetval="0x0">
+         <bitenum id="EN" value="1" token="Enable auto-clear of  RIS.CHBDONE interrupt" description="Enable auto-clear of  RIS.CHBDONE interrupt"/>
+         <bitenum id="DIS" value="0" token="Disable auto-clear of  RIS.CHBDONE interrupt" description="Disable auto-clear of  RIS.CHBDONE interrupt"/>
+      </bitfield>
+      <bitfield range="" begin="27" width="1" end="27" rwaccess="RW" description="This field enables auto-clear of RIS.CHADONE interrupt on read/write of TXT3/BUF3/TXTX3/TXTXBUF3 . 
+			
+" id="CHADONECLR" resetval="0x0">
+         <bitenum id="EN" value="1" token="Enable auto-clear of  RIS.CHADONE interrupt" description="Enable auto-clear of  RIS.CHADONE interrupt"/>
+         <bitenum id="DIS" value="0" token="Disable auto-clear of  RIS.CHADONE interrupt" description="Disable auto-clear of  RIS.CHADONE interrupt"/>
+      </bitfield>
+      <bitfield range="" begin="26" width="1" end="26" rwaccess="RW" description="This field enables auto-clear of RIS.ECBSTART interrupt on read/write of TXT3/BUF3/TXTX3/TXTXBUF3 . 
+
+" id="ECBSTARTCLR" resetval="0x0">
+         <bitenum id="EN" value="1" token="Enable auto-clear of  RIS.ECBSTART interrupt" description="Enable auto-clear of  RIS.ECBSTART interrupt"/>
+         <bitenum id="DIS" value="0" token="Disable auto-clear of  RIS.ECBSTART interrupt" description="Disable auto-clear of  RIS.ECBSTART interrupt"/>
+      </bitfield>
+      <bitfield range="" begin="25" width="1" end="25" rwaccess="RW" description="This field enables auto-clear of RIS.ECBDONE interrupt on read/write of TXT3/BUF3/TXTX3/TXTXBUF3 . 
+			
+" id="ECBDONECLR" resetval="0x0">
+         <bitenum id="EN" value="1" token="Enable auto-clear of  RIS.ECBDONE interrupt" description="Enable auto-clear of  RIS.ECBDONE interrupt"/>
+         <bitenum id="DIS" value="0" token="Disable auto-clear of RIS.ECBDONE interrupt" description="Disable auto-clear of RIS.ECBDONE interrupt"/>
+      </bitfield>
+      <bitfield range="" begin="24" width="1" end="24" rwaccess="RW" description="Bus Halt
+
+This field decides if bus halts on access to KEY, TXT, BUF, TXTX and TXTXBUF when STA.STATE = BUSY. " id="BUSHALT" resetval="0x0">
+         <bitenum id="EN" value="1" token="Enable bus halt
+
+When STA.STATE = BUSY, access to KEY, TXT, TXTX, TXTXBUF halt the bus until STA.STATE = IDLE.
+When STA.STATE = BUSY and if either STA.BUFSTA = FULL or AUTOCFG.CTRSIZE != DISABLE, access to BUF halts the bus until STA.STATE = IDLE." description="Enable bus halt
+
+When STA.STATE = BUSY, access to KEY, TXT, TXTX, TXTXBUF halt the bus until STA.STATE = IDLE.
+When STA.STATE = BUSY and if either STA.BUFSTA = FULL or AUTOCFG.CTRSIZE != DISABLE, access to BUF halts the bus until STA.STATE = IDLE."/>
+         <bitenum id="DIS" value="0" token="Disable bus halt
+
+When STA.STATE = BUSY, writes to KEY, TXT, TXTX are ignored, reads from  TXT, TXTXBUF return zero.
+When STA.STATE = BUSY and if either STA.BUFSTA = FULL or AUTOCFG.CTRSIZE != DISABLE, writes to BUF are ignored, reads return zero." description="Disable bus halt
+
+When STA.STATE = BUSY, writes to KEY, TXT, TXTX are ignored, reads from  TXT, TXTXBUF return zero.
+When STA.STATE = BUSY and if either STA.BUFSTA = FULL or AUTOCFG.CTRSIZE != DISABLE, writes to BUF are ignored, reads return zero."/>
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RW" description="Reserved for future use. Any writes to this field are ignored
+" id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="3" end="19" rwaccess="RW" description="Counter Size
+
+Configures  size of counter as either 8,16,32,64 or 128
+Non-enumerated values are not supported and ignored
+" id="CTRSIZE" resetval="0x0">
+         <bitenum id="CTR128" value="5" token="Configures counter size as 128 bit" description="Configures counter size as 128 bit"/>
+         <bitenum id="CTR64" value="4" token="Configures counter size as 64 bit" description="Configures counter size as 64 bit"/>
+         <bitenum id="CTR32" value="3" token="Configures counter size as 32 bit" description="Configures counter size as 32 bit"/>
+         <bitenum id="CTR16" value="2" token="Configures counter size as 16 bit" description="Configures counter size as 16 bit"/>
+         <bitenum id="CTR8" value="1" token="Configures counter size as 8 bit" description="Configures counter size as 8 bit"/>
+         <bitenum id="DIS" value="0" token="Disable CTR operation" description="Disable CTR operation"/>
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Counter Alignment
+
+Specifies alignment of counter" id="CTRALIGN" resetval="0x0">
+         <bitenum id="RIGHTALIGN" value="1" token="Indicates right aligned counter
+Not applicable when counter size is 128bit
+For 128 bit counter, all octets will be considered
+
+If right aligned, octet 8-15 will be considered based on endianness and counter size" description="Indicates right aligned counter
+Not applicable when counter size is 128bit
+For 128 bit counter, all octets will be considered
+
+If right aligned, octet 8-15 will be considered based on endianness and counter size"/>
+         <bitenum id="LEFTALIGN" value="0" token="Indicates Left Aligned Counter
+Not applicable for 128 bit counter size. 
+For 128 bit counter, all octets will be considered
+
+When left aligned,,octet 0-7 will be considered , based on counter size and endianness" description="Indicates Left Aligned Counter
+Not applicable for 128 bit counter size. 
+For 128 bit counter, all octets will be considered
+
+When left aligned,,octet 0-7 will be considered , based on counter size and endianness"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="Counter Endianness
+
+Specifies Endianness of counter
+" id="CTRENDIAN" resetval="0x0">
+         <bitenum id="BIGENDIAN" value="1" token="Specifies Big Endian Counter
+Carry will flow from octet &#39;n&#39; to octet &#39;n-1&#39;" description="Specifies Big Endian Counter
+Carry will flow from octet &#39;n&#39; to octet &#39;n-1&#39;"/>
+         <bitenum id="LITTLEENDIAN" value="0" token="Specifies Little Endian Counter.
+Carry will flow from octet &#39;n&#39; to octet &#39;n+1&#39;" description="Specifies Little Endian Counter.
+Carry will flow from octet &#39;n&#39; to octet &#39;n+1&#39;"/>
+      </bitfield>
+      <bitfield range="" begin="16" width="7" end="10" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Trigger for TXT
+
+This field determines if and when hardware automatically XORs BUF into TXT. Non-enumerated values are not supported and ignored. It is allowed to configure this field with an OR-combination of supported enums." id="TRGTXT" resetval="0x0">
+         <bitenum id="RDTXTXBUF3" value="2" token="Hardware XORs content of BUF into TXT upon read of TXTXBUF3." description="Hardware XORs content of BUF into TXT upon read of TXTXBUF3."/>
+         <bitenum id="RDTXT3" value="1" token="Hardware XORs content of BUF into TXT upon read of TXT3." description="Hardware XORs content of BUF into TXT upon read of TXT3."/>
+         <bitenum id="DIS" value="0" token="No hardware update of TXT " description="No hardware update of TXT "/>
+      </bitfield>
+      <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Electronic Codebook Source
+
+This field specifies the data source to hardware-triggered ECB encryptions. Non-enumerated values are not supported and ignored.
+
+" id="ECBSRC" resetval="0x0">
+         <bitenum id="TXTXBUF" value="3" token="TXT = ECB(KEY, TXT XOR BUF)" description="TXT = ECB(KEY, TXT XOR BUF)"/>
+         <bitenum id="BUF" value="2" token="TXT = ECB(KEY,BUF)" description="TXT = ECB(KEY,BUF)"/>
+         <bitenum id="TXT" value="1" token="TXT = ECB(KEY,TXT)" description="TXT = ECB(KEY,TXT)"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Trigger Electronic Codebook
+
+This field specifies one or more actions that indirectly trigger ECB operation 
+It is allowed to configure this field with an OR-combination of supported enums." id="TRGECB" resetval="0x0">
+         <bitenum id="WRBUF3S" value="8" token="Write to BUF3 shall schedule to trigger single action once STA.STATE is or becomes IDLE. Subsequent writes do not trigger any action unless this setting is written again to this field.
+
+
+" description="Write to BUF3 shall schedule to trigger single action once STA.STATE is or becomes IDLE. Subsequent writes do not trigger any action unless this setting is written again to this field.
+
+
+"/>
+         <bitenum id="WRBUF3" value="4" token="All writes to BUF3 shall be scheduled to trigger action once STA.STATE is or becomes IDLE, only when AUTOCFG.CTRSIZE = DIS. 
+
+" description="All writes to BUF3 shall be scheduled to trigger action once STA.STATE is or becomes IDLE, only when AUTOCFG.CTRSIZE = DIS. 
+
+"/>
+         <bitenum id="RDTXT3" value="2" token="All reads of TXT3 or TXTXBUF3 trigger action, only when STA.STATE = IDLE." description="All reads of TXT3 or TXTXBUF3 trigger action, only when STA.STATE = IDLE."/>
+         <bitenum id="WRTXT3" value="1" token="All writes to TXT3 or TXTX3 trigger action, only when STA.STATE = IDLE." description="All writes to TXT3 or TXTX3 trigger action, only when STA.STATE = IDLE."/>
+         <bitenum id="DIS" value="0" token="No user action indirectly triggers ECB." description="No user action indirectly triggers ECB."/>
+      </bitfield>
+   </register>
+   <register acronym="KEY0" width="32" description="Key Word 0
+
+Write KEY0 through KEY3 to populate the 128-bit key. The key is not consumed by the hardware. It is hence not required to reload the key for subsequent block encryptions unless required by the application." id="KEY0" offset="0x50">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="WO" description="Value of KEY[31:0]." id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="KEY1" width="32" description="Key Word 1
+
+Write KEY0 through KEY3 to populate the 128-bit key. The key is not consumed by the hardware. It is hence not required to reload the key for subsequent block encryptions unless required by the application." id="KEY1" offset="0x54">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="WO" description="Value of KEY[63:32]" id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="KEY2" width="32" description="Key Word 2
+
+Write KEY0 through KEY3 to populate the 128-bit key. The key is not consumed by the hardware. It is hence not required to reload the key for subsequent block encryptions unless required by the application." id="KEY2" offset="0x58">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="WO" description="Value of KEY[95:64]" id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="KEY3" width="32" description="Key Word 3
+
+Write KEY0 through KEY3 to populate the 128-bit key. The key is not consumed by the hardware. It is hence not required to reload the key for subsequent block encryptions unless required by the application." id="KEY3" offset="0x5c">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="WO" description="Value of KEY[127:96]" id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TXT0" width="32" description="Text Word 0
+
+TXT is the 128-bit buffer, the AES-128 encryption algorithm performs its operations on.  ECB input can be written to TXT, and ciphertext can be read from TXT." id="TXT0" offset="0x70">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Value of TXT[31:0]" id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TXT1" width="32" description="Text Word 1
+
+TXT is the 128-bit buffer, the AES-128 encryption algorithm performs its operations on. ECB input can be written to TXT, and ciphertext can be read from TXT." id="TXT1" offset="0x74">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Value of TXT[63:32]" id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TXT2" width="32" description="Text Word 2
+
+TXT is the 128-bit buffer, the AES-128 encryption algorithm performs its operations on. ECB input can be written to TXT, and ciphertext can be read from TXT." id="TXT2" offset="0x78">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Value of TXT[95:64]" id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TXT3" width="32" description="Text Word 3
+
+TXT is the 128-bit buffer, the AES-128 encryption algorithm performs its operations on. ECB input can be written to TXT, and ciphertext can be read from TXT." id="TXT3" offset="0x7c">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Value of TXT[127:96]
+
+AUTOCFG.TRGECB decides if a write to or a read of this field triggers an encryption." id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TXTX0" width="32" description="Text Word 0 XOR
+
+Write data to this register to XOR data with contents in TXT0.VAL." id="TXTX0" offset="0x80">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="WO" description="Value in TXT0 will be TXT0.VAL = VAL XOR TXT0.VAL" id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TXTX1" width="32" description="Text Word 1 XOR
+
+Write data to this register to XOR data with contents in TXT1.VAL." id="TXTX1" offset="0x84">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="WO" description="Value in TXT1 will be TXT1.VAL = VAL XOR TXT1.VAL" id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TXTX2" width="32" description="Text Word 2 XOR
+
+Write data to this register to XOR data with contents in TXT2.VAL." id="TXTX2" offset="0x88">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="WO" description="Value in TXT2 will be TXT2.VAL = VAL XOR TXT2.VAL" id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TXTX3" width="32" description="Text Word 3 XOR
+
+Write data to this register to XOR data with contents in TXT3.VAL. 
+AUTOCFG.TRGECB decides if a write to or a read of this field triggers an encryption." id="TXTX3" offset="0x8c">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="WO" description="Value in TXT3 will be TXT3.VAL = VAL XOR TXT3.VAL" id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="BUF0" width="32" description="Buffer Word 0
+
+BUF is a 128-bit auxiliary register that functions as a buffer, counter, or storage of operations in cipher modes." id="BUF0" offset="0x90">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Value of BUF[31:0]" id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="BUF1" width="32" description="Buffer Word 1
+
+BUF is a 128-bit auxiliary register that functions as a buffer, counter, or storage of operations in cipher modes." id="BUF1" offset="0x94">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Value of BUF[63:32]" id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="BUF2" width="32" description="Buffer Word 2
+
+BUF is a 128-bit auxiliary register that functions as a buffer, counter, or storage of operations in cipher modes." id="BUF2" offset="0x98">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Value of BUF[95:64]" id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="BUF3" width="32" description="Buffer Word 3
+
+BUF is a 128-bit auxiliary register that functions as a buffer, counter, or storage of operations in cipher modes.
+AUTOCFG.TRGECB decides if a write to this field triggers an encryption." id="BUF3" offset="0x9c">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Value of BUF[127:96]" id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TXTXBUF0" width="32" description="Text Word 0 XOR Buffer Word 0
+
+Read this register to obtain plaintext during CFB decryption. 
+
+
+" id="TXTXBUF0" offset="0xa0">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Value read will be  TXT0.VAL XOR BUF0.VAL" id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TXTXBUF1" width="32" description="Text Word 1 XOR Buffer Word 1
+
+Read this register to obtain plaintext during CFB decryption. 
+
+
+" id="TXTXBUF1" offset="0xa4">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Value read will be  TXT1.VAL XOR BUF1.VAL" id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TXTXBUF2" width="32" description="Text Word 2 XOR Buffer Word 2
+
+Read this register to obtain plaintext during CFB decryption. 
+
+
+" id="TXTXBUF2" offset="0xa8">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Value read will be TXT2.VAL XOR BUF2.VAL" id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TXTXBUF3" width="32" description="Text Word 3 XOR Buffer Word3
+
+Read this register to obtain plaintext during CFB decryption. 
+
+
+" id="TXTXBUF3" offset="0xac">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Value read will be  TXT3.VAL XOR BUF3.VAL" id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="IMASK" width="32" description="Interrupt mask. This register selects interrupt sources which are allowed to pass from RIS to MIS when the corresponding bit-fields are set to 1." id="IMASK" offset="0x104">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RW" description="Reads to this field return zero, writes to this field are ignored." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="DMA Channel B Done interrupt mask" id="CHBDONE" resetval="0x0">
+         <bitenum id="EN" value="1" token="Enable interrupt mask" description="Enable interrupt mask"/>
+         <bitenum id="DIS" value="0" token="Disable interrupt mask" description="Disable interrupt mask"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="DMA Channel A Done interrupt mask" id="CHADONE" resetval="0x0">
+         <bitenum id="EN" value="1" token="Enable interrupt mask" description="Enable interrupt mask"/>
+         <bitenum id="DIS" value="0" token="Disable interrupt mask" description="Disable interrupt mask"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="ECB Start interrupt mask" id="ECBSTART" resetval="0x0">
+         <bitenum id="EN" value="1" token="Enable interrupt mask" description="Enable interrupt mask"/>
+         <bitenum id="DIS" value="0" token="Disable interrupt mask" description="Disable interrupt mask"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="ECB Done interrupt mask" id="ECBDONE" resetval="0x0">
+         <bitenum id="EN" value="1" token="Enable interrupt mask" description="Enable interrupt mask"/>
+         <bitenum id="DIS" value="0" token="Disable interrupt mask" description="Disable interrupt mask"/>
+      </bitfield>
+   </register>
+   <register acronym="RIS" width="32" description="Raw interrupt status. This register reflects the state of all pending interrupts, regardless of masking. This register allows the user to implement a poll scheme. A flag set in this register can be cleared by writing 1 to the corresponding ICLR register bit." id="RIS" offset="0x108">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Reads to this field return zero, writes to this field are ignored." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RO" description="Raw interrupt status for DMA Channel B Done" id="CHBDONE" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt occurred" description="Interrupt occurred"/>
+         <bitenum id="CLR" value="0" token="Interrupt did not occur" description="Interrupt did not occur"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RO" description="Raw interrupt status for DMA Channel A Done" id="CHADONE" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt occurred" description="Interrupt occurred"/>
+         <bitenum id="CLR" value="0" token="Interrupt did not occur" description="Interrupt did not occur"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Raw interrupt status for ECB Start" id="ECBSTART" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt occurred" description="Interrupt occurred"/>
+         <bitenum id="CLR" value="0" token="Interrupt did not occur" description="Interrupt did not occur"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Raw interrupt status for ECB Done" id="ECBDONE" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt occurred" description="Interrupt occurred"/>
+         <bitenum id="CLR" value="0" token="Interrupt did not occur" description="Interrupt did not occur"/>
+      </bitfield>
+   </register>
+   <register acronym="MIS" width="32" description="Masked interrupt status. This register is simply a bitwise AND of the contents of IMASK and RIS.*] registers. A flag set in this register can be cleared by writing 1 to the corresponding ICLR register bit." id="MIS" offset="0x10c">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Reads to this field return zero, writes to this field are ignored." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RO" description="Masked interrupt status for DMA Channel B Done" id="CHBDONE" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt occurred" description="Interrupt occurred"/>
+         <bitenum id="CLR" value="0" token="Interrupt did not occur" description="Interrupt did not occur"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RO" description="Masked interrupt status for DMA Channel A Done" id="CHADONE" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt occurred" description="Interrupt occurred"/>
+         <bitenum id="CLR" value="0" token="Interrupt did not occur" description="Interrupt did not occur"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Masked interrupt status for ECB Start" id="ECBSTART" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt occurred" description="Interrupt occurred"/>
+         <bitenum id="CLR" value="0" token="Interrupt did not occur" description="Interrupt did not occur"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Masked interrupt status for ECB Done" id="ECBDONE" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt occurred" description="Interrupt occurred"/>
+         <bitenum id="CLR" value="0" token="Interrupt did not occur" description="Interrupt did not occur"/>
+      </bitfield>
+   </register>
+   <register acronym="ISET" width="32" description="Interrupt set register. This register can used by software for diagnostics and safety checking purposes. Writing a 1 to a bit in this register will set the event and the corresponding RIS bit also gets set. If the corresponding IMASK bit is set, then the corresponding MIS register bit also gets set." id="ISET" offset="0x110">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="WO" description="Reads to this field return zero, writes to this field are ignored." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="WO" description="Set DMA Channel B Done interrupt" id="CHBDONE" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set interrupt" description="Set interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="WO" description="Set DMA Channel A Done interrupt" id="CHADONE" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set interrupt" description="Set interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="Set ECB Start interrupt" id="ECBSTART" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set interrupt" description="Set interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="Set ECB Done interrupt" id="ECBDONE" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set interrupt" description="Set interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+   </register>
+   <register acronym="ICLR" width="32" description="Interrupt clear register. This register allows software to clear interrupts. Writing a 1 to a bit in this register will clear the event and the corresponding RIS bit also gets cleared. If the corresponding IMASK bit is set, then the corresponding MIS register bit also gets cleared." id="ICLR" offset="0x114">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="WO" description="" id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="WO" description="Clear DMA Channel B Done interrupt" id="CHBDONE" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear interrupt" description="Clear interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="WO" description="Clear DMA Channel A Done interrupt" id="CHADONE" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear interrupt" description="Clear interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="Clear ECB Start interrupt" id="ECBSTART" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear interrupt" description="Clear interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="Clear ECB Done interrupt" id="ECBDONE" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear interrupt" description="Clear interrupt"/>
+         <bitenum id="NOEFF" value="0" token="" description=""/>
+      </bitfield>
+   </register>
+   <register acronym="IMSET" width="32" description="Interrupt mask set register. Writing a 1 to a bit in this register will set the corresponding IMASK bit." id="IMSET" offset="0x118">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="WO" description="Reads to this field return zero, writes to this field are ignored." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="WO" description="Set DMA Channel B Done interrupt mask" id="CHBDONE" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set interrupt mask" description="Set interrupt mask"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="WO" description="Set DMA Channel A Done interrupt mask" id="CHADONE" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set interrupt mask" description="Set interrupt mask"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="Set ECB Start interrupt mask" id="ECBSTART" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set interrupt mask" description="Set interrupt mask"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="Set ECB Done interrupt mask" id="ECBDONE" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set interrupt mask" description="Set interrupt mask"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+   </register>
+   <register acronym="IMCLR" width="32" description="Interrupt mask clear register. Writing a 1 to a bit in this register will clear the corresponding IMASK bit." id="IMCLR" offset="0x11c">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="WO" description="Reads to this field return zero, writes to this field are ignored." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="WO" description="Clear DMA Channel B Done interrupt mask" id="CHBDONE" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear interrupt mask" description="Clear interrupt mask"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="WO" description="Clear DMA Channel A Done interrupt mask" id="CHADONE" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear interrupt mask" description="Clear interrupt mask"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="Clear ECB Start interrupt mask" id="ECBSTART" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear interrupt mask" description="Clear interrupt mask"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="Clear ECB Done interrupt mask" id="ECBDONE" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear interrupt mask" description="Clear interrupt mask"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+   </register>
+</module>
