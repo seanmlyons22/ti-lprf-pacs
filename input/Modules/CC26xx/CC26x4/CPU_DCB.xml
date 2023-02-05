@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="CPU_DCB" HW_revision="" XML_version="1.0" description="Cortex-M&#39;s Debug Control Block" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="DHCSR" width="32" description="Controls halting debug" id="DHCSR" offset="0x10">
+      <bitfield range="" begin="31" width="5" end="27" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED27" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="1" end="26" rwaccess="RO" description="Indicates the PE has processed a request to clear DHCSR.C_HALT to 0. That is, either a write to DHCSR that clears DHCSR.C_HALT from 1 to 0, or an External Restart Request" id="S_RESTART_ST" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="25" width="1" end="25" rwaccess="RO" description="Indicates whether the PE has been reset since the last read of the DHCSR" id="S_RESET_ST" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="24" width="1" end="24" rwaccess="RO" description="Set to 1 every time the PE retires one of more instructions" id="S_RETIRE_ST" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="3" end="21" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED21" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="20" width="1" end="20" rwaccess="RO" description="Indicates whether Secure invasive debug is allowed" id="S_SDE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Indicates whether the PE is in Lockup state" id="S_LOCKUP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RO" description="Indicates whether the PE is sleeping" id="S_SLEEP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="1" end="17" rwaccess="RO" description="Indicates whether the PE is in Debug state" id="S_HALT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="WO" description="A debugger must write 0xA05F to this field to enable write access to the remaining bits, otherwise the PE ignores the write access" id="DBGKEY" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="10" end="6" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RO" description="Allow imprecise entry to Debug state" id="C_SNAPSTALL" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="When debug is enabled, the debugger can write to this bit to mask PendSV, SysTick and external configurable interrupts" id="C_MASKINTS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Enable single instruction step" id="C_STEP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="PE enter Debug state halt request" id="C_HALT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Enable Halting debug" id="C_DEBUGEN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DCRSR" width="32" description="With the DCRDR, provides debug access to the general-purpose registers, special-purpose registers, and the FP extension registers. A write to the DCRSR specifies the register to transfer, whether the transfer is a read or write, and starts the transfer" id="DCRSR" offset="0x14">
+      <bitfield range="" begin="31" width="15" end="17" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED17" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="WO" description="Specifies the access type for the transfer" id="REGWnR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="9" end="7" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED7" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="7" end="0" rwaccess="WO" description="Specifies the general-purpose register, special-purpose register, or FP register to transfer" id="REGSEL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DCRDR" width="32" description="With the DCRSR, provides debug access to the general-purpose registers, special-purpose registers, and the FP Extension registers. If the Main Extension is implemented, it can also be used for message passing between an external debugger and a debug agent running on the PE" id="DCRDR" offset="0x18">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Provides debug access for reading and writing the general-purpose registers, special-purpose registers, and Floating-point Extension registers" id="DBGTMP" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DEMCR" width="32" description="Manages vector catch behavior and DebugMonitor handling when debugging" id="DEMCR" offset="0x1c">
+      <bitfield range="" begin="31" width="7" end="25" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED25" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="24" width="1" end="24" rwaccess="RW" description="Global enable for all DWT and ITM features" id="TRCENA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="3" end="21" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED21" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="20" width="1" end="20" rwaccess="RO" description="Indicates whether the DebugMonitor targets the Secure or the Non-secure state and whether debug events are allowed in Secure state" id="SDME" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="DebugMonitor semaphore bit" id="MON_REQ" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RO" description="Enable DebugMonitor stepping" id="MON_STEP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="1" end="17" rwaccess="RO" description="Sets or clears the pending state of the DebugMonitor exception" id="MON_PEND" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="RO" description="Enable the DebugMonitor exception" id="MON_EN" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="4" end="12" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED12" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="1" end="11" rwaccess="RO" description="SecureFault exception halting debug vector catch enable" id="VC_SFERR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="HardFault exception halting debug vector catch enable" id="VC_HARDERR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RO" description="Enable halting debug vector catch for faults during exception entry and return" id="VC_INTERR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RO" description="BusFault exception halting debug vector catch enable" id="VC_BUSERR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RO" description="Enable halting debug trap on a UsageFault exception caused by a state information error, for example an Undefined Instruction exception" id="VC_STATERR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RO" description="Enable halting debug trap on a UsageFault exception caused by a checking error, for example an alignment check error" id="VC_CHKERR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RO" description="Enable halting debug trap on a UsageFault caused by an access to a coprocessor" id="VC_NOCPERR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RO" description="Enable halting debug trap on a MemManage exception" id="VC_MMERR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="3" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Enable Reset Vector Catch. This causes a warm reset to halt a running system" id="VC_CORERESET" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DAUTHCTRL" width="32" description="This register allows the external authentication interface to be
+overridden from software." id="DAUTHCTRL" offset="0x24">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Internal Secure non-invasive debug enable. Overrides the external Secure non-invasive debug authentication interface" id="INTSPNIDEN" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Secure non-invasive debug enable select. Selects between DAUTHCTRL and the external authentication interface for control of Secure non-invasive debug" id="SPNIDENSEL" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Internal Secure invasive debug enable. Overrides the external Secure invasive debug authentication Interfaces." id="INTSPIDEN" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Secure invasive debug enable select. Selects between DAUTHCTRL and the external authentication interface for control of Secure invasive debug." id="SPIDENSEL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DSCSR" width="32" description="Provides control and status information for Secure debug" id="DSCSR" offset="0x28">
+      <bitfield range="" begin="31" width="14" end="18" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED18" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="Writes to the CDS bit are ignored unless CDSKEY is concurrently written to zero" id="CDSKEY" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="This field indicates the current Security state of the processor" id="CDS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="14" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="If SBRSELEN is 1 this bit selects whether the Non-secure or the Secure version of the memory-mapped Banked registers are accessible to the debugger" id="SBRSEL" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Controls whether the SBRSEL field or the current Security state of the processor selects which version of the memory-mapped Banked registers are accessed to the debugger" id="SBRSELEN" resetval="0x0">
+      </bitfield>
+   </register>
+</module>

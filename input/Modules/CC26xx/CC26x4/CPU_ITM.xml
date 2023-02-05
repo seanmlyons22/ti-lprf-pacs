@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="CPU_ITM" HW_revision="" XML_version="1.0" description="Cortex-M&#39;s Instrumentation Trace Macrocell (ITM)" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="STIM0" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM0" offset="0x0">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM1" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM1" offset="0x4">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM2" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM2" offset="0x8">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM3" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM3" offset="0xc">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM4" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM4" offset="0x10">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM5" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM5" offset="0x14">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM6" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM6" offset="0x18">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM7" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM7" offset="0x1c">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM8" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM8" offset="0x20">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM9" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM9" offset="0x24">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM10" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM10" offset="0x28">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM11" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM11" offset="0x2c">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM12" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM12" offset="0x30">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM13" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM13" offset="0x34">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM14" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM14" offset="0x38">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM15" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM15" offset="0x3c">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM16" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM16" offset="0x40">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM17" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM17" offset="0x44">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM18" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM18" offset="0x48">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM19" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM19" offset="0x4c">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM20" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM20" offset="0x50">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM21" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM21" offset="0x54">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM22" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM22" offset="0x58">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM23" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM23" offset="0x5c">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM24" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM24" offset="0x60">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM25" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM25" offset="0x64">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM26" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM26" offset="0x68">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM27" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM27" offset="0x6c">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM28" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM28" offset="0x70">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM29" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM29" offset="0x74">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM30" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM30" offset="0x78">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STIM31" width="32" description="Provides the interface for generating Instrumentation packets" id="STIM31" offset="0x7c">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the Stimulus Port is enabled or disabled" id="DISABLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the Stimulus Port can accept data" id="FIFOREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TER0" width="32" description="Provide an individual enable bit for each ITM_STIM register" id="TER0" offset="0xe00">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="For STIMENA[m] in ITM_TER*n, controls whether ITM_STIM(32*n + m) is enabled" id="STIMENA" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TPR" width="32" description="Controls which stimulus ports can be accessed by unprivileged code" id="TPR" offset="0xe40">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="For PRIVMASK[m], defines the access permissions of ITM_STIM Stimulus Ports 8m to 8m+7 inclusive" id="PRIVMASK" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TCR" width="32" description="Configures and controls transfers through the ITM interface" id="TCR" offset="0xe80">
+      <bitfield range="" begin="31" width="8" end="24" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED24" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="1" end="23" rwaccess="RO" description="Indicates whether the ITM is currently processing events" id="BUSY" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="22" width="7" end="16" rwaccess="RW" description="Identifier for multi-source trace stream formatting. If multi-source trace is in use, the debugger must write a unique non-zero trace ID value to this field" id="TraceBusID" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="4" end="12" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED12" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Defines how often the ITM generates a global timestamp, based on the global timestamp clock frequency, or disables generation of global timestamps" id="GTSFREQ" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Local timestamp prescaler, used with the trace packet reference clock" id="TSPrescale" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="2" end="6" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Stall the PE to guarantee delivery of Data Trace packets." id="STALLENA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Enables asynchronous clocking of the timestamp counter" id="SWOENA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Enables forwarding of hardware event packet from the DWT unit to the ITM for output to the TPIU" id="TXENA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Enables Synchronization packet transmission for a synchronous TPIU" id="SYNCENA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Enables Local timestamp generation" id="TSENA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Enables the ITM" id="ITMENA" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="INT_ATREADY" width="32" description="Integration Mode: Read ATB Ready" id="INT_ATREADY" offset="0xef0">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="A read of this bit returns the value of AFVALID" id="AFVALID" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="A read of this bit returns the value of ATREADY" id="ATREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="INT_ATVALID" width="32" description="Integration Mode: Write ATB Valid" id="INT_ATVALID" offset="0xef8">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="A write to this bit gives the value of AFREADY" id="AFREADY" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="A write to this bit gives the value of ATVALID" id="ATREADY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="ITCTRL" width="32" description="Integration Mode Control Register" id="ITCTRL" offset="0xf00">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Integration mode enable bit - The possible values are:  0 - The trace unit is not in integration mode. 1 - The trace unit is in integration mode. This mode enables: A debug agent to perform topology detection. SoC test software to perform integration testing." id="IME" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DEVARCH" width="32" description="Provides CoreSight discovery information for the ITM" id="DEVARCH" offset="0xfbc">
+      <bitfield range="" begin="31" width="11" end="21" rwaccess="RO" description="Defines the architect of the component. Bits [31:28] are the JEP106 continuation code (JEP106 bank ID, minus 1) and bits [27:21] are the JEP106 ID code." id="ARCHITECT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="20" width="1" end="20" rwaccess="RO" description="Defines that the DEVARCH register is present" id="PRESENT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="19" width="4" end="16" rwaccess="RO" description="Defines the architecture revision of the component" id="REVISION" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="4" end="12" rwaccess="RO" description="Defines the architecture version of the component" id="ARCHVER" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="12" end="0" rwaccess="RO" description="Defines the architecture of the component" id="ARCHPART" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DEVTYPE" width="32" description="Provides CoreSight discovery information for the ITM" id="DEVTYPE" offset="0xfcc">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="Component sub-type" id="SUB" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Component major type" id="MAJOR" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR4" width="32" description="Provides CoreSight discovery information for the ITM" id="PIDR4" offset="0xfd0">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="See CoreSight Architecture Specification" id="SIZE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="See CoreSight Architecture Specification" id="DES_2" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR5" width="32" description="Provides CoreSight discovery information for the ITM" id="PIDR5" offset="0xfd4">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR6" width="32" description="Provides CoreSight discovery information for the ITM" id="PIDR6" offset="0xfd8">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR7" width="32" description="Provides CoreSight discovery information for the ITM" id="PIDR7" offset="0xfdc">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR0" width="32" description="Provides CoreSight discovery information for the ITM" id="PIDR0" offset="0xfe0">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="See CoreSight Architecture Specification" id="PART_0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR1" width="32" description="Provides CoreSight discovery information for the ITM" id="PIDR1" offset="0xfe4">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="See CoreSight Architecture Specification" id="DES_0" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="See CoreSight Architecture Specification" id="PART_1" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR2" width="32" description="Provides CoreSight discovery information for the ITM" id="PIDR2" offset="0xfe8">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="See CoreSight Architecture Specification" id="REVISION" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RO" description="See CoreSight Architecture Specification" id="JEDEC" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RO" description="See CoreSight Architecture Specification" id="DES_1" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR3" width="32" description="Provides CoreSight discovery information for the ITM" id="PIDR3" offset="0xfec">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="See CoreSight Architecture Specification" id="REVAND" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="See CoreSight Architecture Specification" id="CMOD" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CIDR0" width="32" description="Provides CoreSight discovery information for the ITM" id="CIDR0" offset="0xff0">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="See CoreSight Architecture Specification" id="PRMBL_0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CIDR1" width="32" description="Provides CoreSight discovery information for the ITM" id="CIDR1" offset="0xff4">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="See CoreSight Architecture Specification" id="CLASS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="See CoreSight Architecture Specification" id="PRMBL_1" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CIDR2" width="32" description="Provides CoreSight discovery information for the ITM" id="CIDR2" offset="0xff8">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="See CoreSight Architecture Specification" id="PRMBL_2" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CIDR3" width="32" description="Provides CoreSight discovery information for the ITM" id="CIDR3" offset="0xffc">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="See CoreSight Architecture Specification" id="PRMBL_3" resetval="0x0">
+      </bitfield>
+   </register>
+</module>

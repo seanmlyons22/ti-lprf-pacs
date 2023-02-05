@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module HW_revision="2.0" XML_version="1" description="JSTATE decoding" id="Hidden" hidden="true">
+  <register acronym="JSTATE4" description="Digital JTAG State Register" id="JSTATE4" offset="0x0" width="64">
+    <!-- Peripherals: Voltage & Power domains -->
+    <bitfield id="MODACT0"  begin="45" end="45" width="1"  description="MCU.MCU_CTL"            range="" resetval="0" rwaccess="R"/>
+    <bitfield id="MODACT1"  begin="46" end="46" width="1"  description="MCU.VIMS_PD"           range="" resetval="0" rwaccess="R"/>
+    <bitfield id="MODACT2"  begin="47" end="47" width="1"  description="MCU.RFCORE_PD"         range="" resetval="0" rwaccess="R"/>
+    <bitfield id="MODACT3"  begin="48" end="48" width="1"  description="MCU.PERIPH_PD"         range="" resetval="0" rwaccess="R"/>
+    <bitfield id="MODACT4"  begin="49" end="49" width="1"  description="MCU.SERIAL_PD"         range="" resetval="0" rwaccess="R"/>
+    <bitfield id="MODACT5"  begin="50" end="50" width="1"  description="MCU.CPU_PD"            range="" resetval="0" rwaccess="R"/>
+    <!-- Peripherals: MISC -->
+    <bitfield id="MODACT6"  begin="5"   end="0"   width="6"  description="Interrupts%HWI"      range="" resetval="0" rwaccess="R"/>
+    <bitfield id="MODACT7"  begin="36"  end="29"  width="8"  description="PRCM:PWRPROFSTAT"    range="" resetval="0" rwaccess="R"/>
+    <bitfield id="MODACT8"  begin="43"  end="43"  width="1"  description="CLK.SCLK_HF_SRC"     range="" resetval="0" rwaccess="R"/>
+    <bitfield id="MODACT9"  begin="44"  end="44"  width="1"  description="CLK.XOSC_EN"         range="" resetval="0" rwaccess="R"/>
+    <!-- <bitfield id="MODACT10"  begin="72"  end="72"  width="1"  description="CLK.GPTIMER0"       range="" resetval="0" rwaccess="R"/> --> <!-- Out of range, > bit 63 -->
+    <!-- <bitfield id="MODACT11"  begin="71"  end="71"  width="1"  description="CLK.GPTIMER1"       range="" resetval="0" rwaccess="R"/> --> <!-- Out of range, > bit 63 -->
+    <!-- <bitfield id="MODACT12"  begin="70"  end="70"  width="1"  description="CLK.GPTIMER2"       range="" resetval="0" rwaccess="R"/> --> <!-- Out of range, > bit 63 -->
+    <!-- <bitfield id="MODACT13"  begin="69"  end="69"  width="1"  description="CLK.GPTIMER3"       range="" resetval="0" rwaccess="R"/> --> <!-- Out of range, > bit 63 -->
+    <!-- <bitfield id="MODACT14"  begin="68"  end="68"  width="1"  description="CLK.I2C0"           range="" resetval="0" rwaccess="R"/> --> <!-- Out of range, > bit 63 -->
+    <!-- <bitfield id="MODACT15"  begin="67"  end="67"  width="1"  description="CLK.I2C1"           range="" resetval="0" rwaccess="R"/> --> <!-- Out of range, > bit 63 -->
+    <!-- <bitfield id="MODACT16"  begin="66"  end="66"  width="1"  description="CLK.I2S"            range="" resetval="0" rwaccess="R"/> --> <!-- Out of range, > bit 63 -->
+    <!-- <bitfield id="MODACT17"  begin="65"  end="65"  width="1"  description="CLK.DMA"            range="" resetval="0" rwaccess="R"/> --> <!-- Out of range, > bit 63 -->
+    <!-- <bitfield id="MODACT18"  begin="64"  end="64"  width="1"  description="CLK.TRNG"           range="" resetval="0" rwaccess="R"/> --> <!-- Out of range, > bit 63 -->
+    <bitfield id="MODACT10"  begin="63"  end="63"  width="1"  description="CLK.SEC"            range="" resetval="0" rwaccess="R"/>
+    <bitfield id="MODACT11"  begin="62"  end="62"  width="1"  description="CLK.PKA"            range="" resetval="0" rwaccess="R"/>
+    <bitfield id="MODACT12"  begin="61"  end="61"  width="1"  description="CLK.SPI0"           range="" resetval="0" rwaccess="R"/>
+    <bitfield id="MODACT13"  begin="60"  end="60"  width="1"  description="CLK.SPI1"           range="" resetval="0" rwaccess="R"/>
+    <bitfield id="MODACT14"  begin="59"  end="59"  width="1"  description="CLK.SPI2"           range="" resetval="0" rwaccess="R"/>
+    <bitfield id="MODACT15"  begin="58"  end="58"  width="1"  description="CLK.SPI3"           range="" resetval="0" rwaccess="R"/>
+    <bitfield id="MODACT16"  begin="57"  end="57"  width="1"  description="CLK.UART0"          range="" resetval="0" rwaccess="R"/>
+    <bitfield id="MODACT17"  begin="56"  end="56"  width="1"  description="CLK.UART1"          range="" resetval="0" rwaccess="R"/>
+    <bitfield id="MODACT18"  begin="55"  end="55"  width="1"  description="CLK.UART2"          range="" resetval="0" rwaccess="R"/>
+    <bitfield id="MODACT19"  begin="54"  end="54"  width="1"  description="CLK.UART3"          range="" resetval="0" rwaccess="R"/>
+    <bitfield id="MODACT20"  begin="28"  end="28"  width="1"  description="PC_Error"           range="" resetval="0" rwaccess="R"/>
+    <!-- Peripherals: Signals -->
+    <!-- <bitfield id="MODACT16"  begin="97" end="97" width="1"    description="OBS_SIG.0"          range="" resetval="0" rwaccess="R"/> Out of range, > bit 63 -->
+    <!-- <bitfield id="MODACT17"  begin="98" end="98" width="1"    description="OBS_SIG.1"          range="" resetval="0" rwaccess="R"/> Out of range, > bit 63 -->
+    <!-- <bitfield id="MODACT18"  begin="99" end="99" width="1"    description="OBS_SIG.2"          range="" resetval="0" rwaccess="R"/> Out of range, > bit 63 -->
+    <!-- <bitfield id="MODACT19"  begin="100" end="100" width="1"    description="OBS_SIG.3"          range="" resetval="0" rwaccess="R"/> Out of range, > bit 63 -->
+    <!-- <bitfield id="MODACT20"  begin="101" end="101" width="1"    description="OBS_SIG.4"          range="" resetval="0" rwaccess="R"/> Out of range, > bit 63 -->
+    <!-- <bitfield id="MODACT21"  begin="102" end="102" width="1"    description="OBS_SIG.5"          range="" resetval="0" rwaccess="R"/> Out of range, > bit 63 -->
+    <!-- <bitfield id="MODACT22"  begin="103" end="103" width="1"    description="OBS_SIG.6"          range="" resetval="0" rwaccess="R"/> Out of range, > bit 63 -->
+    <!-- PC -->
+    <bitfield id="PC"        begin="27"   end="6"  width="22" description="PC"                 range="" resetval="0" rwaccess="R"/>
+    <!-- "PWRSTATE0" is always the main core -->
+    <bitfield id="PWRSTATE0" begin="53"  end="52"  width="2"  description="CPU%CORTEXM_PM"     range="" resetval="0" rwaccess="R"/>
+    <bitfield id="PWRSTATE1" begin="40"  end="37"  width="4"  description="RF%LPRF_PM"         range="" resetval="0" rwaccess="R"/>
+    <!-- <bitfield id="PWRSTATE2"    begin="77" end="77" width="1"  description="Sensor_Controller"      range="" resetval="0" rwaccess="R"/> --> <!-- Out of range, > bit 63 -->
+  </register>
+</module>

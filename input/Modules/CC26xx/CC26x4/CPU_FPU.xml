@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="CPU_FPU" HW_revision="" XML_version="1.0" description="Cortex-M&#39;s Floating Point Unit (FPU)" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="FPCCR" width="32" description="Holds control data for the Floating-point extension" id="FPCCR" offset="0x4">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="When this bit is set to 1, execution of a floating-point instruction sets the CONTROL.FPCA bit to 1" id="ASPEN" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="Enables lazy context save of floating-point state" id="LSPEN" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="This bit controls whether the LSPEN bit is writeable from the Non-secure state" id="LSPENS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="28" width="1" end="28" rwaccess="RW" description="Clear floating-point caller saved registers on exception return" id="CLRONRET" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="27" width="1" end="27" rwaccess="RW" description="This bit controls whether the CLRONRET bit is writeable from the Non-secure state" id="CLRONRETS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="1" end="26" rwaccess="RW" description="Treat floating-point registers as Secure enable" id="TS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="25" width="15" end="11" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Indicates whether the software executing when the PE allocated the floating-point stack frame was able to set the UsageFault exception to pending" id="UFRDY" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="This bit is banked between the Security states and indicates whether the floating-point context violates the stack pointer limit that was active when lazy state preservation was activated. SPLIMVIOL modifies the lazy floating-point state preservation behavior" id="SPLIMVIOL" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Indicates whether the software executing when the PE allocated the floating-point stack frame was able to set the DebugMonitor exception to pending" id="MONRDY" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Indicates whether the software executing when the PE allocated the floating-point stack frame was able to set the SecureFault exception to pending. This bit is only present in the Secure version of the register, and behaves as RAZ/WI when accessed from the Non-secure state" id="SFRDY" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Indicates whether the software executing when the PE allocated the floating-point stack frame was able to set the BusFault exception to pending" id="BFRDY" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Indicates whether the software executing when the PE allocated the floating-point stack frame was able to set the MemManage exception to pending" id="MMRDY" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Indicates whether the software executing when the PE allocated the floating-point stack frame was able to set the HardFault exception to pending" id="HFRDY" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Indicates the PE mode when it allocated the floating-point stack frame" id="THREAD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Security status of the floating-point context. This bit is only present in the Secure version of the register, and behaves as RAZ/WI when accessed from the Non-secure state. This bit is updated whenever lazy state preservation is activated, or when a floating-point instruction is executed" id="S" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Indicates the privilege level of the software executing when the PE allocated the floating-point stack frame" id="USER" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Indicates whether lazy preservation of the floating-point state is active" id="LSPACT" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="FPCAR" width="32" description="Holds the location of the unpopulated floating-point register space allocated on an exception stack frame" id="FPCAR" offset="0x8">
+      <bitfield range="" begin="31" width="29" end="3" rwaccess="RW" description="The location of the unpopulated floating-point register space allocated on an exception stack frame" id="ADDRESS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="FPDSCR" width="32" description="Holds the default values for the floating-point status control data that the PE assigns to the FPSCR when it creates a new floating-point context" id="FPDSCR" offset="0xc">
+      <bitfield range="" begin="31" width="5" end="27" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED27" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="1" end="26" rwaccess="RW" description="Default value for FPSCR.AHP" id="AHP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="25" width="1" end="25" rwaccess="RW" description="Default value for FPSCR.DN" id="DN" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="24" width="1" end="24" rwaccess="RW" description="Default value for FPSCR.FZ" id="FZ" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RW" description="Default value for FPSCR.RMode" id="RMode" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="22" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="MVFR0" width="32" description="Describes the features provided by the Floating-point Extension" id="MVFR0" offset="0x10">
+      <bitfield range="" begin="31" width="4" end="28" rwaccess="RO" description="Indicates the rounding modes supported by the FP Extension" id="FPRound" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="27" width="4" end="24" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED24" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="4" end="20" rwaccess="RO" description="Indicates the support for FP square root operations" id="FPSqrt" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="19" width="4" end="16" rwaccess="RO" description="Indicates the support for FP divide operations" id="FPDivide" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="4" end="12" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED12" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="4" end="8" rwaccess="RO" description="Indicates support for FP double-precision operations" id="FPDP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="Indicates support for FP single-precision operations" id="FPSP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Indicates size of FP register file" id="SIMDReg" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="MVFR1" width="32" description="Describes the features provided by the Floating-point Extension" id="MVFR1" offset="0x14">
+      <bitfield range="" begin="31" width="4" end="28" rwaccess="RO" description="Indicates whether the FP Extension implements the fused multiply accumulate instructions" id="FMAC" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="27" width="4" end="24" rwaccess="RO" description="Indicates whether the FP Extension implements half-precision FP conversion instructions" id="FPHP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="16" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="Indicates whether the FP hardware implementation supports NaN propagation" id="FPDNaN" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Indicates whether subnormals are always flushed-to-zero" id="FPFtZ" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="MVFR2" width="32" description="Describes the features provided by the Floating-point Extension" id="MVFR2" offset="0x18">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="Indicates support for miscellaneous FP features" id="FPMisc" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+</module>

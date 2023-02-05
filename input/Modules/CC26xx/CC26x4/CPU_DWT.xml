@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="CPU_DWT" HW_revision="" XML_version="1.0" description="Cortex-M&#39;s Data watchpoint and Trace (DWT)" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="CTRL" width="32" description="Provides configuration and status information for the DWT unit, and used to control features of the unit" id="CTRL" offset="0x0">
+      <bitfield range="" begin="31" width="4" end="28" rwaccess="RO" description="Number of DWT comparators implemented" id="NUMCOMP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="27" width="1" end="27" rwaccess="RO" description="Indicates whether the implementation does not support trace" id="NOTRCPKT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="1" end="26" rwaccess="RO" description="Reserved, RAZ" id="NOEXTTRIG" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="25" width="1" end="25" rwaccess="RO" description="Indicates whether the implementation does not include a cycle counter" id="NOCYCCNT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="24" width="1" end="24" rwaccess="RO" description="Indicates whether the implementation does not include the profiling counters" id="NOPRFCNT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="1" end="23" rwaccess="RO" description="Controls whether the cycle counter is disabled in Secure state" id="CYCDISS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="22" width="1" end="22" rwaccess="RO" description="Enables Event Counter packet generation on POSTCNT underflow" id="CYCEVTENA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="1" end="21" rwaccess="RO" description="Enables DWT_FOLDCNT counter" id="FOLDEVTENA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="20" width="1" end="20" rwaccess="RO" description="Enables DWT_LSUCNT counter" id="LSUEVTENA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Enable DWT_SLEEPCNT counter" id="SLEEPEVTENA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RO" description="Enables DWT_EXCCNT counter" id="EXCEVTENA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="1" end="17" rwaccess="RO" description="Enables DWT_CPICNT counter" id="CPIEVTENA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="RO" description="Enables generation of Exception Trace packets" id="EXTTRCENA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="3" end="13" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED13" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="RO" description="Enables use of POSTCNT counter as a timer for Periodic PC Sample packet generation" id="PCSAMPLENA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="2" end="10" rwaccess="RO" description="Selects the position of the synchronization packet counter tap on the CYCCNT counter. This determines the Synchronization packet rate" id="SYNCTAP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RO" description="Selects the position of the POSTCNT tap on the CYCCNT counter" id="CYCTAP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="4" end="5" rwaccess="RO" description="Initial value for the POSTCNT counter" id="POSTINIT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="4" end="1" rwaccess="RO" description="Reload value for the POSTCNT counter" id="POSTPRESET" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Enables CYCCNT" id="CYCCNTENA" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CYCCNT" width="32" description="Shows or sets the value of the processor cycle counter, CYCCNT" id="CYCCNT" offset="0x4">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Increments one on each processor clock cycle when DWT_CTRL.CYCCNTENA == 1 and DEMCR.TRCENA == 1. On overflow, CYCCNT wraps to zero" id="CYCCNT" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CPICNT" width="32" description="CPI Count Register" id="CPICNT" offset="0x8">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Counts one on each cycle when all of the following are true:
+- DWT_CTRL.CPIEVTENA == 1 and DEMCR.TRCENA == 1.
+- No instruction is executed.
+- No load-store operation is in progress, see DWT_LSUCNT.
+- No exception-entry or exception-exit operation is in progress, see DWT_EXCCNT.
+- The PE is not in a power saving mode, see DWT_SLEEPCNT.
+- Either SecureNoninvasiveDebugAllowed() == TRUE, or the PE is in Non-secure state and NoninvasiveDebugAllowed() == TRUE." id="CPICNT" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="EXCCNT" width="32" description="Counts the total cycles spent in exception processing" id="EXCCNT" offset="0xc">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Counts one on each cycle when all of the following are true:
+ - DWT_CTRL.EXCEVTENA == 1 and DEMCR.TRCENA == 1.
+ - No instruction is executed, see DWT_CPICNT.
+ - An exception-entry or exception-exit related operation is in progress.
+ - Either SecureNoninvasiveDebugAllowed() == TRUE, or NS-Req for the operation is set to Non-secure and NoninvasiveDebugAllowed() == TRUE." id="EXCCNT" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="SLEEPCNT" width="32" description="Sleep Count Register" id="SLEEPCNT" offset="0x10">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Counts one on each cycle when all of the following are true:
+- DWT_CTRL.SLEEPEVTENA == 1 and DEMCR.TRCENA == 1.
+- No instruction is executed, see DWT_CPICNT.
+- No load-store operation is in progress, see DWT_LSUCNT.
+- No exception-entry or exception-exit operation is in progress, see DWT_EXCCNT.
+- The PE is in a power saving mode.
+- Either SecureNoninvasiveDebugAllowed() == TRUE, or the PE is in Non-secure state and NoninvasiveDebugAllowed() == TRUE." id="SLEEPCNT" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="LSUCNT" width="32" description="Increments on the additional cycles required to execute all load or store instructions" id="LSUCNT" offset="0x14">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Counts one on each cycle when all of the following are true:
+ - DWT_CTRL.LSUEVTENA == 1 and DEMCR.TRCENA == 1.
+ - No instruction is executed, see DWT_CPICNT.
+ - No exception-entry or exception-exit operation is in progress, see DWT_EXCCNT.
+ - A load-store operation is in progress.
+ - Either SecureNoninvasiveDebugAllowed() == TRUE, or NS-Req for the operation is set to Non-secure and NoninvasiveDebugAllowed() == TRUE." id="LSUCNT" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="FOLDCNT" width="32" description="Increments on the additional cycles required to execute all load or store instructions" id="FOLDCNT" offset="0x18">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Counts on each cycle when all of the following are true:
+ - DWT_CTRL.FOLDEVTENA == 1 and DEMCR.TRCENA == 1.
+ - At least two instructions are executed, see DWT_CPICNT.
+ - Either SecureNoninvasiveDebugAllowed() == TRUE, or the PE is in Non-secure state and NoninvasiveDebugAllowed() == TRUE.
+ The counter is incremented by the number of instructions executed, minus one" id="FOLDCNT" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PCSR" width="32" description="Program Counter Sample Register" id="PCSR" offset="0x1c">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="The possible values of this field are:
+0xFFFFFFFF
+  One of the following is true:
+  - The PE is halted in Debug state.
+  - The Security Extension is implemented, the sampled instruction was executed in Secure state, and SecureNoninvasiveDebugAllowed() == FALSE.
+  - NoninvasiveDebugAllowed() == FALSE.
+  - DEMCR.TRCENA == 0.
+  - The address of a recently-executed instruction is not available.
+Not 0xFFFFFFFF
+  Instruction address of a recently executed instruction. Bit [0] of the sample instruction address is 0." id="EIASAMPLE" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="COMP0" width="32" description="Provides a reference value for use by watchpoint comparator 0" id="COMP0" offset="0x20">
+   </register>
+   <register acronym="FUNCTION0" width="32" description="Controls the operation of watchpoint comparator 0" id="FUNCTION0" offset="0x28">
+      <bitfield range="" begin="31" width="5" end="27" rwaccess="RO" description="Identifies the capabilities for MATCH for comparator *n" id="ID" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="2" end="25" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED25" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="24" width="1" end="24" rwaccess="RO" description="Set to 1 when the comparator matches" id="MATCHED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="12" end="12" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED12" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Defines the size of the object being watched for by Data Value and Data Address comparators" id="DATAVSIZE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="4" end="6" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Defines the action on a match. This field is ignored and the comparator generates no actions if it is disabled by MATCH" id="ACTION" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Controls the type of match generated by this comparator" id="MATCH" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="COMP1" width="32" description="Provides a reference value for use by watchpoint comparator 1" id="COMP1" offset="0x30">
+   </register>
+   <register acronym="FUNCTION1" width="32" description="Controls the operation of watchpoint comparator 1" id="FUNCTION1" offset="0x38">
+      <bitfield range="" begin="31" width="5" end="27" rwaccess="RO" description="Identifies the capabilities for MATCH for comparator *n" id="ID" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="2" end="25" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED25" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="24" width="1" end="24" rwaccess="RO" description="Set to 1 when the comparator matches" id="MATCHED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="12" end="12" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED12" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Defines the size of the object being watched for by Data Value and Data Address comparators" id="DATAVSIZE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="4" end="6" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Defines the action on a match. This field is ignored and the comparator generates no actions if it is disabled by MATCH" id="ACTION" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Controls the type of match generated by this comparator" id="MATCH" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="COMP2" width="32" description="Provides a reference value for use by watchpoint comparator 2" id="COMP2" offset="0x40">
+   </register>
+   <register acronym="FUNCTION2" width="32" description="Controls the operation of watchpoint comparator 2" id="FUNCTION2" offset="0x48">
+      <bitfield range="" begin="31" width="5" end="27" rwaccess="RO" description="Identifies the capabilities for MATCH for comparator *n" id="ID" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="2" end="25" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED25" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="24" width="1" end="24" rwaccess="RO" description="Set to 1 when the comparator matches" id="MATCHED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="12" end="12" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED12" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Defines the size of the object being watched for by Data Value and Data Address comparators" id="DATAVSIZE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="4" end="6" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Defines the action on a match. This field is ignored and the comparator generates no actions if it is disabled by MATCH" id="ACTION" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Controls the type of match generated by this comparator" id="MATCH" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="COMP3" width="32" description="Provides a reference value for use by watchpoint comparator 3" id="COMP3" offset="0x50">
+   </register>
+   <register acronym="FUNCTION3" width="32" description="Controls the operation of watchpoint comparator 3" id="FUNCTION3" offset="0x58">
+      <bitfield range="" begin="31" width="5" end="27" rwaccess="RO" description="Identifies the capabilities for MATCH for comparator *n" id="ID" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="2" end="25" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED25" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="24" width="1" end="24" rwaccess="RO" description="Set to 1 when the comparator matches" id="MATCHED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="12" end="12" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED12" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Defines the size of the object being watched for by Data Value and Data Address comparators" id="DATAVSIZE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="4" end="6" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Defines the action on a match. This field is ignored and the comparator generates no actions if it is disabled by MATCH" id="ACTION" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Controls the type of match generated by this comparator" id="MATCH" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DEVARCH" width="32" description="Provides CoreSight discovery information for the DWT" id="DEVARCH" offset="0xfbc">
+      <bitfield range="" begin="31" width="11" end="21" rwaccess="RO" description="Defines the architect of the component. Bits [31:28] are the JEP106 continuation code (JEP106 bank ID, minus 1) and bits [27:21] are the JEP106 ID code." id="ARCHITECT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="20" width="1" end="20" rwaccess="RO" description="Defines that the DEVARCH register is present" id="PRESENT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="19" width="4" end="16" rwaccess="RO" description="Defines the architecture revision of the component" id="REVISION" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="4" end="12" rwaccess="RO" description="Defines the architecture version of the component" id="ARCHVER" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="12" end="0" rwaccess="RO" description="Defines the architecture of the component" id="ARCHPART" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DEVTYPE" width="32" description="Provides CoreSight discovery information for the DWT" id="DEVTYPE" offset="0xfcc">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="Component sub-type" id="SUB" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Component major type" id="MAJOR" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR4" width="32" description="Provides CoreSight discovery information for the DWT" id="PIDR4" offset="0xfd0">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="See CoreSight Architecture Specification" id="SIZE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="See CoreSight Architecture Specification" id="DES_2" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR5" width="32" description="Provides CoreSight discovery information for the DWT" id="PIDR5" offset="0xfd4">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR6" width="32" description="Provides CoreSight discovery information for the DWT" id="PIDR6" offset="0xfd8">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR7" width="32" description="Provides CoreSight discovery information for the DWT" id="PIDR7" offset="0xfdc">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR0" width="32" description="Provides CoreSight discovery information for the DWT" id="PIDR0" offset="0xfe0">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="See CoreSight Architecture Specification" id="PART_0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR1" width="32" description="Provides CoreSight discovery information for the DWT" id="PIDR1" offset="0xfe4">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="See CoreSight Architecture Specification" id="DES_0" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="See CoreSight Architecture Specification" id="PART_1" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR2" width="32" description="Provides CoreSight discovery information for the DWT" id="PIDR2" offset="0xfe8">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="See CoreSight Architecture Specification" id="REVISION" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RO" description="See CoreSight Architecture Specification" id="JEDEC" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RO" description="See CoreSight Architecture Specification" id="DES_1" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR3" width="32" description="Provides CoreSight discovery information for the DWT" id="PIDR3" offset="0xfec">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="See CoreSight Architecture Specification" id="REVAND" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="See CoreSight Architecture Specification" id="CMOD" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CIDR0" width="32" description="Provides CoreSight discovery information for the DWT" id="CIDR0" offset="0xff0">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="See CoreSight Architecture Specification" id="PRMBL_0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CIDR1" width="32" description="Provides CoreSight discovery information for the DWT" id="CIDR1" offset="0xff4">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="See CoreSight Architecture Specification" id="CLASS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="See CoreSight Architecture Specification" id="PRMBL_1" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CIDR2" width="32" description="Provides CoreSight discovery information for the DWT" id="CIDR2" offset="0xff8">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="See CoreSight Architecture Specification" id="PRMBL_2" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CIDR3" width="32" description="Provides CoreSight discovery information for the DWT" id="CIDR3" offset="0xffc">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="See CoreSight Architecture Specification" id="PRMBL_3" resetval="0x0">
+      </bitfield>
+   </register>
+</module>

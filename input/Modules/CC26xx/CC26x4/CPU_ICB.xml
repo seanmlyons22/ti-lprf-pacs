@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="CPU_ICB" HW_revision="" XML_version="1.0" description="Cortex-M&#39;s Implementation Control Block (ICB)" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="ICTR" width="32" description="Provides information about the interrupt controller" id="ICTR" offset="0x4">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Indicates the number of the highest implemented register in each of the NVIC control register sets, or in the case of NVIC_IPR*n, 4xINTLINESNUM" id="INTLINESNUM" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="ACTLR" width="32" description="Provides IMPLEMENTATION DEFINED configuration and control options" id="ACTLR" offset="0x8">
+      <bitfield range="" begin="31" width="2" end="30" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED30" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="External Exclusives Allowed with no MPU" id="EXTEXCLALL" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="28" width="16" end="13" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED13" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Disable ATB Flush" id="DISITMATBFLUSH" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="1" end="11" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Disable FPU exception outputs" id="FPEXCODIS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Disable out-of-order FP instruction completion" id="DISOOFP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="6" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Disable dual-issue." id="DISFOLD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Disable dual-issue." id="DISMCYCINT" resetval="0x0">
+      </bitfield>
+   </register>
+</module>

@@ -1,0 +1,1503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="NVMNW" HW_revision="" XML_version="1.0" description="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="IIDX" width="32" description="Interrupt Index Register:
+The IIDX register provides the highest priority enabled interrupt index.
+
+PSD compliant register.
+Note that it is not recommended to use this register if the system clock is
+running at a slower clock frequency than the NoWrapper clock.  If this is the
+case, then reading this register may fail to update the RIS register correctly.
+The MIS register should be read directly, and a write to ICLR should be used to
+clear interrupts when this clock relationship is present." id="IIDX" offset="0x20">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates which interrupt has fired. 0x0 means no event pending. The priority order is fixed. On each read, only one interrupt is indicated. On a read, the current interrupt (highest priority) is automatically cleared by the hardware and the corresponding interrupt flags in the RIS and MIS are cleared as well. After a read from the CPU (not from the debug interface), the register must be updated with the next highest priority interrupt." id="STAT" resetval="0x0">
+         <bitenum id="DONE" value="1" token="DONE Interrupt Pending" description="DONE Interrupt Pending"/>
+         <bitenum id="NO_INTR" value="0" token="No Interrupt Pending" description="No Interrupt Pending"/>
+      </bitfield>
+   </register>
+   <register acronym="IMASK" width="32" description="Interrupt Mask Register:
+The IMASK register holds the current interrupt mask settings. Masked interrupts
+are read in the MIS register. PSD compliant register." id="IMASK" offset="0x28">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Interrupt mask for DONE:
+0: Interrupt is disabled in MIS register
+1: Interrupt is enabled in MIS register" id="DONE" resetval="0x0">
+         <bitenum id="ENABLED" value="1" token="Interrupt will request an interrupt service routine and corresponding bit in IPSTANDARD.MIS will be set" description="Interrupt will request an interrupt service routine and corresponding bit in IPSTANDARD.MIS will be set"/>
+         <bitenum id="DISABLED" value="0" token="Interrupt is masked out" description="Interrupt is masked out"/>
+      </bitfield>
+   </register>
+   <register acronym="RIS" width="32" description="Raw Interrupt Status Register:
+The RIS register reflects all pending interrupts, regardless of masking. 
+The RIS register allows the user to implement a poll scheme. A flag set in this
+register can be cleared by writing a 1 to the ICLR register bit even if the 
+corresponding IMASK bit is not enabled. A flag can be set by software by writing
+a 1 to the ISET register. Reading the IIDX register will also clear the
+corresponding bit in RIS. PSD compliant register." id="RIS" offset="0x30">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="NoWrapper operation completed.
+This interrupt bit is set by firmware or the corresponding bit in the ISET register.
+It is cleared by the corresponding bit in in the ICLR register or reading the IIDX register when this interrupt is the highest priority." id="DONE" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt occurred" description="Interrupt occurred"/>
+         <bitenum id="CLR" value="0" token="Interrupt did not occur" description="Interrupt did not occur"/>
+      </bitfield>
+   </register>
+   <register acronym="MIS" width="32" description="Masked Interrupt Status Register:
+The MIS register is a bit-wise AND of the contents of the IMASK and RIS 
+registers. This is kept mainly for ARM compatibility, and has limited use since
+ the highest priority interrupt index is returned via the IIDX register.
+ PSD 
+compliant register." id="MIS" offset="0x38">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="NoWrapper operation completed.
+This masked interrupt bit reflects the bitwise AND of the corresponding RIS and IMASK bits." id="DONE" resetval="0x0">
+         <bitenum id="SET" value="1" token="Masked interrupt occurred" description="Masked interrupt occurred"/>
+         <bitenum id="CLR" value="0" token="Masked interrupt did not occur" description="Masked interrupt did not occur"/>
+      </bitfield>
+   </register>
+   <register acronym="ISET" width="32" description="Interrupt Set Register:
+The ISET register allows software to write a 1 to set corresponding interrupt. 
+
+Safety:
+This meets a safety requirement to allow software diagnostics to trigger 
+interrupts.
+PSD compliant register." id="ISET" offset="0x40">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="0: No effect
+1: Set the DONE interrupt in the RIS register" id="DONE" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set IPSTANDARD.RIS bit" description="Set IPSTANDARD.RIS bit"/>
+         <bitenum id="NO_EFFECT" value="0" token="Writing a 0 has no effect" description="Writing a 0 has no effect"/>
+      </bitfield>
+   </register>
+   <register acronym="ICLR" width="32" description="Interrupt Clear Register. 
+The ICLR register allows allows software to write a 1 to clear corresponding 
+interrupt.
+PSD compliant register." id="ICLR" offset="0x48">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="0: No effect
+1: Clear the DONE interrupt in the RIS register" id="DONE" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear IPSTANDARD.RIS bit" description="Clear IPSTANDARD.RIS bit"/>
+         <bitenum id="NO_EFFECT" value="0" token="Writing a 0 has no effect" description="Writing a 0 has no effect"/>
+      </bitfield>
+   </register>
+   <register acronym="EVT_MODE" width="32" description="Event mode register. It is used to select whether each line is disabled, in 
+software mode (software clears the RIS) or in hardware mode (hardware 
+clears the RIS)." id="EVT_MODE" offset="0xe0">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="2" end="0" rwaccess="RO" description="Event line mode select for peripheral event" id="INT0_CFG" resetval="0x1">
+         <bitenum id="HARDWARE" value="2" token="The interrupt or event line is in hardware mode. Hardware should clear the RIS." description="The interrupt or event line is in hardware mode. Hardware should clear the RIS."/>
+         <bitenum id="SOFTWARE" value="1" token="The interrupt or event line is in software mode. Software must clear the RIS." description="The interrupt or event line is in software mode. Software must clear the RIS."/>
+         <bitenum id="DISABLE" value="0" token="The interrupt or event line is disabled." description="The interrupt or event line is disabled."/>
+      </bitfield>
+   </register>
+   <register acronym="DESC" width="32" description="Hardware Version Description Register:
+This register identifies the NoWrapper hardware version and feature set used. " id="DESC" offset="0xfc">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Module ID" id="MODULEID" resetval="0xb40">
+         <bitenum id="MAXIMUM" value="65535" token="Highest possible value" description="Highest possible value"/>
+         <bitenum id="MINIMUM" value="0" token="Smallest value" description="Smallest value"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="4" end="12" rwaccess="RO" description="Feature set" id="FEATUREVER" resetval="0x0">
+         <bitenum id="MAXIMUM" value="15" token="Maximum Value" description="Maximum Value"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum Value" description="Minimum Value"/>
+      </bitfield>
+      <bitfield range="" begin="11" width="4" end="8" rwaccess="RO" description="Instance number" id="INSTNUM" resetval="0x0">
+         <bitenum id="MAXIMUM" value="15" token="Highest possible value" description="Highest possible value"/>
+         <bitenum id="MINIMUM" value="0" token="Smallest value" description="Smallest value"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="Major Revision" id="MAJREV" resetval="0x1">
+         <bitenum id="MAXIMUM" value="15" token="Highest possible value" description="Highest possible value"/>
+         <bitenum id="MINIMUM" value="0" token="Smallest value" description="Smallest value"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Minor Revision" id="MINREV" resetval="0x0">
+         <bitenum id="MAXIMUM" value="15" token="Highest possible value" description="Highest possible value"/>
+         <bitenum id="MINIMUM" value="0" token="Smallest value" description="Smallest value"/>
+      </bitfield>
+   </register>
+   <register acronym="CMDEXEC" width="32" description="Command Execute Register:
+Initiates execution of the command specified in the CMDTYPE register.
+This register is blocked for writes after being written to 1 and prior to 
+STATCMD.DONE being set by the NoWrapper hardware.
+NoWrapper hardware clears this register after the processing of the command 
+has completed.
+" id="CMDEXEC" offset="0x100">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Command Execute value
+Initiates execution of the command specified in the CMDTYPE register." id="VAL" resetval="0x0">
+         <bitenum id="EXECUTE" value="1" token="Command will execute or is executing in NoWrapper" description="Command will execute or is executing in NoWrapper"/>
+         <bitenum id="NOEXECUTE" value="0" token="Command will not execute or is not executing in NoWrapper" description="Command will not execute or is not executing in NoWrapper"/>
+      </bitfield>
+   </register>
+   <register acronym="CMDTYPE" width="32" description="Command Type Register
+This register specifies the type of command to be executed by the NoWrapper 
+hardware.
+This register is blocked for writes after CMDEXEC is written to a 1 and 
+prior to STATCMD.DONE being set by the hardware to indicate that 
+command execution has completed." id="CMDTYPE" offset="0x104">
+      <bitfield range="" begin="6" width="3" end="4" rwaccess="RW" description="Command size " id="SIZE" resetval="0x0">
+         <bitenum id="BANK" value="5" token="Operate on an entire flash bank" description="Operate on an entire flash bank"/>
+         <bitenum id="SECTOR" value="4" token="Operate on a flash sector" description="Operate on a flash sector"/>
+         <bitenum id="EIGHTWORD" value="3" token="Operate on 8 flash words" description="Operate on 8 flash words"/>
+         <bitenum id="FOURWORD" value="2" token="Operate on 4 flash words" description="Operate on 4 flash words"/>
+         <bitenum id="TWOWORD" value="1" token="Operate on 2 flash words" description="Operate on 2 flash words"/>
+         <bitenum id="ONEWORD" value="0" token="Operate on 1 flash word" description="Operate on 1 flash word"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Command type" id="COMMAND" resetval="0x0">
+         <bitenum id="BLANKVERIFY" value="6" token="Blank Verify - Check whether a flash word is in the erased state.
+This command may only be used with CMDTYPE.SIZE = ONEWORD" description="Blank Verify - Check whether a flash word is in the erased state.
+This command may only be used with CMDTYPE.SIZE = ONEWORD"/>
+         <bitenum id="CLEARSTATUS" value="5" token="Clear Status - Clear status bits in FW_SMSTAT only." description="Clear Status - Clear status bits in FW_SMSTAT only."/>
+         <bitenum id="MODECHANGE" value="4" token="Mode Change - Perform a mode change only, no other operation." description="Mode Change - Perform a mode change only, no other operation."/>
+         <bitenum id="READVERIFY" value="3" token="Read Verify - Perform a standalone read verify operation." description="Read Verify - Perform a standalone read verify operation."/>
+         <bitenum id="ERASE" value="2" token="Erase" description="Erase"/>
+         <bitenum id="PROGRAM" value="1" token="Program" description="Program"/>
+         <bitenum id="NOOP" value="0" token="No Operation" description="No Operation"/>
+      </bitfield>
+   </register>
+   <register acronym="CMDCTL" width="32" description="Command Control Register
+This register configures specific capabilities of the state machine for related to
+the execution of a command.
+This register is blocked for writes after CMDEXEC is written to a 1 and 
+prior to STATCMD.DONE being set by the hardware to indicate that 
+command execution has completed.
+" id="CMDCTL" offset="0x108">
+      <bitfield range="" begin="31" width="10" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="1" end="21" rwaccess="RW" description="Enable invalid data verify.  
+This checks for 0-&#62;1 transitions in the memory when
+a program operation is initiated.  If such a transition is found, the program will
+fail with an error without doing any programming." id="DATAVEREN" resetval="0x0">
+         <bitenum id="ENABLE" value="1" token="Enable" description="Enable"/>
+         <bitenum id="DISABLE" value="0" token="Disable" description="Disable"/>
+      </bitfield>
+      <bitfield range="" begin="20" width="1" end="20" rwaccess="RW" description="Disable Stair-Step Erase.  If set, the default VHV trim voltage setting will be used
+for all erase pulses.
+By default, this bit is reset, meaning that the VHV voltage will be stepped during
+successive erase pulses.  The step count, step voltage, begin and end voltages
+are all hard-wired." id="SSERASEDIS" resetval="0x0">
+         <bitenum id="DISABLE" value="1" token="Disable" description="Disable"/>
+         <bitenum id="ENABLE" value="0" token="Enable" description="Enable"/>
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RW" description="Disable use of erase mask for erase
+Bit masking will not be used during erase verify.  If any sectors fail the
+verify either before (prever) or after (postver) the operation, then all specified
+flash sectors will receive subsequent erase pulse." id="ERASEMASKDIS" resetval="0x0">
+         <bitenum id="DISABLE" value="1" token="Disable" description="Disable"/>
+         <bitenum id="ENABLE" value="0" token="Enable" description="Enable"/>
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Disable use of program mask for programming.
+Bit masking will not be used during program verify.  If any bits fail the
+verify either before (prever) or after (postver) the operation, then all specified
+flash entries will receive subsequent program pulse." id="PROGMASKDIS" resetval="0x0">
+         <bitenum id="DISABLE" value="1" token="Disable" description="Disable"/>
+         <bitenum id="ENABLE" value="0" token="Enable" description="Enable"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="1" end="17" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED17" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Override hardware address translation of address in CMDADDR from a 
+system address to a bank address and bank ID.  Use data written to 
+CMDADDR directly as the bank address.  Use the value written to 
+CMDCTL.BANKSEL directly as the bank ID.  Use the value written to
+CMDCTL.REGIONSEL directly as the region ID.
+" id="ADDRXLATEOVR" resetval="0x0">
+         <bitenum id="OVERRIDE" value="1" token="Override" description="Override"/>
+         <bitenum id="NOOVERRIDE" value="0" token="Do not override" description="Do not override"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="Enable verify after program or erase" id="POSTVEREN" resetval="0x1">
+         <bitenum id="ENABLE" value="1" token="Enable" description="Enable"/>
+         <bitenum id="DISABLE" value="0" token="Disable" description="Disable"/>
+      </bitfield>
+      <bitfield range="" begin="14" width="1" end="14" rwaccess="RW" description="Enable verify before program or erase.  For program, bits already programmed
+to the requested value will be masked.  For erase, sectors already erased will be
+masked." id="PREVEREN" resetval="0x1">
+         <bitenum id="ENABLE" value="1" token="Enable" description="Enable"/>
+         <bitenum id="DISABLE" value="0" token="Disable" description="Disable"/>
+      </bitfield>
+      <bitfield range="" begin="13" width="1" end="13" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED13" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="12" width="4" end="9" rwaccess="RW" description="Bank Region
+A specific region ID can be written to this field to indicate to which region an 
+operation should be applied if CMDCTL.ADDRXLATEOVR is set." id="REGIONSEL" resetval="0x0">
+         <bitenum id="ENGR" value="8" token="Engr Region" description="Engr Region"/>
+         <bitenum id="TRIM" value="4" token="Trim Region" description="Trim Region"/>
+         <bitenum id="NONMAIN" value="2" token="Non-Main Region" description="Non-Main Region"/>
+         <bitenum id="MAIN" value="1" token="Main Region" description="Main Region"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="5" end="8" rwaccess="RW" description="Bank Select
+A specific Bank ID can be written to this field to indicate to which bank an 
+operation should be applied if CMDCTL.ADDRXLATEOVR is set." id="BANKSEL" resetval="0x0">
+         <bitenum id="BANK4" value="16" token="Bank 4" description="Bank 4"/>
+         <bitenum id="BANK3" value="8" token="Bank 3" description="Bank 3"/>
+         <bitenum id="BANK2" value="4" token="Bank 2" description="Bank 2"/>
+         <bitenum id="BANK1" value="2" token="Bank 1" description="Bank 1"/>
+         <bitenum id="BANK0" value="1" token="Bank 0" description="Bank 0"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Mode
+This field is only used for the Mode Change command type.  Otherwise, bank
+and pump modes are set automaticlly via the NW hardware." id="MODESEL" resetval="0x0">
+         <bitenum id="ERASEBNK" value="15" token="Erase Bank" description="Erase Bank"/>
+         <bitenum id="PGMMW" value="14" token="Program Multiple Word" description="Program Multiple Word"/>
+         <bitenum id="ERASESECT" value="12" token="Erase Sector" description="Erase Sector"/>
+         <bitenum id="ERASEVER" value="11" token="Erase Verify Mode" description="Erase Verify Mode"/>
+         <bitenum id="PGMSW" value="10" token="Program Single Word" description="Program Single Word"/>
+         <bitenum id="PGMVER" value="9" token="Program Verify Mode" description="Program Verify Mode"/>
+         <bitenum id="RDMARG1B" value="7" token="Read Margin 1B Mode" description="Read Margin 1B Mode"/>
+         <bitenum id="RDMARG0B" value="6" token="Read Margin 0B Mode" description="Read Margin 0B Mode"/>
+         <bitenum id="RDMARG1" value="4" token="Read Margin 1 Mode" description="Read Margin 1 Mode"/>
+         <bitenum id="RDMARG0" value="2" token="Read Margin 0 Mode" description="Read Margin 0 Mode"/>
+         <bitenum id="READ" value="0" token="Read Mode" description="Read Mode"/>
+      </bitfield>
+   </register>
+   <register acronym="CMDADDR" width="32" description="Command Address Register:
+This register forms the target address of a command.  The use cases are as
+follows:
+1)For single-word program, this address indicates the flash bank word to be
+programmed.
+2)For multi-word program, this address indicates the first flash bank address
+for the program.  The address will be incremented for further words.
+3)For sector erase, this address indicates the sector to be erased.
+4)For bank erase, the address indicates the bank to be erased.
+5)For read verify, the address indications follow program/erase listed above.
+Note the address written to this register will be submitted for translation to the
+NoWrapper address translation interface, and the translated address
+will be used to access the bank.  However, if the
+CMDCTL.ADDRXLATEOVR bit is set, then the address written to this register will
+be used directly as the bank address.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware.
+
+" id="CMDADDR" offset="0x120">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Address value" id="VAL" resetval="0x0">
+         <bitenum id="MAXIMUM" value="4294967295" token="Maximum value of VAL" description="Maximum value of VAL"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value of VAL" description="Minimum value of VAL"/>
+      </bitfield>
+   </register>
+   <register acronym="CMDBYTEN" width="32" description="Command Program Byte Enable Register:
+This register forms a per-byte enable for programming data.  For data bytes to
+be programmed, a 1 must be written to the corresponding bit in this register.
+Normally, all bits are written to 1, allowing program of full flash words.
+However, leaving some bits 0 allows programming of 8-bit, 16-bit, 32-bit
+or 64-bit portions of a flash word.
+In addtion, the read verify command will ignore data bytes read from the flash
+in its comparison if the corresponding CMDBYTEN bit is 0.
+ECC data bytes are protected by the 1-2 MSB bits in this register, depending on
+the presence of ECC and the flash word data width.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware.
+This register is written to all 0 after the completion of all NoWrapper commands.
+" id="CMDBYTEN" offset="0x124">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Command Byte Enable value.
+A 1-bit per flash word byte value is placed in this register.
+" id="VAL" resetval="0xffff">
+         <bitenum id="MAXIMUM" value="65535" token="Maximum value of VAL" description="Maximum value of VAL"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value of VAL" description="Minimum value of VAL"/>
+      </bitfield>
+   </register>
+   <register acronym="CMDDATAINDEX" width="32" description="Command Program Data Index Register:
+When multiple data registers are available for multi-word program, this register
+can be written with an index which points to one of the data registers.  When
+a write to CMDDATA* is done, the data will be written to the physical
+data register indexed by the value in this register.
+Up to 8 data registers can be present, so this register can be written with 0x0
+to 0x7.  If less than 8 data registers are present, successive MSB bits of this
+register are ignored when indexing the CMDDATA* registers.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware." id="CMDDATAINDEX" offset="0x12c">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Data register index
+" id="VAL" resetval="0x0">
+         <bitenum id="MAXIMUM" value="3" token="Maximum value of VAL" description="Maximum value of VAL"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value of VAL" description="Minimum value of VAL"/>
+      </bitfield>
+   </register>
+   <register acronym="CMDDATA0" width="32" description="Command Data Register 0
+This register forms the data for a command.  
+For DATAWIDTH == 128:This register represents bits 31:0 of flash word data register 0.
+For DATAWIDTH == 64:This register represents bits 31:0 of flash word data register 0.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware.
+This register is used to aggregate masking for bits that do not
+require additional program pulses during program operations, and will be
+written to all 1 after the completion of all NoWrapper commands.
+
+Use cases for the CMDDATA* registers are as follows:
+1)Program - These registers contain the data to be programmed.
+2)Erase - These registers are not used.
+3)Read Verify - These registers contain data to be verified." id="CMDDATA0" offset="0x130">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="A 32-bit data value is placed in this field.
+" id="VAL" resetval="0xffffffff">
+         <bitenum id="MAXIMUM" value="4294967295" token="Maximum value of VAL" description="Maximum value of VAL"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value of VAL" description="Minimum value of VAL"/>
+      </bitfield>
+   </register>
+   <register acronym="CMDDATA1" width="32" description="Command Data Register 1
+This register forms the data for a command.  
+For DATAWIDTH == 128:This register represents bits 63:32 of flash word data register 0.
+For DATAWIDTH == 64:This register represents bits 63:32 of flash word data register 0.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to CMDSTAT.DONE being set by the NoWrapper
+hardware.
+This register is used to aggregate masking for bits that do not
+require additional program pulses during program operations, and will be
+written to all 1 after the completion of all NoWrapper commands.
+
+Use cases for the CMDDATA* registers are as follows:
+1)Program - These registers contain the data to be programmed.
+2)Erase - These registers are not used.
+3)Read Verify - These registers contain data to be verified." id="CMDDATA1" offset="0x134">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="A 32-bit data value is placed in this field.
+
+" id="VAL" resetval="0xffffffff">
+         <bitenum id="MAXIMUM" value="4294967295" token="Maximum value of VAL" description="Maximum value of VAL"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value of VAL" description="Minimum value of VAL"/>
+      </bitfield>
+   </register>
+   <register acronym="CMDDATA2" width="32" description="Command Data Register 2
+This register forms the data for a command.  
+For DATAWIDTH == 128:This register represents bits 95:64 of flash word data register 0.
+For DATAWIDTH == 64:This register represents bits 31:0 of flash word data register 1.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware.
+This register is used to aggregate masking for bits that do not
+require additional program pulses during program operations, and will be
+written to all 1 after the completion of all NoWrapper commands.
+
+Use cases for the CMDDATA* registers are as follows:
+1)Program - These registers contain the data to be programmed.
+2)Erase - These registers are not used.
+3)Read Verify - These registers contain data to be verified." id="CMDDATA2" offset="0x138">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="A 32-bit data value is placed in this field.
+
+" id="VAL" resetval="0xffffffff">
+         <bitenum id="MAXIMUM" value="4294967295" token="Maximum value of VAL" description="Maximum value of VAL"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value of VAL" description="Minimum value of VAL"/>
+      </bitfield>
+   </register>
+   <register acronym="CMDDATA3" width="32" description="Command Data Register 3
+This register forms the data for a command.  
+For DATAWIDTH == 128:This register represents bits 127:96 of flash word data register 0.
+For DATAWIDTH == 64:This register represents bits 63:32 of flash word data register 1.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware.
+This register is used to aggregate masking for bits that do not
+require additional program pulses during program operations, and will be
+written to all 1 after the completion of all NoWrapper commands.
+
+Use cases for the CMDDATA* registers are as follows:
+1)Program - These registers contain the data to be programmed.
+2)Erase - These registers are not used.
+3)Read Verify - These registers contain data to be verified." id="CMDDATA3" offset="0x13c">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="A 32-bit data value is placed in this field.
+" id="VAL" resetval="0xffffffff">
+         <bitenum id="MAXIMUM" value="4294967295" token="Maximum value of VAL" description="Maximum value of VAL"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value of VAL" description="Minimum value of VAL"/>
+      </bitfield>
+   </register>
+   <register acronym="CMDDATA4" width="32" description="Command Data Register 4
+This register forms the data for a command.  
+For DATAWIDTH == 128:This register represents bits 31:0 of flash word data register 1.
+For DATAWIDTH == 64:This register represents bits 31:0 of flash word data register 2.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware.
+This register is used to aggregate masking for bits that do not
+require additional program pulses during program operations, and will be
+written to all 1 after the completion of all NoWrapper commands.
+
+Use cases for the CMDDATA* registers are as follows:
+1)Program - These registers contain the data to be programmed.
+2)Erase - These registers are not used.
+3)Read Verify - These registers contain data to be verified." id="CMDDATA4" offset="0x140">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="A 32-bit data value is placed in this field.
+T
+" id="VAL" resetval="0xffffffff">
+         <bitenum id="MAXIMUM" value="4294967295" token="Maximum value of VAL" description="Maximum value of VAL"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value of VAL" description="Minimum value of VAL"/>
+      </bitfield>
+   </register>
+   <register acronym="CMDDATA5" width="32" description="Command Data Register 5
+
+This register forms the data for a command.  
+For DATAWIDTH == 128:This register represents bits 63:32 of flash word data register 1.
+For DATAWIDTH == 64:This register represents bits 63:32 of flash word data register 2.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware.
+This register is used to aggregate masking for bits that do not
+require additional program pulses during program operations, and will be
+written to all 1 after the completion of all NoWrapper commands.
+
+Use cases for the CMDDATA* registers are as follows:
+1)Program - These registers contain the data to be programmed.
+2)Erase - These registers are not used.
+3)Read Verify - These registers contain data to be verified." id="CMDDATA5" offset="0x144">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="A 32-bit data value is placed in this field.
+" id="VAL" resetval="0xffffffff">
+         <bitenum id="MAXIMUM" value="4294967295" token="Maximum value of VAL" description="Maximum value of VAL"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value of VAL" description="Minimum value of VAL"/>
+      </bitfield>
+   </register>
+   <register acronym="CMDDATA6" width="32" description="Command Data Register 6
+This register forms the data for a command.  
+For DATAWIDTH == 128:This register represents bits 95:64 of flash word data register 1.
+For DATAWIDTH == 64:This register represents bits 31:0 of flash word data register 3.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware.
+This register is used to aggregate masking for bits that do not
+require additional program pulses during program operations, and will be
+written to all 1 after the completion of all NoWrapper commands.
+
+Use cases for the CMDDATA* registers are as follows:
+1)Program - These registers contain the data to be programmed.
+2)Erase - These registers are not used.
+3)Read Verify - These registers contain data to be verified." id="CMDDATA6" offset="0x148">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="A 32-bit data value is placed in this field.
+
+" id="VAL" resetval="0xffffffff">
+         <bitenum id="MAXIMUM" value="4294967295" token="Maximum value of VAL" description="Maximum value of VAL"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value of VAL" description="Minimum value of VAL"/>
+      </bitfield>
+   </register>
+   <register acronym="CMDDATA7" width="32" description="Command Data Register 7
+This register forms the data for a command.  
+For DATAWIDTH == 128:This register represents bits 127:96 of flash word data register 1.
+For DATAWIDTH == 64:This register represents bits 63:32 of flash word data register 3.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware.
+This register is used to aggregate masking for bits that do not
+require additional program pulses during program operations, and will be
+written to all 1 after the completion of all NoWrapper commands.
+
+Use cases for the CMDDATA* registers are as follows:
+1)Program - These registers contain the data to be programmed.
+2)Erase - These registers are not used.
+3)Read Verify - These registers contain data to be verified." id="CMDDATA7" offset="0x14c">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="A 32-bit data value is placed in this field.
+
+" id="VAL" resetval="0xffffffff">
+         <bitenum id="MAXIMUM" value="4294967295" token="Maximum value of VAL" description="Maximum value of VAL"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value of VAL" description="Minimum value of VAL"/>
+      </bitfield>
+   </register>
+   <register acronym="CMDDATA8" width="32" description="Command Data Register 8
+This register forms the data for a command.  
+For DATAWIDTH == 128:This register represents bits 31:0 of flash word data register 2.
+For DATAWIDTH == 64:This register represents bits 31:0 of flash word data register 4.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware.
+This register is used to aggregate masking for bits that do not
+require additional program pulses during program operations, and will be
+written to all 1 after the completion of all NoWrapper commands.
+
+Use cases for the CMDDATA* registers are as follows:
+1)Program - These registers contain the data to be programmed.
+2)Erase - These registers are not used.
+3)Read Verify - These registers contain data to be verified." id="CMDDATA8" offset="0x150">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="A 32-bit data value is placed in this field.
+
+" id="VAL" resetval="0xffffffff">
+         <bitenum id="MAXIMUM" value="4294967295" token="Maximum value of VAL" description="Maximum value of VAL"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value of VAL" description="Minimum value of VAL"/>
+      </bitfield>
+   </register>
+   <register acronym="CMDDATA9" width="32" description="Command Data Register 9
+
+This register forms the data for a command.  
+For DATAWIDTH == 128:This register represents bits 63:32 of flash word data register 2.
+For DATAWIDTH == 64:This register represents bits 63:32 of flash word data register 4.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware.
+This register is used to aggregate masking for bits that do not
+require additional program pulses during program operations, and will be
+written to all 1 after the completion of all NoWrapper commands.
+
+Use cases for the CMDDATA* registers are as follows:
+1)Program - These registers contain the data to be programmed.
+2)Erase - These registers are not used.
+3)Read Verify - These registers contain data to be verified." id="CMDDATA9" offset="0x154">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="A 32-bit data value is placed in this field.
+
+" id="VAL" resetval="0xffffffff">
+         <bitenum id="MAXIMUM" value="4294967295" token="Maximum value of VAL" description="Maximum value of VAL"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value of VAL" description="Minimum value of VAL"/>
+      </bitfield>
+   </register>
+   <register acronym="CMDDATA10" width="32" description="Command Data Register 10
+This register forms the data for a command.  
+For DATAWIDTH == 128:This register represents bits 95:64 of flash word data register 2.
+For DATAWIDTH == 64:This register represents bits 31:0 of flash word data register 5.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware.
+This register is used to aggregate masking for bits that do not
+require additional program pulses during program operations, and will be
+written to all 1 after the completion of all NoWrapper commands.
+
+Use cases for the CMDDATA* registers are as follows:
+1)Program - These registers contain the data to be programmed.
+2)Erase - These registers are not used.
+3)Read Verify - These registers contain data to be verified." id="CMDDATA10" offset="0x158">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="A 32-bit data value is placed in this field.
+" id="VAL" resetval="0xffffffff">
+         <bitenum id="MAXIMUM" value="4294967295" token="Maximum value of VAL" description="Maximum value of VAL"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value of VAL" description="Minimum value of VAL"/>
+      </bitfield>
+   </register>
+   <register acronym="CMDDATA11" width="32" description="Command Data Register 11
+This register forms the data for a command.  
+For DATAWIDTH == 128:This register represents bits 127:96 of flash word data register 2.
+For DATAWIDTH == 64:This register represents bits 63:32 of flash word data register 5.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware.
+This register is used to aggregate masking for bits that do not
+require additional program pulses during program operations, and will be
+written to all 1 after the completion of all NoWrapper commands.
+
+Use cases for the CMDDATA* registers are as follows:
+1)Program - These registers contain the data to be programmed.
+2)Erase - These registers are not used.
+3)Read Verify - These registers contain data to be verified." id="CMDDATA11" offset="0x15c">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="A 32-bit data value is placed in this field.
+" id="VAL" resetval="0xffffffff">
+         <bitenum id="MAXIMUM" value="4294967295" token="Maximum value of VAL" description="Maximum value of VAL"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value of VAL" description="Minimum value of VAL"/>
+      </bitfield>
+   </register>
+   <register acronym="CMDDATA12" width="32" description="Command Data Register 12
+This register forms the data for a command.  
+For DATAWIDTH == 128:This register represents bits 31:0 of flash word data register 3.
+For DATAWIDTH == 64:This register represents bits 31:0 of flash word data register 6.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware.
+This register is used to aggregate masking for bits that do not
+require additional program pulses during program operations, and will be
+written to all 1 after the completion of all NoWrapper commands.
+
+Use cases for the CMDDATA* registers are as follows:
+1)Program - These registers contain the data to be programmed.
+2)Erase - These registers are not used.
+3)Read Verify - These registers contain data to be verified." id="CMDDATA12" offset="0x160">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="A 32-bit data value is placed in this field.
+" id="VAL" resetval="0xffffffff">
+         <bitenum id="MAXIMUM" value="4294967295" token="Maximum value of VAL" description="Maximum value of VAL"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value of VAL" description="Minimum value of VAL"/>
+      </bitfield>
+   </register>
+   <register acronym="CMDDATA13" width="32" description="Command Data Register 13
+
+This register forms the data for a command.  
+For DATAWIDTH == 128:This register represents bits 63:32 of flash word data register 3.
+For DATAWIDTH == 64:This register represents bits 63:32 of flash word data register 6.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware.
+This register is used to aggregate masking for bits that do not
+require additional program pulses during program operations, and will be
+written to all 1 after the completion of all NoWrapper commands.
+
+Use cases for the CMDDATA* registers are as follows:
+1)Program - These registers contain the data to be programmed.
+2)Erase - These registers are not used.
+3)Read Verify - These registers contain data to be verified." id="CMDDATA13" offset="0x164">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="A 32-bit data value is placed in this field.
+
+" id="VAL" resetval="0xffffffff">
+         <bitenum id="MAXIMUM" value="4294967295" token="Maximum value of VAL" description="Maximum value of VAL"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value of VAL" description="Minimum value of VAL"/>
+      </bitfield>
+   </register>
+   <register acronym="CMDDATA14" width="32" description="Command Data Register 14
+This register forms the data for a command.  
+For DATAWIDTH == 128:This register represents bits 95:64 of flash word data register 3.
+For DATAWIDTH == 64:This register represents bits 31:0 of flash word data register 7.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware.
+This register is used to aggregate masking for bits that do not
+require additional program pulses during program operations, and will be
+written to all 1 after the completion of all NoWrapper commands.
+
+Use cases for the CMDDATA* registers are as follows:
+1)Program - These registers contain the data to be programmed.
+2)Erase - These registers are not used.
+3)Read Verify - These registers contain data to be verified." id="CMDDATA14" offset="0x168">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="A 32-bit data value is placed in this field.
+" id="VAL" resetval="0xffffffff">
+         <bitenum id="MAXIMUM" value="4294967295" token="Maximum value of VAL" description="Maximum value of VAL"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value of VAL" description="Minimum value of VAL"/>
+      </bitfield>
+   </register>
+   <register acronym="CMDDATA15" width="32" description="Command Data Register 15
+This register forms the data for a command.  
+For DATAWIDTH == 128:This register represents bits 127:96 of flash word data register 3.
+For DATAWIDTH == 64:This register represents bits 63:32 of flash word data register 7.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware.
+This register is used to aggregate masking for bits that do not
+require additional program pulses during program operations, and will be
+written to all 1 after the completion of all NoWrapper commands.
+
+Use cases for the CMDDATA* registers are as follows:
+1)Program - These registers contain the data to be programmed.
+2)Erase - These registers are not used.
+3)Read Verify - These registers contain data to be verified." id="CMDDATA15" offset="0x16c">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="A 32-bit data value is placed in this field.
+" id="VAL" resetval="0xffffffff">
+         <bitenum id="MAXIMUM" value="4294967295" token="Maximum value of VAL" description="Maximum value of VAL"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value of VAL" description="Minimum value of VAL"/>
+      </bitfield>
+   </register>
+   <register acronym="CMDWEPROTA" width="32" description="Command WriteErase Protect A Register
+This register allows the first 32 sectors of the main region to be protected from
+program or erase, with 1 bit protecting each sector.  If the main region size is smaller than 32
+sectors, then this register provides protection for the whole region.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware.
+In addition, this register is used to aggregate masking for sectors that do not
+require additional erase pulses during bank erase operations, and will be
+written to all 1 after the completion of all NoWrapper commands." id="CMDWEPROTA" offset="0x1d0">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Each bit protects 1 sector.
+
+bit [0]:When 1, sector 0 of the flash memory will be protected from program
+and erase.
+bit [1]:When 1, sector 1 of the flash memory will be protected from program
+and erase.
+:
+:
+bit [31]:When 1, sector 31 of the flash memory will be protected from program
+and erase.
+" id="VAL" resetval="0xffffffff">
+         <bitenum id="MAXIMUM" value="4294967295" token="Maximum value of VAL" description="Maximum value of VAL"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value of VAL" description="Minimum value of VAL"/>
+      </bitfield>
+   </register>
+   <register acronym="CMDWEPROTB" width="32" description="Command WriteErase Protect B Register
+This register allows main region sectors to be protected from program and
+erase.  Each bit corresponds to a group of 8 sectors. 
+There are 3 cases for how these protect bits are applied:
+1. Single-bank system:  
+    In the case where only a single flash bank is present,
+    the first 32 sectors are protected via the CMDWEPROTA register.  Thus, the
+    protection give by the bits in CMDWEPROTB begin with sector 32.
+2. Multi-bank system, Bank 0:
+    When multiple flash banks are present, the first
+    32 sectors of bank 0 are protected via the CMDWEPROTA register.  Thus, only
+    bits 4 and above of CMDWEPROTB would be applicable to bank 0.  The protection of
+    bit 4 and above would begin at sector 32.  Bits 3:0
+    of WEPROTB are ignored for bank 0.
+3. Multi-bank system, Banks 1-N:
+    For banks other than bank 0 in a multi-bank system, CMDWEPROTA has
+    no effect, so the bits in CMDWEPROTB will protect these banks starting
+    from sector 0.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware.
+In addition, this register is used to aggregate masking for sectors that do not
+require additional erase pulses during bank erase operations, and will be
+written to all 1 after the completion of all NoWrapper commands.
+" id="CMDWEPROTB" offset="0x1d4">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Each bit protects a group of 8 sectors.  When a bit is 1, the associated 8 sectors
+in the flash will be protected from program and erase.  A maximum of 256
+sectors can be protected with this register." id="VAL" resetval="0xffffffff">
+         <bitenum id="MAXIMUM" value="4294967295" token="Maximum value of VAL" description="Maximum value of VAL"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value of VAL" description="Minimum value of VAL"/>
+      </bitfield>
+   </register>
+   <register acronym="CMDWEPROTNM" width="32" description="Command WriteErase Protect Non-Main
+ Register
+This register allows non-main region region sectors to be protected
+from program and erase.  Each bit corresponds to 1 sector. 
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware.
+In addition, this register is used to aggregate masking for sectors that do not
+require additional erase pulses during bank erase operations, and will be
+written to all 1 after the completion of all NoWrapper commands." id="CMDWEPROTNM" offset="0x210">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Each bit protects 1 sector.
+
+bit [0]:When 1, sector 0 of the non-main region will be protected from program
+and erase.
+bit [1]:When 1, sector 1 of the non-main region will be protected from program
+and erase.
+:
+:
+bit [31]:When 1, sector 31 of the non-main will be protected from program
+and erase.
+" id="VAL" resetval="0x1">
+         <bitenum id="MAXIMUM" value="1" token="Maximum value of VAL" description="Maximum value of VAL"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value of VAL" description="Minimum value of VAL"/>
+      </bitfield>
+   </register>
+   <register acronym="CMDWEPROTTR" width="32" description="Command WriteErase Protect Trim
+ Register
+This register allows trim region sectors to be protected
+from program and erase.  Each bit corresponds to 1 sector. 
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware.
+In addition, this register is used to aggregate masking for sectors that do not
+require additional erase pulses during bank erase operations, and will be
+written to all 1 after the completion of all NoWrapper commands.
+" id="CMDWEPROTTR" offset="0x214">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Each bit protects 1 sector.
+
+bit [0]:When 1, sector 0 of the engr region will be protected from program
+and erase.
+bit [1]:When 1, sector 1 of the engr region will be protected from program
+and erase.
+:
+:
+bit [31]:When 1, sector 31 of the engr region will be protected from program
+and erase.
+" id="VAL" resetval="0x1">
+         <bitenum id="MAXIMUM" value="1" token="Maximum value of VAL" description="Maximum value of VAL"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value of VAL" description="Minimum value of VAL"/>
+      </bitfield>
+   </register>
+   <register acronym="CMDWEPROTEN" width="32" description="Command WriteErase Protect Engr
+ Register
+This register allows engr region sectors to be protected
+from program and erase.  Each bit corresponds to 1 sector. 
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware.
+In addition, this register is used to aggregate masking for sectors that do not
+require additional erase pulses during bank erase operations, and will be
+written to all 1 after the completion of all NoWrapper commands.
+" id="CMDWEPROTEN" offset="0x218">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Each bit protects 1 sector.
+
+bit [0]:When 1, sector 0 of the engr region will be protected from program
+and erase.
+bit [1]:When 1, sector 1 of the engr region will be protected from program
+and erase.
+:
+:
+bit [31]:When 1, sector 31 of the engr region will be protected from program
+and erase.
+" id="VAL" resetval="0x1">
+         <bitenum id="MAXIMUM" value="1" token="Maximum value of VAL" description="Maximum value of VAL"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value of VAL" description="Minimum value of VAL"/>
+      </bitfield>
+   </register>
+   <register acronym="CFGCMD" width="32" description="Command Configuration Register
+This register configures specific capabilities of the state machine for related to
+the execution of a command.
+This register is blocked for writes after CMDEXEC is written to a 1 and 
+prior to STATCMD.DONE being set by the hardware to indicate that 
+command execution has completed.
+" id="CFGCMD" offset="0x3b0">
+      <bitfield range="" begin="32" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Wait State setting for program verify, erase verify and read verify" id="WAITSTATE" resetval="0x2">
+         <bitenum id="MAXIMUM" value="15" token="Maximum value" description="Maximum value"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value" description="Minimum value"/>
+      </bitfield>
+   </register>
+   <register acronym="CFGPCNT" width="32" description="Pulse Counter Configuration Register
+This register allows further configuration of maximum pulse counts for 
+program and erase operations.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware." id="CFGPCNT" offset="0x3b4">
+      <bitfield range="" begin="32" width="20" end="12" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED12" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="8" end="4" rwaccess="RW" description="Override maximum pulse counter with this value.  
+If MAXPCNTOVR = 0, then this field is ignored.
+If MAXPCNTOVR = 1 and MAXERSPCNTOVR = 0, then this value will be used 
+to override the max pulse count for both program and erase.  Full max value
+will be {4&#39;h0, MAXPCNTVAL} .
+If MAXPCNTOVR = 1 and MAXERSPCNTOVR = 1, then this value will be used
+to override the max pulse count for program only.  Full max value will be
+{4&#39;h0, MAXPCNTVAL}." id="MAXPCNTVAL" resetval="0x0">
+         <bitenum id="MAXIMUM" value="255" token="Maximum value" description="Maximum value"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value" description="Minimum value"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="3" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Override hard-wired maximum pulse count.  If MAXERSPCNTOVR
+is not set, then setting this value alone will override the max pulse count for
+both program and erase.  If MAXERSPCNTOVR is set, then this bit will only
+control the max pulse count setting for program.
+By default, this bit is 0, and a hard-wired max pulse count is used.
+" id="MAXPCNTOVR" resetval="0x0">
+         <bitenum id="OVERRIDE" value="1" token="Use value from MAXPCNTVAL field as maximum puse count" description="Use value from MAXPCNTVAL field as maximum puse count"/>
+         <bitenum id="DEFAULT" value="0" token="Use hard-wired (default) value for maximum pulse count" description="Use hard-wired (default) value for maximum pulse count"/>
+      </bitfield>
+   </register>
+   <register acronym="STATCMD" width="32" description="Command Status Register
+This register contains status regarding completion and errors of command
+execution." id="STATCMD" offset="0x3d0">
+      <bitfield range="" begin="31" width="19" end="13" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED13" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="RO" description="Command failed due to error other than write/erase protect violation or verify
+error.  This is an extra bit in case a new failure mechanism is added which
+requires a status bit." id="FAILMISC" resetval="0x0">
+         <bitenum id="STATFAIL" value="1" token="Fail" description="Fail"/>
+         <bitenum id="STATNOFAIL" value="0" token="No Fail" description="No Fail"/>
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RO" description="Program command failed because an attempt was made to program a stored
+0 value to a 1." id="FAILINVDATA" resetval="0x0">
+         <bitenum id="STATFAIL" value="1" token="Fail" description="Fail"/>
+         <bitenum id="STATNOFAIL" value="0" token="No Fail" description="No Fail"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RO" description="Command failed because a bank has been set to a mode other than READ.
+Program and Erase commands cannot be initiated unless all banks are in READ
+mode." id="FAILMODE" resetval="0x0">
+         <bitenum id="STATFAIL" value="1" token="Fail" description="Fail"/>
+         <bitenum id="STATNOFAIL" value="0" token="No Fail" description="No Fail"/>
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RO" description="Command failed due to the use of an illegal address" id="FAILILLADDR" resetval="0x0">
+         <bitenum id="STATFAIL" value="1" token="Fail" description="Fail"/>
+         <bitenum id="STATNOFAIL" value="0" token="No Fail" description="No Fail"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RO" description="Command failed due to verify error" id="FAILVERIFY" resetval="0x0">
+         <bitenum id="STATFAIL" value="1" token="Fail" description="Fail"/>
+         <bitenum id="STATNOFAIL" value="0" token="No Fail" description="No Fail"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RO" description="Command failed due to Write/Erase Protect Sector Violation" id="FAILWEPROT" resetval="0x0">
+         <bitenum id="STATFAIL" value="1" token="Fail" description="Fail"/>
+         <bitenum id="STATNOFAIL" value="0" token="No Fail" description="No Fail"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RO" description="Command In Progress
+" id="CMDINPROGRESS" resetval="0x0">
+         <bitenum id="STATINPROGRESS" value="1" token="In Progress" description="In Progress"/>
+         <bitenum id="STATCOMPLETE" value="0" token="Complete" description="Complete"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Command Pass - valid when CMD_DONE field is 1" id="CMDPASS" resetval="0x0">
+         <bitenum id="STATPASS" value="1" token="Pass" description="Pass"/>
+         <bitenum id="STATFAIL" value="0" token="Fail" description="Fail"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Command Done
+" id="CMDDONE" resetval="0x0">
+         <bitenum id="STATDONE" value="1" token="Done" description="Done"/>
+         <bitenum id="STATNOTDONE" value="0" token="Not Done" description="Not Done"/>
+      </bitfield>
+   </register>
+   <register acronym="STATADDR" width="32" description="Current Address Counter Value
+Read only register giving read access to the state machine current address.
+A bank id, region id and address are stored in this register and are incremented as
+necessary during execution of a command.
+
+
+" id="STATADDR" offset="0x3d4">
+      <bitfield range="" begin="31" width="6" end="26" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED26" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="25" width="5" end="21" rwaccess="RO" description="Current Bank ID
+A bank indicator is stored in this register which represents the current bank on
+which the state  machine is operating.  There is 1 bit per bank." id="BANKID" resetval="0x1">
+         <bitenum id="BANK4" value="16" token="Bank 4" description="Bank 4"/>
+         <bitenum id="BANK3" value="8" token="Bank 3" description="Bank 3"/>
+         <bitenum id="BANK2" value="4" token="Bank 2" description="Bank 2"/>
+         <bitenum id="BANK1" value="2" token="Bank 1" description="Bank 1"/>
+         <bitenum id="BANK0" value="1" token="Bank 0" description="Bank 0"/>
+      </bitfield>
+      <bitfield range="" begin="20" width="5" end="16" rwaccess="RO" description="Current Region ID
+A region indicator is stored in this register which represents the current flash 
+region on which the state  machine is operating." id="REGIONID" resetval="0x0">
+         <bitenum id="ENGR" value="8" token="Engr Region" description="Engr Region"/>
+         <bitenum id="TRIM" value="4" token="Trim Region" description="Trim Region"/>
+         <bitenum id="NONMAIN" value="2" token="Non-Main Region" description="Non-Main Region"/>
+         <bitenum id="MAIN" value="1" token="Main Region" description="Main Region"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RO" description="Current Bank Address
+A bank offset address is stored in this register." id="BANKADDR" resetval="0x0">
+         <bitenum id="MAXIMUM" value="65535" token="Maximum value" description="Maximum value"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value" description="Minimum value"/>
+      </bitfield>
+   </register>
+   <register acronym="STATPCNT" width="32" description="Current Pulse Count Register:
+Read only register giving read access to the state machine current pulse count
+value for program/erase operations.
+
+
+" id="STATPCNT" offset="0x3d8">
+      <bitfield range="" begin="31" width="20" end="12" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED12" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="12" end="0" rwaccess="RO" description="Current Pulse Counter Value" id="PULSECNT" resetval="0x0">
+         <bitenum id="MAXIMUM" value="4095" token="Maximum value" description="Maximum value"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value" description="Minimum value"/>
+      </bitfield>
+   </register>
+   <register acronym="STATMODE" width="32" description="Mode Status Register
+Indicates any banks which not in READ mode, and it indicates the mode
+which the bank(s) are in.
+
+
+" id="STATMODE" offset="0x3dc">
+      <bitfield range="" begin="17" width="1" end="17" rwaccess="RO" description="Bank 1T Ready.
+Bank(s) are ready for 1T access.  This is accomplished when the bank and pump
+have been trimmed.
+" id="BANK1TRDY" resetval="0x0">
+         <bitenum id="TRUE" value="1" token="Ready" description="Ready"/>
+         <bitenum id="FALSE" value="0" token="Not ready" description="Not ready"/>
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="RO" description="Bank 2T Ready.
+Bank(s) are ready for 2T access.  This is accomplished when the pump has
+fully driven power rails to the bank(s).
+" id="BANK2TRDY" resetval="0x0">
+         <bitenum id="TRUE" value="1" token="Ready" description="Ready"/>
+         <bitenum id="FALSE" value="0" token="Not ready" description="Not ready"/>
+      </bitfield>
+      <bitfield range="" begin="11" width="4" end="8" rwaccess="RO" description="Indicates mode of bank(s) that are not in READ mode" id="BANKMODE" resetval="0x0">
+         <bitenum id="ERASEBNK" value="15" token="Erase Bank" description="Erase Bank"/>
+         <bitenum id="PGMMW" value="14" token="Program Multiple Word" description="Program Multiple Word"/>
+         <bitenum id="ERASESECT" value="12" token="Erase Sector" description="Erase Sector"/>
+         <bitenum id="ERASEVER" value="11" token="Erase Verify Mode" description="Erase Verify Mode"/>
+         <bitenum id="PGMSW" value="10" token="Program Single Word" description="Program Single Word"/>
+         <bitenum id="PGMVER" value="9" token="Program Verify Mode" description="Program Verify Mode"/>
+         <bitenum id="RDMARG1B" value="7" token="Read Margin 1B Mode" description="Read Margin 1B Mode"/>
+         <bitenum id="RDMARG0B" value="6" token="Read Margin 0B Mode" description="Read Margin 0B Mode"/>
+         <bitenum id="RDMARG1" value="4" token="Read Margin 1 Mode" description="Read Margin 1 Mode"/>
+         <bitenum id="RDMARG0" value="2" token="Read Margin 0 Mode" description="Read Margin 0 Mode"/>
+         <bitenum id="READ" value="0" token="Read Mode" description="Read Mode"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="3" end="5" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="5" end="4" rwaccess="RO" description="Bank not in read mode.
+Indicates which banks are not in READ mode.  There is 1 bit per bank." id="BANKNOTINRD" resetval="0x0">
+         <bitenum id="BANK4" value="16" token="Bank 4" description="Bank 4"/>
+         <bitenum id="BANK3" value="8" token="Bank 3" description="Bank 3"/>
+         <bitenum id="BANK2" value="4" token="Bank 2" description="Bank 2"/>
+         <bitenum id="BANK1" value="2" token="Bank 1" description="Bank 1"/>
+         <bitenum id="BANK0" value="1" token="Bank 0" description="Bank 0"/>
+      </bitfield>
+   </register>
+   <register acronym="GBLINFO0" width="32" description="Global Info 0 Register
+Read only register detailing information about sector size and number of banks
+present.
+
+" id="GBLINFO0" offset="0x3f0">
+      <bitfield range="" begin="18" width="3" end="16" rwaccess="RO" description="Number of banks instantiated
+Minimum:1
+Maximum:5" id="NUMBANKS" resetval="0x2">
+         <bitenum id="MAXIMUM" value="5" token="Maximum value" description="Maximum value"/>
+         <bitenum id="MINIMUM" value="1" token="Minimum value" description="Minimum value"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RO" description="Sector size in bytes" id="SECTORSIZE" resetval="0x800">
+         <bitenum id="TWOKB" value="2048" token="Sector size is TWOKB" description="Sector size is TWOKB"/>
+         <bitenum id="ONEKB" value="1024" token="Sector size is ONEKB" description="Sector size is ONEKB"/>
+      </bitfield>
+   </register>
+   <register acronym="GBLINFO1" width="32" description="Global Info 1 Register
+Read only register detailing information about data, ecc and redundant data
+widths in bits.
+
+" id="GBLINFO1" offset="0x3f4">
+      <bitfield range="" begin="31" width="13" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="3" end="16" rwaccess="RO" description="Redundant data width in bits" id="REDWIDTH" resetval="0x4">
+         <bitenum id="W4BIT" value="4" token="Redundant data width is 4 bits" description="Redundant data width is 4 bits"/>
+         <bitenum id="W2BIT" value="2" token="Redundant data width is 2 bits" description="Redundant data width is 2 bits"/>
+         <bitenum id="W0BIT" value="0" token="Redundant data width is 0.  Redundancy/Repair not present." description="Redundant data width is 0.  Redundancy/Repair not present."/>
+      </bitfield>
+      <bitfield range="" begin="12" width="5" end="8" rwaccess="RO" description="ECC data width in bits" id="ECCWIDTH" resetval="0x0">
+         <bitenum id="W16BIT" value="16" token="ECC data width is 16 bits" description="ECC data width is 16 bits"/>
+         <bitenum id="W8BIT" value="8" token="ECC data width is 8 bits" description="ECC data width is 8 bits"/>
+         <bitenum id="W0BIT" value="0" token="ECC data width is 0.  ECC not used." description="ECC data width is 0.  ECC not used."/>
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="Data width in bits" id="DATAWIDTH" resetval="0x80">
+         <bitenum id="W128BIT" value="128" token="Data width is 128 bits" description="Data width is 128 bits"/>
+         <bitenum id="W64BIT" value="64" token="Data width is 64 bits" description="Data width is 64 bits"/>
+      </bitfield>
+   </register>
+   <register acronym="GBLINFO2" width="32" description="Global Info 2 Register
+Read only register detailing information about the number of data registers
+present.
+
+" id="GBLINFO2" offset="0x3f8">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Number of data registers present." id="DATAREGISTERS" resetval="0x4">
+         <bitenum id="MAXIMUM" value="8" token="Maximum value of DATAREGISTERS" description="Maximum value of DATAREGISTERS"/>
+         <bitenum id="MINIMUM" value="1" token="Minimum value of DATAREGISTERS" description="Minimum value of DATAREGISTERS"/>
+      </bitfield>
+   </register>
+   <register acronym="BANK0INFO0" width="32" description="Bank Info 0 Register for bank 0.
+Read only register detailing information about Main region size in the bank.
+
+" id="BANK0INFO0" offset="0x400">
+      <bitfield range="" begin="31" width="20" end="12" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED12" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="12" end="0" rwaccess="RO" description="Main region size in sectors
+Minimum:0x8 (8)
+Maximum:0x200 (512)" id="MAINSIZE" resetval="0x100">
+         <bitenum id="MAXSECTORS" value="512" token="Maximum value of MAINSIZE" description="Maximum value of MAINSIZE"/>
+         <bitenum id="MINSECTORS" value="8" token="Minimum value of MAINSIZE" description="Minimum value of MAINSIZE"/>
+      </bitfield>
+   </register>
+   <register acronym="BANK0INFO1" width="32" description="Bank Info1 Register for bank 0.
+Read only register detailing information about Non-Main, Trim, and Engr
+region sizes in the bank.
+
+" id="BANK0INFO1" offset="0x404">
+      <bitfield range="" begin="31" width="8" end="24" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED24" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="8" end="16" rwaccess="RO" description="Engr region size in sectors
+Minimum:0x0 (0)
+Maximum:0x10 (16)" id="ENGRSIZE" resetval="0x1">
+         <bitenum id="MAXSECTORS" value="32" token="Maximum value of ENGRSIZE" description="Maximum value of ENGRSIZE"/>
+         <bitenum id="MINSECTORS" value="0" token="Minimum value of ENGRSIZE" description="Minimum value of ENGRSIZE"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="8" end="8" rwaccess="RO" description="Trim region size in sectors
+Minimum:0x0 (0)
+Maximum:0x10 (16)" id="TRIMSIZE" resetval="0x1">
+         <bitenum id="MAXSECTORS" value="32" token="Maximum value of TRIMSIZE" description="Maximum value of TRIMSIZE"/>
+         <bitenum id="MINSECTORS" value="0" token="Minimum value of TRIMSIZE" description="Minimum value of TRIMSIZE"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="Non-main region size in sectors
+Minimum:0x0 (0)
+Maximum:0x10 (16)" id="NONMAINSIZE" resetval="0x1">
+         <bitenum id="MAXSECTORS" value="32" token="Maximum value of NONMAINSIZE" description="Maximum value of NONMAINSIZE"/>
+         <bitenum id="MINSECTORS" value="0" token="Minimum value of NONMAINSIZE" description="Minimum value of NONMAINSIZE"/>
+      </bitfield>
+   </register>
+   <register acronym="BANK1INFO0" width="32" description="Bank Info 0 Register for bank 1.
+Read only register detailing information about Main region size in the bank.
+
+" id="BANK1INFO0" offset="0x410">
+      <bitfield range="" begin="31" width="20" end="12" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED12" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="12" end="0" rwaccess="RO" description="Main region size in sectors
+Minimum:0x8 (8)
+Maximum:0x200 (512)" id="MAINSIZE" resetval="0x100">
+         <bitenum id="MAXSECTORS" value="512" token="Maximum value of MAINSIZE" description="Maximum value of MAINSIZE"/>
+         <bitenum id="MINSECTORS" value="8" token="Minimum value of MAINSIZE" description="Minimum value of MAINSIZE"/>
+      </bitfield>
+   </register>
+   <register acronym="BANK1INFO1" width="32" description="Bank Info1 Register for bank 1.
+Read only register detailing information about Non-Main, Trim, and Engr
+region sizes in the bank.
+
+" id="BANK1INFO1" offset="0x414">
+      <bitfield range="" begin="31" width="8" end="24" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED24" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="8" end="16" rwaccess="RO" description="Engr region size in sectors
+Minimum:0x0 (0)
+Maximum:0x10 (16)" id="ENGRSIZE" resetval="0x1">
+         <bitenum id="MAXSECTORS" value="32" token="Maximum value of ENGRSIZE" description="Maximum value of ENGRSIZE"/>
+         <bitenum id="MINSECTORS" value="0" token="Minimum value of ENGRSIZE" description="Minimum value of ENGRSIZE"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="8" end="8" rwaccess="RO" description="Trim region size in sectors
+" id="TRIMSIZE" resetval="0x1">
+         <bitenum id="MAXSECTORS" value="32" token="Maximum value of TRIMSIZE" description="Maximum value of TRIMSIZE"/>
+         <bitenum id="MINSECTORS" value="0" token="Minimum value of TRIMSIZE" description="Minimum value of TRIMSIZE"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="Non-main region size in sectors
+" id="NONMAINSIZE" resetval="0x1">
+         <bitenum id="MAXSECTORS" value="32" token="Maximum value of NONMAINSIZE" description="Maximum value of NONMAINSIZE"/>
+         <bitenum id="MINSECTORS" value="0" token="Minimum value of NONMAINSIZE" description="Minimum value of NONMAINSIZE"/>
+      </bitfield>
+   </register>
+   <register acronym="DFTEN" width="32" description="DFT Enable Register
+Allows control of NoWrapper test features.  When set, DFT* registers in this
+aperture open for write access.  When cleared, DFT* registers are read-only.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware.
+
+" id="DFTEN" offset="0x500">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Enable Test Features
+" id="ENABLE" resetval="0x0">
+         <bitenum id="ENABLED" value="1" token="Command" description="Command"/>
+         <bitenum id="DISABLED" value="0" token="Command" description="Command"/>
+      </bitfield>
+   </register>
+   <register acronym="DFTCMDCTL" width="32" description="DFT Command Control Register
+This register configures specific capabilities for test.
+This register is only writable when DFTEN.ENABLE is set.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware." id="DFTCMDCTL" offset="0x504">
+      <bitfield range="" begin="31" width="4" end="28" rwaccess="RW" description="DTB Mux Select
+This field will form the select for the primary DTB mux.  This mux selects up to
+16 sets of 32-bit fields of internal signals to be present to the 32-bit DTB output." id="DTBMUXSEL" resetval="0x0">
+         <bitenum id="MAXIMUM" value="15" token="Maximum value" description="Maximum value"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value" description="Minimum value"/>
+      </bitfield>
+      <bitfield range="" begin="27" width="7" end="21" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED21" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="20" width="1" end="20" rwaccess="RW" description="Stop read verify on fail.  If this bit is set, read verify will halt when the first verify
+fail is detected.  If command is program or erase, another program or erase
+pulse will be executed.  If command is read verify, comand will terminate." id="STOPVERONFAIL" resetval="0x0">
+         <bitenum id="ENABLE" value="1" token="Enable" description="Enable"/>
+         <bitenum id="DISABLE" value="0" token="Disable" description="Disable"/>
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Invert data at odd row addresses for program or verify.  The LSB of the row
+address is bit [4] of the bank address.  This bit only applies when pattern data
+is used; i.e. the DATAPATEN bit is set.  It will have no effect if CMDDATA is used." id="ODDROWINVDATA" resetval="0x0">
+         <bitenum id="INVERT" value="1" token="Use inverted data" description="Use inverted data"/>
+         <bitenum id="TRUE" value="0" token="Use true data" description="Use true data"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="Invert data at odd bank addresses for program or verify. This bit only applies 
+when pattern data is used; i.e. the DATAPATEN bit is set.  It will have no effect
+if CMDDATA is used." id="ODDWORDINVDATA" resetval="0x0">
+         <bitenum id="INVERT" value="1" token="Use inverted data" description="Use inverted data"/>
+         <bitenum id="TRUE" value="0" token="Use true data" description="Use true data"/>
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Invert data always for program or verify.  This bit only applies when pattern data
+is used; i.e. the DATAPATEN bit is set.  It will have no effect if CMDDATA is used." id="ALWAYSINVDATA" resetval="0x0">
+         <bitenum id="INVERT" value="1" token="Use inverted data" description="Use inverted data"/>
+         <bitenum id="TRUE" value="0" token="Use true data" description="Use true data"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="3" end="13" rwaccess="RW" description="Select data pattern.  Valid when DATAPATEN bit is set to 1.  Overrides CMDDATA
+registers for program or verify." id="DATAPATSEL" resetval="0x0">
+         <bitenum id="LOGCHKBRD" value="2" token="Set to logical checkerboard (0x01010101...)" description="Set to logical checkerboard (0x01010101...)"/>
+         <bitenum id="ALL1" value="1" token="Set to all 1" description="Set to all 1"/>
+         <bitenum id="ALL0" value="0" token="Set to all 0" description="Set to all 0"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Enable data pattern.  Data pattern select in DATAPATSEL field will override data
+from CMDDATA registers for use as program or verify data." id="DATAPATEN" resetval="0x0">
+         <bitenum id="ENABLE" value="1" token="Enable" description="Enable"/>
+         <bitenum id="DISABLE" value="0" token="Disable" description="Disable"/>
+      </bitfield>
+      <bitfield range="" begin="11" width="2" end="10" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED10" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Override pulse counter enable.  
+When set, the state machine pulse counter will not be loaded when a
+command is initiated. " id="PULSECNTLDDIS" resetval="0x0">
+         <bitenum id="DISABLE" value="1" token="Disable" description="Disable"/>
+         <bitenum id="ENABLE" value="0" token="Enable" description="Enable"/>
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Override address counter enable.  
+When set, the state machine address counter will not be loaded when a
+command is initiated. " id="ADDRCNTLDDIS" resetval="0x0">
+         <bitenum id="DISABLE" value="1" token="Disable" description="Disable"/>
+         <bitenum id="ENABLE" value="0" token="Enable" description="Enable"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="2" end="6" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Force redundancy match.  If set to 1, repair configuration encoded in the flash
+bank trim will be forced for every access." id="REDMATCHFORCE" resetval="0x0">
+         <bitenum id="ENABLE" value="1" token="Enable" description="Enable"/>
+         <bitenum id="DISABLE" value="0" token="Disable" description="Disable"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Disable redundancy matching.  Any repair configuration encoded into the
+bank trim bits is disabled.
+" id="REDMATCHDIS" resetval="0x0">
+         <bitenum id="DISABLE" value="1" token="Disable" description="Disable"/>
+         <bitenum id="ENABLE" value="0" token="Enable" description="Enable"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="2T address mux disable control. When set to 1 2T address shifting is 
+disabled.  This bit should only be enabled for reads.  Indeterminate behavior
+will result if this bit is set during program/erase.  Furthermore, only reads done
+via a READVERIFY command will be guaranteed to work properly.  Reads via
+the FBAP port are not guaranteed to operate." id="AMX2TDIS" resetval="0x0">
+         <bitenum id="DISABLE" value="1" token="Disable" description="Disable"/>
+         <bitenum id="ENABLE" value="0" token="Enable" description="Enable"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Force 2T Enable - Force 2T access to regions that are designated as 1T.  Regions
+designated as 2T will still be accessed as 2T.
+" id="FORCE2TEN" resetval="0x0">
+         <bitenum id="ENABLE" value="1" token="Enable" description="Enable"/>
+         <bitenum id="DISABLE" value="0" token="Disable" description="Disable"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Force 1T Enable - Force 1T access to regions that are designated as 2T.  Regions
+designated as 1T will still be accessed as 1T.
+" id="FORCE1TEN" resetval="0x0">
+         <bitenum id="ENABLE" value="1" token="Enable" description="Enable"/>
+         <bitenum id="DISABLE" value="0" token="Disable" description="Disable"/>
+      </bitfield>
+   </register>
+   <register acronym="DFTTIMERCTL" width="32" description="DFT Timer Control Register
+This allows some configuration of timing values for various phases of flash
+operations for test.  These time values are hard-coded for functional execution.
+This register is only writable when DFT.ENABLE is set.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware." id="DFTTIMERCTL" offset="0x508">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="3" end="28" rwaccess="RW" description="Override Timer clock frequency using an ICG-based clock divide mechanism. 
+To divide the timer clock, pulses can be skipped based on settings in this field.
+By default, this field is 0, which corresponds to no division on the timer clock." id="TIMERCLOCKOVR" resetval="0x0">
+         <bitenum id="DIVIDEBY8" value="7" token="Divide timer clock by 8" description="Divide timer clock by 8"/>
+         <bitenum id="DIVIDEBY7" value="6" token="Divide timer clock by 7" description="Divide timer clock by 7"/>
+         <bitenum id="DIVIDEBY6" value="5" token="Divide timer clock by 6" description="Divide timer clock by 6"/>
+         <bitenum id="DIVIDEBY5" value="4" token="Divide timer clock by 5" description="Divide timer clock by 5"/>
+         <bitenum id="DIVIDEBY4" value="3" token="Divide timer clock by 4" description="Divide timer clock by 4"/>
+         <bitenum id="DIVIDEBY3" value="2" token="Divide timer clock by 3" description="Divide timer clock by 3"/>
+         <bitenum id="DIVIDEBY2" value="1" token="Divide timer clock by 2" description="Divide timer clock by 2"/>
+         <bitenum id="NODIVIDE" value="0" token="No divide on timer clock." description="No divide on timer clock."/>
+      </bitfield>
+      <bitfield range="" begin="27" width="16" end="12" rwaccess="RW" description="Program/Erase Pulse Time Value
+If operation is a program, this value gets loaded into bits [15:0] of the timer
+when the PEPULSETIMEVALOVR field is set to 1.
+If operation is an erase, this value gets loaded into bits [19:4] of the timer
+when the PEPULSETIMEVALOVR field is set to 1." id="PEPULSETIMEVAL" resetval="0x0">
+         <bitenum id="MAXIMUM" value="65535" token="Maximum value" description="Maximum value"/>
+         <bitenum id="MINIMUM" value="1" token="Minimum value" description="Minimum value"/>
+      </bitfield>
+      <bitfield range="" begin="11" width="3" end="9" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED9" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Override Program/Erase Pulse Time
+If set, this will force the program or erase pulse time to be overridden with the
+value in the PEPULSETIMEVAL field.  If not set, then a hard-coded value will be
+used for this pulse time." id="PEPULSETIMEOVR" resetval="0x0">
+         <bitenum id="OVERRIDE" value="1" token="Use value from the PE_PULSE_TIME field for time value" description="Use value from the PE_PULSE_TIME field for time value"/>
+         <bitenum id="FUNCTIONAL" value="0" token="Use hard-wired (Functional) timer value" description="Use hard-wired (Functional) timer value"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Read Mode Change Time
+" id="READMODETIME" resetval="0x0">
+         <bitenum id="TWOXFUNCTIONAL" value="1" token="Use 2x the hard-wired (functional) time value" description="Use 2x the hard-wired (functional) time value"/>
+         <bitenum id="FUNCTIONAL" value="0" token="Use hard-wired (Functional) timer value" description="Use hard-wired (Functional) timer value"/>
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Program/Erase Verify Hold Time" id="PEVHOLDTIME" resetval="0x0">
+         <bitenum id="TWOXFUNCTIONAL" value="1" token="Use 2x the hard-wired (functional) time value" description="Use 2x the hard-wired (functional) time value"/>
+         <bitenum id="FUNCTIONAL" value="0" token="Use hard-wired (Functional) timer value" description="Use hard-wired (Functional) timer value"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Program/Erase Verify Setup Time" id="PEVSETUPTIME" resetval="0x0">
+         <bitenum id="TWOXFUNCTIONAL" value="1" token="Use 2x the hard-wired (functional) time value" description="Use 2x the hard-wired (functional) time value"/>
+         <bitenum id="FUNCTIONAL" value="0" token="Use hard-wired (Functional) timer value" description="Use hard-wired (Functional) timer value"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Program/Erase Verify Mode Change Time" id="PEVMODETIME" resetval="0x0">
+         <bitenum id="TWOXFUNCTIONAL" value="1" token="Use 2x the hard-wired (functional) time value" description="Use 2x the hard-wired (functional) time value"/>
+         <bitenum id="FUNCTIONAL" value="0" token="Use hard-wired (Functional) timer value" description="Use hard-wired (Functional) timer value"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Program/Erase Hold Time" id="PEHOLDTIME" resetval="0x0">
+         <bitenum id="TWOXFUNCTIONAL" value="1" token="Use 2x the hard-wired (functional) time value" description="Use 2x the hard-wired (functional) time value"/>
+         <bitenum id="FUNCTIONAL" value="0" token="Use hard-wired (Functional) timer value" description="Use hard-wired (Functional) timer value"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Program and Program Verify Wordline Switching Time" id="PPVWORDLINETIME" resetval="0x0">
+         <bitenum id="TWOXFUNCTIONAL" value="1" token="Use 2x the hard-wired (functional) time value" description="Use 2x the hard-wired (functional) time value"/>
+         <bitenum id="FUNCTIONAL" value="0" token="Use hard-wired (Functional) timer value" description="Use hard-wired (Functional) timer value"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Program VHV Setup Time" id="PVHVSETUPTIME" resetval="0x0">
+         <bitenum id="TWOXFUNCTIONAL" value="1" token="Use 2x the hard-wired (functional) time value" description="Use 2x the hard-wired (functional) time value"/>
+         <bitenum id="FUNCTIONAL" value="0" token="Use hard-wired (Functional) timer value" description="Use hard-wired (Functional) timer value"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Program/Erase Setup Time
+" id="PESETUPTIME" resetval="0x0">
+         <bitenum id="TWOXFUNCTIONAL" value="1" token="Use 2x the hard-wired (functional) time value" description="Use 2x the hard-wired (functional) time value"/>
+         <bitenum id="FUNCTIONAL" value="0" token="Use hard-wired (Functional) timer value" description="Use hard-wired (Functional) timer value"/>
+      </bitfield>
+   </register>
+   <register acronym="DFTEXECZCTL" width="32" description="DFT EXECUTEZ control register.  This register allows direct control of the
+EXECUTEZ to bank and pump for test.
+This register is only writable when DFTEN.ENABLE is set.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware." id="DFTEXECZCTL" offset="0x50c">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Override value to be applied to EXECUTEZ" id="EXEZ_OVR" resetval="0x1">
+         <bitenum id="ONE" value="1" token="Set EXECUTEZ to 1" description="Set EXECUTEZ to 1"/>
+         <bitenum id="ZERO" value="0" token="Set EXECUTEZ to 0" description="Set EXECUTEZ to 0"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Enable override of EXECUTEZ
+Note that when this bit is set, NoWrapper has control of the bank pins." id="EXEZOVREN" resetval="0x0">
+         <bitenum id="ENABLE" value="1" token="Enable" description="Enable"/>
+         <bitenum id="DISABLE" value="0" token="Disable" description="Disable"/>
+      </bitfield>
+   </register>
+   <register acronym="DFTPCLKTESTCTL" width="32" description="DFT Pump Clock Test Control Register.  This register controls hardware features
+that allow the pump clock to be characterized for trim development.
+This register is only writable when DFTEN.ENABLE is set.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware." id="DFTPCLKTESTCTL" offset="0x510">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Enable the state machine which sequences measurement of pump clock 
+frequency.
+" id="ENABLE" resetval="0x0">
+         <bitenum id="ENABLE" value="1" token="Enable" description="Enable"/>
+         <bitenum id="DISABLE" value="0" token="Disable" description="Disable"/>
+      </bitfield>
+   </register>
+   <register acronym="DFTPCLKTESTSTAT" width="32" description="DFT Pump Clock Test Status Register.  This register shows status reported by the
+hardware features that allow the pump clock to be characterized for trim
+development.
+This register is only writable when DFTEN.ENABLE is set." id="DFTPCLKTESTSTAT" offset="0x514">
+      <bitfield range="" begin="15" width="12" end="4" rwaccess="RO" description="Indicates the core clock count captured during the pump clock measurement." id="CLOCKCNT" resetval="0x0">
+         <bitenum id="MAXIMUM" value="4095" token="Maximum count value" description="Maximum count value"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum count value" description="Minimum count value"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="3" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates that a pump clock measurement is in progress." id="BUSY" resetval="0x0">
+         <bitenum id="INPROGRESS" value="1" token="Indicates test in progress" description="Indicates test in progress"/>
+         <bitenum id="COMPLETE" value="0" token="Indicates test complete" description="Indicates test complete"/>
+      </bitfield>
+   </register>
+   <register acronym="DFTDATARED0" width="32" description="DFT Redundancy Data Register 0
+This register is used when testing the redundant columns in the flash.  It acts
+as an extension of the CMDDATA* registers.  The bits in this register correspond
+to flash data word register 0.
+In addition, this register is used to aggregate masking for bits that do not
+require additional program pulses during program operations.  The original
+data written to this register will be lost during program command execution.
+
+Use cases for this register are as follows:
+1)Program - Contains the data to be programmed.
+2)Erase - Not used.
+3)Read Verify - Contains data to be verified.
+
+This register is only writable when DFTEN.ENABLE is set.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware." id="DFTDATARED0" offset="0x540">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Data for redundant bits" id="VAL" resetval="0xf">
+      </bitfield>
+   </register>
+   <register acronym="DFTDATARED1" width="32" description="DFT Redundancy Data Register 1
+This register is used when testing the redundant columns in the flash.  It acts
+as an extension of the CMDDATA* registers.  The bits in this register correspond
+to flash data word register 1.
+In addition, this register is used to aggregate masking for bits that do not
+require additional program pulses during program operations.  The original
+data written to this register will be lost during program command execution.
+
+Use cases for this register are as follows:
+1)Program - Contains the data to be programmed.
+2)Erase - Not used.
+3)Read Verify - Contains data to be verified.
+
+This register is only writable when DFTEN.ENABLE is set.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware." id="DFTDATARED1" offset="0x544">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Data for redundant bits" id="VAL" resetval="0xf">
+      </bitfield>
+   </register>
+   <register acronym="DFTDATARED2" width="32" description="DFT Redundancy Data Register 2
+This register is used when testing the redundant columns in the flash.  It acts
+as an extension of the CMDDATA* registers.  The bits in this register correspond
+to flash data word register 2.
+In addition, this register is used to aggregate masking for bits that do not
+require additional program pulses during program operations.  The original
+data written to this register will be lost during program command execution.
+
+Use cases for this register are as follows:
+1)Program - Contains the data to be programmed.
+2)Erase - Not used.
+3)Read Verify - Contains data to be verified.
+
+This register is only writable when DFTEN.ENABLE is set.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware." id="DFTDATARED2" offset="0x548">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Data for redundant bits" id="VAL" resetval="0xf">
+      </bitfield>
+   </register>
+   <register acronym="DFTDATARED3" width="32" description="DFT Redundancy Data Register 3
+This register is used when testing the redundant columns in the flash.  It acts
+as an extension of the CMDDATA* registers.  The bits in this register correspond
+to flash data word register 3.
+In addition, this register is used to aggregate masking for bits that do not
+require additional program pulses during program operations.  The original
+data written to this register will be lost during program command execution.
+
+Use cases for this register are as follows:
+1)Program - Contains the data to be programmed.
+2)Erase - Not used.
+3)Read Verify - Contains data to be verified.
+
+This register is only writable when DFTEN.ENABLE is set.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware." id="DFTDATARED3" offset="0x54c">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Data for redundant bits" id="VAL" resetval="0xf">
+      </bitfield>
+   </register>
+   <register acronym="DFTPUMPCTL" width="32" description="DFT Pump Control Register
+This allows some configuration of pump parameters during test.
+This register is only writable when DFTEN.ENABLE is set.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware." id="DFTPUMPCTL" offset="0x560">
+      <bitfield range="" begin="31" width="13" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="3" end="16" rwaccess="RW" description="IREFEV control IREFVRD, REFTC, IREFCONST, IREFCCOR blocks in IREFEV" id="IREFEVCTL" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="4" end="12" rwaccess="RW" description="Pump configuration control. LP, HP operation" id="CONFIGPMP" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="11" width="2" end="10" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED10" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Dither control for oscillator
+Enumeration:
+0: Disable Dither
+1: Enable Dither
+" id="SSEN" resetval="0x0">
+         <bitenum id="ENABLE" value="1" token="Enable" description="Enable"/>
+         <bitenum id="DISABLE" value="0" token="Disable" description="Disable"/>
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Allows direct control of the pump oscillator which is used to generate pumpclk.
+Normally, enable/disable of pumpclk is under NoWrapper state machine
+control.  This bit allows system to enable the clock independently." id="PUMPCLKEN" resetval="0x0">
+         <bitenum id="ENABLE" value="1" token="Force pump clock oscillator to be enabled." description="Force pump clock oscillator to be enabled."/>
+         <bitenum id="HWCTL" value="0" token="Allow pump clock oscillator to be controlled by hardware." description="Allow pump clock oscillator to be controlled by hardware."/>
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED7" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="TCR test mode to be applied to the pump" id="TCR" resetval="0x0">
+         <bitenum id="MAXIMUM" value="127" token="Maximum value" description="Maximum value"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value" description="Minimum value"/>
+      </bitfield>
+   </register>
+   <register acronym="DFTBANKCTL" width="32" description="DFT Bank Control Register
+This allows some configuration of bank parameters during test.
+This register is only writable when DFTEN.ENABLE is set.
+This register is blocked for writes after a 1 is written to the CMDEXEC
+register and prior to STATCMD.DONE being set by the NoWrapper
+hardware." id="DFTBANKCTL" offset="0x564">
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="When set, TEZ is asserted to the flash banks.  Which banks get the asserted 
+signal is determined by the BANKSELECT field in CMDCTL.
+0x0 Do no assert TEZ
+0x1 Assert TEZ" id="TEZ" resetval="0x1">
+         <bitenum id="NEGATE" value="1" token="Do not assert TEZ" description="Do not assert TEZ"/>
+         <bitenum id="ASSERT" value="0" token="Assert TEZ" description="Assert TEZ"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED7" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="TCR test mode to be applied to the bank" id="TCR" resetval="0x0">
+         <bitenum id="MAXIMUM" value="127" token="Maximum value" description="Maximum value"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value" description="Minimum value"/>
+      </bitfield>
+   </register>
+</module>

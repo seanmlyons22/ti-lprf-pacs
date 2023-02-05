@@ -1,0 +1,23 @@
+[workspace]
+
+members = [
+    "pacs/*",
+]
+
+[workspace.package]
+version = "0.10.2"
+keywords = ["no-std", "arm", "cortex-m", "ti", "cc26xx", "cc13xx", "ble", "zigbee", "rf"]
+license = "0BSD"
+repository = "TODO"
+edition = "2018"
+readme = "README.md"
+
+[workspace.dependencies]
+critical-section = "1.0"
+cortex-m = "0.7.6"
+cortex-m-rt = "0.6.13"
+vcell = "0.1.2"
+
+[workspace.dev-dependencies]
+tixml2svd = "0.1.3"
+svd2rust = "0.28.0"

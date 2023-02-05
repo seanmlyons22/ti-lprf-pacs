@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="CPU_MPU" HW_revision="" XML_version="1.0" description="Cortex-M&#39;s Memory Protection Unit (MPU)" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="TYPE" width="32" description="The MPU Type Register indicates how many regions the MPU supports" id="TYPE" offset="0x0">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="8" end="8" rwaccess="RO" description="Number of regions supported by the MPU" id="DREGION" resetval="0x8">
+      </bitfield>
+      <bitfield range="" begin="7" width="7" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates support for separate instructions and data address regions" id="SEPARATE" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CTRL" width="32" description="Enables the MPU and, when the MPU is enabled, controls whether the default memory map is enabled as a background region for privileged accesses, and whether the MPU is enabled for HardFaults, NMIs, and exception handlers when FAULTMASK is set to 1" id="CTRL" offset="0x4">
+      <bitfield range="" begin="31" width="29" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Controls whether the default memory map is enabled for privileged software" id="PRIVDEFENA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Controls whether handlers executing with priority less than 0 access memory with the MPU enabled or disabled. This applies to HardFaults, NMIs, and exception handlers when FAULTMASK is set to 1" id="HFNMIENA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Enables the MPU" id="ENABLE" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="RNR" width="32" description="Selects the region currently accessed by MPU_RBAR and MPU_RLAR" id="RNR" offset="0x8">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Indicates the memory region accessed by MPU_RBAR and MPU_RLAR" id="REGION" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="RBAR" width="32" description="Provides indirect read and write access to the base address of the currently selected MPU region" id="RBAR" offset="0xc">
+      <bitfield range="" begin="31" width="27" end="5" rwaccess="RW" description="Contains bits [31:5] of the lower inclusive limit of the selected MPU memory region. This value is zero extended to provide the base address to be checked against" id="BASE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="2" end="3" rwaccess="RW" description="Defines the Shareability domain of this region for Normal memory" id="SH" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="2" end="1" rwaccess="RW" description="Defines the access permissions for this region" id="AP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Defines whether code can be executed from this region" id="XN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="RLAR" width="32" description="Provides indirect read and write access to the limit address of the currently selected MPU region" id="RLAR" offset="0x10">
+      <bitfield range="" begin="31" width="27" end="5" rwaccess="RW" description="Contains bits [31:5] of the upper inclusive limit of the selected MPU memory region. This value is postfixed with 0x1F to provide the limit address to be checked against" id="LIMIT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="3" end="1" rwaccess="RW" description="Associates a set of attributes in the MPU_MAIR0 and MPU_MAIR1 fields" id="ATTRINDX" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Region enable" id="EN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="RBAR_A1" width="32" description="Provides indirect read and write access to the base address of the MPU region selected by MPU_RNR[7:2]:(1[1:0])" id="RBAR_A1" offset="0x14">
+      <bitfield range="" begin="31" width="27" end="5" rwaccess="RW" description="Contains bits [31:5] of the lower inclusive limit of the selected MPU memory region. This value is zero extended to provide the base address to be checked against" id="BASE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="2" end="3" rwaccess="RW" description="Defines the Shareability domain of this region for Normal memory" id="SH" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="2" end="1" rwaccess="RW" description="Defines the access permissions for this region" id="AP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Defines whether code can be executed from this region" id="XN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="RLAR_A1" width="32" description="Provides indirect read and write access to the limit address of the currently selected MPU region selected by MPU_RNR[7:2]:(1[1:0])" id="RLAR_A1" offset="0x18">
+      <bitfield range="" begin="31" width="27" end="5" rwaccess="RW" description="Contains bits [31:5] of the upper inclusive limit of the selected MPU memory region. This value is postfixed with 0x1F to provide the limit address to be checked against" id="LIMIT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="3" end="1" rwaccess="RW" description="Associates a set of attributes in the MPU_MAIR0 and MPU_MAIR1 fields" id="ATTRINDX" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Region enable" id="EN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="RBAR_A2" width="32" description="Provides indirect read and write access to the base address of the MPU region selected by MPU_RNR[7:2]:(2[1:0])" id="RBAR_A2" offset="0x1c">
+      <bitfield range="" begin="31" width="27" end="5" rwaccess="RW" description="Contains bits [31:5] of the lower inclusive limit of the selected MPU memory region. This value is zero extended to provide the base address to be checked against" id="BASE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="2" end="3" rwaccess="RW" description="Defines the Shareability domain of this region for Normal memory" id="SH" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="2" end="1" rwaccess="RW" description="Defines the access permissions for this region" id="AP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Defines whether code can be executed from this region" id="XN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="RLAR_A2" width="32" description="Provides indirect read and write access to the limit address of the currently selected MPU region selected by MPU_RNR[7:2]:(2[1:0])" id="RLAR_A2" offset="0x20">
+      <bitfield range="" begin="31" width="27" end="5" rwaccess="RW" description="Contains bits [31:5] of the upper inclusive limit of the selected MPU memory region. This value is postfixed with 0x1F to provide the limit address to be checked against" id="LIMIT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="3" end="1" rwaccess="RW" description="Associates a set of attributes in the MPU_MAIR0 and MPU_MAIR1 fields" id="ATTRINDX" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Region enable" id="EN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="RBAR_A3" width="32" description="Provides indirect read and write access to the base address of the MPU region selected by MPU_RNR[7:2]:(3[1:0])" id="RBAR_A3" offset="0x24">
+      <bitfield range="" begin="31" width="27" end="5" rwaccess="RW" description="Contains bits [31:5] of the lower inclusive limit of the selected MPU memory region. This value is zero extended to provide the base address to be checked against" id="BASE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="2" end="3" rwaccess="RW" description="Defines the Shareability domain of this region for Normal memory" id="SH" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="2" end="1" rwaccess="RW" description="Defines the access permissions for this region" id="AP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Defines whether code can be executed from this region" id="XN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="RLAR_A3" width="32" description="Provides indirect read and write access to the limit address of the currently selected MPU region selected by MPU_RNR[7:2]:(3[1:0])" id="RLAR_A3" offset="0x28">
+      <bitfield range="" begin="31" width="27" end="5" rwaccess="RW" description="Contains bits [31:5] of the upper inclusive limit of the selected MPU memory region. This value is postfixed with 0x1F to provide the limit address to be checked against" id="LIMIT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="3" end="1" rwaccess="RW" description="Associates a set of attributes in the MPU_MAIR0 and MPU_MAIR1 fields" id="ATTRINDX" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Region enable" id="EN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="MAIR0" width="32" description="Along with MPU_MAIR1, provides the memory attribute encodings corresponding to the AttrIndex values" id="MAIR0" offset="0x30">
+      <bitfield range="" begin="31" width="8" end="24" rwaccess="RW" description="Memory attribute encoding for MPU regions with an AttrIndex of 3" id="ATTR3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="8" end="16" rwaccess="RW" description="Memory attribute encoding for MPU regions with an AttrIndex of 2" id="ATTR2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="8" end="8" rwaccess="RW" description="Memory attribute encoding for MPU regions with an AttrIndex of 1" id="ATTR1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Memory attribute encoding for MPU regions with an AttrIndex of 0" id="ATTR0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="MAIR1" width="32" description="Along with MPU_MAIR0, provides the memory attribute encodings corresponding to the AttrIndex values" id="MAIR1" offset="0x3c">
+      <bitfield range="" begin="31" width="8" end="24" rwaccess="RW" description="Memory attribute encoding for MPU regions with an AttrIndex of 7" id="ATTR7" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="8" end="16" rwaccess="RW" description="Memory attribute encoding for MPU regions with an AttrIndex of 6" id="ATTR6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="8" end="8" rwaccess="RW" description="Memory attribute encoding for MPU regions with an AttrIndex of 5" id="ATTR5" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Memory attribute encoding for MPU regions with an AttrIndex of 4" id="ATTR4" resetval="0x0">
+      </bitfield>
+   </register>
+</module>

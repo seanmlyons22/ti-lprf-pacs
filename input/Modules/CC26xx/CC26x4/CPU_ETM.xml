@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="CPU_ETM" HW_revision="" XML_version="1.0" description="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="TRCPRGCTLR" width="32" description="Programming Control Register" id="TRCPRGCTLR" offset="0x4">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Trace Unit Enable" id="EN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCSTATR" width="32" description="The TRCSTATR indicates the ETM-Teal status" id="TRCSTATR" offset="0xc">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the ETM-Teal registers are stable and can be read" id="PMSTABLE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates that the trace unit is inactive" id="IDLE" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCCONFIGR" width="32" description="The TRCCONFIGR sets the basic tracing options for the trace unit" id="TRCCONFIGR" offset="0x10">
+      <bitfield range="" begin="31" width="14" end="18" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED18" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="1" end="17" rwaccess="RO" description="Reserved, `ImpDefRES0" id="DV" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="RO" description="Reserved, `ImpDefRES0" id="DA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="2" end="13" rwaccess="RO" description="Reserved, `ImpDefRES0" id="QE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="RO" description="Reserved, `ImpDefRES0" id="RS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="1" end="11" rwaccess="RO" description="Reserved, `ImpDefRES0" id="TS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="3" end="8" rwaccess="RO" description="Reserved, `ImpDefRES0" id="COND" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RO" description="Reserved, `ImpDefRES0" id="VMID" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RO" description="Reserved, `ImpDefRES0" id="CID" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED5" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RO" description="Reserved, `ImpDefRES0" id="CCI" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RO" description="Reserved, `ImpDefRES0" id="BB" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="2" end="1" rwaccess="RO" description="Reserved, `ImpDefRES0" id="INSTP0" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCEVENTCTL0R" width="32" description="The TRCEVENTCTL0R controls the tracing of events in the trace stream. The events also drive the ETM-Teal external outputs." id="TRCEVENTCTL0R" offset="0x20">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="Selects the resource type for event 1" id="TYPE1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="4" end="11" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="3" end="8" rwaccess="RW" description="Selects the resource number, based on the value of TYPE1: When TYPE1 is 0, selects a single selected resource from 0-15 defined by SEL1[2:0].  When TYPE1 is 1, selects a Boolean combined resource pair from 0-7 defined by SEL1[2:0]" id="SEL1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Selects the resource type for event 0" id="TYPE0" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="4" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Selects the resource number, based on the value of TYPE0: When TYPE1 is 0, selects a single selected resource from 0-15 defined by SEL0[2:0].  When TYPE1 is 1, selects a Boolean combined resource pair from 0-7 defined by SEL0[2:0]" id="SEL0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCEVENTCTL1R" width="32" description="The TRCEVENTCTL1R controls how the events selected by TRCEVENTCTL0R behave" id="TRCEVENTCTL1R" offset="0x24">
+      <bitfield range="" begin="31" width="19" end="13" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED13" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Low power state behavior override" id="LPOVERRIDE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="ATB enabled" id="ATB" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="9" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="One bit per event, to enable generation of an event element in the instruction trace stream when the selected event occurs" id="INSTEN1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="One bit per event, to enable generation of an event element in the instruction trace stream when the selected event occurs" id="INSTEN0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCSTALLCTLR" width="32" description="The TRCSTALLCTLR enables ETM-Teal to stall the processor if the ETM-Teal FIFO goes over the programmed level to minimize risk of overflow" id="TRCSTALLCTLR" offset="0x2c">
+      <bitfield range="" begin="31" width="21" end="11" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Prioritize instruction trace if instruction trace buffer space is less than LEVEL" id="INSTPRIORITY" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED9" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Stall processor based on instruction trace buffer space" id="ISTALL" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Threshold at which stalling becomes active. This provides four levels. This level can be varied to optimize the level of invasion caused by stalling, balanced against the risk of a FIFO overflow" id="LEVEL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCTSCTLR" width="32" description="The TRCTSCTLR controls the insertion of global timestamps into the trace stream. A timestamp is always inserted into the instruction trace stream" id="TRCTSCTLR" offset="0x30">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="An event selector. When the selected event is triggered, the trace unit inserts a global timestamp into the trace streams" id="EVENT" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCSYNCPR" width="32" description="The TRCSYNCPR specifies the period of trace synchronization of the trace streams. TRCSYNCPR defines a number of bytes of trace between requests for trace synchronization. This value is always a power of two" id="TRCSYNCPR" offset="0x34">
+      <bitfield range="" begin="31" width="27" end="5" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED5" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="5" end="0" rwaccess="RO" description="Defines the number of bytes of trace between trace synchronization requests as a total of the number of bytes generated by the instruction stream. The number of bytes is 2N where N is the value of this field: - A value of zero disables these periodic trace synchronization requests, but does not disable other trace synchronization requests.  - The minimum value that can be programmed, other than zero, is 8, providing a minimum trace synchronization period of 256 bytes.  - The maximum value is 20, providing a maximum trace synchronization period of 2^20 bytes" id="PERIOD" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCCCCTLR" width="32" description="The TRCCCCTLR sets the threshold value for instruction trace cycle counting. The threshold represents the minimum interval between cycle count trace packets" id="TRCCCCTLR" offset="0x38">
+      <bitfield range="" begin="31" width="20" end="12" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED12" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="12" end="0" rwaccess="RW" description="Instruction trace cycle count threshold" id="THRESHOLD" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCVICTLR" width="32" description="The TRCVICTLR controls instruction trace filtering" id="TRCVICTLR" offset="0x80">
+      <bitfield range="" begin="31" width="12" end="20" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED20" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RW" description="In Secure state, each bit controls whether instruction tracing is enabled for the corresponding exception level" id="EXLEVEL_S3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="2" end="17" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED17" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="In Secure state, each bit controls whether instruction tracing is enabled for the corresponding exception level" id="EXLEVEL_S0" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="4" end="12" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED12" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="Selects whether a system error exception must always be traced" id="TRCERR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Selects whether a reset exception must always be traced" id="TRCRESET" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Indicates the current status of the start/stop logic" id="SSSTATUS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="An event selector" id="EVENT" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCCNTRLDVR0" width="32" description="The TRCCNTRLDVR defines the reload value for the reduced function counter" id="TRCCNTRLDVR0" offset="0x140">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Defines the reload value for the counter. This value is loaded into the counter each time the reload event occurs" id="VALUE" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCCNTRLDVR1" width="32" description="The TRCCNTRLDVR defines the reload value for the reduced function counter" id="TRCCNTRLDVR1" offset="0x144">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Defines the reload value for the counter. This value is loaded into the counter each time the reload event occurs" id="VALUE" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCCNTRLDVR2" width="32" description="The TRCCNTRLDVR defines the reload value for the reduced function counter" id="TRCCNTRLDVR2" offset="0x148">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Defines the reload value for the counter. This value is loaded into the counter each time the reload event occurs" id="VALUE" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCIDR8" width="32" description="TRCIDR8" id="TRCIDR8" offset="0x180">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="reads as `ImpDef" id="MAXSPEC" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCIDR9" width="32" description="TRCIDR9" id="TRCIDR9" offset="0x184">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="reads as `ImpDef" id="NUMP0KEY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCIDR10" width="32" description="TRCIDR10" id="TRCIDR10" offset="0x188">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="reads as `ImpDef" id="NUMP1KEY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCIDR11" width="32" description="TRCIDR11" id="TRCIDR11" offset="0x18c">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="reads as `ImpDef" id="NUMP1SPC" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCIDR12" width="32" description="TRCIDR12" id="TRCIDR12" offset="0x190">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="reads as `ImpDef" id="NUMCONDKEY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCIDR13" width="32" description="TRCIDR13" id="TRCIDR13" offset="0x194">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="reads as `ImpDef" id="NUMCONDSPC" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCIMSPEC0" width="32" description="The TRCIMSPEC shows the presence of any IMPLEMENTATION SPECIFIC features, and enables any features that are provided" id="TRCIMSPEC0" offset="0x1c0">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Set to 0. No IMPLEMENTATION SPECIFIC extensions are supported" id="SUPPORT" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCIMSPEC1" width="32" description="The TRCIMSPEC shows the presence of any IMPLEMENTATION SPECIFIC features, and enables any features that are provided" id="TRCIMSPEC1" offset="0x1c4">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Set to 0. No IMPLEMENTATION SPECIFIC extensions are supported" id="SUPPORT" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCIMSPEC2" width="32" description="The TRCIMSPEC shows the presence of any IMPLEMENTATION SPECIFIC features, and enables any features that are provided" id="TRCIMSPEC2" offset="0x1c8">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Set to 0. No IMPLEMENTATION SPECIFIC extensions are supported" id="SUPPORT" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCIMSPEC3" width="32" description="The TRCIMSPEC shows the presence of any IMPLEMENTATION SPECIFIC features, and enables any features that are provided" id="TRCIMSPEC3" offset="0x1cc">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Set to 0. No IMPLEMENTATION SPECIFIC extensions are supported" id="SUPPORT" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCIMSPEC4" width="32" description="The TRCIMSPEC shows the presence of any IMPLEMENTATION SPECIFIC features, and enables any features that are provided" id="TRCIMSPEC4" offset="0x1d0">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Set to 0. No IMPLEMENTATION SPECIFIC extensions are supported" id="SUPPORT" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCIMSPEC5" width="32" description="The TRCIMSPEC shows the presence of any IMPLEMENTATION SPECIFIC features, and enables any features that are provided" id="TRCIMSPEC5" offset="0x1d4">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Set to 0. No IMPLEMENTATION SPECIFIC extensions are supported" id="SUPPORT" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCIMSPEC6" width="32" description="The TRCIMSPEC shows the presence of any IMPLEMENTATION SPECIFIC features, and enables any features that are provided" id="TRCIMSPEC6" offset="0x1d8">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Set to 0. No IMPLEMENTATION SPECIFIC extensions are supported" id="SUPPORT" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCIDR0" width="32" description="TRCIDR0" id="TRCIDR0" offset="0x1e0">
+      <bitfield range="" begin="31" width="2" end="30" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED30" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RO" description="reads as `ImpDef" id="COMMOPT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="28" width="5" end="24" rwaccess="RO" description="reads as `ImpDef" id="TSSIZE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="6" end="18" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED18" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="1" end="17" rwaccess="RO" description="reads as `ImpDef" id="TRCEXDATA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="16" width="2" end="15" rwaccess="RO" description="reads as `ImpDef" id="QSUPP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="1" end="14" rwaccess="RO" description="reads as `ImpDef" id="QFILT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="2" end="12" rwaccess="RO" description="reads as `ImpDef" id="CONDTYPE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="2" end="10" rwaccess="RO" description="reads as `ImpDef" id="NUMEVENT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RO" description="reads as `ImpDef" id="RETSTACK" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RO" description="reads as `ImpDef" id="TRCCCI" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RO" description="reads as `ImpDef" id="TRCCOND" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RO" description="reads as `ImpDef" id="TRCBB" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="2" end="3" rwaccess="RO" description="reads as `ImpDef" id="TRCDATA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="2" end="1" rwaccess="RO" description="reads as `ImpDef" id="INSTP0" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCIDR1" width="32" description="TRCIDR1" id="TRCIDR1" offset="0x1e4">
+      <bitfield range="" begin="31" width="8" end="24" rwaccess="RO" description="reads as `ImpDef" id="DESIGNER" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="8" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="4" end="12" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED12" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="4" end="8" rwaccess="RO" description="reads as 0b0100" id="TRCARCHMAJ" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="reads as 0b0000" id="TRCARCHMIN" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="reads as `ImpDef" id="REVISION" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCIDR2" width="32" description="TRCIDR2" id="TRCIDR2" offset="0x1e8">
+      <bitfield range="" begin="31" width="3" end="29" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED29" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="28" width="4" end="25" rwaccess="RO" description="reads as `ImpDef" id="CCSIZE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="24" width="5" end="20" rwaccess="RO" description="reads as `ImpDef" id="DVSIZE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="19" width="5" end="15" rwaccess="RO" description="reads as `ImpDef" id="DASIZE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="5" end="10" rwaccess="RO" description="reads as `ImpDef" id="VMIDSIZE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="5" end="5" rwaccess="RO" description="reads as `ImpDef" id="CIDSIZE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="5" end="0" rwaccess="RO" description="reads as `ImpDef" id="IASIZE" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCIDR3" width="32" description="TRCIDR3" id="TRCIDR3" offset="0x1ec">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="reads as `ImpDef" id="NOOVERFLOW" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="3" end="28" rwaccess="RO" description="reads as `ImpDef" id="NUMPROC" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="27" width="1" end="27" rwaccess="RO" description="reads as `ImpDef" id="SYSSTALL" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="1" end="26" rwaccess="RO" description="reads as `ImpDef" id="STALLCTL" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="25" width="1" end="25" rwaccess="RO" description="reads as `ImpDef" id="SYNCPR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="24" width="1" end="24" rwaccess="RO" description="reads as `ImpDef" id="TRCERR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="4" end="20" rwaccess="RO" description="reads as `ImpDef" id="EXLEVEL_NS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="19" width="4" end="16" rwaccess="RO" description="reads as `ImpDef" id="EXLEVEL_S" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="4" end="12" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED12" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="12" end="0" rwaccess="RO" description="reads as `ImpDef" id="CCITMIN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCIDR4" width="32" description="TRCIDR4" id="TRCIDR4" offset="0x1f0">
+      <bitfield range="" begin="31" width="4" end="28" rwaccess="RO" description="reads as `ImpDef" id="NUMVMIDC" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="27" width="4" end="24" rwaccess="RO" description="reads as `ImpDef" id="NUMCIDC" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="4" end="20" rwaccess="RO" description="reads as `ImpDef" id="NUMSSCC" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="19" width="4" end="16" rwaccess="RO" description="reads as `ImpDef" id="NUMRSPAIR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="4" end="12" rwaccess="RO" description="reads as `ImpDef" id="NUMPC" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="3" end="9" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED9" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RO" description="reads as `ImpDef" id="SUPPDAC" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="reads as `ImpDef" id="NUMDVC" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="reads as `ImpDef" id="NUMACPAIRS" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCIDR5" width="32" description="TRCIDR5" id="TRCIDR5" offset="0x1f4">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="reads as `ImpDef" id="REDFUNCNTR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="3" end="28" rwaccess="RO" description="reads as `ImpDef" id="NUMCNTR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="27" width="3" end="25" rwaccess="RO" description="reads as `ImpDef" id="NUMSEQSTATE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="24" width="1" end="24" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED24" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="1" end="23" rwaccess="RO" description="reads as `ImpDef" id="LPOVERRIDE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="22" width="1" end="22" rwaccess="RO" description="reads as `ImpDef" id="ATBTRIG" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="6" end="16" rwaccess="RO" description="reads as 0x07" id="TRACEIDSIZE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="4" end="12" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED12" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="3" end="9" rwaccess="RO" description="reads as `ImpDef" id="NUMEXTINSEL" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="9" end="0" rwaccess="RO" description="reads as `ImpDef" id="NUMEXTIN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCIDR6" width="32" description="TRCIDR6" id="TRCIDR6" offset="0x1f8">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCIDR7" width="32" description="TRCIDR7" id="TRCIDR7" offset="0x1fc">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCRSCTLR2" width="32" description="The TRCRSCTLR controls the trace resources" id="TRCRSCTLR2" offset="0x208">
+      <bitfield range="" begin="31" width="10" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="1" end="21" rwaccess="RW" description="Inverts the result of a combined pair of resources.  This bit is only implemented on the lower register for a pair of resource selectors" id="PAIRINV" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="20" width="1" end="20" rwaccess="RW" description="Inverts the selected resources" id="INV" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="3" end="16" rwaccess="RW" description="Selects a group of resource" id="GROUP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="8" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Selects one or more resources from the wanted group. One bit is provided per resource from the group" id="SELECT" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCRSCTLR3" width="32" description="The TRCRSCTLR controls the trace resources" id="TRCRSCTLR3" offset="0x20c">
+      <bitfield range="" begin="31" width="10" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="1" end="21" rwaccess="RW" description="Inverts the result of a combined pair of resources.  This bit is only implemented on the lower register for a pair of resource selectors" id="PAIRINV" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="20" width="1" end="20" rwaccess="RW" description="Inverts the selected resources" id="INV" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="3" end="16" rwaccess="RW" description="Selects a group of resource" id="GROUP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="8" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Selects one or more resources from the wanted group. One bit is provided per resource from the group" id="SELECT" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCSSCSR0" width="32" description="Controls the corresponding single-shot comparator resource" id="TRCSSCSR0" offset="0x2a0">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Single-shot status bit. Indicates if any of the comparators, that TRCSSCCRn.SAC or TRCSSCCRn.ARC selects, have matched" id="STATUS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="27" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="PE comparator input support. Indicates if the trace unit supports Single-shot PE comparator inputs. This field is read-only" id="PC" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Data value comparator support bit. Indicates if the trace unit supports data address with data value comparisons. This field is read-only:" id="DV" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Data address comparator support bit. Indicates if the trace unit supports data address comparisons. This field is read-only:" id="DA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Instruction address comparator support bit. Indicates if the trace unit supports instruction address comparisons. This field is read-only:" id="INST" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCSSCSR1" width="32" description="Controls the corresponding single-shot comparator resource" id="TRCSSCSR1" offset="0x2a4">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Single-shot status bit. Indicates if any of the comparators, that TRCSSCCRn.SAC or TRCSSCCRn.ARC selects, have matched" id="STATUS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="27" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="PE comparator input support. Indicates if the trace unit supports Single-shot PE comparator inputs. This field is read-only" id="PC" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Data value comparator support bit. Indicates if the trace unit supports data address with data value comparisons. This field is read-only:" id="DV" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Data address comparator support bit. Indicates if the trace unit supports data address comparisons. This field is read-only:" id="DA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Instruction address comparator support bit. Indicates if the trace unit supports instruction address comparisons. This field is read-only:" id="INST" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCSSCSR2" width="32" description="Controls the corresponding single-shot comparator resource" id="TRCSSCSR2" offset="0x2a8">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Single-shot status bit. Indicates if any of the comparators, that TRCSSCCRn.SAC or TRCSSCCRn.ARC selects, have matched" id="STATUS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="27" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="PE comparator input support. Indicates if the trace unit supports Single-shot PE comparator inputs. This field is read-only" id="PC" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Data value comparator support bit. Indicates if the trace unit supports data address with data value comparisons. This field is read-only:" id="DV" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Data address comparator support bit. Indicates if the trace unit supports data address comparisons. This field is read-only:" id="DA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Instruction address comparator support bit. Indicates if the trace unit supports instruction address comparisons. This field is read-only:" id="INST" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCSSCSR3" width="32" description="Controls the corresponding single-shot comparator resource" id="TRCSSCSR3" offset="0x2ac">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Single-shot status bit. Indicates if any of the comparators, that TRCSSCCRn.SAC or TRCSSCCRn.ARC selects, have matched" id="STATUS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="27" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="PE comparator input support. Indicates if the trace unit supports Single-shot PE comparator inputs. This field is read-only" id="PC" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Data value comparator support bit. Indicates if the trace unit supports data address with data value comparisons. This field is read-only:" id="DV" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Data address comparator support bit. Indicates if the trace unit supports data address comparisons. This field is read-only:" id="DA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Instruction address comparator support bit. Indicates if the trace unit supports instruction address comparisons. This field is read-only:" id="INST" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCSSCSR4" width="32" description="Controls the corresponding single-shot comparator resource" id="TRCSSCSR4" offset="0x2b0">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Single-shot status bit. Indicates if any of the comparators, that TRCSSCCRn.SAC or TRCSSCCRn.ARC selects, have matched" id="STATUS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="27" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="PE comparator input support. Indicates if the trace unit supports Single-shot PE comparator inputs. This field is read-only" id="PC" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Data value comparator support bit. Indicates if the trace unit supports data address with data value comparisons. This field is read-only:" id="DV" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Data address comparator support bit. Indicates if the trace unit supports data address comparisons. This field is read-only:" id="DA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Instruction address comparator support bit. Indicates if the trace unit supports instruction address comparisons. This field is read-only:" id="INST" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCSSCSR5" width="32" description="Controls the corresponding single-shot comparator resource" id="TRCSSCSR5" offset="0x2b4">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Single-shot status bit. Indicates if any of the comparators, that TRCSSCCRn.SAC or TRCSSCCRn.ARC selects, have matched" id="STATUS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="27" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="PE comparator input support. Indicates if the trace unit supports Single-shot PE comparator inputs. This field is read-only" id="PC" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Data value comparator support bit. Indicates if the trace unit supports data address with data value comparisons. This field is read-only:" id="DV" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Data address comparator support bit. Indicates if the trace unit supports data address comparisons. This field is read-only:" id="DA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Instruction address comparator support bit. Indicates if the trace unit supports instruction address comparisons. This field is read-only:" id="INST" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCSSCSR6" width="32" description="Controls the corresponding single-shot comparator resource" id="TRCSSCSR6" offset="0x2b8">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Single-shot status bit. Indicates if any of the comparators, that TRCSSCCRn.SAC or TRCSSCCRn.ARC selects, have matched" id="STATUS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="27" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="PE comparator input support. Indicates if the trace unit supports Single-shot PE comparator inputs. This field is read-only" id="PC" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Data value comparator support bit. Indicates if the trace unit supports data address with data value comparisons. This field is read-only:" id="DV" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Data address comparator support bit. Indicates if the trace unit supports data address comparisons. This field is read-only:" id="DA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Instruction address comparator support bit. Indicates if the trace unit supports instruction address comparisons. This field is read-only:" id="INST" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCSSPCICR0" width="32" description="Selects the PE comparator inputs for Single-shot control" id="TRCSSPCICR0" offset="0x2c0">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Selects one or more PE comparator inputs for Single-shot control.  TRCIDR4.NUMPC defines the size of the PC field.  1 bit is provided for each implemented PE comparator input.  For example, if bit[1] == 1 this selects PE comparator input 1 for Single-shot control" id="PC1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Selects one or more PE comparator inputs for Single-shot control.  TRCIDR4.NUMPC defines the size of the PC field.  1 bit is provided for each implemented PE comparator input.  For example, if bit[1] == 1 this selects PE comparator input 1 for Single-shot control" id="PC0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCSSPCICR1" width="32" description="Selects the PE comparator inputs for Single-shot control" id="TRCSSPCICR1" offset="0x2c4">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Selects one or more PE comparator inputs for Single-shot control.  TRCIDR4.NUMPC defines the size of the PC field.  1 bit is provided for each implemented PE comparator input.  For example, if bit[1] == 1 this selects PE comparator input 1 for Single-shot control" id="PC1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Selects one or more PE comparator inputs for Single-shot control.  TRCIDR4.NUMPC defines the size of the PC field.  1 bit is provided for each implemented PE comparator input.  For example, if bit[1] == 1 this selects PE comparator input 1 for Single-shot control" id="PC0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCSSPCICR2" width="32" description="Selects the PE comparator inputs for Single-shot control" id="TRCSSPCICR2" offset="0x2c8">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Selects one or more PE comparator inputs for Single-shot control.  TRCIDR4.NUMPC defines the size of the PC field.  1 bit is provided for each implemented PE comparator input.  For example, if bit[1] == 1 this selects PE comparator input 1 for Single-shot control" id="PC1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Selects one or more PE comparator inputs for Single-shot control.  TRCIDR4.NUMPC defines the size of the PC field.  1 bit is provided for each implemented PE comparator input.  For example, if bit[1] == 1 this selects PE comparator input 1 for Single-shot control" id="PC0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCSSPCICR3" width="32" description="Selects the PE comparator inputs for Single-shot control" id="TRCSSPCICR3" offset="0x2cc">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Selects one or more PE comparator inputs for Single-shot control.  TRCIDR4.NUMPC defines the size of the PC field.  1 bit is provided for each implemented PE comparator input.  For example, if bit[1] == 1 this selects PE comparator input 1 for Single-shot control" id="PC1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Selects one or more PE comparator inputs for Single-shot control.  TRCIDR4.NUMPC defines the size of the PC field.  1 bit is provided for each implemented PE comparator input.  For example, if bit[1] == 1 this selects PE comparator input 1 for Single-shot control" id="PC0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCSSPCICR4" width="32" description="Selects the PE comparator inputs for Single-shot control" id="TRCSSPCICR4" offset="0x2d0">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Selects one or more PE comparator inputs for Single-shot control.  TRCIDR4.NUMPC defines the size of the PC field.  1 bit is provided for each implemented PE comparator input.  For example, if bit[1] == 1 this selects PE comparator input 1 for Single-shot control" id="PC1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Selects one or more PE comparator inputs for Single-shot control.  TRCIDR4.NUMPC defines the size of the PC field.  1 bit is provided for each implemented PE comparator input.  For example, if bit[1] == 1 this selects PE comparator input 1 for Single-shot control" id="PC0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCSSPCICR5" width="32" description="Selects the PE comparator inputs for Single-shot control" id="TRCSSPCICR5" offset="0x2d4">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Selects one or more PE comparator inputs for Single-shot control.  TRCIDR4.NUMPC defines the size of the PC field.  1 bit is provided for each implemented PE comparator input.  For example, if bit[1] == 1 this selects PE comparator input 1 for Single-shot control" id="PC1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Selects one or more PE comparator inputs for Single-shot control.  TRCIDR4.NUMPC defines the size of the PC field.  1 bit is provided for each implemented PE comparator input.  For example, if bit[1] == 1 this selects PE comparator input 1 for Single-shot control" id="PC0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCSSPCICR6" width="32" description="Selects the PE comparator inputs for Single-shot control" id="TRCSSPCICR6" offset="0x2d8">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Selects one or more PE comparator inputs for Single-shot control.  TRCIDR4.NUMPC defines the size of the PC field.  1 bit is provided for each implemented PE comparator input.  For example, if bit[1] == 1 this selects PE comparator input 1 for Single-shot control" id="PC1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Selects one or more PE comparator inputs for Single-shot control.  TRCIDR4.NUMPC defines the size of the PC field.  1 bit is provided for each implemented PE comparator input.  For example, if bit[1] == 1 this selects PE comparator input 1 for Single-shot control" id="PC0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCPDCR" width="32" description="Requests the system to provide power to the trace unit" id="TRCPDCR" offset="0x310">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Powerup request bit:" id="PU" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCPDSR" width="32" description="Returns the following information about the trace unit: - OS Lock status.  - Core power domain status.  - Power interruption status" id="TRCPDSR" offset="0x314">
+      <bitfield range="" begin="31" width="26" end="6" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RO" description="OS Lock status bit:" id="OSLK" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="3" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Sticky powerdown status bit. Indicates whether the trace register state is valid:" id="STICKYPD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Power status bit:" id="POWER" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCITATBIDR" width="32" description="Trace Intergration ATB Identification Register" id="TRCITATBIDR" offset="0xee4">
+      <bitfield range="" begin="31" width="25" end="7" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED7" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Trace ID" id="ID" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCITIATBINR" width="32" description="Trace Integration Instruction ATB In Register" id="TRCITIATBINR" offset="0xef4">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Integration Mode instruction AFVALIDM in" id="AFVALIDM" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Integration Mode instruction ATREADYM in" id="ATREADYM" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCITIATBOUTR" width="32" description="Trace Integration Instruction ATB Out Register" id="TRCITIATBOUTR" offset="0xefc">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Integration Mode instruction AFREADY out" id="AFREADY" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Integration Mode instruction ATVALID out" id="ATVALID" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCCLAIMSET" width="32" description="Claim Tag Set Register" id="TRCCLAIMSET" offset="0xfa0">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="When a write to one of these bits occurs, with the value:" id="SET3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="When a write to one of these bits occurs, with the value:" id="SET2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="When a write to one of these bits occurs, with the value:" id="SET1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="When a write to one of these bits occurs, with the value:" id="SET0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCCLAIMCLR" width="32" description="Claim Tag Clear Register" id="TRCCLAIMCLR" offset="0xfa4">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="When a write to one of these bits occurs, with the value:" id="CLR3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="When a write to one of these bits occurs, with the value:" id="CLR2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="When a write to one of these bits occurs, with the value:" id="CLR1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="When a write to one of these bits occurs, with the value:" id="CLR0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCAUTHSTATUS" width="32" description="Returns the level of tracing that the trace unit can support" id="TRCAUTHSTATUS" offset="0xfb8">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="2" end="6" rwaccess="RO" description="Indicates whether the system enables the trace unit to support Secure non-invasive debug:" id="SNID" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="2" end="4" rwaccess="RO" description="Indicates whether the trace unit supports Secure invasive debug:" id="SID" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="2" end="2" rwaccess="RO" description="Indicates whether the system enables the trace unit to support Non-secure non-invasive debug:" id="NSNID" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="2" end="0" rwaccess="RO" description="Indicates whether the trace unit supports Non-secure invasive debug:" id="NSID" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCDEVARCH" width="32" description="TRCDEVARCH" id="TRCDEVARCH" offset="0xfbc">
+      <bitfield range="" begin="31" width="11" end="21" rwaccess="RO" description="reads as 0b01000111011" id="ARCHITECT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="20" width="1" end="20" rwaccess="RO" description="reads as 0b1" id="PRESENT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="19" width="4" end="16" rwaccess="RO" description="reads as 0b0000" id="REVISION" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RO" description="reads as 0b0100101000010011" id="ARCHID" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCDEVID" width="32" description="TRCDEVID" id="TRCDEVID" offset="0xfc8">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCDEVTYPE" width="32" description="TRCDEVTYPE" id="TRCDEVTYPE" offset="0xfcc">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="reads as 0b0001" id="SUB" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="reads as 0b0011" id="MAJOR" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCPIDR4" width="32" description="TRCPIDR4" id="TRCPIDR4" offset="0xfd0">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="reads as `ImpDef" id="SIZE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="reads as `ImpDef" id="DES_2" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCPIDR5" width="32" description="TRCPIDR5" id="TRCPIDR5" offset="0xfd4">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCPIDR6" width="32" description="TRCPIDR6" id="TRCPIDR6" offset="0xfd8">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCPIDR7" width="32" description="TRCPIDR7" id="TRCPIDR7" offset="0xfdc">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCPIDR0" width="32" description="TRCPIDR0" id="TRCPIDR0" offset="0xfe0">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="reads as `ImpDef" id="PART_0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCPIDR1" width="32" description="TRCPIDR1" id="TRCPIDR1" offset="0xfe4">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="reads as `ImpDef" id="DES_0" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="reads as `ImpDef" id="PART_0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCPIDR2" width="32" description="TRCPIDR2" id="TRCPIDR2" offset="0xfe8">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="reads as `ImpDef" id="REVISION" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RO" description="reads as 0b1" id="JEDEC" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RO" description="reads as `ImpDef" id="DES_0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCPIDR3" width="32" description="TRCPIDR3" id="TRCPIDR3" offset="0xfec">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="reads as `ImpDef" id="REVAND" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="reads as `ImpDef" id="CMOD" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCCIDR0" width="32" description="TRCCIDR0" id="TRCCIDR0" offset="0xff0">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="reads as 0b00001101" id="PRMBL_0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCCIDR1" width="32" description="TRCCIDR1" id="TRCCIDR1" offset="0xff4">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="reads as 0b1001" id="CLASS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="reads as 0b0000" id="PRMBL_1" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCCIDR2" width="32" description="TRCCIDR2" id="TRCCIDR2" offset="0xff8">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="reads as 0b00000101" id="PRMBL_2" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRCCIDR3" width="32" description="TRCCIDR3" id="TRCCIDR3" offset="0xffc">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="reads as 0b10110001" id="PRMBL_3" resetval="0x0">
+      </bitfield>
+   </register>
+</module>

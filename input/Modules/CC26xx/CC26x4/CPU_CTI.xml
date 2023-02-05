@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="CPU_CTI" HW_revision="" XML_version="1.0" description="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="CTICONTROL" width="32" description="CTI Control Register" id="CTICONTROL" offset="0x0">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Enables or disables the CTI." id="GLBEN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CTIINTACK" width="32" description="CTI Interrupt Acknowledge Register" id="CTIINTACK" offset="0x10">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="WO" description="Acknowledges the corresponding ctitrigout output. There is one bit of the register for each ctitrigout output. When a 1 is written to a bit in this register, the corresponding ctitrigout is acknowledged, causing it to be cleared" id="INTACK" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CTIAPPSET" width="32" description="CTI Application Trigger Set Register" id="CTIAPPSET" offset="0x14">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Setting a bit HIGH generates a channel event for the selected channel. There is one bit of the register for each channel. Reads as follows: 0 Application trigger is inactive. 1 Application trigger is active. Writes as follows: 0 No effect. 1 Generate channel event." id="APPSET" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CTIAPPCLEAR" width="32" description="CTI Application Trigger Clear Register" id="CTIAPPCLEAR" offset="0x18">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Sets the corresponding bits in the CTIAPPSET to 0. There is one bit of the register for each channel.On writes, for each bit: 0 Has no effect. 1 Clears the corresponding channel event.Setting a bit HIGH generates a channel event for the selected channel. There is one bit of the register for each channel. Reads as follows: 0 Application trigger is inactive. 1 Application trigger is active. Writes as follows: 0 No effect. 1 Generate channel event." id="APPCLEAR" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CTIAPPPULSE" width="32" description="CTI Application Pulse Register" id="CTIAPPPULSE" offset="0x1c">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="WO" description="Setting a bit HIGH generates a channel event pulse for the selected channel. There is one bit of the register for each channel. On writes, for each bit: 0 Has no effect. 1 Generate an event pulse on the corresponding channel." id="APPULSE" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CTIINEN0" width="32" description="CTI Trigger to Channel Enable Registers" id="CTIINEN0" offset="0x20">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Enables a cross trigger event to the corresponding channel when a ctitrigin input is activated. There is one bit of the field for each of the four channels. On writes, for each bit: 0 Input trigger 0 events are ignored by the corresponding channel. 1 When an event is received on input trigger 0, ctitrigin[0], generate an event on the channel corresponding to this bit." id="TRIGINEN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CTIINEN1" width="32" description="CTI Trigger to Channel Enable Registers" id="CTIINEN1" offset="0x24">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Enables a cross trigger event to the corresponding channel when a ctitrigin input is activated. There is one bit of the field for each of the four channels. On writes, for each bit: 0 Input trigger 1 events are ignored by the corresponding channel. 1 When an event is received on input trigger 1, ctitrigin[1], generate an event on the channel corresponding to this bit." id="TRIGINEN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CTIINEN2" width="32" description="CTI Trigger to Channel Enable Registers" id="CTIINEN2" offset="0x28">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Enables a cross trigger event to the corresponding channel when a ctitrigin input is activated. There is one bit of the field for each of the four channels. On writes, for each bit: 0 Input trigger 2 events are ignored by the corresponding channel. 1 When an event is received on input trigger 2, ctitrigin[2], generate an event on the channel corresponding to this bit." id="TRIGINEN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CTIINEN3" width="32" description="CTI Trigger to Channel Enable Registers" id="CTIINEN3" offset="0x2c">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Enables a cross trigger event to the corresponding channel when a ctitrigin input is activated. There is one bit of the field for each of the four channels. On writes, for each bit: 0 Input trigger 3 events are ignored by the corresponding channel. 1 When an event is received on input trigger 3, ctitrigin[3], generate an event on the channel corresponding to this bit." id="TRIGINEN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CTIINEN4" width="32" description="CTI Trigger to Channel Enable Registers" id="CTIINEN4" offset="0x30">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Enables a cross trigger event to the corresponding channel when a ctitrigin input is activated. There is one bit of the field for each of the four channels. On writes, for each bit: 0 Input trigger 4 events are ignored by the corresponding channel. 1 When an event is received on input trigger 4, ctitrigin[4], generate an event on the channel corresponding to this bit." id="TRIGINEN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CTIINEN5" width="32" description="CTI Trigger to Channel Enable Registers" id="CTIINEN5" offset="0x34">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Enables a cross trigger event to the corresponding channel when a ctitrigin input is activated. There is one bit of the field for each of the four channels. On writes, for each bit: 0 Input trigger 5 events are ignored by the corresponding channel. 1 When an event is received on input trigger 5, ctitrigin[5], generate an event on the channel corresponding to this bit." id="TRIGINEN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CTIINEN6" width="32" description="CTI Trigger to Channel Enable Registers" id="CTIINEN6" offset="0x38">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Enables a cross trigger event to the corresponding channel when a ctitrigin input is activated. There is one bit of the field for each of the four channels. On writes, for each bit: 0 Input trigger 6 events are ignored by the corresponding channel. 1 When an event is received on input trigger 6, ctitrigin[6], generate an event on the channel corresponding to this bit." id="TRIGINEN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CTIINEN7" width="32" description="CTI Trigger to Channel Enable Registers" id="CTIINEN7" offset="0x3c">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Enables a cross trigger event to the corresponding channel when a ctitrigin input is activated. There is one bit of the field for each of the four channels. On writes, for each bit: 0 Input trigger 7 events are ignored by the corresponding channel. 1 When an event is received on input trigger 7, ctitrigin[7], generate an event on the channel corresponding to this bit." id="TRIGINEN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CTIOUTEN0" width="32" description="CTI Trigger to Channel Enable Registers" id="CTIOUTEN0" offset="0xa0">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Enables a cross trigger event to ctitrigout when the corresponding channel is activated. There is one bit of the field for each of the four channels. On writes, for each bit 0 The corresponding channel is ignored by the output trigger 0. 1 When an event occurs on the channel corresponding to this bit, generate an event on output event 0, ctitrigout[0]." id="TRIGOUTEN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CTIOUTEN1" width="32" description="CTI Trigger to Channel Enable Registers" id="CTIOUTEN1" offset="0xa4">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Enables a cross trigger event to ctitrigout when the corresponding channel is activated. There is one bit of the field for each of the four channels. On writes, for each bit 0 The corresponding channel is ignored by the output trigger 1. 1 When an event occurs on the channel corresponding to this bit, generate an event on output event 1, ctitrigout[1]." id="TRIGOUTEN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CTIOUTEN2" width="32" description="CTI Trigger to Channel Enable Registers" id="CTIOUTEN2" offset="0xa8">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Enables a cross trigger event to ctitrigout when the corresponding channel is activated. There is one bit of the field for each of the four channels. On writes, for each bit 0 The corresponding channel is ignored by the output trigger 2. 1 When an event occurs on the channel corresponding to this bit, generate an event on output event 2, ctitrigout[2]." id="TRIGOUTEN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CTIOUTEN3" width="32" description="CTI Trigger to Channel Enable Registers" id="CTIOUTEN3" offset="0xac">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Enables a cross trigger event to ctitrigout when the corresponding channel is activated. There is one bit of the field for each of the four channels. On writes, for each bit 0 The corresponding channel is ignored by the output trigger 3. 1 When an event occurs on the channel corresponding to this bit, generate an event on output event 3, ctitrigout[3]." id="TRIGOUTEN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CTIOUTEN4" width="32" description="CTI Trigger to Channel Enable Registers" id="CTIOUTEN4" offset="0xb0">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Enables a cross trigger event to ctitrigout when the corresponding channel is activated. There is one bit of the field for each of the four channels. On writes, for each bit 0 The corresponding channel is ignored by the output trigger 4. 1 When an event occurs on the channel corresponding to this bit, generate an event on output event 4, ctitrigout[4]." id="TRIGOUTEN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CTIOUTEN5" width="32" description="CTI Trigger to Channel Enable Registers" id="CTIOUTEN5" offset="0xb4">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Enables a cross trigger event to ctitrigout when the corresponding channel is activated. There is one bit of the field for each of the four channels. On writes, for each bit 0 The corresponding channel is ignored by the output trigger 5. 1 When an event occurs on the channel corresponding to this bit, generate an event on output event 5, ctitrigout[5]." id="TRIGOUTEN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CTIOUTEN6" width="32" description="CTI Trigger to Channel Enable Registers" id="CTIOUTEN6" offset="0xb8">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Enables a cross trigger event to ctitrigout when the corresponding channel is activated. There is one bit of the field for each of the four channels. On writes, for each bit 0 The corresponding channel is ignored by the output trigger 6. 1 When an event occurs on the channel corresponding to this bit, generate an event on output event 6, ctitrigout[6]." id="TRIGOUTEN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CTIOUTEN7" width="32" description="CTI Trigger to Channel Enable Registers" id="CTIOUTEN7" offset="0xbc">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Enables a cross trigger event to ctitrigout when the corresponding channel is activated. There is one bit of the field for each of the four channels. On writes, for each bit 0 The corresponding channel is ignored by the output trigger 7. 1 When an event occurs on the channel corresponding to this bit, generate an event on output event 7, ctitrigout[7]." id="TRIGOUTEN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CTITRIGINSTATUS" width="32" description="CTI Trigger to Channel Enable Registers" id="CTITRIGINSTATUS" offset="0x130">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="Shows the status of the ctitrigin inputs. There is one bit of the field for each trigger input.Because the register provides a view of the raw ctitrigin inputs, the reset value is UNKNOWN. 1 ctitrigin is active. 0 ctitrigin is inactive" id="TRIGINSTATUS" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CTITRIGOUTSTATUS" width="32" description="CTI Trigger In Status Register" id="CTITRIGOUTSTATUS" offset="0x134">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="Shows the status of the ctitrigout outputs. There is one bit of the field for each trigger output. 1 ctitrigout is active. 0 ctitrigout is inactive." id="TRIGOUTSTATUS" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CTICHINSTATUS" width="32" description="CTI Channel In Status Register" id="CTICHINSTATUS" offset="0x138">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Shows the status of the ctichin inputs. There is one bit of the field for each channel input.Because the register provides a view of the raw ctichin inputs, the reset value is UNKNOWN. 0 ctichin is inactive. 1 ctichin is active." id="CTICHINSTATUS" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CTIGATE" width="32" description="Enable CTI Channel Gate register" id="CTIGATE" offset="0x140">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Enable ctichout3. Set to 0 to disable channel propagation." id="CTIGATEEN3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Enable ctichout2. Set to 0 to disable channel propagation." id="CTIGATEEN2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Enable ctichout1. Set to 0 to disable channel propagation." id="CTIGATEEN1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Enable ctichout0. Set to 0 to disable channel propagation." id="CTIGATEEN0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="ASICCTL" width="32" description="External Multiplexer Control register" id="ASICCTL" offset="0x144">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="When external multiplexing is implemented for trigger signals, then the number of multiplexed signals on each trigger must be shown in the Device ID Register. This is done using a Verilog define EXTMUXNUM" id="ASICCTL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="ITCHOUT" width="32" description="Integration Test Channel Output register" id="ITCHOUT" offset="0xee4">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="WO" description="Sets the value of the ctichout outputs" id="CTCHOUT" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="ITTRIGOUT" width="32" description="Integration Test Trigger Output register" id="ITTRIGOUT" offset="0xee8">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="WO" description="Sets the value of the ctitrigout outputs" id="CTTRIGOUT" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="ITCHIN" width="32" description="Integration Test Channel Input register" id="ITCHIN" offset="0xef4">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Reads the value of the ctichin inputs" id="CTCHIN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="ITCTRL" width="32" description="Integration Mode Control register" id="ITCTRL" offset="0xf00">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Integration Mode Enable. 0 Disable integration mode. 1 Enable integration mode" id="IME" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DEVARCH" width="32" description="Device Architecture register" id="DEVARCH" offset="0xfbc">
+      <bitfield range="" begin="31" width="11" end="21" rwaccess="RO" description="Indicates the component architect: 0x23B ARM" id="ARCHITECT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="20" width="1" end="20" rwaccess="RO" description="Indicates whether the DEVARCH register is present: 0x1 Present." id="PRESENT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="19" width="4" end="16" rwaccess="RO" description="Indicates the architecture revision: 0x1 Revision 0." id="REVISION" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RO" description="Indicates the component: 0x0A34 CoreSight GPR" id="ARCHID" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DEVID" width="32" description="Device Configuration register" id="DEVID" offset="0xfc8">
+      <bitfield range="" begin="31" width="12" end="20" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED20" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="19" width="4" end="16" rwaccess="RO" description="Number of ECT channels available" id="NUMCH" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="8" end="8" rwaccess="RO" description="Number of ECT triggers available" id="NUMTRIG" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="3" end="5" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED5" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="5" end="0" rwaccess="RO" description="Indicates the number of multiplexers available on Trigger Inputs and Trigger Outputs that are using asicctl. The default value of 0b00000 indicates that no multiplexing is present. This value of this bit depends on the Verilog define EXTMUXNUM that you must change accordingly." id="EXTMUXNUM" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DEVTYPE" width="32" description="Device Type Identifier register" id="DEVTYPE" offset="0xfcc">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="Sub-classification of the type of the debug component as specified in the ARM Architecture Specification within the major classification as specified in the MAJOR field. 0b0001 Indicates that this component is a cross-triggering component" id="SUB" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Major classification of the type of the debug component as specified in the ARM Architecture Specification for this debug and trace component. 0b0100 Indicates that this component allows a debugger to control other components in a CoreSight SoC-400 system." id="MAJOR" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR4" width="32" description="CoreSight Periperal ID4" id="PIDR4" offset="0xfd0">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="Always 0b0000. Indicates that the device only occupies 4KB of memory." id="SIZE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Together, PIDR1.DES_0, PIDR2.DES_1, and PIDR4.DES_2 identify the designer of the component. 0b0100 JEDEC continuation code." id="DES_2" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR5" width="32" description="CoreSight Periperal ID5" id="PIDR5" offset="0xfd4">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR6" width="32" description="CoreSight Periperal ID6" id="PIDR6" offset="0xfd8">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR7" width="32" description="CoreSight Periperal ID7" id="PIDR7" offset="0xfdc">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR0" width="32" description="CoreSight Periperal ID0" id="PIDR0" offset="0xfe0">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="Bits[7:0] of the 12-bit part number of the component. The designer of the component assigns this part number. 0x06 Indicates bits[7:0] of the part number of the component." id="PART_0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR1" width="32" description="CoreSight Periperal ID1" id="PIDR1" offset="0xfe4">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="Together, PIDR1.DES_0, PIDR2.DES_1, and PIDR4.DES_2 identify the designer of the component. 0b1011 ARM. Bits[3:0] of the JEDEC JEP106 Identity Code." id="DES_0" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Bits[11:8] of the 12-bit part number of the component. The designer of the component assigns this part number. 0b1001 Indicates bits[11:8] of the part number of the component." id="PART_1" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR2" width="32" description="CoreSight Periperal ID2" id="PIDR2" offset="0xfe8">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="0b0101 This device is at r1p0." id="REVISION" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RO" description="Always 1. Indicates that the JEDEC-assigned designer ID is used" id="JEDEC" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RO" description="Together, PIDR1.DES_0, PIDR2.DES_1, and PIDR4.DES_2 identify the designer of the component. 0b011 ARM. Bits[6:4] of the JEDEC JEP106 Identity Code" id="DES_1" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR3" width="32" description="CoreSight Periperal ID3" id="PIDR3" offset="0xfec">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="Indicates minor errata fixes specific to the revision of the component being used, for example metal fixes after implementation. In most cases, this field is 0b0000. ARM recommends that the component designers ensure that a metal fix can change this field if required, for example, by driving it from registers that reset to 0b0000. 0b0000 Indicates that there are no errata fixes to this component." id="REVAND" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Customer Modified. Indicates whether the customer has modified the behavior of the component. In most cases, this field is 0b0000. Customers change this value when they make authorized modifications to this component. 0b0000 Indicates that the customer has not modified this component." id="CMOD" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CIDR0" width="32" description="CoreSight Component ID0" id="CIDR0" offset="0xff0">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="Preamble[0]. Contains bits[7:0] of the component identification code. 0x0D Bits[7:0] of the identification code." id="PRMBL_0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CIDR1" width="32" description="CoreSight Component ID1" id="CIDR1" offset="0xff4">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="Class of the component, for example, whether the component is a ROM table or a generic CoreSight component. Contains bits[15:12] of the component identification code. 0b1001 Indicates that the component is a CoreSight component." id="CLASS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Preamble[1]. Contains bits[11:8] of the component identification code. 0b0000 Bits[11:8] of the identification code." id="PRMBL_1" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CIDR2" width="32" description="CoreSight Component ID2" id="CIDR2" offset="0xff8">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="Preamble[2]. Contains bits[23:16] of the component identification code. 0x05 Bits[23:16] of the identification code." id="PRMBL_2" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CIDR3" width="32" description="CoreSight Component ID3" id="CIDR3" offset="0xffc">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="Preamble[3]. Contains bits[31:24] of the component identification code. 0xB1 Bits[31:24] of the identification code." id="PRMBL_3" resetval="0x0">
+      </bitfield>
+   </register>
+</module>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="CPU_SIG" HW_revision="" XML_version="1.0" description="Cortex-M&#39;s Software Interrupt Generator (SIG)" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="STIR" width="32" description="Provides a mechanism for software to generate an interrupt" id="STIR" offset="0x0">
+      <bitfield range="" begin="31" width="23" end="9" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED9" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="9" end="0" rwaccess="WO" description="Indicates the interrupt to be pended. The value written is (ExceptionNumber - 16)" id="INTID" resetval="0x0">
+      </bitfield>
+   </register>
+</module>

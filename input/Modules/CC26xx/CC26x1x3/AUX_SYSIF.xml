@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="AUX_SYSIF" HW_revision="" XML_version="1.0" description="AUX System Interface (AUX_SYSIF) is responsible for:
+- system resource requests, such as power supply and clock requests.
+- configuration of AUX peripheral operational rates for AUX_ANAIF DAC state machine and AUX_TIMER01. 
+- configuration of event synchronization rate for AUX_EVCTL:EVSTAT2 and AUX_EVCTL:EVSTAT3.
+
+Peripheral operational rate for AUX modules mentioned above can either be:
+- SCE rate, which is configured in AON_PMCTL:AUXSCECLK.
+- AUX bus rate, which equals SCE rate or SCLK_HF divided by two when MCU domain is active or AUX operational mode is active.
+
+AUX_SYSIF also interfaces AON_RTC to enable read access to data and sub-second increment control of AON_RTC." xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="OPMODEREQ" width="32" description="Operational Mode Request
+
+AUX can operate in three operational modes. Each mode is associated with:
+- a SCE clock source or rate, given by AON_PMCTL:AUXSCECLK. This rate is termed SCE_RATE. 
+- a system power supply state request. AUX can request powerdown (uLDO) or active (GLDO or DCDC) system power supply state.
+
+Follow these rules:
+- It is not allowed to change a request until it has been acknowledged through OPMODEACK.
+- A change in mode request must happen stepwise along this sequence, the direction is irrelevant:
+   PDA - A - LP - PDLP.
+
+Failure to follow these rules might result in unexpected behavior and must be avoided." id="OPMODEREQ" offset="0x0">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="AUX operational mode request." id="REQ" resetval="0x0">
+         <bitenum id="PDLP" value="3" token="Powerdown operational mode with wakeup to lowpower mode, characterized by:
+- Powerdown system power supply state (uLDO) request.
+- AON_PMCTL:AUXSCECLK.PD_SRC sets the SCE clock frequency (SCE_RATE).
+- An active wakeup flag overrides the operational mode externally to lowpower (LP) as long as the flag is set." description="Powerdown operational mode with wakeup to lowpower mode, characterized by:
+- Powerdown system power supply state (uLDO) request.
+- AON_PMCTL:AUXSCECLK.PD_SRC sets the SCE clock frequency (SCE_RATE).
+- An active wakeup flag overrides the operational mode externally to lowpower (LP) as long as the flag is set."/>
+         <bitenum id="PDA" value="2" token="Powerdown operational mode with wakeup to active mode, characterized by:
+- Powerdown system power supply state (uLDO) request.
+- AON_PMCTL:AUXSCECLK.PD_SRC sets the SCE clock frequency (SCE_RATE).
+- An active wakeup flag overrides the operational mode externally to active (A) as long as the flag is set." description="Powerdown operational mode with wakeup to active mode, characterized by:
+- Powerdown system power supply state (uLDO) request.
+- AON_PMCTL:AUXSCECLK.PD_SRC sets the SCE clock frequency (SCE_RATE).
+- An active wakeup flag overrides the operational mode externally to active (A) as long as the flag is set."/>
+         <bitenum id="LP" value="1" token="Lowpower operational mode, characterized by:
+- Powerdown system power supply state (uLDO) request.
+- SCE clock frequency (SCE_RATE) equals SCLK_MF.
+- An active wakeup flag does not change operational mode." description="Lowpower operational mode, characterized by:
+- Powerdown system power supply state (uLDO) request.
+- SCE clock frequency (SCE_RATE) equals SCLK_MF.
+- An active wakeup flag does not change operational mode."/>
+         <bitenum id="A" value="0" token="Active operational mode, characterized by:
+- Active system power supply state (GLDO or DCDC) request. 
+- AON_PMCTL:AUXSCECLK.SRC sets the SCE clock frequency (SCE_RATE).
+- An active wakeup flag does not change operational mode." description="Active operational mode, characterized by:
+- Active system power supply state (GLDO or DCDC) request. 
+- AON_PMCTL:AUXSCECLK.SRC sets the SCE clock frequency (SCE_RATE).
+- An active wakeup flag does not change operational mode."/>
+      </bitfield>
+   </register>
+   <register acronym="OPMODEACK" width="32" description="Operational Mode Acknowledgement
+
+User must assume that the current operational mode is the one acknowledged." id="OPMODEACK" offset="0x4">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="2" end="0" rwaccess="RO" description="AUX operational mode acknowledgement." id="ACK" resetval="0x0">
+         <bitenum id="PDLP" value="3" token="Powerdown operational mode with wakeup to lowpower mode is acknowledged." description="Powerdown operational mode with wakeup to lowpower mode is acknowledged."/>
+         <bitenum id="PDA" value="2" token="Powerdown operational mode with wakeup to active mode is acknowledged." description="Powerdown operational mode with wakeup to active mode is acknowledged."/>
+         <bitenum id="LP" value="1" token="Lowpower operational mode is acknowledged." description="Lowpower operational mode is acknowledged."/>
+         <bitenum id="A" value="0" token="Active operational mode is acknowledged." description="Active operational mode is acknowledged."/>
+      </bitfield>
+   </register>
+   <register acronym="EVSYNCRATE" width="32" description="Event Synchronization Rate 
+
+Configure synchronization rate for certain events to the synchronous AUX event bus.
+
+Select AUX bus rate when system CPU uses the event.
+
+SCE rate equals rate configured in AON_PMCTL:AUXSCECLK. AUX bus rate equals SCE rate, or SCLK_HF divided by two when MCU domain is active." id="EVSYNCRATE" offset="0x48">
+      <bitfield range="" begin="31" width="29" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Select synchronization rate for AUX_EVCTL:EVSTAT2.AUX_COMPA event. " id="AUX_COMPA_SYNC_RATE" resetval="0x0">
+         <bitenum id="BUS_RATE" value="1" token="AUX bus rate" description="AUX bus rate"/>
+         <bitenum id="SCE_RATE" value="0" token="SCE rate" description="SCE rate"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Select synchronization rate for AUX_EVCTL:EVSTAT2.AUX_COMPB event." id="AUX_COMPB_SYNC_RATE" resetval="0x0">
+         <bitenum id="BUS_RATE" value="1" token="AUX bus rate" description="AUX bus rate"/>
+         <bitenum id="SCE_RATE" value="0" token="SCE rate" description="SCE rate"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PEROPRATE" width="32" description="Peripheral Operational Rate 
+
+Some AUX peripherals are operated at either SCE or at AUX bus rate. 
+
+Select AUX bus rate when system CPU uses such peripheral.
+
+SCE rate equals rate configured in AON_PMCTL:AUXSCECLK. AUX bus rate equals SCE rate, or SCLK_HF divided by 2 when MCU domain is active." id="PEROPRATE" offset="0x4c">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Select operational rate for AUX_ANAIF DAC sample clock state machine." id="ANAIF_DAC_OP_RATE" resetval="0x0">
+         <bitenum id="BUS_RATE" value="1" token="AUX bus rate" description="AUX bus rate"/>
+         <bitenum id="SCE_RATE" value="0" token="SCE rate" description="SCE rate"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Select operational rate for AUX_TIMER01." id="TIMER01_OP_RATE" resetval="0x0">
+         <bitenum id="BUS_RATE" value="1" token="AUX bus rate" description="AUX bus rate"/>
+         <bitenum id="SCE_RATE" value="0" token="SCE rate" description="SCE rate"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="2" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="ADCCLKCTL" width="32" description="ADC Clock Control" id="ADCCLKCTL" offset="0x50">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Clock acknowledgement.
+
+0: ADC clock is disabled.
+1: ADC clock is enabled." id="ACK" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="ADC clock request.
+
+0: Disable ADC clock.
+1: Enable ADC clock.
+
+Only modify REQ when equal to ACK.
+" id="REQ" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TDCCLKCTL" width="32" description="TDC Counter Clock Control
+
+Controls if the AUX_TDC counter clock source is enabled.
+
+These are the recommended steps to configure and request the counter clock:
+
+- Ensure that REQ=0 and ACK=0.
+- Configure clock source in DDI_0_OSC:CTL0.ACLK_TDC_SRC_SEL.
+- Read DDI_0_OSC:CTL0 to avoid a race condition between previous step and next step.
+- Set REQ=1 to request the clock.
+- Wait until ACK=1.
+
+After these steps ACK stays high until REQ=0. It is hence not recommended to reconfigure DDI_0_OSC:CTL0.ACLK_TDC_SRC_SEL when ACK=1. In this case, there will be no indication of when the new clock source selection is ready.
+
+These are the recommended steps to stop the counter clock:
+
+- Ensure that REQ=1 and ACK=1.
+- Set REQ=0 to stop the clock.
+- Wait until ACK=0." id="TDCCLKCTL" offset="0x54">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="TDC counter clock acknowledgement.
+
+0: TDC counter clock is disabled.
+1: TDC counter clock is enabled." id="ACK" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="TDC counter clock request.
+
+0: Disable TDC counter clock.
+1: Enable TDC counter clock.
+
+Only modify REQ when equal to ACK.
+" id="REQ" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TDCREFCLKCTL" width="32" description="TDC Reference Clock Control
+
+Controls if the AUX_TDC reference clock source is enabled.
+
+These are the recommended steps to configure and request the reference clock:
+
+- Ensure that REQ=0 and ACK=0.
+- Configure clock source in DDI_0_OSC:CTL0.ACLK_REF_SRC_SEL.
+- Read DDI_0_OSC:CTL0 to avoid a race condition between previous step and next step.
+- Set REQ=1 to request the clock.
+- Wait until ACK=1. 
+
+After these steps ACK stays high until REQ=0. It is hence not recommended to reconfigure DDI_0_OSC:CTL0.ACLK_REF_SRC_SEL when ACK=1. In this case, there will be no indication of when the new clock source selection is ready.
+
+These are the recommended steps to stop the reference clock:
+
+- Ensure that REQ=1 and ACK=1.
+- Set REQ=0 to stop the clock.
+- Wait until ACK=0." id="TDCREFCLKCTL" offset="0x58">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="TDC reference clock acknowledgement.
+
+0: TDC reference clock is disabled.
+1: TDC reference clock is enabled." id="ACK" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="TDC reference clock request.
+
+0: Disable TDC reference clock.
+1: Enable TDC reference clock.
+
+Only modify REQ when equal to ACK.
+" id="REQ" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="RTCSUBSECINC0" width="32" description="Real Time Counter Sub Second Increment 0
+
+INC15_0 will replace bits 15:0 in AON_RTC:SUBSECINC when RTCSUBSECINCCTL.UPD_REQ is set." id="RTCSUBSECINC0" offset="0x7c">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="New value for bits 15:0 in AON_RTC:SUBSECINC." id="INC15_0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="RTCSUBSECINC1" width="32" description="Real Time Counter Sub Second Increment 1
+
+INC23_16 will replace bits 23:16 in AON_RTC:SUBSECINC when RTCSUBSECINCCTL.UPD_REQ is set." id="RTCSUBSECINC1" offset="0x80">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="New value for bits 23:16 in AON_RTC:SUBSECINC." id="INC23_16" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="RTCSUBSECINCCTL" width="32" description="Real Time Counter Sub Second Increment Control" id="RTCSUBSECINCCTL" offset="0x84">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Update acknowledgement.
+
+0: AON_RTC has not acknowledged UPD_REQ. 
+1: AON_RTC has acknowledged UPD_REQ. " id="UPD_ACK" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Request AON_RTC to update AON_RTC:SUBSECINC.
+
+0: Clear request to update.
+1: Set request to update.
+
+Only change UPD_REQ when it equals UPD_ACK. Clear UPD_REQ after UPD_ACK is 1." id="UPD_REQ" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="RTCEVCLR" width="32" description="AON_RTC Event Clear
+
+Request to clear events:
+- AON_RTC:EVFLAGS.CH2.
+- AON_RTC:EVFLAGS.CH2 delayed version.
+- AUX_EVCTL:EVSTAT2.AON_RTC_CH2.
+- AUX_EVCTL:EVSTAT2.AON_RTC_CH2_DLY." id="RTCEVCLR" offset="0x90">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Clear events from AON_RTC channel 2.
+
+0: No effect. 
+1: Clear events from AON_RTC channel 2.
+
+Keep RTC_CH2_EV_CLR high until AUX_EVCTL:EVSTAT2.AON_RTC_CH2 and AUX_EVCTL:EVSTAT2.AON_RTC_CH2_DLY are 0." id="RTC_CH2_EV_CLR" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TIMERHALT" width="32" description="Timer Halt
+
+Debug register" id="TIMERHALT" offset="0xa0">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Halt AUX_TIMER01 Timer 1.
+
+0: AUX_TIMER01 Timer 1 operates as normal.
+1: Halt AUX_TIMER01 Timer 1 operation." id="AUX_TIMER1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Halt AUX_TIMER01 Timer 0.
+
+0: AUX_TIMER01 Timer 0 operates as normal.
+1: Halt AUX_TIMER01 Timer 0 operation." id="AUX_TIMER0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="SWPWRPROF" width="32" description="Software Power Profiler" id="SWPWRPROF" offset="0xb4">
+      <bitfield range="" begin="31" width="29" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Software status bits that can be read by the power profiler." id="STAT" resetval="0x0">
+      </bitfield>
+   </register>
+</module>

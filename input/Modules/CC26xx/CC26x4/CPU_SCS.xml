@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="CPU_SCS" HW_revision="" XML_version="1.0" description="Cortex-M&#39;s System Control Block (SCB)
+
+" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="CPUID" width="32" description="CPUID Base
+This register determines the ID number of the processor core, the version number of the processor core and the implementation details of the processor core." id="CPUID" offset="0x0">
+      <bitfield range="" begin="31" width="8" end="24" rwaccess="RO" description="Implementor code." id="IMPLEMENTER" resetval="0x41">
+      </bitfield>
+      <bitfield range="" begin="23" width="4" end="20" rwaccess="RO" description="Implementation defined variant number." id="VARIANT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="19" width="4" end="16" rwaccess="RO" description="Reads as 0xF" id="CONSTANT" resetval="0xf">
+      </bitfield>
+      <bitfield range="" begin="15" width="12" end="4" rwaccess="RO" description="Number of processor within family." id="PARTNO" resetval="0xd21">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Implementation defined revision number." id="REVISION" resetval="0x4">
+      </bitfield>
+   </register>
+   <register acronym="ICSR" width="32" description="Interrupt Control State
+This register is used to set a pending Non-Maskable Interrupt (NMI), set or clear a pending SVC, set or clear a pending SysTick, check for pending exceptions, check the vector number of the highest priority pended exception, and check the vector number of the active exception." id="ICSR" offset="0x4">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Set pending NMI bit. Setting this bit pends and activates an NMI. Because NMI is the highest-priority interrupt, it takes effect as soon as it registers.
+
+0: No action
+1: Set pending NMI" id="NMIPENDSET" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="Pend NMI clear. Allows the NMI exception pending state to be cleared.
+0x0 No effect.
+0x1 Clear pending status." id="PENDNMICLR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED29" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="28" width="1" end="28" rwaccess="RW" description="Set pending pendSV bit.
+
+0: No action
+1: Set pending PendSV" id="PENDSVSET" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="27" width="1" end="27" rwaccess="WO" description="Clear pending pendSV bit
+
+0: No action
+1: Clear pending pendSV" id="PENDSVCLR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="1" end="26" rwaccess="RW" description="Set a pending SysTick bit.
+
+0: No action
+1: Set pending SysTick" id="PENDSTSET" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="25" width="1" end="25" rwaccess="WO" description="Clear pending SysTick bit
+
+0: No action
+1: Clear pending SysTick" id="PENDSTCLR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="24" width="1" end="24" rwaccess="RO" description="SysTick Targets Non-secure. Controls whether in a single SysTick implementation, the SysTick is Secure or
+Non-secure.
+
+0x0 SysTick is Secure.
+0x1 SysTick is Non-secure." id="STTNS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="1" end="23" rwaccess="RO" description="This field can only be used at debug time. It indicates that a pending interrupt is to be taken in the next running cycle. If DHCSR.C_MASKINTS= 0, the interrupt is serviced.
+
+0: A pending exception is not serviced.
+1: A pending exception is serviced on exit from the debug halt state" id="ISRPREEMPT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="22" width="1" end="22" rwaccess="RO" description="Interrupt pending flag. Excludes NMI and faults.
+
+0x0: Interrupt not pending
+0x1: Interrupt pending" id="ISRPENDING" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="1" end="21" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED21" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="20" width="9" end="12" rwaccess="RO" description="Pending ISR number field. This field contains the interrupt number of the highest priority pending ISR." id="VECTPENDING" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="1" end="11" rwaccess="RO" description="Indicates whether there are preempted active exceptions:
+
+0: There are preempted active exceptions to execute
+1: There are no active exceptions, or the currently-executing exception is the only active exception." id="RETTOBASE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="2" end="9" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED9" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="9" end="0" rwaccess="RO" description="Active ISR number field. Reset clears this field." id="VECTACTIVE" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="VTOR" width="32" description="Vector Table Offset
+This register is used to relocated the vector table base address. The vector table base offset determines the offset from the bottom of the memory map. The two most significant bits and the seven least significant bits of the vector table base offset must be 0. The portion of vector table base offset that is allowed to change is TBLOFF." id="VTOR" offset="0x8">
+      <bitfield range="" begin="31" width="25" end="7" rwaccess="RW" description="Bits 31 down to 7 of the vector table base offset." id="TBLOFF" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="7" end="0" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="AIRCR" width="32" description="Application Interrupt/Reset Control
+This register is used to determine data endianness, clear all active state information for debug or to recover from a hard failure, execute a system reset, alter the priority grouping position (binary point)." id="AIRCR" offset="0xc">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RW" description="Register key. Writing to this register (AIRCR) requires 0x05FA in VECTKEY. Otherwise the write value is ignored. Read always returns 0xFA05." id="VECTKEY" resetval="0xfa05">
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Data endianness bit" id="ENDIANESS" resetval="0x0">
+         <bitenum id="BIG" value="1" token="Big endian" description="Big endian"/>
+         <bitenum id="LITTLE" value="0" token="Little endian" description="Little endian"/>
+      </bitfield>
+      <bitfield range="" begin="14" width="1" end="14" rwaccess="RO" description="Prioritize Secure exceptions. The value of this bit defines whether Secure exception priority boosting is
+enabled." id="PRIS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="BusFault, HardFault, and NMI Non-secure enable. The value of this bit defines whether BusFault and NMI
+exceptions are Non-secure, and whether exceptions target the Non-secure HardFault exception
+0x0 BusFault, HardFault, and NMI are Secure.
+0x1 BusFault and NMI are Non-secure and exceptions can target Non-secure HardFault." id="BFHFNMINS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="12" width="2" end="11" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="3" end="8" rwaccess="RW" description="Interrupt priority grouping field. This field is a binary point position indicator for creating subpriorities for exceptions that share the same pre-emption level. It divides the PRI_n field in the Interrupt Priority Registers (NVIC_IPR0, NVIC_IPR1,..., and  NVIC_IPR8) into a pre-emption level and a subpriority level. The binary point is a left-of value. This means that the PRIGROUP value represents a point starting at the left of the Least Significant Bit (LSB). The lowest value might not be 0 depending on the number of bits allocated for priorities, and implementation choices." id="PRIGROUP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="System reset request Secure only. The value of this bit defines whether the SYSRESETREQ bit is functional
+for Non-secure use" id="SYSRESETREQS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="WO" description="Requests a warm reset. Setting this bit does not prevent Halting Debug from running.
+" id="SYSRESETREQ" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="Clears all active state information for active NMI, fault, and interrupts.  It is the responsibility of the application to reinitialize the stack. This bit is for returning to a known state during debug. The bit self-clears. IPSR is not cleared by this operation. So, if used by an application, it must only be used at the base level of activation, or within a system handler whose active bit can be set." id="VECTCLRACTIVE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="SCR" width="32" description="System Control
+This register is used for power-management functions, i.e., signaling to the system when the processor can enter a low power state, controlling how the processor enters and exits low power states." id="SCR" offset="0x10">
+      <bitfield range="" begin="31" width="27" end="5" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED5" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Send Event on Pending bit:
+
+0: Only enabled interrupts or events can wakeup the processor, disabled interrupts are excluded
+1: Enabled events and all interrupts, including disabled interrupts, can wakeup the processor.
+
+When an event or interrupt enters pending state, the event signal wakes up the processor from WFE. If
+the processor is not waiting for an event, the event is registered and affects the next WFE.
+The processor also wakes up on execution of an SEV instruction." id="SEVONPEND" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Sleep deep secure. This field controls whether the SLEEPDEEP bit is only accessible from the Secure state" id="SLEEPDEEPS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Controls whether the processor uses sleep or deep sleep as its low power mode" id="SLEEPDEEP" resetval="0x0">
+         <bitenum id="DEEPSLEEP" value="1" token="Deep sleep" description="Deep sleep"/>
+         <bitenum id="SLEEP" value="0" token="Sleep" description="Sleep"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Sleep on exit when returning from Handler mode to Thread mode. Enables interrupt driven applications to avoid returning to empty main application.
+
+0: Do not sleep when returning to thread mode
+1: Sleep on ISR exit" id="SLEEPONEXIT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CCR" width="32" description="Configuration Control
+This register is used to enable NMI, HardFault and FAULTMASK to ignore bus fault, trap divide by zero and unaligned accesses, enable user access to the Software Trigger Interrupt Register (STIR), control entry to Thread Mode." id="CCR" offset="0x14">
+      <bitfield range="" begin="31" width="22" end="10" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED10" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED9" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Enables handlers with priority -1 or -2 to ignore data BusFaults caused by load and store instructions. This applies to the HardFault, NMI, and FAULTMASK escalated handlers:
+
+0: Data BusFaults caused by load and store instructions cause a lock-up
+1: Data BusFaults caused by load and store instructions are ignored.
+
+Set this bit to 1 only when the handler and its data are in absolutely safe memory. The normal use
+of this bit is to probe system devices and bridges to detect problems." id="BFHFNMIGN" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="3" end="5" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED5" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Enables faulting or halting when the processor executes an SDIV or UDIV instruction with a divisor of 0:
+
+0: Do not trap divide by 0. In this mode, a divide by zero returns a quotient of 0.
+1: Trap divide by 0. The relevant Usage Fault Status Register bit is CFSR.DIVBYZERO." id="DIV_0_TRP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Enables unaligned access traps:
+
+0: Do not trap unaligned halfword and word accesses
+1: Trap unaligned halfword and word accesses. The relevant Usage Fault Status Register bit is CFSR.UNALIGNED.
+
+If this bit is set to 1, an unaligned access generates a UsageFault.
+Unaligned LDM, STM, LDRD, and STRD instructions always fault regardless of the value in UNALIGN_TRP." id="UNALIGN_TRP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Enables unprivileged software access to STIR:
+
+0: User code is not allowed to write to the Software Trigger Interrupt register (STIR).
+1: User code can write the Software Trigger Interrupt register (STIR) to trigger (pend) a Main exception, which is associated with the Main stack pointer." id="USERSETMPEND" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x1">
+      </bitfield>
+   </register>
+   <register acronym="SHPR1" width="32" description="System Handlers 4-7 Priority
+This register is used to prioritize the following system handlers: Memory manage, Bus fault, and Usage fault. System Handlers are a special class of exception handler that can have their priority set to any of the priority levels. Most can be masked on (enabled) or off (disabled). When disabled, the fault is always treated as a Hard Fault." id="SHPR1" offset="0x18">
+      <bitfield range="" begin="31" width="8" end="24" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="PRI_7" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="8" end="16" rwaccess="RW" description="Priority of system handler 6. UsageFault" id="PRI_6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="8" end="8" rwaccess="RW" description="Priority of system handler 5: BusFault" id="PRI_5" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Priority of system handler 4: MemManage" id="PRI_4" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="SHPR2" width="32" description="System Handlers 8-11 Priority
+This register is used to prioritize the SVC handler. System Handlers are a special class of exception handler that can have their priority set to any of the priority levels. Most can be masked on (enabled) or off (disabled). When disabled, the fault is always treated as a Hard Fault." id="SHPR2" offset="0x1c">
+      <bitfield range="" begin="31" width="8" end="24" rwaccess="RW" description="Priority of system handler 11. SVCall" id="PRI_11" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="24" end="0" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="SHPR3" width="32" description="System Handlers 12-15 Priority
+This register is used to prioritize the following system handlers: SysTick, PendSV and Debug Monitor. System Handlers are a special class of exception handler that can have their priority set to any of the priority levels. Most can be masked on (enabled) or off (disabled). When disabled, the fault is always treated as a Hard Fault." id="SHPR3" offset="0x20">
+      <bitfield range="" begin="31" width="8" end="24" rwaccess="RW" description="Priority of system handler 15. SysTick exception" id="PRI_15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="8" end="16" rwaccess="RW" description="Priority of system handler 14. Pend SV" id="PRI_14" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="8" end="8" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Priority of system handler 12. Debug Monitor" id="PRI_12" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="SHCSR" width="32" description="System Handler Control and State
+This register is used to enable or disable the system handlers, determine the pending status of bus fault, mem manage fault, and SVC, determine the active status of the system handlers. If a fault condition occurs while its fault handler is disabled, the fault escalates to a Hard Fault." id="SHCSR" offset="0x24">
+      <bitfield range="" begin="31" width="10" end="22" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="1" end="21" rwaccess="RO" description="SecureFault exception pended state" id="HARDFAULTPENDED" resetval="0x0">
+         <bitenum id="PENDING" value="1" token="Exception is pending." description="Exception is pending."/>
+         <bitenum id="NOTPENDING" value="0" token="Exception is not active" description="Exception is not active"/>
+      </bitfield>
+      <bitfield range="" begin="20" width="1" end="20" rwaccess="RO" description="SecureFault exception pended state" id="SECUREFAULTPENDED" resetval="0x0">
+         <bitenum id="PENDING" value="1" token="Exception is pending." description="Exception is pending."/>
+         <bitenum id="NOTPENDING" value="0" token="Exception is not active" description="Exception is not active"/>
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RW" description="SecureFault exception enable." id="SECUREFAULTENA" resetval="0x0">
+         <bitenum id="EN" value="1" token="Exception enabled" description="Exception enabled"/>
+         <bitenum id="DIS" value="0" token="Exception disabled" description="Exception disabled"/>
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Usage fault system handler enable" id="USGFAULTENA" resetval="0x0">
+         <bitenum id="EN" value="1" token="Exception enabled" description="Exception enabled"/>
+         <bitenum id="DIS" value="0" token="Exception disabled" description="Exception disabled"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="Bus fault system handler enable" id="BUSFAULTENA" resetval="0x0">
+         <bitenum id="EN" value="1" token="Exception enabled" description="Exception enabled"/>
+         <bitenum id="DIS" value="0" token="Exception disabled" description="Exception disabled"/>
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="MemManage fault system handler enable" id="MEMFAULTENA" resetval="0x0">
+         <bitenum id="EN" value="1" token="Exception enabled" description="Exception enabled"/>
+         <bitenum id="DIS" value="0" token="Exception disabled" description="Exception disabled"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="SVCall pending" id="SVCALLPENDED" resetval="0x0">
+         <bitenum id="PENDING" value="1" token="Exception is pending." description="Exception is pending."/>
+         <bitenum id="NOTPENDING" value="0" token="Exception is not active" description="Exception is not active"/>
+      </bitfield>
+      <bitfield range="" begin="14" width="1" end="14" rwaccess="RO" description="BusFault pending" id="BUSFAULTPENDED" resetval="0x0">
+         <bitenum id="PENDING" value="1" token="Exception is pending." description="Exception is pending."/>
+         <bitenum id="NOTPENDING" value="0" token="Exception is not active" description="Exception is not active"/>
+      </bitfield>
+      <bitfield range="" begin="13" width="1" end="13" rwaccess="RO" description="MemManage exception pending" id="MEMFAULTPENDED" resetval="0x0">
+         <bitenum id="PENDING" value="1" token="Exception is pending." description="Exception is pending."/>
+         <bitenum id="NOTPENDING" value="0" token="Exception is not active" description="Exception is not active"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="RO" description="Usage fault pending" id="USGFAULTPENDED" resetval="0x0">
+         <bitenum id="PENDING" value="1" token="Exception is pending." description="Exception is pending."/>
+         <bitenum id="NOTPENDING" value="0" token="Exception is not active" description="Exception is not active"/>
+      </bitfield>
+      <bitfield range="" begin="11" width="1" end="11" rwaccess="RO" description="SysTick active flag.
+
+0x0: Not active
+0x1: Active" id="SYSTICKACT" resetval="0x0">
+         <bitenum id="ACTIVE" value="1" token="Exception is active" description="Exception is active"/>
+         <bitenum id="NOTACTIVE" value="0" token="Exception is not active" description="Exception is not active"/>
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="RO" description="PendSV active
+
+0x0: Not active
+0x1: Active" id="PENDSVACT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED9" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RO" description="Debug monitor active" id="MONITORACT" resetval="0x0">
+         <bitenum id="ACTIVE" value="1" token="Exception is active" description="Exception is active"/>
+         <bitenum id="NOTACTIVE" value="0" token="Exception is not active" description="Exception is not active"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RO" description="SVCall active" id="SVCALLACT" resetval="0x0">
+         <bitenum id="ACTIVE" value="1" token="Exception is active" description="Exception is active"/>
+         <bitenum id="NOTACTIVE" value="0" token="Exception is not active" description="Exception is not active"/>
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RO" description="NMI exception active state" id="NMIACT" resetval="0x0">
+         <bitenum id="ACTIVE" value="1" token="Exception is active" description="Exception is active"/>
+         <bitenum id="NOTACTIVE" value="0" token="Exception is not active" description="Exception is not active"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RO" description="SecureFault exception active state" id="SECUREFAULTACT" resetval="0x0">
+         <bitenum id="ACTIVE" value="1" token="Exception is active" description="Exception is active"/>
+         <bitenum id="NOTACTIVE" value="0" token="Exception is not active" description="Exception is not active"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RO" description="UsageFault exception active" id="USGFAULTACT" resetval="0x0">
+         <bitenum id="ACTIVE" value="1" token="Exception is active" description="Exception is active"/>
+         <bitenum id="NOTACTIVE" value="0" token="Exception is not active" description="Exception is not active"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RO" description="HardFault exception active state. Indicates and allows limited modification of the active state of the HardFault exception for the selected Security state" id="HARDFAULTACT" resetval="0x0">
+         <bitenum id="ACTIVE" value="1" token="Exception is active" description="Exception is active"/>
+         <bitenum id="NOTACTIVE" value="0" token="Exception is not active" description="Exception is not active"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="BusFault exception active" id="BUSFAULTACT" resetval="0x0">
+         <bitenum id="ACTIVE" value="1" token="Exception is active" description="Exception is active"/>
+         <bitenum id="NOTACTIVE" value="0" token="Exception is not active" description="Exception is not active"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="MemManage exception active" id="MEMFAULTACT" resetval="0x0">
+         <bitenum id="ACTIVE" value="1" token="Exception is active" description="Exception is active"/>
+         <bitenum id="NOTACTIVE" value="0" token="Exception is not active" description="Exception is not active"/>
+      </bitfield>
+   </register>
+   <register acronym="CFSR" width="32" description="Configurable Fault Status
+This register is used to obtain information about local faults. These registers include three subsections: The first byte is Memory Manage Fault Status Register (MMFSR). The second byte is Bus Fault Status Register (BFSR). The higher half-word is Usage Fault Status Register (UFSR). The flags in these registers indicate the causes of local faults. Multiple flags can be set if more than one fault occurs. These register are read/write-clear. This means that they can be read normally, but writing a 1 to any bit clears that bit.
+The CFSR is byte accessible. CFSR or its subregisters can be accessed as follows:
+The following accesses are possible to the CFSR register:
+- access the complete register with a word access to 0xE000ED28. 
+- access the MMFSR with a byte access to 0xE000ED28
+- access the MMFSR and BFSR with a halfword access to 0xE000ED28
+- access the BFSR with a byte access to 0xE000ED29
+- access the UFSR with a halfword access to 0xE000ED2A." id="CFSR" offset="0x28">
+      <bitfield range="" begin="31" width="6" end="26" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED26" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="25" width="1" end="25" rwaccess="RW" description="When CCR.DIV_0_TRP (see Configuration Control Register on page 8-26) is enabled and an SDIV or UDIV instruction is used with a divisor of 0, this fault occurs The instruction is executed and the return PC points to it. If CCR.DIV_0_TRP is not set, then the divide returns a quotient of 0." id="DIVBYZERO" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="24" width="1" end="24" rwaccess="RW" description="When CCR.UNALIGN_TRP is enabled, and there is an attempt to make an unaligned memory access, then this fault occurs. Unaligned LDM/STM/LDRD/STRD instructions always fault irrespective of the setting of CCR.UNALIGN_TRP." id="UNALIGNED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="4" end="20" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED20" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RW" description="Attempt to use a coprocessor instruction. The processor does not support coprocessor instructions." id="NOCP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Attempt to load EXC_RETURN into PC illegally. Invalid instruction, invalid context, invalid value. The return PC points to the instruction that tried to set the PC.
+" id="INVPC" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="Indicates an attempt to execute in an invalid EPSR state (e.g. after a BX type instruction has changed state). This includes state change after entry to or return from exception, as well as from inter-working instructions. Return PC points to faulting instruction, with the invalid state." id="INVSTATE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="This bit is set when the processor attempts to execute an undefined instruction. This is an instruction that the processor cannot decode. The return PC points to the undefined instruction." id="UNDEFINSTR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="This bit is set if the Bus Fault Address Register (BFAR) contains a valid address. This is true after a bus fault where the address is known. Other faults can clear this bit, such as a Mem Manage fault occurring later. If a Bus fault occurs that is escalated to a Hard Fault because of priority, the Hard Fault handler must clear this bit. This prevents problems if returning to a stacked active Bus fault handler whose BFAR value has been overwritten." id="BFARVALID" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED13" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Stacking from exception has caused one or more bus faults. The SP is still adjusted and the values in the context area on the stack might be incorrect. BFAR is not written." id="STKERR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="Unstack from exception return has caused one or more bus faults. This is chained to the handler, so that the original return stack is still present. SP is not adjusted from failing return and new save is not performed. BFAR is not written." id="UNSTKERR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Imprecise data bus error. It is a BusFault, but the Return PC is not related to the causing instruction. This is not a synchronous fault. So, if detected when the priority of the current activation is higher than the Bus Fault, it only pends. Bus fault activates when returning to a lower priority activation. If a precise fault occurs before returning to a lower priority exception, the handler detects both IMPRECISERR set and one of the precise fault status bits set at the same time. BFAR is not written." id="IMPRECISERR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Precise data bus error return." id="PRECISERR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Instruction bus error flag. This flag is set by a prefetch error. The fault stops on the instruction, so if the error occurs under a branch shadow, no fault occurs. BFAR is not written." id="IBUSERR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Memory Manage Address Register (MMFAR) address valid flag. A later-arriving fault, such as a bus fault, can clear a memory manage fault.. If a MemManage fault occurs that is escalated to a Hard Fault because of priority, the Hard Fault handler must clear this bit. This prevents problems on return to a stacked active MemManage handler whose MMFAR value has been overwritten." id="MMARVALID" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="2" end="5" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED5" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Stacking from exception has caused one or more access violations. The SP is still adjusted and the values in the context area on the stack might be incorrect. MMFAR is not written." id="MSTKERR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Unstack from exception return has caused one or more access violations. This is chained to the handler, so that the original return stack is still present. SP is not adjusted from failing return and new save is not performed. MMFAR is not written." id="MUNSTKERR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Data access violation flag. Attempting to load or store at a location that does not permit the operation sets this flag. The return PC points to the faulting instruction. This error loads MMFAR with the address of the attempted access." id="DACCVIOL" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Instruction access violation flag. Attempting to fetch an instruction from a location that does not permit execution sets this flag. This occurs on any access to an XN region, even when the MPU is disabled or not present. The return PC points to the faulting instruction. MMFAR is not written." id="IACCVIOL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="HFSR" width="32" description="Hard Fault Status
+This register is used to obtain information about events that activate the Hard Fault handler. This register is a write-clear register. This means that writing a 1 to a bit clears that bit." id="HFSR" offset="0x2c">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="This bit is set if there is a fault related to debug. This is only possible when halting debug is not enabled. For monitor enabled debug, it only happens for BKPT when the current priority is higher than the monitor. When both halting and monitor debug are disabled, it only happens for debug events that are not ignored (minimally, BKPT). The Debug Fault Status Register is updated." id="DEBUGEVT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="Hard Fault activated because a Configurable Fault was received and cannot activate because of priority or because the Configurable Fault is disabled. The Hard Fault handler then has to read the other fault status registers to determine cause." id="FORCED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="28" end="2" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="This bit is set if there is a fault because of vector table read on exception processing (Bus Fault). This case is always a Hard Fault. The return PC points to the pre-empted instruction." id="VECTTBL" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DFSR" width="32" description="Debug Fault Status
+This register is used to monitor external debug requests, vector catches, data watchpoint match, BKPT instruction execution, halt requests. Multiple flags in the Debug Fault Status Register can be set when multiple fault conditions occur. The register is read/write clear. This means that it can be read normally. Writing a 1 to a bit clears that bit. Note that these bits are not set unless the event is caught. This means that it causes a stop of some sort. If halting debug is enabled, these events stop the processor into debug. If debug is disabled and the debug monitor is enabled, then this becomes a debug monitor handler call, if priority permits. If debug and the monitor are both disabled, some of these events are Hard Faults, and some are ignored." id="DFSR" offset="0x30">
+      <bitfield range="" begin="31" width="27" end="5" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED5" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="External debug request flag. The processor stops on next instruction boundary.
+
+0x0: External debug request signal not asserted
+0x1: External debug request signal asserted" id="EXTERNAL" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Vector catch flag. When this flag is set, a flag in one of the local fault status registers is also set to indicate the type of fault.
+
+0x0: No vector catch occurred
+0x1: Vector catch occurred" id="VCATCH" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Data Watchpoint and Trace (DWT) flag. The processor stops at the current instruction or at the next instruction.
+
+0x0: No DWT match
+0x1: DWT match" id="DWTTRAP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="BKPT flag. The BKPT flag is set by a BKPT instruction in flash patch code, and also by normal code. Return PC points to breakpoint containing instruction.
+
+0x0: No BKPT instruction execution
+0x1: BKPT instruction execution" id="BKPT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Halt request flag. The processor is halted on the next instruction.
+
+0x0: No halt request
+0x1: Halt requested by NVIC, including step" id="HALTED" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="MMFAR" width="32" description="Mem Manage Fault Address
+This register is used to read the address of the location that caused a Memory Manage Fault." id="MMFAR" offset="0x34">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Mem Manage fault address field.
+This field is the data address of a faulted load or store attempt. When an unaligned access faults, the address is the actual address that faulted. Because an access can be split into multiple parts, each aligned, this address can be any offset in the range of the requested size. Flags CFSR.IACCVIOL, CFSR.DACCVIOL ,CFSR.MUNSTKERR and CFSR.MSTKERR in combination with CFSR.MMARVALIDindicate the cause of the fault." id="ADDRESS" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="BFAR" width="32" description="Bus Fault Address
+This register is used to read the address of the location that generated a Bus Fault." id="BFAR" offset="0x38">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Bus fault address field. This field is the data address of a faulted load or store attempt. When an unaligned access faults, the address is the address requested by the instruction, even if that is not the address that faulted. 
+Flags CFSR.IBUSERR, CFSR.PRECISERR, CFSR.IMPRECISERR, CFSR.UNSTKERR and CFSR.STKERR in combination with CFSR.BFARVALID indicate the cause of the fault." id="ADDRESS" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="AFSR" width="32" description="Auxiliary Fault Status
+This register is used to determine additional system fault information to software. Single-cycle high level on an auxiliary faults is latched as one. The bit can only be cleared by writing a one to the corresponding bit. Auxiliary fault inputs to the CPU are tied to 0." id="AFSR" offset="0x3c">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Implementation defined. The bits map directly onto the signal assignment to the auxiliary fault inputs. Tied to 0" id="IMPDEF" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="ID_PFR0" width="32" description="Processor Feature 0" id="ID_PFR0" offset="0x40">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="State1 (T-bit == 1)
+
+0x0: N/A
+0x1: N/A
+0x2: Thumb-2 encoding with the 16-bit basic instructions plus 32-bit Buncond/BL but no other 32-bit basic instructions (Note non-basic 32-bit instructions can be added using the appropriate instruction attribute, but other 32-bit basic instructions cannot.)
+0x3: Thumb-2 encoding with all Thumb-2 basic instructions" id="STATE1" resetval="0x3">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="State0 (T-bit == 0)
+
+0x0: No ARM encoding
+0x1: N/A" id="STATE0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="ID_PFR1" width="32" description="Processor Feature 1" id="ID_PFR1" offset="0x44">
+      <bitfield range="" begin="31" width="20" end="12" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED12" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="4" end="8" rwaccess="RO" description="Microcontroller programmer&#39;s model
+
+0x0: Not supported
+0x2: Two-stack support" id="MICROCONTROLLER_PROGRAMMERS_MODEL" resetval="0x2">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="Security. Identifies whether the Security Extension is implemented" id="SECURITY" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="ID_DFR0" width="32" description="Debug Feature 0
+This register provides a high level view of the debug system. Further details are provided in the debug infrastructure itself." id="ID_DFR0" offset="0x48">
+      <bitfield range="" begin="31" width="8" end="24" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED24" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="4" end="20" rwaccess="RO" description="Microcontroller Debug Model - memory mapped
+
+0x0: Not supported
+0x1: Microcontroller debug v1 (ITMv1 and DWTv1)" id="MICROCONTROLLER_DEBUG_MODEL" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="19" width="20" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="ID_AFR0" width="32" description="Auxiliary Feature 0
+This register provides some freedom for implementation defined features to be registered. Not used in Cortex-M." id="ID_AFR0" offset="0x4c">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="ID_MMFR0" width="32" description="Memory Model Feature 0
+General information on the memory model and memory management support." id="ID_MMFR0" offset="0x50">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x100030">
+      </bitfield>
+   </register>
+   <register acronym="ID_MMFR1" width="32" description="Memory Model Feature 1
+General information on the memory model and memory management support." id="ID_MMFR1" offset="0x54">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="ID_MMFR2" width="32" description="Memory Model Feature 2
+General information on the memory model and memory management support." id="ID_MMFR2" offset="0x58">
+      <bitfield range="" begin="31" width="4" end="28" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED28" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="27" width="4" end="24" rwaccess="RO" description="wait for interrupt stalling
+
+0x0: Not supported
+0x1: Wait for interrupt supported" id="WAIT_FOR_INTERRUPT_STALLING" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="23" width="24" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="ID_MMFR3" width="32" description="Memory Model Feature 3
+General information on the memory model and memory management support." id="ID_MMFR3" offset="0x5c">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="ID_ISAR0" width="32" description="ISA Feature 0
+Information on the instruction set attributes register" id="ID_ISAR0" offset="0x60">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x1101110">
+      </bitfield>
+   </register>
+   <register acronym="ID_ISAR1" width="32" description="ISA Feature 1
+Information on the instruction set attributes register" id="ID_ISAR1" offset="0x64">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x2112000">
+      </bitfield>
+   </register>
+   <register acronym="ID_ISAR2" width="32" description="ISA Feature 2
+Information on the instruction set attributes register" id="ID_ISAR2" offset="0x68">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x21232231">
+      </bitfield>
+   </register>
+   <register acronym="ID_ISAR3" width="32" description="ISA Feature 3
+Information on the instruction set attributes register" id="ID_ISAR3" offset="0x6c">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x1111131">
+      </bitfield>
+   </register>
+   <register acronym="ID_ISAR4" width="32" description="ISA Feature 4
+Information on the instruction set attributes register" id="ID_ISAR4" offset="0x70">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x1310132">
+      </bitfield>
+   </register>
+</module>

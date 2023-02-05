@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="FLASH" HW_revision="" XML_version="1.0" description="Thor1M Flash sub-system registers, includes the NoWrapper Flash Memory Controller (NW), flash read path, and an integrated Efuse controller and EFUSEROM.
+
+" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="WEPROT_B0_31_0_BY1" width="32" description="Internal. Only to be used through TI provided API." id="WEPROT_B0_31_0_BY1" offset="0x0">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="WEPROT_B0_31_0_BY1" resetval="0xffffffff">
+      </bitfield>
+   </register>
+   <register acronym="WEPROT_AUX_BY1" width="32" description="Internal. Only to be used through TI provided API." id="WEPROT_AUX_BY1" offset="0x4">
+      <bitfield range="" begin="31" width="26" end="6" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="WEPROT_B1_ENGR_BY1" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="WEPROT_B0_ENGR_BY1" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="WEPROT_B1_TRIM_BY1" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="WEPROT_B0_TRIM_BY1" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="WEPROT_B1_FCFG_BY1" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="WEPROT_B0_CCFG_BY1" resetval="0x1">
+      </bitfield>
+   </register>
+   <register acronym="STAT" width="32" description="NW and Efuse Status" id="STAT" offset="0x1c">
+      <bitfield range="" begin="31" width="15" end="17" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="An ocp1 or ocp3 read stall has occurred.
+0 : No stall or stall acknowledged by writing a 1
+1 : Stall condition occurred/occurring
+
+This is a read/write-clear status bit. It will reset to 0. It will be set when either an ocp1 or ocp3 read occurs to a bank that is presently undergoing a program or write operation.  
+
+An ocp2 write of 1 to this bit will clear the bit. The ocp2 write will take highest priority in the event an ocp1/ocp3 read is occurring concurrently to the ocp2 write. 
+Clearing the bit should be done only after the ongoing program/erase operation is complete indicating that both banks are free.
+If clearing occurs while the stall condition persists, the field may get set back to one.
+
+
+" id="STALLSTAT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Efuse scanning detected if fuse ROM is blank:
+0 : Not blank
+1 : Blank" id="EFUSE_BLANK" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="1" end="14" rwaccess="RO" description="Efuse scanning resulted in timeout error.
+0 : No Timeout error
+1 : Timeout Error" id="EFUSE_TIMEOUT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="1" end="13" rwaccess="RO" description="Efuse scanning resulted in scan chain Sparse byte error.
+0 : No Sparse error
+1 : Sparse Error" id="SPRS_BYTE_NOT_OK" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="12" width="5" end="8" rwaccess="RO" description="Same as EFUSEERROR.CODE" id="EFUSE_ERRCODE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="2" end="6" rwaccess="RO" description="Software should not rely on the value of a reserved bit. To provide compatibility with future products, the value of a reserved bit should be preserved across a read-modify-write operation" id="RESERVED7" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="2" end="4" rwaccess="RO" description="NW FW_SMSTAT.CMD_IN_PROGRESS bit.
+This flag is valid immediately after the operation setting it 
+0 : Not busy
+1 : Busy
+
+Bit 4 is for the busy state for Bank0 which is at logical address 0x0
+Bit 5 for Bank1." id="BUSY" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RO" description="1T access readiness status indicator from NW. Comes later than 2T readiness.
+1: FLASH banks are ready for 1T accesses
+0: FLASH banks are not ready for 1T accesses" id="READY1T" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RO" description="2T access readiness status indicator from NW
+1: FLASH banks are ready for 2T accesses
+0: FLASH banks are not ready for 2T accesses" id="READY2T" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="2" end="0" rwaccess="RO" description="Power state of each of the 2 flash arbiter FSM instances in the flash sub-system. For Thor, these bits should mostly be in the same state since both banks are in the same power mode. 
+0 : Active
+1 : Ready for Low power (The 2T readiness has gone low or the flash_off_req has been set=1, and flash_off_ack is ready to be asserted).
+
+Bit 0 is for the power state for Bank0 which is at logical address 0x0
+Bit 1 for Bank1
+
+" id="POWER_MODE" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CFG" width="32" description="Internal. Only to be used through TI provided API." id="CFG" offset="0x24">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="DIS_FWTEST" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="18" end="12" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED12" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="MAIN_STICKY_EN" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="CCFG_STICKY_EN" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="FCFG_STICKY_EN" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="ENGR_TRIM_STICKY_EN" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="2" end="6" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="DIS_EFUSECLK" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="DIS_READACCESS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="3" end="1" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="BP_TRIMCFG_EN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="FLASH_SIZE" width="32" description="Internal. Only to be used through TI provided API." id="FLASH_SIZE" offset="0x2c">
+      <bitfield range="" begin="31" width="22" end="10" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED10" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="3" end="7" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="SECTORS" resetval="0x4">
+      </bitfield>
+      <bitfield range="" begin="6" width="7" end="0" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="FWLOCK" width="32" description="Internal. Only to be used through TI provided API." id="FWLOCK" offset="0x3c">
+      <bitfield range="" begin="31" width="29" end="3" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="FWLOCK" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="FWFLAG" width="32" description="Internal. Only to be used through TI provided API." id="FWFLAG" offset="0x40">
+      <bitfield range="" begin="31" width="29" end="3" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="FWFLAG" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="BANK0_TRIM_CFG_3" width="32" description="Internal. Only to be used through TI provided API." id="BANK0_TRIM_CFG_3" offset="0x50">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="RESERVED32" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="BANK0_TRIM_CFG_2" width="32" description="Internal. Only to be used through TI provided API." id="BANK0_TRIM_CFG_2" offset="0x54">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="RESERVED32" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="BANK0_TRIM_CFG_1" width="32" description="Internal. Only to be used through TI provided API." id="BANK0_TRIM_CFG_1" offset="0x58">
+      <bitfield range="" begin="31" width="4" end="28" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="27" width="6" end="22" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="REDSWSELW3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="6" end="16" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="REDSWSELW2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="6" end="10" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="REDSWSELW1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="6" end="4" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="REDSWSELW0" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="REDSWENW3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="REDSWENW2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="REDSWENW1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="REDSWENW0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="BANK0_TRIM_CFG_0" width="32" description="Internal. Only to be used through TI provided API." id="BANK0_TRIM_CFG_0" offset="0x5c">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="BANK0_TRIM_CFG_0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="BANK1_TRIM_CFG_3" width="32" description="Internal. Only to be used through TI provided API." id="BANK1_TRIM_CFG_3" offset="0x60">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="RESERVED32" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="BANK1_TRIM_CFG_2" width="32" description="Internal. Only to be used through TI provided API." id="BANK1_TRIM_CFG_2" offset="0x64">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="RESERVED32" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="BANK1_TRIM_CFG_1" width="32" description="Internal. Only to be used through TI provided API." id="BANK1_TRIM_CFG_1" offset="0x68">
+      <bitfield range="" begin="31" width="4" end="28" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="27" width="6" end="22" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="REDSWSELW3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="6" end="16" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="REDSWSELW2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="6" end="10" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="REDSWSELW1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="6" end="4" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="REDSWSELW0" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="REDSWENW3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="REDSWENW2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="REDSWENW1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="REDSWENW0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="BANK1_TRIM_CFG_0" width="32" description="Internal. Only to be used through TI provided API." id="BANK1_TRIM_CFG_0" offset="0x6c">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="BANK1_TRIM_CFG_0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PUMP_TRIM_CFG_2" width="32" description="Internal. Only to be used through TI provided API." id="PUMP_TRIM_CFG_2" offset="0x70">
+      <bitfield range="" begin="31" width="6" end="26" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="25" width="6" end="20" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="VWLCT" resetval="0x5">
+      </bitfield>
+      <bitfield range="" begin="19" width="6" end="14" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="VSLCT" resetval="0x16">
+      </bitfield>
+      <bitfield range="" begin="13" width="5" end="9" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="VREADCT" resetval="0xa">
+      </bitfield>
+      <bitfield range="" begin="8" width="5" end="4" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="VINLOWCCORCT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="VINHICCORCT" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PUMP_TRIM_CFG_1" width="32" description="Internal. Only to be used through TI provided API." id="PUMP_TRIM_CFG_1" offset="0x74">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="VINHICCORCTLSB" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="6" end="25" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="VINHCT" resetval="0xc">
+      </bitfield>
+      <bitfield range="" begin="24" width="5" end="20" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="VCGCT" resetval="0x12">
+      </bitfield>
+      <bitfield range="" begin="19" width="5" end="15" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="IREFVRDCT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="5" end="10" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="IREFTCCT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="4" end="6" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="IREFCT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="6" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="FOSCCT" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PUMP_TRIM_CFG_0" width="32" description="Internal. Only to be used through TI provided API." id="PUMP_TRIM_CFG_0" offset="0x78">
+      <bitfield range="" begin="31" width="2" end="30" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="10" end="20" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="VHVCT_PV" resetval="0xb">
+      </bitfield>
+      <bitfield range="" begin="19" width="10" end="10" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="VHVCT_PGM" resetval="0x131">
+      </bitfield>
+      <bitfield range="" begin="9" width="10" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="VHVCT_ERS" resetval="0x13a">
+      </bitfield>
+   </register>
+   <register acronym="EFUSE" width="32" description="Internal. Only to be used through TI provided API." id="EFUSE" offset="0x1000">
+      <bitfield range="" begin="31" width="3" end="29" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED29" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="28" width="5" end="24" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="INSTRUCTION" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="8" end="16" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="DUMPWORD" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="EFUSEADDR" width="32" description="Internal. Only to be used through TI provided API." id="EFUSEADDR" offset="0x1004">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="5" end="11" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="BLOCK" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="11" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="ROW" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DATAUPPER" width="32" description="Internal. Only to be used through TI provided API." id="DATAUPPER" offset="0x1008">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="5" end="3" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="SPARE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="P" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="R" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="EEN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DATALOWER" width="32" description="Internal. Only to be used through TI provided API." id="DATALOWER" offset="0x100c">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="DATA" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="EFUSECFG" width="32" description="Internal. Only to be used through TI provided API." id="EFUSECFG" offset="0x1010">
+      <bitfield range="" begin="31" width="23" end="9" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED9" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="IDLEGATING" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="3" end="5" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED5" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="2" end="3" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="SLAVEPOWER" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="2" end="1" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="GATING" resetval="0x1">
+      </bitfield>
+   </register>
+   <register acronym="EFUSESTAT" width="32" description="Internal. Only to be used through TI provided API." id="EFUSESTAT" offset="0x1014">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESETDONE" resetval="0x1">
+      </bitfield>
+   </register>
+   <register acronym="ACC" width="32" description="Internal. Only to be used through TI provided API." id="ACC" offset="0x1018">
+      <bitfield range="" begin="31" width="8" end="24" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED24" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="24" end="0" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="ACCUMULATOR" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="BOUNDARY" width="32" description="Internal. Only to be used through TI provided API." id="BOUNDARY" offset="0x101c">
+      <bitfield range="" begin="31" width="8" end="24" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED24" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="1" end="23" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="DISROW0" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="22" width="1" end="22" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="SPARE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="1" end="21" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="EFC_SELF_TEST_ERROR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="20" width="1" end="20" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="EFC_INSTRUCTION_INFO" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="EFC_INSTRUCTION_ERROR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="EFC_AUTOLOAD_ERROR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="4" end="14" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="OUTPUTENABLE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="SYS_ECC_SELF_TEST_EN" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="SYS_ECC_OVERRIDE_EN" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="EFC_FDI" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="SYS_DIEID_AUTOLOAD_EN" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="SYS_REPAIR_EN" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="SYS_WS_READ_STATES" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="INPUTENABLE" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="EFUSEFLAG" width="32" description="Internal. Only to be used through TI provided API." id="EFUSEFLAG" offset="0x1020">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="KEY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="EFUSEKEY" width="32" description="Internal. Only to be used through TI provided API." id="EFUSEKEY" offset="0x1024">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="CODE" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="EFUSERELEASE" width="32" description="Internal. Only to be used through TI provided API." id="EFUSERELEASE" offset="0x1028">
+      <bitfield range="" begin="31" width="7" end="25" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="ODPYEAR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="24" width="4" end="21" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="ODPMONTH" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="20" width="5" end="16" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="ODPDAY" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="7" end="9" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="EFUSEYEAR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="4" end="5" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="EFUSEMONTH" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="5" end="0" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="EFUSEDAY" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="EFUSEPINS" width="32" description="Internal. Only to be used through TI provided API." id="EFUSEPINS" offset="0x102c">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="EFC_SELF_TEST_DONE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="1" end="14" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="EFC_SELF_TEST_ERROR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="1" end="13" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="SYS_ECC_SELF_TEST_EN" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="EFC_INSTRUCTION_INFO" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="1" end="11" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="EFC_INSTRUCTION_ERROR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="EFC_AUTOLOAD_ERROR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="SYS_ECC_OVERRIDE_EN" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="EFC_READY" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="EFC_FCLRZ" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="SYS_DIEID_AUTOLOAD_EN" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="2" end="4" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="SYS_REPAIR_EN" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="SYS_WS_READ_STATES" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="EFUSECRA" width="32" description="Internal. Only to be used through TI provided API." id="EFUSECRA" offset="0x1030">
+      <bitfield range="" begin="31" width="26" end="6" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="6" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="DATA" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="EFUSEREAD" width="32" description="Internal. Only to be used through TI provided API." id="EFUSEREAD" offset="0x1034">
+      <bitfield range="" begin="31" width="22" end="10" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED10" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="DATABIT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="READCLOCK" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="DEBUG" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="SPARE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="MARGIN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="EFUSEPROGRAM" width="32" description="Internal. Only to be used through TI provided API." id="EFUSEPROGRAM" offset="0x1038">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="COMPAREDISABLE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="16" end="14" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="CLOCKSTALL" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="VPPTOVDD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="12" width="4" end="9" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="ITERATIONS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="9" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="WRITECLOCK" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="EFUSEERROR" width="32" description="Internal. Only to be used through TI provided API." id="EFUSEERROR" offset="0x103c">
+      <bitfield range="" begin="31" width="26" end="6" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="DONE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="5" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="CODE" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="SINGLEBIT" width="32" description="Internal. Only to be used through TI provided API." id="SINGLEBIT" offset="0x1040">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="FROMN" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="FROM0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TWOBIT" width="32" description="Internal. Only to be used through TI provided API." id="TWOBIT" offset="0x1044">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="FROMN" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="FROM0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="SELFTESTCYC" width="32" description="Internal. Only to be used through TI provided API." id="SELFTESTCYC" offset="0x1048">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="CYCLES" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="SELFTESTSIGN" width="32" description="Internal. Only to be used through TI provided API." id="SELFTESTSIGN" offset="0x104c">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="SIGNATURE" resetval="0x0">
+      </bitfield>
+   </register>
+</module>

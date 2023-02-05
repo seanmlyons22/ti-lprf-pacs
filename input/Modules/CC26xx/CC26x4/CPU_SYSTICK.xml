@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="CPU_SYSTICK" HW_revision="" XML_version="1.0" description="Cortex-M&#39;s System Timer (SYSTICK)" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="CSR" width="32" description="Controls the SysTick timer and provides status data `FTSSS" id="CSR" offset="0x0">
+      <bitfield range="" begin="31" width="15" end="17" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED17" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Indicates whether the counter has counted to zero since the last read of this register" id="COUNTFLAG" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="13" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Indicates the SysTick clock source" id="CLKSOURCE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Indicates whether counting to 0 causes the status of the SysTick exception to change to pending" id="TICKINT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Indicates the enabled status of the SysTick counter" id="ENABLE" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="RVR" width="32" description="Provides access SysTick timer counter reload value `FTSSS" id="RVR" offset="0x4">
+      <bitfield range="" begin="31" width="8" end="24" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED24" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="24" end="0" rwaccess="RW" description="The value to load into the SYST_CVR `FTSSS when the counter reaches 0" id="RELOAD" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CVR" width="32" description="Reads or clears the SysTick timer current counter value `FTSSS" id="CVR" offset="0x8">
+      <bitfield range="" begin="31" width="8" end="24" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED24" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="24" end="0" rwaccess="WO" description="Writing any value clears the SysTick timer counter `FTSSS to zero" id="CURRENT" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CALIB" width="32" description="Reads the SysTick timer calibration value and parameters `FTSSS" id="CALIB" offset="0xc">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Indicates whether the IMPLEMENTATION DEFINED reference clock is implemented" id="NOREF" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RO" description="Indicates whether the 10ms calibration value is exact" id="SKEW" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="6" end="24" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED24" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="24" end="0" rwaccess="RO" description="Optionally, holds a reload value to be used for 10ms (100Hz) timing, subject to system clock skew errors. If this field is zero, the calibration value is not known" id="TENMS" resetval="0x0">
+      </bitfield>
+   </register>
+</module>
