@@ -1,13 +1,3 @@
-
-PROVIDE(INT_NMI_FAULT = DefaultHandler);
-PROVIDE(INT_HARD_FAULT = DefaultHandler);
-PROVIDE(INT_MEMMANAGE_FAULT = DefaultHandler);
-PROVIDE(INT_BUS_FAULT = DefaultHandler);
-PROVIDE(INT_USAGE_FAULT = DefaultHandler);
-PROVIDE(INT_SVCALL = DefaultHandler);
-PROVIDE(INT_DEBUG = DefaultHandler);
-PROVIDE(INT_PENDSV = DefaultHandler);
-PROVIDE(INT_SYSTICK = DefaultHandler);
 PROVIDE(INT_AON_GPIO_EDGE = DefaultHandler);
 PROVIDE(INT_I2C = DefaultHandler);
 PROVIDE(INT_RFC_CPE_1 = DefaultHandler);

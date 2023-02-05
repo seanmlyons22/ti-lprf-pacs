@@ -3,7 +3,6 @@ import argparse
 import subprocess
 import os
 import shutil
-from enum import StrEnum
 
 WINDOWS_LINE_ENDING = "\r\n"
 UNIX_LINE_ENDING = "\n"
@@ -86,7 +85,7 @@ def svd2rust(svd_file_path: str):
     subprocess.run(["cargo", "fmt"])
 
 
-def patch_vectors(lib_rs_path: str, int_rs_path: str):
+def patch_vectors(pac_path: str, int_rs_path: str, device_x_path: str):
     """Patch the interrupt vector defintions in the generated PAC
 
        The TI XML doesn't contain definitions of the interrupt vector table
@@ -102,6 +101,7 @@ def patch_vectors(lib_rs_path: str, int_rs_path: str):
         lib_rs_path (str): Path to lib.rs file to patch
         int_rs_path (str): Path to interrupt definition file written in rust
     """
+    lib_rs_path = Path("src/lib.rs").as_posix()
     with open(lib_rs_path, mode="r+") as lib_file, open(int_rs_path, mode="r") as ints:
         # There are two parts of the input files. The C declarations and the rust based vector table
         # These are delimited by `}` and two newlines.
@@ -121,6 +121,10 @@ def patch_vectors(lib_rs_path: str, int_rs_path: str):
         lib_file.write(lib_string)
         lib_file.truncate()
 
+
+    shutil.copy(device_x_path, os.curdir)
+    device_x_stem = Path(device_x_path).name
+    os.rename(device_x_stem, "device.x")
 
 def app():
     """This function contains the main logic of the program. It does the following
@@ -184,9 +188,9 @@ def app():
 
         # TI's XMLs don't contain interrupt vector table defintions
         # Patch the generated rust files
-        lib_path = Path("src/lib.rs").as_posix()
         int_path = Path(f"{old_path}/{args.input}/{device_name}_ints.rs").as_posix()
-        patch_vectors(lib_path, int_path)
+        device_x_path = Path(f"{old_path}/{args.input}/{device_name}_device.x").as_posix()
+        patch_vectors(pac_directory, int_path, device_x_path)
 
         # Change back to the original directory, preserving state
         os.chdir(old_path)

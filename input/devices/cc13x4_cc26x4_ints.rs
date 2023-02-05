@@ -1,13 +1,4 @@
 extern "C" {
-    fn INT_NMI_FAULT();
-    fn INT_HARD_FAULT();
-    fn INT_MEMMANAGE_FAULT();
-    fn INT_BUS_FAULT();
-    fn INT_USAGE_FAULT();
-    fn INT_SVCALL();
-    fn INT_DEBUG();
-    fn INT_PENDSV();
-    fn INT_SYSTICK();
     fn INT_AON_GPIO_EDGE();
     fn INT_I2C();
     fn INT_RFC_CPE_1();
@@ -57,16 +48,7 @@ extern "C" {
     fn INT_SWEV4(); 
 }
 
-pub static __INTERRUPTS: [Vector; 63] = [
-    Vector { _handler: INT_NMI_FAULT },
-    Vector { _handler: INT_HARD_FAULT },
-    Vector { _handler: INT_MEMMANAGE_FAULT },
-    Vector { _handler: INT_BUS_FAULT },
-    Vector { _handler: INT_USAGE_FAULT },
-    Vector { _handler: INT_SVCALL },
-    Vector { _handler: INT_DEBUG },
-    Vector { _handler: INT_PENDSV },
-    Vector { _handler: INT_SYSTICK },
+pub static __INTERRUPTS: [Vector; 47] = [
     Vector { _handler: INT_AON_GPIO_EDGE },
     Vector { _handler: INT_I2C },
     Vector { _handler: INT_RFC_CPE_1 },

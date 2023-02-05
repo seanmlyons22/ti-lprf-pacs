@@ -1,16 +1,7 @@
-
-PROVIDE(INT_NMI_FAULT = DefaultHandler);
-PROVIDE(INT_HARD_FAULT = DefaultHandler);
-PROVIDE(INT_MEMMANAGE_FAULT = DefaultHandler);
-PROVIDE(INT_BUS_FAULT = DefaultHandler);
-PROVIDE(INT_USAGE_FAULT = DefaultHandler);
-PROVIDE(INT_SVCALL = DefaultHandler);
-PROVIDE(INT_DEBUG = DefaultHandler);
-PROVIDE(INT_PENDSV = DefaultHandler);
-PROVIDE(INT_SYSTICK = DefaultHandler);
 PROVIDE(INT_AON_GPIO_EDGE = DefaultHandler);
 PROVIDE(INT_I2C = DefaultHandler);
 PROVIDE(INT_RFC_CPE_1 = DefaultHandler);
+PROVIDE(INT_PKA = DefaultHandler);
 PROVIDE(INT_AON_RTC_COMB = DefaultHandler);
 PROVIDE(INT_UART0_COMB = DefaultHandler);
 PROVIDE(INT_AUX_SWEV0 = DefaultHandler);
@@ -41,3 +32,7 @@ PROVIDE(INT_PROG0 = DefaultHandler);
 PROVIDE(INT_AUX_COMPA = DefaultHandler);
 PROVIDE(INT_AUX_ADC = DefaultHandler);
 PROVIDE(INT_TRNG = DefaultHandler);
+PROVIDE(INT_OSC_COMB = DefaultHandler);
+PROVIDE(INT_AUX_TIMER2_EV0 = DefaultHandler);
+PROVIDE(INT_UART1_COMB = DefaultHandler);
+PROVIDE(INT_BATMON_COMB = DefaultHandler);
