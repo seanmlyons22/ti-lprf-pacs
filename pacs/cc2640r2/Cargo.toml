@@ -1,0 +1,23 @@
+[package]
+name = "cc2640r2"
+version.workspace = true
+edition.workspace = true
+keywords.workspace = true
+license.workspace = true
+repository.workspace = true
+readme.workspace = true
+
+[dependencies]
+cortex-m.workspace = true
+vcell.workspace = true
+
+[dependencies.cortex-m-rt]
+optional = true
+workspace = true
+
+[dependencies.critical-section]
+optional = true
+workspace = true
+
+[features]
+rt = ["cortex-m-rt/device"]
