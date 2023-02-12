@@ -964,8 +964,8 @@ Writing 1 to a bit position will invert the corresponding DIO output." id="DOUTT
    </register>
    <register acronym="EVFLAGS31_0" width="32" description="Event Register for DIO 0 to 31
 
-Reading  this registers will return 1 for triggered event and 0 for non-triggered events. 
-Writing a 1 to a bit field will clear the event. 
+Reading  this registers will return 1 for triggered event and 0 for non-triggered events.
+Writing a 1 to a bit field will clear the event.
 
 The configuration of events is done inside MCU IOC, e.g. events for DIO #0 is configured in IOC:IOCFG0.EDGE_DET and IOC:IOCFG0.EDGE_IRQ_EN.
 
@@ -1037,8 +1037,8 @@ The configuration of events is done inside MCU IOC, e.g. events for DIO #0 is co
    </register>
    <register acronym="EVFLAGS47_32" width="32" description="Event Register for DIO 32 to 47
 
-Reading  this registers will return 1 for triggered event and 0 for non-triggered events. 
-Writing a 1 to a bit field will clear the event. 
+Reading  this registers will return 1 for triggered event and 0 for non-triggered events.
+Writing a 1 to a bit field will clear the event.
 
 The configuration of events is done inside MCU IOC, e.g. events for DIO #0 is configured in IOC:IOCFG0.EDGE_DET and IOC:IOCFG0.EDGE_IRQ_EN.
 

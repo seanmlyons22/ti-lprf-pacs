@@ -3,9 +3,9 @@
 - AUX_EVCTL:EVSTAT3.AUX_TIMER0_EV.
 - AUX_EVCTL:EVSTAT3.AUX_TIMER1_EV.
 
-The events are described in T0TARGET and T1TARGET. Subscribers to the AUX event bus can use these events to sequence and trigger actions. 
+The events are described in T0TARGET and T1TARGET. Subscribers to the AUX event bus can use these events to sequence and trigger actions.
 
-AUX_SYSIF:PEROPRATE.TIMER01_OP_RATE sets the peripheral clock frequency used by the prescaler, timer, and event logic to SCE or AUX bus rate. To use AUX_TIMER01: 
+AUX_SYSIF:PEROPRATE.TIMER01_OP_RATE sets the peripheral clock frequency used by the prescaler, timer, and event logic to SCE or AUX bus rate. To use AUX_TIMER01:
 - System CPU must set AUX_SYSIF:PEROPRATE.TIMER01_OP_RATE to SCE_RATE if event subscriber works on SCE_RATE.
 - System CPU must set AUX_SYSIF:PEROPRATE.TIMER01_OP_RATE to BUS_RATE.
 - The timers must only subscribe to events updated at the peripheral clock frequency or lower.
@@ -81,7 +81,7 @@ Unexpected execution behavior can result if software does not obey these rules. 
 0x0: Divide by 1.
 0x1: Divide by 2.
 0x2: Divide by 4.
-... 
+...
 0xF: Divide by 32,768." id="PRE" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="3" width="2" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
@@ -124,7 +124,7 @@ The counter restarts from 0 when you enable Timer 0." id="EN" resetval="0x0">
       <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Timer 0 target value.
 
 Manual Reload Mode:
-- Timer 0 increments until the counter value becomes equal to or greater than VALUE. 
+- Timer 0 increments until the counter value becomes equal to or greater than VALUE.
 - AUX_TIMER0_EV pulses high for 1 peripheral clock period when the counter value is equal to or greater than VALUE.
 
 Note: When VALUE is 0, Timer 0 counts to 1. AUX_TIMER0_EV pulses high for 1 peripheral clock period.
@@ -215,7 +215,7 @@ It is allowed to update the VALUE while the timer runs." id="VALUE" resetval="0x
 0x0: Divide by 1.
 0x1: Divide by 2.
 0x2: Divide by 4.
-... 
+...
 0xF: Divide by 32,768." id="PRE" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="3" width="2" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
@@ -262,7 +262,7 @@ Timer 1 counter target value" id="T1TARGET" offset="0x18">
       <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Timer 1 target value.
 
 Manual Reload Mode:
-- Timer 1 increments until the counter value becomes equal to or greater than VALUE. 
+- Timer 1 increments until the counter value becomes equal to or greater than VALUE.
 - AUX_TIMER1_EV pulses high for 1 peripheral clock period when the counter value is equal to or greater than VALUE.
 
 Note: When VALUE is 0, Timer 1 counts to 1. AUX_TIMER1_EV pulses high for 1 peripheral clock period.

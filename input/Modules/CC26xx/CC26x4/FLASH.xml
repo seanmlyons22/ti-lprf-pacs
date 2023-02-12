@@ -29,9 +29,9 @@
 0 : No stall or stall acknowledged by writing a 1
 1 : Stall condition occurred/occurring
 
-This is a read/write-clear status bit. It will reset to 0. It will be set when either an ocp1 or ocp3 read occurs to a bank that is presently undergoing a program or write operation.  
+This is a read/write-clear status bit. It will reset to 0. It will be set when either an ocp1 or ocp3 read occurs to a bank that is presently undergoing a program or write operation.
 
-An ocp2 write of 1 to this bit will clear the bit. The ocp2 write will take highest priority in the event an ocp1/ocp3 read is occurring concurrently to the ocp2 write. 
+An ocp2 write of 1 to this bit will clear the bit. The ocp2 write will take highest priority in the event an ocp1/ocp3 read is occurring concurrently to the ocp2 write.
 Clearing the bit should be done only after the ongoing program/erase operation is complete indicating that both banks are free.
 If clearing occurs while the stall condition persists, the field may get set back to one.
 
@@ -55,7 +55,7 @@ If clearing occurs while the stall condition persists, the field may get set bac
       <bitfield range="" begin="7" width="2" end="6" rwaccess="RO" description="Software should not rely on the value of a reserved bit. To provide compatibility with future products, the value of a reserved bit should be preserved across a read-modify-write operation" id="RESERVED7" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="5" width="2" end="4" rwaccess="RO" description="NW FW_SMSTAT.CMD_IN_PROGRESS bit.
-This flag is valid immediately after the operation setting it 
+This flag is valid immediately after the operation setting it
 0 : Not busy
 1 : Busy
 
@@ -70,7 +70,7 @@ Bit 5 for Bank1." id="BUSY" resetval="0x0">
 1: FLASH banks are ready for 2T accesses
 0: FLASH banks are not ready for 2T accesses" id="READY2T" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="1" width="2" end="0" rwaccess="RO" description="Power state of each of the 2 flash arbiter FSM instances in the flash sub-system. For Thor, these bits should mostly be in the same state since both banks are in the same power mode. 
+      <bitfield range="" begin="1" width="2" end="0" rwaccess="RO" description="Power state of each of the 2 flash arbiter FSM instances in the flash sub-system. For Thor, these bits should mostly be in the same state since both banks are in the same power mode.
 0 : Active
 1 : Ready for Low power (The 2T readiness has gone low or the flash_off_req has been set=1, and flash_off_ack is ready to be asserted).
 

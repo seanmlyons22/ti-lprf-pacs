@@ -21,7 +21,7 @@ The settings in this register are OR&#39;ed with the corresponding settings in M
          <bitenum id="EN" value="1" token="System CPU has requested clock for AUX_DDI0_OSC" description="System CPU has requested clock for AUX_DDI0_OSC"/>
          <bitenum id="DIS" value="0" token="System CPU has not requested clock for AUX_DDI0_OSC" description="System CPU has not requested clock for AUX_DDI0_OSC"/>
       </bitfield>
-      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Enables (1) or disables (0) clock for AUX_TDCIF. 
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Enables (1) or disables (0) clock for AUX_TDCIF.
 
 Note that the TDC counter and reference clock sources must be requested separately using TDCCLKCTL and REFCLKCTL, respectively." id="TDC" resetval="0x0">
          <bitenum id="EN" value="1" token="System CPU has requested clock for TDC" description="System CPU has requested clock for TDC"/>
@@ -92,7 +92,7 @@ The system CPU cannot use this bit since the bus bridge between MCU domain and A
    <register acronym="CLKLFREQ" width="32" description="Low Frequency Clock Request" id="CLKLFREQ" offset="0x10">
       <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Low frequency request 
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Low frequency request
 
 0: Request clock frequency to be controlled by AON_WUC:AUXCLK and the system state
 1: Request low frequency clock SCLK_LF as the clock source for AUX
@@ -137,7 +137,7 @@ Clears wake-up events from the AON domain
 
 This bit must remain set until WUEVFLAGS.AON_RTC_CH2 returns to 0." id="AON_RTC_CH2" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Set to clear the WUEVFLAGS.AON_SW wake-up event. 
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Set to clear the WUEVFLAGS.AON_SW wake-up event.
 
 This bit must remain set until WUEVFLAGS.AON_SW returns to 0." id="AON_SW" resetval="0x0">
       </bitfield>
@@ -182,7 +182,7 @@ This bit must not be modified unless ACK matches the current value." id="REQ" re
    </register>
    <register acronym="REFCLKCTL" width="32" description="Reference Clock Control
 
-Controls the TDC reference clock source, which is to be compared against the TDC counter clock. 
+Controls the TDC reference clock source, which is to be compared against the TDC counter clock.
 
 The source of this clock is controlled by OSC_DIG:CTL0.ACLK_REF_SRC_SEL." id="REFCLKCTL" offset="0x38">
       <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED" resetval="0x0">
@@ -253,7 +253,7 @@ Note that this register cannot be read from the MCU domain while disconnected, a
       </bitfield>
       <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates whether the AUX domain and MCU domain buses are currently disconnected (1) or connected (0)." id="DISCONNECTED" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Acknowledges reception of the bus disconnection request, by matching the value of MCUBUSCTL.DISCONNECT_REQ. 
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Acknowledges reception of the bus disconnection request, by matching the value of MCUBUSCTL.DISCONNECT_REQ.
 
 Note that if AON_WUC:AUXCTL.AUX_FORCE_ON = 1 a reconnect to the MCU domain bus will be made regardless of the state of MCUBUSCTL.DISCONNECT_REQ" id="DISCONNECT_ACK" resetval="0x0">
       </bitfield>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module id="SMPH" HW_revision="" XML_version="1.0" description="MCU Semaphore Module
 
-This module provides 32 binary semaphores. The state of a binary semaphore is either taken or available. 
+This module provides 32 binary semaphores. The state of a binary semaphore is either taken or available.
 
 A semaphore does not implement any ownership attribute. Still, a semaphore can be used to handle mutual exclusion scenarios.
 
@@ -364,7 +364,7 @@ Reading the register causes it to change value to 0. Releasing the semaphore is 
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -375,7 +375,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -386,7 +386,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -397,7 +397,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -408,7 +408,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -419,7 +419,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -430,7 +430,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -441,7 +441,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -452,7 +452,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -463,7 +463,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -474,7 +474,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -485,7 +485,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -496,7 +496,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -507,7 +507,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -518,7 +518,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -529,7 +529,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -540,7 +540,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -551,7 +551,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -562,7 +562,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -573,7 +573,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -584,7 +584,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -595,7 +595,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -606,7 +606,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -617,7 +617,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -628,7 +628,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -639,7 +639,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -650,7 +650,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -661,7 +661,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -672,7 +672,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -683,7 +683,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -694,7 +694,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>
@@ -705,7 +705,7 @@ Used for semaphore debugging. A read operation will not change register value. R
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status when reading:
 
 0: Semaphore is taken
-1: Semaphore is available 
+1: Semaphore is available
 
 Used for semaphore debugging. A read operation will not change register value. Register writing is not possible. " id="STAT" resetval="0x1">
       </bitfield>

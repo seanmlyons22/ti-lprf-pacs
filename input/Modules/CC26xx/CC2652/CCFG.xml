@@ -74,7 +74,7 @@ Notes:
 See:
 VIMS:CTL.MODE" id="DIS_GPRAM" resetval="0x1">
       </bitfield>
-      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Disable alternate DC/DC settings. 
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Disable alternate DC/DC settings.
 0: Enable alternate DC/DC settings.
 1: Disable alternate DC/DC settings.
 See:
@@ -157,7 +157,7 @@ Refer to MODE_CONF_1.TCXO_MAX_START and MODE_CONF_1.TCXO_TYPE bit fields for add
       <bitfield range="" begin="15" width="8" end="8" rwaccess="RO" description="Signed 8-bit value, directly modifying trimmed XOSC cap-array step value. Enabled by XOSC_CAP_MOD." id="XOSC_CAPARRAY_DELTA" resetval="0xff">
       </bitfield>
       <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="Unsigned 8-bit integer, representing the minimum decoupling capacitance (worst case) on VDDR, in units of 100nF. This should take into account capacitor tolerance and voltage dependent capacitance variation. This bit affects the recharge period calculation when going into powerdown or standby.
- 
+
 NOTE! If using the following functions this field must be configured (used by TI RTOS):
 SysCtrlSetRechargeBeforePowerDown() SysCtrlAdjustRechargeAfterPowerDown()" id="VDDR_CAP" resetval="0xff">
       </bitfield>
@@ -264,7 +264,7 @@ NOTE! Boot loader must be enabled (see BOOTLOADER_ENABLE) if boot loader backdoo
       </bitfield>
       <bitfield range="" begin="8" width="1" end="8" rwaccess="RO" description="Chip erase.
 This bit controls if a chip erase requested through the JTAG WUC TAP will be ignored in a following boot caused by a reset of the MCU VD.
-A successful chip erase operation will force the content of the flash main bank back to the state as it was when delivered by TI. 
+A successful chip erase operation will force the content of the flash main bank back to the state as it was when delivered by TI.
 0: Disable. Any chip erase request detected during boot will be ignored.
 1: Enable. Any chip erase request detected during boot will be performed by the boot FW." id="CHIP_ERASE_DIS_N" resetval="0x1">
       </bitfield>

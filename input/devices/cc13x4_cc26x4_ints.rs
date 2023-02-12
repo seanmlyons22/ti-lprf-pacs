@@ -45,7 +45,7 @@ extern "C" {
     fn INT_SWEV1();
     fn INT_SWEV2();
     fn INT_SWEV3();
-    fn INT_SWEV4(); 
+    fn INT_SWEV4();
 }
 
 pub static __INTERRUPTS: [Vector; 47] = [

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module id="AUX_SPIM" HW_revision="" XML_version="1.0" description="The AUX Serial Peripheral Interface Master (AUX_SPIM) enables AUX_SCE with power-efficient SPI communication.  
+<module id="AUX_SPIM" HW_revision="" XML_version="1.0" description="The AUX Serial Peripheral Interface Master (AUX_SPIM) enables AUX_SCE with power-efficient SPI communication.
 
-It is not possible to write a register while SPI transmission occurs. An attempt to do so will stall the bus until transmission is complete. 
+It is not possible to write a register while SPI transmission occurs. An attempt to do so will stall the bus until transmission is complete.
 
 Read of RX8.DATA or RX16.DATA stalls the bus until LSB has been captured. Read of SCLKIDLE.STAT or DATAIDLE.STAT stalls the bus until condition described is met. Other read operations do not stall the bus.
 
-AUX_SCE becomes clock gated if it encounters a bus stall. This is useful as AUX_SCE can write TX8.DATA and then read RX8.DATA immediately to read a SPI slave. In such case there is no need for software to wait or to poll registers. 
+AUX_SCE becomes clock gated if it encounters a bus stall. This is useful as AUX_SCE can write TX8.DATA and then read RX8.DATA immediately to read a SPI slave. In such case there is no need for software to wait or to poll registers.
 
-AUX_SYSIF:PEROPRATE.SPIM_OP_RATE selects the peripheral clock frequency which is used to derive the SCLK frequency. 
+AUX_SYSIF:PEROPRATE.SPIM_OP_RATE selects the peripheral clock frequency which is used to derive the SCLK frequency.
 
 AUX_SCE must set AUX_SYSIF:PEROPRATE.SPIM_OP_RATE to SCE_RATE to access and use AUX_SPIM. System CPU must set AUX_SYSIF:PEROPRATE.SPIM_OP_RATE to BUS_RATE to access and use AUX_SPIM. Failure to do so can result in incorrect SPI transmission.
 
@@ -24,7 +24,7 @@ Peripheral clock frequency division gives the SCLK clock frequency. The division
 0x00: Divide by 2.
 0x01: Divide by 4.
 0x02: Divide by 6.
-... 
+...
 0x3F: Divide by 128.
 " id="DIV" resetval="0x0">
       </bitfield>

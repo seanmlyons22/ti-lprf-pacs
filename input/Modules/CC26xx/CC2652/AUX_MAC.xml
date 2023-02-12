@@ -6,7 +6,7 @@
 
 Software can easily:
 - Access arbitrary 16-bit slice of the 40-bit accumulator.
-- Find the number of leading zero or sign bits. 
+- Find the number of leading zero or sign bits.
 - Perform shift operations on the accumulator.
 
 AUX_SCE must set AUX_SYSIF:PEROPRATE.MAC_OP_RATE to SCE_RATE to access and use AUX_MAC. System CPU must set AUX_SYSIF:PEROPRATE.MAC_OP_RATE to BUS_RATE to access and use AUX_MAC. This guarantees constant execution times for ADD, MUL, and MAC operations.
@@ -123,7 +123,7 @@ When lower half of 32-bit operand was written to OP0U.OP0_VALUE: ACC = ACC + (( 
 
 0x00: 0 leading zeros.
 0x01: 1 leading zero.
-... 
+...
 0x28: 40 leading zeros (accumulator value is 0)." id="VALUE" resetval="0x28">
       </bitfield>
    </register>
@@ -138,7 +138,7 @@ When MSB of accumulator is 1, VALUE is number of leading ones, MSB included.
 VALUE range is 1 thru 40." id="VALUE" resetval="0x28">
       </bitfield>
    </register>
-   <register acronym="ACCSHIFT" width="32" description="Accumulator Shift 
+   <register acronym="ACCSHIFT" width="32" description="Accumulator Shift
 
 Only one shift operation can be triggered per register write." id="ACCSHIFT" offset="0x30">
       <bitfield range="" begin="31" width="29" end="3" rwaccess="WO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">

@@ -59,7 +59,7 @@ The bit will have no effect before the following requirements are met:
    <register acronym="CLKLOADCTL" width="32" description="Load PRCM Settings To CLKCTRL Power Domain" id="CLKLOADCTL" offset="0x28">
       <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Status of LOAD. 
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Status of LOAD.
 Will be cleared to 0 when any of the registers requiring a LOAD is written to, and be set to 1 when a LOAD is done.
 Note that writing no change to a register will result in the LOAD_DONE being cleared.
 
@@ -155,7 +155,7 @@ For changes to take effect, CLKLOADCTL.LOAD needs to be written
       <bitfield range="" begin="19" width="1" end="19" rwaccess="RW" description="Zeroization logic hardware reset.
 
 0: pka_zeroize logic inactive.
-1: pka_zeroize of memory  is enabled. 
+1: pka_zeroize of memory  is enabled.
 
 This register must remain active until the memory are completely zeroized which requires 256 periods on systembus clock." id="PKA_ZERIOZE_RESET_N" resetval="0x0">
       </bitfield>
@@ -410,7 +410,7 @@ For changes to take effect, CLKLOADCTL.LOAD needs to be written
       <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Each bit below has the following meaning:
 
 0: Disable clock
-1: Enable clock 
+1: Enable clock
 
 Can be forced on by AM_CLK_EN
 
@@ -789,14 +789,14 @@ For changes to take effect, CLKLOADCTL.LOAD needs to be written" id="SRC" resetv
    <register acronym="I2SCLKCTL" width="32" description="I2S Clock Control" id="I2SCLKCTL" offset="0xd0">
       <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="On the I2S serial interface, data and WCLK is sampled and clocked out on opposite edges of BCLK. 
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="On the I2S serial interface, data and WCLK is sampled and clocked out on opposite edges of BCLK.
 
-0 - data and WCLK are sampled on the negative edge and clocked out on the positive edge. 
+0 - data and WCLK are sampled on the negative edge and clocked out on the positive edge.
 1 - data and WCLK are sampled on the positive edge and clocked out on the negative edge.
 
 For changes to take effect, CLKLOADCTL.LOAD needs to be written" id="SMPL_ON_POSEDGE" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="2" width="2" end="1" rwaccess="RW" description="Decides how the WCLK division ratio is calculated and used to generate different duty cycles (See I2SWCLKDIV.WDIV). 
+      <bitfield range="" begin="2" width="2" end="1" rwaccess="RW" description="Decides how the WCLK division ratio is calculated and used to generate different duty cycles (See I2SWCLKDIV.WDIV).
 
 0: Single phase
 1: Dual phase
@@ -838,8 +838,8 @@ MCUCLK is 48MHz.
 
 A value of 0 is interpreted as 1024.
 A value of 1 is invalid.
-If BDIV is odd and I2SCLKCTL.SMPL_ON_POSEDGE = 0, the low phase of the clock is one MCUCLK period longer than the high phase. 
-If BDIV is odd and I2SCLKCTL.SMPL_ON_POSEDGE = 1 , the high phase of the clock is one MCUCLK period longer than the low phase. 
+If BDIV is odd and I2SCLKCTL.SMPL_ON_POSEDGE = 0, the low phase of the clock is one MCUCLK period longer than the high phase.
+If BDIV is odd and I2SCLKCTL.SMPL_ON_POSEDGE = 1 , the high phase of the clock is one MCUCLK period longer than the low phase.
 
 For changes to take effect, CLKLOADCTL.LOAD needs to be written" id="BDIV" resetval="0x0">
       </bitfield>
@@ -849,19 +849,19 @@ For changes to take effect, CLKLOADCTL.LOAD needs to be written" id="BDIV" reset
       </bitfield>
       <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="If I2SCLKCTL.WCLK_PHASE = 0, Single phase.
 WCLK is high one BCLK period and low WDIV[9:0] (unsigned, [1-1023]) BCLK periods.
- 
+
 WCLK = MCUCLK / BDIV*(WDIV[9:0] + 1) [Hz]
 MCUCLK is 48MHz.
 
 If I2SCLKCTL.WCLK_PHASE = 1, Dual phase.
 Each phase on WCLK (50% duty cycle) is WDIV[9:0] (unsigned, [1-1023]) BCLK periods.
 
-WCLK = MCUCLK / BDIV*(2*WDIV[9:0]) [Hz] 
+WCLK = MCUCLK / BDIV*(2*WDIV[9:0]) [Hz]
 
 If I2SCLKCTL.WCLK_PHASE = 2, User defined.
 WCLK is high WDIV[7:0] (unsigned, [1-255]) BCLK periods and low WDIV[15:8] (unsigned, [1-255]) BCLK periods.
 
-WCLK = MCUCLK / (BDIV*(WDIV[7:0] + WDIV[15:8]) [Hz] 
+WCLK = MCUCLK / (BDIV*(WDIV[7:0] + WDIV[15:8]) [Hz]
 
 For changes to take effect, CLKLOADCTL.LOAD needs to be written" id="WDIV" resetval="0x0">
       </bitfield>
@@ -892,7 +892,7 @@ Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activ
       <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="
-0: No action 
+0: No action
 1: Reset GPIO. HW cleared.
 
 Access will only have effect when PERIPH power domain is on, PDSTAT0.PERIPH_ON = 1
@@ -903,7 +903,7 @@ Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activ
       <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="
-0: No action 
+0: No action
 1: Reset all GPTs. HW cleared.
 
 Access will only have effect when PERIPH power domain is on, PDSTAT0.PERIPH_ON = 1
@@ -914,14 +914,14 @@ Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activ
       <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="
-0: No action 
+0: No action
 1: Reset I2C1. HW cleared.
 
 Access will only have effect when PERIPH power domain is on, PDSTAT0.PERIPH_ON = 1
 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset." id="I2C1" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="
-0: No action 
+0: No action
 1: Reset I2C0. HW cleared.
 
 Access will only have effect when SERIAL power domain is on, PDSTAT0.SERIAL_ON = 1
@@ -932,28 +932,28 @@ Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activ
       <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="3" width="1" end="3" rwaccess="WO" description="
-0: No action 
+0: No action
 1: Reset UART3. HW cleared.
 
 Access will only have effect when PERIPH power domain is on, PDSTAT0.PERIPH_ON = 1
 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset." id="UART3" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="2" width="1" end="2" rwaccess="WO" description="
-0: No action 
+0: No action
 1: Reset UART2. HW cleared.
 
 Access will only have effect when PERIPH power domain is on, PDSTAT0.PERIPH_ON = 1
 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset." id="UART2" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="
-0: No action 
+0: No action
 1: Reset UART1. HW cleared.
 
 Access will only have effect when PERIPH power domain is on, PDSTAT0.PERIPH_ON = 1
 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset." id="UART1" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="
-0: No action 
+0: No action
 1: Reset UART0. HW cleared.
 
 Access will only have effect when SERIAL power domain is on, PDSTAT0.SERIAL_ON = 1
@@ -963,25 +963,25 @@ Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activ
    <register acronym="RESETSPI" width="32" description="RESET For SPI IPs" id="RESETSPI" offset="0x104">
       <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="3" width="1" end="3" rwaccess="WO" description="0: No action 
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="WO" description="0: No action
 1: Reset SPI3. HW cleared.
 
 Access will only have effect when PERIPH power domain is on, PDSTAT0.PERIPH_ON = 1
 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset." id="SPI3" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="2" width="1" end="2" rwaccess="WO" description="0: No action 
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="WO" description="0: No action
 1: Reset SPI2. HW cleared.
 
 Access will only have effect when PERIPH power domain is on, PDSTAT0.PERIPH_ON = 1
 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset." id="SPI2" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="0: No action 
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="0: No action
 1: Reset SPI1. HW cleared.
 
 Access will only have effect when PERIPH power domain is on, PDSTAT0.PERIPH_ON = 1
 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset." id="SPI1" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="0: No action 
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="0: No action
 1: Reset SPI0. HW cleared.
 
 Access will only have effect when SERIAL power domain is on, PDSTAT0.SERIAL_ON = 1
@@ -992,7 +992,7 @@ Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activ
       <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="
-0: No action 
+0: No action
 1: Reset module. HW cleared.
 
 Access will only have effect when PERIPH power domain is on, PDSTAT0.PERIPH_ON = 1
@@ -1083,13 +1083,13 @@ Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activ
       </bitfield>
       <bitfield range="" begin="4" width="2" end="3" rwaccess="RW" description="
 00: VIMS power domain is only powered when CPU power domain is powered.
-01: VIMS power domain is powered whenever the BUS power domain is powered. 
+01: VIMS power domain is powered whenever the BUS power domain is powered.
 1X: Block power up of VIMS power domain at next wake up. This mode only has effect when VIMS power domain is not powered. Used for Autonomous RF Core." id="VIMS_MODE" resetval="0x1">
       </bitfield>
       <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description=" 0: RFC power domain powered off if also PDCTL0.RFC_ON = 0 1: RFC power domain powered on  Bit shall be used by RFC in autonomous mode but there is no HW restrictions from system CPU to access the bit." id="RFC_ON" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="
-0: Causes a power down of the CPU power domain when system CPU indicates it is idle. 
+0: Causes a power down of the CPU power domain when system CPU indicates it is idle.
 1: Initiates power-on of the CPU power domain.
 
 This bit is automatically set by a WIC power-on event." id="CPU_ON" resetval="0x1">
@@ -1250,29 +1250,29 @@ Writing any other value than the reset value may result in undefined behavior.
    <register acronym="RAMRETEN" width="32" description="Memory Retention Control" id="RAMRETEN" offset="0x224">
       <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="0: Retention for RFC ULL SRAM disabled 
-1: Retention for RFC ULL SRAM enabled 
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="0: Retention for RFC ULL SRAM disabled
+1: Retention for RFC ULL SRAM enabled
 
 Memories controlled:
 CPEULLRAM" id="RFCULL" resetval="0x1">
       </bitfield>
-      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="0: Retention for RFC SRAM disabled  
-1: Retention for RFC SRAM enabled  
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="0: Retention for RFC SRAM disabled
+1: Retention for RFC SRAM enabled
 
 Memories controlled: CPERAM  MCERAM  RFERAM  DSBRAM " id="RFC" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="
 0: Memory retention disabled
-1: Memory retention enabled  
+1: Memory retention enabled
 
-Bit 0: VIMS_TRAM 
-Bit 1: VIMS_CRAM  
+Bit 0: VIMS_TRAM
+Bit 1: VIMS_CRAM
 
-Legal modes depend on settings in VIMS:CTL.MODE  
+Legal modes depend on settings in VIMS:CTL.MODE
 
-00: VIMS:CTL.MODE must be OFF before DEEPSLEEP is asserted - must be set to CACHE or SPLIT mode after waking up again 
-01: VIMS:CTL.MODE must be GPRAM before DEEPSLEEP is asserted. Must remain in GPRAM mode after wake up, alternatively select OFF mode first and then CACHE or SPLIT mode. 
-10: Illegal mode 
+00: VIMS:CTL.MODE must be OFF before DEEPSLEEP is asserted - must be set to CACHE or SPLIT mode after waking up again
+01: VIMS:CTL.MODE must be GPRAM before DEEPSLEEP is asserted. Must remain in GPRAM mode after wake up, alternatively select OFF mode first and then CACHE or SPLIT mode.
+10: Illegal mode
 11: No restrictions
 " id="VIMS" resetval="0x3">
       </bitfield>
@@ -1315,7 +1315,7 @@ After a write to DDI_0_OSC:CTL0.SCLK_HF_SRC_SEL leads to a SCLK_HF source change
 0: Indicates SCLK_HF source is not ready to be switched
 1: Indicates SCLK_HF source is ready to be switched
 
-Interrupt is qualified regardless of OSCIMSC.HFSRCPENDIM setting. The order of qualifying raw interrupt and enable of interrupt mask is indifferent for generating an OSC Interrupt. 
+Interrupt is qualified regardless of OSCIMSC.HFSRCPENDIM setting. The order of qualifying raw interrupt and enable of interrupt mask is indifferent for generating an OSC Interrupt.
 
 Set by HW. Cleared by writing to OSCICR.HFSRCPENDC" id="HFSRCPENDRIS" resetval="0x0">
       </bitfield>
@@ -1324,18 +1324,18 @@ Set by HW. Cleared by writing to OSCICR.HFSRCPENDC" id="HFSRCPENDRIS" resetval="
 The DDI_0_OSC:CTL0.SCLK_LF_SRC_SEL  register field is used to request that the SCLK_LF source shall be changed. After an SCLK_LF clock source change is requested, the new source may need to be enabled and qualified before switching of clock source can be done. The interrupt LFRSRCDONERIS goes high to indicate that the SCLK_LF clock source switching has been performed. LFRSRCDONERIS will go low again when the next clock source change is requested by writing to DDI_0_OSC:CTL0.SCLK_LF_SRC_SEL .
 
 0: Indicates SCLK_LF source switch has not completed
-1: Indicates SCLK_LF source switch has completed 
+1: Indicates SCLK_LF source switch has completed
 
-Interrupt is qualified regardless of OSCIMSC.LFSRCDONEIM setting. The order of qualifying raw interrupt and enable of interrupt mask is indifferent for generating an OSC Interrupt. 
+Interrupt is qualified regardless of OSCIMSC.LFSRCDONEIM setting. The order of qualifying raw interrupt and enable of interrupt mask is indifferent for generating an OSC Interrupt.
 
 Set by HW. Cleared by writing to OSCICR.LFSRCDONEC" id="LFSRCDONERIS" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="5" width="1" end="5" rwaccess="RO" description="The XOSCDLFRIS interrupt indicates when the XOSC_HF oscillator is ready to be used as a derived low-frequency clock source for SCLK_LF or ACLK_REF. When XOSCDLFRIS is high, XOSC_HF  will be used as source for SCLK_LF when selected. When none of the system clocks have XOSC_HF selected as clock source, the XOSC_HF source is automatically disabled and the XOSCDLFRIS interrupt status will go low.
 
 0: XOSCDLF has not been qualified
-1: XOSCDLF has been qualified 
+1: XOSCDLF has been qualified
 
-Interrupt is qualified regardless of OSCIMSC.XOSCDLFIM setting. The order of qualifying raw interrupt and enable of interrupt mask is indifferent for generating an OSC Interrupt. 
+Interrupt is qualified regardless of OSCIMSC.XOSCDLFIM setting. The order of qualifying raw interrupt and enable of interrupt mask is indifferent for generating an OSC Interrupt.
 
 Set by HW. Cleared by writing to OSCICR.XOSCDLFC" id="XOSCDLFRIS" resetval="0x0">
       </bitfield>
@@ -1343,9 +1343,9 @@ Set by HW. Cleared by writing to OSCICR.XOSCDLFC" id="XOSCDLFRIS" resetval="0x0"
 After the clock qualification is successful, XOSCLFRIS interrupt status remains high, and further qualification is turned off until the XOSC_LF oscillator is disabled. XOSCLFRIS interrupt status will go low only at initial power-on, or after the XOSC_LF oscillator has been disabled when being deselected as a clock source.
 
 0: XOSCLF has not been qualified
-1: XOSCLF has been qualified 
+1: XOSCLF has been qualified
 
-Interrupt is qualified regardless of OSCIMSC.XOSCLFIM setting. The order of qualifying raw interrupt and enable of interrupt mask is indifferent for generating an OSC Interrupt. 
+Interrupt is qualified regardless of OSCIMSC.XOSCLFIM setting. The order of qualifying raw interrupt and enable of interrupt mask is indifferent for generating an OSC Interrupt.
 
 Set by HW. Cleared by writing to OSCICR.XOSCLFC" id="XOSCLFRIS" resetval="0x0">
       </bitfield>
@@ -1355,7 +1355,7 @@ If the SCLK_LF or ACLK_REF source is changed from RCOSC_HF derived to XOSC_HF de
 0: RCOSCDLF has not been qualified
 1: RCOSCDLF has been qualified
 
-Interrupt is qualified regardless of OSCIMSC.RCOSCDLFIM setting. The order of qualifying raw interrupt and enable of interrupt mask is indifferent for generating an OSC Interrupt. 
+Interrupt is qualified regardless of OSCIMSC.RCOSCDLFIM setting. The order of qualifying raw interrupt and enable of interrupt mask is indifferent for generating an OSC Interrupt.
 
 Set by HW. Cleared by writing to OSCICR.RCOSCDLFC" id="RCOSCDLFRIS" resetval="0x0">
       </bitfield>
@@ -1363,9 +1363,9 @@ Set by HW. Cleared by writing to OSCICR.RCOSCDLFC" id="RCOSCDLFRIS" resetval="0x
 After the clock qualification is successful, RCOSCLFRIS interrupt status remains high, and further qualification is turned off until the RCOSC_LF oscillator is disabled. RCOSCLFRIS interrupt status will go low only at initial power-on, or after the RCOSC_LF oscillator has been disabled when being deselected as a clock source.
 
 0: RCOSCLF has not been qualified
-1: RCOSCLF has been qualified  
+1: RCOSCLF has been qualified
 
-Interrupt is qualified regardless of OSCIMSC.RCOSCLFIM setting. The order of qualifying raw interrupt and enable of interrupt mask is indifferent for generating an OSC Interrupt. 
+Interrupt is qualified regardless of OSCIMSC.RCOSCLFIM setting. The order of qualifying raw interrupt and enable of interrupt mask is indifferent for generating an OSC Interrupt.
 
 Set by HW. Cleared by writing to OSCICR.RCOSCLFC" id="RCOSCLFRIS" resetval="0x0">
       </bitfield>
@@ -1374,9 +1374,9 @@ When the XOSCHFRIS interrupt is high, the oscillator is qualified and will be us
 
 
 0: XOSC_HF has not been qualified
-1: XOSC_HF has been qualified 
+1: XOSC_HF has been qualified
 
-Interrupt is qualified regardless of OSCIMSC.XOSCHFIM setting. The order of qualifying raw interrupt and enable of interrupt mask is indifferent for generating an OSC Interrupt. 
+Interrupt is qualified regardless of OSCIMSC.XOSCHFIM setting. The order of qualifying raw interrupt and enable of interrupt mask is indifferent for generating an OSC Interrupt.
 
 Set by HW. Cleared by writing to OSCICR.XOSCHFC" id="XOSCHFRIS" resetval="0x0">
       </bitfield>
@@ -1416,7 +1416,7 @@ Set by HW. Cleared by writing to OSCICR.RCOSCHFC" id="RCOSCHFRIS" resetval="0x0"
       <bitfield range="" begin="30" width="11" end="20" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED20" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="19" width="10" end="10" rwaccess="RW" description="
-Non-Secure callable   boundary address. 
+Non-Secure callable   boundary address.
 
 Writing this field when BUSSECCFG.VALID is set may result in undefined behavior.
 " id="BOUNDARY" resetval="0x0">
@@ -1449,7 +1449,7 @@ Writing this field when BUSSECCFG.VALID is set may result in undefined behavior.
       <bitfield range="" begin="30" width="12" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="18" width="9" end="10" rwaccess="RW" description="
-Non-Secure callable   boundary address. 
+Non-Secure callable   boundary address.
 
 Writing this field when BUSSECCFG.VALID is set may result in undefined behavior.
 " id="BOUNDARY" resetval="0x0">
@@ -1490,7 +1490,7 @@ Registers that needs to be followed by VALID before settings being applied are:
 
 0xFF :   Trustzone enabled
 0xF9 :   Trustzone disabled
-Others: Reserved. 
+Others: Reserved.
 
 Software should not rely on the value of reserved and should not write reserved settings.
 

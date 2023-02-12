@@ -310,7 +310,7 @@ This register is used to enable or disable the system handlers, determine the pe
 This register is used to obtain information about local faults. These registers include three subsections: The first byte is Memory Manage Fault Status Register (MMFSR). The second byte is Bus Fault Status Register (BFSR). The higher half-word is Usage Fault Status Register (UFSR). The flags in these registers indicate the causes of local faults. Multiple flags can be set if more than one fault occurs. These register are read/write-clear. This means that they can be read normally, but writing a 1 to any bit clears that bit.
 The CFSR is byte accessible. CFSR or its subregisters can be accessed as follows:
 The following accesses are possible to the CFSR register:
-- access the complete register with a word access to 0xE000ED28. 
+- access the complete register with a word access to 0xE000ED28.
 - access the MMFSR with a byte access to 0xE000ED28
 - access the MMFSR and BFSR with a halfword access to 0xE000ED28
 - access the BFSR with a byte access to 0xE000ED29
@@ -412,7 +412,7 @@ This field is the data address of a faulted load or store attempt. When an unali
    </register>
    <register acronym="BFAR" width="32" description="Bus Fault Address
 This register is used to read the address of the location that generated a Bus Fault." id="BFAR" offset="0x38">
-      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Bus fault address field. This field is the data address of a faulted load or store attempt. When an unaligned access faults, the address is the address requested by the instruction, even if that is not the address that faulted. 
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Bus fault address field. This field is the data address of a faulted load or store attempt. When an unaligned access faults, the address is the address requested by the instruction, even if that is not the address that faulted.
 Flags CFSR.IBUSERR, CFSR.PRECISERR, CFSR.IMPRECISERR, CFSR.UNSTKERR and CFSR.STKERR in combination with CFSR.BFARVALID indicate the cause of the fault." id="ADDRESS" resetval="0x0">
       </bitfield>
    </register>

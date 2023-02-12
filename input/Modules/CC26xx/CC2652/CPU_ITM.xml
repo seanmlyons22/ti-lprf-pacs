@@ -245,8 +245,8 @@ CPU_DWT:CTRL.SYNCTAP must be configured for the correct synchronization speed." 
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Enables ITM. This is the master enable, and must be set before ITM Stimulus and Trace Enable registers can be written." id="ITMENA" resetval="0x0">
       </bitfield>
    </register>
-   <register acronym="LAR" width="32" description="Lock Access 
-This register is used to prevent write accesses to the Control Registers: TER, TPR and TCR. 
+   <register acronym="LAR" width="32" description="Lock Access
+This register is used to prevent write accesses to the Control Registers: TER, TPR and TCR.
 
 " id="LAR" offset="0xfb0">
       <bitfield range="" begin="31" width="32" end="0" rwaccess="WO" description="A privileged write of 0xC5ACCE55 enables more write access to Control Registers TER, TPR and TCR. An invalid write removes write access.

@@ -48,7 +48,7 @@ Note: Writing a non-zero value to this register field starts the transfer if the
    <register acronym="DMASWRESET" width="32" description="DMA Controller Software Reset" id="DMASWRESET" offset="0x1c">
       <bitfield range="" begin="31" width="31" end="1" rwaccess="WO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="Software reset enable 
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="Software reset enable
 
 0:  Disable
 1:  Enable (self-cleared to zero).
@@ -414,7 +414,7 @@ For typical use, this bit does NOT need to be written, but is used for status re
       </bitfield>
    </register>
    <register acronym="AESDATALEN0" width="32" description="Crypto Data Length LSW" id="AESDATALEN0" offset="0x554">
-      <bitfield range="" begin="31" width="32" end="0" rwaccess="WO" description="Used to write the Length values to the Crypto peripheral.  
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="WO" description="Used to write the Length values to the Crypto peripheral.
 
 This register contains bits [31:0] of the combined data length." id="LEN_LSW" resetval="0x0">
       </bitfield>

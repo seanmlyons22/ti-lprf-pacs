@@ -429,8 +429,8 @@ Packages available for a specific device are shown in the device datasheet." id=
       </bitfield>
       <bitfield range="" begin="15" width="4" end="12" rwaccess="RO" description="Protocols supported.
 
-0x1: BLE 
-0x2: RF4CE 
+0x1: BLE
+0x2: RF4CE
 0x4: Zigbee/6lowpan
 0x8: Proprietary
 

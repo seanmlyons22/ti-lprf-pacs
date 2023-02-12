@@ -164,7 +164,7 @@ def app():
         device_family_file = dev[0]
         output_svd_fname = Path(f"{args.output_folder_svds}/{device_name}.svd")
         input_xml_fname = f"{input_path / device_family_file}"
-        
+
 
         # Cleanup the files from CCS as described in the tixml2svd docs
         cleanup_input_file(input_xml_fname)

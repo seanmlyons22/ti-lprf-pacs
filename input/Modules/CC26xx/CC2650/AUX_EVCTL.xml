@@ -260,7 +260,7 @@ Configuration of this register controls bit index 7 in AUX_SCE:WUSTAT.EV_SIGNALS
    </register>
    <register acronym="EVTOAONFLAGS" width="32" description="Events To AON Flags
 
-This register contains a collection of event flags routed to AON_EVENT. 
+This register contains a collection of event flags routed to AON_EVENT.
 
 To clear an event flag, write to EVTOAONFLAGSCLR or write 0 to event flag in this register.
 " id="EVTOAONFLAGS" offset="0xc">
@@ -336,7 +336,7 @@ Event source polarity configuration for EVTOAONFLAGS." id="EVTOAONPOL" offset="0
    </register>
    <register acronym="SWEVSET" width="32" description="Software Event Set
 
-Set software event flags from AUX domain to AON and MCU domains. CPUs in MCU domain can read the event flags from EVTOAONFLAGS and clear them in EVTOAONFLAGSCLR. 
+Set software event flags from AUX domain to AON and MCU domains. CPUs in MCU domain can read the event flags from EVTOAONFLAGS and clear them in EVTOAONFLAGSCLR.
 
 Use of these event flags is software-defined." id="SWEVSET" offset="0x18">
       <bitfield range="" begin="31" width="29" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
@@ -375,10 +375,10 @@ Register holds events 0 thru 15 of the 32-bit event bus that is synchronous to A
       </bitfield>
       <bitfield range="" begin="11" width="1" end="11" rwaccess="RO" description="AON_WUC:AUXCTL.SWEV" id="AON_SW" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="10" width="1" end="10" rwaccess="RO" description="Observation input 1 from IOC. 
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="RO" description="Observation input 1 from IOC.
 This event is configured by IOC:OBSAUXOUTPUT.SEL1." id="OBSMUX1" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="9" width="1" end="9" rwaccess="RO" description="Observation input 0 from IOC. 
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RO" description="Observation input 0 from IOC.
 This event is configured by IOC:OBSAUXOUTPUT.SEL0 and can be overridden by IOC:OBSAUXOUTPUT.SEL_MISC." id="OBSMUX0" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="8" width="1" end="8" rwaccess="RO" description="AUX_ANAIF:ADCFIFOSTAT.ALMOST_FULL" id="ADC_FIFO_ALMOST_FULL" resetval="0x0">
@@ -407,11 +407,11 @@ Current event source levels, 31:16" id="EVSTAT1" offset="0x20">
       </bitfield>
       <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="The logical function for this event is configurable.
 
-When DMACTL.EN = 1 : 
+When DMACTL.EN = 1 :
    Event = UDMA0 Channel 7 done event     OR     AUX_ANAIF:ADCFIFOSTAT.OVERFLOW      OR      AUX_ANAIF:ADCFIFOSTAT.UNDERFLOW
 
 When DMACTL.EN = 0 :
-   Event = (NOT AUX_ANAIF:ADCFIFOSTAT.EMPTY)      OR      AUX_ANAIF:ADCFIFOSTAT.OVERFLOW      OR      AUX_ANAIF:ADCFIFOSTAT.UNDERFLOW  
+   Event = (NOT AUX_ANAIF:ADCFIFOSTAT.EMPTY)      OR      AUX_ANAIF:ADCFIFOSTAT.OVERFLOW      OR      AUX_ANAIF:ADCFIFOSTAT.UNDERFLOW
 
 Bit 7 in UDMA0:DONEMASK must be 0.    " id="ADC_IRQ" resetval="0x0">
       </bitfield>
@@ -499,7 +499,7 @@ Event source polarity configuration for EVTOMCUFLAGS." id="EVTOMCUPOL" offset="0
    </register>
    <register acronym="EVTOMCUFLAGS" width="32" description="Events to MCU Flags
 
-This register contains a collection of event flags routed to MCU domain. 
+This register contains a collection of event flags routed to MCU domain.
 
 To clear an event flag, write to EVTOMCUFLAGSCLR or write 0 to event flag in this register. Follow procedure described in AUX_SYSIF:WUCLR to clear AUX_WU_EV event flag." id="EVTOMCUFLAGS" offset="0x28">
       <bitfield range="" begin="31" width="21" end="11" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">
@@ -624,7 +624,7 @@ The flag is cleared by writing a 0 to this bit, or (preferably) a 1 to VECFLAGSC
    </register>
    <register acronym="EVTOMCUFLAGSCLR" width="32" description="Events To MCU Flags Clear
 
-Clear event flags in EVTOMCUFLAGS. 
+Clear event flags in EVTOMCUFLAGS.
 
 In order to clear a level sensitive event flag, the event must be deasserted. " id="EVTOMCUFLAGSCLR" offset="0x38">
       <bitfield range="" begin="31" width="21" end="11" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">
@@ -676,7 +676,7 @@ Read value is 0." id="AON_WU_EV" resetval="0x0">
    </register>
    <register acronym="EVTOAONFLAGSCLR" width="32" description="Events To AON Clear
 
-Clear event flags in EVTOAONFLAGS. 
+Clear event flags in EVTOAONFLAGS.
 
 In order to clear a level sensitive event flag, the event must be deasserted. " id="EVTOAONFLAGSCLR" offset="0x3c">
       <bitfield range="" begin="31" width="23" end="9" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED9" resetval="0x0">

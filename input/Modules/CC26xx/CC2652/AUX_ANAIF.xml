@@ -3,12 +3,12 @@
 -Trigger ADC sample and conversion process.
 - Write ADC samples to FIFO.
 - Charge analog nodes by the use of the analog ISRC module. See ADI_4_AUX:ISRC and ADI_4_AUX:COMP.COMPA_REF_CURR_EN  for further information.
-- Use the DAC to generate a programmable voltage on COMPB_REF, COMPA_REF, or COMPA_IN analog nodes.  
+- Use the DAC to generate a programmable voltage on COMPB_REF, COMPA_REF, or COMPA_IN analog nodes.
 
 To use:
 - ADC  : AUX_SCE must request active operational mode with AON_PMCTL:AUXSCECLK.SRC set to SCLK_HFDIV2. There are no requirements for system CPU.
 - ISRC : AUX_SCE must request active operational mode. There are no requirements for system CPU.
-- DAC  : AUX_SCE must set AUX_SYSIF:PEROPRATE.ANAIF_DAC_OP_RATE to SCE_RATE as long as DAC state machine generates the sample clock. System CPU must set AUX_SYSIF:PEROPRATE.ANAIF_DAC_OP_RATE to BUS_RATE as long as DAC state machine generates the sample clock. See DACSMPLCTL.EN for further information. 
+- DAC  : AUX_SCE must set AUX_SYSIF:PEROPRATE.ANAIF_DAC_OP_RATE to SCE_RATE as long as DAC state machine generates the sample clock. System CPU must set AUX_SYSIF:PEROPRATE.ANAIF_DAC_OP_RATE to BUS_RATE as long as DAC state machine generates the sample clock. See DACSMPLCTL.EN for further information.
 
 " xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
    <register acronym="ADCCTL" width="32" description="ADC Control
@@ -123,7 +123,7 @@ When the flag is set, the ADC FIFO read pointer is static. Read returns the prev
       </bitfield>
       <bitfield range="" begin="2" width="1" end="2" rwaccess="RO" description="FIFO full flag.
 
-0: FIFO is not full, there is less than 4 samples in the FIFO. 
+0: FIFO is not full, there is less than 4 samples in the FIFO.
 1: FIFO is full, there are 4 samples in the FIFO.
 
 When the flag is set, it is not possible to add more samples to the ADC FIFO. An attempt to add samples sets the OVERFLOW flag." id="FULL" resetval="0x0">
@@ -157,10 +157,10 @@ Write dummy sample to FIFO. This is useful for code development when you do not 
    <register acronym="ADCTRIG" width="32" description="ADC Trigger" id="ADCTRIG" offset="0x1c">
       <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="Manual ADC trigger. 
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="Manual ADC trigger.
 
 0: No effect.
-1: Single ADC trigger. 
+1: Single ADC trigger.
 
 To manually trigger the ADC, you must set ADCCTL.START_SRC to NO_EVENT to avoid conflict with event-driven ADC trigger. " id="START" resetval="0x0">
       </bitfield>
@@ -199,19 +199,19 @@ DAC buffer reduces the time required to produce the programmed voltage at the ex
 
 Enable buffer when DAC_VOUT_SEL equals COMPA_IN.
 
-Do not enable the buffer when AUX_SYSIF:OPMODEREQ.REQ equals PDA or PDLP.  
+Do not enable the buffer when AUX_SYSIF:OPMODEREQ.REQ equals PDA or PDLP.
 " id="DAC_BUFFER_EN" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="DAC precharge enable.
 
-Only enable precharge when ADI_4_AUX:MUX2.DAC_VREF_SEL equals DCOUPL and VDDS is higher than 2.65 V. 
+Only enable precharge when ADI_4_AUX:MUX2.DAC_VREF_SEL equals DCOUPL and VDDS is higher than 2.65 V.
 
 DAC output voltage range:
 
 0: 0 V to 1.28 V.
-1: 1.28 V to 2.56 V. 
+1: 1.28 V to 2.56 V.
 
-Otherwise, see ADI_4_AUX:MUX2.DAC_VREF_SEL for DAC output voltage range. 
+Otherwise, see ADI_4_AUX:MUX2.DAC_VREF_SEL for DAC output voltage range.
 
 Enable precharge 1 us before you enable the DAC and the buffer.
 
@@ -257,7 +257,7 @@ Set EN to 1 15 us before you enable the DAC or Comparator A." id="EN" resetval="
    </register>
    <register acronym="DACSMPLCTL" width="32" description="DAC Sample Control
 
-The DAC sample clock maintains the DAC voltage stored in the sample-and-hold capacitor. The DAC sample clock waveform consists of a setup phase followed by a hold phase. In the setup phase the sample-and-hold capacitor charges to the programmed voltage. The hold phase  maintains the voltage with minimal power. 
+The DAC sample clock maintains the DAC voltage stored in the sample-and-hold capacitor. The DAC sample clock waveform consists of a setup phase followed by a hold phase. In the setup phase the sample-and-hold capacitor charges to the programmed voltage. The hold phase  maintains the voltage with minimal power.
 
 DACSMPLCFG0 and DACSMPLCFG1 configure the DAC sample clock waveform." id="DACSMPLCTL" offset="0x38">
       <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED7" resetval="0x0">
@@ -273,11 +273,11 @@ DACSMPLCFG0 and DACSMPLCFG1 configure the DAC sample clock waveform." id="DACSMP
       </bitfield>
       <bitfield range="" begin="5" width="6" end="0" rwaccess="RW" description="Clock division.
 
-AUX_SYSIF:PEROPRATE.ANAIF_DAC_OP_RATE divided by (CLKDIV + 1) determines the sample clock base frequency. 
+AUX_SYSIF:PEROPRATE.ANAIF_DAC_OP_RATE divided by (CLKDIV + 1) determines the sample clock base frequency.
 
 0: Divide by 1.
 1: Divide by 2.
-... 
+...
 63: Divide by 64.
 " id="CLKDIV" resetval="0x0">
       </bitfield>
@@ -290,7 +290,7 @@ Timing  requirements (DAC Buffer On / DAC Buffer Off):
 - (high time + low time) * base period &#62; (4 us / 1 us)
 - (high time * base period) &#62; (2 us / 0.5 us)
 - (low time * base period)  &#62; (2 us / 0.5 us)
-- (low time * base period + HOLD_INTERVAL * sample clock period) &#60; 32 us 
+- (low time * base period + HOLD_INTERVAL * sample clock period) &#60; 32 us
 
 If AUX_SYSIF:OPMODEREQ.REQ equals PDLP, you must set:
 - H_PER = L_PER = HOLD_INTERVAL = 0.
@@ -319,16 +319,16 @@ The sample clock period is low for this many base periods.
 
 Number of active sample clock periods during the setup phase.
 
-0: 1 sample clock period 
-1: 2 sample clock periods 
-... 
-15 : 16 sample clock periods 
+0: 1 sample clock period
+1: 2 sample clock periods
+...
+15 : 16 sample clock periods
 
 " id="SETUP_CNT" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Hold interval.
 
-Number of inactive sample clock periods between each active sample clock period during hold phase. The sample clock is low when inactive. 
+Number of inactive sample clock periods between each active sample clock period during hold phase. The sample clock is low when inactive.
 
 The range is 0 to 255." id="HOLD_INTERVAL" resetval="0x0">
       </bitfield>

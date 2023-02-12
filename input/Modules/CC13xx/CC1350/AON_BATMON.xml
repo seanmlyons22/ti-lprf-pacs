@@ -125,7 +125,7 @@ This register may be read while TEMPUPD.STAT = 1.
 " id="TEMP" offset="0x30">
       <bitfield range="" begin="31" width="15" end="17" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED17" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="16" width="9" end="8" rwaccess="RO" description="Integer part (signed) of temperature value. 
+      <bitfield range="" begin="16" width="9" end="8" rwaccess="RO" description="Integer part (signed) of temperature value.
 Total value = INTEGER + FRACTIONAL
 2&#39;s complement encoding
 

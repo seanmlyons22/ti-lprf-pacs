@@ -16,7 +16,7 @@ Note: It is required to setup a wakeup event in AON_EVENT before MCU is requesti
       <bitfield range="" begin="29" width="6" end="24" rwaccess="RW" description="MCU Wakeup Source #3
 
 AON Event Source selecting 1 of 8 events routed to AON_PMCTRL for waking up the MCU domain from Power Off or Power Down.
-Note:  
+Note:
 " id="WU3_EV" resetval="0x3f">
          <bitenum id="NONE" value="63" token="No event, always low" description="No event, always low"/>
          <bitenum id="AUX_COMPB_ASYNC_N" value="56" token="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"/>
@@ -58,7 +58,7 @@ Note:
       <bitfield range="" begin="21" width="6" end="16" rwaccess="RW" description="MCU Wakeup Source #2
 
 AON Event Source selecting 1 of 8 events routed to AON_PMCTRL for waking up the MCU domain from Power Off or Power Down.
-Note:  
+Note:
 " id="WU2_EV" resetval="0x3f">
          <bitenum id="NONE" value="63" token="No event, always low" description="No event, always low"/>
          <bitenum id="AUX_COMPB_ASYNC_N" value="56" token="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"/>
@@ -100,7 +100,7 @@ Note:
       <bitfield range="" begin="13" width="6" end="8" rwaccess="RW" description="MCU Wakeup Source #1
 
 AON Event Source selecting 1 of 8 events routed to AON_PMCTRL for waking up the MCU domain from Power Off or Power Down.
-Note:  
+Note:
 " id="WU1_EV" resetval="0x3f">
          <bitenum id="NONE" value="63" token="No event, always low" description="No event, always low"/>
          <bitenum id="AUX_COMPB_ASYNC_N" value="56" token="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"/>
@@ -142,7 +142,7 @@ Note:
       <bitfield range="" begin="5" width="6" end="0" rwaccess="RW" description="MCU Wakeup Source #0
 
 AON Event Source selecting 1 of 8 events routed to AON_PMCTRL for waking up the MCU domain from Power Off or Power Down.
-Note:  
+Note:
 " id="WU0_EV" resetval="0x3f">
          <bitenum id="NONE" value="63" token="No event, always low" description="No event, always low"/>
          <bitenum id="AUX_COMPB_ASYNC_N" value="56" token="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"/>
@@ -192,7 +192,7 @@ Note: It is required to setup a wakeup event in AON_EVENT before MCU is requesti
       <bitfield range="" begin="29" width="6" end="24" rwaccess="RW" description="MCU Wakeup Source #7
 
 AON Event Source selecting 1 of 8 events routed to AON_PMCTRL for waking up the MCU domain from Power Off or Power Down.
-Note:  
+Note:
 " id="WU7_EV" resetval="0x3f">
          <bitenum id="NONE" value="63" token="No event, always low" description="No event, always low"/>
          <bitenum id="AUX_COMPB_ASYNC_N" value="56" token="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"/>
@@ -234,7 +234,7 @@ Note:
       <bitfield range="" begin="21" width="6" end="16" rwaccess="RW" description="MCU Wakeup Source #6
 
 AON Event Source selecting 1 of 8 events routed to AON_PMCTRL for waking up the MCU domain from Power Off or Power Down.
-Note:  
+Note:
 " id="WU6_EV" resetval="0x3f">
          <bitenum id="NONE" value="63" token="No event, always low" description="No event, always low"/>
          <bitenum id="AUX_COMPB_ASYNC_N" value="56" token="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"/>
@@ -276,7 +276,7 @@ Note:
       <bitfield range="" begin="13" width="6" end="8" rwaccess="RW" description="MCU Wakeup Source #5
 
 AON Event Source selecting 1 of 8 events routed to AON_PMCTRL for waking up the MCU domain from Power Off or Power Down.
-Note:  
+Note:
 " id="WU5_EV" resetval="0x3f">
          <bitenum id="NONE" value="63" token="No event, always low" description="No event, always low"/>
          <bitenum id="AUX_COMPB_ASYNC_N" value="56" token="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"/>
@@ -318,7 +318,7 @@ Note:
       <bitfield range="" begin="5" width="6" end="0" rwaccess="RW" description="MCU Wakeup Source #4
 
 AON Event Source selecting 1 of 8 events routed to AON_PMCTRL for waking up the MCU domain from Power Off or Power Down.
-Note:  
+Note:
 " id="WU4_EV" resetval="0x3f">
          <bitenum id="NONE" value="63" token="No event, always low" description="No event, always low"/>
          <bitenum id="AUX_COMPB_ASYNC_N" value="56" token="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX" description="Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"/>
@@ -356,7 +356,7 @@ Note:
          <bitenum id="IOEV_MCU_WU" value="0" token="Edge detect IO event from the DIO(s) which have enabled contribution to IOEV_MCU_WU in [MCU_IOC:IOCFGx.IOEV_MCU_WU_EN]" description="Edge detect IO event from the DIO(s) which have enabled contribution to IOEV_MCU_WU in [MCU_IOC:IOCFGx.IOEV_MCU_WU_EN]"/>
       </bitfield>
    </register>
-   <register acronym="EVTOMCUSEL" width="32" description="Event Selector For MCU Event Fabric 
+   <register acronym="EVTOMCUSEL" width="32" description="Event Selector For MCU Event Fabric
 
 This register contains pointers for 3 AON events that are routed to the MCU Event Fabric EVENT
 " id="EVTOMCUSEL" offset="0x8">

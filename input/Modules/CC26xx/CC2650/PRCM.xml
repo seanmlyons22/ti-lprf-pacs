@@ -73,7 +73,7 @@ The bit will have no effect before the following requirements are met:
    <register acronym="CLKLOADCTL" width="32" description="Load PRCM Settings To CLKCTRL Power Domain" id="CLKLOADCTL" offset="0x28">
       <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Status of LOAD. 
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Status of LOAD.
 Will be cleared to 0 when any of the registers requiring a LOAD is written to, and be set to 1 when a LOAD is done.
 Note that writing no change to a register will result in the LOAD_DONE being cleared.
 
@@ -133,9 +133,9 @@ For changes to take effect, CLKLOADCTL.LOAD needs to be written
       <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="
-00: Disable clock 
-01: Disable clock when system CPU is in DeepSleep 
-11: Enable clock  
+00: Disable clock
+01: Disable clock when system CPU is in DeepSleep
+11: Enable clock
 
 For changes to take effect, CLKLOADCTL.LOAD needs to be written  " id="CLK_EN" resetval="0x3">
       </bitfield>
@@ -486,7 +486,7 @@ For changes to take effect, CLKLOADCTL.LOAD needs to be written" id="SRC" resetv
    <register acronym="GPTCLKDIV" width="32" description="GPT Scalar" id="GPTCLKDIV" offset="0xcc">
       <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Scalar used for GPTs. The division rate will be constant and ungated for Run / Sleep / DeepSleep mode. 
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Scalar used for GPTs. The division rate will be constant and ungated for Run / Sleep / DeepSleep mode.
 
 For changes to take effect, CLKLOADCTL.LOAD needs to be written
 Other values are not supported." id="RATIO" resetval="0x0">
@@ -504,14 +504,14 @@ Other values are not supported." id="RATIO" resetval="0x0">
    <register acronym="I2SCLKCTL" width="32" description="I2S Clock Control" id="I2SCLKCTL" offset="0xd0">
       <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="On the I2S serial interface, data and WCLK is sampled and clocked out on opposite edges of BCLK. 
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="On the I2S serial interface, data and WCLK is sampled and clocked out on opposite edges of BCLK.
 
-0 - data and WCLK are sampled on the negative edge and clocked out on the positive edge. 
+0 - data and WCLK are sampled on the negative edge and clocked out on the positive edge.
 1 - data and WCLK are sampled on the positive edge and clocked out on the negative edge.
 
 For changes to take effect, CLKLOADCTL.LOAD needs to be written" id="SMPL_ON_POSEDGE" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="2" width="2" end="1" rwaccess="RW" description="Decides how the WCLK division ratio is calculated and used to generate different duty cycles (See I2SWCLKDIV.WDIV). 
+      <bitfield range="" begin="2" width="2" end="1" rwaccess="RW" description="Decides how the WCLK division ratio is calculated and used to generate different duty cycles (See I2SWCLKDIV.WDIV).
 
 0: Single phase
 1: Dual phase
@@ -534,7 +534,7 @@ For changes to take effect, CLKLOADCTL.LOAD needs to be written" id="EN" resetva
       <bitfield range="" begin="9" width="10" end="0" rwaccess="RW" description="An unsigned factor of the division ratio used to generate MCLK [2-1024]:
 
 MCLK = MCUCLK/MDIV[Hz]
-MCUCLK is 48MHz in normal mode. For powerdown mode the frequency is defined by AON_WUC:MCUCLK.PWR_DWN_SRC 
+MCUCLK is 48MHz in normal mode. For powerdown mode the frequency is defined by AON_WUC:MCUCLK.PWR_DWN_SRC
 
 A value of 0 is interpreted as 1024.
 A value of 1 is invalid.
@@ -549,12 +549,12 @@ For changes to take effect, CLKLOADCTL.LOAD needs to be written" id="MDIV" reset
       <bitfield range="" begin="9" width="10" end="0" rwaccess="RW" description="An unsigned factor of the division ratio used to generate I2S BCLK [2-1024]:
 
 BCLK = MCUCLK/BDIV[Hz]
-MCUCLK is 48MHz in normal mode. For powerdown mode the frequency is defined by AON_WUC:MCUCLK.PWR_DWN_SRC 
+MCUCLK is 48MHz in normal mode. For powerdown mode the frequency is defined by AON_WUC:MCUCLK.PWR_DWN_SRC
 
 A value of 0 is interpreted as 1024.
 A value of 1 is invalid.
-If BDIV is odd and I2SCLKCTL.SMPL_ON_POSEDGE = 0, the low phase of the clock is one MCUCLK period longer than the high phase. 
-If BDIV is odd and I2SCLKCTL.SMPL_ON_POSEDGE = 1 , the high phase of the clock is one MCUCLK period longer than the low phase. 
+If BDIV is odd and I2SCLKCTL.SMPL_ON_POSEDGE = 0, the low phase of the clock is one MCUCLK period longer than the high phase.
+If BDIV is odd and I2SCLKCTL.SMPL_ON_POSEDGE = 1 , the high phase of the clock is one MCUCLK period longer than the low phase.
 
 For changes to take effect, CLKLOADCTL.LOAD needs to be written" id="BDIV" resetval="0x0">
       </bitfield>
@@ -564,19 +564,19 @@ For changes to take effect, CLKLOADCTL.LOAD needs to be written" id="BDIV" reset
       </bitfield>
       <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="If I2SCLKCTL.WCLK_PHASE = 0, Single phase.
 WCLK is high one BCLK period and low WDIV[9:0] (unsigned, [1-1023]) BCLK periods.
- 
+
 WCLK = MCUCLK / BDIV*(WDIV[9:0] + 1) [Hz]
 MCUCLK is 48MHz in normal mode. For powerdown mode the frequency is defined by AON_WUC:MCUCLK.PWR_DWN_SRC
 
 If I2SCLKCTL.WCLK_PHASE = 1, Dual phase.
 Each phase on WCLK (50% duty cycle) is WDIV[9:0] (unsigned, [1-1023]) BCLK periods.
 
-WCLK = MCUCLK / BDIV*(2*WDIV[9:0]) [Hz] 
+WCLK = MCUCLK / BDIV*(2*WDIV[9:0]) [Hz]
 
 If I2SCLKCTL.WCLK_PHASE = 2, User defined.
 WCLK is high WDIV[7:0] (unsigned, [1-255]) BCLK periods and low WDIV[15:8] (unsigned, [1-255]) BCLK periods.
 
-WCLK = MCUCLK / (BDIV*(WDIV[7:0] + WDIV[15:8]) [Hz] 
+WCLK = MCUCLK / (BDIV*(WDIV[7:0] + WDIV[15:8]) [Hz]
 
 For changes to take effect, CLKLOADCTL.LOAD needs to be written" id="WDIV" resetval="0x0">
       </bitfield>
@@ -593,13 +593,13 @@ For changes to take effect, CLKLOADCTL.LOAD needs to be written" id="WDIV" reset
       <bitfield range="" begin="31" width="29" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="0: No action
-1: A warm system reset event triggered by the below listed sources will result in an emulated pin reset. 
+1: A warm system reset event triggered by the below listed sources will result in an emulated pin reset.
 
 Warm reset sources included:
 ICEPick sysreset
 System CPU reset request, CPU_SCS:AIRCR.SYSRESETREQ
 System CPU Lockup
-WDT timeout 
+WDT timeout
 
 An active ICEPick block system reset will gate all sources except ICEPick sysreset
 
@@ -704,7 +704,7 @@ A read of this register clears both WDT_STAT and LOCKUP_STAT." id="WDT_STAT" res
       </bitfield>
       <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="
 0: VIMS power domain is only powered when CPU power domain is powered.
-1: VIMS power domain is powered whenever the BUS power domain is powered. 
+1: VIMS power domain is powered whenever the BUS power domain is powered.
 " id="VIMS_MODE" resetval="0x1">
       </bitfield>
       <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="
@@ -714,7 +714,7 @@ A read of this register clears both WDT_STAT and LOCKUP_STAT." id="WDT_STAT" res
 Bit shall be used by RFC in autonomus mode but there is no HW restrictions fom system CPU to access the bit." id="RFC_ON" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="
-0: Causes a power down of the CPU power domain when system CPU indicates it is idle. 
+0: Causes a power down of the CPU power domain when system CPU indicates it is idle.
 1: Initiates power-on of the CPU power domain.
 
 This bit is automatically set by a WIC power-on event." id="CPU_ON" resetval="0x1">
@@ -836,7 +836,7 @@ This bit is automatically set by a WIC power-on event." id="CPU_ON" resetval="0x
       <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="
 0: Retention for RFC SRAM disabled
 1: Retention for RFC SRAM enabled
-    
+
 Memories controlled: CPERAM  MCERAM  RFERAM " id="RFC" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="

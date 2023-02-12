@@ -12,7 +12,7 @@ Use the DWT Control Register to enable the DWT unit." id="CTRL" offset="0x0">
       </bitfield>
       <bitfield range="" begin="23" width="1" end="23" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED23" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="22" width="1" end="22" rwaccess="RW" description="Enables Cycle count event. Emits an event when the POSTCNT counter triggers it. See CYCTAP and POSTPRESET for details. This event is only emitted if PCSAMPLEENA is disabled. PCSAMPLEENA overrides the setting of this bit. 
+      <bitfield range="" begin="22" width="1" end="22" rwaccess="RW" description="Enables Cycle count event. Emits an event when the POSTCNT counter triggers it. See CYCTAP and POSTPRESET for details. This event is only emitted if PCSAMPLEENA is disabled. PCSAMPLEENA overrides the setting of this bit.
 
 0: Cycle count events disabled
 1: Cycle count events enabled" id="CYCEVTENA" resetval="0x0">
@@ -73,10 +73,10 @@ Synchronization packets (if enabled) are generated on tap transitions (0 to1 or 
       </bitfield>
    </register>
    <register acronym="CYCCNT" width="32" description="Current PC Sampler Cycle Count
-This register is used to count the number of core cycles. This counter can measure elapsed execution time. This is a free-running counter (this counter will not advance in power modes where free-running clock to CPU stops). The counter has three functions: 
+This register is used to count the number of core cycles. This counter can measure elapsed execution time. This is a free-running counter (this counter will not advance in power modes where free-running clock to CPU stops). The counter has three functions:
 
-1: When CTRL.PCSAMPLEENA = 1, the PC is sampled and emitted when the selected tapped bit changes value (0 to 1 or 1 to 0) and any post-scalar value counts to 0. 
-2: When CTRL.CYCEVTENA = 1 , (and CTRL.PCSAMPLEENA = 0), an event is emitted when the selected tapped bit changes value (0 to 1 or 1 to 0) and any post-scalar value counts to 0. 
+1: When CTRL.PCSAMPLEENA = 1, the PC is sampled and emitted when the selected tapped bit changes value (0 to 1 or 1 to 0) and any post-scalar value counts to 0.
+2: When CTRL.CYCEVTENA = 1 , (and CTRL.PCSAMPLEENA = 0), an event is emitted when the selected tapped bit changes value (0 to 1 or 1 to 0) and any post-scalar value counts to 0.
 3: Applications and debuggers can use the counter to measure elapsed execution time. By subtracting a start and an end time, an application can measure time between in-core clocks (other than when Halted in debug). This is valid to 2^32 core clock cycles (for example, almost 89.5 seconds at 48MHz)." id="CYCCNT" offset="0x4">
       <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Current PC Sampler Cycle Counter count value. When enabled, this counter counts the number of core cycles, except when the core is halted. The cycle counter is a free running counter, counting upwards (this counter will not advance in power modes where free-running clock to CPU stops). It wraps around to 0 on overflow. The debugger must initialize this to 0 when first enabling." id="CYCCNT" resetval="0x0">
       </bitfield>
@@ -135,7 +135,7 @@ Use the DWT Mask Registers 0 to apply a mask to data addresses when matching aga
    </register>
    <register acronym="FUNCTION0" width="32" description="Function 0
 Use the DWT Function Registers 0 to control the operation of the comparator 0. This comparator can:
-1. Match against either the PC or the data address. This is controlled by CYCMATCH. This function is only available for comparator 0 (COMP0). 
+1. Match against either the PC or the data address. This is controlled by CYCMATCH. This function is only available for comparator 0 (COMP0).
 2. Emit data or PC couples, trigger the ETM, or generate a watchpoint depending on the operation defined by FUNCTION." id="FUNCTION0" offset="0x28">
       <bitfield range="" begin="31" width="7" end="25" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED25" resetval="0x0">
       </bitfield>
@@ -147,12 +147,12 @@ Use the DWT Function Registers 0 to control the operation of the comparator 0. T
       </bitfield>
       <bitfield range="" begin="6" width="1" end="6" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED6" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Emit range field. This bit permits emitting offset when range match occurs. PC sampling is not supported when emit range is enabled. 
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Emit range field. This bit permits emitting offset when range match occurs. PC sampling is not supported when emit range is enabled.
 This field only applies for: FUNCTION = 1, 2, 3, 12, 13, 14, and 15." id="EMITRANGE" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="4" width="1" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Function settings. 
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Function settings.
 
 0x0: Disabled
 0x1: EMITRANGE = 0, sample and emit PC through ITM. EMITRANGE = 1, emit address offset through ITM
@@ -171,14 +171,14 @@ This field only applies for: FUNCTION = 1, 2, 3, 12, 13, 14, and 15." id="EMITRA
 0xE: EMITRANGE = 0, sample PC + data for read transfers. EMITRANGE = 1, sample Daddr (lower 16 bits) + data for read transfers
 0xF: EMITRANGE = 0, sample PC + data for write transfers. EMITRANGE = 1, sample Daddr (lower 16 bits) + data for write transfers
 
-Note 1: If the ETM is not fitted, then ETM trigger is not possible. 
-Note 2: Data value is only sampled for accesses that do not fault (MPU or bus fault). The PC is sampled irrespective of any faults. The PC is only sampled for the first address of a burst. 
+Note 1: If the ETM is not fitted, then ETM trigger is not possible.
+Note 2: Data value is only sampled for accesses that do not fault (MPU or bus fault). The PC is sampled irrespective of any faults. The PC is only sampled for the first address of a burst.
 Note 3: PC match is not recommended for watchpoints because it stops after the instruction. It mainly guards and triggers the ETM." id="FUNCTION" resetval="0x0">
       </bitfield>
    </register>
    <register acronym="COMP1" width="32" description="Comparator 1
 This register is used to write the reference value for comparator 1." id="COMP1" offset="0x30">
-      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Reference value to compare against PC or the data address as given by  FUNCTION1. 
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Reference value to compare against PC or the data address as given by  FUNCTION1.
 Comparator 1 can also compare data values. So this register can contain reference values for data matching." id="COMP" resetval="0x0">
       </bitfield>
    </register>
@@ -191,7 +191,7 @@ Use the DWT Mask Registers 1 to apply a mask to data addresses when matching aga
    </register>
    <register acronym="FUNCTION1" width="32" description="Function 1
 Use the DWT Function Registers 1 to control the operation of the comparator 1. This comparator can:
-1. Perform data value comparisons if associated address comparators have performed an address match. This function is only available for comparator 1 (COMP1). 
+1. Perform data value comparisons if associated address comparators have performed an address match. This function is only available for comparator 1 (COMP1).
 2. Emit data or PC couples, trigger the ETM, or generate a watchpoint depending on the operation defined by FUNCTION." id="FUNCTION1" offset="0x38">
       <bitfield range="" begin="31" width="7" end="25" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED25" resetval="0x0">
       </bitfield>
@@ -224,7 +224,7 @@ This bit is only available in comparator 1. " id="DATAVMATCH" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="7" width="2" end="6" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED6" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Emit range field. This bit permits emitting offset when range match occurs. PC sampling is not supported when emit range is enabled. 
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Emit range field. This bit permits emitting offset when range match occurs. PC sampling is not supported when emit range is enabled.
 This field only applies for: FUNCTION = 1, 2, 3, 12, 13, 14, and 15." id="EMITRANGE" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="4" width="1" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
@@ -248,10 +248,10 @@ This field only applies for: FUNCTION = 1, 2, 3, 12, 13, 14, and 15." id="EMITRA
 0xE: EMITRANGE = 0, sample PC + data for read transfers. EMITRANGE = 1, sample Daddr (lower 16 bits) + data for read transfers
 0xF: EMITRANGE = 0, sample PC + data for write transfers. EMITRANGE = 1, sample Daddr (lower 16 bits) + data for write transfers
 
-Note 1: If the ETM is not fitted, then ETM trigger is not possible. 
-Note 2: Data value is only sampled for accesses that do not fault (MPU or bus fault). The PC is sampled irrespective of any faults. The PC is only sampled for the first address of a burst. 
-Note 3: FUNCTION is overridden for comparators given by DATAVADDR0 and DATAVADDR1 if DATAVMATCH is also set. The comparators given by DATAVADDR0 and DATAVADDR1 can then only perform address comparator matches for comparator 1 data matches. 
-Note 4: If the data matching functionality is not included during implementation it is not possible to set DATAVADDR0, DATAVADDR1, or DATAVMATCH. This means that the data matching functionality is not available in the implementation. Test the availability of data matching by writing and reading DATAVMATCH. If it is not settable then data matching is unavailable. 
+Note 1: If the ETM is not fitted, then ETM trigger is not possible.
+Note 2: Data value is only sampled for accesses that do not fault (MPU or bus fault). The PC is sampled irrespective of any faults. The PC is only sampled for the first address of a burst.
+Note 3: FUNCTION is overridden for comparators given by DATAVADDR0 and DATAVADDR1 if DATAVMATCH is also set. The comparators given by DATAVADDR0 and DATAVADDR1 can then only perform address comparator matches for comparator 1 data matches.
+Note 4: If the data matching functionality is not included during implementation it is not possible to set DATAVADDR0, DATAVADDR1, or DATAVMATCH. This means that the data matching functionality is not available in the implementation. Test the availability of data matching by writing and reading DATAVMATCH. If it is not settable then data matching is unavailable.
 Note 5: PC match is not recommended for watchpoints because it stops after the instruction. It mainly guards and triggers the ETM.
 " id="FUNCTION" resetval="0x0">
       </bitfield>
@@ -276,12 +276,12 @@ Use the DWT Function Registers 2 to control the operation of the comparator 2. T
       </bitfield>
       <bitfield range="" begin="23" width="18" end="6" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED6" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Emit range field. This bit permits emitting offset when range match occurs. PC sampling is not supported when emit range is enabled. 
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Emit range field. This bit permits emitting offset when range match occurs. PC sampling is not supported when emit range is enabled.
 This field only applies for: FUNCTION = 1, 2, 3, 12, 13, 14, and 15." id="EMITRANGE" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="4" width="1" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Function settings. 
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Function settings.
 
 0x0: Disabled
 0x1: EMITRANGE = 0, sample and emit PC through ITM. EMITRANGE = 1, emit address offset through ITM
@@ -300,8 +300,8 @@ This field only applies for: FUNCTION = 1, 2, 3, 12, 13, 14, and 15." id="EMITRA
 0xE: EMITRANGE = 0, sample PC + data for read transfers. EMITRANGE = 1, sample Daddr (lower 16 bits) + data for read transfers
 0xF: EMITRANGE = 0, sample PC + data for write transfers. EMITRANGE = 1, sample Daddr (lower 16 bits) + data for write transfers
 
-Note 1: If the ETM is not fitted, then ETM trigger is not possible. 
-Note 2: Data value is only sampled for accesses that do not fault (MPU or bus fault). The PC is sampled irrespective of any faults. The PC is only sampled for the first address of a burst. 
+Note 1: If the ETM is not fitted, then ETM trigger is not possible.
+Note 2: Data value is only sampled for accesses that do not fault (MPU or bus fault). The PC is sampled irrespective of any faults. The PC is only sampled for the first address of a burst.
 Note 3: PC match is not recommended for watchpoints because it stops after the instruction. It mainly guards and triggers the ETM." id="FUNCTION" resetval="0x0">
       </bitfield>
    </register>
@@ -325,12 +325,12 @@ Use the DWT Function Registers 3 to control the operation of the comparator 3. T
       </bitfield>
       <bitfield range="" begin="23" width="18" end="6" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED6" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Emit range field. This bit permits emitting offset when range match occurs. PC sampling is not supported when emit range is enabled. 
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Emit range field. This bit permits emitting offset when range match occurs. PC sampling is not supported when emit range is enabled.
 This field only applies for: FUNCTION = 1, 2, 3, 12, 13, 14, and 15." id="EMITRANGE" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Function settings. 
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Function settings.
 
 0x0: Disabled
 0x1: EMITRANGE = 0, sample and emit PC through ITM. EMITRANGE = 1, emit address offset through ITM
@@ -349,8 +349,8 @@ This field only applies for: FUNCTION = 1, 2, 3, 12, 13, 14, and 15." id="EMITRA
 0xE: EMITRANGE = 0, sample PC + data for read transfers. EMITRANGE = 1, sample Daddr (lower 16 bits) + data for read transfers
 0xF: EMITRANGE = 0, sample PC + data for write transfers. EMITRANGE = 1, sample Daddr (lower 16 bits) + data for write transfers
 
-Note 1: If the ETM is not fitted, then ETM trigger is not possible. 
-Note 2: Data value is only sampled for accesses that do not fault (MPU or bus fault). The PC is sampled irrespective of any faults. The PC is only sampled for the first address of a burst. 
+Note 1: If the ETM is not fitted, then ETM trigger is not possible.
+Note 2: Data value is only sampled for accesses that do not fault (MPU or bus fault). The PC is sampled irrespective of any faults. The PC is only sampled for the first address of a burst.
 Note 3: PC match is not recommended for watchpoints because it stops after the instruction. It mainly guards and triggers the ETM." id="FUNCTION" resetval="0x0">
       </bitfield>
    </register>

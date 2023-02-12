@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module id="AUX_TDC" HW_revision="" XML_version="1.0" description="AUX Time To Digital Converter (AUX_TDC) is used to measure the time between two events with high resolution. 
+<module id="AUX_TDC" HW_revision="" XML_version="1.0" description="AUX Time To Digital Converter (AUX_TDC) is used to measure the time between two events with high resolution.
 
 AUX_TDC consists of a state machine that operates at AUX bus rate and an asynchronous fast-counter which is clocked by the TDC clock. DDI_0_OSC:CTL0.ACLK_TDC_SRC_SEL configures TDC clock source. The fast-counter counts on both edges of the TDC clock to double the resolution.
 
@@ -23,9 +23,9 @@ The counter starts to count when the start event is high. To achieve precise edg
 The counter looks for the opposite edge of the selected start event before it starts to count when the selected edge occurs. This guarantees an edge-triggered start and is recommended for frequency measurements." description="Synchronous counter start.
 
 The counter looks for the opposite edge of the selected start event before it starts to count when the selected edge occurs. This guarantees an edge-triggered start and is recommended for frequency measurements."/>
-         <bitenum id="CLR_RESULT" value="0" token="Clear STAT.SAT, STAT.DONE, and RESULT.VALUE. 
+         <bitenum id="CLR_RESULT" value="0" token="Clear STAT.SAT, STAT.DONE, and RESULT.VALUE.
 
-This is not needed as prerequisite for a measurement. Reliable clear is only guaranteed from IDLE state." description="Clear STAT.SAT, STAT.DONE, and RESULT.VALUE. 
+This is not needed as prerequisite for a measurement. Reliable clear is only guaranteed from IDLE state." description="Clear STAT.SAT, STAT.DONE, and RESULT.VALUE.
 
 This is not needed as prerequisite for a measurement. Reliable clear is only guaranteed from IDLE state."/>
       </bitfield>
@@ -51,14 +51,14 @@ This field clears when a new TDC measurement starts or when you write CLR_RESULT
          <bitenum id="FORCE_STOP" value="46" token="Current state is TDC_FORCESTOP.
 You wrote ABORT to CTL.CMD to abort the TDC measurement." description="Current state is TDC_FORCESTOP.
 You wrote ABORT to CTL.CMD to abort the TDC measurement."/>
-         <bitenum id="START_FALL" value="30" token="Current state is TDC_WAIT_STARTFALL. 
-The fast-counter circuit waits for a falling edge on the start event." description="Current state is TDC_WAIT_STARTFALL. 
+         <bitenum id="START_FALL" value="30" token="Current state is TDC_WAIT_STARTFALL.
+The fast-counter circuit waits for a falling edge on the start event." description="Current state is TDC_WAIT_STARTFALL.
 The fast-counter circuit waits for a falling edge on the start event."/>
-         <bitenum id="WAIT_CLR_CNT_DONE" value="22" token="Current state is TDC_STATE_WAIT_CLRCNT_DONE. 
-The state machine waits for fast-counter circuit to finish reset." description="Current state is TDC_STATE_WAIT_CLRCNT_DONE. 
+         <bitenum id="WAIT_CLR_CNT_DONE" value="22" token="Current state is TDC_STATE_WAIT_CLRCNT_DONE.
+The state machine waits for fast-counter circuit to finish reset." description="Current state is TDC_STATE_WAIT_CLRCNT_DONE.
 The state machine waits for fast-counter circuit to finish reset."/>
-         <bitenum id="POR" value="15" token="Current state is TDC_STATE_POR. 
-This is the reset state." description="Current state is TDC_STATE_POR. 
+         <bitenum id="POR" value="15" token="Current state is TDC_STATE_POR.
+This is the reset state." description="Current state is TDC_STATE_POR.
 This is the reset state."/>
          <bitenum id="GET_RESULT" value="14" token="Current state is TDC_STATE_GETRESULTS.
 The state machine copies the counter value from the fast-counter circuit." description="Current state is TDC_STATE_GETRESULTS.
@@ -70,14 +70,14 @@ The fast-counter circuit looks for the stop condition. It will ignore a number o
 The state machine waits for the fast-counter circuit to stop." description="Current state is TDC_STATE_WAIT_STOP.
 The state machine waits for the fast-counter circuit to stop."/>
          <bitenum id="CLR_CNT" value="7" token="Current state is TDC_STATE_CLRCNT. The fast-counter circuit is reset." description="Current state is TDC_STATE_CLRCNT. The fast-counter circuit is reset."/>
-         <bitenum id="IDLE" value="6" token="Current state is TDC_STATE_IDLE. 
-This is the default state after reset and abortion. State will change when you write CTL.CMD to either RUN_SYNC_START or RUN." description="Current state is TDC_STATE_IDLE. 
+         <bitenum id="IDLE" value="6" token="Current state is TDC_STATE_IDLE.
+This is the default state after reset and abortion. State will change when you write CTL.CMD to either RUN_SYNC_START or RUN." description="Current state is TDC_STATE_IDLE.
 This is the default state after reset and abortion. State will change when you write CTL.CMD to either RUN_SYNC_START or RUN."/>
          <bitenum id="WAIT_START_STOP_CNT_EN" value="4" token="Current state is TDC_STATE_WAIT_STARTSTOPCNTEN.
 The fast-counter circuit looks for the start condition. The state machine waits for the fast-counter to increment." description="Current state is TDC_STATE_WAIT_STARTSTOPCNTEN.
 The fast-counter circuit looks for the start condition. The state machine waits for the fast-counter to increment."/>
-         <bitenum id="WAIT_START" value="0" token="Current state is TDC_STATE_WAIT_START. 
-The fast-counter circuit looks for the start condition. The state machine waits for the fast-counter to increment." description="Current state is TDC_STATE_WAIT_START. 
+         <bitenum id="WAIT_START" value="0" token="Current state is TDC_STATE_WAIT_START.
+The fast-counter circuit looks for the start condition. The state machine waits for the fast-counter to increment." description="Current state is TDC_STATE_WAIT_START.
 The fast-counter circuit looks for the start condition. The state machine waits for the fast-counter to increment."/>
       </bitfield>
    </register>
@@ -279,7 +279,7 @@ Stop-counter control and status." id="TRIGCNT" offset="0x14">
       </bitfield>
       <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Number of stop events to ignore when AUX_TDC:TRIGCNTCFG.EN is 1.
 
-Read CNT to get the remaining number of stop events to ignore during a TDC measurement.  
+Read CNT to get the remaining number of stop events to ignore during a TDC measurement.
 
 Write CNT to update the remaining number of stop events to ignore during a TDC measurement. The TDC measurement ignores updates of CNT if there are no more stop events left to ignore.
 
@@ -293,7 +293,7 @@ Stop-counter load." id="TRIGCNTLOAD" offset="0x18">
       </bitfield>
       <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Number of stop events to ignore when AUX_TDC:TRIGCNTCFG.EN is 1.
 
-To measure frequency of an event source: 
+To measure frequency of an event source:
 - Set start event equal to stop event.
 - Set CNT to number of periods to measure. Both 0 and 1 values measures a single event source period.
 
@@ -304,9 +304,9 @@ To measure pulse width of an event source:
 
 To measure time from the start event to the Nth stop event when N &#62; 1:
 - Select different start and stop event source.
-- Set CNT to (N-1). 
+- Set CNT to (N-1).
 
-See the Technical Reference Manual for event timing requirements. 
+See the Technical Reference Manual for event timing requirements.
 
 When AUX_TDC:TRIGCNTCFG.EN is 1, CNT is loaded into TRIGCNT.CNT at the start of the measurement.
 " id="CNT" resetval="0x0">
@@ -327,10 +327,10 @@ Change only while STAT.STATE is IDLE." id="EN" resetval="0x0">
    </register>
    <register acronym="PRECTL" width="32" description="Prescaler Control
 
-The prescaler can be used to count events that are faster than the AUX bus rate. 
+The prescaler can be used to count events that are faster than the AUX bus rate.
 It can be used to:
 - count pulses on a specified event from the asynchronous event bus.
-- prescale a specified event from the asynchronous event bus. 
+- prescale a specified event from the asynchronous event bus.
 
 To use the prescaler output as an event source in TDC measurements you must set both TRIGSRC.START_SRC and TRIGSRC.STOP_SRC to AUX_TDC_PRE.
 
@@ -344,23 +344,23 @@ It is recommended to use the prescaler when the signal frequency to measure exce
 
 AUX_TDC_PRE event becomes 0 when you reset the prescaler. " id="RESET_N" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Prescaler ratio. 
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Prescaler ratio.
 
 This controls how often the AUX_TDC_PRE event is generated by the prescaler. " id="RATIO" resetval="0x0">
-         <bitenum id="DIV64" value="1" token="Prescaler divides input by 64. 
+         <bitenum id="DIV64" value="1" token="Prescaler divides input by 64.
 
-AUX_TDC_PRE event has a rising edge for every 64 rising edges of the input. AUX_TDC_PRE event toggles on every 32nd rising edge of the input. " description="Prescaler divides input by 64. 
+AUX_TDC_PRE event has a rising edge for every 64 rising edges of the input. AUX_TDC_PRE event toggles on every 32nd rising edge of the input. " description="Prescaler divides input by 64.
 
 AUX_TDC_PRE event has a rising edge for every 64 rising edges of the input. AUX_TDC_PRE event toggles on every 32nd rising edge of the input. "/>
-         <bitenum id="DIV16" value="0" token="Prescaler divides input by 16. 
+         <bitenum id="DIV16" value="0" token="Prescaler divides input by 16.
 
-AUX_TDC_PRE event has a rising edge for every 16 rising edges of the input. AUX_TDC_PRE event toggles on every 8th rising edge of the input. " description="Prescaler divides input by 16. 
+AUX_TDC_PRE event has a rising edge for every 16 rising edges of the input. AUX_TDC_PRE event toggles on every 8th rising edge of the input. " description="Prescaler divides input by 16.
 
 AUX_TDC_PRE event has a rising edge for every 16 rising edges of the input. AUX_TDC_PRE event toggles on every 8th rising edge of the input. "/>
       </bitfield>
-      <bitfield range="" begin="5" width="6" end="0" rwaccess="RW" description="Prescaler event source. 
+      <bitfield range="" begin="5" width="6" end="0" rwaccess="RW" description="Prescaler event source.
 
-Select an event from the asynchronous AUX event bus to connect to the prescaler input. 
+Select an event from the asynchronous AUX event bus to connect to the prescaler input.
 
 Configure only while RESET_N is 0." id="SRC" resetval="0x3f">
          <bitenum id="NO_EVENT" value="63" token="No event." description="No event."/>
@@ -433,7 +433,7 @@ Configure only while RESET_N is 0." id="SRC" resetval="0x3f">
       </bitfield>
       <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Prescaler counter value.
 
-Write a value to CNT to capture the value of the 16-bit prescaler counter into CNT. Read CNT to get the captured value. 
+Write a value to CNT to capture the value of the 16-bit prescaler counter into CNT. Read CNT to get the captured value.
 
 The read value gets 1 LSB uncertainty if the event source level rises when you release the reset.
 The read value gets 1 LSB uncertainty if the event source level rises when you capture the prescaler counter.

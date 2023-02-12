@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module id="AUX_SYSIF" HW_revision="" XML_version="1.0" description="AUX System Interface (AUX_SYSIF) is responsible for:
 - system resource requests, such as power supply and clock requests.
-- configuration of AUX peripheral operational rates for AUX_ANAIF DAC state machine and AUX_TIMER01. 
+- configuration of AUX peripheral operational rates for AUX_ANAIF DAC state machine and AUX_TIMER01.
 - configuration of event synchronization rate for AUX_EVCTL:EVSTAT2 and AUX_EVCTL:EVSTAT3.
 
 Peripheral operational rate for AUX modules mentioned above can either be:
@@ -12,7 +12,7 @@ AUX_SYSIF also interfaces AON_RTC to enable read access to data and sub-second i
    <register acronym="OPMODEREQ" width="32" description="Operational Mode Request
 
 AUX can operate in three operational modes. Each mode is associated with:
-- a SCE clock source or rate, given by AON_PMCTL:AUXSCECLK. This rate is termed SCE_RATE. 
+- a SCE clock source or rate, given by AON_PMCTL:AUXSCECLK. This rate is termed SCE_RATE.
 - a system power supply state request. AUX can request powerdown (uLDO) or active (GLDO or DCDC) system power supply state.
 
 Follow these rules:
@@ -46,10 +46,10 @@ Failure to follow these rules might result in unexpected behavior and must be av
 - SCE clock frequency (SCE_RATE) equals SCLK_MF.
 - An active wakeup flag does not change operational mode."/>
          <bitenum id="A" value="0" token="Active operational mode, characterized by:
-- Active system power supply state (GLDO or DCDC) request. 
+- Active system power supply state (GLDO or DCDC) request.
 - AON_PMCTL:AUXSCECLK.SRC sets the SCE clock frequency (SCE_RATE).
 - An active wakeup flag does not change operational mode." description="Active operational mode, characterized by:
-- Active system power supply state (GLDO or DCDC) request. 
+- Active system power supply state (GLDO or DCDC) request.
 - AON_PMCTL:AUXSCECLK.SRC sets the SCE clock frequency (SCE_RATE).
 - An active wakeup flag does not change operational mode."/>
       </bitfield>
@@ -66,7 +66,7 @@ User must assume that the current operational mode is the one acknowledged." id=
          <bitenum id="A" value="0" token="Active operational mode is acknowledged." description="Active operational mode is acknowledged."/>
       </bitfield>
    </register>
-   <register acronym="EVSYNCRATE" width="32" description="Event Synchronization Rate 
+   <register acronym="EVSYNCRATE" width="32" description="Event Synchronization Rate
 
 Configure synchronization rate for certain events to the synchronous AUX event bus.
 
@@ -86,9 +86,9 @@ SCE rate equals rate configured in AON_PMCTL:AUXSCECLK. AUX bus rate equals SCE 
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
       </bitfield>
    </register>
-   <register acronym="PEROPRATE" width="32" description="Peripheral Operational Rate 
+   <register acronym="PEROPRATE" width="32" description="Peripheral Operational Rate
 
-Some AUX peripherals are operated at either SCE or at AUX bus rate. 
+Some AUX peripherals are operated at either SCE or at AUX bus rate.
 
 Select AUX bus rate when system CPU uses such peripheral.
 
@@ -168,7 +168,7 @@ These are the recommended steps to configure and request the reference clock:
 - Configure clock source in DDI_0_OSC:CTL0.ACLK_REF_SRC_SEL.
 - Read DDI_0_OSC:CTL0 to avoid a race condition between previous step and next step.
 - Set REQ=1 to request the clock.
-- Wait until ACK=1. 
+- Wait until ACK=1.
 
 After these steps ACK stays high until REQ=0. It is hence not recommended to reconfigure DDI_0_OSC:CTL0.ACLK_REF_SRC_SEL when ACK=1. In this case, there will be no indication of when the new clock source selection is ready.
 
@@ -214,7 +214,7 @@ INC23_16 will replace bits 23:16 in AON_RTC:SUBSECINC when RTCSUBSECINCCTL.UPD_R
       </bitfield>
       <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Update acknowledgement.
 
-0: AON_RTC has not acknowledged UPD_REQ. 
+0: AON_RTC has not acknowledged UPD_REQ.
 1: AON_RTC has acknowledged UPD_REQ. " id="UPD_ACK" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Request AON_RTC to update AON_RTC:SUBSECINC.
@@ -236,7 +236,7 @@ Request to clear events:
       </bitfield>
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Clear events from AON_RTC channel 2.
 
-0: No effect. 
+0: No effect.
 1: Clear events from AON_RTC channel 2.
 
 Keep RTC_CH2_EV_CLR high until AUX_EVCTL:EVSTAT2.AON_RTC_CH2 and AUX_EVCTL:EVSTAT2.AON_RTC_CH2_DLY are 0." id="RTC_CH2_EV_CLR" resetval="0x0">

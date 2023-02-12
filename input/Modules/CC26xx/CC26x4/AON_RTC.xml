@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module id="AON_RTC" HW_revision="" XML_version="1.0" description="This component control the Real Time Clock residing in AON
 
-Note: This module is only supporting 32 bit ReadWrite access. 
+Note: This module is only supporting 32 bit ReadWrite access.
 " xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
    <register acronym="CTL" width="32" description="Control
 
@@ -44,7 +44,7 @@ This bit is cleared when reset takes effect" id="RESET" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="6" width="4" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="RTC_4KHZ is a 4 KHz reference output, tapped from  SUBSEC.VALUE  bit 19 which is used by AUX timer. 
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="RTC_4KHZ is a 4 KHz reference output, tapped from  SUBSEC.VALUE  bit 19 which is used by AUX timer.
 
 0: RTC_4KHZ signal is forced to 0
 1: RTC_4KHZ is enabled ( provied that RTC is enabled EN)
@@ -106,7 +106,7 @@ Writing 1 clears this flag.
       </bitfield>
    </register>
    <register acronym="SEC" width="32" description="Second Counter Value, Integer Part" id="SEC" offset="0x8">
-      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Unsigned integer representing Real Time Clock in seconds. 
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Unsigned integer representing Real Time Clock in seconds.
 
 When reading this register the content of SUBSEC.VALUE is simultaneously latched. A consistent reading of the combined Real Time Clock can be obtained by first reading this register, then reading SUBSEC register.
 " id="VALUE" resetval="0x0">
@@ -115,7 +115,7 @@ When reading this register the content of SUBSEC.VALUE is simultaneously latched
    <register acronym="SUBSEC" width="32" description="Second Counter Value, Fractional Part" id="SUBSEC" offset="0xc">
       <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Unsigned integer representing Real Time Clock in fractions of a second (VALUE/2^32 seconds) at the time when SEC register was read.
 
-Examples : 
+Examples :
 - 0x0000_0000 = 0.0 sec
 - 0x4000_0000 = 0.25 sec
 - 0x8000_0000 = 0.5 sec
@@ -188,7 +188,7 @@ NOTE: This register is read only. Modification of the register value must be don
 
 Bit 31 to 16 represents seconds and bits 15 to 0 represents subseconds of the compare value.
 
-The compare value is compared against SEC.VALUE (15:0) and SUBSEC.VALUE (31:16) values of the Real Time Clock register. A Cannel 0 event is generated when {SEC.VALUE(15:0),SUBSEC.VALUE (31:16)} is reaching or exciting the compare value. 
+The compare value is compared against SEC.VALUE (15:0) and SUBSEC.VALUE (31:16) values of the Real Time Clock register. A Cannel 0 event is generated when {SEC.VALUE(15:0),SUBSEC.VALUE (31:16)} is reaching or exciting the compare value.
 
 Writing to this register can trigger an immediate*) event in case the new compare value matches a Real Time Clock  value from 1 second in the past up till current Real Time Clock value.
 
@@ -205,7 +205,7 @@ To generate a compare  5.5 seconds RTC start,- set this value = 0x0005_8000
 
 Bit 31 to 16 represents seconds and bits 15 to 0 represents subseconds of the compare value.
 
-The compare value is compared against SEC.VALUE (15:0) and SUBSEC.VALUE (31:16) values of the Real Time Clock register. A Cannel 0 event is generated when {SEC.VALUE(15:0),SUBSEC.VALUE (31:16)} is reaching or exciting the compare value. 
+The compare value is compared against SEC.VALUE (15:0) and SUBSEC.VALUE (31:16) values of the Real Time Clock register. A Cannel 0 event is generated when {SEC.VALUE(15:0),SUBSEC.VALUE (31:16)} is reaching or exciting the compare value.
 
 Writing to this register can trigger an immediate*) event in case the new compare value matches a Real Time Clock  value from 1 second in the past up till current Real Time Clock value.
 
@@ -222,7 +222,7 @@ To generate a compare  5.5 seconds RTC start,- set this value = 0x0005_8000
 
 Bit 31 to 16 represents seconds and bits 15 to 0 represents subseconds of the compare value.
 
-The compare value is compared against SEC.VALUE (15:0) and SUBSEC.VALUE (31:16) values of the Real Time Clock register. A Cannel 0 event is generated when {SEC.VALUE(15:0),SUBSEC.VALUE (31:16)} is reaching or exciting the compare value. 
+The compare value is compared against SEC.VALUE (15:0) and SUBSEC.VALUE (31:16) values of the Real Time Clock register. A Cannel 0 event is generated when {SEC.VALUE(15:0),SUBSEC.VALUE (31:16)} is reaching or exciting the compare value.
 
 Writing to this register can trigger an immediate*) event in case the new compare value matches a Real Time Clock  value from 1 second in the past up till current Real Time Clock value.
 

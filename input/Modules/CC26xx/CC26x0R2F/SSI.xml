@@ -6,7 +6,7 @@
       <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="15" width="8" end="8" rwaccess="RW" description="Serial clock rate:
-This is used to generate the transmit and receive bit rate of the SSI. The bit rate is 
+This is used to generate the transmit and receive bit rate of the SSI. The bit rate is
 (SSI&#39;s clock frequency)/((SCR+1)*CPSR.CPSDVSR).
 SCR is a value from 0-255.
 " id="SCR" resetval="0x0">
@@ -23,14 +23,14 @@ has the most impact on the first bit transmitted by either permitting or not per
 CLKOUT pin when data is not being transferred." description="SSI produces a steady state LOW value on the
 CLKOUT pin when data is not being transferred."/>
       </bitfield>
-      <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Frame format. 
-The supported frame formats are Motorola SPI, TI synchronous serial and National Microwire. 
+      <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Frame format.
+The supported frame formats are Motorola SPI, TI synchronous serial and National Microwire.
 Value 0&#39;b11 is reserved and shall not be used." id="FRF" resetval="0x0">
          <bitenum id="NATIONAL_MICROWIRE" value="2" token="National Microwire frame format" description="National Microwire frame format"/>
          <bitenum id="TI_SYNC_SERIAL" value="1" token="TI synchronous serial frame format" description="TI synchronous serial frame format"/>
          <bitenum id="MOTOROLA_SPI" value="0" token="Motorola SPI frame format" description="Motorola SPI frame format"/>
       </bitfield>
-      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Data Size Select. 
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Data Size Select.
 Values 0b0000, 0b0001, 0b0010 are reserved and shall not be used." id="DSS" resetval="0x0">
          <bitenum id="16_BIT" value="15" token="16-bit data" description="16-bit data"/>
          <bitenum id="15_BIT" value="14" token="15-bit data" description="15-bit data"/>

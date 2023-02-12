@@ -71,7 +71,7 @@ Note: When 0, MSB of the next word will be output in the idle period between LSB
 1: Dual-phase: I2S, LJF and RJF formats" id="DUAL_PHASE" resetval="0x1">
       </bitfield>
       <bitfield range="" begin="4" width="5" end="0" rwaccess="RW" description="Number of bits per word (8-24):
-In single-phase format, this is the exact number of bits per word. 
+In single-phase format, this is the exact number of bits per word.
 In dual-phase format, this is the maximum number of bits per word.
 
 Values below 8 and above 24 give undefined behavior. Data written to memory is always aligned to 16 or 24 bits as defined by MEM_LEN_24. Bit widths that differ from this alignment will either be truncated or zero padded.
@@ -120,7 +120,7 @@ If all bits are zero, no input words will be stored to memory, and the output da
 0x0001: Width of the pulse (number of BCLK cycles, here 1).
 ...
 0xFFFE: Width of the pulse (number of BCLK cycles, here 65534).
-0xFFFF: Constant high 
+0xFFFF: Constant high
 
 " id="PULSE_WIDTH" resetval="0x0">
       </bitfield>
@@ -128,7 +128,7 @@ If all bits are zero, no input words will be stored to memory, and the output da
    <register acronym="AIFINPTRNEXT" width="32" description="DMA Input Buffer Next Pointer" id="AIFINPTRNEXT" offset="0x20">
       <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Pointer to the first byte in the next DMA input buffer.
 
-The read value equals the last written value until the currently used DMA input buffer is completed, and then becomes null when the last written value is transferred to the DMA controller to start on the next buffer. This event is signalized by IRQFLAGS.AIF_DMA_IN. 
+The read value equals the last written value until the currently used DMA input buffer is completed, and then becomes null when the last written value is transferred to the DMA controller to start on the next buffer. This event is signalized by IRQFLAGS.AIF_DMA_IN.
 
 At startup, the value must be written once before and once after configuring the DMA buffer size in AIFDMACFG.
 
@@ -142,7 +142,7 @@ The next pointer must be written to this register while the DMA function uses th
    <register acronym="AIFOUTPTRNEXT" width="32" description="DMA Output Buffer Next Pointer" id="AIFOUTPTRNEXT" offset="0x28">
       <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Pointer to the first byte in the next DMA output buffer.
 
-The read value equals the last written value until the currently used DMA output buffer is completed, and then becomes null when the last written value is transferred to the DMA controller to start on the next buffer. This event is signalized by IRQFLAGS.AIF_DMA_OUT. 
+The read value equals the last written value until the currently used DMA output buffer is completed, and then becomes null when the last written value is transferred to the DMA controller to start on the next buffer. This event is signalized by IRQFLAGS.AIF_DMA_OUT.
 
 At startup, the value must be written once before and once after configuring the DMA buffer size in AIFDMACFG. At this time, the first two samples will be fetched from memory.
 
@@ -221,7 +221,7 @@ This bit field must equal the WCLK counter value during the WCLK period in which
 The value of this register takes effect when the following conditions are met:
 - One or more pins are configured as outputs in AIFDIRCFG.
 - AIFDMACFG has been configured for the correct buffer size, and 32 BCLK cycle ticks have happened.
-- 2 samples have been preloaded from memory (examine the AIFOUTPTR register if necessary). 
+- 2 samples have been preloaded from memory (examine the AIFOUTPTR register if necessary).
 Note: The memory read access is only performed when required, that is channels 0/1 must be selected in AIFWMASK0/AIFWMASK1.
 
 Note: To avoid false triggers, this bit field should be set higher than STMPWPER.VALUE.
@@ -323,20 +323,20 @@ Selects mask states of the flags in IRQFLAGS that contribute to the I2S_IRQ even
 
 The bit is sticky and may only be cleared by software (by writing &#39;1&#39; to IRQCLR.WCLK_TIMEOUT)." id="WCLK_TIMEOUT" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="2" width="1" end="2" rwaccess="RO" description="Set when a DMA operation is not completed in time (that is audio output buffer underflow, or audio input buffer overflow). 
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RO" description="Set when a DMA operation is not completed in time (that is audio output buffer underflow, or audio input buffer overflow).
 This error requires a complete restart since word synchronization has been lost. The bit is sticky and may only be cleared by software (by writing &#39;1&#39; to IRQCLR.BUS_ERR).
 
 Note that DMA initiated transactions to illegal addresses will not trigger an interrupt. The response to such transactions is undefined.
 
 " id="BUS_ERR" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Set when: 
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Set when:
 - An unexpected WCLK edge occurs during the data delay period of a phase.  Note unexpected WCLK edges during the word and idle periods of the phase are not detected.
 -  In dual-phase mode, when two WCLK edges are less than 4 BCLK cycles apart.
 -  In single-phase mode, when a WCLK pulse occurs before the last channel.
 This error requires a complete restart since word synchronization has been lost. The bit is sticky and may only be cleared by software (by writing &#39;1&#39; to IRQCLR.WCLK_ERR)." id="WCLK_ERR" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Set when AIFINPTRNEXT or AIFOUTPTRNEXT has not been loaded with the next block address in time. 
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Set when AIFINPTRNEXT or AIFOUTPTRNEXT has not been loaded with the next block address in time.
 This error requires a complete restart since word synchronization has been lost. The bit is sticky and may only be cleared by software (by writing &#39;1&#39; to IRQCLR.PTR_ERR).
 " id="PTR_ERR" resetval="0x0">
       </bitfield>

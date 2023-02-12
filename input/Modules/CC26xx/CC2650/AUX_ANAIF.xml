@@ -87,7 +87,7 @@ When the flag is set, the ADC FIFO read pointer is static. Read returns the prev
       </bitfield>
       <bitfield range="" begin="2" width="1" end="2" rwaccess="RO" description="FIFO full flag.
 
-0: FIFO is not full, there is less than 4 samples in the FIFO. 
+0: FIFO is not full, there is less than 4 samples in the FIFO.
 1: FIFO is full, there are 4 samples in the FIFO.
 
 When the flag is set, it is not possible to add more samples to the ADC FIFO. An attempt to add samples sets the OVERFLOW flag.
@@ -123,10 +123,10 @@ Write dummy sample to FIFO. This is useful for code development when you do not 
    <register acronym="ADCTRIG" width="32" description="ADC Trigger" id="ADCTRIG" offset="0x1c">
       <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="Manual ADC trigger. 
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="Manual ADC trigger.
 
 0: No effect.
-1: Single ADC trigger. 
+1: Single ADC trigger.
 
 To manually trigger the ADC, you must set ADCCTL.START_SRC to NO_EVENT&#60;n&#62; to avoid conflict with event-driven ADC trigger. " id="START" resetval="0x0">
       </bitfield>

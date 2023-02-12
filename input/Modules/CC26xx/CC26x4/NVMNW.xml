@@ -29,9 +29,9 @@ are read in the MIS register. PSD compliant register." id="IMASK" offset="0x28">
       </bitfield>
    </register>
    <register acronym="RIS" width="32" description="Raw Interrupt Status Register:
-The RIS register reflects all pending interrupts, regardless of masking. 
+The RIS register reflects all pending interrupts, regardless of masking.
 The RIS register allows the user to implement a poll scheme. A flag set in this
-register can be cleared by writing a 1 to the ICLR register bit even if the 
+register can be cleared by writing a 1 to the ICLR register bit even if the
 corresponding IMASK bit is not enabled. A flag can be set by software by writing
 a 1 to the ISET register. Reading the IIDX register will also clear the
 corresponding bit in RIS. PSD compliant register." id="RIS" offset="0x30">
@@ -45,10 +45,10 @@ It is cleared by the corresponding bit in in the ICLR register or reading the II
       </bitfield>
    </register>
    <register acronym="MIS" width="32" description="Masked Interrupt Status Register:
-The MIS register is a bit-wise AND of the contents of the IMASK and RIS 
+The MIS register is a bit-wise AND of the contents of the IMASK and RIS
 registers. This is kept mainly for ARM compatibility, and has limited use since
  the highest priority interrupt index is returned via the IIDX register.
- PSD 
+ PSD
 compliant register." id="MIS" offset="0x38">
       <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
       </bitfield>
@@ -59,10 +59,10 @@ This masked interrupt bit reflects the bitwise AND of the corresponding RIS and 
       </bitfield>
    </register>
    <register acronym="ISET" width="32" description="Interrupt Set Register:
-The ISET register allows software to write a 1 to set corresponding interrupt. 
+The ISET register allows software to write a 1 to set corresponding interrupt.
 
 Safety:
-This meets a safety requirement to allow software diagnostics to trigger 
+This meets a safety requirement to allow software diagnostics to trigger
 interrupts.
 PSD compliant register." id="ISET" offset="0x40">
       <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
@@ -73,8 +73,8 @@ PSD compliant register." id="ISET" offset="0x40">
          <bitenum id="NO_EFFECT" value="0" token="Writing a 0 has no effect" description="Writing a 0 has no effect"/>
       </bitfield>
    </register>
-   <register acronym="ICLR" width="32" description="Interrupt Clear Register. 
-The ICLR register allows allows software to write a 1 to clear corresponding 
+   <register acronym="ICLR" width="32" description="Interrupt Clear Register.
+The ICLR register allows allows software to write a 1 to clear corresponding
 interrupt.
 PSD compliant register." id="ICLR" offset="0x48">
       <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
@@ -85,8 +85,8 @@ PSD compliant register." id="ICLR" offset="0x48">
          <bitenum id="NO_EFFECT" value="0" token="Writing a 0 has no effect" description="Writing a 0 has no effect"/>
       </bitfield>
    </register>
-   <register acronym="EVT_MODE" width="32" description="Event mode register. It is used to select whether each line is disabled, in 
-software mode (software clears the RIS) or in hardware mode (hardware 
+   <register acronym="EVT_MODE" width="32" description="Event mode register. It is used to select whether each line is disabled, in
+software mode (software clears the RIS) or in hardware mode (hardware
 clears the RIS)." id="EVT_MODE" offset="0xe0">
       <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
       </bitfield>
@@ -121,9 +121,9 @@ This register identifies the NoWrapper hardware version and feature set used. " 
    </register>
    <register acronym="CMDEXEC" width="32" description="Command Execute Register:
 Initiates execution of the command specified in the CMDTYPE register.
-This register is blocked for writes after being written to 1 and prior to 
+This register is blocked for writes after being written to 1 and prior to
 STATCMD.DONE being set by the NoWrapper hardware.
-NoWrapper hardware clears this register after the processing of the command 
+NoWrapper hardware clears this register after the processing of the command
 has completed.
 " id="CMDEXEC" offset="0x100">
       <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
@@ -135,10 +135,10 @@ Initiates execution of the command specified in the CMDTYPE register." id="VAL" 
       </bitfield>
    </register>
    <register acronym="CMDTYPE" width="32" description="Command Type Register
-This register specifies the type of command to be executed by the NoWrapper 
+This register specifies the type of command to be executed by the NoWrapper
 hardware.
-This register is blocked for writes after CMDEXEC is written to a 1 and 
-prior to STATCMD.DONE being set by the hardware to indicate that 
+This register is blocked for writes after CMDEXEC is written to a 1 and
+prior to STATCMD.DONE being set by the hardware to indicate that
 command execution has completed." id="CMDTYPE" offset="0x104">
       <bitfield range="" begin="6" width="3" end="4" rwaccess="RW" description="Command size " id="SIZE" resetval="0x0">
          <bitenum id="BANK" value="5" token="Operate on an entire flash bank" description="Operate on an entire flash bank"/>
@@ -165,13 +165,13 @@ This command may only be used with CMDTYPE.SIZE = ONEWORD"/>
    <register acronym="CMDCTL" width="32" description="Command Control Register
 This register configures specific capabilities of the state machine for related to
 the execution of a command.
-This register is blocked for writes after CMDEXEC is written to a 1 and 
-prior to STATCMD.DONE being set by the hardware to indicate that 
+This register is blocked for writes after CMDEXEC is written to a 1 and
+prior to STATCMD.DONE being set by the hardware to indicate that
 command execution has completed.
 " id="CMDCTL" offset="0x108">
       <bitfield range="" begin="31" width="10" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="21" width="1" end="21" rwaccess="RW" description="Enable invalid data verify.  
+      <bitfield range="" begin="21" width="1" end="21" rwaccess="RW" description="Enable invalid data verify.
 This checks for 0-&#62;1 transitions in the memory when
 a program operation is initiated.  If such a transition is found, the program will
 fail with an error without doing any programming." id="DATAVEREN" resetval="0x0">
@@ -202,9 +202,9 @@ flash entries will receive subsequent program pulse." id="PROGMASKDIS" resetval=
       </bitfield>
       <bitfield range="" begin="17" width="1" end="17" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED17" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Override hardware address translation of address in CMDADDR from a 
-system address to a bank address and bank ID.  Use data written to 
-CMDADDR directly as the bank address.  Use the value written to 
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Override hardware address translation of address in CMDADDR from a
+system address to a bank address and bank ID.  Use data written to
+CMDADDR directly as the bank address.  Use the value written to
 CMDCTL.BANKSEL directly as the bank ID.  Use the value written to
 CMDCTL.REGIONSEL directly as the region ID.
 " id="ADDRXLATEOVR" resetval="0x0">
@@ -224,7 +224,7 @@ masked." id="PREVEREN" resetval="0x1">
       <bitfield range="" begin="13" width="1" end="13" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED13" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="12" width="4" end="9" rwaccess="RW" description="Bank Region
-A specific region ID can be written to this field to indicate to which region an 
+A specific region ID can be written to this field to indicate to which region an
 operation should be applied if CMDCTL.ADDRXLATEOVR is set." id="REGIONSEL" resetval="0x0">
          <bitenum id="ENGR" value="8" token="Engr Region" description="Engr Region"/>
          <bitenum id="TRIM" value="4" token="Trim Region" description="Trim Region"/>
@@ -232,7 +232,7 @@ operation should be applied if CMDCTL.ADDRXLATEOVR is set." id="REGIONSEL" reset
          <bitenum id="MAIN" value="1" token="Main Region" description="Main Region"/>
       </bitfield>
       <bitfield range="" begin="4" width="5" end="8" rwaccess="RW" description="Bank Select
-A specific Bank ID can be written to this field to indicate to which bank an 
+A specific Bank ID can be written to this field to indicate to which bank an
 operation should be applied if CMDCTL.ADDRXLATEOVR is set." id="BANKSEL" resetval="0x0">
          <bitenum id="BANK4" value="16" token="Bank 4" description="Bank 4"/>
          <bitenum id="BANK3" value="8" token="Bank 3" description="Bank 3"/>
@@ -325,7 +325,7 @@ hardware." id="CMDDATAINDEX" offset="0x12c">
       </bitfield>
    </register>
    <register acronym="CMDDATA0" width="32" description="Command Data Register 0
-This register forms the data for a command.  
+This register forms the data for a command.
 For DATAWIDTH == 128:This register represents bits 31:0 of flash word data register 0.
 For DATAWIDTH == 64:This register represents bits 31:0 of flash word data register 0.
 This register is blocked for writes after a 1 is written to the CMDEXEC
@@ -346,7 +346,7 @@ Use cases for the CMDDATA* registers are as follows:
       </bitfield>
    </register>
    <register acronym="CMDDATA1" width="32" description="Command Data Register 1
-This register forms the data for a command.  
+This register forms the data for a command.
 For DATAWIDTH == 128:This register represents bits 63:32 of flash word data register 0.
 For DATAWIDTH == 64:This register represents bits 63:32 of flash word data register 0.
 This register is blocked for writes after a 1 is written to the CMDEXEC
@@ -368,7 +368,7 @@ Use cases for the CMDDATA* registers are as follows:
       </bitfield>
    </register>
    <register acronym="CMDDATA2" width="32" description="Command Data Register 2
-This register forms the data for a command.  
+This register forms the data for a command.
 For DATAWIDTH == 128:This register represents bits 95:64 of flash word data register 0.
 For DATAWIDTH == 64:This register represents bits 31:0 of flash word data register 1.
 This register is blocked for writes after a 1 is written to the CMDEXEC
@@ -390,7 +390,7 @@ Use cases for the CMDDATA* registers are as follows:
       </bitfield>
    </register>
    <register acronym="CMDDATA3" width="32" description="Command Data Register 3
-This register forms the data for a command.  
+This register forms the data for a command.
 For DATAWIDTH == 128:This register represents bits 127:96 of flash word data register 0.
 For DATAWIDTH == 64:This register represents bits 63:32 of flash word data register 1.
 This register is blocked for writes after a 1 is written to the CMDEXEC
@@ -411,7 +411,7 @@ Use cases for the CMDDATA* registers are as follows:
       </bitfield>
    </register>
    <register acronym="CMDDATA4" width="32" description="Command Data Register 4
-This register forms the data for a command.  
+This register forms the data for a command.
 For DATAWIDTH == 128:This register represents bits 31:0 of flash word data register 1.
 For DATAWIDTH == 64:This register represents bits 31:0 of flash word data register 2.
 This register is blocked for writes after a 1 is written to the CMDEXEC
@@ -434,7 +434,7 @@ T
    </register>
    <register acronym="CMDDATA5" width="32" description="Command Data Register 5
 
-This register forms the data for a command.  
+This register forms the data for a command.
 For DATAWIDTH == 128:This register represents bits 63:32 of flash word data register 1.
 For DATAWIDTH == 64:This register represents bits 63:32 of flash word data register 2.
 This register is blocked for writes after a 1 is written to the CMDEXEC
@@ -455,7 +455,7 @@ Use cases for the CMDDATA* registers are as follows:
       </bitfield>
    </register>
    <register acronym="CMDDATA6" width="32" description="Command Data Register 6
-This register forms the data for a command.  
+This register forms the data for a command.
 For DATAWIDTH == 128:This register represents bits 95:64 of flash word data register 1.
 For DATAWIDTH == 64:This register represents bits 31:0 of flash word data register 3.
 This register is blocked for writes after a 1 is written to the CMDEXEC
@@ -477,7 +477,7 @@ Use cases for the CMDDATA* registers are as follows:
       </bitfield>
    </register>
    <register acronym="CMDDATA7" width="32" description="Command Data Register 7
-This register forms the data for a command.  
+This register forms the data for a command.
 For DATAWIDTH == 128:This register represents bits 127:96 of flash word data register 1.
 For DATAWIDTH == 64:This register represents bits 63:32 of flash word data register 3.
 This register is blocked for writes after a 1 is written to the CMDEXEC
@@ -499,7 +499,7 @@ Use cases for the CMDDATA* registers are as follows:
       </bitfield>
    </register>
    <register acronym="CMDDATA8" width="32" description="Command Data Register 8
-This register forms the data for a command.  
+This register forms the data for a command.
 For DATAWIDTH == 128:This register represents bits 31:0 of flash word data register 2.
 For DATAWIDTH == 64:This register represents bits 31:0 of flash word data register 4.
 This register is blocked for writes after a 1 is written to the CMDEXEC
@@ -522,7 +522,7 @@ Use cases for the CMDDATA* registers are as follows:
    </register>
    <register acronym="CMDDATA9" width="32" description="Command Data Register 9
 
-This register forms the data for a command.  
+This register forms the data for a command.
 For DATAWIDTH == 128:This register represents bits 63:32 of flash word data register 2.
 For DATAWIDTH == 64:This register represents bits 63:32 of flash word data register 4.
 This register is blocked for writes after a 1 is written to the CMDEXEC
@@ -544,7 +544,7 @@ Use cases for the CMDDATA* registers are as follows:
       </bitfield>
    </register>
    <register acronym="CMDDATA10" width="32" description="Command Data Register 10
-This register forms the data for a command.  
+This register forms the data for a command.
 For DATAWIDTH == 128:This register represents bits 95:64 of flash word data register 2.
 For DATAWIDTH == 64:This register represents bits 31:0 of flash word data register 5.
 This register is blocked for writes after a 1 is written to the CMDEXEC
@@ -565,7 +565,7 @@ Use cases for the CMDDATA* registers are as follows:
       </bitfield>
    </register>
    <register acronym="CMDDATA11" width="32" description="Command Data Register 11
-This register forms the data for a command.  
+This register forms the data for a command.
 For DATAWIDTH == 128:This register represents bits 127:96 of flash word data register 2.
 For DATAWIDTH == 64:This register represents bits 63:32 of flash word data register 5.
 This register is blocked for writes after a 1 is written to the CMDEXEC
@@ -586,7 +586,7 @@ Use cases for the CMDDATA* registers are as follows:
       </bitfield>
    </register>
    <register acronym="CMDDATA12" width="32" description="Command Data Register 12
-This register forms the data for a command.  
+This register forms the data for a command.
 For DATAWIDTH == 128:This register represents bits 31:0 of flash word data register 3.
 For DATAWIDTH == 64:This register represents bits 31:0 of flash word data register 6.
 This register is blocked for writes after a 1 is written to the CMDEXEC
@@ -608,7 +608,7 @@ Use cases for the CMDDATA* registers are as follows:
    </register>
    <register acronym="CMDDATA13" width="32" description="Command Data Register 13
 
-This register forms the data for a command.  
+This register forms the data for a command.
 For DATAWIDTH == 128:This register represents bits 63:32 of flash word data register 3.
 For DATAWIDTH == 64:This register represents bits 63:32 of flash word data register 6.
 This register is blocked for writes after a 1 is written to the CMDEXEC
@@ -630,7 +630,7 @@ Use cases for the CMDDATA* registers are as follows:
       </bitfield>
    </register>
    <register acronym="CMDDATA14" width="32" description="Command Data Register 14
-This register forms the data for a command.  
+This register forms the data for a command.
 For DATAWIDTH == 128:This register represents bits 95:64 of flash word data register 3.
 For DATAWIDTH == 64:This register represents bits 31:0 of flash word data register 7.
 This register is blocked for writes after a 1 is written to the CMDEXEC
@@ -651,7 +651,7 @@ Use cases for the CMDDATA* registers are as follows:
       </bitfield>
    </register>
    <register acronym="CMDDATA15" width="32" description="Command Data Register 15
-This register forms the data for a command.  
+This register forms the data for a command.
 For DATAWIDTH == 128:This register represents bits 127:96 of flash word data register 3.
 For DATAWIDTH == 64:This register represents bits 63:32 of flash word data register 7.
 This register is blocked for writes after a 1 is written to the CMDEXEC
@@ -698,9 +698,9 @@ and erase.
    </register>
    <register acronym="CMDWEPROTB" width="32" description="Command WriteErase Protect B Register
 This register allows main region sectors to be protected from program and
-erase.  Each bit corresponds to a group of 8 sectors. 
+erase.  Each bit corresponds to a group of 8 sectors.
 There are 3 cases for how these protect bits are applied:
-1. Single-bank system:  
+1. Single-bank system:
     In the case where only a single flash bank is present,
     the first 32 sectors are protected via the CMDWEPROTA register.  Thus, the
     protection give by the bits in CMDWEPROTB begin with sector 32.
@@ -731,7 +731,7 @@ sectors can be protected with this register." id="VAL" resetval="0xffffffff">
    <register acronym="CMDWEPROTNM" width="32" description="Command WriteErase Protect Non-Main
  Register
 This register allows non-main region region sectors to be protected
-from program and erase.  Each bit corresponds to 1 sector. 
+from program and erase.  Each bit corresponds to 1 sector.
 This register is blocked for writes after a 1 is written to the CMDEXEC
 register and prior to STATCMD.DONE being set by the NoWrapper
 hardware.
@@ -758,7 +758,7 @@ and erase.
    <register acronym="CMDWEPROTTR" width="32" description="Command WriteErase Protect Trim
  Register
 This register allows trim region sectors to be protected
-from program and erase.  Each bit corresponds to 1 sector. 
+from program and erase.  Each bit corresponds to 1 sector.
 This register is blocked for writes after a 1 is written to the CMDEXEC
 register and prior to STATCMD.DONE being set by the NoWrapper
 hardware.
@@ -786,7 +786,7 @@ and erase.
    <register acronym="CMDWEPROTEN" width="32" description="Command WriteErase Protect Engr
  Register
 This register allows engr region sectors to be protected
-from program and erase.  Each bit corresponds to 1 sector. 
+from program and erase.  Each bit corresponds to 1 sector.
 This register is blocked for writes after a 1 is written to the CMDEXEC
 register and prior to STATCMD.DONE being set by the NoWrapper
 hardware.
@@ -814,8 +814,8 @@ and erase.
    <register acronym="CFGCMD" width="32" description="Command Configuration Register
 This register configures specific capabilities of the state machine for related to
 the execution of a command.
-This register is blocked for writes after CMDEXEC is written to a 1 and 
-prior to STATCMD.DONE being set by the hardware to indicate that 
+This register is blocked for writes after CMDEXEC is written to a 1 and
+prior to STATCMD.DONE being set by the hardware to indicate that
 command execution has completed.
 " id="CFGCMD" offset="0x3b0">
       <bitfield range="" begin="32" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
@@ -826,16 +826,16 @@ command execution has completed.
       </bitfield>
    </register>
    <register acronym="CFGPCNT" width="32" description="Pulse Counter Configuration Register
-This register allows further configuration of maximum pulse counts for 
+This register allows further configuration of maximum pulse counts for
 program and erase operations.
 This register is blocked for writes after a 1 is written to the CMDEXEC
 register and prior to STATCMD.DONE being set by the NoWrapper
 hardware." id="CFGPCNT" offset="0x3b4">
       <bitfield range="" begin="32" width="20" end="12" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED12" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="11" width="8" end="4" rwaccess="RW" description="Override maximum pulse counter with this value.  
+      <bitfield range="" begin="11" width="8" end="4" rwaccess="RW" description="Override maximum pulse counter with this value.
 If MAXPCNTOVR = 0, then this field is ignored.
-If MAXPCNTOVR = 1 and MAXERSPCNTOVR = 0, then this value will be used 
+If MAXPCNTOVR = 1 and MAXERSPCNTOVR = 0, then this value will be used
 to override the max pulse count for both program and erase.  Full max value
 will be {4&#39;h0, MAXPCNTVAL} .
 If MAXPCNTOVR = 1 and MAXERSPCNTOVR = 1, then this value will be used
@@ -926,7 +926,7 @@ which the state  machine is operating.  There is 1 bit per bank." id="BANKID" re
          <bitenum id="BANK0" value="1" token="Bank 0" description="Bank 0"/>
       </bitfield>
       <bitfield range="" begin="20" width="5" end="16" rwaccess="RO" description="Current Region ID
-A region indicator is stored in this register which represents the current flash 
+A region indicator is stored in this register which represents the current flash
 region on which the state  machine is operating." id="REGIONID" resetval="0x0">
          <bitenum id="ENGR" value="8" token="Engr Region" description="Engr Region"/>
          <bitenum id="TRIM" value="4" token="Trim Region" description="Trim Region"/>
@@ -1164,7 +1164,7 @@ is used; i.e. the DATAPATEN bit is set.  It will have no effect if CMDDATA is us
          <bitenum id="INVERT" value="1" token="Use inverted data" description="Use inverted data"/>
          <bitenum id="TRUE" value="0" token="Use true data" description="Use true data"/>
       </bitfield>
-      <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="Invert data at odd bank addresses for program or verify. This bit only applies 
+      <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="Invert data at odd bank addresses for program or verify. This bit only applies
 when pattern data is used; i.e. the DATAPATEN bit is set.  It will have no effect
 if CMDDATA is used." id="ODDWORDINVDATA" resetval="0x0">
          <bitenum id="INVERT" value="1" token="Use inverted data" description="Use inverted data"/>
@@ -1188,13 +1188,13 @@ from CMDDATA registers for use as program or verify data." id="DATAPATEN" resetv
       </bitfield>
       <bitfield range="" begin="11" width="2" end="10" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED10" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Override pulse counter enable.  
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Override pulse counter enable.
 When set, the state machine pulse counter will not be loaded when a
 command is initiated. " id="PULSECNTLDDIS" resetval="0x0">
          <bitenum id="DISABLE" value="1" token="Disable" description="Disable"/>
          <bitenum id="ENABLE" value="0" token="Enable" description="Enable"/>
       </bitfield>
-      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Override address counter enable.  
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Override address counter enable.
 When set, the state machine address counter will not be loaded when a
 command is initiated. " id="ADDRCNTLDDIS" resetval="0x0">
          <bitenum id="DISABLE" value="1" token="Disable" description="Disable"/>
@@ -1215,7 +1215,7 @@ bank trim bits is disabled.
       </bitfield>
       <bitfield range="" begin="3" width="1" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="2T address mux disable control. When set to 1 2T address shifting is 
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="2T address mux disable control. When set to 1 2T address shifting is
 disabled.  This bit should only be enabled for reads.  Indeterminate behavior
 will result if this bit is set during program/erase.  Furthermore, only reads done
 via a READVERIFY command will be guaranteed to work properly.  Reads via
@@ -1245,7 +1245,7 @@ register and prior to STATCMD.DONE being set by the NoWrapper
 hardware." id="DFTTIMERCTL" offset="0x508">
       <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="30" width="3" end="28" rwaccess="RW" description="Override Timer clock frequency using an ICG-based clock divide mechanism. 
+      <bitfield range="" begin="30" width="3" end="28" rwaccess="RW" description="Override Timer clock frequency using an ICG-based clock divide mechanism.
 To divide the timer clock, pulses can be skipped based on settings in this field.
 By default, this field is 0, which corresponds to no division on the timer clock." id="TIMERCLOCKOVR" resetval="0x0">
          <bitenum id="DIVIDEBY8" value="7" token="Divide timer clock by 8" description="Divide timer clock by 8"/>
@@ -1335,7 +1335,7 @@ register and prior to STATCMD.DONE being set by the NoWrapper
 hardware." id="DFTPCLKTESTCTL" offset="0x510">
       <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Enable the state machine which sequences measurement of pump clock 
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Enable the state machine which sequences measurement of pump clock
 frequency.
 " id="ENABLE" resetval="0x0">
          <bitenum id="ENABLE" value="1" token="Enable" description="Enable"/>
@@ -1486,7 +1486,7 @@ This register is only writable when DFTEN.ENABLE is set.
 This register is blocked for writes after a 1 is written to the CMDEXEC
 register and prior to STATCMD.DONE being set by the NoWrapper
 hardware." id="DFTBANKCTL" offset="0x564">
-      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="When set, TEZ is asserted to the flash banks.  Which banks get the asserted 
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="When set, TEZ is asserted to the flash banks.  Which banks get the asserted
 signal is determined by the BANKSELECT field in CMDCTL.
 0x0 Do no assert TEZ
 0x1 Assert TEZ" id="TEZ" resetval="0x1">

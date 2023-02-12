@@ -47,7 +47,7 @@ They must be closed prior to power off the domain(s) controlling the IOs in orde
    <register acronym="TCKCTL" width="32" description="TCK IO Pin Control" id="TCKCTL" offset="0x14">
       <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="0: Input driver for TCK disabled. 
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="0: Input driver for TCK disabled.
 1: Input driver for TCK enabled. " id="EN" resetval="0x1">
       </bitfield>
    </register>

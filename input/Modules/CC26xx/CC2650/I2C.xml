@@ -10,7 +10,7 @@ This register consists of seven address bits that identify this I2C device on th
 This field specifies bits a6 through a0 of the slave address." id="OAR" resetval="0x0">
       </bitfield>
    </register>
-   <register acronym="SSTAT" width="32" description="Slave Status 
+   <register acronym="SSTAT" width="32" description="Slave Status
 Note: This register shares address with SCTL, meaning that this register functions as a control register when written, and a status register when read." id="SSTAT" offset="0x4">
       <bitfield range="" begin="31" width="29" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
       </bitfield>
@@ -205,7 +205,7 @@ The bit changes based on the MCTRL.START and MCTRL.STOP conditions." id="BUSBSY"
 
 When this bit-field is set, the other status bits are not valid.
 
-Note: The I2C controller requires four SYSBUS clock cycles to assert the BUSY status after I2C master operation has been initiated through MCTRL register. 
+Note: The I2C controller requires four SYSBUS clock cycles to assert the BUSY status after I2C master operation has been initiated through MCTRL register.
 Hence after programming MCTRL register, application is requested to wait for four SYSBUS clock cycles before issuing a controller status inquiry through MSTAT register.
 Any prior inquiry would result in wrong status being reported.
 " id="BUSY" resetval="0x0">
@@ -215,12 +215,12 @@ Any prior inquiry would result in wrong status being reported.
 
 This register accesses status bits when read and control bits when written. When read, the status register indicates the state of the I2C bus controller as stated in MSTAT. When written, the control register configures the I2C controller operation.
 
-To generate a single transmit cycle, the I2C Master Slave Address (MSA) register is written with the desired address, the MSA.RS bit is cleared, and this register is written with 
-* ACK=X (0 or 1), 
-* STOP=1, 
-* START=1, 
-* RUN=1 
-to perform the operation and stop. 
+To generate a single transmit cycle, the I2C Master Slave Address (MSA) register is written with the desired address, the MSA.RS bit is cleared, and this register is written with
+* ACK=X (0 or 1),
+* STOP=1,
+* START=1,
+* RUN=1
+to perform the operation and stop.
 When the operation is completed (or aborted due an error), an interrupt becomes active and the data may be read from the MDR register. " id="MCTRL" offset="0x804">
       <bitfield range="" begin="31" width="28" end="4" rwaccess="WO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
       </bitfield>
@@ -240,7 +240,7 @@ This bit-field must be cleared when the I2C bus controller requires no further d
          <bitenum id="EN" value="1" token="Enable STOP" description="Enable STOP"/>
          <bitenum id="DIS" value="0" token="Disable STOP" description="Disable STOP"/>
       </bitfield>
-      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="This bit-field generates the Start or Repeated Start condition. 
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="This bit-field generates the Start or Repeated Start condition.
 
 0: The controller does not generate the Start condition.
 1: The controller generates the Start condition." id="START" resetval="0x0">

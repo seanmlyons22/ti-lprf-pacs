@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module id="AUX_SYSIF" HW_revision="" XML_version="1.0" description="AUX System Interface (AUX_SYSIF) is responsible for:
 - system resource requests, such as power supply, clock and, wakeup requests.
-- configuration of AUX peripheral operational rates for AUX_SPIM, AUX_MAC, AUX_ANAIF DAC state machine and AUX_TIMER01. 
+- configuration of AUX peripheral operational rates for AUX_SPIM, AUX_MAC, AUX_ANAIF DAC state machine and AUX_TIMER01.
 - configuration of event synchronization rate for AUX_EVCTL:EVSTAT2 and AUX_EVCTL:EVSTAT3.
 - configuration of AUX_SCE wakeup vectors that trigger AUX_SCE execution from sleep.
 
@@ -13,11 +13,11 @@ AUX_SYSIF also interfaces AON_RTC and AON_BATMON to enable read access to data a
    <register acronym="OPMODEREQ" width="32" description="Operational Mode Request
 
 AUX can operate in three operational modes. Each mode is associated with:
-- a SCE clock source or rate, given by AON_PMCTL:AUXSCECLK. This rate is termed SCE_RATE. 
+- a SCE clock source or rate, given by AON_PMCTL:AUXSCECLK. This rate is termed SCE_RATE.
 - a system power supply state request. AUX can request powerdown (uLDO) or active (GLDO or DCDC) system power supply state.
-- a specific system response to an active AUX wakeup flag. The response is dependent on what operational mode is requested. 
+- a specific system response to an active AUX wakeup flag. The response is dependent on what operational mode is requested.
 
-uLDO power supply state offers limited current supply. AUX_SCE cannot use certain peripherals and functions such as AUX_DDI0_OSC, AUX_TDC and AUX_ANAIF ADC interface in this power supply state. 
+uLDO power supply state offers limited current supply. AUX_SCE cannot use certain peripherals and functions such as AUX_DDI0_OSC, AUX_TDC and AUX_ANAIF ADC interface in this power supply state.
 
 Follow these rules:
 - It is not allowed to change a request until it has been acknowledged through OPMODEACK.
@@ -50,10 +50,10 @@ Failure to follow these rules might result in unexpected behavior and must be av
 - SCE clock frequency (SCE_RATE) equals SCLK_MF.
 - An active wakeup flag does not change operational mode."/>
          <bitenum id="A" value="0" token="Active operational mode, characterized by:
-- Active system power supply state (GLDO or DCDC) request. 
+- Active system power supply state (GLDO or DCDC) request.
 - AON_PMCTL:AUXSCECLK.SRC sets the SCE clock frequency (SCE_RATE).
 - An active wakeup flag does not change operational mode." description="Active operational mode, characterized by:
-- Active system power supply state (GLDO or DCDC) request. 
+- Active system power supply state (GLDO or DCDC) request.
 - AON_PMCTL:AUXSCECLK.SRC sets the SCE clock frequency (SCE_RATE).
 - An active wakeup flag does not change operational mode."/>
       </bitfield>
@@ -75,7 +75,7 @@ AUX_SCE program must assume that the current operational mode is the one acknowl
 Configure this register to enable a customized AUX wakeup flag. The wakeup flag will be captured by AON_PMCTL which responds according to the current operational mode. You can select WUFLAGS.PROG_WU0 to trigger execution of a programmable AUX_SCE vector by configuration of VECCFGn. You need to follow  the procedure described in WUFLAGSCLR to clear this flag. You need to follow the procedure described in WUGATE to configure it." id="PROGWU0CFG" offset="0x8">
       <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Polarity of WU_SRC. 
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Polarity of WU_SRC.
 
 The procedure used to clear the wakeup flag decides level or edge sensitivity, see WUFLAGSCLR.PROG_WU0." id="POL" resetval="0x0">
          <bitenum id="LOW" value="1" token="The wakeup flag is set when WU_SRC is low or goes low." description="The wakeup flag is set when WU_SRC is low or goes low."/>
@@ -161,7 +161,7 @@ If you write a non-enumerated value the behavior is identical to NO_EVENT. The w
 Configure this register to enable a customized AUX wakeup flag. The wakeup flag will be captured by AON_PMCTL which responds according to the current operational mode. You can select WUFLAGS.PROG_WU1 to trigger execution of a programmable AUX_SCE vector by configuration of VECCFGn. You need to follow  the procedure described in WUFLAGSCLR to clear this flag. You need to follow the procedure described in WUGATE to configure it." id="PROGWU1CFG" offset="0xc">
       <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Polarity of WU_SRC. 
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Polarity of WU_SRC.
 
 The procedure used to clear the wakeup flag decides level or edge sensitivity, see WUFLAGSCLR.PROG_WU1." id="POL" resetval="0x0">
          <bitenum id="LOW" value="1" token="The wakeup flag is set when WU_SRC is low or goes low." description="The wakeup flag is set when WU_SRC is low or goes low."/>
@@ -247,7 +247,7 @@ If you write a non-enumerated value the behavior is identical to NO_EVENT. The w
 Configure this register to enable a customized AUX wakeup flag. The wakeup flag will be captured by AON_PMCTL which responds according to the current operational mode. You can select WUFLAGS.PROG_WU2 to trigger execution of a programmable AUX_SCE vector by configuration of VECCFGn. You need to follow  the procedure described in WUFLAGSCLR to clear this flag. You need to follow the procedure described in WUGATE to configure it." id="PROGWU2CFG" offset="0x10">
       <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Polarity of WU_SRC. 
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Polarity of WU_SRC.
 
 The procedure used to clear the wakeup flag decides level or edge sensitivity, see WUFLAGSCLR.PROG_WU2." id="POL" resetval="0x0">
          <bitenum id="LOW" value="1" token="The wakeup flag is set when WU_SRC is low or goes low." description="The wakeup flag is set when WU_SRC is low or goes low."/>
@@ -333,7 +333,7 @@ If you write a non-enumerated value the behavior is identical to NO_EVENT. The w
 Configure this register to enable a customized AUX wakeup flag. The wakeup flag will be captured by AON_PMCTL which responds according to the current operational mode. You can select WUFLAGS.PROG_WU3 to trigger execution of a programmable AUX_SCE vector by configuration of VECCFGn. You need to follow  the procedure described in WUFLAGSCLR to clear this flag. You need to follow the procedure described in WUGATE to configure it." id="PROGWU3CFG" offset="0x14">
       <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Polarity of WU_SRC. 
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Polarity of WU_SRC.
 
 The procedure used to clear the wakeup flag decides level or edge sensitivity, see WUFLAGSCLR.PROG_WU3." id="POL" resetval="0x0">
          <bitenum id="LOW" value="1" token="The wakeup flag is set when WU_SRC is low or goes low." description="The wakeup flag is set when WU_SRC is low or goes low."/>
@@ -414,7 +414,7 @@ If you write a non-enumerated value the behavior is identical to NO_EVENT. The w
          <bitenum id="AUXIO0" value="0" token="AUX_EVCTL:EVSTAT0.AUXIO0                     " description="AUX_EVCTL:EVSTAT0.AUXIO0                     "/>
       </bitfield>
    </register>
-   <register acronym="SWWUTRIG" width="32" description="Software Wakeup Triggers 
+   <register acronym="SWWUTRIG" width="32" description="Software Wakeup Triggers
 
 System CPU uses these wakeup flags to perform handshaking with AUX_SCE. The wakeup flags can change the operational mode of AUX and guarantees a non-zero SCE clock rate. AUX_SCE wakeup vectors are configured in VECCFGn. " id="SWWUTRIG" offset="0x18">
       <bitfield range="" begin="31" width="28" end="4" rwaccess="WO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
@@ -488,7 +488,7 @@ This register holds the eight AUX wakeup flags. Each flag can cause AUX operatio
    </register>
    <register acronym="WUFLAGSCLR" width="32" description="Wakeup Flags Clear
 
-This register clears AUX wakeup flags WUFLAGS. 
+This register clears AUX wakeup flags WUFLAGS.
 
 To clear programmable wakeup flags you must disable the AUX wakeup output first. After the programmable wakeup flags are cleared you must re-enable the AUX wakeup output. Write WUGATE to disable or enable the AUX wakeup output. This procedure is not required when you want to clear a software-triggered wakeup.
 
@@ -725,7 +725,7 @@ Non-enumerated values are treated as NONE." id="VEC_EV" resetval="0x0">
          <bitenum id="NONE" value="0" token="Vector is disabled." description="Vector is disabled."/>
       </bitfield>
    </register>
-   <register acronym="EVSYNCRATE" width="32" description="Event Synchronization Rate 
+   <register acronym="EVSYNCRATE" width="32" description="Event Synchronization Rate
 
 Configure synchronization rate for certain events to the synchronous AUX event bus.
 
@@ -752,9 +752,9 @@ SCE rate equals rate configured in AON_PMCTL:AUXSCECLK. AUX bus rate equals SCE 
          <bitenum id="SCE_RATE" value="0" token="SCE rate" description="SCE rate"/>
       </bitfield>
    </register>
-   <register acronym="PEROPRATE" width="32" description="Peripheral Operational Rate 
+   <register acronym="PEROPRATE" width="32" description="Peripheral Operational Rate
 
-Some AUX peripherals are operated at either SCE or at AUX bus rate. 
+Some AUX peripherals are operated at either SCE or at AUX bus rate.
 
 You must select SCE rate when AUX_SCE uses such peripheral or an event produced by it. You must select AUX bus rate when system CPU uses such peripheral.
 
@@ -843,7 +843,7 @@ Access to AUX_TIMER2 is only possible when TIMER2CLKSTAT.STAT is different from 
 
 Update is only accepted if SRC equals TIMER2CLKSTAT.STAT or TIMER2CLKSWITCH.RDY is 1.
 
-It is recommended to select NONE only when TIMER2BRIDGE.BUSY is 0. 
+It is recommended to select NONE only when TIMER2BRIDGE.BUSY is 0.
 
 A non-enumerated value is ignored." id="SRC" resetval="0x0">
          <bitenum id="SCLK_HFDIV2" value="4" token="SCLK_HF / 2" description="SCLK_HF / 2"/>
@@ -887,7 +887,7 @@ RDY connects to AUX_EVCTL:EVSTAT3.AUX_TIMER2_CLKSWITCH_RDY." id="RDY" resetval="
 A transition in the MCU domain state causes a non-accumulative change to the SCE clock period when the AUX clock rate is derived from SCLK_MF or SCLK_LF:
 - A single SCE clock cycle is 6 thru 8 SCLK_HF cycles longer when MCU domain enters active state.
 - A single SCE clock cycle is 6 thru 8 SCLK_HF cycles shorter when MCU domain exits active state.
- 
+
 AUX_SCE detects if such events occurred to the SCE clock during the time period between a clear of STAT and a read of STAT." id="CLKSHIFTDET" offset="0x70">
       <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
       </bitfield>
@@ -900,7 +900,7 @@ Write:
 
 Read:
 
-0: MCU domain did not enter or exit active state since you wrote 0 to STAT. 
+0: MCU domain did not enter or exit active state since you wrote 0 to STAT.
 1: MCU domain entered or exited active state since you wrote 0 to STAT." id="STAT" resetval="0x1">
       </bitfield>
    </register>
@@ -910,9 +910,9 @@ Read:
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Recharge trigger.
 
 0: No effect.
-1: Request VDDR recharge. 
+1: Request VDDR recharge.
 
-Request VDDR recharge only when AUX_EVCTL:EVSTAT2.PWR_DWN is 1. 
+Request VDDR recharge only when AUX_EVCTL:EVSTAT2.PWR_DWN is 1.
 
 Follow this sequence when OPMODEREQ.REQ is LP:
 - Set TRIG.
@@ -962,7 +962,7 @@ INC23_16 will replace bits 23:16 in AON_RTC:SUBSECINC when RTCSUBSECINCCTL.UPD_R
       </bitfield>
       <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Update acknowledgement.
 
-0: AON_RTC has not acknowledged UPD_REQ. 
+0: AON_RTC has not acknowledged UPD_REQ.
 1: AON_RTC has acknowledged UPD_REQ. " id="UPD_ACK" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Request AON_RTC to update AON_RTC:SUBSECINC.
@@ -973,28 +973,28 @@ INC23_16 will replace bits 23:16 in AON_RTC:SUBSECINC when RTCSUBSECINCCTL.UPD_R
 Only change UPD_REQ when it equals UPD_ACK. Clear UPD_REQ after UPD_ACK is 1." id="UPD_REQ" resetval="0x0">
       </bitfield>
    </register>
-   <register acronym="RTCSEC" width="32" description="Real Time Counter Second 
+   <register acronym="RTCSEC" width="32" description="Real Time Counter Second
 
 System CPU must not access this register. Instead, system CPU must access AON_RTC:SEC.VALUE directly.
 
 " id="RTCSEC" offset="0x88">
       <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="15" width="16" end="0" rwaccess="RO" description="Bits 15:0 in AON_RTC:SEC.VALUE. 
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RO" description="Bits 15:0 in AON_RTC:SEC.VALUE.
 
 Follow this procedure to get the correct value:
 - Do two dummy reads of SEC.
 - Then read SEC until two consecutive reads are equal." id="SEC" resetval="0x0">
       </bitfield>
    </register>
-   <register acronym="RTCSUBSEC" width="32" description="Real Time Counter Sub-Second 
+   <register acronym="RTCSUBSEC" width="32" description="Real Time Counter Sub-Second
 
 System CPU must not access this register. Instead, system CPU must access AON_RTC:SUBSEC.VALUE directly.
 
 " id="RTCSUBSEC" offset="0x8c">
       <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="15" width="16" end="0" rwaccess="RO" description="Bits 31:16 in AON_RTC:SUBSEC.VALUE. 
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RO" description="Bits 31:16 in AON_RTC:SUBSEC.VALUE.
 
 Follow this procedure to get the correct value:
 - Do two dummy reads SUBSEC.
@@ -1012,7 +1012,7 @@ Request to clear events:
       </bitfield>
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Clear events from AON_RTC channel 2.
 
-0: No effect. 
+0: No effect.
 1: Clear events from AON_RTC channel 2.
 
 Keep RTC_CH2_EV_CLR high until AUX_EVCTL:EVSTAT2.AON_RTC_CH2 and AUX_EVCTL:EVSTAT2.AON_RTC_CH2_DLY are 0." id="RTC_CH2_EV_CLR" resetval="0x0">
@@ -1025,13 +1025,13 @@ Read access to AON_BATMON:BAT. System CPU must not access this register. Instead
 " id="BATMONBAT" offset="0x94">
       <bitfield range="" begin="31" width="21" end="11" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="10" width="3" end="8" rwaccess="RO" description="See AON_BATMON:BAT.INT. 
+      <bitfield range="" begin="10" width="3" end="8" rwaccess="RO" description="See AON_BATMON:BAT.INT.
 
 Follow this procedure to get the correct value:
 - Do two dummy reads of INT.
 - Then read INT until two consecutive reads are equal." id="INT" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="See AON_BATMON:BAT.FRAC. 
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="See AON_BATMON:BAT.FRAC.
 
 Follow this procedure to get the correct value:
 - Do two dummy reads of FRAC.
@@ -1051,13 +1051,13 @@ Follow this procedure to get the correct value:
 - Do two dummy reads of SIGN.
 - Then read SIGN until two consecutive reads are equal." id="SIGN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="10" width="9" end="2" rwaccess="RO" description="See AON_BATMON:TEMP.INT. 
+      <bitfield range="" begin="10" width="9" end="2" rwaccess="RO" description="See AON_BATMON:TEMP.INT.
 
 Follow this procedure to get the correct value:
 - Do two dummy reads of INT.
 - Then read INT until two consecutive reads are equal." id="INT" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="1" width="2" end="0" rwaccess="RO" description="See AON_BATMON:TEMP.FRAC. 
+      <bitfield range="" begin="1" width="2" end="0" rwaccess="RO" description="See AON_BATMON:TEMP.FRAC.
 
 Follow this procedure to get the correct value:
 - Do two dummy reads of FRAC.

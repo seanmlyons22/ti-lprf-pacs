@@ -7,8 +7,8 @@ as the Rust Language.
 
 ## Create or Select an issue
 
-It is suggested to tie your pull request to an issue. See our [issues] or 
-[create one](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue) 
+It is suggested to tie your pull request to an issue. See our [issues] or
+[create one](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue)
 if needed.
 
 If you are looking for inspiration on how to contribute, please see

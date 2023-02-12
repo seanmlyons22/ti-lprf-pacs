@@ -18,7 +18,7 @@ This register contains bitfields related to the MCU clock." id="MCUCLK" offset="
       </bitfield>
       <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Controls the clock source for the entire MCU domain while MCU is requesting powerdown.
 
-When MCU requests powerdown with SCLK_HF as source, then WUC will switch over to this clock source during powerdown, and automatically switch back to SCLK_HF when MCU is no longer requesting powerdown and system is back in active mode. 
+When MCU requests powerdown with SCLK_HF as source, then WUC will switch over to this clock source during powerdown, and automatically switch back to SCLK_HF when MCU is no longer requesting powerdown and system is back in active mode.
 
 " id="PWR_DWN_SRC" resetval="0x0">
          <bitenum id="SCLK_LF" value="1" token="Use SCLK_LF in Powerdown" description="Use SCLK_LF in Powerdown"/>
@@ -105,7 +105,7 @@ This register contains events and control signals for the AUX domain.
       </bitfield>
       <bitfield range="" begin="30" width="28" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Enables (1) or disables (0) AUX_SCE execution. AUX_SCE execution will begin when AUX Domain is powered and either this or AUX_SCE:CTL.CLK_EN is set. 
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Enables (1) or disables (0) AUX_SCE execution. AUX_SCE execution will begin when AUX Domain is powered and either this or AUX_SCE:CTL.CLK_EN is set.
 
 Setting this bit will assure that AUX_SCE execution starts as soon as AUX power domain is woken up. (  AUX_SCE:CTL.CLK_EN will be reset to 0 if AUX power domain has been off)
 
@@ -118,16 +118,16 @@ Setting this bit will assure that AUX_SCE execution starts as soon as AUX power 
 
 This event is normally cleared by AUX_SCE through the AUX_WUC:WUEVCLR.AON_SW. It can also be cleared by writing 0 to this register.
 
-Reading 0 means that there is no outstanding software event for AUX. 
+Reading 0 means that there is no outstanding software event for AUX.
 
 Note that it can take up to 1,5 SCLK_LF clock cycles to clear the event from AUX.
 " id="SWEV" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Forces the AUX domain into active mode, overriding the requests from AUX_WUC:PWROFFREQ, AUX_WUC:PWRDWNREQ and AUX_WUC:MCUBUSCTL. 
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Forces the AUX domain into active mode, overriding the requests from AUX_WUC:PWROFFREQ, AUX_WUC:PWRDWNREQ and AUX_WUC:MCUBUSCTL.
 Note that an ongoing AUX_WUC:PWROFFREQ will complete before this bit will set the AUX domain into active mode.
 
-MCU must set this bit in order to access the AUX peripherals. 
-The AUX domain status can be read from PWRSTAT.AUX_PD_ON 
+MCU must set this bit in order to access the AUX peripherals.
+The AUX domain status can be read from PWRSTAT.AUX_PD_ON
 
 0: AUX is allowed to Power Off, Power Down or Disconnect.
 1: AUX  Power OFF, Power Down or Disconnect requests will be overruled
@@ -137,7 +137,7 @@ The AUX domain status can be read from PWRSTAT.AUX_PD_ON
    </register>
    <register acronym="PWRSTAT" width="32" description="Power Status
 
-This register is used to monitor various power management related signals in AON.  Most signals are for test, calibration and debug purpose only, and others can be used to detect that AUX or JTAG domains are powered up. 
+This register is used to monitor various power management related signals in AON.  Most signals are for test, calibration and debug purpose only, and others can be used to detect that AUX or JTAG domains are powered up.
 " id="PWRSTAT" offset="0x14">
       <bitfield range="" begin="31" width="22" end="10" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED10" resetval="0xe000">
       </bitfield>
@@ -247,7 +247,7 @@ This bit can only be cleared by writing a 1 to it
    </register>
    <register acronym="RECHARGECFG" width="32" description="Recharge Controller Configuration
 
-This register sets all relevant patameters for controlling the recharge algorithm. 
+This register sets all relevant patameters for controlling the recharge algorithm.
 " id="RECHARGECFG" offset="0x30">
       <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Enable adaptive recharge
 
@@ -292,7 +292,7 @@ PERIOD=(PER_M*16+15)*2^PER_E
       <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Number of 32 KHz clocks between activation of recharge controller
 For recharge algorithm, PERIOD is the initial period when entering powerdown mode. The adaptive recharge algorithm will not change this register
 PERIOD will effectively be a 16 bit value coded in a 5 bit mantissa and 3 bit exponent:
-This field sets the Exponent of the Period.  
+This field sets the Exponent of the Period.
 PERIOD=(PER_M*16+15)*2^PER_E
 " id="PER_E" resetval="0x0">
       </bitfield>
@@ -305,7 +305,7 @@ This register controls various status registers which are updated during recharg
       </bitfield>
       <bitfield range="" begin="19" width="4" end="16" rwaccess="RO" description="The last 4 VDDR samples, bit 0 being the newest.
 
-The register is being updated in every recharge period with a shift left, and bit 0 is updated with the last VDDR sample, ie a 1 is shiftet in in case VDDR &#62; VDDR_threshold just before recharge starts. Otherwise a 0 will be shifted in. 
+The register is being updated in every recharge period with a shift left, and bit 0 is updated with the last VDDR sample, ie a 1 is shiftet in in case VDDR &#62; VDDR_threshold just before recharge starts. Otherwise a 0 will be shifted in.
 
 " id="VDDR_SMPLS" resetval="0x0">
       </bitfield>

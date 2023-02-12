@@ -52,7 +52,7 @@ This register scales the baud rate of the asynchronous output." id="ACPR" offset
       </bitfield>
    </register>
    <register acronym="SPPR" width="32" description="Selected Pin Protocol
-This register selects the protocol to be used for trace output. 
+This register selects the protocol to be used for trace output.
 Note: If this register is changed while trace data is being output, data corruption occurs." id="SPPR" offset="0xf0">
       <bitfield range="" begin="31" width="30" end="2" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
       </bitfield>
@@ -72,7 +72,7 @@ Note: If this register is changed while trace data is being output, data corrupt
       </bitfield>
    </register>
    <register acronym="FFCR" width="32" description="Formatter and Flush Control
-When one of the two single wire output (SWO) modes is selected, ENFCONT enables the formatter to be bypassed. If the formatter is bypassed, only the ITM/DWT trace source (ATDATA2) passes through. The TPIU accepts and discards data that is presented on the ETM port (ATDATA1). This function is intended to be used when it is necessary to connect a device containing an ETM to a trace capture device that is only able to capture Serial Wire Output (SWO) data. Enabling or disabling the formatter causes momentary data corruption. 
+When one of the two single wire output (SWO) modes is selected, ENFCONT enables the formatter to be bypassed. If the formatter is bypassed, only the ITM/DWT trace source (ATDATA2) passes through. The TPIU accepts and discards data that is presented on the ETM port (ATDATA1). This function is intended to be used when it is necessary to connect a device containing an ETM to a trace capture device that is only able to capture Serial Wire Output (SWO) data. Enabling or disabling the formatter causes momentary data corruption.
 Note: If the selected pin protocol register (SPPR.PROTOCOL) is set to 0x00 (TracePort mode), this register always reads 0x102, because the formatter is automatically enabled. If one of the serial wire modes is then selected, the register reverts to its previously programmed value." id="FFCR" offset="0x304">
       <bitfield range="" begin="31" width="23" end="9" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED9" resetval="0x0">
       </bitfield>
@@ -112,7 +112,7 @@ The behavior when reading from this location is described in CLAIMMASK." id="CLA
       </bitfield>
    </register>
    <register acronym="CLAIMTAG" width="32" description="Current Claim Tag" id="CLAIMTAG" offset="0xfa4">
-      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="This register forms one half of the Claim Tag value. Reading this register returns the current Claim Tag value. 
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="This register forms one half of the Claim Tag value. Reading this register returns the current Claim Tag value.
 Reading CLAIMMASK determines how many bits from this register must be used.
 
 The behavior when writing to this register is described in CLAIMCLR." id="CLAIMTAG" resetval="0x0">

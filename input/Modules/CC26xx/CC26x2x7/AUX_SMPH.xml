@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module id="AUX_SMPH" HW_revision="" XML_version="1.0" description="AUX Semaphore (AUX_SMPH) provides hardware means to share modules in AUX safely between CPUs based on resource ownership. 
+<module id="AUX_SMPH" HW_revision="" XML_version="1.0" description="AUX Semaphore (AUX_SMPH) provides hardware means to share modules in AUX safely between CPUs based on resource ownership.
 
 AUX_SMPH operates at AUX bus rate." xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
    <register acronym="SMPH0" width="32" description="Semaphore 0" id="SMPH0" offset="0x0">
@@ -135,14 +135,14 @@ Release by write:
 Sticky Request for Single Semaphore." id="AUTOTAKE" offset="0x20">
       <bitfield range="" begin="31" width="29" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Write the semaphore ID,0x0-0x7, to SMPH_ID to request this semaphore until it is granted. 
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Write the semaphore ID,0x0-0x7, to SMPH_ID to request this semaphore until it is granted.
 
-When semaphore SMPH_ID is granted, event  AUX_EVCTL:EVSTAT3.AUX_SMPH_AUTOTAKE_DONE becomes 1. 
+When semaphore SMPH_ID is granted, event  AUX_EVCTL:EVSTAT3.AUX_SMPH_AUTOTAKE_DONE becomes 1.
 
 The event becomes 0 when software releases the semaphore or writes a new value to SMPH_ID.
 
-To avoid corrupted semaphores: 
-- Usage of this functionality must be restricted to one CPU core. 
+To avoid corrupted semaphores:
+- Usage of this functionality must be restricted to one CPU core.
 - Software must wait until AUX_EVCTL:EVSTAT3.AUX_SMPH_AUTOTAKE_DONE is 1 before it writes a new value to SMPH_ID. " id="SMPH_ID" resetval="0x0">
       </bitfield>
    </register>

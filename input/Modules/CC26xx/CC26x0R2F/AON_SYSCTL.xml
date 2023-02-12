@@ -9,10 +9,10 @@ This register controls bitfields for setting low level power management features
  " id="PWRCTL" offset="0x0">
       <bitfield range="" begin="31" width="29" end="3" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Select to use DCDC regulator for VDDR in active mode 
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Select to use DCDC regulator for VDDR in active mode
 
-0: Use GLDO for regulation of VDDRin active mode. 
-1: Use DCDC for regulation of VDDRin active mode. 
+0: Use GLDO for regulation of VDDRin active mode.
+1: Use DCDC for regulation of VDDRin active mode.
 
 " id="DCDC_ACTIVE" resetval="0x0">
       </bitfield>
@@ -34,7 +34,7 @@ Note: This bitfield should be set to the same as DCDC_ACTIVE
    </register>
    <register acronym="RESETCTL" width="32" description="Reset Management
 
-This register contains bitfields releated to system reset such as reset source and reset request  and control of brown out resets.  
+This register contains bitfields releated to system reset such as reset source and reset request  and control of brown out resets.
 " id="RESETCTL" offset="0x4">
       <bitfield range="" begin="31" width="1" end="31" rwaccess="WO" description="Cold reset register. Writing 1 to this bitfield will reset the entire chip and cause boot code to run again.
 
@@ -55,7 +55,7 @@ This register contains bitfields releated to system reset such as reset source a
       </bitfield>
       <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="BOOT_DET_0_SET" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="A Wakeup from SHUTDOWN on an IO event has occurred, or a wakeup from SHUTDOWN has occurred as a result of the debugger being attached.. (TCK pin being forced low) 
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="A Wakeup from SHUTDOWN on an IO event has occurred, or a wakeup from SHUTDOWN has occurred as a result of the debugger being attached.. (TCK pin being forced low)
 
 Please refer to [IOC:IOCFGn,.WU_CFG] for configuring the IO&#39;s as wakeup sources.
 
@@ -65,7 +65,7 @@ Please refer to [IOC:IOCFGn,.WU_CFG] for configuring the IO&#39;s as wakeup sour
 Note: This flag can not be cleared and will therefor remain valid untill poweroff/reset
 " id="WU_FROM_SD" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="14" width="1" end="14" rwaccess="RO" description="A wakeup from SHUTDOWN on an IO event has occurred 
+      <bitfield range="" begin="14" width="1" end="14" rwaccess="RO" description="A wakeup from SHUTDOWN on an IO event has occurred
 
 Please refer to [IOC:IOCFGn,.WU_CFG] for configuring the IO&#39;s as wakeup sources.
 
@@ -110,11 +110,11 @@ This bit can be locked
       <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Controls reset generation in case VDDS is lost
 
 0: Brown out detect of VDDS is ignored, unless VDDS_LOSS_EN_OVR=1
-1: Brown out detect of VDDS generates system reset 
+1: Brown out detect of VDDS generates system reset
 
 " id="VDDS_LOSS_EN" resetval="0x1">
       </bitfield>
-      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Controls reset generation in case VDDR is lost 
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Controls reset generation in case VDDR is lost
 
 0: Brown out detect of VDDR is ignored, unless VDDR_LOSS_EN_OVR=1
 1: Brown out detect of VDDR generates system reset
@@ -131,14 +131,14 @@ This bit can be locked
       <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Controls reset generation in case SCLK_LF is lost.  (provided that clock loss detection is enabled by DDI_0_OSC:CTL0.CLK_LOSS_EN)
 
 Note: Clock loss reset generation must be disabled before SCLK_LF clock source is changed in  DDI_0_OSC:CTL0.SCLK_LF_SRC_SEL and remain disabled untill the change is confirmed in DDI_0_OSC:STAT0.SCLK_LF_SRC. Failure to do so may result in a spurious system reset. Clock loss reset generation can be disabled through this bitfield or by clearing  DDI_0_OSC:CTL0.CLK_LOSS_EN
- 
+
 0: Clock loss is ignored
 1: Clock loss generates system reset
 
 " id="CLK_LOSS_EN" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="3" width="3" end="1" rwaccess="RO" description="Shows the source of the last system reset:
-Occurrence of one of the reset sources may trigger several other reset sources as essential parts of the system are undergoing reset. This field will report the root cause of the reset (not the other resets that are consequence of the system reset). 
+Occurrence of one of the reset sources may trigger several other reset sources as essential parts of the system are undergoing reset. This field will report the root cause of the reset (not the other resets that are consequence of the system reset).
 To support this feature the actual register is not captured before the reset source being released. If a new reset source is triggered, in a window of four  32 kHz periods after the previous has been released,  this register may indicate Power on reset as source.
 
 " id="RESET_SRC" resetval="0x0">
@@ -160,7 +160,7 @@ This register is used to unfreeze the IO pad ring after waking up from SHUTDOWN
 " id="SLEEPCTL" offset="0x8">
       <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Controls the I/O pad sleep mode. The boot code will set this bitfield automatically unless waking up from a SHUTDOWN ( RESETCTL.WU_FROM_SD is set ).  
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Controls the I/O pad sleep mode. The boot code will set this bitfield automatically unless waking up from a SHUTDOWN ( RESETCTL.WU_FROM_SD is set ).
 
 0: I/O pad sleep mode is enabled, ie all pads are latched and can not toggle.
 1: I/O pad sleep mode is disabled

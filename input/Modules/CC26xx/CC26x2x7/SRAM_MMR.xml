@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module id="SRAM_MMR" HW_revision="" XML_version="1.0" description="General Purpose RAM  " xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
-   <register acronym="PER_CTL" width="32" description="Parity Error Control 
+   <register acronym="PER_CTL" width="32" description="Parity Error Control
 Parity error check controls" id="PER_CTL" offset="0x0">
       <bitfield range="" begin="31" width="23" end="9" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED9" resetval="0x0">
       </bitfield>

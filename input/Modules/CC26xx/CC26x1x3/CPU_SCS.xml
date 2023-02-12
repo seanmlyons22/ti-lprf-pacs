@@ -788,10 +788,10 @@ Unaligned LDM, STM, LDRD, and STRD instructions always fault regardless of the v
 0: Processor can enter Thread mode only when no exception is active.
 1: Processor can enter Thread mode from any level using the appropriate return value (EXC_RETURN).
 
-Exception returns occur when one of the following instructions loads a value of 0xFXXXXXXX into the PC while in Handler mode: 
-- POP/LDM which includes loading the PC. 
-- LDR with PC as a destination. 
-- BX with any register. 
+Exception returns occur when one of the following instructions loads a value of 0xFXXXXXXX into the PC while in Handler mode:
+- POP/LDM which includes loading the PC.
+- LDR with PC as a destination.
+- BX with any register.
 The value written to the PC is intercepted and is referred to as the EXC_RETURN value." id="NONBASETHREDENA" resetval="0x0">
       </bitfield>
    </register>
@@ -899,7 +899,7 @@ This register is used to enable or disable the system handlers, determine the pe
 This register is used to obtain information about local faults. These registers include three subsections: The first byte is Memory Manage Fault Status Register (MMFSR). The second byte is Bus Fault Status Register (BFSR). The higher half-word is Usage Fault Status Register (UFSR). The flags in these registers indicate the causes of local faults. Multiple flags can be set if more than one fault occurs. These register are read/write-clear. This means that they can be read normally, but writing a 1 to any bit clears that bit.
 The CFSR is byte accessible. CFSR or its subregisters can be accessed as follows:
 The following accesses are possible to the CFSR register:
-- access the complete register with a word access to 0xE000ED28. 
+- access the complete register with a word access to 0xE000ED28.
 - access the MMFSR with a byte access to 0xE000ED28
 - access the MMFSR and BFSR with a halfword access to 0xE000ED28
 - access the BFSR with a byte access to 0xE000ED29
@@ -1001,7 +1001,7 @@ This field is the data address of a faulted load or store attempt. When an unali
    </register>
    <register acronym="BFAR" width="32" description="Bus Fault Address
 This register is used to read the address of the location that generated a Bus Fault." id="BFAR" offset="0xd38">
-      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Bus fault address field. This field is the data address of a faulted load or store attempt. When an unaligned access faults, the address is the address requested by the instruction, even if that is not the address that faulted. 
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Bus fault address field. This field is the data address of a faulted load or store attempt. When an unaligned access faults, the address is the address requested by the instruction, even if that is not the address that faulted.
 Flags CFSR.IBUSERR, CFSR.PRECISERR, CFSR.IMPRECISERR, CFSR.UNSTKERR and CFSR.STKERR in combination with CFSR.BFARVALID indicate the cause of the fault." id="ADDRESS" resetval="0x0">
       </bitfield>
    </register>
@@ -1142,13 +1142,13 @@ This register is used to enable the MPU, enable the default memory map (backgrou
 This register is used to select which protection region is accessed. The following write to  MPU_RASR or MPU_RBAR configures the characteristics of the protection region that is selected by this register." id="MPU_RNR" offset="0xd98">
       <bitfield range="" begin="31" width="24" end="8" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Region select field. 
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Region select field.
 This field selects the region to operate on when using the MPU_RASR and MPU_RBAR. It must be written first except when the address MPU_RBAR.VALID and MPU_RBAR.REGION fields are written, which overwrites this." id="REGION" resetval="0x0">
       </bitfield>
    </register>
    <register acronym="MPU_RBAR" width="32" description="MPU Region Base Address
 This register writes the base address of a region. It also contains a REGION field that can be used to override MPU_RNR.REGION, if the VALID bit is set. This register sets the base for the region. It is aligned by the size. So, a 64-KB sized region must be aligned on a multiple of 64KB, for example, 0x00010000 or 0x00020000. The region always reads back as the current MPU region number. VALID always reads back as 0. Writing VALID = 1 and REGION = n changes the region number to n. This is a short-hand way to write the MPU_RNR. This register is unpredictable if accessed other than as a word." id="MPU_RBAR" offset="0xd9c">
-      <bitfield range="" begin="31" width="27" end="5" rwaccess="RW" description="Region base address field. 
+      <bitfield range="" begin="31" width="27" end="5" rwaccess="RW" description="Region base address field.
 The position of the LSB depends on the region size, so that the base address is aligned according to an even multiple of size. The power of 2 size specified by the SZENABLE field of the MPU Region Attribute and Size Register defines how many bits of base address are used." id="ADDR" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="MPU region number valid:
@@ -1231,7 +1231,7 @@ Setting a bit in this field disables the corresponding sub-region. Regions are s
 0x1F: 4GB" id="SIZE" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Region enable bit:
-0: Disable region 
+0: Disable region
 1: Enable region" id="ENABLE" resetval="0x0">
       </bitfield>
    </register>
@@ -1274,7 +1274,7 @@ C_HALT=0, C_STEP=0, C_MASKINTS=1               Exit Debug state and start instru
 C_HALT=0, C_STEP=1, C_MASKINTS=0               Exit Debug state, step an instruction and halt. Exceptions activate according to the exception configuration rules.
 C_HALT=0, C_STEP=1, C_MASKINTS=1               Exit Debug state, step an instruction and halt. PendSV, SysTick and external configurable interrupts are disabled, otherwise exceptions activate according to standard configuration rules.
 C_HALT=1, C_STEP=x, C_MASKINTS=x               Remain in Debug state" id="DHCSR" offset="0xdf0">
-      <bitfield range="" begin="31" width="6" end="26" rwaccess="RW" description="Software should not rely on the value of a reserved. 
+      <bitfield range="" begin="31" width="6" end="26" rwaccess="RW" description="Software should not rely on the value of a reserved.
 When writing to this register, 0x28 must be written this bit-field, otherwise the write operation is ignored and no bits are written into the register. " id="RESERVED26" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="25" width="1" end="25" rwaccess="RW" description="Indicates that the core has been reset, or is now being reset, since the last time this bit was read. This a sticky bit that clears on read. So, reading twice and getting 1 then 0 means it was reset in the past. Reading twice and getting 1 both times means that it is being reset now (held in reset still).
@@ -1283,7 +1283,7 @@ When writing to this register, 0 must be written this bit-field, otherwise the w
       <bitfield range="" begin="24" width="1" end="24" rwaccess="RW" description="Indicates that an instruction has completed since last read. This is a sticky bit that clears on read. This determines if the core is stalled on a load/store or fetch.
 When writing to this register, 0 must be written this bit-field, otherwise the write operation is ignored and no bits are written into the register. " id="S_RETIRE_ST" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="23" width="4" end="20" rwaccess="RW" description="Software should not rely on the value of a reserved. 
+      <bitfield range="" begin="23" width="4" end="20" rwaccess="RW" description="Software should not rely on the value of a reserved.
 When writing to this register, 0x5 must be written this bit-field, otherwise the write operation is ignored and no bits are written into the register. " id="RESERVED20" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="19" width="1" end="19" rwaccess="RW" description="Reads as one if the core is running (not halted) and a lockup condition is present.
@@ -1316,7 +1316,7 @@ The values of C_HALT, C_STEP and C_MASKINTS are ignored by hardware when C_DEBUG
       </bitfield>
    </register>
    <register acronym="DCRSR" width="32" description="Deubg Core Register Selector
-The purpose of this register is to select the processor register to transfer data to or from. This write-only register generates a handshake to the core to transfer data to or from Debug Core Register Data Register and the selected register. Until this core transaction is complete, DHCSR.S_REGRDY is 0. Note that writes to this register in any size but word are Unpredictable. 
+The purpose of this register is to select the processor register to transfer data to or from. This write-only register generates a handshake to the core to transfer data to or from Debug Core Register Data Register and the selected register. Until this core transaction is complete, DHCSR.S_REGRDY is 0. Note that writes to this register in any size but word are Unpredictable.
 Note that PSR registers are fully accessible this way, whereas some read as 0 when using MRS instructions. Note that all bits can be written, but some combinations cause a fault when execution is resumed." id="DCRSR" offset="0xdf4">
       <bitfield range="" begin="31" width="15" end="17" rwaccess="WO" description="Software should not rely on the value of a reserved. Write 0." id="RESERVED17" resetval="0x0">
       </bitfield>
@@ -1366,12 +1366,12 @@ The purpose of this register is vector catching and debug monitor control.  This
 0x0: Woken up by debug exception.
 0x1: Woken up by MON_PEND" id="MON_REQ" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="When MON_EN = 1, this steps the core. When MON_EN = 0, this bit is ignored. 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="When MON_EN = 1, this steps the core. When MON_EN = 0, this bit is ignored.
 This is the equivalent to DHCSR.C_STEP. Interrupts are only stepped according to the priority of the monitor and settings of PRIMASK, FAULTMASK, or BASEPRI." id="MON_STEP" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="Pend the monitor to activate when priority permits. This can wake up the monitor through the AHB-AP port. It is the equivalent to DHCSR.C_HALT for Monitor debug. This register does not reset on a system reset. It is only reset by a power-on reset. Software in the reset handler or later, or by the DAP must enable the debug monitor." id="MON_PEND" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Enable the debug monitor. 
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="Enable the debug monitor.
 When enabled, the System handler priority register controls its priority level. If disabled, then all debug events go to Hard fault. DHCSR.C_DEBUGEN overrides this bit. Vector catching is semi-synchronous. When a matching event is seen, a Halt is requested. Because the processor can only halt on an instruction boundary, it must wait until the next instruction boundary. As a result, it stops on the first instruction of the exception handler. However, two special cases exist when a vector catch has triggered: 1. If a fault is taken during vectoring, vector read or stack push error, the halt occurs on the corresponding fault handler, for the vector error or stack push. 2. If a late arriving interrupt comes in during vectoring, it is not taken. That is, an implementation that supports the late arrival optimization must suppress it in this case." id="MON_EN" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="15" width="5" end="11" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">

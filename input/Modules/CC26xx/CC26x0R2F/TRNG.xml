@@ -12,20 +12,20 @@
    <register acronym="IRQFLAGSTAT" width="32" description="Interrupt Status
 
 " id="IRQFLAGSTAT" offset="0x8">
-      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="1: Indicates that the TRNG is busy generating entropy or is in one of its test modes - clocks may not be turned off and the power supply voltage must be kept stable. 
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="1: Indicates that the TRNG is busy generating entropy or is in one of its test modes - clocks may not be turned off and the power supply voltage must be kept stable.
 0: TRNG is idle and can be shut down
 
 " id="NEED_CLOCK" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="30" width="29" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="1: The number of FROs shut down (i.e. the number of &#39;1&#39; bits in the ALARMSTOP register) has exceeded the threshold set by ALARMCNT.SHUTDOWN_THR 
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="1: The number of FROs shut down (i.e. the number of &#39;1&#39; bits in the ALARMSTOP register) has exceeded the threshold set by ALARMCNT.SHUTDOWN_THR
 
 Writing &#39;1&#39; to IRQFLAGCLR.SHUTDOWN_OVF clears this bit to &#39;0&#39; again." id="SHUTDOWN_OVF" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="1: Data are available in OUT0 and OUT1.
 
-Acknowledging this state by writing &#39;1&#39; to IRQFLAGCLR.RDY clears this bit to &#39;0&#39;. 
+Acknowledging this state by writing &#39;1&#39; to IRQFLAGCLR.RDY clears this bit to &#39;0&#39;.
 If a new number is already available in the internal register of the TRNG, the number is directly clocked into the result register. In this case the status bit is asserted again, after one clock cycle." id="RDY" resetval="0x0">
       </bitfield>
    </register>
@@ -69,11 +69,11 @@ This field can only be modified while TRNG_EN is 0. If 1 an update will be ignor
       </bitfield>
       <bitfield range="" begin="9" width="7" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="1: Remove XNOR feedback from the main LFSR, converting it into a normal shift register for the XOR-ed outputs of the FROs (shifting data in on the LSB side). A &#39;1&#39; also forces the LFSR to sample continuously. 
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="1: Remove XNOR feedback from the main LFSR, converting it into a normal shift register for the XOR-ed outputs of the FROs (shifting data in on the LSB side). A &#39;1&#39; also forces the LFSR to sample continuously.
 
 This bit can only be set to &#39;1&#39; when TEST_MODE is also set to &#39;1&#39; and should not be used for other than test purposes" id="NO_LFSR_FB" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="1: Enables access to the TESTCNT and LFSR0/LFSR1/LFSR2 registers (the latter are automatically cleared before enabling access)  and keeps IRQFLAGSTAT.NEED_CLOCK at &#39;1&#39;. 
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="1: Enables access to the TESTCNT and LFSR0/LFSR1/LFSR2 registers (the latter are automatically cleared before enabling access)  and keeps IRQFLAGSTAT.NEED_CLOCK at &#39;1&#39;.
 
 This bit shall not be used unless you need to change the LFSR seed prior to creating a new random value. All other testing is done external to register control." id="TEST_MODE" resetval="0x0">
       </bitfield>
@@ -166,14 +166,14 @@ Register contents will be cleared to zero before access is enabled." id="LFSR_31
       </bitfield>
    </register>
    <register acronym="LFSR1" width="32" description="LFSR Readout Value" id="LFSR1" offset="0x34">
-      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Bits [63:32] of the main entropy accumulation LFSR. Register can only be accessed when CTL.TEST_MODE = 1. 
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Bits [63:32] of the main entropy accumulation LFSR. Register can only be accessed when CTL.TEST_MODE = 1.
 Register contents will be cleared to zero before access is enabled." id="LFSR_63_32" resetval="0x0">
       </bitfield>
    </register>
    <register acronym="LFSR2" width="32" description="LFSR Readout Value" id="LFSR2" offset="0x38">
       <bitfield range="" begin="31" width="15" end="17" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED17" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="16" width="17" end="0" rwaccess="RW" description="Bits [80:64] of the main entropy accumulation LFSR. Register can only be accessed when CTL.TEST_MODE = 1. 
+      <bitfield range="" begin="16" width="17" end="0" rwaccess="RW" description="Bits [80:64] of the main entropy accumulation LFSR. Register can only be accessed when CTL.TEST_MODE = 1.
 Register contents will be cleared to zero before access is enabled." id="LFSR_80_64" resetval="0x0">
       </bitfield>
    </register>

@@ -135,14 +135,14 @@ Release by write:
 Sticky Request for Single Semaphore." id="AUTOTAKE" offset="0x20">
       <bitfield range="" begin="31" width="29" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Write the semaphore ID,0x0-0x7, to SMPH_ID to request this semaphore until it is granted. 
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Write the semaphore ID,0x0-0x7, to SMPH_ID to request this semaphore until it is granted.
 
-When semaphore SMPH_ID is granted, event  AUX_EVCTL:EVSTAT0.AUX_SMPH_AUTOTAKE_DONE becomes 1. 
+When semaphore SMPH_ID is granted, event  AUX_EVCTL:EVSTAT0.AUX_SMPH_AUTOTAKE_DONE becomes 1.
 
 The event becomes 0 when software releases the semaphore or writes a new value to SMPH_ID.
 
-To avoid corrupted semaphores: 
-- Usage of this functionality must be restricted to one CPU core. 
+To avoid corrupted semaphores:
+- Usage of this functionality must be restricted to one CPU core.
 - Software must wait until AUX_EVCTL:EVSTAT0.AUX_SMPH_AUTOTAKE_DONE is 1 before it writes a new value to SMPH_ID. " id="SMPH_ID" resetval="0x0">
       </bitfield>
    </register>

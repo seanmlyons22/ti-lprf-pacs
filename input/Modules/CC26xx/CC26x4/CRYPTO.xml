@@ -335,7 +335,7 @@ The following registers are not accessible through the host for reading and writ
 The AES_GHASH_H_IN_n registers (required for GHASH, which is part of GCM) are mapped to the AES_KEY2_n registers. The (intermediate) authentication result for GCM and CCM is stored in the AES_KEY3_n register.                                                                                                                  " id="AESKEY2" offset="0x500">
       <bitfield range="" begin="31" width="32" end="0" rwaccess="WO" description="AES_KEY2/AES_GHASH_H[31:0]
 
-For GCM: 
+For GCM:
 -[127:0] - GHASH_H - The internally calculated GHASH key is stored in these registers. Only used for modes that use the GHASH function (GCM).
 -[255:128] - This register is used to store intermediate values and is initialized with 0s when loading a new key.
 
@@ -352,7 +352,7 @@ The following registers are not accessible through the host for reading and writ
 The AES_GHASH_H_IN_n registers (required for GHASH, which is part of GCM) are mapped to the AES_KEY2_n registers. The (intermediate) authentication result for GCM and CCM is stored in the AES_KEY3_n register.                                                                                                                                       " id="AESKEY3" offset="0x510">
       <bitfield range="" begin="31" width="32" end="0" rwaccess="WO" description="AES_KEY3[31:0]/AES_KEY2[159:128]
 
-For GCM: 
+For GCM:
 -[127:0] - GHASH_H - The internally calculated GHASH key is stored in these registers. Only used for modes that use the GHASH function (GCM).
 -[255:128] - This register is used to store intermediate values and is initialized with 0s when loading a new key.
 
@@ -669,7 +669,7 @@ For message lengths larger than a block size, multiple blocks of data are writte
 Host read operations from these register addresses return 0s." id="HASH_DATA_IN" resetval="0x0">
       </bitfield>
    </register>
-   <register acronym="HASHDATAIN2" width="32" description="HASH Data Input 2 
+   <register acronym="HASHDATAIN2" width="32" description="HASH Data Input 2
 The data input registers should be used to provide input data to the hash module through the slave interface." id="HASHDATAIN2" offset="0x608">
       <bitfield range="" begin="31" width="32" end="0" rwaccess="WO" description="HASH_DATA_IN[95:64]
 These registers must be written with the 512-bit or 1024-bit (depending on block size of chosen SHA-2 algorithm) input data. The data lines are connected directly to the data input of the hash module and hence into the engine&#39;s internal data buffer. Writing to each of the registers triggers a corresponding 32-bit write enable to the internal buffer.
@@ -723,7 +723,7 @@ For message lengths larger than a block size, multiple blocks of data are writte
 Host read operations from these register addresses return 0s." id="HASH_DATA_IN" resetval="0x0">
       </bitfield>
    </register>
-   <register acronym="HASHDATAIN8" width="32" description="HASH Data Input 8 
+   <register acronym="HASHDATAIN8" width="32" description="HASH Data Input 8
 The data input registers should be used to provide input data to the hash module through the slave interface." id="HASHDATAIN8" offset="0x620">
       <bitfield range="" begin="31" width="32" end="0" rwaccess="WO" description="HASH_DATA_IN[287:256]
 These registers must be written with the 512-bit or 1024-bit (depending on block size of chosen SHA-2 algorithm) input data. The data lines are connected directly to the data input of the hash module and hence into the engine&#39;s internal data buffer. Writing to each of the registers triggers a corresponding 32-bit write enable to the internal buffer.
@@ -1318,8 +1318,8 @@ This register enables the second bit (bit [1]) of the AHB HPROT bus of the AHB m
    <register acronym="SWRESET" width="32" description="Software Reset" id="SWRESET" offset="0x740">
       <bitfield range="" begin="31" width="31" end="1" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="If this bit is set to 1, the following modules are reset: 
-- Master control internal state is reset. That includes interrupt, error status register, and result available interrupt generation FSM. 
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="If this bit is set to 1, the following modules are reset:
+- Master control internal state is reset. That includes interrupt, error status register, and result available interrupt generation FSM.
 - Key store module state is reset. That includes clearing the written area flags; therefore, the keys must be reloaded to the key store module.
 Writing 0 has no effect.
 The bit is self cleared after executing the reset." id="SW_RESET" resetval="0x0">
@@ -1383,7 +1383,7 @@ If the interrupt configuration register is programmed to pulse, clearing the res
       </bitfield>
    </register>
    <register acronym="IRQSTAT" width="32" description="Control Interrupt Status" id="IRQSTAT" offset="0x790">
-      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="This bit is set when a DMA bus error is detected during a DMA operation. The value of this register is held until it is cleared through the IRQCLR.DMA_BUS_ERR 
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="This bit is set when a DMA bus error is detected during a DMA operation. The value of this register is held until it is cleared through the IRQCLR.DMA_BUS_ERR
 Note: This error is asserted if an error is detected on the AHB master interface during a DMA operation." id="DMA_BUS_ERR" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="30" width="1" end="30" rwaccess="RO" description="This bit is set when a write error is detected during the DMA write operation to the key store memory. The value of this register is held until it is cleared through the IRQCLR.KEY_ST_WR_ERR register.

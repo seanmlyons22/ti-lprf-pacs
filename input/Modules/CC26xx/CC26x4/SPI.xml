@@ -275,7 +275,7 @@ This bit selects the clock edge that captures data and enables it to change stat
          <bitenum id="MOTOROLA_3WIRE" value="0" token="Motorola SPI frame format (3 wire mode)" description="Motorola SPI frame format (3 wire mode)"/>
       </bitfield>
       <bitfield range="" begin="4" width="5" end="0" rwaccess="RW" description="Data Size Select.
-Note: 
+Note:
 Master mode: Values 0 - 2 are reserved and shall not be used. This will map to 4 bit mode. A value of 3h corresponds to 4-bit data (and so on).
 Slave mode: DSS should be no less than 6 which means the minimum frame length is 7 bits." id="DSS" resetval="0x0">
          <bitenum id="DSS_32" value="31" token="Data Size Select bits: 32" description="Data Size Select bits: 32"/>

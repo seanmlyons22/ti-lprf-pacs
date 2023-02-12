@@ -6,7 +6,7 @@
 - AON_PMCTL.
 - AON_RTC.
 
-into two 64-bit event buses. One is synchronized to the AUX clock and one is left unsynchronized. 
+into two 64-bit event buses. One is synchronized to the AUX clock and one is left unsynchronized.
 
 The subscribers to the synchronous event bus are AUX_TIMER01 and AUX_EVCTL.
 The subscribers to the asynchronous event bus are AUX_ANAIF, AUX_TDC and AUX_SYSIF.
@@ -109,16 +109,16 @@ Register holds events 32 thru 47 of the 64-bit event bus that is synchronous to 
 - EVOBSCFG." id="EVSTAT2" offset="0x8">
       <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Comparator B output. 
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Comparator B output.
 Configuration of AUX_SYSIF:EVSYNCRATE.AUX_COMPB_SYNC_RATE sets the synchronization rate for this event." id="AUX_COMPB" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="14" width="1" end="14" rwaccess="RO" description="Comparator A output. 
+      <bitfield range="" begin="14" width="1" end="14" rwaccess="RO" description="Comparator A output.
 Configuration of AUX_SYSIF:EVSYNCRATE.AUX_COMPA_SYNC_RATE sets the synchronization rate for this event." id="AUX_COMPA" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="13" width="1" end="13" rwaccess="RO" description="Observation input 1 from IOC. 
+      <bitfield range="" begin="13" width="1" end="13" rwaccess="RO" description="Observation input 1 from IOC.
 This event is configured by IOC:OBSAUXOUTPUT.SEL1." id="MCU_OBSMUX1" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="12" width="1" end="12" rwaccess="RO" description="Observation input 0 from IOC. 
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="RO" description="Observation input 0 from IOC.
 This event is configured by IOC:OBSAUXOUTPUT.SEL0 and can be overridden by IOC:OBSAUXOUTPUT.SEL_MISC." id="MCU_OBSMUX0" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="11" width="1" end="11" rwaccess="RO" description="Event from EVENT configured by EVENT:AUXSEL0." id="MCU_EV" resetval="0x0">
@@ -168,15 +168,15 @@ Register holds events 48 thru 63 of the 64-bit event bus that is synchronous to 
       </bitfield>
       <bitfield range="" begin="10" width="1" end="10" rwaccess="RO" description="The logical function for this event is configurable.
 
-When DMACTL.EN = 1 : 
+When DMACTL.EN = 1 :
    Event = UDMA0 Channel 7 done event     OR     AUX_ANAIF:ADCFIFOSTAT.OVERFLOW      OR      AUX_ANAIF:ADCFIFOSTAT.UNDERFLOW
 
 When DMACTL.EN = 0 :
-   Event = (NOT AUX_ANAIF:ADCFIFOSTAT.EMPTY)      OR      AUX_ANAIF:ADCFIFOSTAT.OVERFLOW      OR      AUX_ANAIF:ADCFIFOSTAT.UNDERFLOW  
+   Event = (NOT AUX_ANAIF:ADCFIFOSTAT.EMPTY)      OR      AUX_ANAIF:ADCFIFOSTAT.OVERFLOW      OR      AUX_ANAIF:ADCFIFOSTAT.UNDERFLOW
 
 Bit 7 in UDMA0:DONEMASK must be 0.    " id="AUX_ADC_IRQ" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="9" width="1" end="9" rwaccess="RO" description="AUX_ANAIF ADC conversion done event. 
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RO" description="AUX_ANAIF ADC conversion done event.
 Event is synchronized at AUX bus rate." id="AUX_ADC_DONE" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="8" width="1" end="8" rwaccess="RO" description="AUX_ANAIF:ISRCCTL.RESET_N " id="AUX_ISRC_RESET_N" resetval="0x0">
@@ -209,7 +209,7 @@ Event is synchronized at AUX bus rate." id="AUX_ADC_DONE" resetval="0x0">
    </register>
    <register acronym="SWEVSET" width="32" description="Software Event Set
 
-Set software event flags from AUX domain to AON and MCU domains. CPUs in MCU domain can read the event flags from EVTOAONFLAGS and clear them in EVTOAONFLAGSCLR. 
+Set software event flags from AUX domain to AON and MCU domains. CPUs in MCU domain can read the event flags from EVTOAONFLAGS and clear them in EVTOAONFLAGSCLR.
 
 Use of these event flags is software-defined." id="SWEVSET" offset="0x20">
       <bitfield range="" begin="31" width="29" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
@@ -232,7 +232,7 @@ Use of these event flags is software-defined." id="SWEVSET" offset="0x20">
    </register>
    <register acronym="EVTOAONFLAGS" width="32" description="Events To AON Flags
 
-This register contains a collection of event flags routed to AON_EVENT. 
+This register contains a collection of event flags routed to AON_EVENT.
 
 To clear an event flag, write to EVTOAONFLAGSCLR or write 0 to event flag in this register.
 " id="EVTOAONFLAGS" offset="0x24">
@@ -291,7 +291,7 @@ Event source polarity configuration for EVTOAONFLAGS." id="EVTOAONPOL" offset="0
    </register>
    <register acronym="EVTOAONFLAGSCLR" width="32" description="Events To AON Clear
 
-Clear event flags in EVTOAONFLAGS. 
+Clear event flags in EVTOAONFLAGS.
 
 In order to clear a level sensitive event flag, the event must be deasserted. " id="EVTOAONFLAGSCLR" offset="0x2c">
       <bitfield range="" begin="31" width="23" end="9" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED9" resetval="0x0">
@@ -335,7 +335,7 @@ Read value is 0." id="SWEV0" resetval="0x0">
    </register>
    <register acronym="EVTOMCUFLAGS" width="32" description="Events to MCU Flags
 
-This register contains a collection of event flags routed to MCU domain. 
+This register contains a collection of event flags routed to MCU domain.
 
 To clear an event flag, write to EVTOMCUFLAGSCLR or write 0 to event flag in this register. Follow procedure described in AUX_SYSIF:WUCLR to clear AUX_WU_EV event flag." id="EVTOMCUFLAGS" offset="0x30">
       <bitfield range="" begin="31" width="21" end="11" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">
@@ -413,7 +413,7 @@ Event source polarity configuration for EVTOMCUFLAGS." id="EVTOMCUPOL" offset="0
    </register>
    <register acronym="EVTOMCUFLAGSCLR" width="32" description="Events To MCU Flags Clear
 
-Clear event flags in EVTOMCUFLAGS. 
+Clear event flags in EVTOMCUFLAGS.
 
 In order to clear a level sensitive event flag, the event must be deasserted. " id="EVTOMCUFLAGSCLR" offset="0x38">
       <bitfield range="" begin="31" width="21" end="11" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">

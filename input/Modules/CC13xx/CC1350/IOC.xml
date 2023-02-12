@@ -20,18 +20,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -57,10 +57,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -77,12 +77,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -196,18 +196,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -233,10 +233,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -253,12 +253,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -372,18 +372,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -409,10 +409,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -429,12 +429,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -548,18 +548,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -585,10 +585,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -605,12 +605,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -724,18 +724,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -761,10 +761,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -781,12 +781,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -900,18 +900,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -937,10 +937,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -957,12 +957,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -1076,18 +1076,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -1113,10 +1113,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -1133,12 +1133,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -1252,18 +1252,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -1289,10 +1289,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -1309,12 +1309,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -1428,18 +1428,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -1465,10 +1465,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -1485,12 +1485,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -1604,18 +1604,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -1641,10 +1641,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -1661,12 +1661,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -1780,18 +1780,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -1817,10 +1817,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -1837,12 +1837,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -1956,18 +1956,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -1993,10 +1993,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -2013,12 +2013,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -2132,18 +2132,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -2169,10 +2169,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -2189,12 +2189,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -2308,18 +2308,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -2345,10 +2345,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -2365,12 +2365,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -2484,18 +2484,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -2521,10 +2521,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -2541,12 +2541,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -2660,18 +2660,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -2697,10 +2697,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -2717,12 +2717,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -2836,18 +2836,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -2873,10 +2873,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -2893,12 +2893,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x1">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -3012,18 +3012,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -3049,10 +3049,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -3069,12 +3069,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x2">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -3188,18 +3188,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -3225,10 +3225,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -3245,12 +3245,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -3364,18 +3364,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -3401,10 +3401,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -3421,12 +3421,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -3540,18 +3540,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -3577,10 +3577,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -3597,12 +3597,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -3716,18 +3716,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -3753,10 +3753,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -3773,12 +3773,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -3892,18 +3892,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -3929,10 +3929,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -3949,12 +3949,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -4068,18 +4068,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -4105,10 +4105,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -4125,12 +4125,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -4244,18 +4244,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -4281,10 +4281,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -4301,12 +4301,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -4420,18 +4420,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -4457,10 +4457,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -4477,12 +4477,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -4596,18 +4596,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -4633,10 +4633,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -4653,12 +4653,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -4772,18 +4772,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -4809,10 +4809,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -4829,12 +4829,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -4948,18 +4948,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -4985,10 +4985,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -5005,12 +5005,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -5124,18 +5124,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -5161,10 +5161,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -5181,12 +5181,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -5300,18 +5300,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -5337,10 +5337,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -5357,12 +5357,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
@@ -5476,18 +5476,18 @@ Note: If IO is configured for AUX  ie. PORT_ID = 0x08, the enable will be ignore
 10: Wakes up from shutdown if this pad is going low.
 11: Wakes up from shutdown if this pad is going high.
 
-If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 
+If IO is configured for AON peripheral signals or AUX  ie. PORT_ID 0x01-0x08, this register only sets wakeup enable or not.
 
 00, 01: Wakeup disabled
-10, 11: Wakeup enabled 
+10, 11: Wakeup enabled
 
 Polarity is controlled from AON registers.
 
 Note:When the MSB is set, the IOC will deactivate the output enable for the DIO." id="WU_CFG" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode 
-N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08 
-AUX has its own open_source/drain configuration. 
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode
+N/A for IO configured for AON periph. signals and AUX  ie. PORT_ID 0x01-0x08
+AUX has its own open_source/drain configuration.
 
 0x2: Reserved. Undefined behavior.
 0x3: Reserved. Undefined behavior.
@@ -5513,10 +5513,10 @@ Inverted input / output
 Inverted input / output
 
 "/>
-         <bitenum id="OPENDR" value="4" token="Open Drain, 
+         <bitenum id="OPENDR" value="4" token="Open Drain,
 Normal input / output
 
-" description="Open Drain, 
+" description="Open Drain,
 Normal input / output
 
 "/>
@@ -5533,12 +5533,12 @@ Normal input / output
       </bitfield>
       <bitfield range="" begin="23" width="5" end="19" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation 
-1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled) 
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="0: No interrupt generation
+1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)
 
 " id="EDGE_IRQ_EN" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO 
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Enable generation of edge detection events on this IO
 
 " id="EDGE_DET" resetval="0x0">
          <bitenum id="BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
