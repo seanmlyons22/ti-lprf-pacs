@@ -1,5 +1,7 @@
 # PACs for TI Low Power RF microcontrollers
 
+[![CI](https://github.com/seanmlyons22/ti-lprf-pacs/workflows/ci/badge.svg?branch=master)](https://github.com/seanmlyons22/ti-lprf-pacs)
+
 This repository contains Peripheral Access Crates (PACs) for TI's Low Power RF (LPRF) series of Cortex-M microcontrollers.
 
 All these crates are automatically generated using [svd2rust] and [tixml2svd].
@@ -94,7 +96,7 @@ into `input/Modules` folder within this repository. `<INSTALL_LOC>` is the locat
     - Pick one device from your wanted family and copy it into the tree and rename it
 1. If adding a new device family, create `device_family_ints.rs` where swapping `device_family` with the device family name.
    - For a hint, use the C file created by TI. It can be found in `<TI_SDK>/source/ti/devices/<device_family>/inc/hw_ints.h`.
-1. Run `python3 tools/generate_pacs.py -osvds svds/ -opacs pacs/ xml/devices` from the root of this repo.
+1. Run `python3 tools/generate_pacs.py -osvds svds/ -opacs pacs/ input/devices` from the root of this repo.
    - If on Windows `python3` may be called `python`
 1. Update `device.x` based on the vector table you created in the last step
 
