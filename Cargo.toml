@@ -5,9 +5,11 @@ members = [
 ]
 
 [workspace.package]
+description = "Peripheral Access Crates (PACs) for LRF Microcontrollers"
 version = "0.10.2"
 keywords = ["no-std", "arm", "cortex-m", "ti", "cc26xx", "cc13xx", "ble", "zigbee", "rf"]
-license = "0BSD"
+license = "BSD-3-Clause"
+license-file = "LICENSE.txt"
 repository = "https://github.com/seanmlyons22/ti-lprf-pacs"
 edition = "2018"
 readme = "README.md"
