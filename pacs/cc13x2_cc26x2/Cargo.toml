@@ -1,5 +1,5 @@
 [package]
-name = "cc13x2_cc26x2"
+name = "cc13x2_cc26x2_pac"
 version.workspace = true
 edition.workspace = true
 keywords.workspace = true
