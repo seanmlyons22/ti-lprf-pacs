@@ -231,7 +231,7 @@ operation should be applied if CMDCTL.ADDRXLATEOVR is set." id="REGIONSEL" reset
          <bitenum id="NONMAIN" value="2" token="Non-Main Region" description="Non-Main Region"/>
          <bitenum id="MAIN" value="1" token="Main Region" description="Main Region"/>
       </bitfield>
-      <bitfield range="" begin="4" width="5" end="8" rwaccess="RW" description="Bank Select
+      <bitfield range="" begin="8" width="5" end="4" rwaccess="RW" description="Bank Select
 A specific Bank ID can be written to this field to indicate to which bank an
 operation should be applied if CMDCTL.ADDRXLATEOVR is set." id="BANKSEL" resetval="0x0">
          <bitenum id="BANK4" value="16" token="Bank 4" description="Bank 4"/>
@@ -818,7 +818,7 @@ This register is blocked for writes after CMDEXEC is written to a 1 and
 prior to STATCMD.DONE being set by the hardware to indicate that
 command execution has completed.
 " id="CFGCMD" offset="0x3b0">
-      <bitfield range="" begin="32" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Wait State setting for program verify, erase verify and read verify" id="WAITSTATE" resetval="0x2">
          <bitenum id="MAXIMUM" value="15" token="Maximum value" description="Maximum value"/>
@@ -831,7 +831,7 @@ program and erase operations.
 This register is blocked for writes after a 1 is written to the CMDEXEC
 register and prior to STATCMD.DONE being set by the NoWrapper
 hardware." id="CFGPCNT" offset="0x3b4">
-      <bitfield range="" begin="32" width="20" end="12" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED12" resetval="0x0">
+      <bitfield range="" begin="31" width="20" end="12" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED12" resetval="0x0">
       </bitfield>
       <bitfield range="" begin="11" width="8" end="4" rwaccess="RW" description="Override maximum pulse counter with this value.
 If MAXPCNTOVR = 0, then this field is ignored.
@@ -987,7 +987,7 @@ fully driven power rails to the bank(s).
       </bitfield>
       <bitfield range="" begin="7" width="3" end="5" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
       </bitfield>
-      <bitfield range="" begin="0" width="5" end="4" rwaccess="RO" description="Bank not in read mode.
+      <bitfield range="" begin="4" width="5" end="0" rwaccess="RO" description="Bank not in read mode.
 Indicates which banks are not in READ mode.  There is 1 bit per bank." id="BANKNOTINRD" resetval="0x0">
          <bitenum id="BANK4" value="16" token="Bank 4" description="Bank 4"/>
          <bitenum id="BANK3" value="8" token="Bank 3" description="Bank 3"/>
