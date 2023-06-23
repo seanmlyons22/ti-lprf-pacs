@@ -117,6 +117,7 @@ pub static __INTERRUPTS: [Vector; 38] = [
     Vector { _reserved: 0 },
     Vector { _handler: INT_BATMON_COMB }
 ];
+
 #[doc = r"Enumeration of all the interrupts."]
 #[derive(Copy, Clone, Debug, PartialEq, Eq)]
 pub enum Interrupt {}

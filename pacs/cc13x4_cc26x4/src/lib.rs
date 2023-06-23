@@ -139,6 +139,7 @@ pub static __INTERRUPTS: [Vector; 47] = [
     Vector { _handler: INT_SWEV3 },
     Vector { _handler: INT_SWEV4 }
 ];
+
 #[doc = r"Enumeration of all the interrupts."]
 #[derive(Copy, Clone, Debug, PartialEq, Eq)]
 pub enum Interrupt {}

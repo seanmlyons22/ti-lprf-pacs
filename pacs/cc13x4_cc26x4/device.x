@@ -44,4 +44,4 @@ PROVIDE(INT_I2C1 = DefaultHandler);
 PROVIDE(INT_SWEV1 = DefaultHandler);
 PROVIDE(INT_SWEV2 = DefaultHandler);
 PROVIDE(INT_SWEV3 = DefaultHandler);
-PROVIDE(INT_SWEV4( = DefaultHandler);
+PROVIDE(INT_SWEV4 = DefaultHandler);

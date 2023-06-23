@@ -111,6 +111,7 @@ pub static __INTERRUPTS: [Vector; 33] = [
     Vector { _handler: INT_AUX_ADC },
     Vector { _handler: INT_TRNG }
 ];
+
 #[doc = r"Enumeration of all the interrupts."]
 #[derive(Copy, Clone, Debug, PartialEq, Eq)]
 pub enum Interrupt {}
