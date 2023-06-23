@@ -149,10 +149,10 @@ impl<'a, const O: u8> MAXPCNTVAL_W<'a, O> {
         self.variant(MAXPCNTVAL_A::MINIMUM)
     }
 }
-#[doc = "Field `RESERVED12` reader - 32:12\\]
+#[doc = "Field `RESERVED12` reader - 31:12\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type RESERVED12_R = crate::FieldReader<u32, u32>;
-#[doc = "Field `RESERVED12` writer - 32:12\\]
+#[doc = "Field `RESERVED12` writer - 31:12\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type RESERVED12_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CFGPCNT_SPEC, u32, u32, 20, O>;
 impl R {
@@ -174,7 +174,7 @@ Override maximum pulse counter with this value. If MAXPCNTOVR = 0, then this fie
     pub fn maxpcntval(&self) -> MAXPCNTVAL_R {
         MAXPCNTVAL_R::new(((self.bits >> 4) & 0xff) as u8)
     }
-    #[doc = "Bits 12:31 - 32:12\\]
+    #[doc = "Bits 12:31 - 31:12\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     pub fn reserved12(&self) -> RESERVED12_R {
@@ -203,7 +203,7 @@ Override maximum pulse counter with this value. If MAXPCNTOVR = 0, then this fie
     pub fn maxpcntval(&mut self) -> MAXPCNTVAL_W<4> {
         MAXPCNTVAL_W::new(self)
     }
-    #[doc = "Bits 12:31 - 32:12\\]
+    #[doc = "Bits 12:31 - 31:12\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]

@@ -90,10 +90,10 @@ impl<'a, const O: u8> WAITSTATE_W<'a, O> {
         self.variant(WAITSTATE_A::MINIMUM)
     }
 }
-#[doc = "Field `RESERVED4` reader - 32:4\\]
+#[doc = "Field `RESERVED4` reader - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type RESERVED4_R = crate::FieldReader<u32, u32>;
-#[doc = "Field `RESERVED4` writer - 32:4\\]
+#[doc = "Field `RESERVED4` writer - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type RESERVED4_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CFGCMD_SPEC, u32, u32, 28, O>;
 impl R {
@@ -103,7 +103,7 @@ Wait State setting for program verify, erase verify and read verify"]
     pub fn waitstate(&self) -> WAITSTATE_R {
         WAITSTATE_R::new((self.bits & 0x0f) as u8)
     }
-    #[doc = "Bits 4:31 - 32:4\\]
+    #[doc = "Bits 4:31 - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     pub fn reserved4(&self) -> RESERVED4_R {
@@ -118,7 +118,7 @@ Wait State setting for program verify, erase verify and read verify"]
     pub fn waitstate(&mut self) -> WAITSTATE_W<0> {
         WAITSTATE_W::new(self)
     }
-    #[doc = "Bits 4:31 - 32:4\\]
+    #[doc = "Bits 4:31 - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]

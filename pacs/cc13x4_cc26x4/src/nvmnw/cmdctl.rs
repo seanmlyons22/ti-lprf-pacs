@@ -206,10 +206,10 @@ impl<'a, const O: u8> MODESEL_W<'a, O> {
         self.variant(MODESEL_A::READ)
     }
 }
-#[doc = "Field `BANKSEL` reader - 4:8\\]
+#[doc = "Field `BANKSEL` reader - 8:4\\]
 Bank Select A specific Bank ID can be written to this field to indicate to which bank an operation should be applied if CMDCTL.ADDRXLATEOVR is set."]
 pub type BANKSEL_R = crate::FieldReader<u8, BANKSEL_A>;
-#[doc = "4:8\\]
+#[doc = "8:4\\]
 Bank Select A specific Bank ID can be written to this field to indicate to which bank an operation should be applied if CMDCTL.ADDRXLATEOVR is set.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
@@ -270,7 +270,7 @@ impl BANKSEL_R {
         *self == BANKSEL_A::BANK0
     }
 }
-#[doc = "Field `BANKSEL` writer - 4:8\\]
+#[doc = "Field `BANKSEL` writer - 8:4\\]
 Bank Select A specific Bank ID can be written to this field to indicate to which bank an operation should be applied if CMDCTL.ADDRXLATEOVR is set."]
 pub type BANKSEL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CMDCTL_SPEC, u8, BANKSEL_A, 5, O>;
 impl<'a, const O: u8> BANKSEL_W<'a, O> {
@@ -780,11 +780,11 @@ Mode This field is only used for the Mode Change command type. Otherwise, bank a
     pub fn modesel(&self) -> MODESEL_R {
         MODESEL_R::new((self.bits & 0x0f) as u8)
     }
-    #[doc = "Bits 8:12 - 4:8\\]
+    #[doc = "Bits 4:8 - 8:4\\]
 Bank Select A specific Bank ID can be written to this field to indicate to which bank an operation should be applied if CMDCTL.ADDRXLATEOVR is set."]
     #[inline(always)]
     pub fn banksel(&self) -> BANKSEL_R {
-        BANKSEL_R::new(((self.bits >> 8) & 0x1f) as u8)
+        BANKSEL_R::new(((self.bits >> 4) & 0x1f) as u8)
     }
     #[doc = "Bits 9:12 - 12:9\\]
 Bank Region A specific region ID can be written to this field to indicate to which region an operation should be applied if CMDCTL.ADDRXLATEOVR is set."]
@@ -861,11 +861,11 @@ Mode This field is only used for the Mode Change command type. Otherwise, bank a
     pub fn modesel(&mut self) -> MODESEL_W<0> {
         MODESEL_W::new(self)
     }
-    #[doc = "Bits 8:12 - 4:8\\]
+    #[doc = "Bits 4:8 - 8:4\\]
 Bank Select A specific Bank ID can be written to this field to indicate to which bank an operation should be applied if CMDCTL.ADDRXLATEOVR is set."]
     #[inline(always)]
     #[must_use]
-    pub fn banksel(&mut self) -> BANKSEL_W<8> {
+    pub fn banksel(&mut self) -> BANKSEL_W<4> {
         BANKSEL_W::new(self)
     }
     #[doc = "Bits 9:12 - 12:9\\]

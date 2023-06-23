@@ -34,10 +34,10 @@ impl From<crate::W<STATMODE_SPEC>> for W {
         W(writer)
     }
 }
-#[doc = "Field `BANKNOTINRD` reader - 0:4\\]
+#[doc = "Field `BANKNOTINRD` reader - 4:0\\]
 Bank not in read mode. Indicates which banks are not in READ mode. There is 1 bit per bank."]
 pub type BANKNOTINRD_R = crate::FieldReader<u8, BANKNOTINRD_A>;
-#[doc = "0:4\\]
+#[doc = "4:0\\]
 Bank not in read mode. Indicates which banks are not in READ mode. There is 1 bit per bank.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
@@ -98,7 +98,7 @@ impl BANKNOTINRD_R {
         *self == BANKNOTINRD_A::BANK0
     }
 }
-#[doc = "Field `BANKNOTINRD` writer - 0:4\\]
+#[doc = "Field `BANKNOTINRD` writer - 4:0\\]
 Bank not in read mode. Indicates which banks are not in READ mode. There is 1 bit per bank."]
 pub type BANKNOTINRD_W<'a, const O: u8> =
     crate::FieldWriter<'a, u32, STATMODE_SPEC, u8, BANKNOTINRD_A, 5, O>;
@@ -415,11 +415,11 @@ impl<'a, const O: u8> BANK1TRDY_W<'a, O> {
     }
 }
 impl R {
-    #[doc = "Bits 4:8 - 0:4\\]
+    #[doc = "Bits 0:4 - 4:0\\]
 Bank not in read mode. Indicates which banks are not in READ mode. There is 1 bit per bank."]
     #[inline(always)]
     pub fn banknotinrd(&self) -> BANKNOTINRD_R {
-        BANKNOTINRD_R::new(((self.bits >> 4) & 0x1f) as u8)
+        BANKNOTINRD_R::new((self.bits & 0x1f) as u8)
     }
     #[doc = "Bits 5:7 - 7:5\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
@@ -447,11 +447,11 @@ Bank 1T Ready. Bank(s) are ready for 1T access. This is accomplished when the ba
     }
 }
 impl W {
-    #[doc = "Bits 4:8 - 0:4\\]
+    #[doc = "Bits 0:4 - 4:0\\]
 Bank not in read mode. Indicates which banks are not in READ mode. There is 1 bit per bank."]
     #[inline(always)]
     #[must_use]
-    pub fn banknotinrd(&mut self) -> BANKNOTINRD_W<4> {
+    pub fn banknotinrd(&mut self) -> BANKNOTINRD_W<0> {
         BANKNOTINRD_W::new(self)
     }
     #[doc = "Bits 5:7 - 7:5\\]
