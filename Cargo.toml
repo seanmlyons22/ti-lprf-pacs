@@ -2,6 +2,7 @@
 
 members = [
     "pacs/*",
+    "tests/*"
 ]
 
 [workspace.package]

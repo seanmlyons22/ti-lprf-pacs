@@ -1,0 +1,25 @@
+{
+    /*
+     * Requires the Rust Language Server (rust-analyzer) and Cortex-Debug extensions
+     * https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer
+     * https://marketplace.visualstudio.com/items?itemName=marus25.cortex-debug
+     */
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "Debug (OpenOCD)",
+            "servertype": "openocd",
+            "gdbTarget": ":3333",
+            "cwd": "${workspaceRoot}",
+            "preLaunchTask": "Cargo Build (debug)",
+            "runToEntryPoint": "main",
+            "executable": "./target/thumbv7em-none-eabihf/debug/cc13x2-cc26x2",
+            "configFiles": [
+                "board/ti_cc26x2_launchpad.cfg",
+            ],
+            "svdFile": "${workspaceRoot}/ti-lprf-pac/svds/cc13x2_cc26x2.svd",
+        }
+    ]
+}
