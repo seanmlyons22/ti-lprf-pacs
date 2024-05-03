@@ -79,7 +79,7 @@ def svd2rust(svd_file_path: str, device_name: str):
     subprocess.run(["svd2rust", "-i", Path(svd_file_path).as_posix(), "-o", "."])
 
     # Remove generated src dir, we will make it again later
-    shutil.rmtree("./src")
+    shutil.rmtree("./src", ignore_errors=True)
 
     # Run form on generated output
     subprocess.run(["form", "-i", "lib.rs", "-o", "src"])
