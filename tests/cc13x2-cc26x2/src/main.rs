@@ -8,9 +8,12 @@ use panic_halt as _; // you can put a breakpoint on `rust_begin_unwind` to catch
                      // use panic_abort as _; // requires nightly
                      // use panic_itm as _; // logs messages over ITM; requires ITM support
                      // use panic_semihosting as _; // logs messages to the host stderr; requires a debugger
+use rtt_target::{rprintln, rtt_init_print};
 
 #[entry]
 fn main() -> ! {
+    rtt_init_print!();
+    rprintln!("Init");
     let p = cc13x2_cc26x2::Peripherals::take().unwrap();
 
     // Setup PRCM, power the perpipheral and serial domains

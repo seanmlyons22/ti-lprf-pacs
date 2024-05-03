@@ -13,6 +13,7 @@ cortex-m-rt.workspace = true
 critical-section.workspace = true
 panic-halt = "0.2.0"
 cc13x2_cc26x2_pac = { path = "../../pacs/cc13x2_cc26x2", features = ["critical-section", "rt"]}
+rtt-target = { version = "0.3", features = ["cortex-m"] }
 
 # this lets you use `cargo fix`!
 [[bin]]
