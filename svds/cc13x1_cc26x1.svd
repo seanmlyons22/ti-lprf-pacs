@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <device>
-  <name>CC2652</name>
-  <version>1.1</version>
-  <description>CC2652</description>
+    <name>CC1311P3</name>
+  <version>1.0</version>
+  <description>SimpleLink(TM) multi-protocol CC1311P3 wireless MCU</description>
   <cpu>
     <name>CM4</name>
-    <revision>r1p0</revision>
-    <endian>little</endian>
+    <revision>1.0</revision>
+    <endian>other</endian>
     <mpuPresent>true</mpuPresent>
     <fpuPresent>true</fpuPresent>
     <nvicPrioBits>3</nvicPrioBits>
@@ -16,6 +16,7 @@
   <width>32</width>
   <size>32</size>
   <access>read-write</access>
+  <resetValue>0x00000000</resetValue>
   <resetMask>0xFFFFFFFF</resetMask>
   <peripherals>
     <peripheral>
@@ -9444,9 +9445,9 @@ AUX_SYSIF:PEROPRATE.ANAIF_DAC_OP_RATE divided by (CLKDIV + 1) determines the sam
 The sample clock period equals (high time + low time) * base period. DACSMPLCFG0.CLKDIV determines the base period.
 
 Timing  requirements (DAC Buffer On / DAC Buffer Off):
-- (high time + low time) * base period > (4 us / 1 us)
-- (high time * base period) > (2 us / 0.5 us)
-- (low time * base period)  > (2 us / 0.5 us)
+- (high time + low time) * base period &gt; (4 us / 1 us)
+- (high time * base period) &gt; (2 us / 0.5 us)
+- (low time * base period)  &gt; (2 us / 0.5 us)
 - (low time * base period + HOLD_INTERVAL * sample clock period) &lt; 32 us
 
 If AUX_SYSIF:OPMODEREQ.REQ equals PDLP, you must set:
@@ -13148,7 +13149,7 @@ To measure pulse width of an event source:
 - Select different polarity for start and stop event.
 - Set CNT to 0.
 
-To measure time from the start event to the Nth stop event when N > 1:
+To measure time from the start event to the Nth stop event when N &gt; 1:
 - Select different start and stop event source.
 - Set CNT to (N-1).
 
@@ -23805,7 +23806,7 @@ This register contains bits [31:0] of the combined data length.</description>
 
 Bits [60:0] of the crypto length registers AESDATALEN1 and AESDATALEN0 store the cryptographic data length in bytes for all modes. Once processing with this context starts, this length decrements to zero. Data lengths up to (2^61 - 1) bytes are allowed.
 
-A write to this register triggers the engine to start using this context. This is valid for all modes except CCM. For the combined modes (CCM), this length does not include the authentication only data; the authentication length is specified in the AESAUTHLEN.LEN. All modes must have a length > 0. For the combined modes, it is allowed to have one of the lengths equal to zero.
+A write to this register triggers the engine to start using this context. This is valid for all modes except CCM. For the combined modes (CCM), this length does not include the authentication only data; the authentication length is specified in the AESAUTHLEN.LEN. All modes must have a length &gt; 0. For the combined modes, it is allowed to have one of the lengths equal to zero.
 
 For the basic encryption modes (ECB/CBC/CTR) it is allowed to program zero to the length field; in that case the length is assumed infinite. All data must be byte (8-bit) aligned for stream cipher modes; bit aligned data streams are not supported by the Crypto peripheral. For block cipher modes, the data length must be programmed in multiples of the block cipher size, 16 bytes.</description>
               <bitWidth>29</bitWidth>
@@ -51557,7 +51558,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -52036,7 +52037,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -52515,7 +52516,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -52994,7 +52995,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -53473,7 +53474,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -53952,7 +53953,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -54431,7 +54432,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -54910,7 +54911,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -55389,7 +55390,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -55868,7 +55869,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -56347,7 +56348,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -56826,7 +56827,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -57305,7 +57306,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -57784,7 +57785,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -58263,7 +58264,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -58742,7 +58743,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -59221,7 +59222,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -59700,7 +59701,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -60179,7 +60180,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -60658,7 +60659,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -61137,7 +61138,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -61616,7 +61617,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -62095,7 +62096,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -62574,7 +62575,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -63053,7 +63054,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -63532,7 +63533,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -64011,7 +64012,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -64490,7 +64491,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -64969,7 +64970,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -65448,7 +65449,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -65927,7 +65928,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -66406,7 +66407,7 @@ Note: If IO is configured for AUX   PORT_ID = 0x08, the enable will be ignored.<
             </field>
             <field>
               <name>WU_CFG</name>
-              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or >0x08:
+              <description>[28:27] If DIO is configured GPIO or non-AON peripheral signals,  PORT_ID 0x00 or &gt;0x08:
 
 00: No wake-up
 01: No wake-up
@@ -74138,7 +74139,7 @@ This field can only be modified while CTL.TRNG_EN is '0'.</description>
             </field>
             <field>
               <name>MIN_REFILL_CYCLES</name>
-              <description>[7:0] This field determines the minimum number of samples (between 2^6 and 2^14) taken to re-generate entropy from the FROs after reading out a 64 bits random number. If the value of this field is zero, the number of samples is fixed to the value determined by the MAX_REFILL_CYCLES field, otherwise the minimum number of samples equals the written value times 64 (which can be up to 2^14). To ensure same entropy in all generated random numbers the value 0 should be used. Then MAX_REFILL_CYCLES controls the minimum refill interval. The number of samples defined here cannot be higher than the number defined by the 'max_refill_cycles' field (i.e. that field takes precedence). No random value will be created if min refill > max refill.
+              <description>[7:0] This field determines the minimum number of samples (between 2^6 and 2^14) taken to re-generate entropy from the FROs after reading out a 64 bits random number. If the value of this field is zero, the number of samples is fixed to the value determined by the MAX_REFILL_CYCLES field, otherwise the minimum number of samples equals the written value times 64 (which can be up to 2^14). To ensure same entropy in all generated random numbers the value 0 should be used. Then MAX_REFILL_CYCLES controls the minimum refill interval. The number of samples defined here cannot be higher than the number defined by the 'max_refill_cycles' field (i.e. that field takes precedence). No random value will be created if min refill &gt; max refill.
 
 This field can only be modified while CTL.TRNG_EN = 0.
 
@@ -75141,27 +75142,27 @@ This field sets the trigger points for the receive interrupt. Values 0b101-0b111
                 <enumeratedValue>
                   <name>7_8</name>
                   <value>4</value>
-                  <description>Receive FIFO becomes >= 7/8 full</description>
+                  <description>Receive FIFO becomes &gt;= 7/8 full</description>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>6_8</name>
                   <value>3</value>
-                  <description>Receive FIFO becomes >= 3/4 full</description>
+                  <description>Receive FIFO becomes &gt;= 3/4 full</description>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>4_8</name>
                   <value>2</value>
-                  <description>Receive FIFO becomes >= 1/2 full</description>
+                  <description>Receive FIFO becomes &gt;= 1/2 full</description>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>2_8</name>
                   <value>1</value>
-                  <description>Receive FIFO becomes >= 1/4 full</description>
+                  <description>Receive FIFO becomes &gt;= 1/4 full</description>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>1_8</name>
                   <value>0</value>
-                  <description>Receive FIFO becomes >= 1/8 full</description>
+                  <description>Receive FIFO becomes &gt;= 1/8 full</description>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
@@ -76312,7 +76313,7 @@ Configure VIMS mode and line buffer settings</description>
               <name>ARB_CFG</name>
               <description>[3:3] Icode/Dcode and sysbus arbitation scheme
 
-0: Static arbitration  (icode/docde > sysbus)
+0: Static arbitration  (icode/docde &gt; sysbus)
 1: Round-robin arbitration</description>
               <bitWidth>1</bitWidth>
               <bitOffset>3</bitOffset>
