@@ -1,65 +1,31 @@
 #[doc = "Register `SYSCODE_START` reader"]
-pub struct R(crate::R<SYSCODE_START_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<SYSCODE_START_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<SYSCODE_START_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<SYSCODE_START_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<SyscodeStartSpec>;
 #[doc = "Register `SYSCODE_START` writer"]
-pub struct W(crate::W<SYSCODE_START_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<SYSCODE_START_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<SYSCODE_START_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<SYSCODE_START_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<SyscodeStartSpec>;
 #[doc = "Field `SYSCODE_START` reader - 5:0\\]
 Internal. Only to be used through TI provided API."]
-pub type SYSCODE_START_R = crate::FieldReader<u8, u8>;
+pub type SyscodeStartR = crate::FieldReader;
 #[doc = "Field `SYSCODE_START` writer - 5:0\\]
 Internal. Only to be used through TI provided API."]
-pub type SYSCODE_START_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, SYSCODE_START_SPEC, u8, u8, 6, O>;
+pub type SyscodeStartW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `RESERVED5` reader - 31:6\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED5_R = crate::FieldReader<u32, u32>;
+pub type Reserved5R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED5` writer - 31:6\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED5_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, SYSCODE_START_SPEC, u32, u32, 26, O>;
+pub type Reserved5W<'a, REG> = crate::FieldWriter<'a, REG, 26, u32>;
 impl R {
     #[doc = "Bits 0:5 - 5:0\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn syscode_start(&self) -> SYSCODE_START_R {
-        SYSCODE_START_R::new((self.bits & 0x3f) as u8)
+    pub fn syscode_start(&self) -> SyscodeStartR {
+        SyscodeStartR::new((self.bits & 0x3f) as u8)
     }
     #[doc = "Bits 6:31 - 31:6\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn reserved5(&self) -> RESERVED5_R {
-        RESERVED5_R::new((self.bits >> 6) & 0x03ff_ffff)
+    pub fn reserved5(&self) -> Reserved5R {
+        Reserved5R::new((self.bits >> 6) & 0x03ff_ffff)
     }
 }
 impl W {
@@ -67,39 +33,31 @@ impl W {
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn syscode_start(&mut self) -> SYSCODE_START_W<0> {
-        SYSCODE_START_W::new(self)
+    pub fn syscode_start(&mut self) -> SyscodeStartW<SyscodeStartSpec> {
+        SyscodeStartW::new(self, 0)
     }
     #[doc = "Bits 6:31 - 31:6\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved5(&mut self) -> RESERVED5_W<6> {
-        RESERVED5_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved5(&mut self) -> Reserved5W<SyscodeStartSpec> {
+        Reserved5W::new(self, 6)
     }
 }
-#[doc = "Internal. Only to be used through TI provided API.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [syscode_start](index.html) module"]
-pub struct SYSCODE_START_SPEC;
-impl crate::RegisterSpec for SYSCODE_START_SPEC {
+#[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`syscode_start::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`syscode_start::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct SyscodeStartSpec;
+impl crate::RegisterSpec for SyscodeStartSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [syscode_start::R](R) reader structure"]
-impl crate::Readable for SYSCODE_START_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [syscode_start::W](W) writer structure"]
-impl crate::Writable for SYSCODE_START_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`syscode_start::R`](R) reader structure"]
+impl crate::Readable for SyscodeStartSpec {}
+#[doc = "`write(|w| ..)` method takes [`syscode_start::W`](W) writer structure"]
+impl crate::Writable for SyscodeStartSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets SYSCODE_START to value 0"]
-impl crate::Resettable for SYSCODE_START_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for SyscodeStartSpec {
+    const RESET_VALUE: u32 = 0;
 }

@@ -1,171 +1,139 @@
 #[doc = "Register `MIS` reader"]
-pub struct R(crate::R<MIS_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<MIS_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<MIS_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<MIS_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<MisSpec>;
 #[doc = "Register `MIS` writer"]
-pub struct W(crate::W<MIS_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<MIS_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<MIS_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<MIS_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<MisSpec>;
 #[doc = "Field `RESERVED0` reader - 0:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED0_R = crate::BitReader<bool>;
+pub type Reserved0R = crate::BitReader;
 #[doc = "Field `RESERVED0` writer - 0:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED0_W<'a, const O: u8> = crate::BitWriter<'a, u32, MIS_SPEC, bool, O>;
+pub type Reserved0W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `CTSMMIS` reader - 1:1\\]
 Clear to Send (CTS) modem masked interrupt status: This field returns the masked interrupt state of the clear to send interrupt which is the AND product of raw interrupt state RIS.CTSRMIS and the mask setting IMSC.CTSMIM."]
-pub type CTSMMIS_R = crate::BitReader<bool>;
+pub type CtsmmisR = crate::BitReader;
 #[doc = "Field `CTSMMIS` writer - 1:1\\]
 Clear to Send (CTS) modem masked interrupt status: This field returns the masked interrupt state of the clear to send interrupt which is the AND product of raw interrupt state RIS.CTSRMIS and the mask setting IMSC.CTSMIM."]
-pub type CTSMMIS_W<'a, const O: u8> = crate::BitWriter<'a, u32, MIS_SPEC, bool, O>;
+pub type CtsmmisW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED2` reader - 3:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED2_R = crate::FieldReader<u8, u8>;
+pub type Reserved2R = crate::FieldReader;
 #[doc = "Field `RESERVED2` writer - 3:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED2_W<'a, const O: u8> = crate::FieldWriter<'a, u32, MIS_SPEC, u8, u8, 2, O>;
+pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `RXMIS` reader - 4:4\\]
 Receive masked interrupt status: This field returns the masked interrupt state of the receive interrupt which is the AND product of raw interrupt state RIS.RXRIS and the mask setting IMSC.RXIM."]
-pub type RXMIS_R = crate::BitReader<bool>;
+pub type RxmisR = crate::BitReader;
 #[doc = "Field `RXMIS` writer - 4:4\\]
 Receive masked interrupt status: This field returns the masked interrupt state of the receive interrupt which is the AND product of raw interrupt state RIS.RXRIS and the mask setting IMSC.RXIM."]
-pub type RXMIS_W<'a, const O: u8> = crate::BitWriter<'a, u32, MIS_SPEC, bool, O>;
+pub type RxmisW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `TXMIS` reader - 5:5\\]
 Transmit masked interrupt status: This field returns the masked interrupt state of the transmit interrupt which is the AND product of raw interrupt state RIS.TXRIS and the mask setting IMSC.TXIM."]
-pub type TXMIS_R = crate::BitReader<bool>;
+pub type TxmisR = crate::BitReader;
 #[doc = "Field `TXMIS` writer - 5:5\\]
 Transmit masked interrupt status: This field returns the masked interrupt state of the transmit interrupt which is the AND product of raw interrupt state RIS.TXRIS and the mask setting IMSC.TXIM."]
-pub type TXMIS_W<'a, const O: u8> = crate::BitWriter<'a, u32, MIS_SPEC, bool, O>;
+pub type TxmisW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RTMIS` reader - 6:6\\]
 Receive timeout masked interrupt status: Returns the masked interrupt state of the receive timeout interrupt. The raw interrupt for receive timeout cannot be set unless the mask is set (IMSC.RTIM = 1). This is because the mask acts as an enable for power saving. That is, the same status can be read from RTMIS and RIS.RTRIS."]
-pub type RTMIS_R = crate::BitReader<bool>;
+pub type RtmisR = crate::BitReader;
 #[doc = "Field `RTMIS` writer - 6:6\\]
 Receive timeout masked interrupt status: Returns the masked interrupt state of the receive timeout interrupt. The raw interrupt for receive timeout cannot be set unless the mask is set (IMSC.RTIM = 1). This is because the mask acts as an enable for power saving. That is, the same status can be read from RTMIS and RIS.RTRIS."]
-pub type RTMIS_W<'a, const O: u8> = crate::BitWriter<'a, u32, MIS_SPEC, bool, O>;
+pub type RtmisW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `FEMIS` reader - 7:7\\]
 Framing error masked interrupt status: Returns the masked interrupt state of the framing error interrupt which is the AND product of raw interrupt state RIS.FERIS and the mask setting IMSC.FEIM."]
-pub type FEMIS_R = crate::BitReader<bool>;
+pub type FemisR = crate::BitReader;
 #[doc = "Field `FEMIS` writer - 7:7\\]
 Framing error masked interrupt status: Returns the masked interrupt state of the framing error interrupt which is the AND product of raw interrupt state RIS.FERIS and the mask setting IMSC.FEIM."]
-pub type FEMIS_W<'a, const O: u8> = crate::BitWriter<'a, u32, MIS_SPEC, bool, O>;
+pub type FemisW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `PEMIS` reader - 8:8\\]
 Parity error masked interrupt status: This field returns the masked interrupt state of the parity error interrupt which is the AND product of raw interrupt state RIS.PERIS and the mask setting IMSC.PEIM."]
-pub type PEMIS_R = crate::BitReader<bool>;
+pub type PemisR = crate::BitReader;
 #[doc = "Field `PEMIS` writer - 8:8\\]
 Parity error masked interrupt status: This field returns the masked interrupt state of the parity error interrupt which is the AND product of raw interrupt state RIS.PERIS and the mask setting IMSC.PEIM."]
-pub type PEMIS_W<'a, const O: u8> = crate::BitWriter<'a, u32, MIS_SPEC, bool, O>;
+pub type PemisW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `BEMIS` reader - 9:9\\]
 Break error masked interrupt status: This field returns the masked interrupt state of the break error interrupt which is the AND product of raw interrupt state RIS.BERIS and the mask setting IMSC.BEIM."]
-pub type BEMIS_R = crate::BitReader<bool>;
+pub type BemisR = crate::BitReader;
 #[doc = "Field `BEMIS` writer - 9:9\\]
 Break error masked interrupt status: This field returns the masked interrupt state of the break error interrupt which is the AND product of raw interrupt state RIS.BERIS and the mask setting IMSC.BEIM."]
-pub type BEMIS_W<'a, const O: u8> = crate::BitWriter<'a, u32, MIS_SPEC, bool, O>;
+pub type BemisW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `OEMIS` reader - 10:10\\]
 Overrun error masked interrupt status: This field returns the masked interrupt state of the overrun interrupt which is the AND product of raw interrupt state RIS.OERIS and the mask setting IMSC.OEIM."]
-pub type OEMIS_R = crate::BitReader<bool>;
+pub type OemisR = crate::BitReader;
 #[doc = "Field `OEMIS` writer - 10:10\\]
 Overrun error masked interrupt status: This field returns the masked interrupt state of the overrun interrupt which is the AND product of raw interrupt state RIS.OERIS and the mask setting IMSC.OEIM."]
-pub type OEMIS_W<'a, const O: u8> = crate::BitWriter<'a, u32, MIS_SPEC, bool, O>;
+pub type OemisW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED11` reader - 31:11\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED11_R = crate::FieldReader<u32, u32>;
+pub type Reserved11R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED11` writer - 31:11\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED11_W<'a, const O: u8> = crate::FieldWriter<'a, u32, MIS_SPEC, u32, u32, 21, O>;
+pub type Reserved11W<'a, REG> = crate::FieldWriter<'a, REG, 21, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved0(&self) -> RESERVED0_R {
-        RESERVED0_R::new((self.bits & 1) != 0)
+    pub fn reserved0(&self) -> Reserved0R {
+        Reserved0R::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 Clear to Send (CTS) modem masked interrupt status: This field returns the masked interrupt state of the clear to send interrupt which is the AND product of raw interrupt state RIS.CTSRMIS and the mask setting IMSC.CTSMIM."]
     #[inline(always)]
-    pub fn ctsmmis(&self) -> CTSMMIS_R {
-        CTSMMIS_R::new(((self.bits >> 1) & 1) != 0)
+    pub fn ctsmmis(&self) -> CtsmmisR {
+        CtsmmisR::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bits 2:3 - 3:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved2(&self) -> RESERVED2_R {
-        RESERVED2_R::new(((self.bits >> 2) & 3) as u8)
+    pub fn reserved2(&self) -> Reserved2R {
+        Reserved2R::new(((self.bits >> 2) & 3) as u8)
     }
     #[doc = "Bit 4 - 4:4\\]
 Receive masked interrupt status: This field returns the masked interrupt state of the receive interrupt which is the AND product of raw interrupt state RIS.RXRIS and the mask setting IMSC.RXIM."]
     #[inline(always)]
-    pub fn rxmis(&self) -> RXMIS_R {
-        RXMIS_R::new(((self.bits >> 4) & 1) != 0)
+    pub fn rxmis(&self) -> RxmisR {
+        RxmisR::new(((self.bits >> 4) & 1) != 0)
     }
     #[doc = "Bit 5 - 5:5\\]
 Transmit masked interrupt status: This field returns the masked interrupt state of the transmit interrupt which is the AND product of raw interrupt state RIS.TXRIS and the mask setting IMSC.TXIM."]
     #[inline(always)]
-    pub fn txmis(&self) -> TXMIS_R {
-        TXMIS_R::new(((self.bits >> 5) & 1) != 0)
+    pub fn txmis(&self) -> TxmisR {
+        TxmisR::new(((self.bits >> 5) & 1) != 0)
     }
     #[doc = "Bit 6 - 6:6\\]
 Receive timeout masked interrupt status: Returns the masked interrupt state of the receive timeout interrupt. The raw interrupt for receive timeout cannot be set unless the mask is set (IMSC.RTIM = 1). This is because the mask acts as an enable for power saving. That is, the same status can be read from RTMIS and RIS.RTRIS."]
     #[inline(always)]
-    pub fn rtmis(&self) -> RTMIS_R {
-        RTMIS_R::new(((self.bits >> 6) & 1) != 0)
+    pub fn rtmis(&self) -> RtmisR {
+        RtmisR::new(((self.bits >> 6) & 1) != 0)
     }
     #[doc = "Bit 7 - 7:7\\]
 Framing error masked interrupt status: Returns the masked interrupt state of the framing error interrupt which is the AND product of raw interrupt state RIS.FERIS and the mask setting IMSC.FEIM."]
     #[inline(always)]
-    pub fn femis(&self) -> FEMIS_R {
-        FEMIS_R::new(((self.bits >> 7) & 1) != 0)
+    pub fn femis(&self) -> FemisR {
+        FemisR::new(((self.bits >> 7) & 1) != 0)
     }
     #[doc = "Bit 8 - 8:8\\]
 Parity error masked interrupt status: This field returns the masked interrupt state of the parity error interrupt which is the AND product of raw interrupt state RIS.PERIS and the mask setting IMSC.PEIM."]
     #[inline(always)]
-    pub fn pemis(&self) -> PEMIS_R {
-        PEMIS_R::new(((self.bits >> 8) & 1) != 0)
+    pub fn pemis(&self) -> PemisR {
+        PemisR::new(((self.bits >> 8) & 1) != 0)
     }
     #[doc = "Bit 9 - 9:9\\]
 Break error masked interrupt status: This field returns the masked interrupt state of the break error interrupt which is the AND product of raw interrupt state RIS.BERIS and the mask setting IMSC.BEIM."]
     #[inline(always)]
-    pub fn bemis(&self) -> BEMIS_R {
-        BEMIS_R::new(((self.bits >> 9) & 1) != 0)
+    pub fn bemis(&self) -> BemisR {
+        BemisR::new(((self.bits >> 9) & 1) != 0)
     }
     #[doc = "Bit 10 - 10:10\\]
 Overrun error masked interrupt status: This field returns the masked interrupt state of the overrun interrupt which is the AND product of raw interrupt state RIS.OERIS and the mask setting IMSC.OEIM."]
     #[inline(always)]
-    pub fn oemis(&self) -> OEMIS_R {
-        OEMIS_R::new(((self.bits >> 10) & 1) != 0)
+    pub fn oemis(&self) -> OemisR {
+        OemisR::new(((self.bits >> 10) & 1) != 0)
     }
     #[doc = "Bits 11:31 - 31:11\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved11(&self) -> RESERVED11_R {
-        RESERVED11_R::new((self.bits >> 11) & 0x001f_ffff)
+    pub fn reserved11(&self) -> Reserved11R {
+        Reserved11R::new((self.bits >> 11) & 0x001f_ffff)
     }
 }
 impl W {
@@ -173,102 +141,94 @@ impl W {
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved0(&mut self) -> RESERVED0_W<0> {
-        RESERVED0_W::new(self)
+    pub fn reserved0(&mut self) -> Reserved0W<MisSpec> {
+        Reserved0W::new(self, 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 Clear to Send (CTS) modem masked interrupt status: This field returns the masked interrupt state of the clear to send interrupt which is the AND product of raw interrupt state RIS.CTSRMIS and the mask setting IMSC.CTSMIM."]
     #[inline(always)]
     #[must_use]
-    pub fn ctsmmis(&mut self) -> CTSMMIS_W<1> {
-        CTSMMIS_W::new(self)
+    pub fn ctsmmis(&mut self) -> CtsmmisW<MisSpec> {
+        CtsmmisW::new(self, 1)
     }
     #[doc = "Bits 2:3 - 3:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved2(&mut self) -> RESERVED2_W<2> {
-        RESERVED2_W::new(self)
+    pub fn reserved2(&mut self) -> Reserved2W<MisSpec> {
+        Reserved2W::new(self, 2)
     }
     #[doc = "Bit 4 - 4:4\\]
 Receive masked interrupt status: This field returns the masked interrupt state of the receive interrupt which is the AND product of raw interrupt state RIS.RXRIS and the mask setting IMSC.RXIM."]
     #[inline(always)]
     #[must_use]
-    pub fn rxmis(&mut self) -> RXMIS_W<4> {
-        RXMIS_W::new(self)
+    pub fn rxmis(&mut self) -> RxmisW<MisSpec> {
+        RxmisW::new(self, 4)
     }
     #[doc = "Bit 5 - 5:5\\]
 Transmit masked interrupt status: This field returns the masked interrupt state of the transmit interrupt which is the AND product of raw interrupt state RIS.TXRIS and the mask setting IMSC.TXIM."]
     #[inline(always)]
     #[must_use]
-    pub fn txmis(&mut self) -> TXMIS_W<5> {
-        TXMIS_W::new(self)
+    pub fn txmis(&mut self) -> TxmisW<MisSpec> {
+        TxmisW::new(self, 5)
     }
     #[doc = "Bit 6 - 6:6\\]
 Receive timeout masked interrupt status: Returns the masked interrupt state of the receive timeout interrupt. The raw interrupt for receive timeout cannot be set unless the mask is set (IMSC.RTIM = 1). This is because the mask acts as an enable for power saving. That is, the same status can be read from RTMIS and RIS.RTRIS."]
     #[inline(always)]
     #[must_use]
-    pub fn rtmis(&mut self) -> RTMIS_W<6> {
-        RTMIS_W::new(self)
+    pub fn rtmis(&mut self) -> RtmisW<MisSpec> {
+        RtmisW::new(self, 6)
     }
     #[doc = "Bit 7 - 7:7\\]
 Framing error masked interrupt status: Returns the masked interrupt state of the framing error interrupt which is the AND product of raw interrupt state RIS.FERIS and the mask setting IMSC.FEIM."]
     #[inline(always)]
     #[must_use]
-    pub fn femis(&mut self) -> FEMIS_W<7> {
-        FEMIS_W::new(self)
+    pub fn femis(&mut self) -> FemisW<MisSpec> {
+        FemisW::new(self, 7)
     }
     #[doc = "Bit 8 - 8:8\\]
 Parity error masked interrupt status: This field returns the masked interrupt state of the parity error interrupt which is the AND product of raw interrupt state RIS.PERIS and the mask setting IMSC.PEIM."]
     #[inline(always)]
     #[must_use]
-    pub fn pemis(&mut self) -> PEMIS_W<8> {
-        PEMIS_W::new(self)
+    pub fn pemis(&mut self) -> PemisW<MisSpec> {
+        PemisW::new(self, 8)
     }
     #[doc = "Bit 9 - 9:9\\]
 Break error masked interrupt status: This field returns the masked interrupt state of the break error interrupt which is the AND product of raw interrupt state RIS.BERIS and the mask setting IMSC.BEIM."]
     #[inline(always)]
     #[must_use]
-    pub fn bemis(&mut self) -> BEMIS_W<9> {
-        BEMIS_W::new(self)
+    pub fn bemis(&mut self) -> BemisW<MisSpec> {
+        BemisW::new(self, 9)
     }
     #[doc = "Bit 10 - 10:10\\]
 Overrun error masked interrupt status: This field returns the masked interrupt state of the overrun interrupt which is the AND product of raw interrupt state RIS.OERIS and the mask setting IMSC.OEIM."]
     #[inline(always)]
     #[must_use]
-    pub fn oemis(&mut self) -> OEMIS_W<10> {
-        OEMIS_W::new(self)
+    pub fn oemis(&mut self) -> OemisW<MisSpec> {
+        OemisW::new(self, 10)
     }
     #[doc = "Bits 11:31 - 31:11\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved11(&mut self) -> RESERVED11_W<11> {
-        RESERVED11_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved11(&mut self) -> Reserved11W<MisSpec> {
+        Reserved11W::new(self, 11)
     }
 }
-#[doc = "Masked Interrupt Status\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mis](index.html) module"]
-pub struct MIS_SPEC;
-impl crate::RegisterSpec for MIS_SPEC {
+#[doc = "Masked Interrupt Status\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`mis::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`mis::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct MisSpec;
+impl crate::RegisterSpec for MisSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [mis::R](R) reader structure"]
-impl crate::Readable for MIS_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [mis::W](W) writer structure"]
-impl crate::Writable for MIS_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`mis::R`](R) reader structure"]
+impl crate::Readable for MisSpec {}
+#[doc = "`write(|w| ..)` method takes [`mis::W`](W) writer structure"]
+impl crate::Writable for MisSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets MIS to value 0"]
-impl crate::Resettable for MIS_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for MisSpec {
+    const RESET_VALUE: u32 = 0;
 }

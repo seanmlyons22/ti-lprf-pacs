@@ -1,952 +1,930 @@
 #[doc = "Register `CH1CCFG` reader"]
-pub struct R(crate::R<CH1CCFG_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<CH1CCFG_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<CH1CCFG_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<CH1CCFG_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Ch1ccfgSpec>;
 #[doc = "Register `CH1CCFG` writer"]
-pub struct W(crate::W<CH1CCFG_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<CH1CCFG_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
+pub type W = crate::W<Ch1ccfgSpec>;
+#[doc = "0:0\\]
+Edge configuration. Channel captures counter value at selected edge on signal source selected by CAPT_SRC. See CH1EVCFG.CCACT.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Edge {
+    #[doc = "1: Capture CNTR.VALUE at rising edge of CAPT_SRC."]
+    Rising = 1,
+    #[doc = "0: Capture CNTR.VALUE at falling edge of CAPT_SRC."]
+    Falling = 0,
 }
-impl core::ops::DerefMut for W {
+impl From<Edge> for bool {
     #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<CH1CCFG_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<CH1CCFG_SPEC>) -> Self {
-        W(writer)
+    fn from(variant: Edge) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `EDGE` reader - 0:0\\]
 Edge configuration. Channel captures counter value at selected edge on signal source selected by CAPT_SRC. See CH1EVCFG.CCACT."]
-pub type EDGE_R = crate::BitReader<EDGE_A>;
-#[doc = "0:0\\]
-Edge configuration. Channel captures counter value at selected edge on signal source selected by CAPT_SRC. See CH1EVCFG.CCACT.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum EDGE_A {
-    #[doc = "1: Capture CNTR.VALUE at rising edge of CAPT_SRC."]
-    RISING = 1,
-    #[doc = "0: Capture CNTR.VALUE at falling edge of CAPT_SRC."]
-    FALLING = 0,
-}
-impl From<EDGE_A> for bool {
-    #[inline(always)]
-    fn from(variant: EDGE_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl EDGE_R {
+pub type EdgeR = crate::BitReader<Edge>;
+impl EdgeR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> EDGE_A {
+    pub const fn variant(&self) -> Edge {
         match self.bits {
-            true => EDGE_A::RISING,
-            false => EDGE_A::FALLING,
+            true => Edge::Rising,
+            false => Edge::Falling,
         }
     }
-    #[doc = "Checks if the value of the field is `RISING`"]
+    #[doc = "Capture CNTR.VALUE at rising edge of CAPT_SRC."]
     #[inline(always)]
     pub fn is_rising(&self) -> bool {
-        *self == EDGE_A::RISING
+        *self == Edge::Rising
     }
-    #[doc = "Checks if the value of the field is `FALLING`"]
+    #[doc = "Capture CNTR.VALUE at falling edge of CAPT_SRC."]
     #[inline(always)]
     pub fn is_falling(&self) -> bool {
-        *self == EDGE_A::FALLING
+        *self == Edge::Falling
     }
 }
 #[doc = "Field `EDGE` writer - 0:0\\]
 Edge configuration. Channel captures counter value at selected edge on signal source selected by CAPT_SRC. See CH1EVCFG.CCACT."]
-pub type EDGE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CH1CCFG_SPEC, EDGE_A, O>;
-impl<'a, const O: u8> EDGE_W<'a, O> {
+pub type EdgeW<'a, REG> = crate::BitWriter<'a, REG, Edge>;
+impl<'a, REG> EdgeW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Capture CNTR.VALUE at rising edge of CAPT_SRC."]
     #[inline(always)]
-    pub fn rising(self) -> &'a mut W {
-        self.variant(EDGE_A::RISING)
+    pub fn rising(self) -> &'a mut crate::W<REG> {
+        self.variant(Edge::Rising)
     }
     #[doc = "Capture CNTR.VALUE at falling edge of CAPT_SRC."]
     #[inline(always)]
-    pub fn falling(self) -> &'a mut W {
-        self.variant(EDGE_A::FALLING)
+    pub fn falling(self) -> &'a mut crate::W<REG> {
+        self.variant(Edge::Falling)
     }
 }
-#[doc = "Field `CAPT_SRC` reader - 6:1\\]
-Select capture signal source from the asynchronous AUX event bus. The selected signal enters the edge-detection circuit. False capture events can occur when: - the edge-detection circuit contains expired signal samples and the circuit is enabled without flush as described in CH1EVCFG - this register is reconfigured while CTL.MODE is different from DIS. You can avoid false capture events. When wanted channel function is: - SET_ON_CAPT_DIS, see description for SET_ON_CAPT_DIS in CH1EVCFG.CCACT. - SET_ON_CAPT, see description for SET_ON_CAPT in CH1EVCFG.CCACT. - PER_PULSE_WIDTH_MEAS, see description for PER_PULSE_WIDTH_MEAS in CH1EVCFG.CCACT. If you write a non-enumerated value the behavior is identical to NO_EVENT. The written value is returned when read."]
-pub type CAPT_SRC_R = crate::FieldReader<u8, CAPT_SRC_A>;
 #[doc = "6:1\\]
 Select capture signal source from the asynchronous AUX event bus. The selected signal enters the edge-detection circuit. False capture events can occur when: - the edge-detection circuit contains expired signal samples and the circuit is enabled without flush as described in CH1EVCFG - this register is reconfigured while CTL.MODE is different from DIS. You can avoid false capture events. When wanted channel function is: - SET_ON_CAPT_DIS, see description for SET_ON_CAPT_DIS in CH1EVCFG.CCACT. - SET_ON_CAPT, see description for SET_ON_CAPT in CH1EVCFG.CCACT. - PER_PULSE_WIDTH_MEAS, see description for PER_PULSE_WIDTH_MEAS in CH1EVCFG.CCACT. If you write a non-enumerated value the behavior is identical to NO_EVENT. The written value is returned when read.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum CAPT_SRC_A {
+pub enum CaptSrc {
     #[doc = "63: No event."]
-    NO_EVENT = 63,
+    NoEvent = 63,
     #[doc = "61: AUX_EVCTL:EVSTAT3.AUX_SMPH_AUTOTAKE_DONE"]
-    AUX_SMPH_AUTOTAKE_DONE = 61,
+    AuxSmphAutotakeDone = 61,
     #[doc = "60: AUX_EVCTL:EVSTAT3.AUX_ADC_FIFO_NOT_EMPTY"]
-    AUX_ADC_FIFO_NOT_EMPTY = 60,
+    AuxAdcFifoNotEmpty = 60,
     #[doc = "59: AUX_EVCTL:EVSTAT3.AUX_ADC_FIFO_ALMOST_FULL"]
-    AUX_ADC_FIFO_ALMOST_FULL = 59,
+    AuxAdcFifoAlmostFull = 59,
     #[doc = "58: AUX_EVCTL:EVSTAT3.AUX_ADC_IRQ"]
-    AUX_ADC_IRQ = 58,
+    AuxAdcIrq = 58,
     #[doc = "57: AUX_EVCTL:EVSTAT3.AUX_ADC_DONE"]
-    AUX_ADC_DONE = 57,
+    AuxAdcDone = 57,
     #[doc = "56: AUX_EVCTL:EVSTAT3.AUX_ISRC_RESET_N"]
-    AUX_ISRC_RESET_N = 56,
+    AuxIsrcResetN = 56,
     #[doc = "55: AUX_EVCTL:EVSTAT3.AUX_TDC_DONE"]
-    AUX_TDC_DONE = 55,
+    AuxTdcDone = 55,
     #[doc = "54: AUX_EVCTL:EVSTAT3.AUX_TIMER0_EV"]
-    AUX_TIMER0_EV = 54,
+    AuxTimer0Ev = 54,
     #[doc = "53: AUX_EVCTL:EVSTAT3.AUX_TIMER1_EV"]
-    AUX_TIMER1_EV = 53,
+    AuxTimer1Ev = 53,
     #[doc = "51: AUX_EVCTL:EVSTAT3.AUX_TIMER2_EV3"]
-    AUX_TIMER2_EV3 = 51,
+    AuxTimer2Ev3 = 51,
     #[doc = "50: AUX_EVCTL:EVSTAT3.AUX_TIMER2_EV2"]
-    AUX_TIMER2_EV2 = 50,
+    AuxTimer2Ev2 = 50,
     #[doc = "49: AUX_EVCTL:EVSTAT3.AUX_TIMER2_EV1"]
-    AUX_TIMER2_EV1 = 49,
+    AuxTimer2Ev1 = 49,
     #[doc = "48: AUX_EVCTL:EVSTAT3.AUX_TIMER2_EV0"]
-    AUX_TIMER2_EV0 = 48,
+    AuxTimer2Ev0 = 48,
     #[doc = "47: AUX_EVCTL:EVSTAT2.AUX_COMPB"]
-    AUX_COMPB = 47,
+    AuxCompb = 47,
     #[doc = "46: AUX_EVCTL:EVSTAT2.AUX_COMPA"]
-    AUX_COMPA = 46,
+    AuxCompa = 46,
     #[doc = "45: AUX_EVCTL:EVSTAT2.MCU_OBSMUX1"]
-    MCU_OBSMUX1 = 45,
+    McuObsmux1 = 45,
     #[doc = "44: AUX_EVCTL:EVSTAT2.MCU_OBSMUX0"]
-    MCU_OBSMUX0 = 44,
+    McuObsmux0 = 44,
     #[doc = "43: AUX_EVCTL:EVSTAT2.MCU_EV"]
-    MCU_EV = 43,
+    McuEv = 43,
     #[doc = "42: AUX_EVCTL:EVSTAT2.ACLK_REF"]
-    ACLK_REF = 42,
+    AclkRef = 42,
     #[doc = "41: AUX_EVCTL:EVSTAT2.VDDR_RECHARGE"]
-    VDDR_RECHARGE = 41,
+    VddrRecharge = 41,
     #[doc = "40: AUX_EVCTL:EVSTAT2.MCU_ACTIVE"]
-    MCU_ACTIVE = 40,
+    McuActive = 40,
     #[doc = "39: AUX_EVCTL:EVSTAT2.PWR_DWN"]
-    PWR_DWN = 39,
+    PwrDwn = 39,
     #[doc = "38: AUX_EVCTL:EVSTAT2.SCLK_LF"]
-    SCLK_LF = 38,
+    SclkLf = 38,
     #[doc = "37: AUX_EVCTL:EVSTAT2.AON_BATMON_TEMP_UPD"]
-    AON_BATMON_TEMP_UPD = 37,
+    AonBatmonTempUpd = 37,
     #[doc = "36: AUX_EVCTL:EVSTAT2.AON_BATMON_BAT_UPD"]
-    AON_BATMON_BAT_UPD = 36,
+    AonBatmonBatUpd = 36,
     #[doc = "35: AUX_EVCTL:EVSTAT2.AON_RTC_4KHZ"]
-    AON_RTC_4KHZ = 35,
+    AonRtc4khz = 35,
     #[doc = "34: AUX_EVCTL:EVSTAT2.AON_RTC_CH2_DLY"]
-    AON_RTC_CH2_DLY = 34,
+    AonRtcCh2Dly = 34,
     #[doc = "33: AUX_EVCTL:EVSTAT2.AON_RTC_CH2"]
-    AON_RTC_CH2 = 33,
+    AonRtcCh2 = 33,
     #[doc = "32: AUX_EVCTL:EVSTAT2.MANUAL_EV"]
-    MANUAL_EV = 32,
+    ManualEv = 32,
     #[doc = "31: AUX_EVCTL:EVSTAT1.AUXIO31"]
-    AUXIO31 = 31,
+    Auxio31 = 31,
     #[doc = "30: AUX_EVCTL:EVSTAT1.AUXIO30"]
-    AUXIO30 = 30,
+    Auxio30 = 30,
     #[doc = "29: AUX_EVCTL:EVSTAT1.AUXIO29"]
-    AUXIO29 = 29,
+    Auxio29 = 29,
     #[doc = "28: AUX_EVCTL:EVSTAT1.AUXIO28"]
-    AUXIO28 = 28,
+    Auxio28 = 28,
     #[doc = "27: AUX_EVCTL:EVSTAT1.AUXIO27"]
-    AUXIO27 = 27,
+    Auxio27 = 27,
     #[doc = "26: AUX_EVCTL:EVSTAT1.AUXIO26"]
-    AUXIO26 = 26,
+    Auxio26 = 26,
     #[doc = "25: AUX_EVCTL:EVSTAT1.AUXIO25"]
-    AUXIO25 = 25,
+    Auxio25 = 25,
     #[doc = "24: AUX_EVCTL:EVSTAT1.AUXIO24"]
-    AUXIO24 = 24,
+    Auxio24 = 24,
     #[doc = "23: AUX_EVCTL:EVSTAT1.AUXIO23"]
-    AUXIO23 = 23,
+    Auxio23 = 23,
     #[doc = "22: AUX_EVCTL:EVSTAT1.AUXIO22"]
-    AUXIO22 = 22,
+    Auxio22 = 22,
     #[doc = "21: AUX_EVCTL:EVSTAT1.AUXIO21"]
-    AUXIO21 = 21,
+    Auxio21 = 21,
     #[doc = "20: AUX_EVCTL:EVSTAT1.AUXIO20"]
-    AUXIO20 = 20,
+    Auxio20 = 20,
     #[doc = "19: AUX_EVCTL:EVSTAT1.AUXIO19"]
-    AUXIO19 = 19,
+    Auxio19 = 19,
     #[doc = "18: AUX_EVCTL:EVSTAT1.AUXIO18"]
-    AUXIO18 = 18,
+    Auxio18 = 18,
     #[doc = "17: AUX_EVCTL:EVSTAT1.AUXIO17"]
-    AUXIO17 = 17,
+    Auxio17 = 17,
     #[doc = "16: AUX_EVCTL:EVSTAT1.AUXIO16"]
-    AUXIO16 = 16,
+    Auxio16 = 16,
     #[doc = "15: AUX_EVCTL:EVSTAT0.AUXIO15"]
-    AUXIO15 = 15,
+    Auxio15 = 15,
     #[doc = "14: AUX_EVCTL:EVSTAT0.AUXIO14"]
-    AUXIO14 = 14,
+    Auxio14 = 14,
     #[doc = "13: AUX_EVCTL:EVSTAT0.AUXIO13"]
-    AUXIO13 = 13,
+    Auxio13 = 13,
     #[doc = "12: AUX_EVCTL:EVSTAT0.AUXIO12"]
-    AUXIO12 = 12,
+    Auxio12 = 12,
     #[doc = "11: AUX_EVCTL:EVSTAT0.AUXIO11"]
-    AUXIO11 = 11,
+    Auxio11 = 11,
     #[doc = "10: AUX_EVCTL:EVSTAT0.AUXIO10"]
-    AUXIO10 = 10,
+    Auxio10 = 10,
     #[doc = "9: AUX_EVCTL:EVSTAT0.AUXIO9"]
-    AUXIO9 = 9,
+    Auxio9 = 9,
     #[doc = "8: AUX_EVCTL:EVSTAT0.AUXIO8"]
-    AUXIO8 = 8,
+    Auxio8 = 8,
     #[doc = "7: AUX_EVCTL:EVSTAT0.AUXIO7"]
-    AUXIO7 = 7,
+    Auxio7 = 7,
     #[doc = "6: AUX_EVCTL:EVSTAT0.AUXIO6"]
-    AUXIO6 = 6,
+    Auxio6 = 6,
     #[doc = "5: AUX_EVCTL:EVSTAT0.AUXIO5"]
-    AUXIO5 = 5,
+    Auxio5 = 5,
     #[doc = "4: AUX_EVCTL:EVSTAT0.AUXIO4"]
-    AUXIO4 = 4,
+    Auxio4 = 4,
     #[doc = "3: AUX_EVCTL:EVSTAT0.AUXIO3"]
-    AUXIO3 = 3,
+    Auxio3 = 3,
     #[doc = "2: AUX_EVCTL:EVSTAT0.AUXIO2"]
-    AUXIO2 = 2,
+    Auxio2 = 2,
     #[doc = "1: AUX_EVCTL:EVSTAT0.AUXIO1"]
-    AUXIO1 = 1,
+    Auxio1 = 1,
     #[doc = "0: AUX_EVCTL:EVSTAT0.AUXIO0"]
-    AUXIO0 = 0,
+    Auxio0 = 0,
 }
-impl From<CAPT_SRC_A> for u8 {
+impl From<CaptSrc> for u8 {
     #[inline(always)]
-    fn from(variant: CAPT_SRC_A) -> Self {
+    fn from(variant: CaptSrc) -> Self {
         variant as _
     }
 }
-impl CAPT_SRC_R {
+impl crate::FieldSpec for CaptSrc {
+    type Ux = u8;
+}
+impl crate::IsEnum for CaptSrc {}
+#[doc = "Field `CAPT_SRC` reader - 6:1\\]
+Select capture signal source from the asynchronous AUX event bus. The selected signal enters the edge-detection circuit. False capture events can occur when: - the edge-detection circuit contains expired signal samples and the circuit is enabled without flush as described in CH1EVCFG - this register is reconfigured while CTL.MODE is different from DIS. You can avoid false capture events. When wanted channel function is: - SET_ON_CAPT_DIS, see description for SET_ON_CAPT_DIS in CH1EVCFG.CCACT. - SET_ON_CAPT, see description for SET_ON_CAPT in CH1EVCFG.CCACT. - PER_PULSE_WIDTH_MEAS, see description for PER_PULSE_WIDTH_MEAS in CH1EVCFG.CCACT. If you write a non-enumerated value the behavior is identical to NO_EVENT. The written value is returned when read."]
+pub type CaptSrcR = crate::FieldReader<CaptSrc>;
+impl CaptSrcR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<CAPT_SRC_A> {
+    pub const fn variant(&self) -> Option<CaptSrc> {
         match self.bits {
-            63 => Some(CAPT_SRC_A::NO_EVENT),
-            61 => Some(CAPT_SRC_A::AUX_SMPH_AUTOTAKE_DONE),
-            60 => Some(CAPT_SRC_A::AUX_ADC_FIFO_NOT_EMPTY),
-            59 => Some(CAPT_SRC_A::AUX_ADC_FIFO_ALMOST_FULL),
-            58 => Some(CAPT_SRC_A::AUX_ADC_IRQ),
-            57 => Some(CAPT_SRC_A::AUX_ADC_DONE),
-            56 => Some(CAPT_SRC_A::AUX_ISRC_RESET_N),
-            55 => Some(CAPT_SRC_A::AUX_TDC_DONE),
-            54 => Some(CAPT_SRC_A::AUX_TIMER0_EV),
-            53 => Some(CAPT_SRC_A::AUX_TIMER1_EV),
-            51 => Some(CAPT_SRC_A::AUX_TIMER2_EV3),
-            50 => Some(CAPT_SRC_A::AUX_TIMER2_EV2),
-            49 => Some(CAPT_SRC_A::AUX_TIMER2_EV1),
-            48 => Some(CAPT_SRC_A::AUX_TIMER2_EV0),
-            47 => Some(CAPT_SRC_A::AUX_COMPB),
-            46 => Some(CAPT_SRC_A::AUX_COMPA),
-            45 => Some(CAPT_SRC_A::MCU_OBSMUX1),
-            44 => Some(CAPT_SRC_A::MCU_OBSMUX0),
-            43 => Some(CAPT_SRC_A::MCU_EV),
-            42 => Some(CAPT_SRC_A::ACLK_REF),
-            41 => Some(CAPT_SRC_A::VDDR_RECHARGE),
-            40 => Some(CAPT_SRC_A::MCU_ACTIVE),
-            39 => Some(CAPT_SRC_A::PWR_DWN),
-            38 => Some(CAPT_SRC_A::SCLK_LF),
-            37 => Some(CAPT_SRC_A::AON_BATMON_TEMP_UPD),
-            36 => Some(CAPT_SRC_A::AON_BATMON_BAT_UPD),
-            35 => Some(CAPT_SRC_A::AON_RTC_4KHZ),
-            34 => Some(CAPT_SRC_A::AON_RTC_CH2_DLY),
-            33 => Some(CAPT_SRC_A::AON_RTC_CH2),
-            32 => Some(CAPT_SRC_A::MANUAL_EV),
-            31 => Some(CAPT_SRC_A::AUXIO31),
-            30 => Some(CAPT_SRC_A::AUXIO30),
-            29 => Some(CAPT_SRC_A::AUXIO29),
-            28 => Some(CAPT_SRC_A::AUXIO28),
-            27 => Some(CAPT_SRC_A::AUXIO27),
-            26 => Some(CAPT_SRC_A::AUXIO26),
-            25 => Some(CAPT_SRC_A::AUXIO25),
-            24 => Some(CAPT_SRC_A::AUXIO24),
-            23 => Some(CAPT_SRC_A::AUXIO23),
-            22 => Some(CAPT_SRC_A::AUXIO22),
-            21 => Some(CAPT_SRC_A::AUXIO21),
-            20 => Some(CAPT_SRC_A::AUXIO20),
-            19 => Some(CAPT_SRC_A::AUXIO19),
-            18 => Some(CAPT_SRC_A::AUXIO18),
-            17 => Some(CAPT_SRC_A::AUXIO17),
-            16 => Some(CAPT_SRC_A::AUXIO16),
-            15 => Some(CAPT_SRC_A::AUXIO15),
-            14 => Some(CAPT_SRC_A::AUXIO14),
-            13 => Some(CAPT_SRC_A::AUXIO13),
-            12 => Some(CAPT_SRC_A::AUXIO12),
-            11 => Some(CAPT_SRC_A::AUXIO11),
-            10 => Some(CAPT_SRC_A::AUXIO10),
-            9 => Some(CAPT_SRC_A::AUXIO9),
-            8 => Some(CAPT_SRC_A::AUXIO8),
-            7 => Some(CAPT_SRC_A::AUXIO7),
-            6 => Some(CAPT_SRC_A::AUXIO6),
-            5 => Some(CAPT_SRC_A::AUXIO5),
-            4 => Some(CAPT_SRC_A::AUXIO4),
-            3 => Some(CAPT_SRC_A::AUXIO3),
-            2 => Some(CAPT_SRC_A::AUXIO2),
-            1 => Some(CAPT_SRC_A::AUXIO1),
-            0 => Some(CAPT_SRC_A::AUXIO0),
+            63 => Some(CaptSrc::NoEvent),
+            61 => Some(CaptSrc::AuxSmphAutotakeDone),
+            60 => Some(CaptSrc::AuxAdcFifoNotEmpty),
+            59 => Some(CaptSrc::AuxAdcFifoAlmostFull),
+            58 => Some(CaptSrc::AuxAdcIrq),
+            57 => Some(CaptSrc::AuxAdcDone),
+            56 => Some(CaptSrc::AuxIsrcResetN),
+            55 => Some(CaptSrc::AuxTdcDone),
+            54 => Some(CaptSrc::AuxTimer0Ev),
+            53 => Some(CaptSrc::AuxTimer1Ev),
+            51 => Some(CaptSrc::AuxTimer2Ev3),
+            50 => Some(CaptSrc::AuxTimer2Ev2),
+            49 => Some(CaptSrc::AuxTimer2Ev1),
+            48 => Some(CaptSrc::AuxTimer2Ev0),
+            47 => Some(CaptSrc::AuxCompb),
+            46 => Some(CaptSrc::AuxCompa),
+            45 => Some(CaptSrc::McuObsmux1),
+            44 => Some(CaptSrc::McuObsmux0),
+            43 => Some(CaptSrc::McuEv),
+            42 => Some(CaptSrc::AclkRef),
+            41 => Some(CaptSrc::VddrRecharge),
+            40 => Some(CaptSrc::McuActive),
+            39 => Some(CaptSrc::PwrDwn),
+            38 => Some(CaptSrc::SclkLf),
+            37 => Some(CaptSrc::AonBatmonTempUpd),
+            36 => Some(CaptSrc::AonBatmonBatUpd),
+            35 => Some(CaptSrc::AonRtc4khz),
+            34 => Some(CaptSrc::AonRtcCh2Dly),
+            33 => Some(CaptSrc::AonRtcCh2),
+            32 => Some(CaptSrc::ManualEv),
+            31 => Some(CaptSrc::Auxio31),
+            30 => Some(CaptSrc::Auxio30),
+            29 => Some(CaptSrc::Auxio29),
+            28 => Some(CaptSrc::Auxio28),
+            27 => Some(CaptSrc::Auxio27),
+            26 => Some(CaptSrc::Auxio26),
+            25 => Some(CaptSrc::Auxio25),
+            24 => Some(CaptSrc::Auxio24),
+            23 => Some(CaptSrc::Auxio23),
+            22 => Some(CaptSrc::Auxio22),
+            21 => Some(CaptSrc::Auxio21),
+            20 => Some(CaptSrc::Auxio20),
+            19 => Some(CaptSrc::Auxio19),
+            18 => Some(CaptSrc::Auxio18),
+            17 => Some(CaptSrc::Auxio17),
+            16 => Some(CaptSrc::Auxio16),
+            15 => Some(CaptSrc::Auxio15),
+            14 => Some(CaptSrc::Auxio14),
+            13 => Some(CaptSrc::Auxio13),
+            12 => Some(CaptSrc::Auxio12),
+            11 => Some(CaptSrc::Auxio11),
+            10 => Some(CaptSrc::Auxio10),
+            9 => Some(CaptSrc::Auxio9),
+            8 => Some(CaptSrc::Auxio8),
+            7 => Some(CaptSrc::Auxio7),
+            6 => Some(CaptSrc::Auxio6),
+            5 => Some(CaptSrc::Auxio5),
+            4 => Some(CaptSrc::Auxio4),
+            3 => Some(CaptSrc::Auxio3),
+            2 => Some(CaptSrc::Auxio2),
+            1 => Some(CaptSrc::Auxio1),
+            0 => Some(CaptSrc::Auxio0),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `NO_EVENT`"]
+    #[doc = "No event."]
     #[inline(always)]
     pub fn is_no_event(&self) -> bool {
-        *self == CAPT_SRC_A::NO_EVENT
+        *self == CaptSrc::NoEvent
     }
-    #[doc = "Checks if the value of the field is `AUX_SMPH_AUTOTAKE_DONE`"]
+    #[doc = "AUX_EVCTL:EVSTAT3.AUX_SMPH_AUTOTAKE_DONE"]
     #[inline(always)]
     pub fn is_aux_smph_autotake_done(&self) -> bool {
-        *self == CAPT_SRC_A::AUX_SMPH_AUTOTAKE_DONE
+        *self == CaptSrc::AuxSmphAutotakeDone
     }
-    #[doc = "Checks if the value of the field is `AUX_ADC_FIFO_NOT_EMPTY`"]
+    #[doc = "AUX_EVCTL:EVSTAT3.AUX_ADC_FIFO_NOT_EMPTY"]
     #[inline(always)]
     pub fn is_aux_adc_fifo_not_empty(&self) -> bool {
-        *self == CAPT_SRC_A::AUX_ADC_FIFO_NOT_EMPTY
+        *self == CaptSrc::AuxAdcFifoNotEmpty
     }
-    #[doc = "Checks if the value of the field is `AUX_ADC_FIFO_ALMOST_FULL`"]
+    #[doc = "AUX_EVCTL:EVSTAT3.AUX_ADC_FIFO_ALMOST_FULL"]
     #[inline(always)]
     pub fn is_aux_adc_fifo_almost_full(&self) -> bool {
-        *self == CAPT_SRC_A::AUX_ADC_FIFO_ALMOST_FULL
+        *self == CaptSrc::AuxAdcFifoAlmostFull
     }
-    #[doc = "Checks if the value of the field is `AUX_ADC_IRQ`"]
+    #[doc = "AUX_EVCTL:EVSTAT3.AUX_ADC_IRQ"]
     #[inline(always)]
     pub fn is_aux_adc_irq(&self) -> bool {
-        *self == CAPT_SRC_A::AUX_ADC_IRQ
+        *self == CaptSrc::AuxAdcIrq
     }
-    #[doc = "Checks if the value of the field is `AUX_ADC_DONE`"]
+    #[doc = "AUX_EVCTL:EVSTAT3.AUX_ADC_DONE"]
     #[inline(always)]
     pub fn is_aux_adc_done(&self) -> bool {
-        *self == CAPT_SRC_A::AUX_ADC_DONE
+        *self == CaptSrc::AuxAdcDone
     }
-    #[doc = "Checks if the value of the field is `AUX_ISRC_RESET_N`"]
+    #[doc = "AUX_EVCTL:EVSTAT3.AUX_ISRC_RESET_N"]
     #[inline(always)]
     pub fn is_aux_isrc_reset_n(&self) -> bool {
-        *self == CAPT_SRC_A::AUX_ISRC_RESET_N
+        *self == CaptSrc::AuxIsrcResetN
     }
-    #[doc = "Checks if the value of the field is `AUX_TDC_DONE`"]
+    #[doc = "AUX_EVCTL:EVSTAT3.AUX_TDC_DONE"]
     #[inline(always)]
     pub fn is_aux_tdc_done(&self) -> bool {
-        *self == CAPT_SRC_A::AUX_TDC_DONE
+        *self == CaptSrc::AuxTdcDone
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER0_EV`"]
+    #[doc = "AUX_EVCTL:EVSTAT3.AUX_TIMER0_EV"]
     #[inline(always)]
     pub fn is_aux_timer0_ev(&self) -> bool {
-        *self == CAPT_SRC_A::AUX_TIMER0_EV
+        *self == CaptSrc::AuxTimer0Ev
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER1_EV`"]
+    #[doc = "AUX_EVCTL:EVSTAT3.AUX_TIMER1_EV"]
     #[inline(always)]
     pub fn is_aux_timer1_ev(&self) -> bool {
-        *self == CAPT_SRC_A::AUX_TIMER1_EV
+        *self == CaptSrc::AuxTimer1Ev
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER2_EV3`"]
+    #[doc = "AUX_EVCTL:EVSTAT3.AUX_TIMER2_EV3"]
     #[inline(always)]
     pub fn is_aux_timer2_ev3(&self) -> bool {
-        *self == CAPT_SRC_A::AUX_TIMER2_EV3
+        *self == CaptSrc::AuxTimer2Ev3
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER2_EV2`"]
+    #[doc = "AUX_EVCTL:EVSTAT3.AUX_TIMER2_EV2"]
     #[inline(always)]
     pub fn is_aux_timer2_ev2(&self) -> bool {
-        *self == CAPT_SRC_A::AUX_TIMER2_EV2
+        *self == CaptSrc::AuxTimer2Ev2
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER2_EV1`"]
+    #[doc = "AUX_EVCTL:EVSTAT3.AUX_TIMER2_EV1"]
     #[inline(always)]
     pub fn is_aux_timer2_ev1(&self) -> bool {
-        *self == CAPT_SRC_A::AUX_TIMER2_EV1
+        *self == CaptSrc::AuxTimer2Ev1
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER2_EV0`"]
+    #[doc = "AUX_EVCTL:EVSTAT3.AUX_TIMER2_EV0"]
     #[inline(always)]
     pub fn is_aux_timer2_ev0(&self) -> bool {
-        *self == CAPT_SRC_A::AUX_TIMER2_EV0
+        *self == CaptSrc::AuxTimer2Ev0
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPB`"]
+    #[doc = "AUX_EVCTL:EVSTAT2.AUX_COMPB"]
     #[inline(always)]
     pub fn is_aux_compb(&self) -> bool {
-        *self == CAPT_SRC_A::AUX_COMPB
+        *self == CaptSrc::AuxCompb
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPA`"]
+    #[doc = "AUX_EVCTL:EVSTAT2.AUX_COMPA"]
     #[inline(always)]
     pub fn is_aux_compa(&self) -> bool {
-        *self == CAPT_SRC_A::AUX_COMPA
+        *self == CaptSrc::AuxCompa
     }
-    #[doc = "Checks if the value of the field is `MCU_OBSMUX1`"]
+    #[doc = "AUX_EVCTL:EVSTAT2.MCU_OBSMUX1"]
     #[inline(always)]
     pub fn is_mcu_obsmux1(&self) -> bool {
-        *self == CAPT_SRC_A::MCU_OBSMUX1
+        *self == CaptSrc::McuObsmux1
     }
-    #[doc = "Checks if the value of the field is `MCU_OBSMUX0`"]
+    #[doc = "AUX_EVCTL:EVSTAT2.MCU_OBSMUX0"]
     #[inline(always)]
     pub fn is_mcu_obsmux0(&self) -> bool {
-        *self == CAPT_SRC_A::MCU_OBSMUX0
+        *self == CaptSrc::McuObsmux0
     }
-    #[doc = "Checks if the value of the field is `MCU_EV`"]
+    #[doc = "AUX_EVCTL:EVSTAT2.MCU_EV"]
     #[inline(always)]
     pub fn is_mcu_ev(&self) -> bool {
-        *self == CAPT_SRC_A::MCU_EV
+        *self == CaptSrc::McuEv
     }
-    #[doc = "Checks if the value of the field is `ACLK_REF`"]
+    #[doc = "AUX_EVCTL:EVSTAT2.ACLK_REF"]
     #[inline(always)]
     pub fn is_aclk_ref(&self) -> bool {
-        *self == CAPT_SRC_A::ACLK_REF
+        *self == CaptSrc::AclkRef
     }
-    #[doc = "Checks if the value of the field is `VDDR_RECHARGE`"]
+    #[doc = "AUX_EVCTL:EVSTAT2.VDDR_RECHARGE"]
     #[inline(always)]
     pub fn is_vddr_recharge(&self) -> bool {
-        *self == CAPT_SRC_A::VDDR_RECHARGE
+        *self == CaptSrc::VddrRecharge
     }
-    #[doc = "Checks if the value of the field is `MCU_ACTIVE`"]
+    #[doc = "AUX_EVCTL:EVSTAT2.MCU_ACTIVE"]
     #[inline(always)]
     pub fn is_mcu_active(&self) -> bool {
-        *self == CAPT_SRC_A::MCU_ACTIVE
+        *self == CaptSrc::McuActive
     }
-    #[doc = "Checks if the value of the field is `PWR_DWN`"]
+    #[doc = "AUX_EVCTL:EVSTAT2.PWR_DWN"]
     #[inline(always)]
     pub fn is_pwr_dwn(&self) -> bool {
-        *self == CAPT_SRC_A::PWR_DWN
+        *self == CaptSrc::PwrDwn
     }
-    #[doc = "Checks if the value of the field is `SCLK_LF`"]
+    #[doc = "AUX_EVCTL:EVSTAT2.SCLK_LF"]
     #[inline(always)]
     pub fn is_sclk_lf(&self) -> bool {
-        *self == CAPT_SRC_A::SCLK_LF
+        *self == CaptSrc::SclkLf
     }
-    #[doc = "Checks if the value of the field is `AON_BATMON_TEMP_UPD`"]
+    #[doc = "AUX_EVCTL:EVSTAT2.AON_BATMON_TEMP_UPD"]
     #[inline(always)]
     pub fn is_aon_batmon_temp_upd(&self) -> bool {
-        *self == CAPT_SRC_A::AON_BATMON_TEMP_UPD
+        *self == CaptSrc::AonBatmonTempUpd
     }
-    #[doc = "Checks if the value of the field is `AON_BATMON_BAT_UPD`"]
+    #[doc = "AUX_EVCTL:EVSTAT2.AON_BATMON_BAT_UPD"]
     #[inline(always)]
     pub fn is_aon_batmon_bat_upd(&self) -> bool {
-        *self == CAPT_SRC_A::AON_BATMON_BAT_UPD
+        *self == CaptSrc::AonBatmonBatUpd
     }
-    #[doc = "Checks if the value of the field is `AON_RTC_4KHZ`"]
+    #[doc = "AUX_EVCTL:EVSTAT2.AON_RTC_4KHZ"]
     #[inline(always)]
     pub fn is_aon_rtc_4khz(&self) -> bool {
-        *self == CAPT_SRC_A::AON_RTC_4KHZ
+        *self == CaptSrc::AonRtc4khz
     }
-    #[doc = "Checks if the value of the field is `AON_RTC_CH2_DLY`"]
+    #[doc = "AUX_EVCTL:EVSTAT2.AON_RTC_CH2_DLY"]
     #[inline(always)]
     pub fn is_aon_rtc_ch2_dly(&self) -> bool {
-        *self == CAPT_SRC_A::AON_RTC_CH2_DLY
+        *self == CaptSrc::AonRtcCh2Dly
     }
-    #[doc = "Checks if the value of the field is `AON_RTC_CH2`"]
+    #[doc = "AUX_EVCTL:EVSTAT2.AON_RTC_CH2"]
     #[inline(always)]
     pub fn is_aon_rtc_ch2(&self) -> bool {
-        *self == CAPT_SRC_A::AON_RTC_CH2
+        *self == CaptSrc::AonRtcCh2
     }
-    #[doc = "Checks if the value of the field is `MANUAL_EV`"]
+    #[doc = "AUX_EVCTL:EVSTAT2.MANUAL_EV"]
     #[inline(always)]
     pub fn is_manual_ev(&self) -> bool {
-        *self == CAPT_SRC_A::MANUAL_EV
+        *self == CaptSrc::ManualEv
     }
-    #[doc = "Checks if the value of the field is `AUXIO31`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.AUXIO31"]
     #[inline(always)]
     pub fn is_auxio31(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO31
+        *self == CaptSrc::Auxio31
     }
-    #[doc = "Checks if the value of the field is `AUXIO30`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.AUXIO30"]
     #[inline(always)]
     pub fn is_auxio30(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO30
+        *self == CaptSrc::Auxio30
     }
-    #[doc = "Checks if the value of the field is `AUXIO29`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.AUXIO29"]
     #[inline(always)]
     pub fn is_auxio29(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO29
+        *self == CaptSrc::Auxio29
     }
-    #[doc = "Checks if the value of the field is `AUXIO28`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.AUXIO28"]
     #[inline(always)]
     pub fn is_auxio28(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO28
+        *self == CaptSrc::Auxio28
     }
-    #[doc = "Checks if the value of the field is `AUXIO27`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.AUXIO27"]
     #[inline(always)]
     pub fn is_auxio27(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO27
+        *self == CaptSrc::Auxio27
     }
-    #[doc = "Checks if the value of the field is `AUXIO26`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.AUXIO26"]
     #[inline(always)]
     pub fn is_auxio26(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO26
+        *self == CaptSrc::Auxio26
     }
-    #[doc = "Checks if the value of the field is `AUXIO25`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.AUXIO25"]
     #[inline(always)]
     pub fn is_auxio25(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO25
+        *self == CaptSrc::Auxio25
     }
-    #[doc = "Checks if the value of the field is `AUXIO24`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.AUXIO24"]
     #[inline(always)]
     pub fn is_auxio24(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO24
+        *self == CaptSrc::Auxio24
     }
-    #[doc = "Checks if the value of the field is `AUXIO23`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.AUXIO23"]
     #[inline(always)]
     pub fn is_auxio23(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO23
+        *self == CaptSrc::Auxio23
     }
-    #[doc = "Checks if the value of the field is `AUXIO22`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.AUXIO22"]
     #[inline(always)]
     pub fn is_auxio22(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO22
+        *self == CaptSrc::Auxio22
     }
-    #[doc = "Checks if the value of the field is `AUXIO21`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.AUXIO21"]
     #[inline(always)]
     pub fn is_auxio21(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO21
+        *self == CaptSrc::Auxio21
     }
-    #[doc = "Checks if the value of the field is `AUXIO20`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.AUXIO20"]
     #[inline(always)]
     pub fn is_auxio20(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO20
+        *self == CaptSrc::Auxio20
     }
-    #[doc = "Checks if the value of the field is `AUXIO19`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.AUXIO19"]
     #[inline(always)]
     pub fn is_auxio19(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO19
+        *self == CaptSrc::Auxio19
     }
-    #[doc = "Checks if the value of the field is `AUXIO18`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.AUXIO18"]
     #[inline(always)]
     pub fn is_auxio18(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO18
+        *self == CaptSrc::Auxio18
     }
-    #[doc = "Checks if the value of the field is `AUXIO17`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.AUXIO17"]
     #[inline(always)]
     pub fn is_auxio17(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO17
+        *self == CaptSrc::Auxio17
     }
-    #[doc = "Checks if the value of the field is `AUXIO16`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.AUXIO16"]
     #[inline(always)]
     pub fn is_auxio16(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO16
+        *self == CaptSrc::Auxio16
     }
-    #[doc = "Checks if the value of the field is `AUXIO15`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.AUXIO15"]
     #[inline(always)]
     pub fn is_auxio15(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO15
+        *self == CaptSrc::Auxio15
     }
-    #[doc = "Checks if the value of the field is `AUXIO14`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.AUXIO14"]
     #[inline(always)]
     pub fn is_auxio14(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO14
+        *self == CaptSrc::Auxio14
     }
-    #[doc = "Checks if the value of the field is `AUXIO13`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.AUXIO13"]
     #[inline(always)]
     pub fn is_auxio13(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO13
+        *self == CaptSrc::Auxio13
     }
-    #[doc = "Checks if the value of the field is `AUXIO12`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.AUXIO12"]
     #[inline(always)]
     pub fn is_auxio12(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO12
+        *self == CaptSrc::Auxio12
     }
-    #[doc = "Checks if the value of the field is `AUXIO11`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.AUXIO11"]
     #[inline(always)]
     pub fn is_auxio11(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO11
+        *self == CaptSrc::Auxio11
     }
-    #[doc = "Checks if the value of the field is `AUXIO10`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.AUXIO10"]
     #[inline(always)]
     pub fn is_auxio10(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO10
+        *self == CaptSrc::Auxio10
     }
-    #[doc = "Checks if the value of the field is `AUXIO9`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.AUXIO9"]
     #[inline(always)]
     pub fn is_auxio9(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO9
+        *self == CaptSrc::Auxio9
     }
-    #[doc = "Checks if the value of the field is `AUXIO8`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.AUXIO8"]
     #[inline(always)]
     pub fn is_auxio8(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO8
+        *self == CaptSrc::Auxio8
     }
-    #[doc = "Checks if the value of the field is `AUXIO7`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.AUXIO7"]
     #[inline(always)]
     pub fn is_auxio7(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO7
+        *self == CaptSrc::Auxio7
     }
-    #[doc = "Checks if the value of the field is `AUXIO6`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.AUXIO6"]
     #[inline(always)]
     pub fn is_auxio6(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO6
+        *self == CaptSrc::Auxio6
     }
-    #[doc = "Checks if the value of the field is `AUXIO5`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.AUXIO5"]
     #[inline(always)]
     pub fn is_auxio5(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO5
+        *self == CaptSrc::Auxio5
     }
-    #[doc = "Checks if the value of the field is `AUXIO4`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.AUXIO4"]
     #[inline(always)]
     pub fn is_auxio4(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO4
+        *self == CaptSrc::Auxio4
     }
-    #[doc = "Checks if the value of the field is `AUXIO3`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.AUXIO3"]
     #[inline(always)]
     pub fn is_auxio3(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO3
+        *self == CaptSrc::Auxio3
     }
-    #[doc = "Checks if the value of the field is `AUXIO2`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.AUXIO2"]
     #[inline(always)]
     pub fn is_auxio2(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO2
+        *self == CaptSrc::Auxio2
     }
-    #[doc = "Checks if the value of the field is `AUXIO1`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.AUXIO1"]
     #[inline(always)]
     pub fn is_auxio1(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO1
+        *self == CaptSrc::Auxio1
     }
-    #[doc = "Checks if the value of the field is `AUXIO0`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.AUXIO0"]
     #[inline(always)]
     pub fn is_auxio0(&self) -> bool {
-        *self == CAPT_SRC_A::AUXIO0
+        *self == CaptSrc::Auxio0
     }
 }
 #[doc = "Field `CAPT_SRC` writer - 6:1\\]
 Select capture signal source from the asynchronous AUX event bus. The selected signal enters the edge-detection circuit. False capture events can occur when: - the edge-detection circuit contains expired signal samples and the circuit is enabled without flush as described in CH1EVCFG - this register is reconfigured while CTL.MODE is different from DIS. You can avoid false capture events. When wanted channel function is: - SET_ON_CAPT_DIS, see description for SET_ON_CAPT_DIS in CH1EVCFG.CCACT. - SET_ON_CAPT, see description for SET_ON_CAPT in CH1EVCFG.CCACT. - PER_PULSE_WIDTH_MEAS, see description for PER_PULSE_WIDTH_MEAS in CH1EVCFG.CCACT. If you write a non-enumerated value the behavior is identical to NO_EVENT. The written value is returned when read."]
-pub type CAPT_SRC_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, CH1CCFG_SPEC, u8, CAPT_SRC_A, 6, O>;
-impl<'a, const O: u8> CAPT_SRC_W<'a, O> {
+pub type CaptSrcW<'a, REG> = crate::FieldWriter<'a, REG, 6, CaptSrc>;
+impl<'a, REG> CaptSrcW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "No event."]
     #[inline(always)]
-    pub fn no_event(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::NO_EVENT)
+    pub fn no_event(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::NoEvent)
     }
     #[doc = "AUX_EVCTL:EVSTAT3.AUX_SMPH_AUTOTAKE_DONE"]
     #[inline(always)]
-    pub fn aux_smph_autotake_done(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUX_SMPH_AUTOTAKE_DONE)
+    pub fn aux_smph_autotake_done(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::AuxSmphAutotakeDone)
     }
     #[doc = "AUX_EVCTL:EVSTAT3.AUX_ADC_FIFO_NOT_EMPTY"]
     #[inline(always)]
-    pub fn aux_adc_fifo_not_empty(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUX_ADC_FIFO_NOT_EMPTY)
+    pub fn aux_adc_fifo_not_empty(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::AuxAdcFifoNotEmpty)
     }
     #[doc = "AUX_EVCTL:EVSTAT3.AUX_ADC_FIFO_ALMOST_FULL"]
     #[inline(always)]
-    pub fn aux_adc_fifo_almost_full(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUX_ADC_FIFO_ALMOST_FULL)
+    pub fn aux_adc_fifo_almost_full(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::AuxAdcFifoAlmostFull)
     }
     #[doc = "AUX_EVCTL:EVSTAT3.AUX_ADC_IRQ"]
     #[inline(always)]
-    pub fn aux_adc_irq(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUX_ADC_IRQ)
+    pub fn aux_adc_irq(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::AuxAdcIrq)
     }
     #[doc = "AUX_EVCTL:EVSTAT3.AUX_ADC_DONE"]
     #[inline(always)]
-    pub fn aux_adc_done(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUX_ADC_DONE)
+    pub fn aux_adc_done(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::AuxAdcDone)
     }
     #[doc = "AUX_EVCTL:EVSTAT3.AUX_ISRC_RESET_N"]
     #[inline(always)]
-    pub fn aux_isrc_reset_n(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUX_ISRC_RESET_N)
+    pub fn aux_isrc_reset_n(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::AuxIsrcResetN)
     }
     #[doc = "AUX_EVCTL:EVSTAT3.AUX_TDC_DONE"]
     #[inline(always)]
-    pub fn aux_tdc_done(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUX_TDC_DONE)
+    pub fn aux_tdc_done(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::AuxTdcDone)
     }
     #[doc = "AUX_EVCTL:EVSTAT3.AUX_TIMER0_EV"]
     #[inline(always)]
-    pub fn aux_timer0_ev(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUX_TIMER0_EV)
+    pub fn aux_timer0_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::AuxTimer0Ev)
     }
     #[doc = "AUX_EVCTL:EVSTAT3.AUX_TIMER1_EV"]
     #[inline(always)]
-    pub fn aux_timer1_ev(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUX_TIMER1_EV)
+    pub fn aux_timer1_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::AuxTimer1Ev)
     }
     #[doc = "AUX_EVCTL:EVSTAT3.AUX_TIMER2_EV3"]
     #[inline(always)]
-    pub fn aux_timer2_ev3(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUX_TIMER2_EV3)
+    pub fn aux_timer2_ev3(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::AuxTimer2Ev3)
     }
     #[doc = "AUX_EVCTL:EVSTAT3.AUX_TIMER2_EV2"]
     #[inline(always)]
-    pub fn aux_timer2_ev2(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUX_TIMER2_EV2)
+    pub fn aux_timer2_ev2(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::AuxTimer2Ev2)
     }
     #[doc = "AUX_EVCTL:EVSTAT3.AUX_TIMER2_EV1"]
     #[inline(always)]
-    pub fn aux_timer2_ev1(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUX_TIMER2_EV1)
+    pub fn aux_timer2_ev1(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::AuxTimer2Ev1)
     }
     #[doc = "AUX_EVCTL:EVSTAT3.AUX_TIMER2_EV0"]
     #[inline(always)]
-    pub fn aux_timer2_ev0(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUX_TIMER2_EV0)
+    pub fn aux_timer2_ev0(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::AuxTimer2Ev0)
     }
     #[doc = "AUX_EVCTL:EVSTAT2.AUX_COMPB"]
     #[inline(always)]
-    pub fn aux_compb(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUX_COMPB)
+    pub fn aux_compb(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::AuxCompb)
     }
     #[doc = "AUX_EVCTL:EVSTAT2.AUX_COMPA"]
     #[inline(always)]
-    pub fn aux_compa(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUX_COMPA)
+    pub fn aux_compa(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::AuxCompa)
     }
     #[doc = "AUX_EVCTL:EVSTAT2.MCU_OBSMUX1"]
     #[inline(always)]
-    pub fn mcu_obsmux1(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::MCU_OBSMUX1)
+    pub fn mcu_obsmux1(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::McuObsmux1)
     }
     #[doc = "AUX_EVCTL:EVSTAT2.MCU_OBSMUX0"]
     #[inline(always)]
-    pub fn mcu_obsmux0(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::MCU_OBSMUX0)
+    pub fn mcu_obsmux0(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::McuObsmux0)
     }
     #[doc = "AUX_EVCTL:EVSTAT2.MCU_EV"]
     #[inline(always)]
-    pub fn mcu_ev(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::MCU_EV)
+    pub fn mcu_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::McuEv)
     }
     #[doc = "AUX_EVCTL:EVSTAT2.ACLK_REF"]
     #[inline(always)]
-    pub fn aclk_ref(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::ACLK_REF)
+    pub fn aclk_ref(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::AclkRef)
     }
     #[doc = "AUX_EVCTL:EVSTAT2.VDDR_RECHARGE"]
     #[inline(always)]
-    pub fn vddr_recharge(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::VDDR_RECHARGE)
+    pub fn vddr_recharge(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::VddrRecharge)
     }
     #[doc = "AUX_EVCTL:EVSTAT2.MCU_ACTIVE"]
     #[inline(always)]
-    pub fn mcu_active(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::MCU_ACTIVE)
+    pub fn mcu_active(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::McuActive)
     }
     #[doc = "AUX_EVCTL:EVSTAT2.PWR_DWN"]
     #[inline(always)]
-    pub fn pwr_dwn(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::PWR_DWN)
+    pub fn pwr_dwn(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::PwrDwn)
     }
     #[doc = "AUX_EVCTL:EVSTAT2.SCLK_LF"]
     #[inline(always)]
-    pub fn sclk_lf(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::SCLK_LF)
+    pub fn sclk_lf(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::SclkLf)
     }
     #[doc = "AUX_EVCTL:EVSTAT2.AON_BATMON_TEMP_UPD"]
     #[inline(always)]
-    pub fn aon_batmon_temp_upd(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AON_BATMON_TEMP_UPD)
+    pub fn aon_batmon_temp_upd(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::AonBatmonTempUpd)
     }
     #[doc = "AUX_EVCTL:EVSTAT2.AON_BATMON_BAT_UPD"]
     #[inline(always)]
-    pub fn aon_batmon_bat_upd(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AON_BATMON_BAT_UPD)
+    pub fn aon_batmon_bat_upd(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::AonBatmonBatUpd)
     }
     #[doc = "AUX_EVCTL:EVSTAT2.AON_RTC_4KHZ"]
     #[inline(always)]
-    pub fn aon_rtc_4khz(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AON_RTC_4KHZ)
+    pub fn aon_rtc_4khz(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::AonRtc4khz)
     }
     #[doc = "AUX_EVCTL:EVSTAT2.AON_RTC_CH2_DLY"]
     #[inline(always)]
-    pub fn aon_rtc_ch2_dly(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AON_RTC_CH2_DLY)
+    pub fn aon_rtc_ch2_dly(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::AonRtcCh2Dly)
     }
     #[doc = "AUX_EVCTL:EVSTAT2.AON_RTC_CH2"]
     #[inline(always)]
-    pub fn aon_rtc_ch2(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AON_RTC_CH2)
+    pub fn aon_rtc_ch2(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::AonRtcCh2)
     }
     #[doc = "AUX_EVCTL:EVSTAT2.MANUAL_EV"]
     #[inline(always)]
-    pub fn manual_ev(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::MANUAL_EV)
+    pub fn manual_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::ManualEv)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.AUXIO31"]
     #[inline(always)]
-    pub fn auxio31(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO31)
+    pub fn auxio31(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio31)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.AUXIO30"]
     #[inline(always)]
-    pub fn auxio30(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO30)
+    pub fn auxio30(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio30)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.AUXIO29"]
     #[inline(always)]
-    pub fn auxio29(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO29)
+    pub fn auxio29(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio29)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.AUXIO28"]
     #[inline(always)]
-    pub fn auxio28(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO28)
+    pub fn auxio28(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio28)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.AUXIO27"]
     #[inline(always)]
-    pub fn auxio27(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO27)
+    pub fn auxio27(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio27)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.AUXIO26"]
     #[inline(always)]
-    pub fn auxio26(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO26)
+    pub fn auxio26(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio26)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.AUXIO25"]
     #[inline(always)]
-    pub fn auxio25(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO25)
+    pub fn auxio25(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio25)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.AUXIO24"]
     #[inline(always)]
-    pub fn auxio24(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO24)
+    pub fn auxio24(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio24)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.AUXIO23"]
     #[inline(always)]
-    pub fn auxio23(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO23)
+    pub fn auxio23(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio23)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.AUXIO22"]
     #[inline(always)]
-    pub fn auxio22(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO22)
+    pub fn auxio22(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio22)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.AUXIO21"]
     #[inline(always)]
-    pub fn auxio21(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO21)
+    pub fn auxio21(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio21)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.AUXIO20"]
     #[inline(always)]
-    pub fn auxio20(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO20)
+    pub fn auxio20(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio20)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.AUXIO19"]
     #[inline(always)]
-    pub fn auxio19(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO19)
+    pub fn auxio19(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio19)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.AUXIO18"]
     #[inline(always)]
-    pub fn auxio18(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO18)
+    pub fn auxio18(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio18)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.AUXIO17"]
     #[inline(always)]
-    pub fn auxio17(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO17)
+    pub fn auxio17(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio17)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.AUXIO16"]
     #[inline(always)]
-    pub fn auxio16(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO16)
+    pub fn auxio16(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio16)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.AUXIO15"]
     #[inline(always)]
-    pub fn auxio15(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO15)
+    pub fn auxio15(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio15)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.AUXIO14"]
     #[inline(always)]
-    pub fn auxio14(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO14)
+    pub fn auxio14(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio14)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.AUXIO13"]
     #[inline(always)]
-    pub fn auxio13(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO13)
+    pub fn auxio13(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio13)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.AUXIO12"]
     #[inline(always)]
-    pub fn auxio12(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO12)
+    pub fn auxio12(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio12)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.AUXIO11"]
     #[inline(always)]
-    pub fn auxio11(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO11)
+    pub fn auxio11(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio11)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.AUXIO10"]
     #[inline(always)]
-    pub fn auxio10(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO10)
+    pub fn auxio10(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio10)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.AUXIO9"]
     #[inline(always)]
-    pub fn auxio9(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO9)
+    pub fn auxio9(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio9)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.AUXIO8"]
     #[inline(always)]
-    pub fn auxio8(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO8)
+    pub fn auxio8(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio8)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.AUXIO7"]
     #[inline(always)]
-    pub fn auxio7(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO7)
+    pub fn auxio7(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio7)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.AUXIO6"]
     #[inline(always)]
-    pub fn auxio6(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO6)
+    pub fn auxio6(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio6)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.AUXIO5"]
     #[inline(always)]
-    pub fn auxio5(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO5)
+    pub fn auxio5(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio5)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.AUXIO4"]
     #[inline(always)]
-    pub fn auxio4(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO4)
+    pub fn auxio4(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio4)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.AUXIO3"]
     #[inline(always)]
-    pub fn auxio3(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO3)
+    pub fn auxio3(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio3)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.AUXIO2"]
     #[inline(always)]
-    pub fn auxio2(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO2)
+    pub fn auxio2(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio2)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.AUXIO1"]
     #[inline(always)]
-    pub fn auxio1(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO1)
+    pub fn auxio1(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio1)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.AUXIO0"]
     #[inline(always)]
-    pub fn auxio0(self) -> &'a mut W {
-        self.variant(CAPT_SRC_A::AUXIO0)
+    pub fn auxio0(self) -> &'a mut crate::W<REG> {
+        self.variant(CaptSrc::Auxio0)
     }
 }
 #[doc = "Field `RESERVED7` reader - 31:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED7_R = crate::FieldReader<u32, u32>;
+pub type Reserved7R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED7` writer - 31:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED7_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CH1CCFG_SPEC, u32, u32, 25, O>;
+pub type Reserved7W<'a, REG> = crate::FieldWriter<'a, REG, 25, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Edge configuration. Channel captures counter value at selected edge on signal source selected by CAPT_SRC. See CH1EVCFG.CCACT."]
     #[inline(always)]
-    pub fn edge(&self) -> EDGE_R {
-        EDGE_R::new((self.bits & 1) != 0)
+    pub fn edge(&self) -> EdgeR {
+        EdgeR::new((self.bits & 1) != 0)
     }
     #[doc = "Bits 1:6 - 6:1\\]
 Select capture signal source from the asynchronous AUX event bus. The selected signal enters the edge-detection circuit. False capture events can occur when: - the edge-detection circuit contains expired signal samples and the circuit is enabled without flush as described in CH1EVCFG - this register is reconfigured while CTL.MODE is different from DIS. You can avoid false capture events. When wanted channel function is: - SET_ON_CAPT_DIS, see description for SET_ON_CAPT_DIS in CH1EVCFG.CCACT. - SET_ON_CAPT, see description for SET_ON_CAPT in CH1EVCFG.CCACT. - PER_PULSE_WIDTH_MEAS, see description for PER_PULSE_WIDTH_MEAS in CH1EVCFG.CCACT. If you write a non-enumerated value the behavior is identical to NO_EVENT. The written value is returned when read."]
     #[inline(always)]
-    pub fn capt_src(&self) -> CAPT_SRC_R {
-        CAPT_SRC_R::new(((self.bits >> 1) & 0x3f) as u8)
+    pub fn capt_src(&self) -> CaptSrcR {
+        CaptSrcR::new(((self.bits >> 1) & 0x3f) as u8)
     }
     #[doc = "Bits 7:31 - 31:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved7(&self) -> RESERVED7_R {
-        RESERVED7_R::new((self.bits >> 7) & 0x01ff_ffff)
+    pub fn reserved7(&self) -> Reserved7R {
+        Reserved7R::new((self.bits >> 7) & 0x01ff_ffff)
     }
 }
 impl W {
@@ -954,46 +932,38 @@ impl W {
 Edge configuration. Channel captures counter value at selected edge on signal source selected by CAPT_SRC. See CH1EVCFG.CCACT."]
     #[inline(always)]
     #[must_use]
-    pub fn edge(&mut self) -> EDGE_W<0> {
-        EDGE_W::new(self)
+    pub fn edge(&mut self) -> EdgeW<Ch1ccfgSpec> {
+        EdgeW::new(self, 0)
     }
     #[doc = "Bits 1:6 - 6:1\\]
 Select capture signal source from the asynchronous AUX event bus. The selected signal enters the edge-detection circuit. False capture events can occur when: - the edge-detection circuit contains expired signal samples and the circuit is enabled without flush as described in CH1EVCFG - this register is reconfigured while CTL.MODE is different from DIS. You can avoid false capture events. When wanted channel function is: - SET_ON_CAPT_DIS, see description for SET_ON_CAPT_DIS in CH1EVCFG.CCACT. - SET_ON_CAPT, see description for SET_ON_CAPT in CH1EVCFG.CCACT. - PER_PULSE_WIDTH_MEAS, see description for PER_PULSE_WIDTH_MEAS in CH1EVCFG.CCACT. If you write a non-enumerated value the behavior is identical to NO_EVENT. The written value is returned when read."]
     #[inline(always)]
     #[must_use]
-    pub fn capt_src(&mut self) -> CAPT_SRC_W<1> {
-        CAPT_SRC_W::new(self)
+    pub fn capt_src(&mut self) -> CaptSrcW<Ch1ccfgSpec> {
+        CaptSrcW::new(self, 1)
     }
     #[doc = "Bits 7:31 - 31:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved7(&mut self) -> RESERVED7_W<7> {
-        RESERVED7_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved7(&mut self) -> Reserved7W<Ch1ccfgSpec> {
+        Reserved7W::new(self, 7)
     }
 }
-#[doc = "Channel 1 Capture Configuration\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ch1ccfg](index.html) module"]
-pub struct CH1CCFG_SPEC;
-impl crate::RegisterSpec for CH1CCFG_SPEC {
+#[doc = "Channel 1 Capture Configuration\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ch1ccfg::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ch1ccfg::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Ch1ccfgSpec;
+impl crate::RegisterSpec for Ch1ccfgSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [ch1ccfg::R](R) reader structure"]
-impl crate::Readable for CH1CCFG_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [ch1ccfg::W](W) writer structure"]
-impl crate::Writable for CH1CCFG_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`ch1ccfg::R`](R) reader structure"]
+impl crate::Readable for Ch1ccfgSpec {}
+#[doc = "`write(|w| ..)` method takes [`ch1ccfg::W`](W) writer structure"]
+impl crate::Writable for Ch1ccfgSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets CH1CCFG to value 0"]
-impl crate::Resettable for CH1CCFG_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for Ch1ccfgSpec {
+    const RESET_VALUE: u32 = 0;
 }

@@ -1,51 +1,19 @@
 #[doc = "Register `IBRD` reader"]
-pub struct R(crate::R<IBRD_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<IBRD_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<IBRD_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<IBRD_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<IbrdSpec>;
 #[doc = "Register `IBRD` writer"]
-pub struct W(crate::W<IBRD_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<IBRD_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<IBRD_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<IBRD_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<IbrdSpec>;
 #[doc = "Field `DIVINT` reader - 15:0\\]
 The integer baud rate divisor: The baud rate divisor is calculated using the formula below: Baud rate divisor = (UART reference clock frequency) / (16 * Baud rate) Baud rate divisor must be minimum 1 and maximum 65535. That is, DIVINT=0 does not give a valid baud rate. Similarly, if DIVINT=0xFFFF, any non-zero values in FBRD.DIVFRAC will be illegal. A valid value must be written to this field before the UART can be used for RX or TX operations."]
-pub type DIVINT_R = crate::FieldReader<u16, u16>;
+pub type DivintR = crate::FieldReader<u16>;
 #[doc = "Field `DIVINT` writer - 15:0\\]
 The integer baud rate divisor: The baud rate divisor is calculated using the formula below: Baud rate divisor = (UART reference clock frequency) / (16 * Baud rate) Baud rate divisor must be minimum 1 and maximum 65535. That is, DIVINT=0 does not give a valid baud rate. Similarly, if DIVINT=0xFFFF, any non-zero values in FBRD.DIVFRAC will be illegal. A valid value must be written to this field before the UART can be used for RX or TX operations."]
-pub type DIVINT_W<'a, const O: u8> = crate::FieldWriter<'a, u32, IBRD_SPEC, u16, u16, 16, O>;
+pub type DivintW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
     #[doc = "Bits 0:15 - 15:0\\]
 The integer baud rate divisor: The baud rate divisor is calculated using the formula below: Baud rate divisor = (UART reference clock frequency) / (16 * Baud rate) Baud rate divisor must be minimum 1 and maximum 65535. That is, DIVINT=0 does not give a valid baud rate. Similarly, if DIVINT=0xFFFF, any non-zero values in FBRD.DIVFRAC will be illegal. A valid value must be written to this field before the UART can be used for RX or TX operations."]
     #[inline(always)]
-    pub fn divint(&self) -> DIVINT_R {
-        DIVINT_R::new((self.bits & 0xffff) as u16)
+    pub fn divint(&self) -> DivintR {
+        DivintR::new((self.bits & 0xffff) as u16)
     }
 }
 impl W {
@@ -53,32 +21,24 @@ impl W {
 The integer baud rate divisor: The baud rate divisor is calculated using the formula below: Baud rate divisor = (UART reference clock frequency) / (16 * Baud rate) Baud rate divisor must be minimum 1 and maximum 65535. That is, DIVINT=0 does not give a valid baud rate. Similarly, if DIVINT=0xFFFF, any non-zero values in FBRD.DIVFRAC will be illegal. A valid value must be written to this field before the UART can be used for RX or TX operations."]
     #[inline(always)]
     #[must_use]
-    pub fn divint(&mut self) -> DIVINT_W<0> {
-        DIVINT_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn divint(&mut self) -> DivintW<IbrdSpec> {
+        DivintW::new(self, 0)
     }
 }
-#[doc = "Integer Baud-Rate Divisor If this register is modified while transmission or reception is on-going, the baud rate will not be updated until transmission or reception of the current character is complete.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ibrd](index.html) module"]
-pub struct IBRD_SPEC;
-impl crate::RegisterSpec for IBRD_SPEC {
+#[doc = "Integer Baud-Rate Divisor If this register is modified while transmission or reception is on-going, the baud rate will not be updated until transmission or reception of the current character is complete.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ibrd::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ibrd::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct IbrdSpec;
+impl crate::RegisterSpec for IbrdSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [ibrd::R](R) reader structure"]
-impl crate::Readable for IBRD_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [ibrd::W](W) writer structure"]
-impl crate::Writable for IBRD_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`ibrd::R`](R) reader structure"]
+impl crate::Readable for IbrdSpec {}
+#[doc = "`write(|w| ..)` method takes [`ibrd::W`](W) writer structure"]
+impl crate::Writable for IbrdSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets IBRD to value 0"]
-impl crate::Resettable for IBRD_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for IbrdSpec {
+    const RESET_VALUE: u32 = 0;
 }

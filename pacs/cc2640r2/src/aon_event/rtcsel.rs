@@ -1,815 +1,790 @@
 #[doc = "Register `RTCSEL` reader"]
-pub struct R(crate::R<RTCSEL_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<RTCSEL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<RTCSEL_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<RTCSEL_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<RtcselSpec>;
 #[doc = "Register `RTCSEL` writer"]
-pub struct W(crate::W<RTCSEL_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<RTCSEL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<RTCSEL_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<RTCSEL_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `RTC_CH1_CAPT_EV` reader - 5:0\\]
-AON Event Source id# for RTCSEL event which is fed to AON_RTC. Please refer to AON_RTC:CH1CAPT"]
-pub type RTC_CH1_CAPT_EV_R = crate::FieldReader<u8, RTC_CH1_CAPT_EV_A>;
+pub type W = crate::W<RtcselSpec>;
 #[doc = "5:0\\]
 AON Event Source id# for RTCSEL event which is fed to AON_RTC. Please refer to AON_RTC:CH1CAPT\n\nValue on reset: 63"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum RTC_CH1_CAPT_EV_A {
+pub enum RtcCh1CaptEv {
     #[doc = "63: No event, always low"]
-    NONE = 63,
+    None = 63,
     #[doc = "56: Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"]
-    AUX_COMPB_ASYNC_N = 56,
+    AuxCompbAsyncN = 56,
     #[doc = "55: Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX"]
-    AUX_COMPB_ASYNC = 55,
+    AuxCompbAsync = 55,
     #[doc = "54: BATMON voltage update event"]
-    BATMON_VOLT = 54,
+    BatmonVolt = 54,
     #[doc = "53: BATMON temperature update event"]
-    BATMON_TEMP = 53,
+    BatmonTemp = 53,
     #[doc = "52: AUX Timer 1 Event"]
-    AUX_TIMER1_EV = 52,
+    AuxTimer1Ev = 52,
     #[doc = "51: AUX Timer 0 Event"]
-    AUX_TIMER0_EV = 51,
+    AuxTimer0Ev = 51,
     #[doc = "50: TDC completed or timed out"]
-    AUX_TDC_DONE = 50,
+    AuxTdcDone = 50,
     #[doc = "49: ADC conversion completed"]
-    AUX_ADC_DONE = 49,
+    AuxAdcDone = 49,
     #[doc = "48: Comparator B triggered"]
-    AUX_COMPB = 48,
+    AuxCompb = 48,
     #[doc = "47: Comparator A triggered"]
-    AUX_COMPA = 47,
+    AuxCompa = 47,
     #[doc = "46: AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2"]
-    AUX_SWEV2 = 46,
+    AuxSwev2 = 46,
     #[doc = "45: AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1"]
-    AUX_SWEV1 = 45,
+    AuxSwev1 = 45,
     #[doc = "44: AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0"]
-    AUX_SWEV0 = 44,
+    AuxSwev0 = 44,
     #[doc = "43: JTAG generated event"]
-    JTAG = 43,
+    Jtag = 43,
     #[doc = "42: RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)"]
-    RTC_UPD = 42,
+    RtcUpd = 42,
     #[doc = "41: RTC combined delayed event"]
-    RTC_COMB_DLY = 41,
+    RtcCombDly = 41,
     #[doc = "40: RTC channel 2 - delayed event"]
-    RTC_CH2_DLY = 40,
+    RtcCh2Dly = 40,
     #[doc = "39: RTC channel 1 - delayed event"]
-    RTC_CH1_DLY = 39,
+    RtcCh1Dly = 39,
     #[doc = "38: RTC channel 0 - delayed event"]
-    RTC_CH0_DLY = 38,
+    RtcCh0Dly = 38,
     #[doc = "37: RTC channel 2 event"]
-    RTC_CH2 = 37,
+    RtcCh2 = 37,
     #[doc = "36: RTC channel 1 event"]
-    RTC_CH1 = 36,
+    RtcCh1 = 36,
     #[doc = "35: RTC channel 0 event"]
-    RTC_CH0 = 35,
+    RtcCh0 = 35,
     #[doc = "32: Edge detect on any PAD"]
-    PAD = 32,
+    Pad = 32,
     #[doc = "31: Edge detect on PAD31"]
-    PAD31 = 31,
+    Pad31 = 31,
     #[doc = "30: Edge detect on PAD30"]
-    PAD30 = 30,
+    Pad30 = 30,
     #[doc = "29: Edge detect on PAD29"]
-    PAD29 = 29,
+    Pad29 = 29,
     #[doc = "28: Edge detect on PAD28"]
-    PAD28 = 28,
+    Pad28 = 28,
     #[doc = "27: Edge detect on PAD27"]
-    PAD27 = 27,
+    Pad27 = 27,
     #[doc = "26: Edge detect on PAD26"]
-    PAD26 = 26,
+    Pad26 = 26,
     #[doc = "25: Edge detect on PAD25"]
-    PAD25 = 25,
+    Pad25 = 25,
     #[doc = "24: Edge detect on PAD24"]
-    PAD24 = 24,
+    Pad24 = 24,
     #[doc = "23: Edge detect on PAD23"]
-    PAD23 = 23,
+    Pad23 = 23,
     #[doc = "22: Edge detect on PAD22"]
-    PAD22 = 22,
+    Pad22 = 22,
     #[doc = "21: Edge detect on PAD21"]
-    PAD21 = 21,
+    Pad21 = 21,
     #[doc = "20: Edge detect on PAD20"]
-    PAD20 = 20,
+    Pad20 = 20,
     #[doc = "19: Edge detect on PAD19"]
-    PAD19 = 19,
+    Pad19 = 19,
     #[doc = "18: Edge detect on PAD18"]
-    PAD18 = 18,
+    Pad18 = 18,
     #[doc = "17: Edge detect on PAD17"]
-    PAD17 = 17,
+    Pad17 = 17,
     #[doc = "16: Edge detect on PAD16"]
-    PAD16 = 16,
+    Pad16 = 16,
     #[doc = "15: Edge detect on PAD15"]
-    PAD15 = 15,
+    Pad15 = 15,
     #[doc = "14: Edge detect on PAD14"]
-    PAD14 = 14,
+    Pad14 = 14,
     #[doc = "13: Edge detect on PAD13"]
-    PAD13 = 13,
+    Pad13 = 13,
     #[doc = "12: Edge detect on PAD12"]
-    PAD12 = 12,
+    Pad12 = 12,
     #[doc = "11: Edge detect on PAD11"]
-    PAD11 = 11,
+    Pad11 = 11,
     #[doc = "10: Edge detect on PAD10"]
-    PAD10 = 10,
+    Pad10 = 10,
     #[doc = "9: Edge detect on PAD9"]
-    PAD9 = 9,
+    Pad9 = 9,
     #[doc = "8: Edge detect on PAD8"]
-    PAD8 = 8,
+    Pad8 = 8,
     #[doc = "7: Edge detect on PAD7"]
-    PAD7 = 7,
+    Pad7 = 7,
     #[doc = "6: Edge detect on PAD6"]
-    PAD6 = 6,
+    Pad6 = 6,
     #[doc = "5: Edge detect on PAD5"]
-    PAD5 = 5,
+    Pad5 = 5,
     #[doc = "4: Edge detect on PAD4"]
-    PAD4 = 4,
+    Pad4 = 4,
     #[doc = "3: Edge detect on PAD3"]
-    PAD3 = 3,
+    Pad3 = 3,
     #[doc = "2: Edge detect on PAD2"]
-    PAD2 = 2,
+    Pad2 = 2,
     #[doc = "1: Edge detect on PAD1"]
-    PAD1 = 1,
+    Pad1 = 1,
     #[doc = "0: Edge detect on PAD0"]
-    PAD0 = 0,
+    Pad0 = 0,
 }
-impl From<RTC_CH1_CAPT_EV_A> for u8 {
+impl From<RtcCh1CaptEv> for u8 {
     #[inline(always)]
-    fn from(variant: RTC_CH1_CAPT_EV_A) -> Self {
+    fn from(variant: RtcCh1CaptEv) -> Self {
         variant as _
     }
 }
-impl RTC_CH1_CAPT_EV_R {
+impl crate::FieldSpec for RtcCh1CaptEv {
+    type Ux = u8;
+}
+impl crate::IsEnum for RtcCh1CaptEv {}
+#[doc = "Field `RTC_CH1_CAPT_EV` reader - 5:0\\]
+AON Event Source id# for RTCSEL event which is fed to AON_RTC. Please refer to AON_RTC:CH1CAPT"]
+pub type RtcCh1CaptEvR = crate::FieldReader<RtcCh1CaptEv>;
+impl RtcCh1CaptEvR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<RTC_CH1_CAPT_EV_A> {
+    pub const fn variant(&self) -> Option<RtcCh1CaptEv> {
         match self.bits {
-            63 => Some(RTC_CH1_CAPT_EV_A::NONE),
-            56 => Some(RTC_CH1_CAPT_EV_A::AUX_COMPB_ASYNC_N),
-            55 => Some(RTC_CH1_CAPT_EV_A::AUX_COMPB_ASYNC),
-            54 => Some(RTC_CH1_CAPT_EV_A::BATMON_VOLT),
-            53 => Some(RTC_CH1_CAPT_EV_A::BATMON_TEMP),
-            52 => Some(RTC_CH1_CAPT_EV_A::AUX_TIMER1_EV),
-            51 => Some(RTC_CH1_CAPT_EV_A::AUX_TIMER0_EV),
-            50 => Some(RTC_CH1_CAPT_EV_A::AUX_TDC_DONE),
-            49 => Some(RTC_CH1_CAPT_EV_A::AUX_ADC_DONE),
-            48 => Some(RTC_CH1_CAPT_EV_A::AUX_COMPB),
-            47 => Some(RTC_CH1_CAPT_EV_A::AUX_COMPA),
-            46 => Some(RTC_CH1_CAPT_EV_A::AUX_SWEV2),
-            45 => Some(RTC_CH1_CAPT_EV_A::AUX_SWEV1),
-            44 => Some(RTC_CH1_CAPT_EV_A::AUX_SWEV0),
-            43 => Some(RTC_CH1_CAPT_EV_A::JTAG),
-            42 => Some(RTC_CH1_CAPT_EV_A::RTC_UPD),
-            41 => Some(RTC_CH1_CAPT_EV_A::RTC_COMB_DLY),
-            40 => Some(RTC_CH1_CAPT_EV_A::RTC_CH2_DLY),
-            39 => Some(RTC_CH1_CAPT_EV_A::RTC_CH1_DLY),
-            38 => Some(RTC_CH1_CAPT_EV_A::RTC_CH0_DLY),
-            37 => Some(RTC_CH1_CAPT_EV_A::RTC_CH2),
-            36 => Some(RTC_CH1_CAPT_EV_A::RTC_CH1),
-            35 => Some(RTC_CH1_CAPT_EV_A::RTC_CH0),
-            32 => Some(RTC_CH1_CAPT_EV_A::PAD),
-            31 => Some(RTC_CH1_CAPT_EV_A::PAD31),
-            30 => Some(RTC_CH1_CAPT_EV_A::PAD30),
-            29 => Some(RTC_CH1_CAPT_EV_A::PAD29),
-            28 => Some(RTC_CH1_CAPT_EV_A::PAD28),
-            27 => Some(RTC_CH1_CAPT_EV_A::PAD27),
-            26 => Some(RTC_CH1_CAPT_EV_A::PAD26),
-            25 => Some(RTC_CH1_CAPT_EV_A::PAD25),
-            24 => Some(RTC_CH1_CAPT_EV_A::PAD24),
-            23 => Some(RTC_CH1_CAPT_EV_A::PAD23),
-            22 => Some(RTC_CH1_CAPT_EV_A::PAD22),
-            21 => Some(RTC_CH1_CAPT_EV_A::PAD21),
-            20 => Some(RTC_CH1_CAPT_EV_A::PAD20),
-            19 => Some(RTC_CH1_CAPT_EV_A::PAD19),
-            18 => Some(RTC_CH1_CAPT_EV_A::PAD18),
-            17 => Some(RTC_CH1_CAPT_EV_A::PAD17),
-            16 => Some(RTC_CH1_CAPT_EV_A::PAD16),
-            15 => Some(RTC_CH1_CAPT_EV_A::PAD15),
-            14 => Some(RTC_CH1_CAPT_EV_A::PAD14),
-            13 => Some(RTC_CH1_CAPT_EV_A::PAD13),
-            12 => Some(RTC_CH1_CAPT_EV_A::PAD12),
-            11 => Some(RTC_CH1_CAPT_EV_A::PAD11),
-            10 => Some(RTC_CH1_CAPT_EV_A::PAD10),
-            9 => Some(RTC_CH1_CAPT_EV_A::PAD9),
-            8 => Some(RTC_CH1_CAPT_EV_A::PAD8),
-            7 => Some(RTC_CH1_CAPT_EV_A::PAD7),
-            6 => Some(RTC_CH1_CAPT_EV_A::PAD6),
-            5 => Some(RTC_CH1_CAPT_EV_A::PAD5),
-            4 => Some(RTC_CH1_CAPT_EV_A::PAD4),
-            3 => Some(RTC_CH1_CAPT_EV_A::PAD3),
-            2 => Some(RTC_CH1_CAPT_EV_A::PAD2),
-            1 => Some(RTC_CH1_CAPT_EV_A::PAD1),
-            0 => Some(RTC_CH1_CAPT_EV_A::PAD0),
+            63 => Some(RtcCh1CaptEv::None),
+            56 => Some(RtcCh1CaptEv::AuxCompbAsyncN),
+            55 => Some(RtcCh1CaptEv::AuxCompbAsync),
+            54 => Some(RtcCh1CaptEv::BatmonVolt),
+            53 => Some(RtcCh1CaptEv::BatmonTemp),
+            52 => Some(RtcCh1CaptEv::AuxTimer1Ev),
+            51 => Some(RtcCh1CaptEv::AuxTimer0Ev),
+            50 => Some(RtcCh1CaptEv::AuxTdcDone),
+            49 => Some(RtcCh1CaptEv::AuxAdcDone),
+            48 => Some(RtcCh1CaptEv::AuxCompb),
+            47 => Some(RtcCh1CaptEv::AuxCompa),
+            46 => Some(RtcCh1CaptEv::AuxSwev2),
+            45 => Some(RtcCh1CaptEv::AuxSwev1),
+            44 => Some(RtcCh1CaptEv::AuxSwev0),
+            43 => Some(RtcCh1CaptEv::Jtag),
+            42 => Some(RtcCh1CaptEv::RtcUpd),
+            41 => Some(RtcCh1CaptEv::RtcCombDly),
+            40 => Some(RtcCh1CaptEv::RtcCh2Dly),
+            39 => Some(RtcCh1CaptEv::RtcCh1Dly),
+            38 => Some(RtcCh1CaptEv::RtcCh0Dly),
+            37 => Some(RtcCh1CaptEv::RtcCh2),
+            36 => Some(RtcCh1CaptEv::RtcCh1),
+            35 => Some(RtcCh1CaptEv::RtcCh0),
+            32 => Some(RtcCh1CaptEv::Pad),
+            31 => Some(RtcCh1CaptEv::Pad31),
+            30 => Some(RtcCh1CaptEv::Pad30),
+            29 => Some(RtcCh1CaptEv::Pad29),
+            28 => Some(RtcCh1CaptEv::Pad28),
+            27 => Some(RtcCh1CaptEv::Pad27),
+            26 => Some(RtcCh1CaptEv::Pad26),
+            25 => Some(RtcCh1CaptEv::Pad25),
+            24 => Some(RtcCh1CaptEv::Pad24),
+            23 => Some(RtcCh1CaptEv::Pad23),
+            22 => Some(RtcCh1CaptEv::Pad22),
+            21 => Some(RtcCh1CaptEv::Pad21),
+            20 => Some(RtcCh1CaptEv::Pad20),
+            19 => Some(RtcCh1CaptEv::Pad19),
+            18 => Some(RtcCh1CaptEv::Pad18),
+            17 => Some(RtcCh1CaptEv::Pad17),
+            16 => Some(RtcCh1CaptEv::Pad16),
+            15 => Some(RtcCh1CaptEv::Pad15),
+            14 => Some(RtcCh1CaptEv::Pad14),
+            13 => Some(RtcCh1CaptEv::Pad13),
+            12 => Some(RtcCh1CaptEv::Pad12),
+            11 => Some(RtcCh1CaptEv::Pad11),
+            10 => Some(RtcCh1CaptEv::Pad10),
+            9 => Some(RtcCh1CaptEv::Pad9),
+            8 => Some(RtcCh1CaptEv::Pad8),
+            7 => Some(RtcCh1CaptEv::Pad7),
+            6 => Some(RtcCh1CaptEv::Pad6),
+            5 => Some(RtcCh1CaptEv::Pad5),
+            4 => Some(RtcCh1CaptEv::Pad4),
+            3 => Some(RtcCh1CaptEv::Pad3),
+            2 => Some(RtcCh1CaptEv::Pad2),
+            1 => Some(RtcCh1CaptEv::Pad1),
+            0 => Some(RtcCh1CaptEv::Pad0),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `NONE`"]
+    #[doc = "No event, always low"]
     #[inline(always)]
     pub fn is_none(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::NONE
+        *self == RtcCh1CaptEv::None
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPB_ASYNC_N`"]
+    #[doc = "Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"]
     #[inline(always)]
     pub fn is_aux_compb_async_n(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::AUX_COMPB_ASYNC_N
+        *self == RtcCh1CaptEv::AuxCompbAsyncN
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPB_ASYNC`"]
+    #[doc = "Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX"]
     #[inline(always)]
     pub fn is_aux_compb_async(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::AUX_COMPB_ASYNC
+        *self == RtcCh1CaptEv::AuxCompbAsync
     }
-    #[doc = "Checks if the value of the field is `BATMON_VOLT`"]
+    #[doc = "BATMON voltage update event"]
     #[inline(always)]
     pub fn is_batmon_volt(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::BATMON_VOLT
+        *self == RtcCh1CaptEv::BatmonVolt
     }
-    #[doc = "Checks if the value of the field is `BATMON_TEMP`"]
+    #[doc = "BATMON temperature update event"]
     #[inline(always)]
     pub fn is_batmon_temp(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::BATMON_TEMP
+        *self == RtcCh1CaptEv::BatmonTemp
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER1_EV`"]
+    #[doc = "AUX Timer 1 Event"]
     #[inline(always)]
     pub fn is_aux_timer1_ev(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::AUX_TIMER1_EV
+        *self == RtcCh1CaptEv::AuxTimer1Ev
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER0_EV`"]
+    #[doc = "AUX Timer 0 Event"]
     #[inline(always)]
     pub fn is_aux_timer0_ev(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::AUX_TIMER0_EV
+        *self == RtcCh1CaptEv::AuxTimer0Ev
     }
-    #[doc = "Checks if the value of the field is `AUX_TDC_DONE`"]
+    #[doc = "TDC completed or timed out"]
     #[inline(always)]
     pub fn is_aux_tdc_done(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::AUX_TDC_DONE
+        *self == RtcCh1CaptEv::AuxTdcDone
     }
-    #[doc = "Checks if the value of the field is `AUX_ADC_DONE`"]
+    #[doc = "ADC conversion completed"]
     #[inline(always)]
     pub fn is_aux_adc_done(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::AUX_ADC_DONE
+        *self == RtcCh1CaptEv::AuxAdcDone
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPB`"]
+    #[doc = "Comparator B triggered"]
     #[inline(always)]
     pub fn is_aux_compb(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::AUX_COMPB
+        *self == RtcCh1CaptEv::AuxCompb
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPA`"]
+    #[doc = "Comparator A triggered"]
     #[inline(always)]
     pub fn is_aux_compa(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::AUX_COMPA
+        *self == RtcCh1CaptEv::AuxCompa
     }
-    #[doc = "Checks if the value of the field is `AUX_SWEV2`"]
+    #[doc = "AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2"]
     #[inline(always)]
     pub fn is_aux_swev2(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::AUX_SWEV2
+        *self == RtcCh1CaptEv::AuxSwev2
     }
-    #[doc = "Checks if the value of the field is `AUX_SWEV1`"]
+    #[doc = "AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1"]
     #[inline(always)]
     pub fn is_aux_swev1(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::AUX_SWEV1
+        *self == RtcCh1CaptEv::AuxSwev1
     }
-    #[doc = "Checks if the value of the field is `AUX_SWEV0`"]
+    #[doc = "AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0"]
     #[inline(always)]
     pub fn is_aux_swev0(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::AUX_SWEV0
+        *self == RtcCh1CaptEv::AuxSwev0
     }
-    #[doc = "Checks if the value of the field is `JTAG`"]
+    #[doc = "JTAG generated event"]
     #[inline(always)]
     pub fn is_jtag(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::JTAG
+        *self == RtcCh1CaptEv::Jtag
     }
-    #[doc = "Checks if the value of the field is `RTC_UPD`"]
+    #[doc = "RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)"]
     #[inline(always)]
     pub fn is_rtc_upd(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::RTC_UPD
+        *self == RtcCh1CaptEv::RtcUpd
     }
-    #[doc = "Checks if the value of the field is `RTC_COMB_DLY`"]
+    #[doc = "RTC combined delayed event"]
     #[inline(always)]
     pub fn is_rtc_comb_dly(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::RTC_COMB_DLY
+        *self == RtcCh1CaptEv::RtcCombDly
     }
-    #[doc = "Checks if the value of the field is `RTC_CH2_DLY`"]
+    #[doc = "RTC channel 2 - delayed event"]
     #[inline(always)]
     pub fn is_rtc_ch2_dly(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::RTC_CH2_DLY
+        *self == RtcCh1CaptEv::RtcCh2Dly
     }
-    #[doc = "Checks if the value of the field is `RTC_CH1_DLY`"]
+    #[doc = "RTC channel 1 - delayed event"]
     #[inline(always)]
     pub fn is_rtc_ch1_dly(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::RTC_CH1_DLY
+        *self == RtcCh1CaptEv::RtcCh1Dly
     }
-    #[doc = "Checks if the value of the field is `RTC_CH0_DLY`"]
+    #[doc = "RTC channel 0 - delayed event"]
     #[inline(always)]
     pub fn is_rtc_ch0_dly(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::RTC_CH0_DLY
+        *self == RtcCh1CaptEv::RtcCh0Dly
     }
-    #[doc = "Checks if the value of the field is `RTC_CH2`"]
+    #[doc = "RTC channel 2 event"]
     #[inline(always)]
     pub fn is_rtc_ch2(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::RTC_CH2
+        *self == RtcCh1CaptEv::RtcCh2
     }
-    #[doc = "Checks if the value of the field is `RTC_CH1`"]
+    #[doc = "RTC channel 1 event"]
     #[inline(always)]
     pub fn is_rtc_ch1(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::RTC_CH1
+        *self == RtcCh1CaptEv::RtcCh1
     }
-    #[doc = "Checks if the value of the field is `RTC_CH0`"]
+    #[doc = "RTC channel 0 event"]
     #[inline(always)]
     pub fn is_rtc_ch0(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::RTC_CH0
+        *self == RtcCh1CaptEv::RtcCh0
     }
-    #[doc = "Checks if the value of the field is `PAD`"]
+    #[doc = "Edge detect on any PAD"]
     #[inline(always)]
     pub fn is_pad(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD
+        *self == RtcCh1CaptEv::Pad
     }
-    #[doc = "Checks if the value of the field is `PAD31`"]
+    #[doc = "Edge detect on PAD31"]
     #[inline(always)]
     pub fn is_pad31(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD31
+        *self == RtcCh1CaptEv::Pad31
     }
-    #[doc = "Checks if the value of the field is `PAD30`"]
+    #[doc = "Edge detect on PAD30"]
     #[inline(always)]
     pub fn is_pad30(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD30
+        *self == RtcCh1CaptEv::Pad30
     }
-    #[doc = "Checks if the value of the field is `PAD29`"]
+    #[doc = "Edge detect on PAD29"]
     #[inline(always)]
     pub fn is_pad29(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD29
+        *self == RtcCh1CaptEv::Pad29
     }
-    #[doc = "Checks if the value of the field is `PAD28`"]
+    #[doc = "Edge detect on PAD28"]
     #[inline(always)]
     pub fn is_pad28(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD28
+        *self == RtcCh1CaptEv::Pad28
     }
-    #[doc = "Checks if the value of the field is `PAD27`"]
+    #[doc = "Edge detect on PAD27"]
     #[inline(always)]
     pub fn is_pad27(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD27
+        *self == RtcCh1CaptEv::Pad27
     }
-    #[doc = "Checks if the value of the field is `PAD26`"]
+    #[doc = "Edge detect on PAD26"]
     #[inline(always)]
     pub fn is_pad26(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD26
+        *self == RtcCh1CaptEv::Pad26
     }
-    #[doc = "Checks if the value of the field is `PAD25`"]
+    #[doc = "Edge detect on PAD25"]
     #[inline(always)]
     pub fn is_pad25(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD25
+        *self == RtcCh1CaptEv::Pad25
     }
-    #[doc = "Checks if the value of the field is `PAD24`"]
+    #[doc = "Edge detect on PAD24"]
     #[inline(always)]
     pub fn is_pad24(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD24
+        *self == RtcCh1CaptEv::Pad24
     }
-    #[doc = "Checks if the value of the field is `PAD23`"]
+    #[doc = "Edge detect on PAD23"]
     #[inline(always)]
     pub fn is_pad23(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD23
+        *self == RtcCh1CaptEv::Pad23
     }
-    #[doc = "Checks if the value of the field is `PAD22`"]
+    #[doc = "Edge detect on PAD22"]
     #[inline(always)]
     pub fn is_pad22(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD22
+        *self == RtcCh1CaptEv::Pad22
     }
-    #[doc = "Checks if the value of the field is `PAD21`"]
+    #[doc = "Edge detect on PAD21"]
     #[inline(always)]
     pub fn is_pad21(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD21
+        *self == RtcCh1CaptEv::Pad21
     }
-    #[doc = "Checks if the value of the field is `PAD20`"]
+    #[doc = "Edge detect on PAD20"]
     #[inline(always)]
     pub fn is_pad20(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD20
+        *self == RtcCh1CaptEv::Pad20
     }
-    #[doc = "Checks if the value of the field is `PAD19`"]
+    #[doc = "Edge detect on PAD19"]
     #[inline(always)]
     pub fn is_pad19(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD19
+        *self == RtcCh1CaptEv::Pad19
     }
-    #[doc = "Checks if the value of the field is `PAD18`"]
+    #[doc = "Edge detect on PAD18"]
     #[inline(always)]
     pub fn is_pad18(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD18
+        *self == RtcCh1CaptEv::Pad18
     }
-    #[doc = "Checks if the value of the field is `PAD17`"]
+    #[doc = "Edge detect on PAD17"]
     #[inline(always)]
     pub fn is_pad17(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD17
+        *self == RtcCh1CaptEv::Pad17
     }
-    #[doc = "Checks if the value of the field is `PAD16`"]
+    #[doc = "Edge detect on PAD16"]
     #[inline(always)]
     pub fn is_pad16(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD16
+        *self == RtcCh1CaptEv::Pad16
     }
-    #[doc = "Checks if the value of the field is `PAD15`"]
+    #[doc = "Edge detect on PAD15"]
     #[inline(always)]
     pub fn is_pad15(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD15
+        *self == RtcCh1CaptEv::Pad15
     }
-    #[doc = "Checks if the value of the field is `PAD14`"]
+    #[doc = "Edge detect on PAD14"]
     #[inline(always)]
     pub fn is_pad14(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD14
+        *self == RtcCh1CaptEv::Pad14
     }
-    #[doc = "Checks if the value of the field is `PAD13`"]
+    #[doc = "Edge detect on PAD13"]
     #[inline(always)]
     pub fn is_pad13(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD13
+        *self == RtcCh1CaptEv::Pad13
     }
-    #[doc = "Checks if the value of the field is `PAD12`"]
+    #[doc = "Edge detect on PAD12"]
     #[inline(always)]
     pub fn is_pad12(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD12
+        *self == RtcCh1CaptEv::Pad12
     }
-    #[doc = "Checks if the value of the field is `PAD11`"]
+    #[doc = "Edge detect on PAD11"]
     #[inline(always)]
     pub fn is_pad11(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD11
+        *self == RtcCh1CaptEv::Pad11
     }
-    #[doc = "Checks if the value of the field is `PAD10`"]
+    #[doc = "Edge detect on PAD10"]
     #[inline(always)]
     pub fn is_pad10(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD10
+        *self == RtcCh1CaptEv::Pad10
     }
-    #[doc = "Checks if the value of the field is `PAD9`"]
+    #[doc = "Edge detect on PAD9"]
     #[inline(always)]
     pub fn is_pad9(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD9
+        *self == RtcCh1CaptEv::Pad9
     }
-    #[doc = "Checks if the value of the field is `PAD8`"]
+    #[doc = "Edge detect on PAD8"]
     #[inline(always)]
     pub fn is_pad8(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD8
+        *self == RtcCh1CaptEv::Pad8
     }
-    #[doc = "Checks if the value of the field is `PAD7`"]
+    #[doc = "Edge detect on PAD7"]
     #[inline(always)]
     pub fn is_pad7(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD7
+        *self == RtcCh1CaptEv::Pad7
     }
-    #[doc = "Checks if the value of the field is `PAD6`"]
+    #[doc = "Edge detect on PAD6"]
     #[inline(always)]
     pub fn is_pad6(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD6
+        *self == RtcCh1CaptEv::Pad6
     }
-    #[doc = "Checks if the value of the field is `PAD5`"]
+    #[doc = "Edge detect on PAD5"]
     #[inline(always)]
     pub fn is_pad5(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD5
+        *self == RtcCh1CaptEv::Pad5
     }
-    #[doc = "Checks if the value of the field is `PAD4`"]
+    #[doc = "Edge detect on PAD4"]
     #[inline(always)]
     pub fn is_pad4(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD4
+        *self == RtcCh1CaptEv::Pad4
     }
-    #[doc = "Checks if the value of the field is `PAD3`"]
+    #[doc = "Edge detect on PAD3"]
     #[inline(always)]
     pub fn is_pad3(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD3
+        *self == RtcCh1CaptEv::Pad3
     }
-    #[doc = "Checks if the value of the field is `PAD2`"]
+    #[doc = "Edge detect on PAD2"]
     #[inline(always)]
     pub fn is_pad2(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD2
+        *self == RtcCh1CaptEv::Pad2
     }
-    #[doc = "Checks if the value of the field is `PAD1`"]
+    #[doc = "Edge detect on PAD1"]
     #[inline(always)]
     pub fn is_pad1(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD1
+        *self == RtcCh1CaptEv::Pad1
     }
-    #[doc = "Checks if the value of the field is `PAD0`"]
+    #[doc = "Edge detect on PAD0"]
     #[inline(always)]
     pub fn is_pad0(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD0
+        *self == RtcCh1CaptEv::Pad0
     }
 }
 #[doc = "Field `RTC_CH1_CAPT_EV` writer - 5:0\\]
 AON Event Source id# for RTCSEL event which is fed to AON_RTC. Please refer to AON_RTC:CH1CAPT"]
-pub type RTC_CH1_CAPT_EV_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, RTCSEL_SPEC, u8, RTC_CH1_CAPT_EV_A, 6, O>;
-impl<'a, const O: u8> RTC_CH1_CAPT_EV_W<'a, O> {
+pub type RtcCh1CaptEvW<'a, REG> = crate::FieldWriter<'a, REG, 6, RtcCh1CaptEv>;
+impl<'a, REG> RtcCh1CaptEvW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "No event, always low"]
     #[inline(always)]
-    pub fn none(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::NONE)
+    pub fn none(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::None)
     }
     #[doc = "Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"]
     #[inline(always)]
-    pub fn aux_compb_async_n(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::AUX_COMPB_ASYNC_N)
+    pub fn aux_compb_async_n(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::AuxCompbAsyncN)
     }
     #[doc = "Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX"]
     #[inline(always)]
-    pub fn aux_compb_async(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::AUX_COMPB_ASYNC)
+    pub fn aux_compb_async(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::AuxCompbAsync)
     }
     #[doc = "BATMON voltage update event"]
     #[inline(always)]
-    pub fn batmon_volt(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::BATMON_VOLT)
+    pub fn batmon_volt(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::BatmonVolt)
     }
     #[doc = "BATMON temperature update event"]
     #[inline(always)]
-    pub fn batmon_temp(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::BATMON_TEMP)
+    pub fn batmon_temp(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::BatmonTemp)
     }
     #[doc = "AUX Timer 1 Event"]
     #[inline(always)]
-    pub fn aux_timer1_ev(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::AUX_TIMER1_EV)
+    pub fn aux_timer1_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::AuxTimer1Ev)
     }
     #[doc = "AUX Timer 0 Event"]
     #[inline(always)]
-    pub fn aux_timer0_ev(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::AUX_TIMER0_EV)
+    pub fn aux_timer0_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::AuxTimer0Ev)
     }
     #[doc = "TDC completed or timed out"]
     #[inline(always)]
-    pub fn aux_tdc_done(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::AUX_TDC_DONE)
+    pub fn aux_tdc_done(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::AuxTdcDone)
     }
     #[doc = "ADC conversion completed"]
     #[inline(always)]
-    pub fn aux_adc_done(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::AUX_ADC_DONE)
+    pub fn aux_adc_done(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::AuxAdcDone)
     }
     #[doc = "Comparator B triggered"]
     #[inline(always)]
-    pub fn aux_compb(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::AUX_COMPB)
+    pub fn aux_compb(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::AuxCompb)
     }
     #[doc = "Comparator A triggered"]
     #[inline(always)]
-    pub fn aux_compa(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::AUX_COMPA)
+    pub fn aux_compa(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::AuxCompa)
     }
     #[doc = "AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2"]
     #[inline(always)]
-    pub fn aux_swev2(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::AUX_SWEV2)
+    pub fn aux_swev2(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::AuxSwev2)
     }
     #[doc = "AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1"]
     #[inline(always)]
-    pub fn aux_swev1(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::AUX_SWEV1)
+    pub fn aux_swev1(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::AuxSwev1)
     }
     #[doc = "AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0"]
     #[inline(always)]
-    pub fn aux_swev0(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::AUX_SWEV0)
+    pub fn aux_swev0(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::AuxSwev0)
     }
     #[doc = "JTAG generated event"]
     #[inline(always)]
-    pub fn jtag(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::JTAG)
+    pub fn jtag(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Jtag)
     }
     #[doc = "RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)"]
     #[inline(always)]
-    pub fn rtc_upd(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::RTC_UPD)
+    pub fn rtc_upd(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::RtcUpd)
     }
     #[doc = "RTC combined delayed event"]
     #[inline(always)]
-    pub fn rtc_comb_dly(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::RTC_COMB_DLY)
+    pub fn rtc_comb_dly(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::RtcCombDly)
     }
     #[doc = "RTC channel 2 - delayed event"]
     #[inline(always)]
-    pub fn rtc_ch2_dly(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::RTC_CH2_DLY)
+    pub fn rtc_ch2_dly(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::RtcCh2Dly)
     }
     #[doc = "RTC channel 1 - delayed event"]
     #[inline(always)]
-    pub fn rtc_ch1_dly(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::RTC_CH1_DLY)
+    pub fn rtc_ch1_dly(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::RtcCh1Dly)
     }
     #[doc = "RTC channel 0 - delayed event"]
     #[inline(always)]
-    pub fn rtc_ch0_dly(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::RTC_CH0_DLY)
+    pub fn rtc_ch0_dly(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::RtcCh0Dly)
     }
     #[doc = "RTC channel 2 event"]
     #[inline(always)]
-    pub fn rtc_ch2(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::RTC_CH2)
+    pub fn rtc_ch2(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::RtcCh2)
     }
     #[doc = "RTC channel 1 event"]
     #[inline(always)]
-    pub fn rtc_ch1(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::RTC_CH1)
+    pub fn rtc_ch1(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::RtcCh1)
     }
     #[doc = "RTC channel 0 event"]
     #[inline(always)]
-    pub fn rtc_ch0(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::RTC_CH0)
+    pub fn rtc_ch0(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::RtcCh0)
     }
     #[doc = "Edge detect on any PAD"]
     #[inline(always)]
-    pub fn pad(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD)
+    pub fn pad(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad)
     }
     #[doc = "Edge detect on PAD31"]
     #[inline(always)]
-    pub fn pad31(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD31)
+    pub fn pad31(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad31)
     }
     #[doc = "Edge detect on PAD30"]
     #[inline(always)]
-    pub fn pad30(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD30)
+    pub fn pad30(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad30)
     }
     #[doc = "Edge detect on PAD29"]
     #[inline(always)]
-    pub fn pad29(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD29)
+    pub fn pad29(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad29)
     }
     #[doc = "Edge detect on PAD28"]
     #[inline(always)]
-    pub fn pad28(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD28)
+    pub fn pad28(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad28)
     }
     #[doc = "Edge detect on PAD27"]
     #[inline(always)]
-    pub fn pad27(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD27)
+    pub fn pad27(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad27)
     }
     #[doc = "Edge detect on PAD26"]
     #[inline(always)]
-    pub fn pad26(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD26)
+    pub fn pad26(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad26)
     }
     #[doc = "Edge detect on PAD25"]
     #[inline(always)]
-    pub fn pad25(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD25)
+    pub fn pad25(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad25)
     }
     #[doc = "Edge detect on PAD24"]
     #[inline(always)]
-    pub fn pad24(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD24)
+    pub fn pad24(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad24)
     }
     #[doc = "Edge detect on PAD23"]
     #[inline(always)]
-    pub fn pad23(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD23)
+    pub fn pad23(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad23)
     }
     #[doc = "Edge detect on PAD22"]
     #[inline(always)]
-    pub fn pad22(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD22)
+    pub fn pad22(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad22)
     }
     #[doc = "Edge detect on PAD21"]
     #[inline(always)]
-    pub fn pad21(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD21)
+    pub fn pad21(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad21)
     }
     #[doc = "Edge detect on PAD20"]
     #[inline(always)]
-    pub fn pad20(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD20)
+    pub fn pad20(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad20)
     }
     #[doc = "Edge detect on PAD19"]
     #[inline(always)]
-    pub fn pad19(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD19)
+    pub fn pad19(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad19)
     }
     #[doc = "Edge detect on PAD18"]
     #[inline(always)]
-    pub fn pad18(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD18)
+    pub fn pad18(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad18)
     }
     #[doc = "Edge detect on PAD17"]
     #[inline(always)]
-    pub fn pad17(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD17)
+    pub fn pad17(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad17)
     }
     #[doc = "Edge detect on PAD16"]
     #[inline(always)]
-    pub fn pad16(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD16)
+    pub fn pad16(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad16)
     }
     #[doc = "Edge detect on PAD15"]
     #[inline(always)]
-    pub fn pad15(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD15)
+    pub fn pad15(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad15)
     }
     #[doc = "Edge detect on PAD14"]
     #[inline(always)]
-    pub fn pad14(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD14)
+    pub fn pad14(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad14)
     }
     #[doc = "Edge detect on PAD13"]
     #[inline(always)]
-    pub fn pad13(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD13)
+    pub fn pad13(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad13)
     }
     #[doc = "Edge detect on PAD12"]
     #[inline(always)]
-    pub fn pad12(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD12)
+    pub fn pad12(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad12)
     }
     #[doc = "Edge detect on PAD11"]
     #[inline(always)]
-    pub fn pad11(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD11)
+    pub fn pad11(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad11)
     }
     #[doc = "Edge detect on PAD10"]
     #[inline(always)]
-    pub fn pad10(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD10)
+    pub fn pad10(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad10)
     }
     #[doc = "Edge detect on PAD9"]
     #[inline(always)]
-    pub fn pad9(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD9)
+    pub fn pad9(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad9)
     }
     #[doc = "Edge detect on PAD8"]
     #[inline(always)]
-    pub fn pad8(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD8)
+    pub fn pad8(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad8)
     }
     #[doc = "Edge detect on PAD7"]
     #[inline(always)]
-    pub fn pad7(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD7)
+    pub fn pad7(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad7)
     }
     #[doc = "Edge detect on PAD6"]
     #[inline(always)]
-    pub fn pad6(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD6)
+    pub fn pad6(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad6)
     }
     #[doc = "Edge detect on PAD5"]
     #[inline(always)]
-    pub fn pad5(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD5)
+    pub fn pad5(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad5)
     }
     #[doc = "Edge detect on PAD4"]
     #[inline(always)]
-    pub fn pad4(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD4)
+    pub fn pad4(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad4)
     }
     #[doc = "Edge detect on PAD3"]
     #[inline(always)]
-    pub fn pad3(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD3)
+    pub fn pad3(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad3)
     }
     #[doc = "Edge detect on PAD2"]
     #[inline(always)]
-    pub fn pad2(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD2)
+    pub fn pad2(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad2)
     }
     #[doc = "Edge detect on PAD1"]
     #[inline(always)]
-    pub fn pad1(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD1)
+    pub fn pad1(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad1)
     }
     #[doc = "Edge detect on PAD0"]
     #[inline(always)]
-    pub fn pad0(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD0)
+    pub fn pad0(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad0)
     }
 }
 #[doc = "Field `RESERVED6` reader - 31:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED6_R = crate::FieldReader<u32, u32>;
+pub type Reserved6R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED6` writer - 31:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED6_W<'a, const O: u8> = crate::FieldWriter<'a, u32, RTCSEL_SPEC, u32, u32, 26, O>;
+pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 26, u32>;
 impl R {
     #[doc = "Bits 0:5 - 5:0\\]
 AON Event Source id# for RTCSEL event which is fed to AON_RTC. Please refer to AON_RTC:CH1CAPT"]
     #[inline(always)]
-    pub fn rtc_ch1_capt_ev(&self) -> RTC_CH1_CAPT_EV_R {
-        RTC_CH1_CAPT_EV_R::new((self.bits & 0x3f) as u8)
+    pub fn rtc_ch1_capt_ev(&self) -> RtcCh1CaptEvR {
+        RtcCh1CaptEvR::new((self.bits & 0x3f) as u8)
     }
     #[doc = "Bits 6:31 - 31:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved6(&self) -> RESERVED6_R {
-        RESERVED6_R::new((self.bits >> 6) & 0x03ff_ffff)
+    pub fn reserved6(&self) -> Reserved6R {
+        Reserved6R::new((self.bits >> 6) & 0x03ff_ffff)
     }
 }
 impl W {
@@ -817,39 +792,31 @@ impl W {
 AON Event Source id# for RTCSEL event which is fed to AON_RTC. Please refer to AON_RTC:CH1CAPT"]
     #[inline(always)]
     #[must_use]
-    pub fn rtc_ch1_capt_ev(&mut self) -> RTC_CH1_CAPT_EV_W<0> {
-        RTC_CH1_CAPT_EV_W::new(self)
+    pub fn rtc_ch1_capt_ev(&mut self) -> RtcCh1CaptEvW<RtcselSpec> {
+        RtcCh1CaptEvW::new(self, 0)
     }
     #[doc = "Bits 6:31 - 31:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved6(&mut self) -> RESERVED6_W<6> {
-        RESERVED6_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved6(&mut self) -> Reserved6W<RtcselSpec> {
+        Reserved6W::new(self, 6)
     }
 }
-#[doc = "RTC Capture Event Selector For AON_RTC This register contains a pointer to select an AON event for RTC capture. Please refer to AON_RTC:CH1CAPT\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rtcsel](index.html) module"]
-pub struct RTCSEL_SPEC;
-impl crate::RegisterSpec for RTCSEL_SPEC {
+#[doc = "RTC Capture Event Selector For AON_RTC This register contains a pointer to select an AON event for RTC capture. Please refer to AON_RTC:CH1CAPT\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`rtcsel::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`rtcsel::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct RtcselSpec;
+impl crate::RegisterSpec for RtcselSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [rtcsel::R](R) reader structure"]
-impl crate::Readable for RTCSEL_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [rtcsel::W](W) writer structure"]
-impl crate::Writable for RTCSEL_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`rtcsel::R`](R) reader structure"]
+impl crate::Readable for RtcselSpec {}
+#[doc = "`write(|w| ..)` method takes [`rtcsel::W`](W) writer structure"]
+impl crate::Writable for RtcselSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets RTCSEL to value 0x3f"]
-impl crate::Resettable for RTCSEL_SPEC {
-    const RESET_VALUE: Self::Ux = 0x3f;
+impl crate::Resettable for RtcselSpec {
+    const RESET_VALUE: u32 = 0x3f;
 }

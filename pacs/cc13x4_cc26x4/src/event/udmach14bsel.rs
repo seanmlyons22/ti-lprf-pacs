@@ -1,1725 +1,1701 @@
 #[doc = "Register `UDMACH14BSEL` reader"]
-pub struct R(crate::R<UDMACH14BSEL_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<UDMACH14BSEL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<UDMACH14BSEL_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<UDMACH14BSEL_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Udmach14bselSpec>;
 #[doc = "Register `UDMACH14BSEL` writer"]
-pub struct W(crate::W<UDMACH14BSEL_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<UDMACH14BSEL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<UDMACH14BSEL_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<UDMACH14BSEL_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `EV` reader - 7:0\\]
-Read/write selection value Writing any other value than values defined by a ENUM may result in undefined behavior."]
-pub type EV_R = crate::FieldReader<u8, EV_A>;
+pub type W = crate::W<Udmach14bselSpec>;
 #[doc = "7:0\\]
 Read/write selection value Writing any other value than values defined by a ENUM may result in undefined behavior.\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum EV_A {
+pub enum Ev {
     #[doc = "142: UART3 TX DMA single request, controlled by UART3:DMACTL.TXDMAE"]
-    UART3_TX_DMASREQ = 142,
+    Uart3TxDmasreq = 142,
     #[doc = "141: UART3 TX DMA burst request, controlled by UART3:DMACTL.TXDMAE"]
-    UART3_TX_DMABREQ = 141,
+    Uart3TxDmabreq = 141,
     #[doc = "140: UART3 RX DMA single request, controlled by UART3:DMACTL.RXDMAE"]
-    UART3_RX_DMASREQ = 140,
+    Uart3RxDmasreq = 140,
     #[doc = "139: UART3 RX DMA burst request, controlled by UART3:DMACTL.RXDMAE"]
-    UART3_RX_DMABREQ = 139,
+    Uart3RxDmabreq = 139,
     #[doc = "138: UART2 TX DMA single request, controlled by UART2:DMACTL.TXDMAE"]
-    UART2_TX_DMASREQ = 138,
+    Uart2TxDmasreq = 138,
     #[doc = "137: UART2 TX DMA burst request, controlled by UART2:DMACTL.TXDMAE"]
-    UART2_TX_DMABREQ = 137,
+    Uart2TxDmabreq = 137,
     #[doc = "136: UART2 RX DMA single request, controlled by UART2:DMACTL.RXDMAE"]
-    UART2_RX_DMASREQ = 136,
+    Uart2RxDmasreq = 136,
     #[doc = "135: UART2 RX DMA burst request, controlled by UART2:DMACTL.RXDMAE"]
-    UART2_RX_DMABREQ = 135,
+    Uart2RxDmabreq = 135,
     #[doc = "134: SPI3 TX DMA single request, controlled by SPI2:DMACR.TXDMAE"]
-    SPI3_TX_DMASREQ = 134,
+    Spi3TxDmasreq = 134,
     #[doc = "133: SPI3 TX DMA burst request , controlled by SPI2:DMACR.TXDMAE"]
-    SPI3_TX_DMABREQ = 133,
+    Spi3TxDmabreq = 133,
     #[doc = "132: SPI3 RX DMA single request, controlled by SPI2:DMACR.RXDMAE"]
-    SPI3_RX_DMASREQ = 132,
+    Spi3RxDmasreq = 132,
     #[doc = "131: SPI3 RX DMA burst request , controlled by SPI2:DMACR.RXDMAE"]
-    SPI3_RX_DMABREQ = 131,
+    Spi3RxDmabreq = 131,
     #[doc = "130: SPI2 TX DMA single request, controlled by SPI2:DMACR.TXDMAE"]
-    SPI2_TX_DMASREQ = 130,
+    Spi2TxDmasreq = 130,
     #[doc = "129: SPI2 TX DMA burst request , controlled by SPI2:DMACR.TXDMAE"]
-    SPI2_TX_DMABREQ = 129,
+    Spi2TxDmabreq = 129,
     #[doc = "128: SPI2 RX DMA single request, controlled by SPI2:DMACR.RXDMAE"]
-    SPI2_RX_DMASREQ = 128,
+    Spi2RxDmasreq = 128,
     #[doc = "127: SPI2 RX DMA burst request , controlled by SPI2:DMACR.RXDMAE"]
-    SPI2_RX_DMABREQ = 127,
+    Spi2RxDmabreq = 127,
     #[doc = "126: Interrupt event from I2C1"]
-    I2C1_IRQ = 126,
+    I2c1Irq = 126,
     #[doc = "125: UART3 combined interrupt, interrupt flags are found here UART3:MIS"]
-    UART3_COMB = 125,
+    Uart3Comb = 125,
     #[doc = "124: UART2 combined interrupt, interrupt flags are found here UART2:MIS"]
-    UART2_COMB = 124,
+    Uart2Comb = 124,
     #[doc = "123: SPI3 combined interrupt, interrupt flags are found here SPI3:MIS"]
-    SPI3_COMB = 123,
+    Spi3Comb = 123,
     #[doc = "122: SPI2 combined interrupt, interrupt flags are found here SPI2:MIS"]
-    SPI2_COMB = 122,
+    Spi2Comb = 122,
     #[doc = "121: Always asserted"]
-    ALWAYS_ACTIVE = 121,
+    AlwaysActive = 121,
     #[doc = "120: CPU halted"]
-    CPU_HALTED = 120,
+    CpuHalted = 120,
     #[doc = "119: RTC periodic event controlled by AON_RTC:CTL.RTC_UPD_EN"]
-    AON_RTC_UPD = 119,
+    AonRtcUpd = 119,
     #[doc = "118: DMA burst request event from AUX, configured by AUX_EVCTL:DMACTL"]
-    AUX_DMABREQ = 118,
+    AuxDmabreq = 118,
     #[doc = "117: DMA single request event from AUX, configured by AUX_EVCTL:DMACTL"]
-    AUX_DMASREQ = 117,
+    AuxDmasreq = 117,
     #[doc = "116: DMA sofware trigger from AUX, triggered by AUX_EVCTL:DMASWREQ.START"]
-    AUX_SW_DMABREQ = 116,
+    AuxSwDmabreq = 116,
     #[doc = "115: AUX ADC interrupt event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_ADC_IRQ. Status flags are found here AUX_EVCTL:EVTOMCUFLAGS"]
-    AUX_ADC_IRQ = 115,
+    AuxAdcIrq = 115,
     #[doc = "114: Loopback of OBSMUX0 through AUX, corresponds to AUX_EVCTL:EVTOMCUFLAGS.MCU_OBSMUX0"]
-    AUX_OBSMUX0 = 114,
+    AuxObsmux0 = 114,
     #[doc = "113: AUX ADC FIFO watermark event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_ADC_FIFO_ALMOST_FULL"]
-    AUX_ADC_FIFO_ALMOST_FULL = 113,
+    AuxAdcFifoAlmostFull = 113,
     #[doc = "112: AUX ADC done, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_ADC_DONE"]
-    AUX_ADC_DONE = 112,
+    AuxAdcDone = 112,
     #[doc = "111: Autotake event from AUX semaphore, configured by AUX_SMPH:AUTOTAKE"]
-    AUX_SMPH_AUTOTAKE_DONE = 111,
+    AuxSmphAutotakeDone = 111,
     #[doc = "110: AUX timer 1 event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER1_EV"]
-    AUX_TIMER1_EV = 110,
+    AuxTimer1Ev = 110,
     #[doc = "109: AUX timer 0 event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER0_EV"]
-    AUX_TIMER0_EV = 109,
+    AuxTimer0Ev = 109,
     #[doc = "108: AUX TDC measurement done event, corresponds to the flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TDC_DONE and the AUX_TDC status AUX_TDC:STAT.DONE"]
-    AUX_TDC_DONE = 108,
+    AuxTdcDone = 108,
     #[doc = "107: AUX Compare B event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_COMPB"]
-    AUX_COMPB = 107,
+    AuxCompb = 107,
     #[doc = "106: AUX Compare A event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_COMPA"]
-    AUX_COMPA = 106,
+    AuxCompa = 106,
     #[doc = "105: AON wakeup event, the corresponding flag is here AUX_EVCTL:EVTOMCUFLAGS.AUX_WU_EV"]
-    AUX_AON_WU_EV = 105,
+    AuxAonWuEv = 105,
     #[doc = "104: TRNG Interrupt event, controlled by TRNG:IRQEN.EN"]
-    TRNG_IRQ = 104,
+    TrngIrq = 104,
     #[doc = "103: Software event 3, triggered by SWEV.SWEV3"]
-    SWEV3 = 103,
+    Swev3 = 103,
     #[doc = "102: Software event 2, triggered by SWEV.SWEV2"]
-    SWEV2 = 102,
+    Swev2 = 102,
     #[doc = "101: Software event 1, triggered by SWEV.SWEV1"]
-    SWEV1 = 101,
+    Swev1 = 101,
     #[doc = "100: Software event 0, triggered by SWEV.SWEV0"]
-    SWEV0 = 100,
+    Swev0 = 100,
     #[doc = "99: Watchdog non maskable interrupt event, controlled by WDT:CTL.INTTYPE"]
-    WDT_NMI = 99,
+    WdtNmi = 99,
     #[doc = "94: CRYPTO DMA input done event, the correspondingg flag is CRYPTO:IRQSTAT.DMA_IN_DONE. Controlled by CRYPTO:IRQEN.DMA_IN_DONE"]
-    CRYPTO_DMA_DONE_IRQ = 94,
+    CryptoDmaDoneIrq = 94,
     #[doc = "93: CRYPTO result available interupt event, the corresponding flag is found here CRYPTO:IRQSTAT.RESULT_AVAIL. Controlled by CRYPTO:IRQSTAT.RESULT_AVAIL"]
-    CRYPTO_RESULT_AVAIL_IRQ = 93,
+    CryptoResultAvailIrq = 93,
     #[doc = "92: Port capture event from IOC, configured by IOC:IOCFGn.PORT_ID. Events on ports configured with ENUM PORT_EVENT7 wil be routed here."]
-    PORT_EVENT7 = 92,
+    PortEvent7 = 92,
     #[doc = "91: Port capture event from IOC, configured by IOC:IOCFGn.PORT_ID. Events on ports configured with ENUM PORT_EVENT6 wil be routed here."]
-    PORT_EVENT6 = 91,
+    PortEvent6 = 91,
     #[doc = "90: Port capture event from IOC, configured by IOC:IOCFGn.PORT_ID. Events on ports configured with ENUM PORT_EVENT4 wil be routed here."]
-    PORT_EVENT5 = 90,
+    PortEvent5 = 90,
     #[doc = "89: Port capture event from IOC, configured by IOC:IOCFGn.PORT_ID. Events on ports configured with ENUM PORT_EVENT4 wil be routed here."]
-    PORT_EVENT4 = 89,
+    PortEvent4 = 89,
     #[doc = "88: Port capture event from IOC, configured by IOC:IOCFGn.PORT_ID. Events on ports configured with ENUM PORT_EVENT3 wil be routed here."]
-    PORT_EVENT3 = 88,
+    PortEvent3 = 88,
     #[doc = "87: Port capture event from IOC, configured by IOC:IOCFGn.PORT_ID. Events on ports configured with ENUM PORT_EVENT2 wil be routed here."]
-    PORT_EVENT2 = 87,
+    PortEvent2 = 87,
     #[doc = "86: Port capture event from IOC, configured by IOC:IOCFGn.PORT_ID. Events on ports configured with ENUM PORT_EVENT1 wil be routed here."]
-    PORT_EVENT1 = 86,
+    PortEvent1 = 86,
     #[doc = "85: Port capture event from IOC, configured by IOC:IOCFGn.PORT_ID. Events on ports configured with ENUM PORT_EVENT0 wil be routed here."]
-    PORT_EVENT0 = 85,
+    PortEvent0 = 85,
     #[doc = "84: GPT3B DMA trigger event. Configured by GPT3:DMAEV"]
-    GPT3B_DMABREQ = 84,
+    Gpt3bDmabreq = 84,
     #[doc = "83: GPT3A DMA trigger event. Configured by GPT3:DMAEV"]
-    GPT3A_DMABREQ = 83,
+    Gpt3aDmabreq = 83,
     #[doc = "82: GPT2B DMA trigger event. Configured by GPT2:DMAEV"]
-    GPT2B_DMABREQ = 82,
+    Gpt2bDmabreq = 82,
     #[doc = "81: GPT2A DMA trigger event. Configured by GPT2:DMAEV"]
-    GPT2A_DMABREQ = 81,
+    Gpt2aDmabreq = 81,
     #[doc = "80: GPT1B DMA trigger event. Configured by GPT1:DMAEV"]
-    GPT1B_DMABREQ = 80,
+    Gpt1bDmabreq = 80,
     #[doc = "79: GPT1A DMA trigger event. Configured by GPT1:DMAEV"]
-    GPT1A_DMABREQ = 79,
+    Gpt1aDmabreq = 79,
     #[doc = "78: GPT0B DMA trigger event. Configured by GPT0:DMAEV"]
-    GPT0B_DMABREQ = 78,
+    Gpt0bDmabreq = 78,
     #[doc = "77: GPT0A DMA trigger event. Configured by GPT0:DMAEV"]
-    GPT0A_DMABREQ = 77,
+    Gpt0aDmabreq = 77,
     #[doc = "68: GPT3B compare event. Configured by GPT3:TBMR.TCACT"]
-    GPT3B_CMP = 68,
+    Gpt3bCmp = 68,
     #[doc = "67: GPT3A compare event. Configured by GPT3:TAMR.TCACT"]
-    GPT3A_CMP = 67,
+    Gpt3aCmp = 67,
     #[doc = "66: GPT2B compare event. Configured by GPT2:TBMR.TCACT"]
-    GPT2B_CMP = 66,
+    Gpt2bCmp = 66,
     #[doc = "65: GPT2A compare event. Configured by GPT2:TAMR.TCACT"]
-    GPT2A_CMP = 65,
+    Gpt2aCmp = 65,
     #[doc = "64: GPT1B compare event. Configured by GPT1:TBMR.TCACT"]
-    GPT1B_CMP = 64,
+    Gpt1bCmp = 64,
     #[doc = "63: GPT1A compare event. Configured by GPT1:TAMR.TCACT"]
-    GPT1A_CMP = 63,
+    Gpt1aCmp = 63,
     #[doc = "62: GPT0B compare event. Configured by GPT0:TBMR.TCACT"]
-    GPT0B_CMP = 62,
+    Gpt0bCmp = 62,
     #[doc = "61: GPT0A compare event. Configured by GPT0:TAMR.TCACT"]
-    GPT0A_CMP = 61,
+    Gpt0aCmp = 61,
     #[doc = "60: AUX Timer2 pulse, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_PULSE"]
-    AUX_TIMER2_PULSE = 60,
+    AuxTimer2Pulse = 60,
     #[doc = "59: AUX Timer2 event 3, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_EV3"]
-    AUX_TIMER2_EV3 = 59,
+    AuxTimer2Ev3 = 59,
     #[doc = "58: AUX Timer2 event 2, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_EV2"]
-    AUX_TIMER2_EV2 = 58,
+    AuxTimer2Ev2 = 58,
     #[doc = "57: AUX Timer2 event 1, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_EV1"]
-    AUX_TIMER2_EV1 = 57,
+    AuxTimer2Ev1 = 57,
     #[doc = "56: AUX Timer2 event 0, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_EV0"]
-    AUX_TIMER2_EV0 = 56,
+    AuxTimer2Ev0 = 56,
     #[doc = "55: UART1 TX DMA single request, controlled by UART1:DMACTL.TXDMAE"]
-    UART1_TX_DMASREQ = 55,
+    Uart1TxDmasreq = 55,
     #[doc = "54: UART1 TX DMA burst request, controlled by UART1:DMACTL.TXDMAE"]
-    UART1_TX_DMABREQ = 54,
+    Uart1TxDmabreq = 54,
     #[doc = "53: UART1 RX DMA single request, controlled by UART1:DMACTL.RXDMAE"]
-    UART1_RX_DMASREQ = 53,
+    Uart1RxDmasreq = 53,
     #[doc = "52: UART1 RX DMA burst request, controlled by UART1:DMACTL.RXDMAE"]
-    UART1_RX_DMABREQ = 52,
+    Uart1RxDmabreq = 52,
     #[doc = "51: UART0 TX DMA single request, controlled by UART0:DMACTL.TXDMAE"]
-    UART0_TX_DMASREQ = 51,
+    Uart0TxDmasreq = 51,
     #[doc = "50: UART0 TX DMA burst request, controlled by UART0:DMACTL.TXDMAE"]
-    UART0_TX_DMABREQ = 50,
+    Uart0TxDmabreq = 50,
     #[doc = "49: UART0 RX DMA single request, controlled by UART0:DMACTL.RXDMAE"]
-    UART0_RX_DMASREQ = 49,
+    Uart0RxDmasreq = 49,
     #[doc = "48: UART0 RX DMA burst request, controlled by UART0:DMACTL.RXDMAE"]
-    UART0_RX_DMABREQ = 48,
+    Uart0RxDmabreq = 48,
     #[doc = "47: SPI1 TX DMA single request, controlled by SPI0:DMACR.TXDMAE"]
-    SPI1_TX_DMASREQ = 47,
+    Spi1TxDmasreq = 47,
     #[doc = "46: SPI1 TX DMA burst request , controlled by SPI0:DMACR.TXDMAE"]
-    SPI1_TX_DMABREQ = 46,
+    Spi1TxDmabreq = 46,
     #[doc = "45: SPI1 RX DMA single request, controlled by SPI0:DMACR.RXDMAE"]
-    SPI1_RX_DMASREQ = 45,
+    Spi1RxDmasreq = 45,
     #[doc = "44: SPI1 RX DMA burst request , controlled by SPI0:DMACR.RXDMAE"]
-    SPI1_RX_DMABREQ = 44,
+    Spi1RxDmabreq = 44,
     #[doc = "43: SPI0 TX DMA single request, controlled by SPI0:DMACR.TXDMAE"]
-    SPI0_TX_DMASREQ = 43,
+    Spi0TxDmasreq = 43,
     #[doc = "42: SPI0 TX DMA burst request , controlled by SPI0:DMACR.TXDMAE"]
-    SPI0_TX_DMABREQ = 42,
+    Spi0TxDmabreq = 42,
     #[doc = "41: SPI0 RX DMA single request, controlled by SPI0:DMACR.RXDMAE"]
-    SPI0_RX_DMASREQ = 41,
+    Spi0RxDmasreq = 41,
     #[doc = "40: SPI0 RX DMA burst request , controlled by SPI0:DMACR.RXDMAE"]
-    SPI0_RX_DMABREQ = 40,
+    Spi0RxDmabreq = 40,
     #[doc = "39: Combined DMA done, corresponding flags are here UDMA0:REQDONE"]
-    DMA_DONE_COMB = 39,
+    DmaDoneComb = 39,
     #[doc = "38: DMA bus error, corresponds to UDMA0:ERROR.STATUS"]
-    DMA_ERR = 38,
+    DmaErr = 38,
     #[doc = "37: UART1 combined interrupt, interrupt flags are found here UART1:MIS"]
-    UART1_COMB = 37,
+    Uart1Comb = 37,
     #[doc = "36: UART0 combined interrupt, interrupt flags are found here UART0:MIS"]
-    UART0_COMB = 36,
+    Uart0Comb = 36,
     #[doc = "35: SPI1 combined interrupt, interrupt flags are found here SPI1:MIS"]
-    SPI1_COMB = 35,
+    Spi1Comb = 35,
     #[doc = "34: SPI0 combined interrupt, interrupt flags are found here SPI0:MIS"]
-    SPI0_COMB = 34,
+    Spi0Comb = 34,
     #[doc = "31: PKA Interrupt event"]
-    PKA_IRQ = 31,
+    PkaIrq = 31,
     #[doc = "30: Combined Interrupt for CPE Generated events. Corresponding flags are here RFC_DBELL:RFCPEIFG. Only interrupts selected with CPE1 in RFC_DBELL:RFCPEIFG can trigger a RFC_CPE_1 event"]
-    RFC_CPE_1 = 30,
+    RfcCpe1 = 30,
     #[doc = "29: AUX software event 1, triggered by AUX_EVCTL:SWEVSET.SWEV1, also available as AUX_EVENT2 AON wake up event. MCU domain wakeup control AON_EVENT:MCUWUSEL"]
-    AUX_SWEV1 = 29,
+    AuxSwev1 = 29,
     #[doc = "27: Combined Interrupt for CPE Generated events. Corresponding flags are here RFC_DBELL:RFCPEIFG. Only interrupts selected with CPE0 in RFC_DBELL:RFCPEIFG can trigger a RFC_CPE_0 event"]
-    RFC_CPE_0 = 27,
+    RfcCpe0 = 27,
     #[doc = "26: Combined RFC hardware interrupt, corresponding flag is here RFC_DBELL:RFHWIFG"]
-    RFC_HW_COMB = 26,
+    RfcHwComb = 26,
     #[doc = "25: RFC Doorbell Command Acknowledgement Interrupt, equvialent to RFC_DBELL:RFACKIFG.ACKFLAG"]
-    RFC_CMD_ACK = 25,
+    RfcCmdAck = 25,
     #[doc = "24: Watchdog interrupt event, controlled by WDT:CTL.INTEN"]
-    WDT_IRQ = 24,
+    WdtIrq = 24,
     #[doc = "22: DMA done for software tiggered UDMA channel 18, see UDMA0:SOFTREQ"]
-    DMA_CH18_DONE = 22,
+    DmaCh18Done = 22,
     #[doc = "21: FLASH controller error event, the status flags are FLASH:FEDACSTAT.FSM_DONE and FLASH:FEDACSTAT.RVF_INT"]
-    FLASH = 21,
+    Flash = 21,
     #[doc = "20: DMA done for software tiggered UDMA channel 0, see UDMA0:SOFTREQ"]
-    DMA_CH0_DONE = 20,
+    DmaCh0Done = 20,
     #[doc = "19: GPT1B interrupt event, controlled by GPT1:TBMR"]
-    GPT1B = 19,
+    Gpt1b = 19,
     #[doc = "18: GPT1A interrupt event, controlled by GPT1:TAMR"]
-    GPT1A = 18,
+    Gpt1a = 18,
     #[doc = "17: GPT0B interrupt event, controlled by GPT0:TBMR"]
-    GPT0B = 17,
+    Gpt0b = 17,
     #[doc = "16: GPT0A interrupt event, controlled by GPT0:TAMR"]
-    GPT0A = 16,
+    Gpt0a = 16,
     #[doc = "15: GPT3B interrupt event, controlled by GPT3:TBMR"]
-    GPT3B = 15,
+    Gpt3b = 15,
     #[doc = "14: GPT3A interrupt event, controlled by GPT3:TAMR"]
-    GPT3A = 14,
+    Gpt3a = 14,
     #[doc = "13: GPT2B interrupt event, controlled by GPT2:TBMR"]
-    GPT2B = 13,
+    Gpt2b = 13,
     #[doc = "12: GPT2A interrupt event, controlled by GPT2:TAMR"]
-    GPT2A = 12,
+    Gpt2a = 12,
     #[doc = "11: AUX combined event, the corresponding flag register is here AUX_EVCTL:EVTOMCUFLAGS"]
-    AUX_COMB = 11,
+    AuxComb = 11,
     #[doc = "10: AUX Software event 0, AUX_EVCTL:SWEVSET.SWEV0"]
-    AON_AUX_SWEV0 = 10,
+    AonAuxSwev0 = 10,
     #[doc = "9: Interrupt event from I2C"]
-    I2C_IRQ = 9,
+    I2cIrq = 9,
     #[doc = "8: Interrupt event from I2S"]
-    I2S_IRQ = 8,
+    I2sIrq = 8,
     #[doc = "7: Event from AON_RTC, controlled by the AON_RTC:CTL.COMB_EV_MASK setting"]
-    AON_RTC_COMB = 7,
+    AonRtcComb = 7,
     #[doc = "6: Combined event from Oscillator control"]
-    OSC_COMB = 6,
+    OscComb = 6,
     #[doc = "5: Combined event from battery monitor"]
-    BATMON_COMB = 5,
+    BatmonComb = 5,
     #[doc = "4: Edge detect event from IOC. Configureded by the IOC:IOCFGn.EDGE_IRQ_EN and IOC:IOCFGn.EDGE_DET settings"]
-    AON_GPIO_EDGE = 4,
+    AonGpioEdge = 4,
     #[doc = "3: AON programmable event 2. Event selected by AON_EVENT MCU event selector, AON_EVENT:EVTOMCUSEL.AON_PROG2_EV"]
-    AON_PROG2 = 3,
+    AonProg2 = 3,
     #[doc = "2: AON programmable event 1. Event selected by AON_EVENT MCU event selector, AON_EVENT:EVTOMCUSEL.AON_PROG1_EV"]
-    AON_PROG1 = 2,
+    AonProg1 = 2,
     #[doc = "1: AON programmable event 0. Event selected by AON_EVENT MCU event selector, AON_EVENT:EVTOMCUSEL.AON_PROG0_EV"]
-    AON_PROG0 = 1,
+    AonProg0 = 1,
     #[doc = "0: Always inactive"]
-    NONE = 0,
+    None = 0,
 }
-impl From<EV_A> for u8 {
+impl From<Ev> for u8 {
     #[inline(always)]
-    fn from(variant: EV_A) -> Self {
+    fn from(variant: Ev) -> Self {
         variant as _
     }
 }
-impl EV_R {
+impl crate::FieldSpec for Ev {
+    type Ux = u8;
+}
+impl crate::IsEnum for Ev {}
+#[doc = "Field `EV` reader - 7:0\\]
+Read/write selection value Writing any other value than values defined by a ENUM may result in undefined behavior."]
+pub type EvR = crate::FieldReader<Ev>;
+impl EvR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<EV_A> {
+    pub const fn variant(&self) -> Option<Ev> {
         match self.bits {
-            142 => Some(EV_A::UART3_TX_DMASREQ),
-            141 => Some(EV_A::UART3_TX_DMABREQ),
-            140 => Some(EV_A::UART3_RX_DMASREQ),
-            139 => Some(EV_A::UART3_RX_DMABREQ),
-            138 => Some(EV_A::UART2_TX_DMASREQ),
-            137 => Some(EV_A::UART2_TX_DMABREQ),
-            136 => Some(EV_A::UART2_RX_DMASREQ),
-            135 => Some(EV_A::UART2_RX_DMABREQ),
-            134 => Some(EV_A::SPI3_TX_DMASREQ),
-            133 => Some(EV_A::SPI3_TX_DMABREQ),
-            132 => Some(EV_A::SPI3_RX_DMASREQ),
-            131 => Some(EV_A::SPI3_RX_DMABREQ),
-            130 => Some(EV_A::SPI2_TX_DMASREQ),
-            129 => Some(EV_A::SPI2_TX_DMABREQ),
-            128 => Some(EV_A::SPI2_RX_DMASREQ),
-            127 => Some(EV_A::SPI2_RX_DMABREQ),
-            126 => Some(EV_A::I2C1_IRQ),
-            125 => Some(EV_A::UART3_COMB),
-            124 => Some(EV_A::UART2_COMB),
-            123 => Some(EV_A::SPI3_COMB),
-            122 => Some(EV_A::SPI2_COMB),
-            121 => Some(EV_A::ALWAYS_ACTIVE),
-            120 => Some(EV_A::CPU_HALTED),
-            119 => Some(EV_A::AON_RTC_UPD),
-            118 => Some(EV_A::AUX_DMABREQ),
-            117 => Some(EV_A::AUX_DMASREQ),
-            116 => Some(EV_A::AUX_SW_DMABREQ),
-            115 => Some(EV_A::AUX_ADC_IRQ),
-            114 => Some(EV_A::AUX_OBSMUX0),
-            113 => Some(EV_A::AUX_ADC_FIFO_ALMOST_FULL),
-            112 => Some(EV_A::AUX_ADC_DONE),
-            111 => Some(EV_A::AUX_SMPH_AUTOTAKE_DONE),
-            110 => Some(EV_A::AUX_TIMER1_EV),
-            109 => Some(EV_A::AUX_TIMER0_EV),
-            108 => Some(EV_A::AUX_TDC_DONE),
-            107 => Some(EV_A::AUX_COMPB),
-            106 => Some(EV_A::AUX_COMPA),
-            105 => Some(EV_A::AUX_AON_WU_EV),
-            104 => Some(EV_A::TRNG_IRQ),
-            103 => Some(EV_A::SWEV3),
-            102 => Some(EV_A::SWEV2),
-            101 => Some(EV_A::SWEV1),
-            100 => Some(EV_A::SWEV0),
-            99 => Some(EV_A::WDT_NMI),
-            94 => Some(EV_A::CRYPTO_DMA_DONE_IRQ),
-            93 => Some(EV_A::CRYPTO_RESULT_AVAIL_IRQ),
-            92 => Some(EV_A::PORT_EVENT7),
-            91 => Some(EV_A::PORT_EVENT6),
-            90 => Some(EV_A::PORT_EVENT5),
-            89 => Some(EV_A::PORT_EVENT4),
-            88 => Some(EV_A::PORT_EVENT3),
-            87 => Some(EV_A::PORT_EVENT2),
-            86 => Some(EV_A::PORT_EVENT1),
-            85 => Some(EV_A::PORT_EVENT0),
-            84 => Some(EV_A::GPT3B_DMABREQ),
-            83 => Some(EV_A::GPT3A_DMABREQ),
-            82 => Some(EV_A::GPT2B_DMABREQ),
-            81 => Some(EV_A::GPT2A_DMABREQ),
-            80 => Some(EV_A::GPT1B_DMABREQ),
-            79 => Some(EV_A::GPT1A_DMABREQ),
-            78 => Some(EV_A::GPT0B_DMABREQ),
-            77 => Some(EV_A::GPT0A_DMABREQ),
-            68 => Some(EV_A::GPT3B_CMP),
-            67 => Some(EV_A::GPT3A_CMP),
-            66 => Some(EV_A::GPT2B_CMP),
-            65 => Some(EV_A::GPT2A_CMP),
-            64 => Some(EV_A::GPT1B_CMP),
-            63 => Some(EV_A::GPT1A_CMP),
-            62 => Some(EV_A::GPT0B_CMP),
-            61 => Some(EV_A::GPT0A_CMP),
-            60 => Some(EV_A::AUX_TIMER2_PULSE),
-            59 => Some(EV_A::AUX_TIMER2_EV3),
-            58 => Some(EV_A::AUX_TIMER2_EV2),
-            57 => Some(EV_A::AUX_TIMER2_EV1),
-            56 => Some(EV_A::AUX_TIMER2_EV0),
-            55 => Some(EV_A::UART1_TX_DMASREQ),
-            54 => Some(EV_A::UART1_TX_DMABREQ),
-            53 => Some(EV_A::UART1_RX_DMASREQ),
-            52 => Some(EV_A::UART1_RX_DMABREQ),
-            51 => Some(EV_A::UART0_TX_DMASREQ),
-            50 => Some(EV_A::UART0_TX_DMABREQ),
-            49 => Some(EV_A::UART0_RX_DMASREQ),
-            48 => Some(EV_A::UART0_RX_DMABREQ),
-            47 => Some(EV_A::SPI1_TX_DMASREQ),
-            46 => Some(EV_A::SPI1_TX_DMABREQ),
-            45 => Some(EV_A::SPI1_RX_DMASREQ),
-            44 => Some(EV_A::SPI1_RX_DMABREQ),
-            43 => Some(EV_A::SPI0_TX_DMASREQ),
-            42 => Some(EV_A::SPI0_TX_DMABREQ),
-            41 => Some(EV_A::SPI0_RX_DMASREQ),
-            40 => Some(EV_A::SPI0_RX_DMABREQ),
-            39 => Some(EV_A::DMA_DONE_COMB),
-            38 => Some(EV_A::DMA_ERR),
-            37 => Some(EV_A::UART1_COMB),
-            36 => Some(EV_A::UART0_COMB),
-            35 => Some(EV_A::SPI1_COMB),
-            34 => Some(EV_A::SPI0_COMB),
-            31 => Some(EV_A::PKA_IRQ),
-            30 => Some(EV_A::RFC_CPE_1),
-            29 => Some(EV_A::AUX_SWEV1),
-            27 => Some(EV_A::RFC_CPE_0),
-            26 => Some(EV_A::RFC_HW_COMB),
-            25 => Some(EV_A::RFC_CMD_ACK),
-            24 => Some(EV_A::WDT_IRQ),
-            22 => Some(EV_A::DMA_CH18_DONE),
-            21 => Some(EV_A::FLASH),
-            20 => Some(EV_A::DMA_CH0_DONE),
-            19 => Some(EV_A::GPT1B),
-            18 => Some(EV_A::GPT1A),
-            17 => Some(EV_A::GPT0B),
-            16 => Some(EV_A::GPT0A),
-            15 => Some(EV_A::GPT3B),
-            14 => Some(EV_A::GPT3A),
-            13 => Some(EV_A::GPT2B),
-            12 => Some(EV_A::GPT2A),
-            11 => Some(EV_A::AUX_COMB),
-            10 => Some(EV_A::AON_AUX_SWEV0),
-            9 => Some(EV_A::I2C_IRQ),
-            8 => Some(EV_A::I2S_IRQ),
-            7 => Some(EV_A::AON_RTC_COMB),
-            6 => Some(EV_A::OSC_COMB),
-            5 => Some(EV_A::BATMON_COMB),
-            4 => Some(EV_A::AON_GPIO_EDGE),
-            3 => Some(EV_A::AON_PROG2),
-            2 => Some(EV_A::AON_PROG1),
-            1 => Some(EV_A::AON_PROG0),
-            0 => Some(EV_A::NONE),
+            142 => Some(Ev::Uart3TxDmasreq),
+            141 => Some(Ev::Uart3TxDmabreq),
+            140 => Some(Ev::Uart3RxDmasreq),
+            139 => Some(Ev::Uart3RxDmabreq),
+            138 => Some(Ev::Uart2TxDmasreq),
+            137 => Some(Ev::Uart2TxDmabreq),
+            136 => Some(Ev::Uart2RxDmasreq),
+            135 => Some(Ev::Uart2RxDmabreq),
+            134 => Some(Ev::Spi3TxDmasreq),
+            133 => Some(Ev::Spi3TxDmabreq),
+            132 => Some(Ev::Spi3RxDmasreq),
+            131 => Some(Ev::Spi3RxDmabreq),
+            130 => Some(Ev::Spi2TxDmasreq),
+            129 => Some(Ev::Spi2TxDmabreq),
+            128 => Some(Ev::Spi2RxDmasreq),
+            127 => Some(Ev::Spi2RxDmabreq),
+            126 => Some(Ev::I2c1Irq),
+            125 => Some(Ev::Uart3Comb),
+            124 => Some(Ev::Uart2Comb),
+            123 => Some(Ev::Spi3Comb),
+            122 => Some(Ev::Spi2Comb),
+            121 => Some(Ev::AlwaysActive),
+            120 => Some(Ev::CpuHalted),
+            119 => Some(Ev::AonRtcUpd),
+            118 => Some(Ev::AuxDmabreq),
+            117 => Some(Ev::AuxDmasreq),
+            116 => Some(Ev::AuxSwDmabreq),
+            115 => Some(Ev::AuxAdcIrq),
+            114 => Some(Ev::AuxObsmux0),
+            113 => Some(Ev::AuxAdcFifoAlmostFull),
+            112 => Some(Ev::AuxAdcDone),
+            111 => Some(Ev::AuxSmphAutotakeDone),
+            110 => Some(Ev::AuxTimer1Ev),
+            109 => Some(Ev::AuxTimer0Ev),
+            108 => Some(Ev::AuxTdcDone),
+            107 => Some(Ev::AuxCompb),
+            106 => Some(Ev::AuxCompa),
+            105 => Some(Ev::AuxAonWuEv),
+            104 => Some(Ev::TrngIrq),
+            103 => Some(Ev::Swev3),
+            102 => Some(Ev::Swev2),
+            101 => Some(Ev::Swev1),
+            100 => Some(Ev::Swev0),
+            99 => Some(Ev::WdtNmi),
+            94 => Some(Ev::CryptoDmaDoneIrq),
+            93 => Some(Ev::CryptoResultAvailIrq),
+            92 => Some(Ev::PortEvent7),
+            91 => Some(Ev::PortEvent6),
+            90 => Some(Ev::PortEvent5),
+            89 => Some(Ev::PortEvent4),
+            88 => Some(Ev::PortEvent3),
+            87 => Some(Ev::PortEvent2),
+            86 => Some(Ev::PortEvent1),
+            85 => Some(Ev::PortEvent0),
+            84 => Some(Ev::Gpt3bDmabreq),
+            83 => Some(Ev::Gpt3aDmabreq),
+            82 => Some(Ev::Gpt2bDmabreq),
+            81 => Some(Ev::Gpt2aDmabreq),
+            80 => Some(Ev::Gpt1bDmabreq),
+            79 => Some(Ev::Gpt1aDmabreq),
+            78 => Some(Ev::Gpt0bDmabreq),
+            77 => Some(Ev::Gpt0aDmabreq),
+            68 => Some(Ev::Gpt3bCmp),
+            67 => Some(Ev::Gpt3aCmp),
+            66 => Some(Ev::Gpt2bCmp),
+            65 => Some(Ev::Gpt2aCmp),
+            64 => Some(Ev::Gpt1bCmp),
+            63 => Some(Ev::Gpt1aCmp),
+            62 => Some(Ev::Gpt0bCmp),
+            61 => Some(Ev::Gpt0aCmp),
+            60 => Some(Ev::AuxTimer2Pulse),
+            59 => Some(Ev::AuxTimer2Ev3),
+            58 => Some(Ev::AuxTimer2Ev2),
+            57 => Some(Ev::AuxTimer2Ev1),
+            56 => Some(Ev::AuxTimer2Ev0),
+            55 => Some(Ev::Uart1TxDmasreq),
+            54 => Some(Ev::Uart1TxDmabreq),
+            53 => Some(Ev::Uart1RxDmasreq),
+            52 => Some(Ev::Uart1RxDmabreq),
+            51 => Some(Ev::Uart0TxDmasreq),
+            50 => Some(Ev::Uart0TxDmabreq),
+            49 => Some(Ev::Uart0RxDmasreq),
+            48 => Some(Ev::Uart0RxDmabreq),
+            47 => Some(Ev::Spi1TxDmasreq),
+            46 => Some(Ev::Spi1TxDmabreq),
+            45 => Some(Ev::Spi1RxDmasreq),
+            44 => Some(Ev::Spi1RxDmabreq),
+            43 => Some(Ev::Spi0TxDmasreq),
+            42 => Some(Ev::Spi0TxDmabreq),
+            41 => Some(Ev::Spi0RxDmasreq),
+            40 => Some(Ev::Spi0RxDmabreq),
+            39 => Some(Ev::DmaDoneComb),
+            38 => Some(Ev::DmaErr),
+            37 => Some(Ev::Uart1Comb),
+            36 => Some(Ev::Uart0Comb),
+            35 => Some(Ev::Spi1Comb),
+            34 => Some(Ev::Spi0Comb),
+            31 => Some(Ev::PkaIrq),
+            30 => Some(Ev::RfcCpe1),
+            29 => Some(Ev::AuxSwev1),
+            27 => Some(Ev::RfcCpe0),
+            26 => Some(Ev::RfcHwComb),
+            25 => Some(Ev::RfcCmdAck),
+            24 => Some(Ev::WdtIrq),
+            22 => Some(Ev::DmaCh18Done),
+            21 => Some(Ev::Flash),
+            20 => Some(Ev::DmaCh0Done),
+            19 => Some(Ev::Gpt1b),
+            18 => Some(Ev::Gpt1a),
+            17 => Some(Ev::Gpt0b),
+            16 => Some(Ev::Gpt0a),
+            15 => Some(Ev::Gpt3b),
+            14 => Some(Ev::Gpt3a),
+            13 => Some(Ev::Gpt2b),
+            12 => Some(Ev::Gpt2a),
+            11 => Some(Ev::AuxComb),
+            10 => Some(Ev::AonAuxSwev0),
+            9 => Some(Ev::I2cIrq),
+            8 => Some(Ev::I2sIrq),
+            7 => Some(Ev::AonRtcComb),
+            6 => Some(Ev::OscComb),
+            5 => Some(Ev::BatmonComb),
+            4 => Some(Ev::AonGpioEdge),
+            3 => Some(Ev::AonProg2),
+            2 => Some(Ev::AonProg1),
+            1 => Some(Ev::AonProg0),
+            0 => Some(Ev::None),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `UART3_TX_DMASREQ`"]
+    #[doc = "UART3 TX DMA single request, controlled by UART3:DMACTL.TXDMAE"]
     #[inline(always)]
     pub fn is_uart3_tx_dmasreq(&self) -> bool {
-        *self == EV_A::UART3_TX_DMASREQ
+        *self == Ev::Uart3TxDmasreq
     }
-    #[doc = "Checks if the value of the field is `UART3_TX_DMABREQ`"]
+    #[doc = "UART3 TX DMA burst request, controlled by UART3:DMACTL.TXDMAE"]
     #[inline(always)]
     pub fn is_uart3_tx_dmabreq(&self) -> bool {
-        *self == EV_A::UART3_TX_DMABREQ
+        *self == Ev::Uart3TxDmabreq
     }
-    #[doc = "Checks if the value of the field is `UART3_RX_DMASREQ`"]
+    #[doc = "UART3 RX DMA single request, controlled by UART3:DMACTL.RXDMAE"]
     #[inline(always)]
     pub fn is_uart3_rx_dmasreq(&self) -> bool {
-        *self == EV_A::UART3_RX_DMASREQ
+        *self == Ev::Uart3RxDmasreq
     }
-    #[doc = "Checks if the value of the field is `UART3_RX_DMABREQ`"]
+    #[doc = "UART3 RX DMA burst request, controlled by UART3:DMACTL.RXDMAE"]
     #[inline(always)]
     pub fn is_uart3_rx_dmabreq(&self) -> bool {
-        *self == EV_A::UART3_RX_DMABREQ
+        *self == Ev::Uart3RxDmabreq
     }
-    #[doc = "Checks if the value of the field is `UART2_TX_DMASREQ`"]
+    #[doc = "UART2 TX DMA single request, controlled by UART2:DMACTL.TXDMAE"]
     #[inline(always)]
     pub fn is_uart2_tx_dmasreq(&self) -> bool {
-        *self == EV_A::UART2_TX_DMASREQ
+        *self == Ev::Uart2TxDmasreq
     }
-    #[doc = "Checks if the value of the field is `UART2_TX_DMABREQ`"]
+    #[doc = "UART2 TX DMA burst request, controlled by UART2:DMACTL.TXDMAE"]
     #[inline(always)]
     pub fn is_uart2_tx_dmabreq(&self) -> bool {
-        *self == EV_A::UART2_TX_DMABREQ
+        *self == Ev::Uart2TxDmabreq
     }
-    #[doc = "Checks if the value of the field is `UART2_RX_DMASREQ`"]
+    #[doc = "UART2 RX DMA single request, controlled by UART2:DMACTL.RXDMAE"]
     #[inline(always)]
     pub fn is_uart2_rx_dmasreq(&self) -> bool {
-        *self == EV_A::UART2_RX_DMASREQ
+        *self == Ev::Uart2RxDmasreq
     }
-    #[doc = "Checks if the value of the field is `UART2_RX_DMABREQ`"]
+    #[doc = "UART2 RX DMA burst request, controlled by UART2:DMACTL.RXDMAE"]
     #[inline(always)]
     pub fn is_uart2_rx_dmabreq(&self) -> bool {
-        *self == EV_A::UART2_RX_DMABREQ
+        *self == Ev::Uart2RxDmabreq
     }
-    #[doc = "Checks if the value of the field is `SPI3_TX_DMASREQ`"]
+    #[doc = "SPI3 TX DMA single request, controlled by SPI2:DMACR.TXDMAE"]
     #[inline(always)]
     pub fn is_spi3_tx_dmasreq(&self) -> bool {
-        *self == EV_A::SPI3_TX_DMASREQ
+        *self == Ev::Spi3TxDmasreq
     }
-    #[doc = "Checks if the value of the field is `SPI3_TX_DMABREQ`"]
+    #[doc = "SPI3 TX DMA burst request , controlled by SPI2:DMACR.TXDMAE"]
     #[inline(always)]
     pub fn is_spi3_tx_dmabreq(&self) -> bool {
-        *self == EV_A::SPI3_TX_DMABREQ
+        *self == Ev::Spi3TxDmabreq
     }
-    #[doc = "Checks if the value of the field is `SPI3_RX_DMASREQ`"]
+    #[doc = "SPI3 RX DMA single request, controlled by SPI2:DMACR.RXDMAE"]
     #[inline(always)]
     pub fn is_spi3_rx_dmasreq(&self) -> bool {
-        *self == EV_A::SPI3_RX_DMASREQ
+        *self == Ev::Spi3RxDmasreq
     }
-    #[doc = "Checks if the value of the field is `SPI3_RX_DMABREQ`"]
+    #[doc = "SPI3 RX DMA burst request , controlled by SPI2:DMACR.RXDMAE"]
     #[inline(always)]
     pub fn is_spi3_rx_dmabreq(&self) -> bool {
-        *self == EV_A::SPI3_RX_DMABREQ
+        *self == Ev::Spi3RxDmabreq
     }
-    #[doc = "Checks if the value of the field is `SPI2_TX_DMASREQ`"]
+    #[doc = "SPI2 TX DMA single request, controlled by SPI2:DMACR.TXDMAE"]
     #[inline(always)]
     pub fn is_spi2_tx_dmasreq(&self) -> bool {
-        *self == EV_A::SPI2_TX_DMASREQ
+        *self == Ev::Spi2TxDmasreq
     }
-    #[doc = "Checks if the value of the field is `SPI2_TX_DMABREQ`"]
+    #[doc = "SPI2 TX DMA burst request , controlled by SPI2:DMACR.TXDMAE"]
     #[inline(always)]
     pub fn is_spi2_tx_dmabreq(&self) -> bool {
-        *self == EV_A::SPI2_TX_DMABREQ
+        *self == Ev::Spi2TxDmabreq
     }
-    #[doc = "Checks if the value of the field is `SPI2_RX_DMASREQ`"]
+    #[doc = "SPI2 RX DMA single request, controlled by SPI2:DMACR.RXDMAE"]
     #[inline(always)]
     pub fn is_spi2_rx_dmasreq(&self) -> bool {
-        *self == EV_A::SPI2_RX_DMASREQ
+        *self == Ev::Spi2RxDmasreq
     }
-    #[doc = "Checks if the value of the field is `SPI2_RX_DMABREQ`"]
+    #[doc = "SPI2 RX DMA burst request , controlled by SPI2:DMACR.RXDMAE"]
     #[inline(always)]
     pub fn is_spi2_rx_dmabreq(&self) -> bool {
-        *self == EV_A::SPI2_RX_DMABREQ
+        *self == Ev::Spi2RxDmabreq
     }
-    #[doc = "Checks if the value of the field is `I2C1_IRQ`"]
+    #[doc = "Interrupt event from I2C1"]
     #[inline(always)]
     pub fn is_i2c1_irq(&self) -> bool {
-        *self == EV_A::I2C1_IRQ
+        *self == Ev::I2c1Irq
     }
-    #[doc = "Checks if the value of the field is `UART3_COMB`"]
+    #[doc = "UART3 combined interrupt, interrupt flags are found here UART3:MIS"]
     #[inline(always)]
     pub fn is_uart3_comb(&self) -> bool {
-        *self == EV_A::UART3_COMB
+        *self == Ev::Uart3Comb
     }
-    #[doc = "Checks if the value of the field is `UART2_COMB`"]
+    #[doc = "UART2 combined interrupt, interrupt flags are found here UART2:MIS"]
     #[inline(always)]
     pub fn is_uart2_comb(&self) -> bool {
-        *self == EV_A::UART2_COMB
+        *self == Ev::Uart2Comb
     }
-    #[doc = "Checks if the value of the field is `SPI3_COMB`"]
+    #[doc = "SPI3 combined interrupt, interrupt flags are found here SPI3:MIS"]
     #[inline(always)]
     pub fn is_spi3_comb(&self) -> bool {
-        *self == EV_A::SPI3_COMB
+        *self == Ev::Spi3Comb
     }
-    #[doc = "Checks if the value of the field is `SPI2_COMB`"]
+    #[doc = "SPI2 combined interrupt, interrupt flags are found here SPI2:MIS"]
     #[inline(always)]
     pub fn is_spi2_comb(&self) -> bool {
-        *self == EV_A::SPI2_COMB
+        *self == Ev::Spi2Comb
     }
-    #[doc = "Checks if the value of the field is `ALWAYS_ACTIVE`"]
+    #[doc = "Always asserted"]
     #[inline(always)]
     pub fn is_always_active(&self) -> bool {
-        *self == EV_A::ALWAYS_ACTIVE
+        *self == Ev::AlwaysActive
     }
-    #[doc = "Checks if the value of the field is `CPU_HALTED`"]
+    #[doc = "CPU halted"]
     #[inline(always)]
     pub fn is_cpu_halted(&self) -> bool {
-        *self == EV_A::CPU_HALTED
+        *self == Ev::CpuHalted
     }
-    #[doc = "Checks if the value of the field is `AON_RTC_UPD`"]
+    #[doc = "RTC periodic event controlled by AON_RTC:CTL.RTC_UPD_EN"]
     #[inline(always)]
     pub fn is_aon_rtc_upd(&self) -> bool {
-        *self == EV_A::AON_RTC_UPD
+        *self == Ev::AonRtcUpd
     }
-    #[doc = "Checks if the value of the field is `AUX_DMABREQ`"]
+    #[doc = "DMA burst request event from AUX, configured by AUX_EVCTL:DMACTL"]
     #[inline(always)]
     pub fn is_aux_dmabreq(&self) -> bool {
-        *self == EV_A::AUX_DMABREQ
+        *self == Ev::AuxDmabreq
     }
-    #[doc = "Checks if the value of the field is `AUX_DMASREQ`"]
+    #[doc = "DMA single request event from AUX, configured by AUX_EVCTL:DMACTL"]
     #[inline(always)]
     pub fn is_aux_dmasreq(&self) -> bool {
-        *self == EV_A::AUX_DMASREQ
+        *self == Ev::AuxDmasreq
     }
-    #[doc = "Checks if the value of the field is `AUX_SW_DMABREQ`"]
+    #[doc = "DMA sofware trigger from AUX, triggered by AUX_EVCTL:DMASWREQ.START"]
     #[inline(always)]
     pub fn is_aux_sw_dmabreq(&self) -> bool {
-        *self == EV_A::AUX_SW_DMABREQ
+        *self == Ev::AuxSwDmabreq
     }
-    #[doc = "Checks if the value of the field is `AUX_ADC_IRQ`"]
+    #[doc = "AUX ADC interrupt event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_ADC_IRQ. Status flags are found here AUX_EVCTL:EVTOMCUFLAGS"]
     #[inline(always)]
     pub fn is_aux_adc_irq(&self) -> bool {
-        *self == EV_A::AUX_ADC_IRQ
+        *self == Ev::AuxAdcIrq
     }
-    #[doc = "Checks if the value of the field is `AUX_OBSMUX0`"]
+    #[doc = "Loopback of OBSMUX0 through AUX, corresponds to AUX_EVCTL:EVTOMCUFLAGS.MCU_OBSMUX0"]
     #[inline(always)]
     pub fn is_aux_obsmux0(&self) -> bool {
-        *self == EV_A::AUX_OBSMUX0
+        *self == Ev::AuxObsmux0
     }
-    #[doc = "Checks if the value of the field is `AUX_ADC_FIFO_ALMOST_FULL`"]
+    #[doc = "AUX ADC FIFO watermark event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_ADC_FIFO_ALMOST_FULL"]
     #[inline(always)]
     pub fn is_aux_adc_fifo_almost_full(&self) -> bool {
-        *self == EV_A::AUX_ADC_FIFO_ALMOST_FULL
+        *self == Ev::AuxAdcFifoAlmostFull
     }
-    #[doc = "Checks if the value of the field is `AUX_ADC_DONE`"]
+    #[doc = "AUX ADC done, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_ADC_DONE"]
     #[inline(always)]
     pub fn is_aux_adc_done(&self) -> bool {
-        *self == EV_A::AUX_ADC_DONE
+        *self == Ev::AuxAdcDone
     }
-    #[doc = "Checks if the value of the field is `AUX_SMPH_AUTOTAKE_DONE`"]
+    #[doc = "Autotake event from AUX semaphore, configured by AUX_SMPH:AUTOTAKE"]
     #[inline(always)]
     pub fn is_aux_smph_autotake_done(&self) -> bool {
-        *self == EV_A::AUX_SMPH_AUTOTAKE_DONE
+        *self == Ev::AuxSmphAutotakeDone
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER1_EV`"]
+    #[doc = "AUX timer 1 event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER1_EV"]
     #[inline(always)]
     pub fn is_aux_timer1_ev(&self) -> bool {
-        *self == EV_A::AUX_TIMER1_EV
+        *self == Ev::AuxTimer1Ev
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER0_EV`"]
+    #[doc = "AUX timer 0 event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER0_EV"]
     #[inline(always)]
     pub fn is_aux_timer0_ev(&self) -> bool {
-        *self == EV_A::AUX_TIMER0_EV
+        *self == Ev::AuxTimer0Ev
     }
-    #[doc = "Checks if the value of the field is `AUX_TDC_DONE`"]
+    #[doc = "AUX TDC measurement done event, corresponds to the flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TDC_DONE and the AUX_TDC status AUX_TDC:STAT.DONE"]
     #[inline(always)]
     pub fn is_aux_tdc_done(&self) -> bool {
-        *self == EV_A::AUX_TDC_DONE
+        *self == Ev::AuxTdcDone
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPB`"]
+    #[doc = "AUX Compare B event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_COMPB"]
     #[inline(always)]
     pub fn is_aux_compb(&self) -> bool {
-        *self == EV_A::AUX_COMPB
+        *self == Ev::AuxCompb
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPA`"]
+    #[doc = "AUX Compare A event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_COMPA"]
     #[inline(always)]
     pub fn is_aux_compa(&self) -> bool {
-        *self == EV_A::AUX_COMPA
+        *self == Ev::AuxCompa
     }
-    #[doc = "Checks if the value of the field is `AUX_AON_WU_EV`"]
+    #[doc = "AON wakeup event, the corresponding flag is here AUX_EVCTL:EVTOMCUFLAGS.AUX_WU_EV"]
     #[inline(always)]
     pub fn is_aux_aon_wu_ev(&self) -> bool {
-        *self == EV_A::AUX_AON_WU_EV
+        *self == Ev::AuxAonWuEv
     }
-    #[doc = "Checks if the value of the field is `TRNG_IRQ`"]
+    #[doc = "TRNG Interrupt event, controlled by TRNG:IRQEN.EN"]
     #[inline(always)]
     pub fn is_trng_irq(&self) -> bool {
-        *self == EV_A::TRNG_IRQ
+        *self == Ev::TrngIrq
     }
-    #[doc = "Checks if the value of the field is `SWEV3`"]
+    #[doc = "Software event 3, triggered by SWEV.SWEV3"]
     #[inline(always)]
     pub fn is_swev3(&self) -> bool {
-        *self == EV_A::SWEV3
+        *self == Ev::Swev3
     }
-    #[doc = "Checks if the value of the field is `SWEV2`"]
+    #[doc = "Software event 2, triggered by SWEV.SWEV2"]
     #[inline(always)]
     pub fn is_swev2(&self) -> bool {
-        *self == EV_A::SWEV2
+        *self == Ev::Swev2
     }
-    #[doc = "Checks if the value of the field is `SWEV1`"]
+    #[doc = "Software event 1, triggered by SWEV.SWEV1"]
     #[inline(always)]
     pub fn is_swev1(&self) -> bool {
-        *self == EV_A::SWEV1
+        *self == Ev::Swev1
     }
-    #[doc = "Checks if the value of the field is `SWEV0`"]
+    #[doc = "Software event 0, triggered by SWEV.SWEV0"]
     #[inline(always)]
     pub fn is_swev0(&self) -> bool {
-        *self == EV_A::SWEV0
+        *self == Ev::Swev0
     }
-    #[doc = "Checks if the value of the field is `WDT_NMI`"]
+    #[doc = "Watchdog non maskable interrupt event, controlled by WDT:CTL.INTTYPE"]
     #[inline(always)]
     pub fn is_wdt_nmi(&self) -> bool {
-        *self == EV_A::WDT_NMI
+        *self == Ev::WdtNmi
     }
-    #[doc = "Checks if the value of the field is `CRYPTO_DMA_DONE_IRQ`"]
+    #[doc = "CRYPTO DMA input done event, the correspondingg flag is CRYPTO:IRQSTAT.DMA_IN_DONE. Controlled by CRYPTO:IRQEN.DMA_IN_DONE"]
     #[inline(always)]
     pub fn is_crypto_dma_done_irq(&self) -> bool {
-        *self == EV_A::CRYPTO_DMA_DONE_IRQ
+        *self == Ev::CryptoDmaDoneIrq
     }
-    #[doc = "Checks if the value of the field is `CRYPTO_RESULT_AVAIL_IRQ`"]
+    #[doc = "CRYPTO result available interupt event, the corresponding flag is found here CRYPTO:IRQSTAT.RESULT_AVAIL. Controlled by CRYPTO:IRQSTAT.RESULT_AVAIL"]
     #[inline(always)]
     pub fn is_crypto_result_avail_irq(&self) -> bool {
-        *self == EV_A::CRYPTO_RESULT_AVAIL_IRQ
+        *self == Ev::CryptoResultAvailIrq
     }
-    #[doc = "Checks if the value of the field is `PORT_EVENT7`"]
+    #[doc = "Port capture event from IOC, configured by IOC:IOCFGn.PORT_ID. Events on ports configured with ENUM PORT_EVENT7 wil be routed here."]
     #[inline(always)]
     pub fn is_port_event7(&self) -> bool {
-        *self == EV_A::PORT_EVENT7
+        *self == Ev::PortEvent7
     }
-    #[doc = "Checks if the value of the field is `PORT_EVENT6`"]
+    #[doc = "Port capture event from IOC, configured by IOC:IOCFGn.PORT_ID. Events on ports configured with ENUM PORT_EVENT6 wil be routed here."]
     #[inline(always)]
     pub fn is_port_event6(&self) -> bool {
-        *self == EV_A::PORT_EVENT6
+        *self == Ev::PortEvent6
     }
-    #[doc = "Checks if the value of the field is `PORT_EVENT5`"]
+    #[doc = "Port capture event from IOC, configured by IOC:IOCFGn.PORT_ID. Events on ports configured with ENUM PORT_EVENT4 wil be routed here."]
     #[inline(always)]
     pub fn is_port_event5(&self) -> bool {
-        *self == EV_A::PORT_EVENT5
+        *self == Ev::PortEvent5
     }
-    #[doc = "Checks if the value of the field is `PORT_EVENT4`"]
+    #[doc = "Port capture event from IOC, configured by IOC:IOCFGn.PORT_ID. Events on ports configured with ENUM PORT_EVENT4 wil be routed here."]
     #[inline(always)]
     pub fn is_port_event4(&self) -> bool {
-        *self == EV_A::PORT_EVENT4
+        *self == Ev::PortEvent4
     }
-    #[doc = "Checks if the value of the field is `PORT_EVENT3`"]
+    #[doc = "Port capture event from IOC, configured by IOC:IOCFGn.PORT_ID. Events on ports configured with ENUM PORT_EVENT3 wil be routed here."]
     #[inline(always)]
     pub fn is_port_event3(&self) -> bool {
-        *self == EV_A::PORT_EVENT3
+        *self == Ev::PortEvent3
     }
-    #[doc = "Checks if the value of the field is `PORT_EVENT2`"]
+    #[doc = "Port capture event from IOC, configured by IOC:IOCFGn.PORT_ID. Events on ports configured with ENUM PORT_EVENT2 wil be routed here."]
     #[inline(always)]
     pub fn is_port_event2(&self) -> bool {
-        *self == EV_A::PORT_EVENT2
+        *self == Ev::PortEvent2
     }
-    #[doc = "Checks if the value of the field is `PORT_EVENT1`"]
+    #[doc = "Port capture event from IOC, configured by IOC:IOCFGn.PORT_ID. Events on ports configured with ENUM PORT_EVENT1 wil be routed here."]
     #[inline(always)]
     pub fn is_port_event1(&self) -> bool {
-        *self == EV_A::PORT_EVENT1
+        *self == Ev::PortEvent1
     }
-    #[doc = "Checks if the value of the field is `PORT_EVENT0`"]
+    #[doc = "Port capture event from IOC, configured by IOC:IOCFGn.PORT_ID. Events on ports configured with ENUM PORT_EVENT0 wil be routed here."]
     #[inline(always)]
     pub fn is_port_event0(&self) -> bool {
-        *self == EV_A::PORT_EVENT0
+        *self == Ev::PortEvent0
     }
-    #[doc = "Checks if the value of the field is `GPT3B_DMABREQ`"]
+    #[doc = "GPT3B DMA trigger event. Configured by GPT3:DMAEV"]
     #[inline(always)]
     pub fn is_gpt3b_dmabreq(&self) -> bool {
-        *self == EV_A::GPT3B_DMABREQ
+        *self == Ev::Gpt3bDmabreq
     }
-    #[doc = "Checks if the value of the field is `GPT3A_DMABREQ`"]
+    #[doc = "GPT3A DMA trigger event. Configured by GPT3:DMAEV"]
     #[inline(always)]
     pub fn is_gpt3a_dmabreq(&self) -> bool {
-        *self == EV_A::GPT3A_DMABREQ
+        *self == Ev::Gpt3aDmabreq
     }
-    #[doc = "Checks if the value of the field is `GPT2B_DMABREQ`"]
+    #[doc = "GPT2B DMA trigger event. Configured by GPT2:DMAEV"]
     #[inline(always)]
     pub fn is_gpt2b_dmabreq(&self) -> bool {
-        *self == EV_A::GPT2B_DMABREQ
+        *self == Ev::Gpt2bDmabreq
     }
-    #[doc = "Checks if the value of the field is `GPT2A_DMABREQ`"]
+    #[doc = "GPT2A DMA trigger event. Configured by GPT2:DMAEV"]
     #[inline(always)]
     pub fn is_gpt2a_dmabreq(&self) -> bool {
-        *self == EV_A::GPT2A_DMABREQ
+        *self == Ev::Gpt2aDmabreq
     }
-    #[doc = "Checks if the value of the field is `GPT1B_DMABREQ`"]
+    #[doc = "GPT1B DMA trigger event. Configured by GPT1:DMAEV"]
     #[inline(always)]
     pub fn is_gpt1b_dmabreq(&self) -> bool {
-        *self == EV_A::GPT1B_DMABREQ
+        *self == Ev::Gpt1bDmabreq
     }
-    #[doc = "Checks if the value of the field is `GPT1A_DMABREQ`"]
+    #[doc = "GPT1A DMA trigger event. Configured by GPT1:DMAEV"]
     #[inline(always)]
     pub fn is_gpt1a_dmabreq(&self) -> bool {
-        *self == EV_A::GPT1A_DMABREQ
+        *self == Ev::Gpt1aDmabreq
     }
-    #[doc = "Checks if the value of the field is `GPT0B_DMABREQ`"]
+    #[doc = "GPT0B DMA trigger event. Configured by GPT0:DMAEV"]
     #[inline(always)]
     pub fn is_gpt0b_dmabreq(&self) -> bool {
-        *self == EV_A::GPT0B_DMABREQ
+        *self == Ev::Gpt0bDmabreq
     }
-    #[doc = "Checks if the value of the field is `GPT0A_DMABREQ`"]
+    #[doc = "GPT0A DMA trigger event. Configured by GPT0:DMAEV"]
     #[inline(always)]
     pub fn is_gpt0a_dmabreq(&self) -> bool {
-        *self == EV_A::GPT0A_DMABREQ
+        *self == Ev::Gpt0aDmabreq
     }
-    #[doc = "Checks if the value of the field is `GPT3B_CMP`"]
+    #[doc = "GPT3B compare event. Configured by GPT3:TBMR.TCACT"]
     #[inline(always)]
     pub fn is_gpt3b_cmp(&self) -> bool {
-        *self == EV_A::GPT3B_CMP
+        *self == Ev::Gpt3bCmp
     }
-    #[doc = "Checks if the value of the field is `GPT3A_CMP`"]
+    #[doc = "GPT3A compare event. Configured by GPT3:TAMR.TCACT"]
     #[inline(always)]
     pub fn is_gpt3a_cmp(&self) -> bool {
-        *self == EV_A::GPT3A_CMP
+        *self == Ev::Gpt3aCmp
     }
-    #[doc = "Checks if the value of the field is `GPT2B_CMP`"]
+    #[doc = "GPT2B compare event. Configured by GPT2:TBMR.TCACT"]
     #[inline(always)]
     pub fn is_gpt2b_cmp(&self) -> bool {
-        *self == EV_A::GPT2B_CMP
+        *self == Ev::Gpt2bCmp
     }
-    #[doc = "Checks if the value of the field is `GPT2A_CMP`"]
+    #[doc = "GPT2A compare event. Configured by GPT2:TAMR.TCACT"]
     #[inline(always)]
     pub fn is_gpt2a_cmp(&self) -> bool {
-        *self == EV_A::GPT2A_CMP
+        *self == Ev::Gpt2aCmp
     }
-    #[doc = "Checks if the value of the field is `GPT1B_CMP`"]
+    #[doc = "GPT1B compare event. Configured by GPT1:TBMR.TCACT"]
     #[inline(always)]
     pub fn is_gpt1b_cmp(&self) -> bool {
-        *self == EV_A::GPT1B_CMP
+        *self == Ev::Gpt1bCmp
     }
-    #[doc = "Checks if the value of the field is `GPT1A_CMP`"]
+    #[doc = "GPT1A compare event. Configured by GPT1:TAMR.TCACT"]
     #[inline(always)]
     pub fn is_gpt1a_cmp(&self) -> bool {
-        *self == EV_A::GPT1A_CMP
+        *self == Ev::Gpt1aCmp
     }
-    #[doc = "Checks if the value of the field is `GPT0B_CMP`"]
+    #[doc = "GPT0B compare event. Configured by GPT0:TBMR.TCACT"]
     #[inline(always)]
     pub fn is_gpt0b_cmp(&self) -> bool {
-        *self == EV_A::GPT0B_CMP
+        *self == Ev::Gpt0bCmp
     }
-    #[doc = "Checks if the value of the field is `GPT0A_CMP`"]
+    #[doc = "GPT0A compare event. Configured by GPT0:TAMR.TCACT"]
     #[inline(always)]
     pub fn is_gpt0a_cmp(&self) -> bool {
-        *self == EV_A::GPT0A_CMP
+        *self == Ev::Gpt0aCmp
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER2_PULSE`"]
+    #[doc = "AUX Timer2 pulse, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_PULSE"]
     #[inline(always)]
     pub fn is_aux_timer2_pulse(&self) -> bool {
-        *self == EV_A::AUX_TIMER2_PULSE
+        *self == Ev::AuxTimer2Pulse
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER2_EV3`"]
+    #[doc = "AUX Timer2 event 3, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_EV3"]
     #[inline(always)]
     pub fn is_aux_timer2_ev3(&self) -> bool {
-        *self == EV_A::AUX_TIMER2_EV3
+        *self == Ev::AuxTimer2Ev3
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER2_EV2`"]
+    #[doc = "AUX Timer2 event 2, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_EV2"]
     #[inline(always)]
     pub fn is_aux_timer2_ev2(&self) -> bool {
-        *self == EV_A::AUX_TIMER2_EV2
+        *self == Ev::AuxTimer2Ev2
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER2_EV1`"]
+    #[doc = "AUX Timer2 event 1, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_EV1"]
     #[inline(always)]
     pub fn is_aux_timer2_ev1(&self) -> bool {
-        *self == EV_A::AUX_TIMER2_EV1
+        *self == Ev::AuxTimer2Ev1
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER2_EV0`"]
+    #[doc = "AUX Timer2 event 0, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_EV0"]
     #[inline(always)]
     pub fn is_aux_timer2_ev0(&self) -> bool {
-        *self == EV_A::AUX_TIMER2_EV0
+        *self == Ev::AuxTimer2Ev0
     }
-    #[doc = "Checks if the value of the field is `UART1_TX_DMASREQ`"]
+    #[doc = "UART1 TX DMA single request, controlled by UART1:DMACTL.TXDMAE"]
     #[inline(always)]
     pub fn is_uart1_tx_dmasreq(&self) -> bool {
-        *self == EV_A::UART1_TX_DMASREQ
+        *self == Ev::Uart1TxDmasreq
     }
-    #[doc = "Checks if the value of the field is `UART1_TX_DMABREQ`"]
+    #[doc = "UART1 TX DMA burst request, controlled by UART1:DMACTL.TXDMAE"]
     #[inline(always)]
     pub fn is_uart1_tx_dmabreq(&self) -> bool {
-        *self == EV_A::UART1_TX_DMABREQ
+        *self == Ev::Uart1TxDmabreq
     }
-    #[doc = "Checks if the value of the field is `UART1_RX_DMASREQ`"]
+    #[doc = "UART1 RX DMA single request, controlled by UART1:DMACTL.RXDMAE"]
     #[inline(always)]
     pub fn is_uart1_rx_dmasreq(&self) -> bool {
-        *self == EV_A::UART1_RX_DMASREQ
+        *self == Ev::Uart1RxDmasreq
     }
-    #[doc = "Checks if the value of the field is `UART1_RX_DMABREQ`"]
+    #[doc = "UART1 RX DMA burst request, controlled by UART1:DMACTL.RXDMAE"]
     #[inline(always)]
     pub fn is_uart1_rx_dmabreq(&self) -> bool {
-        *self == EV_A::UART1_RX_DMABREQ
+        *self == Ev::Uart1RxDmabreq
     }
-    #[doc = "Checks if the value of the field is `UART0_TX_DMASREQ`"]
+    #[doc = "UART0 TX DMA single request, controlled by UART0:DMACTL.TXDMAE"]
     #[inline(always)]
     pub fn is_uart0_tx_dmasreq(&self) -> bool {
-        *self == EV_A::UART0_TX_DMASREQ
+        *self == Ev::Uart0TxDmasreq
     }
-    #[doc = "Checks if the value of the field is `UART0_TX_DMABREQ`"]
+    #[doc = "UART0 TX DMA burst request, controlled by UART0:DMACTL.TXDMAE"]
     #[inline(always)]
     pub fn is_uart0_tx_dmabreq(&self) -> bool {
-        *self == EV_A::UART0_TX_DMABREQ
+        *self == Ev::Uart0TxDmabreq
     }
-    #[doc = "Checks if the value of the field is `UART0_RX_DMASREQ`"]
+    #[doc = "UART0 RX DMA single request, controlled by UART0:DMACTL.RXDMAE"]
     #[inline(always)]
     pub fn is_uart0_rx_dmasreq(&self) -> bool {
-        *self == EV_A::UART0_RX_DMASREQ
+        *self == Ev::Uart0RxDmasreq
     }
-    #[doc = "Checks if the value of the field is `UART0_RX_DMABREQ`"]
+    #[doc = "UART0 RX DMA burst request, controlled by UART0:DMACTL.RXDMAE"]
     #[inline(always)]
     pub fn is_uart0_rx_dmabreq(&self) -> bool {
-        *self == EV_A::UART0_RX_DMABREQ
+        *self == Ev::Uart0RxDmabreq
     }
-    #[doc = "Checks if the value of the field is `SPI1_TX_DMASREQ`"]
+    #[doc = "SPI1 TX DMA single request, controlled by SPI0:DMACR.TXDMAE"]
     #[inline(always)]
     pub fn is_spi1_tx_dmasreq(&self) -> bool {
-        *self == EV_A::SPI1_TX_DMASREQ
+        *self == Ev::Spi1TxDmasreq
     }
-    #[doc = "Checks if the value of the field is `SPI1_TX_DMABREQ`"]
+    #[doc = "SPI1 TX DMA burst request , controlled by SPI0:DMACR.TXDMAE"]
     #[inline(always)]
     pub fn is_spi1_tx_dmabreq(&self) -> bool {
-        *self == EV_A::SPI1_TX_DMABREQ
+        *self == Ev::Spi1TxDmabreq
     }
-    #[doc = "Checks if the value of the field is `SPI1_RX_DMASREQ`"]
+    #[doc = "SPI1 RX DMA single request, controlled by SPI0:DMACR.RXDMAE"]
     #[inline(always)]
     pub fn is_spi1_rx_dmasreq(&self) -> bool {
-        *self == EV_A::SPI1_RX_DMASREQ
+        *self == Ev::Spi1RxDmasreq
     }
-    #[doc = "Checks if the value of the field is `SPI1_RX_DMABREQ`"]
+    #[doc = "SPI1 RX DMA burst request , controlled by SPI0:DMACR.RXDMAE"]
     #[inline(always)]
     pub fn is_spi1_rx_dmabreq(&self) -> bool {
-        *self == EV_A::SPI1_RX_DMABREQ
+        *self == Ev::Spi1RxDmabreq
     }
-    #[doc = "Checks if the value of the field is `SPI0_TX_DMASREQ`"]
+    #[doc = "SPI0 TX DMA single request, controlled by SPI0:DMACR.TXDMAE"]
     #[inline(always)]
     pub fn is_spi0_tx_dmasreq(&self) -> bool {
-        *self == EV_A::SPI0_TX_DMASREQ
+        *self == Ev::Spi0TxDmasreq
     }
-    #[doc = "Checks if the value of the field is `SPI0_TX_DMABREQ`"]
+    #[doc = "SPI0 TX DMA burst request , controlled by SPI0:DMACR.TXDMAE"]
     #[inline(always)]
     pub fn is_spi0_tx_dmabreq(&self) -> bool {
-        *self == EV_A::SPI0_TX_DMABREQ
+        *self == Ev::Spi0TxDmabreq
     }
-    #[doc = "Checks if the value of the field is `SPI0_RX_DMASREQ`"]
+    #[doc = "SPI0 RX DMA single request, controlled by SPI0:DMACR.RXDMAE"]
     #[inline(always)]
     pub fn is_spi0_rx_dmasreq(&self) -> bool {
-        *self == EV_A::SPI0_RX_DMASREQ
+        *self == Ev::Spi0RxDmasreq
     }
-    #[doc = "Checks if the value of the field is `SPI0_RX_DMABREQ`"]
+    #[doc = "SPI0 RX DMA burst request , controlled by SPI0:DMACR.RXDMAE"]
     #[inline(always)]
     pub fn is_spi0_rx_dmabreq(&self) -> bool {
-        *self == EV_A::SPI0_RX_DMABREQ
+        *self == Ev::Spi0RxDmabreq
     }
-    #[doc = "Checks if the value of the field is `DMA_DONE_COMB`"]
+    #[doc = "Combined DMA done, corresponding flags are here UDMA0:REQDONE"]
     #[inline(always)]
     pub fn is_dma_done_comb(&self) -> bool {
-        *self == EV_A::DMA_DONE_COMB
+        *self == Ev::DmaDoneComb
     }
-    #[doc = "Checks if the value of the field is `DMA_ERR`"]
+    #[doc = "DMA bus error, corresponds to UDMA0:ERROR.STATUS"]
     #[inline(always)]
     pub fn is_dma_err(&self) -> bool {
-        *self == EV_A::DMA_ERR
+        *self == Ev::DmaErr
     }
-    #[doc = "Checks if the value of the field is `UART1_COMB`"]
+    #[doc = "UART1 combined interrupt, interrupt flags are found here UART1:MIS"]
     #[inline(always)]
     pub fn is_uart1_comb(&self) -> bool {
-        *self == EV_A::UART1_COMB
+        *self == Ev::Uart1Comb
     }
-    #[doc = "Checks if the value of the field is `UART0_COMB`"]
+    #[doc = "UART0 combined interrupt, interrupt flags are found here UART0:MIS"]
     #[inline(always)]
     pub fn is_uart0_comb(&self) -> bool {
-        *self == EV_A::UART0_COMB
+        *self == Ev::Uart0Comb
     }
-    #[doc = "Checks if the value of the field is `SPI1_COMB`"]
+    #[doc = "SPI1 combined interrupt, interrupt flags are found here SPI1:MIS"]
     #[inline(always)]
     pub fn is_spi1_comb(&self) -> bool {
-        *self == EV_A::SPI1_COMB
+        *self == Ev::Spi1Comb
     }
-    #[doc = "Checks if the value of the field is `SPI0_COMB`"]
+    #[doc = "SPI0 combined interrupt, interrupt flags are found here SPI0:MIS"]
     #[inline(always)]
     pub fn is_spi0_comb(&self) -> bool {
-        *self == EV_A::SPI0_COMB
+        *self == Ev::Spi0Comb
     }
-    #[doc = "Checks if the value of the field is `PKA_IRQ`"]
+    #[doc = "PKA Interrupt event"]
     #[inline(always)]
     pub fn is_pka_irq(&self) -> bool {
-        *self == EV_A::PKA_IRQ
+        *self == Ev::PkaIrq
     }
-    #[doc = "Checks if the value of the field is `RFC_CPE_1`"]
+    #[doc = "Combined Interrupt for CPE Generated events. Corresponding flags are here RFC_DBELL:RFCPEIFG. Only interrupts selected with CPE1 in RFC_DBELL:RFCPEIFG can trigger a RFC_CPE_1 event"]
     #[inline(always)]
     pub fn is_rfc_cpe_1(&self) -> bool {
-        *self == EV_A::RFC_CPE_1
+        *self == Ev::RfcCpe1
     }
-    #[doc = "Checks if the value of the field is `AUX_SWEV1`"]
+    #[doc = "AUX software event 1, triggered by AUX_EVCTL:SWEVSET.SWEV1, also available as AUX_EVENT2 AON wake up event. MCU domain wakeup control AON_EVENT:MCUWUSEL"]
     #[inline(always)]
     pub fn is_aux_swev1(&self) -> bool {
-        *self == EV_A::AUX_SWEV1
+        *self == Ev::AuxSwev1
     }
-    #[doc = "Checks if the value of the field is `RFC_CPE_0`"]
+    #[doc = "Combined Interrupt for CPE Generated events. Corresponding flags are here RFC_DBELL:RFCPEIFG. Only interrupts selected with CPE0 in RFC_DBELL:RFCPEIFG can trigger a RFC_CPE_0 event"]
     #[inline(always)]
     pub fn is_rfc_cpe_0(&self) -> bool {
-        *self == EV_A::RFC_CPE_0
+        *self == Ev::RfcCpe0
     }
-    #[doc = "Checks if the value of the field is `RFC_HW_COMB`"]
+    #[doc = "Combined RFC hardware interrupt, corresponding flag is here RFC_DBELL:RFHWIFG"]
     #[inline(always)]
     pub fn is_rfc_hw_comb(&self) -> bool {
-        *self == EV_A::RFC_HW_COMB
+        *self == Ev::RfcHwComb
     }
-    #[doc = "Checks if the value of the field is `RFC_CMD_ACK`"]
+    #[doc = "RFC Doorbell Command Acknowledgement Interrupt, equvialent to RFC_DBELL:RFACKIFG.ACKFLAG"]
     #[inline(always)]
     pub fn is_rfc_cmd_ack(&self) -> bool {
-        *self == EV_A::RFC_CMD_ACK
+        *self == Ev::RfcCmdAck
     }
-    #[doc = "Checks if the value of the field is `WDT_IRQ`"]
+    #[doc = "Watchdog interrupt event, controlled by WDT:CTL.INTEN"]
     #[inline(always)]
     pub fn is_wdt_irq(&self) -> bool {
-        *self == EV_A::WDT_IRQ
+        *self == Ev::WdtIrq
     }
-    #[doc = "Checks if the value of the field is `DMA_CH18_DONE`"]
+    #[doc = "DMA done for software tiggered UDMA channel 18, see UDMA0:SOFTREQ"]
     #[inline(always)]
     pub fn is_dma_ch18_done(&self) -> bool {
-        *self == EV_A::DMA_CH18_DONE
+        *self == Ev::DmaCh18Done
     }
-    #[doc = "Checks if the value of the field is `FLASH`"]
+    #[doc = "FLASH controller error event, the status flags are FLASH:FEDACSTAT.FSM_DONE and FLASH:FEDACSTAT.RVF_INT"]
     #[inline(always)]
     pub fn is_flash(&self) -> bool {
-        *self == EV_A::FLASH
+        *self == Ev::Flash
     }
-    #[doc = "Checks if the value of the field is `DMA_CH0_DONE`"]
+    #[doc = "DMA done for software tiggered UDMA channel 0, see UDMA0:SOFTREQ"]
     #[inline(always)]
     pub fn is_dma_ch0_done(&self) -> bool {
-        *self == EV_A::DMA_CH0_DONE
+        *self == Ev::DmaCh0Done
     }
-    #[doc = "Checks if the value of the field is `GPT1B`"]
+    #[doc = "GPT1B interrupt event, controlled by GPT1:TBMR"]
     #[inline(always)]
     pub fn is_gpt1b(&self) -> bool {
-        *self == EV_A::GPT1B
+        *self == Ev::Gpt1b
     }
-    #[doc = "Checks if the value of the field is `GPT1A`"]
+    #[doc = "GPT1A interrupt event, controlled by GPT1:TAMR"]
     #[inline(always)]
     pub fn is_gpt1a(&self) -> bool {
-        *self == EV_A::GPT1A
+        *self == Ev::Gpt1a
     }
-    #[doc = "Checks if the value of the field is `GPT0B`"]
+    #[doc = "GPT0B interrupt event, controlled by GPT0:TBMR"]
     #[inline(always)]
     pub fn is_gpt0b(&self) -> bool {
-        *self == EV_A::GPT0B
+        *self == Ev::Gpt0b
     }
-    #[doc = "Checks if the value of the field is `GPT0A`"]
+    #[doc = "GPT0A interrupt event, controlled by GPT0:TAMR"]
     #[inline(always)]
     pub fn is_gpt0a(&self) -> bool {
-        *self == EV_A::GPT0A
+        *self == Ev::Gpt0a
     }
-    #[doc = "Checks if the value of the field is `GPT3B`"]
+    #[doc = "GPT3B interrupt event, controlled by GPT3:TBMR"]
     #[inline(always)]
     pub fn is_gpt3b(&self) -> bool {
-        *self == EV_A::GPT3B
+        *self == Ev::Gpt3b
     }
-    #[doc = "Checks if the value of the field is `GPT3A`"]
+    #[doc = "GPT3A interrupt event, controlled by GPT3:TAMR"]
     #[inline(always)]
     pub fn is_gpt3a(&self) -> bool {
-        *self == EV_A::GPT3A
+        *self == Ev::Gpt3a
     }
-    #[doc = "Checks if the value of the field is `GPT2B`"]
+    #[doc = "GPT2B interrupt event, controlled by GPT2:TBMR"]
     #[inline(always)]
     pub fn is_gpt2b(&self) -> bool {
-        *self == EV_A::GPT2B
+        *self == Ev::Gpt2b
     }
-    #[doc = "Checks if the value of the field is `GPT2A`"]
+    #[doc = "GPT2A interrupt event, controlled by GPT2:TAMR"]
     #[inline(always)]
     pub fn is_gpt2a(&self) -> bool {
-        *self == EV_A::GPT2A
+        *self == Ev::Gpt2a
     }
-    #[doc = "Checks if the value of the field is `AUX_COMB`"]
+    #[doc = "AUX combined event, the corresponding flag register is here AUX_EVCTL:EVTOMCUFLAGS"]
     #[inline(always)]
     pub fn is_aux_comb(&self) -> bool {
-        *self == EV_A::AUX_COMB
+        *self == Ev::AuxComb
     }
-    #[doc = "Checks if the value of the field is `AON_AUX_SWEV0`"]
+    #[doc = "AUX Software event 0, AUX_EVCTL:SWEVSET.SWEV0"]
     #[inline(always)]
     pub fn is_aon_aux_swev0(&self) -> bool {
-        *self == EV_A::AON_AUX_SWEV0
+        *self == Ev::AonAuxSwev0
     }
-    #[doc = "Checks if the value of the field is `I2C_IRQ`"]
+    #[doc = "Interrupt event from I2C"]
     #[inline(always)]
     pub fn is_i2c_irq(&self) -> bool {
-        *self == EV_A::I2C_IRQ
+        *self == Ev::I2cIrq
     }
-    #[doc = "Checks if the value of the field is `I2S_IRQ`"]
+    #[doc = "Interrupt event from I2S"]
     #[inline(always)]
     pub fn is_i2s_irq(&self) -> bool {
-        *self == EV_A::I2S_IRQ
+        *self == Ev::I2sIrq
     }
-    #[doc = "Checks if the value of the field is `AON_RTC_COMB`"]
+    #[doc = "Event from AON_RTC, controlled by the AON_RTC:CTL.COMB_EV_MASK setting"]
     #[inline(always)]
     pub fn is_aon_rtc_comb(&self) -> bool {
-        *self == EV_A::AON_RTC_COMB
+        *self == Ev::AonRtcComb
     }
-    #[doc = "Checks if the value of the field is `OSC_COMB`"]
+    #[doc = "Combined event from Oscillator control"]
     #[inline(always)]
     pub fn is_osc_comb(&self) -> bool {
-        *self == EV_A::OSC_COMB
+        *self == Ev::OscComb
     }
-    #[doc = "Checks if the value of the field is `BATMON_COMB`"]
+    #[doc = "Combined event from battery monitor"]
     #[inline(always)]
     pub fn is_batmon_comb(&self) -> bool {
-        *self == EV_A::BATMON_COMB
+        *self == Ev::BatmonComb
     }
-    #[doc = "Checks if the value of the field is `AON_GPIO_EDGE`"]
+    #[doc = "Edge detect event from IOC. Configureded by the IOC:IOCFGn.EDGE_IRQ_EN and IOC:IOCFGn.EDGE_DET settings"]
     #[inline(always)]
     pub fn is_aon_gpio_edge(&self) -> bool {
-        *self == EV_A::AON_GPIO_EDGE
+        *self == Ev::AonGpioEdge
     }
-    #[doc = "Checks if the value of the field is `AON_PROG2`"]
+    #[doc = "AON programmable event 2. Event selected by AON_EVENT MCU event selector, AON_EVENT:EVTOMCUSEL.AON_PROG2_EV"]
     #[inline(always)]
     pub fn is_aon_prog2(&self) -> bool {
-        *self == EV_A::AON_PROG2
+        *self == Ev::AonProg2
     }
-    #[doc = "Checks if the value of the field is `AON_PROG1`"]
+    #[doc = "AON programmable event 1. Event selected by AON_EVENT MCU event selector, AON_EVENT:EVTOMCUSEL.AON_PROG1_EV"]
     #[inline(always)]
     pub fn is_aon_prog1(&self) -> bool {
-        *self == EV_A::AON_PROG1
+        *self == Ev::AonProg1
     }
-    #[doc = "Checks if the value of the field is `AON_PROG0`"]
+    #[doc = "AON programmable event 0. Event selected by AON_EVENT MCU event selector, AON_EVENT:EVTOMCUSEL.AON_PROG0_EV"]
     #[inline(always)]
     pub fn is_aon_prog0(&self) -> bool {
-        *self == EV_A::AON_PROG0
+        *self == Ev::AonProg0
     }
-    #[doc = "Checks if the value of the field is `NONE`"]
+    #[doc = "Always inactive"]
     #[inline(always)]
     pub fn is_none(&self) -> bool {
-        *self == EV_A::NONE
+        *self == Ev::None
     }
 }
 #[doc = "Field `EV` writer - 7:0\\]
 Read/write selection value Writing any other value than values defined by a ENUM may result in undefined behavior."]
-pub type EV_W<'a, const O: u8> = crate::FieldWriter<'a, u32, UDMACH14BSEL_SPEC, u8, EV_A, 8, O>;
-impl<'a, const O: u8> EV_W<'a, O> {
+pub type EvW<'a, REG> = crate::FieldWriter<'a, REG, 8, Ev>;
+impl<'a, REG> EvW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "UART3 TX DMA single request, controlled by UART3:DMACTL.TXDMAE"]
     #[inline(always)]
-    pub fn uart3_tx_dmasreq(self) -> &'a mut W {
-        self.variant(EV_A::UART3_TX_DMASREQ)
+    pub fn uart3_tx_dmasreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Uart3TxDmasreq)
     }
     #[doc = "UART3 TX DMA burst request, controlled by UART3:DMACTL.TXDMAE"]
     #[inline(always)]
-    pub fn uart3_tx_dmabreq(self) -> &'a mut W {
-        self.variant(EV_A::UART3_TX_DMABREQ)
+    pub fn uart3_tx_dmabreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Uart3TxDmabreq)
     }
     #[doc = "UART3 RX DMA single request, controlled by UART3:DMACTL.RXDMAE"]
     #[inline(always)]
-    pub fn uart3_rx_dmasreq(self) -> &'a mut W {
-        self.variant(EV_A::UART3_RX_DMASREQ)
+    pub fn uart3_rx_dmasreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Uart3RxDmasreq)
     }
     #[doc = "UART3 RX DMA burst request, controlled by UART3:DMACTL.RXDMAE"]
     #[inline(always)]
-    pub fn uart3_rx_dmabreq(self) -> &'a mut W {
-        self.variant(EV_A::UART3_RX_DMABREQ)
+    pub fn uart3_rx_dmabreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Uart3RxDmabreq)
     }
     #[doc = "UART2 TX DMA single request, controlled by UART2:DMACTL.TXDMAE"]
     #[inline(always)]
-    pub fn uart2_tx_dmasreq(self) -> &'a mut W {
-        self.variant(EV_A::UART2_TX_DMASREQ)
+    pub fn uart2_tx_dmasreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Uart2TxDmasreq)
     }
     #[doc = "UART2 TX DMA burst request, controlled by UART2:DMACTL.TXDMAE"]
     #[inline(always)]
-    pub fn uart2_tx_dmabreq(self) -> &'a mut W {
-        self.variant(EV_A::UART2_TX_DMABREQ)
+    pub fn uart2_tx_dmabreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Uart2TxDmabreq)
     }
     #[doc = "UART2 RX DMA single request, controlled by UART2:DMACTL.RXDMAE"]
     #[inline(always)]
-    pub fn uart2_rx_dmasreq(self) -> &'a mut W {
-        self.variant(EV_A::UART2_RX_DMASREQ)
+    pub fn uart2_rx_dmasreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Uart2RxDmasreq)
     }
     #[doc = "UART2 RX DMA burst request, controlled by UART2:DMACTL.RXDMAE"]
     #[inline(always)]
-    pub fn uart2_rx_dmabreq(self) -> &'a mut W {
-        self.variant(EV_A::UART2_RX_DMABREQ)
+    pub fn uart2_rx_dmabreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Uart2RxDmabreq)
     }
     #[doc = "SPI3 TX DMA single request, controlled by SPI2:DMACR.TXDMAE"]
     #[inline(always)]
-    pub fn spi3_tx_dmasreq(self) -> &'a mut W {
-        self.variant(EV_A::SPI3_TX_DMASREQ)
+    pub fn spi3_tx_dmasreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Spi3TxDmasreq)
     }
     #[doc = "SPI3 TX DMA burst request , controlled by SPI2:DMACR.TXDMAE"]
     #[inline(always)]
-    pub fn spi3_tx_dmabreq(self) -> &'a mut W {
-        self.variant(EV_A::SPI3_TX_DMABREQ)
+    pub fn spi3_tx_dmabreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Spi3TxDmabreq)
     }
     #[doc = "SPI3 RX DMA single request, controlled by SPI2:DMACR.RXDMAE"]
     #[inline(always)]
-    pub fn spi3_rx_dmasreq(self) -> &'a mut W {
-        self.variant(EV_A::SPI3_RX_DMASREQ)
+    pub fn spi3_rx_dmasreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Spi3RxDmasreq)
     }
     #[doc = "SPI3 RX DMA burst request , controlled by SPI2:DMACR.RXDMAE"]
     #[inline(always)]
-    pub fn spi3_rx_dmabreq(self) -> &'a mut W {
-        self.variant(EV_A::SPI3_RX_DMABREQ)
+    pub fn spi3_rx_dmabreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Spi3RxDmabreq)
     }
     #[doc = "SPI2 TX DMA single request, controlled by SPI2:DMACR.TXDMAE"]
     #[inline(always)]
-    pub fn spi2_tx_dmasreq(self) -> &'a mut W {
-        self.variant(EV_A::SPI2_TX_DMASREQ)
+    pub fn spi2_tx_dmasreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Spi2TxDmasreq)
     }
     #[doc = "SPI2 TX DMA burst request , controlled by SPI2:DMACR.TXDMAE"]
     #[inline(always)]
-    pub fn spi2_tx_dmabreq(self) -> &'a mut W {
-        self.variant(EV_A::SPI2_TX_DMABREQ)
+    pub fn spi2_tx_dmabreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Spi2TxDmabreq)
     }
     #[doc = "SPI2 RX DMA single request, controlled by SPI2:DMACR.RXDMAE"]
     #[inline(always)]
-    pub fn spi2_rx_dmasreq(self) -> &'a mut W {
-        self.variant(EV_A::SPI2_RX_DMASREQ)
+    pub fn spi2_rx_dmasreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Spi2RxDmasreq)
     }
     #[doc = "SPI2 RX DMA burst request , controlled by SPI2:DMACR.RXDMAE"]
     #[inline(always)]
-    pub fn spi2_rx_dmabreq(self) -> &'a mut W {
-        self.variant(EV_A::SPI2_RX_DMABREQ)
+    pub fn spi2_rx_dmabreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Spi2RxDmabreq)
     }
     #[doc = "Interrupt event from I2C1"]
     #[inline(always)]
-    pub fn i2c1_irq(self) -> &'a mut W {
-        self.variant(EV_A::I2C1_IRQ)
+    pub fn i2c1_irq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::I2c1Irq)
     }
     #[doc = "UART3 combined interrupt, interrupt flags are found here UART3:MIS"]
     #[inline(always)]
-    pub fn uart3_comb(self) -> &'a mut W {
-        self.variant(EV_A::UART3_COMB)
+    pub fn uart3_comb(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Uart3Comb)
     }
     #[doc = "UART2 combined interrupt, interrupt flags are found here UART2:MIS"]
     #[inline(always)]
-    pub fn uart2_comb(self) -> &'a mut W {
-        self.variant(EV_A::UART2_COMB)
+    pub fn uart2_comb(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Uart2Comb)
     }
     #[doc = "SPI3 combined interrupt, interrupt flags are found here SPI3:MIS"]
     #[inline(always)]
-    pub fn spi3_comb(self) -> &'a mut W {
-        self.variant(EV_A::SPI3_COMB)
+    pub fn spi3_comb(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Spi3Comb)
     }
     #[doc = "SPI2 combined interrupt, interrupt flags are found here SPI2:MIS"]
     #[inline(always)]
-    pub fn spi2_comb(self) -> &'a mut W {
-        self.variant(EV_A::SPI2_COMB)
+    pub fn spi2_comb(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Spi2Comb)
     }
     #[doc = "Always asserted"]
     #[inline(always)]
-    pub fn always_active(self) -> &'a mut W {
-        self.variant(EV_A::ALWAYS_ACTIVE)
+    pub fn always_active(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AlwaysActive)
     }
     #[doc = "CPU halted"]
     #[inline(always)]
-    pub fn cpu_halted(self) -> &'a mut W {
-        self.variant(EV_A::CPU_HALTED)
+    pub fn cpu_halted(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::CpuHalted)
     }
     #[doc = "RTC periodic event controlled by AON_RTC:CTL.RTC_UPD_EN"]
     #[inline(always)]
-    pub fn aon_rtc_upd(self) -> &'a mut W {
-        self.variant(EV_A::AON_RTC_UPD)
+    pub fn aon_rtc_upd(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AonRtcUpd)
     }
     #[doc = "DMA burst request event from AUX, configured by AUX_EVCTL:DMACTL"]
     #[inline(always)]
-    pub fn aux_dmabreq(self) -> &'a mut W {
-        self.variant(EV_A::AUX_DMABREQ)
+    pub fn aux_dmabreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxDmabreq)
     }
     #[doc = "DMA single request event from AUX, configured by AUX_EVCTL:DMACTL"]
     #[inline(always)]
-    pub fn aux_dmasreq(self) -> &'a mut W {
-        self.variant(EV_A::AUX_DMASREQ)
+    pub fn aux_dmasreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxDmasreq)
     }
     #[doc = "DMA sofware trigger from AUX, triggered by AUX_EVCTL:DMASWREQ.START"]
     #[inline(always)]
-    pub fn aux_sw_dmabreq(self) -> &'a mut W {
-        self.variant(EV_A::AUX_SW_DMABREQ)
+    pub fn aux_sw_dmabreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxSwDmabreq)
     }
     #[doc = "AUX ADC interrupt event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_ADC_IRQ. Status flags are found here AUX_EVCTL:EVTOMCUFLAGS"]
     #[inline(always)]
-    pub fn aux_adc_irq(self) -> &'a mut W {
-        self.variant(EV_A::AUX_ADC_IRQ)
+    pub fn aux_adc_irq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxAdcIrq)
     }
     #[doc = "Loopback of OBSMUX0 through AUX, corresponds to AUX_EVCTL:EVTOMCUFLAGS.MCU_OBSMUX0"]
     #[inline(always)]
-    pub fn aux_obsmux0(self) -> &'a mut W {
-        self.variant(EV_A::AUX_OBSMUX0)
+    pub fn aux_obsmux0(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxObsmux0)
     }
     #[doc = "AUX ADC FIFO watermark event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_ADC_FIFO_ALMOST_FULL"]
     #[inline(always)]
-    pub fn aux_adc_fifo_almost_full(self) -> &'a mut W {
-        self.variant(EV_A::AUX_ADC_FIFO_ALMOST_FULL)
+    pub fn aux_adc_fifo_almost_full(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxAdcFifoAlmostFull)
     }
     #[doc = "AUX ADC done, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_ADC_DONE"]
     #[inline(always)]
-    pub fn aux_adc_done(self) -> &'a mut W {
-        self.variant(EV_A::AUX_ADC_DONE)
+    pub fn aux_adc_done(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxAdcDone)
     }
     #[doc = "Autotake event from AUX semaphore, configured by AUX_SMPH:AUTOTAKE"]
     #[inline(always)]
-    pub fn aux_smph_autotake_done(self) -> &'a mut W {
-        self.variant(EV_A::AUX_SMPH_AUTOTAKE_DONE)
+    pub fn aux_smph_autotake_done(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxSmphAutotakeDone)
     }
     #[doc = "AUX timer 1 event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER1_EV"]
     #[inline(always)]
-    pub fn aux_timer1_ev(self) -> &'a mut W {
-        self.variant(EV_A::AUX_TIMER1_EV)
+    pub fn aux_timer1_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxTimer1Ev)
     }
     #[doc = "AUX timer 0 event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER0_EV"]
     #[inline(always)]
-    pub fn aux_timer0_ev(self) -> &'a mut W {
-        self.variant(EV_A::AUX_TIMER0_EV)
+    pub fn aux_timer0_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxTimer0Ev)
     }
     #[doc = "AUX TDC measurement done event, corresponds to the flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TDC_DONE and the AUX_TDC status AUX_TDC:STAT.DONE"]
     #[inline(always)]
-    pub fn aux_tdc_done(self) -> &'a mut W {
-        self.variant(EV_A::AUX_TDC_DONE)
+    pub fn aux_tdc_done(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxTdcDone)
     }
     #[doc = "AUX Compare B event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_COMPB"]
     #[inline(always)]
-    pub fn aux_compb(self) -> &'a mut W {
-        self.variant(EV_A::AUX_COMPB)
+    pub fn aux_compb(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxCompb)
     }
     #[doc = "AUX Compare A event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_COMPA"]
     #[inline(always)]
-    pub fn aux_compa(self) -> &'a mut W {
-        self.variant(EV_A::AUX_COMPA)
+    pub fn aux_compa(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxCompa)
     }
     #[doc = "AON wakeup event, the corresponding flag is here AUX_EVCTL:EVTOMCUFLAGS.AUX_WU_EV"]
     #[inline(always)]
-    pub fn aux_aon_wu_ev(self) -> &'a mut W {
-        self.variant(EV_A::AUX_AON_WU_EV)
+    pub fn aux_aon_wu_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxAonWuEv)
     }
     #[doc = "TRNG Interrupt event, controlled by TRNG:IRQEN.EN"]
     #[inline(always)]
-    pub fn trng_irq(self) -> &'a mut W {
-        self.variant(EV_A::TRNG_IRQ)
+    pub fn trng_irq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::TrngIrq)
     }
     #[doc = "Software event 3, triggered by SWEV.SWEV3"]
     #[inline(always)]
-    pub fn swev3(self) -> &'a mut W {
-        self.variant(EV_A::SWEV3)
+    pub fn swev3(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Swev3)
     }
     #[doc = "Software event 2, triggered by SWEV.SWEV2"]
     #[inline(always)]
-    pub fn swev2(self) -> &'a mut W {
-        self.variant(EV_A::SWEV2)
+    pub fn swev2(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Swev2)
     }
     #[doc = "Software event 1, triggered by SWEV.SWEV1"]
     #[inline(always)]
-    pub fn swev1(self) -> &'a mut W {
-        self.variant(EV_A::SWEV1)
+    pub fn swev1(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Swev1)
     }
     #[doc = "Software event 0, triggered by SWEV.SWEV0"]
     #[inline(always)]
-    pub fn swev0(self) -> &'a mut W {
-        self.variant(EV_A::SWEV0)
+    pub fn swev0(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Swev0)
     }
     #[doc = "Watchdog non maskable interrupt event, controlled by WDT:CTL.INTTYPE"]
     #[inline(always)]
-    pub fn wdt_nmi(self) -> &'a mut W {
-        self.variant(EV_A::WDT_NMI)
+    pub fn wdt_nmi(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::WdtNmi)
     }
     #[doc = "CRYPTO DMA input done event, the correspondingg flag is CRYPTO:IRQSTAT.DMA_IN_DONE. Controlled by CRYPTO:IRQEN.DMA_IN_DONE"]
     #[inline(always)]
-    pub fn crypto_dma_done_irq(self) -> &'a mut W {
-        self.variant(EV_A::CRYPTO_DMA_DONE_IRQ)
+    pub fn crypto_dma_done_irq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::CryptoDmaDoneIrq)
     }
     #[doc = "CRYPTO result available interupt event, the corresponding flag is found here CRYPTO:IRQSTAT.RESULT_AVAIL. Controlled by CRYPTO:IRQSTAT.RESULT_AVAIL"]
     #[inline(always)]
-    pub fn crypto_result_avail_irq(self) -> &'a mut W {
-        self.variant(EV_A::CRYPTO_RESULT_AVAIL_IRQ)
+    pub fn crypto_result_avail_irq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::CryptoResultAvailIrq)
     }
     #[doc = "Port capture event from IOC, configured by IOC:IOCFGn.PORT_ID. Events on ports configured with ENUM PORT_EVENT7 wil be routed here."]
     #[inline(always)]
-    pub fn port_event7(self) -> &'a mut W {
-        self.variant(EV_A::PORT_EVENT7)
+    pub fn port_event7(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::PortEvent7)
     }
     #[doc = "Port capture event from IOC, configured by IOC:IOCFGn.PORT_ID. Events on ports configured with ENUM PORT_EVENT6 wil be routed here."]
     #[inline(always)]
-    pub fn port_event6(self) -> &'a mut W {
-        self.variant(EV_A::PORT_EVENT6)
+    pub fn port_event6(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::PortEvent6)
     }
     #[doc = "Port capture event from IOC, configured by IOC:IOCFGn.PORT_ID. Events on ports configured with ENUM PORT_EVENT4 wil be routed here."]
     #[inline(always)]
-    pub fn port_event5(self) -> &'a mut W {
-        self.variant(EV_A::PORT_EVENT5)
+    pub fn port_event5(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::PortEvent5)
     }
     #[doc = "Port capture event from IOC, configured by IOC:IOCFGn.PORT_ID. Events on ports configured with ENUM PORT_EVENT4 wil be routed here."]
     #[inline(always)]
-    pub fn port_event4(self) -> &'a mut W {
-        self.variant(EV_A::PORT_EVENT4)
+    pub fn port_event4(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::PortEvent4)
     }
     #[doc = "Port capture event from IOC, configured by IOC:IOCFGn.PORT_ID. Events on ports configured with ENUM PORT_EVENT3 wil be routed here."]
     #[inline(always)]
-    pub fn port_event3(self) -> &'a mut W {
-        self.variant(EV_A::PORT_EVENT3)
+    pub fn port_event3(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::PortEvent3)
     }
     #[doc = "Port capture event from IOC, configured by IOC:IOCFGn.PORT_ID. Events on ports configured with ENUM PORT_EVENT2 wil be routed here."]
     #[inline(always)]
-    pub fn port_event2(self) -> &'a mut W {
-        self.variant(EV_A::PORT_EVENT2)
+    pub fn port_event2(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::PortEvent2)
     }
     #[doc = "Port capture event from IOC, configured by IOC:IOCFGn.PORT_ID. Events on ports configured with ENUM PORT_EVENT1 wil be routed here."]
     #[inline(always)]
-    pub fn port_event1(self) -> &'a mut W {
-        self.variant(EV_A::PORT_EVENT1)
+    pub fn port_event1(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::PortEvent1)
     }
     #[doc = "Port capture event from IOC, configured by IOC:IOCFGn.PORT_ID. Events on ports configured with ENUM PORT_EVENT0 wil be routed here."]
     #[inline(always)]
-    pub fn port_event0(self) -> &'a mut W {
-        self.variant(EV_A::PORT_EVENT0)
+    pub fn port_event0(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::PortEvent0)
     }
     #[doc = "GPT3B DMA trigger event. Configured by GPT3:DMAEV"]
     #[inline(always)]
-    pub fn gpt3b_dmabreq(self) -> &'a mut W {
-        self.variant(EV_A::GPT3B_DMABREQ)
+    pub fn gpt3b_dmabreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt3bDmabreq)
     }
     #[doc = "GPT3A DMA trigger event. Configured by GPT3:DMAEV"]
     #[inline(always)]
-    pub fn gpt3a_dmabreq(self) -> &'a mut W {
-        self.variant(EV_A::GPT3A_DMABREQ)
+    pub fn gpt3a_dmabreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt3aDmabreq)
     }
     #[doc = "GPT2B DMA trigger event. Configured by GPT2:DMAEV"]
     #[inline(always)]
-    pub fn gpt2b_dmabreq(self) -> &'a mut W {
-        self.variant(EV_A::GPT2B_DMABREQ)
+    pub fn gpt2b_dmabreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt2bDmabreq)
     }
     #[doc = "GPT2A DMA trigger event. Configured by GPT2:DMAEV"]
     #[inline(always)]
-    pub fn gpt2a_dmabreq(self) -> &'a mut W {
-        self.variant(EV_A::GPT2A_DMABREQ)
+    pub fn gpt2a_dmabreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt2aDmabreq)
     }
     #[doc = "GPT1B DMA trigger event. Configured by GPT1:DMAEV"]
     #[inline(always)]
-    pub fn gpt1b_dmabreq(self) -> &'a mut W {
-        self.variant(EV_A::GPT1B_DMABREQ)
+    pub fn gpt1b_dmabreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt1bDmabreq)
     }
     #[doc = "GPT1A DMA trigger event. Configured by GPT1:DMAEV"]
     #[inline(always)]
-    pub fn gpt1a_dmabreq(self) -> &'a mut W {
-        self.variant(EV_A::GPT1A_DMABREQ)
+    pub fn gpt1a_dmabreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt1aDmabreq)
     }
     #[doc = "GPT0B DMA trigger event. Configured by GPT0:DMAEV"]
     #[inline(always)]
-    pub fn gpt0b_dmabreq(self) -> &'a mut W {
-        self.variant(EV_A::GPT0B_DMABREQ)
+    pub fn gpt0b_dmabreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt0bDmabreq)
     }
     #[doc = "GPT0A DMA trigger event. Configured by GPT0:DMAEV"]
     #[inline(always)]
-    pub fn gpt0a_dmabreq(self) -> &'a mut W {
-        self.variant(EV_A::GPT0A_DMABREQ)
+    pub fn gpt0a_dmabreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt0aDmabreq)
     }
     #[doc = "GPT3B compare event. Configured by GPT3:TBMR.TCACT"]
     #[inline(always)]
-    pub fn gpt3b_cmp(self) -> &'a mut W {
-        self.variant(EV_A::GPT3B_CMP)
+    pub fn gpt3b_cmp(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt3bCmp)
     }
     #[doc = "GPT3A compare event. Configured by GPT3:TAMR.TCACT"]
     #[inline(always)]
-    pub fn gpt3a_cmp(self) -> &'a mut W {
-        self.variant(EV_A::GPT3A_CMP)
+    pub fn gpt3a_cmp(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt3aCmp)
     }
     #[doc = "GPT2B compare event. Configured by GPT2:TBMR.TCACT"]
     #[inline(always)]
-    pub fn gpt2b_cmp(self) -> &'a mut W {
-        self.variant(EV_A::GPT2B_CMP)
+    pub fn gpt2b_cmp(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt2bCmp)
     }
     #[doc = "GPT2A compare event. Configured by GPT2:TAMR.TCACT"]
     #[inline(always)]
-    pub fn gpt2a_cmp(self) -> &'a mut W {
-        self.variant(EV_A::GPT2A_CMP)
+    pub fn gpt2a_cmp(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt2aCmp)
     }
     #[doc = "GPT1B compare event. Configured by GPT1:TBMR.TCACT"]
     #[inline(always)]
-    pub fn gpt1b_cmp(self) -> &'a mut W {
-        self.variant(EV_A::GPT1B_CMP)
+    pub fn gpt1b_cmp(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt1bCmp)
     }
     #[doc = "GPT1A compare event. Configured by GPT1:TAMR.TCACT"]
     #[inline(always)]
-    pub fn gpt1a_cmp(self) -> &'a mut W {
-        self.variant(EV_A::GPT1A_CMP)
+    pub fn gpt1a_cmp(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt1aCmp)
     }
     #[doc = "GPT0B compare event. Configured by GPT0:TBMR.TCACT"]
     #[inline(always)]
-    pub fn gpt0b_cmp(self) -> &'a mut W {
-        self.variant(EV_A::GPT0B_CMP)
+    pub fn gpt0b_cmp(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt0bCmp)
     }
     #[doc = "GPT0A compare event. Configured by GPT0:TAMR.TCACT"]
     #[inline(always)]
-    pub fn gpt0a_cmp(self) -> &'a mut W {
-        self.variant(EV_A::GPT0A_CMP)
+    pub fn gpt0a_cmp(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt0aCmp)
     }
     #[doc = "AUX Timer2 pulse, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_PULSE"]
     #[inline(always)]
-    pub fn aux_timer2_pulse(self) -> &'a mut W {
-        self.variant(EV_A::AUX_TIMER2_PULSE)
+    pub fn aux_timer2_pulse(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxTimer2Pulse)
     }
     #[doc = "AUX Timer2 event 3, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_EV3"]
     #[inline(always)]
-    pub fn aux_timer2_ev3(self) -> &'a mut W {
-        self.variant(EV_A::AUX_TIMER2_EV3)
+    pub fn aux_timer2_ev3(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxTimer2Ev3)
     }
     #[doc = "AUX Timer2 event 2, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_EV2"]
     #[inline(always)]
-    pub fn aux_timer2_ev2(self) -> &'a mut W {
-        self.variant(EV_A::AUX_TIMER2_EV2)
+    pub fn aux_timer2_ev2(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxTimer2Ev2)
     }
     #[doc = "AUX Timer2 event 1, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_EV1"]
     #[inline(always)]
-    pub fn aux_timer2_ev1(self) -> &'a mut W {
-        self.variant(EV_A::AUX_TIMER2_EV1)
+    pub fn aux_timer2_ev1(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxTimer2Ev1)
     }
     #[doc = "AUX Timer2 event 0, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_EV0"]
     #[inline(always)]
-    pub fn aux_timer2_ev0(self) -> &'a mut W {
-        self.variant(EV_A::AUX_TIMER2_EV0)
+    pub fn aux_timer2_ev0(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxTimer2Ev0)
     }
     #[doc = "UART1 TX DMA single request, controlled by UART1:DMACTL.TXDMAE"]
     #[inline(always)]
-    pub fn uart1_tx_dmasreq(self) -> &'a mut W {
-        self.variant(EV_A::UART1_TX_DMASREQ)
+    pub fn uart1_tx_dmasreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Uart1TxDmasreq)
     }
     #[doc = "UART1 TX DMA burst request, controlled by UART1:DMACTL.TXDMAE"]
     #[inline(always)]
-    pub fn uart1_tx_dmabreq(self) -> &'a mut W {
-        self.variant(EV_A::UART1_TX_DMABREQ)
+    pub fn uart1_tx_dmabreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Uart1TxDmabreq)
     }
     #[doc = "UART1 RX DMA single request, controlled by UART1:DMACTL.RXDMAE"]
     #[inline(always)]
-    pub fn uart1_rx_dmasreq(self) -> &'a mut W {
-        self.variant(EV_A::UART1_RX_DMASREQ)
+    pub fn uart1_rx_dmasreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Uart1RxDmasreq)
     }
     #[doc = "UART1 RX DMA burst request, controlled by UART1:DMACTL.RXDMAE"]
     #[inline(always)]
-    pub fn uart1_rx_dmabreq(self) -> &'a mut W {
-        self.variant(EV_A::UART1_RX_DMABREQ)
+    pub fn uart1_rx_dmabreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Uart1RxDmabreq)
     }
     #[doc = "UART0 TX DMA single request, controlled by UART0:DMACTL.TXDMAE"]
     #[inline(always)]
-    pub fn uart0_tx_dmasreq(self) -> &'a mut W {
-        self.variant(EV_A::UART0_TX_DMASREQ)
+    pub fn uart0_tx_dmasreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Uart0TxDmasreq)
     }
     #[doc = "UART0 TX DMA burst request, controlled by UART0:DMACTL.TXDMAE"]
     #[inline(always)]
-    pub fn uart0_tx_dmabreq(self) -> &'a mut W {
-        self.variant(EV_A::UART0_TX_DMABREQ)
+    pub fn uart0_tx_dmabreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Uart0TxDmabreq)
     }
     #[doc = "UART0 RX DMA single request, controlled by UART0:DMACTL.RXDMAE"]
     #[inline(always)]
-    pub fn uart0_rx_dmasreq(self) -> &'a mut W {
-        self.variant(EV_A::UART0_RX_DMASREQ)
+    pub fn uart0_rx_dmasreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Uart0RxDmasreq)
     }
     #[doc = "UART0 RX DMA burst request, controlled by UART0:DMACTL.RXDMAE"]
     #[inline(always)]
-    pub fn uart0_rx_dmabreq(self) -> &'a mut W {
-        self.variant(EV_A::UART0_RX_DMABREQ)
+    pub fn uart0_rx_dmabreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Uart0RxDmabreq)
     }
     #[doc = "SPI1 TX DMA single request, controlled by SPI0:DMACR.TXDMAE"]
     #[inline(always)]
-    pub fn spi1_tx_dmasreq(self) -> &'a mut W {
-        self.variant(EV_A::SPI1_TX_DMASREQ)
+    pub fn spi1_tx_dmasreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Spi1TxDmasreq)
     }
     #[doc = "SPI1 TX DMA burst request , controlled by SPI0:DMACR.TXDMAE"]
     #[inline(always)]
-    pub fn spi1_tx_dmabreq(self) -> &'a mut W {
-        self.variant(EV_A::SPI1_TX_DMABREQ)
+    pub fn spi1_tx_dmabreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Spi1TxDmabreq)
     }
     #[doc = "SPI1 RX DMA single request, controlled by SPI0:DMACR.RXDMAE"]
     #[inline(always)]
-    pub fn spi1_rx_dmasreq(self) -> &'a mut W {
-        self.variant(EV_A::SPI1_RX_DMASREQ)
+    pub fn spi1_rx_dmasreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Spi1RxDmasreq)
     }
     #[doc = "SPI1 RX DMA burst request , controlled by SPI0:DMACR.RXDMAE"]
     #[inline(always)]
-    pub fn spi1_rx_dmabreq(self) -> &'a mut W {
-        self.variant(EV_A::SPI1_RX_DMABREQ)
+    pub fn spi1_rx_dmabreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Spi1RxDmabreq)
     }
     #[doc = "SPI0 TX DMA single request, controlled by SPI0:DMACR.TXDMAE"]
     #[inline(always)]
-    pub fn spi0_tx_dmasreq(self) -> &'a mut W {
-        self.variant(EV_A::SPI0_TX_DMASREQ)
+    pub fn spi0_tx_dmasreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Spi0TxDmasreq)
     }
     #[doc = "SPI0 TX DMA burst request , controlled by SPI0:DMACR.TXDMAE"]
     #[inline(always)]
-    pub fn spi0_tx_dmabreq(self) -> &'a mut W {
-        self.variant(EV_A::SPI0_TX_DMABREQ)
+    pub fn spi0_tx_dmabreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Spi0TxDmabreq)
     }
     #[doc = "SPI0 RX DMA single request, controlled by SPI0:DMACR.RXDMAE"]
     #[inline(always)]
-    pub fn spi0_rx_dmasreq(self) -> &'a mut W {
-        self.variant(EV_A::SPI0_RX_DMASREQ)
+    pub fn spi0_rx_dmasreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Spi0RxDmasreq)
     }
     #[doc = "SPI0 RX DMA burst request , controlled by SPI0:DMACR.RXDMAE"]
     #[inline(always)]
-    pub fn spi0_rx_dmabreq(self) -> &'a mut W {
-        self.variant(EV_A::SPI0_RX_DMABREQ)
+    pub fn spi0_rx_dmabreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Spi0RxDmabreq)
     }
     #[doc = "Combined DMA done, corresponding flags are here UDMA0:REQDONE"]
     #[inline(always)]
-    pub fn dma_done_comb(self) -> &'a mut W {
-        self.variant(EV_A::DMA_DONE_COMB)
+    pub fn dma_done_comb(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::DmaDoneComb)
     }
     #[doc = "DMA bus error, corresponds to UDMA0:ERROR.STATUS"]
     #[inline(always)]
-    pub fn dma_err(self) -> &'a mut W {
-        self.variant(EV_A::DMA_ERR)
+    pub fn dma_err(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::DmaErr)
     }
     #[doc = "UART1 combined interrupt, interrupt flags are found here UART1:MIS"]
     #[inline(always)]
-    pub fn uart1_comb(self) -> &'a mut W {
-        self.variant(EV_A::UART1_COMB)
+    pub fn uart1_comb(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Uart1Comb)
     }
     #[doc = "UART0 combined interrupt, interrupt flags are found here UART0:MIS"]
     #[inline(always)]
-    pub fn uart0_comb(self) -> &'a mut W {
-        self.variant(EV_A::UART0_COMB)
+    pub fn uart0_comb(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Uart0Comb)
     }
     #[doc = "SPI1 combined interrupt, interrupt flags are found here SPI1:MIS"]
     #[inline(always)]
-    pub fn spi1_comb(self) -> &'a mut W {
-        self.variant(EV_A::SPI1_COMB)
+    pub fn spi1_comb(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Spi1Comb)
     }
     #[doc = "SPI0 combined interrupt, interrupt flags are found here SPI0:MIS"]
     #[inline(always)]
-    pub fn spi0_comb(self) -> &'a mut W {
-        self.variant(EV_A::SPI0_COMB)
+    pub fn spi0_comb(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Spi0Comb)
     }
     #[doc = "PKA Interrupt event"]
     #[inline(always)]
-    pub fn pka_irq(self) -> &'a mut W {
-        self.variant(EV_A::PKA_IRQ)
+    pub fn pka_irq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::PkaIrq)
     }
     #[doc = "Combined Interrupt for CPE Generated events. Corresponding flags are here RFC_DBELL:RFCPEIFG. Only interrupts selected with CPE1 in RFC_DBELL:RFCPEIFG can trigger a RFC_CPE_1 event"]
     #[inline(always)]
-    pub fn rfc_cpe_1(self) -> &'a mut W {
-        self.variant(EV_A::RFC_CPE_1)
+    pub fn rfc_cpe_1(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::RfcCpe1)
     }
     #[doc = "AUX software event 1, triggered by AUX_EVCTL:SWEVSET.SWEV1, also available as AUX_EVENT2 AON wake up event. MCU domain wakeup control AON_EVENT:MCUWUSEL"]
     #[inline(always)]
-    pub fn aux_swev1(self) -> &'a mut W {
-        self.variant(EV_A::AUX_SWEV1)
+    pub fn aux_swev1(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxSwev1)
     }
     #[doc = "Combined Interrupt for CPE Generated events. Corresponding flags are here RFC_DBELL:RFCPEIFG. Only interrupts selected with CPE0 in RFC_DBELL:RFCPEIFG can trigger a RFC_CPE_0 event"]
     #[inline(always)]
-    pub fn rfc_cpe_0(self) -> &'a mut W {
-        self.variant(EV_A::RFC_CPE_0)
+    pub fn rfc_cpe_0(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::RfcCpe0)
     }
     #[doc = "Combined RFC hardware interrupt, corresponding flag is here RFC_DBELL:RFHWIFG"]
     #[inline(always)]
-    pub fn rfc_hw_comb(self) -> &'a mut W {
-        self.variant(EV_A::RFC_HW_COMB)
+    pub fn rfc_hw_comb(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::RfcHwComb)
     }
     #[doc = "RFC Doorbell Command Acknowledgement Interrupt, equvialent to RFC_DBELL:RFACKIFG.ACKFLAG"]
     #[inline(always)]
-    pub fn rfc_cmd_ack(self) -> &'a mut W {
-        self.variant(EV_A::RFC_CMD_ACK)
+    pub fn rfc_cmd_ack(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::RfcCmdAck)
     }
     #[doc = "Watchdog interrupt event, controlled by WDT:CTL.INTEN"]
     #[inline(always)]
-    pub fn wdt_irq(self) -> &'a mut W {
-        self.variant(EV_A::WDT_IRQ)
+    pub fn wdt_irq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::WdtIrq)
     }
     #[doc = "DMA done for software tiggered UDMA channel 18, see UDMA0:SOFTREQ"]
     #[inline(always)]
-    pub fn dma_ch18_done(self) -> &'a mut W {
-        self.variant(EV_A::DMA_CH18_DONE)
+    pub fn dma_ch18_done(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::DmaCh18Done)
     }
     #[doc = "FLASH controller error event, the status flags are FLASH:FEDACSTAT.FSM_DONE and FLASH:FEDACSTAT.RVF_INT"]
     #[inline(always)]
-    pub fn flash(self) -> &'a mut W {
-        self.variant(EV_A::FLASH)
+    pub fn flash(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Flash)
     }
     #[doc = "DMA done for software tiggered UDMA channel 0, see UDMA0:SOFTREQ"]
     #[inline(always)]
-    pub fn dma_ch0_done(self) -> &'a mut W {
-        self.variant(EV_A::DMA_CH0_DONE)
+    pub fn dma_ch0_done(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::DmaCh0Done)
     }
     #[doc = "GPT1B interrupt event, controlled by GPT1:TBMR"]
     #[inline(always)]
-    pub fn gpt1b(self) -> &'a mut W {
-        self.variant(EV_A::GPT1B)
+    pub fn gpt1b(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt1b)
     }
     #[doc = "GPT1A interrupt event, controlled by GPT1:TAMR"]
     #[inline(always)]
-    pub fn gpt1a(self) -> &'a mut W {
-        self.variant(EV_A::GPT1A)
+    pub fn gpt1a(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt1a)
     }
     #[doc = "GPT0B interrupt event, controlled by GPT0:TBMR"]
     #[inline(always)]
-    pub fn gpt0b(self) -> &'a mut W {
-        self.variant(EV_A::GPT0B)
+    pub fn gpt0b(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt0b)
     }
     #[doc = "GPT0A interrupt event, controlled by GPT0:TAMR"]
     #[inline(always)]
-    pub fn gpt0a(self) -> &'a mut W {
-        self.variant(EV_A::GPT0A)
+    pub fn gpt0a(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt0a)
     }
     #[doc = "GPT3B interrupt event, controlled by GPT3:TBMR"]
     #[inline(always)]
-    pub fn gpt3b(self) -> &'a mut W {
-        self.variant(EV_A::GPT3B)
+    pub fn gpt3b(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt3b)
     }
     #[doc = "GPT3A interrupt event, controlled by GPT3:TAMR"]
     #[inline(always)]
-    pub fn gpt3a(self) -> &'a mut W {
-        self.variant(EV_A::GPT3A)
+    pub fn gpt3a(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt3a)
     }
     #[doc = "GPT2B interrupt event, controlled by GPT2:TBMR"]
     #[inline(always)]
-    pub fn gpt2b(self) -> &'a mut W {
-        self.variant(EV_A::GPT2B)
+    pub fn gpt2b(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt2b)
     }
     #[doc = "GPT2A interrupt event, controlled by GPT2:TAMR"]
     #[inline(always)]
-    pub fn gpt2a(self) -> &'a mut W {
-        self.variant(EV_A::GPT2A)
+    pub fn gpt2a(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt2a)
     }
     #[doc = "AUX combined event, the corresponding flag register is here AUX_EVCTL:EVTOMCUFLAGS"]
     #[inline(always)]
-    pub fn aux_comb(self) -> &'a mut W {
-        self.variant(EV_A::AUX_COMB)
+    pub fn aux_comb(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxComb)
     }
     #[doc = "AUX Software event 0, AUX_EVCTL:SWEVSET.SWEV0"]
     #[inline(always)]
-    pub fn aon_aux_swev0(self) -> &'a mut W {
-        self.variant(EV_A::AON_AUX_SWEV0)
+    pub fn aon_aux_swev0(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AonAuxSwev0)
     }
     #[doc = "Interrupt event from I2C"]
     #[inline(always)]
-    pub fn i2c_irq(self) -> &'a mut W {
-        self.variant(EV_A::I2C_IRQ)
+    pub fn i2c_irq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::I2cIrq)
     }
     #[doc = "Interrupt event from I2S"]
     #[inline(always)]
-    pub fn i2s_irq(self) -> &'a mut W {
-        self.variant(EV_A::I2S_IRQ)
+    pub fn i2s_irq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::I2sIrq)
     }
     #[doc = "Event from AON_RTC, controlled by the AON_RTC:CTL.COMB_EV_MASK setting"]
     #[inline(always)]
-    pub fn aon_rtc_comb(self) -> &'a mut W {
-        self.variant(EV_A::AON_RTC_COMB)
+    pub fn aon_rtc_comb(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AonRtcComb)
     }
     #[doc = "Combined event from Oscillator control"]
     #[inline(always)]
-    pub fn osc_comb(self) -> &'a mut W {
-        self.variant(EV_A::OSC_COMB)
+    pub fn osc_comb(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::OscComb)
     }
     #[doc = "Combined event from battery monitor"]
     #[inline(always)]
-    pub fn batmon_comb(self) -> &'a mut W {
-        self.variant(EV_A::BATMON_COMB)
+    pub fn batmon_comb(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::BatmonComb)
     }
     #[doc = "Edge detect event from IOC. Configureded by the IOC:IOCFGn.EDGE_IRQ_EN and IOC:IOCFGn.EDGE_DET settings"]
     #[inline(always)]
-    pub fn aon_gpio_edge(self) -> &'a mut W {
-        self.variant(EV_A::AON_GPIO_EDGE)
+    pub fn aon_gpio_edge(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AonGpioEdge)
     }
     #[doc = "AON programmable event 2. Event selected by AON_EVENT MCU event selector, AON_EVENT:EVTOMCUSEL.AON_PROG2_EV"]
     #[inline(always)]
-    pub fn aon_prog2(self) -> &'a mut W {
-        self.variant(EV_A::AON_PROG2)
+    pub fn aon_prog2(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AonProg2)
     }
     #[doc = "AON programmable event 1. Event selected by AON_EVENT MCU event selector, AON_EVENT:EVTOMCUSEL.AON_PROG1_EV"]
     #[inline(always)]
-    pub fn aon_prog1(self) -> &'a mut W {
-        self.variant(EV_A::AON_PROG1)
+    pub fn aon_prog1(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AonProg1)
     }
     #[doc = "AON programmable event 0. Event selected by AON_EVENT MCU event selector, AON_EVENT:EVTOMCUSEL.AON_PROG0_EV"]
     #[inline(always)]
-    pub fn aon_prog0(self) -> &'a mut W {
-        self.variant(EV_A::AON_PROG0)
+    pub fn aon_prog0(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AonProg0)
     }
     #[doc = "Always inactive"]
     #[inline(always)]
-    pub fn none(self) -> &'a mut W {
-        self.variant(EV_A::NONE)
+    pub fn none(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::None)
     }
 }
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Read/write selection value Writing any other value than values defined by a ENUM may result in undefined behavior."]
     #[inline(always)]
-    pub fn ev(&self) -> EV_R {
-        EV_R::new((self.bits & 0xff) as u8)
+    pub fn ev(&self) -> EvR {
+        EvR::new((self.bits & 0xff) as u8)
     }
 }
 impl W {
@@ -1727,32 +1703,24 @@ impl W {
 Read/write selection value Writing any other value than values defined by a ENUM may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn ev(&mut self) -> EV_W<0> {
-        EV_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn ev(&mut self) -> EvW<Udmach14bselSpec> {
+        EvW::new(self, 0)
     }
 }
-#[doc = "Output Selection for DMA Channel 14 REQ\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [udmach14bsel](index.html) module"]
-pub struct UDMACH14BSEL_SPEC;
-impl crate::RegisterSpec for UDMACH14BSEL_SPEC {
+#[doc = "Output Selection for DMA Channel 14 REQ\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`udmach14bsel::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`udmach14bsel::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Udmach14bselSpec;
+impl crate::RegisterSpec for Udmach14bselSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [udmach14bsel::R](R) reader structure"]
-impl crate::Readable for UDMACH14BSEL_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [udmach14bsel::W](W) writer structure"]
-impl crate::Writable for UDMACH14BSEL_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`udmach14bsel::R`](R) reader structure"]
+impl crate::Readable for Udmach14bselSpec {}
+#[doc = "`write(|w| ..)` method takes [`udmach14bsel::W`](W) writer structure"]
+impl crate::Writable for Udmach14bselSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets UDMACH14BSEL to value 0x01"]
-impl crate::Resettable for UDMACH14BSEL_SPEC {
-    const RESET_VALUE: Self::Ux = 0x01;
+impl crate::Resettable for Udmach14bselSpec {
+    const RESET_VALUE: u32 = 0x01;
 }

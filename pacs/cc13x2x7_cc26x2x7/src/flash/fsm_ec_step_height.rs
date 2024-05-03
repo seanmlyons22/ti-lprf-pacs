@@ -1,65 +1,31 @@
 #[doc = "Register `FSM_EC_STEP_HEIGHT` reader"]
-pub struct R(crate::R<FSM_EC_STEP_HEIGHT_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<FSM_EC_STEP_HEIGHT_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<FSM_EC_STEP_HEIGHT_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<FSM_EC_STEP_HEIGHT_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<FsmEcStepHeightSpec>;
 #[doc = "Register `FSM_EC_STEP_HEIGHT` writer"]
-pub struct W(crate::W<FSM_EC_STEP_HEIGHT_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<FSM_EC_STEP_HEIGHT_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<FSM_EC_STEP_HEIGHT_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<FSM_EC_STEP_HEIGHT_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<FsmEcStepHeightSpec>;
 #[doc = "Field `EC_STEP_HEIGHT` reader - 3:0\\]
 Internal. Only to be used through TI provided API."]
-pub type EC_STEP_HEIGHT_R = crate::FieldReader<u8, u8>;
+pub type EcStepHeightR = crate::FieldReader;
 #[doc = "Field `EC_STEP_HEIGHT` writer - 3:0\\]
 Internal. Only to be used through TI provided API."]
-pub type EC_STEP_HEIGHT_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, FSM_EC_STEP_HEIGHT_SPEC, u8, u8, 4, O>;
+pub type EcStepHeightW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED4` reader - 31:4\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED4_R = crate::FieldReader<u32, u32>;
+pub type Reserved4R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED4` writer - 31:4\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED4_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, FSM_EC_STEP_HEIGHT_SPEC, u32, u32, 28, O>;
+pub type Reserved4W<'a, REG> = crate::FieldWriter<'a, REG, 28, u32>;
 impl R {
     #[doc = "Bits 0:3 - 3:0\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn ec_step_height(&self) -> EC_STEP_HEIGHT_R {
-        EC_STEP_HEIGHT_R::new((self.bits & 0x0f) as u8)
+    pub fn ec_step_height(&self) -> EcStepHeightR {
+        EcStepHeightR::new((self.bits & 0x0f) as u8)
     }
     #[doc = "Bits 4:31 - 31:4\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn reserved4(&self) -> RESERVED4_R {
-        RESERVED4_R::new((self.bits >> 4) & 0x0fff_ffff)
+    pub fn reserved4(&self) -> Reserved4R {
+        Reserved4R::new((self.bits >> 4) & 0x0fff_ffff)
     }
 }
 impl W {
@@ -67,39 +33,31 @@ impl W {
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn ec_step_height(&mut self) -> EC_STEP_HEIGHT_W<0> {
-        EC_STEP_HEIGHT_W::new(self)
+    pub fn ec_step_height(&mut self) -> EcStepHeightW<FsmEcStepHeightSpec> {
+        EcStepHeightW::new(self, 0)
     }
     #[doc = "Bits 4:31 - 31:4\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved4(&mut self) -> RESERVED4_W<4> {
-        RESERVED4_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved4(&mut self) -> Reserved4W<FsmEcStepHeightSpec> {
+        Reserved4W::new(self, 4)
     }
 }
-#[doc = "Internal. Only to be used through TI provided API.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fsm_ec_step_height](index.html) module"]
-pub struct FSM_EC_STEP_HEIGHT_SPEC;
-impl crate::RegisterSpec for FSM_EC_STEP_HEIGHT_SPEC {
+#[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fsm_ec_step_height::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fsm_ec_step_height::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct FsmEcStepHeightSpec;
+impl crate::RegisterSpec for FsmEcStepHeightSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [fsm_ec_step_height::R](R) reader structure"]
-impl crate::Readable for FSM_EC_STEP_HEIGHT_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [fsm_ec_step_height::W](W) writer structure"]
-impl crate::Writable for FSM_EC_STEP_HEIGHT_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`fsm_ec_step_height::R`](R) reader structure"]
+impl crate::Readable for FsmEcStepHeightSpec {}
+#[doc = "`write(|w| ..)` method takes [`fsm_ec_step_height::W`](W) writer structure"]
+impl crate::Writable for FsmEcStepHeightSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets FSM_EC_STEP_HEIGHT to value 0"]
-impl crate::Resettable for FSM_EC_STEP_HEIGHT_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for FsmEcStepHeightSpec {
+    const RESET_VALUE: u32 = 0;
 }

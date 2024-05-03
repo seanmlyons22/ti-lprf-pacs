@@ -1,913 +1,930 @@
 #[doc = "Register `TBMR` reader"]
-pub struct R(crate::R<TBMR_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<TBMR_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<TBMR_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<TBMR_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<TbmrSpec>;
 #[doc = "Register `TBMR` writer"]
-pub struct W(crate::W<TBMR_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<TBMR_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<TBMR_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<TBMR_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `TBMR` reader - 1:0\\]
-GPT Timer B Mode 0x0 Reserved 0x1 One-Shot Timer mode 0x2 Periodic Timer mode 0x3 Capture mode The Timer mode is based on the timer configuration defined by bits 2:0 in the CFG register"]
-pub type TBMR_R = crate::FieldReader<u8, TBMR_A>;
+pub type W = crate::W<TbmrSpec>;
 #[doc = "1:0\\]
 GPT Timer B Mode 0x0 Reserved 0x1 One-Shot Timer mode 0x2 Periodic Timer mode 0x3 Capture mode The Timer mode is based on the timer configuration defined by bits 2:0 in the CFG register\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum TBMR_A {
+pub enum Tbmr {
     #[doc = "3: Capture mode"]
-    CAPTURE = 3,
+    Capture = 3,
     #[doc = "2: Periodic Timer mode"]
-    PERIODIC = 2,
+    Periodic = 2,
     #[doc = "1: One-Shot Timer mode"]
-    ONE_SHOT = 1,
+    OneShot = 1,
 }
-impl From<TBMR_A> for u8 {
+impl From<Tbmr> for u8 {
     #[inline(always)]
-    fn from(variant: TBMR_A) -> Self {
+    fn from(variant: Tbmr) -> Self {
         variant as _
     }
 }
-impl TBMR_R {
+impl crate::FieldSpec for Tbmr {
+    type Ux = u8;
+}
+impl crate::IsEnum for Tbmr {}
+#[doc = "Field `TBMR` reader - 1:0\\]
+GPT Timer B Mode 0x0 Reserved 0x1 One-Shot Timer mode 0x2 Periodic Timer mode 0x3 Capture mode The Timer mode is based on the timer configuration defined by bits 2:0 in the CFG register"]
+pub type TbmrR = crate::FieldReader<Tbmr>;
+impl TbmrR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<TBMR_A> {
+    pub const fn variant(&self) -> Option<Tbmr> {
         match self.bits {
-            3 => Some(TBMR_A::CAPTURE),
-            2 => Some(TBMR_A::PERIODIC),
-            1 => Some(TBMR_A::ONE_SHOT),
+            3 => Some(Tbmr::Capture),
+            2 => Some(Tbmr::Periodic),
+            1 => Some(Tbmr::OneShot),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `CAPTURE`"]
+    #[doc = "Capture mode"]
     #[inline(always)]
     pub fn is_capture(&self) -> bool {
-        *self == TBMR_A::CAPTURE
+        *self == Tbmr::Capture
     }
-    #[doc = "Checks if the value of the field is `PERIODIC`"]
+    #[doc = "Periodic Timer mode"]
     #[inline(always)]
     pub fn is_periodic(&self) -> bool {
-        *self == TBMR_A::PERIODIC
+        *self == Tbmr::Periodic
     }
-    #[doc = "Checks if the value of the field is `ONE_SHOT`"]
+    #[doc = "One-Shot Timer mode"]
     #[inline(always)]
     pub fn is_one_shot(&self) -> bool {
-        *self == TBMR_A::ONE_SHOT
+        *self == Tbmr::OneShot
     }
 }
 #[doc = "Field `TBMR` writer - 1:0\\]
 GPT Timer B Mode 0x0 Reserved 0x1 One-Shot Timer mode 0x2 Periodic Timer mode 0x3 Capture mode The Timer mode is based on the timer configuration defined by bits 2:0 in the CFG register"]
-pub type TBMR_W<'a, const O: u8> = crate::FieldWriter<'a, u32, TBMR_SPEC, u8, TBMR_A, 2, O>;
-impl<'a, const O: u8> TBMR_W<'a, O> {
+pub type TbmrW<'a, REG> = crate::FieldWriter<'a, REG, 2, Tbmr>;
+impl<'a, REG> TbmrW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "Capture mode"]
     #[inline(always)]
-    pub fn capture(self) -> &'a mut W {
-        self.variant(TBMR_A::CAPTURE)
+    pub fn capture(self) -> &'a mut crate::W<REG> {
+        self.variant(Tbmr::Capture)
     }
     #[doc = "Periodic Timer mode"]
     #[inline(always)]
-    pub fn periodic(self) -> &'a mut W {
-        self.variant(TBMR_A::PERIODIC)
+    pub fn periodic(self) -> &'a mut crate::W<REG> {
+        self.variant(Tbmr::Periodic)
     }
     #[doc = "One-Shot Timer mode"]
     #[inline(always)]
-    pub fn one_shot(self) -> &'a mut W {
-        self.variant(TBMR_A::ONE_SHOT)
+    pub fn one_shot(self) -> &'a mut crate::W<REG> {
+        self.variant(Tbmr::OneShot)
+    }
+}
+#[doc = "2:2\\]
+GPT Timer B Capture Mode\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Tbcm {
+    #[doc = "1: Edge-Time mode"]
+    Edgtime = 1,
+    #[doc = "0: Edge-Count mode"]
+    Edgcnt = 0,
+}
+impl From<Tbcm> for bool {
+    #[inline(always)]
+    fn from(variant: Tbcm) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `TBCM` reader - 2:2\\]
 GPT Timer B Capture Mode"]
-pub type TBCM_R = crate::BitReader<TBCM_A>;
-#[doc = "2:2\\]
-GPT Timer B Capture Mode\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum TBCM_A {
-    #[doc = "1: Edge-Time mode"]
-    EDGTIME = 1,
-    #[doc = "0: Edge-Count mode"]
-    EDGCNT = 0,
-}
-impl From<TBCM_A> for bool {
-    #[inline(always)]
-    fn from(variant: TBCM_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl TBCM_R {
+pub type TbcmR = crate::BitReader<Tbcm>;
+impl TbcmR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> TBCM_A {
+    pub const fn variant(&self) -> Tbcm {
         match self.bits {
-            true => TBCM_A::EDGTIME,
-            false => TBCM_A::EDGCNT,
+            true => Tbcm::Edgtime,
+            false => Tbcm::Edgcnt,
         }
     }
-    #[doc = "Checks if the value of the field is `EDGTIME`"]
+    #[doc = "Edge-Time mode"]
     #[inline(always)]
     pub fn is_edgtime(&self) -> bool {
-        *self == TBCM_A::EDGTIME
+        *self == Tbcm::Edgtime
     }
-    #[doc = "Checks if the value of the field is `EDGCNT`"]
+    #[doc = "Edge-Count mode"]
     #[inline(always)]
     pub fn is_edgcnt(&self) -> bool {
-        *self == TBCM_A::EDGCNT
+        *self == Tbcm::Edgcnt
     }
 }
 #[doc = "Field `TBCM` writer - 2:2\\]
 GPT Timer B Capture Mode"]
-pub type TBCM_W<'a, const O: u8> = crate::BitWriter<'a, u32, TBMR_SPEC, TBCM_A, O>;
-impl<'a, const O: u8> TBCM_W<'a, O> {
+pub type TbcmW<'a, REG> = crate::BitWriter<'a, REG, Tbcm>;
+impl<'a, REG> TbcmW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Edge-Time mode"]
     #[inline(always)]
-    pub fn edgtime(self) -> &'a mut W {
-        self.variant(TBCM_A::EDGTIME)
+    pub fn edgtime(self) -> &'a mut crate::W<REG> {
+        self.variant(Tbcm::Edgtime)
     }
     #[doc = "Edge-Count mode"]
     #[inline(always)]
-    pub fn edgcnt(self) -> &'a mut W {
-        self.variant(TBCM_A::EDGCNT)
+    pub fn edgcnt(self) -> &'a mut crate::W<REG> {
+        self.variant(Tbcm::Edgcnt)
+    }
+}
+#[doc = "3:3\\]
+GPT Timer B Alternate Mode Note: To enable PWM mode, you must also clear TBCM bit and configure TBMR field to 0x2.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Tbams {
+    #[doc = "1: PWM mode is enabled"]
+    Pwm = 1,
+    #[doc = "0: Capture/Compare mode is enabled."]
+    CapComp = 0,
+}
+impl From<Tbams> for bool {
+    #[inline(always)]
+    fn from(variant: Tbams) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `TBAMS` reader - 3:3\\]
 GPT Timer B Alternate Mode Note: To enable PWM mode, you must also clear TBCM bit and configure TBMR field to 0x2."]
-pub type TBAMS_R = crate::BitReader<TBAMS_A>;
-#[doc = "3:3\\]
-GPT Timer B Alternate Mode Note: To enable PWM mode, you must also clear TBCM bit and configure TBMR field to 0x2.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum TBAMS_A {
-    #[doc = "1: PWM mode is enabled"]
-    PWM = 1,
-    #[doc = "0: Capture/Compare mode is enabled."]
-    CAP_COMP = 0,
-}
-impl From<TBAMS_A> for bool {
-    #[inline(always)]
-    fn from(variant: TBAMS_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl TBAMS_R {
+pub type TbamsR = crate::BitReader<Tbams>;
+impl TbamsR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> TBAMS_A {
+    pub const fn variant(&self) -> Tbams {
         match self.bits {
-            true => TBAMS_A::PWM,
-            false => TBAMS_A::CAP_COMP,
+            true => Tbams::Pwm,
+            false => Tbams::CapComp,
         }
     }
-    #[doc = "Checks if the value of the field is `PWM`"]
+    #[doc = "PWM mode is enabled"]
     #[inline(always)]
     pub fn is_pwm(&self) -> bool {
-        *self == TBAMS_A::PWM
+        *self == Tbams::Pwm
     }
-    #[doc = "Checks if the value of the field is `CAP_COMP`"]
+    #[doc = "Capture/Compare mode is enabled."]
     #[inline(always)]
     pub fn is_cap_comp(&self) -> bool {
-        *self == TBAMS_A::CAP_COMP
+        *self == Tbams::CapComp
     }
 }
 #[doc = "Field `TBAMS` writer - 3:3\\]
 GPT Timer B Alternate Mode Note: To enable PWM mode, you must also clear TBCM bit and configure TBMR field to 0x2."]
-pub type TBAMS_W<'a, const O: u8> = crate::BitWriter<'a, u32, TBMR_SPEC, TBAMS_A, O>;
-impl<'a, const O: u8> TBAMS_W<'a, O> {
+pub type TbamsW<'a, REG> = crate::BitWriter<'a, REG, Tbams>;
+impl<'a, REG> TbamsW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "PWM mode is enabled"]
     #[inline(always)]
-    pub fn pwm(self) -> &'a mut W {
-        self.variant(TBAMS_A::PWM)
+    pub fn pwm(self) -> &'a mut crate::W<REG> {
+        self.variant(Tbams::Pwm)
     }
     #[doc = "Capture/Compare mode is enabled."]
     #[inline(always)]
-    pub fn cap_comp(self) -> &'a mut W {
-        self.variant(TBAMS_A::CAP_COMP)
+    pub fn cap_comp(self) -> &'a mut crate::W<REG> {
+        self.variant(Tbams::CapComp)
+    }
+}
+#[doc = "4:4\\]
+GPT Timer B Count Direction\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Tbcdir {
+    #[doc = "1: The timer counts up. When counting up, the timer starts from a value of 0x0."]
+    Up = 1,
+    #[doc = "0: The timer counts down."]
+    Down = 0,
+}
+impl From<Tbcdir> for bool {
+    #[inline(always)]
+    fn from(variant: Tbcdir) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `TBCDIR` reader - 4:4\\]
 GPT Timer B Count Direction"]
-pub type TBCDIR_R = crate::BitReader<TBCDIR_A>;
-#[doc = "4:4\\]
-GPT Timer B Count Direction\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum TBCDIR_A {
-    #[doc = "1: The timer counts up. When counting up, the timer starts from a value of 0x0."]
-    UP = 1,
-    #[doc = "0: The timer counts down."]
-    DOWN = 0,
-}
-impl From<TBCDIR_A> for bool {
-    #[inline(always)]
-    fn from(variant: TBCDIR_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl TBCDIR_R {
+pub type TbcdirR = crate::BitReader<Tbcdir>;
+impl TbcdirR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> TBCDIR_A {
+    pub const fn variant(&self) -> Tbcdir {
         match self.bits {
-            true => TBCDIR_A::UP,
-            false => TBCDIR_A::DOWN,
+            true => Tbcdir::Up,
+            false => Tbcdir::Down,
         }
     }
-    #[doc = "Checks if the value of the field is `UP`"]
+    #[doc = "The timer counts up. When counting up, the timer starts from a value of 0x0."]
     #[inline(always)]
     pub fn is_up(&self) -> bool {
-        *self == TBCDIR_A::UP
+        *self == Tbcdir::Up
     }
-    #[doc = "Checks if the value of the field is `DOWN`"]
+    #[doc = "The timer counts down."]
     #[inline(always)]
     pub fn is_down(&self) -> bool {
-        *self == TBCDIR_A::DOWN
+        *self == Tbcdir::Down
     }
 }
 #[doc = "Field `TBCDIR` writer - 4:4\\]
 GPT Timer B Count Direction"]
-pub type TBCDIR_W<'a, const O: u8> = crate::BitWriter<'a, u32, TBMR_SPEC, TBCDIR_A, O>;
-impl<'a, const O: u8> TBCDIR_W<'a, O> {
+pub type TbcdirW<'a, REG> = crate::BitWriter<'a, REG, Tbcdir>;
+impl<'a, REG> TbcdirW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "The timer counts up. When counting up, the timer starts from a value of 0x0."]
     #[inline(always)]
-    pub fn up(self) -> &'a mut W {
-        self.variant(TBCDIR_A::UP)
+    pub fn up(self) -> &'a mut crate::W<REG> {
+        self.variant(Tbcdir::Up)
     }
     #[doc = "The timer counts down."]
     #[inline(always)]
-    pub fn down(self) -> &'a mut W {
-        self.variant(TBCDIR_A::DOWN)
+    pub fn down(self) -> &'a mut crate::W<REG> {
+        self.variant(Tbcdir::Down)
+    }
+}
+#[doc = "5:5\\]
+GPT Timer B Match Interrupt Enable.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Tbmie {
+    #[doc = "1: An interrupt is generated when the match value in the TBMATCHR register is reached in the one-shot and periodic modes."]
+    En = 1,
+    #[doc = "0: The match interrupt is disabled for match events. Additionally, output triggers on match events are prevented."]
+    Dis = 0,
+}
+impl From<Tbmie> for bool {
+    #[inline(always)]
+    fn from(variant: Tbmie) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `TBMIE` reader - 5:5\\]
 GPT Timer B Match Interrupt Enable."]
-pub type TBMIE_R = crate::BitReader<TBMIE_A>;
-#[doc = "5:5\\]
-GPT Timer B Match Interrupt Enable.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum TBMIE_A {
-    #[doc = "1: An interrupt is generated when the match value in the TBMATCHR register is reached in the one-shot and periodic modes."]
-    EN = 1,
-    #[doc = "0: The match interrupt is disabled for match events. Additionally, output triggers on match events are prevented."]
-    DIS = 0,
-}
-impl From<TBMIE_A> for bool {
-    #[inline(always)]
-    fn from(variant: TBMIE_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl TBMIE_R {
+pub type TbmieR = crate::BitReader<Tbmie>;
+impl TbmieR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> TBMIE_A {
+    pub const fn variant(&self) -> Tbmie {
         match self.bits {
-            true => TBMIE_A::EN,
-            false => TBMIE_A::DIS,
+            true => Tbmie::En,
+            false => Tbmie::Dis,
         }
     }
-    #[doc = "Checks if the value of the field is `EN`"]
+    #[doc = "An interrupt is generated when the match value in the TBMATCHR register is reached in the one-shot and periodic modes."]
     #[inline(always)]
     pub fn is_en(&self) -> bool {
-        *self == TBMIE_A::EN
+        *self == Tbmie::En
     }
-    #[doc = "Checks if the value of the field is `DIS`"]
+    #[doc = "The match interrupt is disabled for match events. Additionally, output triggers on match events are prevented."]
     #[inline(always)]
     pub fn is_dis(&self) -> bool {
-        *self == TBMIE_A::DIS
+        *self == Tbmie::Dis
     }
 }
 #[doc = "Field `TBMIE` writer - 5:5\\]
 GPT Timer B Match Interrupt Enable."]
-pub type TBMIE_W<'a, const O: u8> = crate::BitWriter<'a, u32, TBMR_SPEC, TBMIE_A, O>;
-impl<'a, const O: u8> TBMIE_W<'a, O> {
+pub type TbmieW<'a, REG> = crate::BitWriter<'a, REG, Tbmie>;
+impl<'a, REG> TbmieW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "An interrupt is generated when the match value in the TBMATCHR register is reached in the one-shot and periodic modes."]
     #[inline(always)]
-    pub fn en(self) -> &'a mut W {
-        self.variant(TBMIE_A::EN)
+    pub fn en(self) -> &'a mut crate::W<REG> {
+        self.variant(Tbmie::En)
     }
     #[doc = "The match interrupt is disabled for match events. Additionally, output triggers on match events are prevented."]
     #[inline(always)]
-    pub fn dis(self) -> &'a mut W {
-        self.variant(TBMIE_A::DIS)
+    pub fn dis(self) -> &'a mut crate::W<REG> {
+        self.variant(Tbmie::Dis)
+    }
+}
+#[doc = "6:6\\]
+GPT Timer B Wait-On-Trigger\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Tbwot {
+    #[doc = "1: If Timer B is enabled (CTL.TBEN is set), Timer B does not begin counting until it receives a trigger from the timer in the previous position in the daisy chain. This function is valid for one-shot, periodic, and PWM modes"]
+    Wait = 1,
+    #[doc = "0: Timer B begins counting as soon as it is enabled."]
+    Nowait = 0,
+}
+impl From<Tbwot> for bool {
+    #[inline(always)]
+    fn from(variant: Tbwot) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `TBWOT` reader - 6:6\\]
 GPT Timer B Wait-On-Trigger"]
-pub type TBWOT_R = crate::BitReader<TBWOT_A>;
-#[doc = "6:6\\]
-GPT Timer B Wait-On-Trigger\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum TBWOT_A {
-    #[doc = "1: If Timer B is enabled (CTL.TBEN is set), Timer B does not begin counting until it receives a trigger from the timer in the previous position in the daisy chain. This function is valid for one-shot, periodic, and PWM modes"]
-    WAIT = 1,
-    #[doc = "0: Timer B begins counting as soon as it is enabled."]
-    NOWAIT = 0,
-}
-impl From<TBWOT_A> for bool {
-    #[inline(always)]
-    fn from(variant: TBWOT_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl TBWOT_R {
+pub type TbwotR = crate::BitReader<Tbwot>;
+impl TbwotR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> TBWOT_A {
+    pub const fn variant(&self) -> Tbwot {
         match self.bits {
-            true => TBWOT_A::WAIT,
-            false => TBWOT_A::NOWAIT,
+            true => Tbwot::Wait,
+            false => Tbwot::Nowait,
         }
     }
-    #[doc = "Checks if the value of the field is `WAIT`"]
+    #[doc = "If Timer B is enabled (CTL.TBEN is set), Timer B does not begin counting until it receives a trigger from the timer in the previous position in the daisy chain. This function is valid for one-shot, periodic, and PWM modes"]
     #[inline(always)]
     pub fn is_wait(&self) -> bool {
-        *self == TBWOT_A::WAIT
+        *self == Tbwot::Wait
     }
-    #[doc = "Checks if the value of the field is `NOWAIT`"]
+    #[doc = "Timer B begins counting as soon as it is enabled."]
     #[inline(always)]
     pub fn is_nowait(&self) -> bool {
-        *self == TBWOT_A::NOWAIT
+        *self == Tbwot::Nowait
     }
 }
 #[doc = "Field `TBWOT` writer - 6:6\\]
 GPT Timer B Wait-On-Trigger"]
-pub type TBWOT_W<'a, const O: u8> = crate::BitWriter<'a, u32, TBMR_SPEC, TBWOT_A, O>;
-impl<'a, const O: u8> TBWOT_W<'a, O> {
+pub type TbwotW<'a, REG> = crate::BitWriter<'a, REG, Tbwot>;
+impl<'a, REG> TbwotW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "If Timer B is enabled (CTL.TBEN is set), Timer B does not begin counting until it receives a trigger from the timer in the previous position in the daisy chain. This function is valid for one-shot, periodic, and PWM modes"]
     #[inline(always)]
-    pub fn wait(self) -> &'a mut W {
-        self.variant(TBWOT_A::WAIT)
+    pub fn wait(self) -> &'a mut crate::W<REG> {
+        self.variant(Tbwot::Wait)
     }
     #[doc = "Timer B begins counting as soon as it is enabled."]
     #[inline(always)]
-    pub fn nowait(self) -> &'a mut W {
-        self.variant(TBWOT_A::NOWAIT)
+    pub fn nowait(self) -> &'a mut crate::W<REG> {
+        self.variant(Tbwot::Nowait)
+    }
+}
+#[doc = "7:7\\]
+GPT Timer B Snap-Shot Mode\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Tbsnaps {
+    #[doc = "1: If Timer B is configured in the periodic mode"]
+    En = 1,
+    #[doc = "0: Snap-shot mode is disabled."]
+    Dis = 0,
+}
+impl From<Tbsnaps> for bool {
+    #[inline(always)]
+    fn from(variant: Tbsnaps) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `TBSNAPS` reader - 7:7\\]
 GPT Timer B Snap-Shot Mode"]
-pub type TBSNAPS_R = crate::BitReader<TBSNAPS_A>;
-#[doc = "7:7\\]
-GPT Timer B Snap-Shot Mode\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum TBSNAPS_A {
-    #[doc = "1: If Timer B is configured in the periodic mode"]
-    EN = 1,
-    #[doc = "0: Snap-shot mode is disabled."]
-    DIS = 0,
-}
-impl From<TBSNAPS_A> for bool {
-    #[inline(always)]
-    fn from(variant: TBSNAPS_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl TBSNAPS_R {
+pub type TbsnapsR = crate::BitReader<Tbsnaps>;
+impl TbsnapsR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> TBSNAPS_A {
+    pub const fn variant(&self) -> Tbsnaps {
         match self.bits {
-            true => TBSNAPS_A::EN,
-            false => TBSNAPS_A::DIS,
+            true => Tbsnaps::En,
+            false => Tbsnaps::Dis,
         }
     }
-    #[doc = "Checks if the value of the field is `EN`"]
+    #[doc = "If Timer B is configured in the periodic mode"]
     #[inline(always)]
     pub fn is_en(&self) -> bool {
-        *self == TBSNAPS_A::EN
+        *self == Tbsnaps::En
     }
-    #[doc = "Checks if the value of the field is `DIS`"]
+    #[doc = "Snap-shot mode is disabled."]
     #[inline(always)]
     pub fn is_dis(&self) -> bool {
-        *self == TBSNAPS_A::DIS
+        *self == Tbsnaps::Dis
     }
 }
 #[doc = "Field `TBSNAPS` writer - 7:7\\]
 GPT Timer B Snap-Shot Mode"]
-pub type TBSNAPS_W<'a, const O: u8> = crate::BitWriter<'a, u32, TBMR_SPEC, TBSNAPS_A, O>;
-impl<'a, const O: u8> TBSNAPS_W<'a, O> {
+pub type TbsnapsW<'a, REG> = crate::BitWriter<'a, REG, Tbsnaps>;
+impl<'a, REG> TbsnapsW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "If Timer B is configured in the periodic mode"]
     #[inline(always)]
-    pub fn en(self) -> &'a mut W {
-        self.variant(TBSNAPS_A::EN)
+    pub fn en(self) -> &'a mut crate::W<REG> {
+        self.variant(Tbsnaps::En)
     }
     #[doc = "Snap-shot mode is disabled."]
     #[inline(always)]
-    pub fn dis(self) -> &'a mut W {
-        self.variant(TBSNAPS_A::DIS)
+    pub fn dis(self) -> &'a mut crate::W<REG> {
+        self.variant(Tbsnaps::Dis)
+    }
+}
+#[doc = "8:8\\]
+GPT Timer B PWM Interval Load Write\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Tbild {
+    #[doc = "1: Update the TBR register with the value in the TBILR register on the next timeout. If the prescaler is used, update the TBPS register with the value in the TBPR register on the next timeout."]
+    Toupdate = 1,
+    #[doc = "0: Update the TBR register with the value in the TBILR register on the next clock cycle. If the pre-scaler is used, update the TBPS register with the value in the TBPR register on the next clock cycle."]
+    Cycleupdate = 0,
+}
+impl From<Tbild> for bool {
+    #[inline(always)]
+    fn from(variant: Tbild) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `TBILD` reader - 8:8\\]
 GPT Timer B PWM Interval Load Write"]
-pub type TBILD_R = crate::BitReader<TBILD_A>;
-#[doc = "8:8\\]
-GPT Timer B PWM Interval Load Write\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum TBILD_A {
-    #[doc = "1: Update the TBR register with the value in the TBILR register on the next timeout. If the prescaler is used, update the TBPS register with the value in the TBPR register on the next timeout."]
-    TOUPDATE = 1,
-    #[doc = "0: Update the TBR register with the value in the TBILR register on the next clock cycle. If the pre-scaler is used, update the TBPS register with the value in the TBPR register on the next clock cycle."]
-    CYCLEUPDATE = 0,
-}
-impl From<TBILD_A> for bool {
-    #[inline(always)]
-    fn from(variant: TBILD_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl TBILD_R {
+pub type TbildR = crate::BitReader<Tbild>;
+impl TbildR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> TBILD_A {
+    pub const fn variant(&self) -> Tbild {
         match self.bits {
-            true => TBILD_A::TOUPDATE,
-            false => TBILD_A::CYCLEUPDATE,
+            true => Tbild::Toupdate,
+            false => Tbild::Cycleupdate,
         }
     }
-    #[doc = "Checks if the value of the field is `TOUPDATE`"]
+    #[doc = "Update the TBR register with the value in the TBILR register on the next timeout. If the prescaler is used, update the TBPS register with the value in the TBPR register on the next timeout."]
     #[inline(always)]
     pub fn is_toupdate(&self) -> bool {
-        *self == TBILD_A::TOUPDATE
+        *self == Tbild::Toupdate
     }
-    #[doc = "Checks if the value of the field is `CYCLEUPDATE`"]
+    #[doc = "Update the TBR register with the value in the TBILR register on the next clock cycle. If the pre-scaler is used, update the TBPS register with the value in the TBPR register on the next clock cycle."]
     #[inline(always)]
     pub fn is_cycleupdate(&self) -> bool {
-        *self == TBILD_A::CYCLEUPDATE
+        *self == Tbild::Cycleupdate
     }
 }
 #[doc = "Field `TBILD` writer - 8:8\\]
 GPT Timer B PWM Interval Load Write"]
-pub type TBILD_W<'a, const O: u8> = crate::BitWriter<'a, u32, TBMR_SPEC, TBILD_A, O>;
-impl<'a, const O: u8> TBILD_W<'a, O> {
+pub type TbildW<'a, REG> = crate::BitWriter<'a, REG, Tbild>;
+impl<'a, REG> TbildW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Update the TBR register with the value in the TBILR register on the next timeout. If the prescaler is used, update the TBPS register with the value in the TBPR register on the next timeout."]
     #[inline(always)]
-    pub fn toupdate(self) -> &'a mut W {
-        self.variant(TBILD_A::TOUPDATE)
+    pub fn toupdate(self) -> &'a mut crate::W<REG> {
+        self.variant(Tbild::Toupdate)
     }
     #[doc = "Update the TBR register with the value in the TBILR register on the next clock cycle. If the pre-scaler is used, update the TBPS register with the value in the TBPR register on the next clock cycle."]
     #[inline(always)]
-    pub fn cycleupdate(self) -> &'a mut W {
-        self.variant(TBILD_A::CYCLEUPDATE)
+    pub fn cycleupdate(self) -> &'a mut crate::W<REG> {
+        self.variant(Tbild::Cycleupdate)
+    }
+}
+#[doc = "9:9\\]
+GPTM Timer B PWM Interrupt Enable This bit enables interrupts in PWM mode on rising, falling, or both edges of the CCP output, as defined by the CTL.TBEVENT In addition, when this bit is set and a capture event occurs, Timer A automatically generates triggers to the DMA if the trigger capability is enabled by setting the CTL.TBOTE bit and the DMAEV.CBEDMAEN bit respectively. 0 Capture event interrupt is disabled. 1 Capture event interrupt is enabled. This bit is only valid in PWM mode.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Tbpwmie {
+    #[doc = "1: Interrupt is enabled. This bit is only valid in PWM mode."]
+    En = 1,
+    #[doc = "0: Interrupt is disabled."]
+    Dis = 0,
+}
+impl From<Tbpwmie> for bool {
+    #[inline(always)]
+    fn from(variant: Tbpwmie) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `TBPWMIE` reader - 9:9\\]
 GPTM Timer B PWM Interrupt Enable This bit enables interrupts in PWM mode on rising, falling, or both edges of the CCP output, as defined by the CTL.TBEVENT In addition, when this bit is set and a capture event occurs, Timer A automatically generates triggers to the DMA if the trigger capability is enabled by setting the CTL.TBOTE bit and the DMAEV.CBEDMAEN bit respectively. 0 Capture event interrupt is disabled. 1 Capture event interrupt is enabled. This bit is only valid in PWM mode."]
-pub type TBPWMIE_R = crate::BitReader<TBPWMIE_A>;
-#[doc = "9:9\\]
-GPTM Timer B PWM Interrupt Enable This bit enables interrupts in PWM mode on rising, falling, or both edges of the CCP output, as defined by the CTL.TBEVENT In addition, when this bit is set and a capture event occurs, Timer A automatically generates triggers to the DMA if the trigger capability is enabled by setting the CTL.TBOTE bit and the DMAEV.CBEDMAEN bit respectively. 0 Capture event interrupt is disabled. 1 Capture event interrupt is enabled. This bit is only valid in PWM mode.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum TBPWMIE_A {
-    #[doc = "1: Interrupt is enabled. This bit is only valid in PWM mode."]
-    EN = 1,
-    #[doc = "0: Interrupt is disabled."]
-    DIS = 0,
-}
-impl From<TBPWMIE_A> for bool {
-    #[inline(always)]
-    fn from(variant: TBPWMIE_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl TBPWMIE_R {
+pub type TbpwmieR = crate::BitReader<Tbpwmie>;
+impl TbpwmieR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> TBPWMIE_A {
+    pub const fn variant(&self) -> Tbpwmie {
         match self.bits {
-            true => TBPWMIE_A::EN,
-            false => TBPWMIE_A::DIS,
+            true => Tbpwmie::En,
+            false => Tbpwmie::Dis,
         }
     }
-    #[doc = "Checks if the value of the field is `EN`"]
+    #[doc = "Interrupt is enabled. This bit is only valid in PWM mode."]
     #[inline(always)]
     pub fn is_en(&self) -> bool {
-        *self == TBPWMIE_A::EN
+        *self == Tbpwmie::En
     }
-    #[doc = "Checks if the value of the field is `DIS`"]
+    #[doc = "Interrupt is disabled."]
     #[inline(always)]
     pub fn is_dis(&self) -> bool {
-        *self == TBPWMIE_A::DIS
+        *self == Tbpwmie::Dis
     }
 }
 #[doc = "Field `TBPWMIE` writer - 9:9\\]
 GPTM Timer B PWM Interrupt Enable This bit enables interrupts in PWM mode on rising, falling, or both edges of the CCP output, as defined by the CTL.TBEVENT In addition, when this bit is set and a capture event occurs, Timer A automatically generates triggers to the DMA if the trigger capability is enabled by setting the CTL.TBOTE bit and the DMAEV.CBEDMAEN bit respectively. 0 Capture event interrupt is disabled. 1 Capture event interrupt is enabled. This bit is only valid in PWM mode."]
-pub type TBPWMIE_W<'a, const O: u8> = crate::BitWriter<'a, u32, TBMR_SPEC, TBPWMIE_A, O>;
-impl<'a, const O: u8> TBPWMIE_W<'a, O> {
+pub type TbpwmieW<'a, REG> = crate::BitWriter<'a, REG, Tbpwmie>;
+impl<'a, REG> TbpwmieW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Interrupt is enabled. This bit is only valid in PWM mode."]
     #[inline(always)]
-    pub fn en(self) -> &'a mut W {
-        self.variant(TBPWMIE_A::EN)
+    pub fn en(self) -> &'a mut crate::W<REG> {
+        self.variant(Tbpwmie::En)
     }
     #[doc = "Interrupt is disabled."]
     #[inline(always)]
-    pub fn dis(self) -> &'a mut W {
-        self.variant(TBPWMIE_A::DIS)
+    pub fn dis(self) -> &'a mut crate::W<REG> {
+        self.variant(Tbpwmie::Dis)
+    }
+}
+#[doc = "10:10\\]
+Timer B Match Register Update mode This bit defines when the TBMATCHR and TBPR registers are updated If the timer is disabled (CTL.TBEN is clear) when this bit is set, TBMATCHR and TBPR are updated when the timer is enabled. If the timer is stalled (CTL.TBSTALL is set) when this bit is set, TBMATCHR and TBPR are updated according to the configuration of this bit.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Tbmrsu {
+    #[doc = "1: Update TBMATCHR and TBPR, if used, on the next time-out."]
+    Toupdate = 1,
+    #[doc = "0: Update TBMATCHR and TBPR, if used, on the next cycle."]
+    Cycleupdate = 0,
+}
+impl From<Tbmrsu> for bool {
+    #[inline(always)]
+    fn from(variant: Tbmrsu) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `TBMRSU` reader - 10:10\\]
 Timer B Match Register Update mode This bit defines when the TBMATCHR and TBPR registers are updated If the timer is disabled (CTL.TBEN is clear) when this bit is set, TBMATCHR and TBPR are updated when the timer is enabled. If the timer is stalled (CTL.TBSTALL is set) when this bit is set, TBMATCHR and TBPR are updated according to the configuration of this bit."]
-pub type TBMRSU_R = crate::BitReader<TBMRSU_A>;
-#[doc = "10:10\\]
-Timer B Match Register Update mode This bit defines when the TBMATCHR and TBPR registers are updated If the timer is disabled (CTL.TBEN is clear) when this bit is set, TBMATCHR and TBPR are updated when the timer is enabled. If the timer is stalled (CTL.TBSTALL is set) when this bit is set, TBMATCHR and TBPR are updated according to the configuration of this bit.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum TBMRSU_A {
-    #[doc = "1: Update TBMATCHR and TBPR, if used, on the next time-out."]
-    TOUPDATE = 1,
-    #[doc = "0: Update TBMATCHR and TBPR, if used, on the next cycle."]
-    CYCLEUPDATE = 0,
-}
-impl From<TBMRSU_A> for bool {
-    #[inline(always)]
-    fn from(variant: TBMRSU_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl TBMRSU_R {
+pub type TbmrsuR = crate::BitReader<Tbmrsu>;
+impl TbmrsuR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> TBMRSU_A {
+    pub const fn variant(&self) -> Tbmrsu {
         match self.bits {
-            true => TBMRSU_A::TOUPDATE,
-            false => TBMRSU_A::CYCLEUPDATE,
+            true => Tbmrsu::Toupdate,
+            false => Tbmrsu::Cycleupdate,
         }
     }
-    #[doc = "Checks if the value of the field is `TOUPDATE`"]
+    #[doc = "Update TBMATCHR and TBPR, if used, on the next time-out."]
     #[inline(always)]
     pub fn is_toupdate(&self) -> bool {
-        *self == TBMRSU_A::TOUPDATE
+        *self == Tbmrsu::Toupdate
     }
-    #[doc = "Checks if the value of the field is `CYCLEUPDATE`"]
+    #[doc = "Update TBMATCHR and TBPR, if used, on the next cycle."]
     #[inline(always)]
     pub fn is_cycleupdate(&self) -> bool {
-        *self == TBMRSU_A::CYCLEUPDATE
+        *self == Tbmrsu::Cycleupdate
     }
 }
 #[doc = "Field `TBMRSU` writer - 10:10\\]
 Timer B Match Register Update mode This bit defines when the TBMATCHR and TBPR registers are updated If the timer is disabled (CTL.TBEN is clear) when this bit is set, TBMATCHR and TBPR are updated when the timer is enabled. If the timer is stalled (CTL.TBSTALL is set) when this bit is set, TBMATCHR and TBPR are updated according to the configuration of this bit."]
-pub type TBMRSU_W<'a, const O: u8> = crate::BitWriter<'a, u32, TBMR_SPEC, TBMRSU_A, O>;
-impl<'a, const O: u8> TBMRSU_W<'a, O> {
+pub type TbmrsuW<'a, REG> = crate::BitWriter<'a, REG, Tbmrsu>;
+impl<'a, REG> TbmrsuW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Update TBMATCHR and TBPR, if used, on the next time-out."]
     #[inline(always)]
-    pub fn toupdate(self) -> &'a mut W {
-        self.variant(TBMRSU_A::TOUPDATE)
+    pub fn toupdate(self) -> &'a mut crate::W<REG> {
+        self.variant(Tbmrsu::Toupdate)
     }
     #[doc = "Update TBMATCHR and TBPR, if used, on the next cycle."]
     #[inline(always)]
-    pub fn cycleupdate(self) -> &'a mut W {
-        self.variant(TBMRSU_A::CYCLEUPDATE)
+    pub fn cycleupdate(self) -> &'a mut crate::W<REG> {
+        self.variant(Tbmrsu::Cycleupdate)
+    }
+}
+#[doc = "11:11\\]
+GPTM Timer B PWM Legacy Operation 0 Legacy operation with CCP pin driven Low when the TBILR register is reloaded after the timer reaches 0. 1 CCP is driven High when the TBILR register is reloaded after the timer reaches 0. This bit is only valid in PWM mode.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Tbplo {
+    #[doc = "1: CCP output pin is set to 1 on time-out"]
+    CcpOnTo = 1,
+    #[doc = "0: Legacy operation"]
+    Legacy = 0,
+}
+impl From<Tbplo> for bool {
+    #[inline(always)]
+    fn from(variant: Tbplo) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `TBPLO` reader - 11:11\\]
 GPTM Timer B PWM Legacy Operation 0 Legacy operation with CCP pin driven Low when the TBILR register is reloaded after the timer reaches 0. 1 CCP is driven High when the TBILR register is reloaded after the timer reaches 0. This bit is only valid in PWM mode."]
-pub type TBPLO_R = crate::BitReader<TBPLO_A>;
-#[doc = "11:11\\]
-GPTM Timer B PWM Legacy Operation 0 Legacy operation with CCP pin driven Low when the TBILR register is reloaded after the timer reaches 0. 1 CCP is driven High when the TBILR register is reloaded after the timer reaches 0. This bit is only valid in PWM mode.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum TBPLO_A {
-    #[doc = "1: CCP output pin is set to 1 on time-out"]
-    CCP_ON_TO = 1,
-    #[doc = "0: Legacy operation"]
-    LEGACY = 0,
-}
-impl From<TBPLO_A> for bool {
-    #[inline(always)]
-    fn from(variant: TBPLO_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl TBPLO_R {
+pub type TbploR = crate::BitReader<Tbplo>;
+impl TbploR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> TBPLO_A {
+    pub const fn variant(&self) -> Tbplo {
         match self.bits {
-            true => TBPLO_A::CCP_ON_TO,
-            false => TBPLO_A::LEGACY,
+            true => Tbplo::CcpOnTo,
+            false => Tbplo::Legacy,
         }
     }
-    #[doc = "Checks if the value of the field is `CCP_ON_TO`"]
+    #[doc = "CCP output pin is set to 1 on time-out"]
     #[inline(always)]
     pub fn is_ccp_on_to(&self) -> bool {
-        *self == TBPLO_A::CCP_ON_TO
+        *self == Tbplo::CcpOnTo
     }
-    #[doc = "Checks if the value of the field is `LEGACY`"]
+    #[doc = "Legacy operation"]
     #[inline(always)]
     pub fn is_legacy(&self) -> bool {
-        *self == TBPLO_A::LEGACY
+        *self == Tbplo::Legacy
     }
 }
 #[doc = "Field `TBPLO` writer - 11:11\\]
 GPTM Timer B PWM Legacy Operation 0 Legacy operation with CCP pin driven Low when the TBILR register is reloaded after the timer reaches 0. 1 CCP is driven High when the TBILR register is reloaded after the timer reaches 0. This bit is only valid in PWM mode."]
-pub type TBPLO_W<'a, const O: u8> = crate::BitWriter<'a, u32, TBMR_SPEC, TBPLO_A, O>;
-impl<'a, const O: u8> TBPLO_W<'a, O> {
+pub type TbploW<'a, REG> = crate::BitWriter<'a, REG, Tbplo>;
+impl<'a, REG> TbploW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "CCP output pin is set to 1 on time-out"]
     #[inline(always)]
-    pub fn ccp_on_to(self) -> &'a mut W {
-        self.variant(TBPLO_A::CCP_ON_TO)
+    pub fn ccp_on_to(self) -> &'a mut crate::W<REG> {
+        self.variant(Tbplo::CcpOnTo)
     }
     #[doc = "Legacy operation"]
     #[inline(always)]
-    pub fn legacy(self) -> &'a mut W {
-        self.variant(TBPLO_A::LEGACY)
+    pub fn legacy(self) -> &'a mut crate::W<REG> {
+        self.variant(Tbplo::Legacy)
+    }
+}
+#[doc = "12:12\\]
+One-Shot/Periodic Interrupt Mode\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Tbcintd {
+    #[doc = "1: Mask Time-Out Interrupt"]
+    DisToIntr = 1,
+    #[doc = "0: Normal Time-Out Interrupt"]
+    EnToIntr = 0,
+}
+impl From<Tbcintd> for bool {
+    #[inline(always)]
+    fn from(variant: Tbcintd) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `TBCINTD` reader - 12:12\\]
 One-Shot/Periodic Interrupt Mode"]
-pub type TBCINTD_R = crate::BitReader<TBCINTD_A>;
-#[doc = "12:12\\]
-One-Shot/Periodic Interrupt Mode\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum TBCINTD_A {
-    #[doc = "1: Mask Time-Out Interrupt"]
-    DIS_TO_INTR = 1,
-    #[doc = "0: Normal Time-Out Interrupt"]
-    EN_TO_INTR = 0,
-}
-impl From<TBCINTD_A> for bool {
-    #[inline(always)]
-    fn from(variant: TBCINTD_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl TBCINTD_R {
+pub type TbcintdR = crate::BitReader<Tbcintd>;
+impl TbcintdR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> TBCINTD_A {
+    pub const fn variant(&self) -> Tbcintd {
         match self.bits {
-            true => TBCINTD_A::DIS_TO_INTR,
-            false => TBCINTD_A::EN_TO_INTR,
+            true => Tbcintd::DisToIntr,
+            false => Tbcintd::EnToIntr,
         }
     }
-    #[doc = "Checks if the value of the field is `DIS_TO_INTR`"]
+    #[doc = "Mask Time-Out Interrupt"]
     #[inline(always)]
     pub fn is_dis_to_intr(&self) -> bool {
-        *self == TBCINTD_A::DIS_TO_INTR
+        *self == Tbcintd::DisToIntr
     }
-    #[doc = "Checks if the value of the field is `EN_TO_INTR`"]
+    #[doc = "Normal Time-Out Interrupt"]
     #[inline(always)]
     pub fn is_en_to_intr(&self) -> bool {
-        *self == TBCINTD_A::EN_TO_INTR
+        *self == Tbcintd::EnToIntr
     }
 }
 #[doc = "Field `TBCINTD` writer - 12:12\\]
 One-Shot/Periodic Interrupt Mode"]
-pub type TBCINTD_W<'a, const O: u8> = crate::BitWriter<'a, u32, TBMR_SPEC, TBCINTD_A, O>;
-impl<'a, const O: u8> TBCINTD_W<'a, O> {
+pub type TbcintdW<'a, REG> = crate::BitWriter<'a, REG, Tbcintd>;
+impl<'a, REG> TbcintdW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Mask Time-Out Interrupt"]
     #[inline(always)]
-    pub fn dis_to_intr(self) -> &'a mut W {
-        self.variant(TBCINTD_A::DIS_TO_INTR)
+    pub fn dis_to_intr(self) -> &'a mut crate::W<REG> {
+        self.variant(Tbcintd::DisToIntr)
     }
     #[doc = "Normal Time-Out Interrupt"]
     #[inline(always)]
-    pub fn en_to_intr(self) -> &'a mut W {
-        self.variant(TBCINTD_A::EN_TO_INTR)
+    pub fn en_to_intr(self) -> &'a mut crate::W<REG> {
+        self.variant(Tbcintd::EnToIntr)
     }
 }
-#[doc = "Field `TCACT` reader - 15:13\\]
-Timer Compare Action Select"]
-pub type TCACT_R = crate::FieldReader<u8, TCACT_A>;
 #[doc = "15:13\\]
 Timer Compare Action Select\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum TCACT_A {
+pub enum Tcact {
     #[doc = "7: Clear CCP output pin immediately and set on Time-Out"]
-    CLRSET_ON_TO = 7,
+    ClrsetOnTo = 7,
     #[doc = "6: Set CCP output pin immediately and clear on Time-Out"]
-    SETCLR_ON_TO = 6,
+    SetclrOnTo = 6,
     #[doc = "5: Clear CCP output pin immediately and toggle on Time-Out"]
-    CLRTOG_ON_TO = 5,
+    ClrtogOnTo = 5,
     #[doc = "4: Set CCP output pin immediately and toggle on Time-Out"]
-    SETTOG_ON_TO = 4,
+    SettogOnTo = 4,
     #[doc = "3: Set CCP output pin on Time-Out"]
-    SET_ON_TO = 3,
+    SetOnTo = 3,
     #[doc = "2: Clear CCP output pin on Time-Out"]
-    CLR_ON_TO = 2,
+    ClrOnTo = 2,
     #[doc = "1: Toggle State on Time-Out"]
-    TOG_ON_TO = 1,
+    TogOnTo = 1,
     #[doc = "0: Disable compare operations"]
-    DIS_CMP = 0,
+    DisCmp = 0,
 }
-impl From<TCACT_A> for u8 {
+impl From<Tcact> for u8 {
     #[inline(always)]
-    fn from(variant: TCACT_A) -> Self {
+    fn from(variant: Tcact) -> Self {
         variant as _
     }
 }
-impl TCACT_R {
+impl crate::FieldSpec for Tcact {
+    type Ux = u8;
+}
+impl crate::IsEnum for Tcact {}
+#[doc = "Field `TCACT` reader - 15:13\\]
+Timer Compare Action Select"]
+pub type TcactR = crate::FieldReader<Tcact>;
+impl TcactR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> TCACT_A {
+    pub const fn variant(&self) -> Tcact {
         match self.bits {
-            7 => TCACT_A::CLRSET_ON_TO,
-            6 => TCACT_A::SETCLR_ON_TO,
-            5 => TCACT_A::CLRTOG_ON_TO,
-            4 => TCACT_A::SETTOG_ON_TO,
-            3 => TCACT_A::SET_ON_TO,
-            2 => TCACT_A::CLR_ON_TO,
-            1 => TCACT_A::TOG_ON_TO,
-            0 => TCACT_A::DIS_CMP,
+            7 => Tcact::ClrsetOnTo,
+            6 => Tcact::SetclrOnTo,
+            5 => Tcact::ClrtogOnTo,
+            4 => Tcact::SettogOnTo,
+            3 => Tcact::SetOnTo,
+            2 => Tcact::ClrOnTo,
+            1 => Tcact::TogOnTo,
+            0 => Tcact::DisCmp,
             _ => unreachable!(),
         }
     }
-    #[doc = "Checks if the value of the field is `CLRSET_ON_TO`"]
+    #[doc = "Clear CCP output pin immediately and set on Time-Out"]
     #[inline(always)]
     pub fn is_clrset_on_to(&self) -> bool {
-        *self == TCACT_A::CLRSET_ON_TO
+        *self == Tcact::ClrsetOnTo
     }
-    #[doc = "Checks if the value of the field is `SETCLR_ON_TO`"]
+    #[doc = "Set CCP output pin immediately and clear on Time-Out"]
     #[inline(always)]
     pub fn is_setclr_on_to(&self) -> bool {
-        *self == TCACT_A::SETCLR_ON_TO
+        *self == Tcact::SetclrOnTo
     }
-    #[doc = "Checks if the value of the field is `CLRTOG_ON_TO`"]
+    #[doc = "Clear CCP output pin immediately and toggle on Time-Out"]
     #[inline(always)]
     pub fn is_clrtog_on_to(&self) -> bool {
-        *self == TCACT_A::CLRTOG_ON_TO
+        *self == Tcact::ClrtogOnTo
     }
-    #[doc = "Checks if the value of the field is `SETTOG_ON_TO`"]
+    #[doc = "Set CCP output pin immediately and toggle on Time-Out"]
     #[inline(always)]
     pub fn is_settog_on_to(&self) -> bool {
-        *self == TCACT_A::SETTOG_ON_TO
+        *self == Tcact::SettogOnTo
     }
-    #[doc = "Checks if the value of the field is `SET_ON_TO`"]
+    #[doc = "Set CCP output pin on Time-Out"]
     #[inline(always)]
     pub fn is_set_on_to(&self) -> bool {
-        *self == TCACT_A::SET_ON_TO
+        *self == Tcact::SetOnTo
     }
-    #[doc = "Checks if the value of the field is `CLR_ON_TO`"]
+    #[doc = "Clear CCP output pin on Time-Out"]
     #[inline(always)]
     pub fn is_clr_on_to(&self) -> bool {
-        *self == TCACT_A::CLR_ON_TO
+        *self == Tcact::ClrOnTo
     }
-    #[doc = "Checks if the value of the field is `TOG_ON_TO`"]
+    #[doc = "Toggle State on Time-Out"]
     #[inline(always)]
     pub fn is_tog_on_to(&self) -> bool {
-        *self == TCACT_A::TOG_ON_TO
+        *self == Tcact::TogOnTo
     }
-    #[doc = "Checks if the value of the field is `DIS_CMP`"]
+    #[doc = "Disable compare operations"]
     #[inline(always)]
     pub fn is_dis_cmp(&self) -> bool {
-        *self == TCACT_A::DIS_CMP
+        *self == Tcact::DisCmp
     }
 }
 #[doc = "Field `TCACT` writer - 15:13\\]
 Timer Compare Action Select"]
-pub type TCACT_W<'a, const O: u8> = crate::FieldWriterSafe<'a, u32, TBMR_SPEC, u8, TCACT_A, 3, O>;
-impl<'a, const O: u8> TCACT_W<'a, O> {
+pub type TcactW<'a, REG> = crate::FieldWriter<'a, REG, 3, Tcact, crate::Safe>;
+impl<'a, REG> TcactW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "Clear CCP output pin immediately and set on Time-Out"]
     #[inline(always)]
-    pub fn clrset_on_to(self) -> &'a mut W {
-        self.variant(TCACT_A::CLRSET_ON_TO)
+    pub fn clrset_on_to(self) -> &'a mut crate::W<REG> {
+        self.variant(Tcact::ClrsetOnTo)
     }
     #[doc = "Set CCP output pin immediately and clear on Time-Out"]
     #[inline(always)]
-    pub fn setclr_on_to(self) -> &'a mut W {
-        self.variant(TCACT_A::SETCLR_ON_TO)
+    pub fn setclr_on_to(self) -> &'a mut crate::W<REG> {
+        self.variant(Tcact::SetclrOnTo)
     }
     #[doc = "Clear CCP output pin immediately and toggle on Time-Out"]
     #[inline(always)]
-    pub fn clrtog_on_to(self) -> &'a mut W {
-        self.variant(TCACT_A::CLRTOG_ON_TO)
+    pub fn clrtog_on_to(self) -> &'a mut crate::W<REG> {
+        self.variant(Tcact::ClrtogOnTo)
     }
     #[doc = "Set CCP output pin immediately and toggle on Time-Out"]
     #[inline(always)]
-    pub fn settog_on_to(self) -> &'a mut W {
-        self.variant(TCACT_A::SETTOG_ON_TO)
+    pub fn settog_on_to(self) -> &'a mut crate::W<REG> {
+        self.variant(Tcact::SettogOnTo)
     }
     #[doc = "Set CCP output pin on Time-Out"]
     #[inline(always)]
-    pub fn set_on_to(self) -> &'a mut W {
-        self.variant(TCACT_A::SET_ON_TO)
+    pub fn set_on_to(self) -> &'a mut crate::W<REG> {
+        self.variant(Tcact::SetOnTo)
     }
     #[doc = "Clear CCP output pin on Time-Out"]
     #[inline(always)]
-    pub fn clr_on_to(self) -> &'a mut W {
-        self.variant(TCACT_A::CLR_ON_TO)
+    pub fn clr_on_to(self) -> &'a mut crate::W<REG> {
+        self.variant(Tcact::ClrOnTo)
     }
     #[doc = "Toggle State on Time-Out"]
     #[inline(always)]
-    pub fn tog_on_to(self) -> &'a mut W {
-        self.variant(TCACT_A::TOG_ON_TO)
+    pub fn tog_on_to(self) -> &'a mut crate::W<REG> {
+        self.variant(Tcact::TogOnTo)
     }
     #[doc = "Disable compare operations"]
     #[inline(always)]
-    pub fn dis_cmp(self) -> &'a mut W {
-        self.variant(TCACT_A::DIS_CMP)
+    pub fn dis_cmp(self) -> &'a mut crate::W<REG> {
+        self.variant(Tcact::DisCmp)
     }
 }
 #[doc = "Field `RESERVED16` reader - 31:16\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED16_R = crate::FieldReader<u16, u16>;
+pub type Reserved16R = crate::FieldReader<u16>;
 #[doc = "Field `RESERVED16` writer - 31:16\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED16_W<'a, const O: u8> = crate::FieldWriter<'a, u32, TBMR_SPEC, u16, u16, 16, O>;
+pub type Reserved16W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
     #[doc = "Bits 0:1 - 1:0\\]
 GPT Timer B Mode 0x0 Reserved 0x1 One-Shot Timer mode 0x2 Periodic Timer mode 0x3 Capture mode The Timer mode is based on the timer configuration defined by bits 2:0 in the CFG register"]
     #[inline(always)]
-    pub fn tbmr(&self) -> TBMR_R {
-        TBMR_R::new((self.bits & 3) as u8)
+    pub fn tbmr(&self) -> TbmrR {
+        TbmrR::new((self.bits & 3) as u8)
     }
     #[doc = "Bit 2 - 2:2\\]
 GPT Timer B Capture Mode"]
     #[inline(always)]
-    pub fn tbcm(&self) -> TBCM_R {
-        TBCM_R::new(((self.bits >> 2) & 1) != 0)
+    pub fn tbcm(&self) -> TbcmR {
+        TbcmR::new(((self.bits >> 2) & 1) != 0)
     }
     #[doc = "Bit 3 - 3:3\\]
 GPT Timer B Alternate Mode Note: To enable PWM mode, you must also clear TBCM bit and configure TBMR field to 0x2."]
     #[inline(always)]
-    pub fn tbams(&self) -> TBAMS_R {
-        TBAMS_R::new(((self.bits >> 3) & 1) != 0)
+    pub fn tbams(&self) -> TbamsR {
+        TbamsR::new(((self.bits >> 3) & 1) != 0)
     }
     #[doc = "Bit 4 - 4:4\\]
 GPT Timer B Count Direction"]
     #[inline(always)]
-    pub fn tbcdir(&self) -> TBCDIR_R {
-        TBCDIR_R::new(((self.bits >> 4) & 1) != 0)
+    pub fn tbcdir(&self) -> TbcdirR {
+        TbcdirR::new(((self.bits >> 4) & 1) != 0)
     }
     #[doc = "Bit 5 - 5:5\\]
 GPT Timer B Match Interrupt Enable."]
     #[inline(always)]
-    pub fn tbmie(&self) -> TBMIE_R {
-        TBMIE_R::new(((self.bits >> 5) & 1) != 0)
+    pub fn tbmie(&self) -> TbmieR {
+        TbmieR::new(((self.bits >> 5) & 1) != 0)
     }
     #[doc = "Bit 6 - 6:6\\]
 GPT Timer B Wait-On-Trigger"]
     #[inline(always)]
-    pub fn tbwot(&self) -> TBWOT_R {
-        TBWOT_R::new(((self.bits >> 6) & 1) != 0)
+    pub fn tbwot(&self) -> TbwotR {
+        TbwotR::new(((self.bits >> 6) & 1) != 0)
     }
     #[doc = "Bit 7 - 7:7\\]
 GPT Timer B Snap-Shot Mode"]
     #[inline(always)]
-    pub fn tbsnaps(&self) -> TBSNAPS_R {
-        TBSNAPS_R::new(((self.bits >> 7) & 1) != 0)
+    pub fn tbsnaps(&self) -> TbsnapsR {
+        TbsnapsR::new(((self.bits >> 7) & 1) != 0)
     }
     #[doc = "Bit 8 - 8:8\\]
 GPT Timer B PWM Interval Load Write"]
     #[inline(always)]
-    pub fn tbild(&self) -> TBILD_R {
-        TBILD_R::new(((self.bits >> 8) & 1) != 0)
+    pub fn tbild(&self) -> TbildR {
+        TbildR::new(((self.bits >> 8) & 1) != 0)
     }
     #[doc = "Bit 9 - 9:9\\]
 GPTM Timer B PWM Interrupt Enable This bit enables interrupts in PWM mode on rising, falling, or both edges of the CCP output, as defined by the CTL.TBEVENT In addition, when this bit is set and a capture event occurs, Timer A automatically generates triggers to the DMA if the trigger capability is enabled by setting the CTL.TBOTE bit and the DMAEV.CBEDMAEN bit respectively. 0 Capture event interrupt is disabled. 1 Capture event interrupt is enabled. This bit is only valid in PWM mode."]
     #[inline(always)]
-    pub fn tbpwmie(&self) -> TBPWMIE_R {
-        TBPWMIE_R::new(((self.bits >> 9) & 1) != 0)
+    pub fn tbpwmie(&self) -> TbpwmieR {
+        TbpwmieR::new(((self.bits >> 9) & 1) != 0)
     }
     #[doc = "Bit 10 - 10:10\\]
 Timer B Match Register Update mode This bit defines when the TBMATCHR and TBPR registers are updated If the timer is disabled (CTL.TBEN is clear) when this bit is set, TBMATCHR and TBPR are updated when the timer is enabled. If the timer is stalled (CTL.TBSTALL is set) when this bit is set, TBMATCHR and TBPR are updated according to the configuration of this bit."]
     #[inline(always)]
-    pub fn tbmrsu(&self) -> TBMRSU_R {
-        TBMRSU_R::new(((self.bits >> 10) & 1) != 0)
+    pub fn tbmrsu(&self) -> TbmrsuR {
+        TbmrsuR::new(((self.bits >> 10) & 1) != 0)
     }
     #[doc = "Bit 11 - 11:11\\]
 GPTM Timer B PWM Legacy Operation 0 Legacy operation with CCP pin driven Low when the TBILR register is reloaded after the timer reaches 0. 1 CCP is driven High when the TBILR register is reloaded after the timer reaches 0. This bit is only valid in PWM mode."]
     #[inline(always)]
-    pub fn tbplo(&self) -> TBPLO_R {
-        TBPLO_R::new(((self.bits >> 11) & 1) != 0)
+    pub fn tbplo(&self) -> TbploR {
+        TbploR::new(((self.bits >> 11) & 1) != 0)
     }
     #[doc = "Bit 12 - 12:12\\]
 One-Shot/Periodic Interrupt Mode"]
     #[inline(always)]
-    pub fn tbcintd(&self) -> TBCINTD_R {
-        TBCINTD_R::new(((self.bits >> 12) & 1) != 0)
+    pub fn tbcintd(&self) -> TbcintdR {
+        TbcintdR::new(((self.bits >> 12) & 1) != 0)
     }
     #[doc = "Bits 13:15 - 15:13\\]
 Timer Compare Action Select"]
     #[inline(always)]
-    pub fn tcact(&self) -> TCACT_R {
-        TCACT_R::new(((self.bits >> 13) & 7) as u8)
+    pub fn tcact(&self) -> TcactR {
+        TcactR::new(((self.bits >> 13) & 7) as u8)
     }
     #[doc = "Bits 16:31 - 31:16\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved16(&self) -> RESERVED16_R {
-        RESERVED16_R::new(((self.bits >> 16) & 0xffff) as u16)
+    pub fn reserved16(&self) -> Reserved16R {
+        Reserved16R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
 impl W {
@@ -915,123 +932,115 @@ impl W {
 GPT Timer B Mode 0x0 Reserved 0x1 One-Shot Timer mode 0x2 Periodic Timer mode 0x3 Capture mode The Timer mode is based on the timer configuration defined by bits 2:0 in the CFG register"]
     #[inline(always)]
     #[must_use]
-    pub fn tbmr(&mut self) -> TBMR_W<0> {
-        TBMR_W::new(self)
+    pub fn tbmr(&mut self) -> TbmrW<TbmrSpec> {
+        TbmrW::new(self, 0)
     }
     #[doc = "Bit 2 - 2:2\\]
 GPT Timer B Capture Mode"]
     #[inline(always)]
     #[must_use]
-    pub fn tbcm(&mut self) -> TBCM_W<2> {
-        TBCM_W::new(self)
+    pub fn tbcm(&mut self) -> TbcmW<TbmrSpec> {
+        TbcmW::new(self, 2)
     }
     #[doc = "Bit 3 - 3:3\\]
 GPT Timer B Alternate Mode Note: To enable PWM mode, you must also clear TBCM bit and configure TBMR field to 0x2."]
     #[inline(always)]
     #[must_use]
-    pub fn tbams(&mut self) -> TBAMS_W<3> {
-        TBAMS_W::new(self)
+    pub fn tbams(&mut self) -> TbamsW<TbmrSpec> {
+        TbamsW::new(self, 3)
     }
     #[doc = "Bit 4 - 4:4\\]
 GPT Timer B Count Direction"]
     #[inline(always)]
     #[must_use]
-    pub fn tbcdir(&mut self) -> TBCDIR_W<4> {
-        TBCDIR_W::new(self)
+    pub fn tbcdir(&mut self) -> TbcdirW<TbmrSpec> {
+        TbcdirW::new(self, 4)
     }
     #[doc = "Bit 5 - 5:5\\]
 GPT Timer B Match Interrupt Enable."]
     #[inline(always)]
     #[must_use]
-    pub fn tbmie(&mut self) -> TBMIE_W<5> {
-        TBMIE_W::new(self)
+    pub fn tbmie(&mut self) -> TbmieW<TbmrSpec> {
+        TbmieW::new(self, 5)
     }
     #[doc = "Bit 6 - 6:6\\]
 GPT Timer B Wait-On-Trigger"]
     #[inline(always)]
     #[must_use]
-    pub fn tbwot(&mut self) -> TBWOT_W<6> {
-        TBWOT_W::new(self)
+    pub fn tbwot(&mut self) -> TbwotW<TbmrSpec> {
+        TbwotW::new(self, 6)
     }
     #[doc = "Bit 7 - 7:7\\]
 GPT Timer B Snap-Shot Mode"]
     #[inline(always)]
     #[must_use]
-    pub fn tbsnaps(&mut self) -> TBSNAPS_W<7> {
-        TBSNAPS_W::new(self)
+    pub fn tbsnaps(&mut self) -> TbsnapsW<TbmrSpec> {
+        TbsnapsW::new(self, 7)
     }
     #[doc = "Bit 8 - 8:8\\]
 GPT Timer B PWM Interval Load Write"]
     #[inline(always)]
     #[must_use]
-    pub fn tbild(&mut self) -> TBILD_W<8> {
-        TBILD_W::new(self)
+    pub fn tbild(&mut self) -> TbildW<TbmrSpec> {
+        TbildW::new(self, 8)
     }
     #[doc = "Bit 9 - 9:9\\]
 GPTM Timer B PWM Interrupt Enable This bit enables interrupts in PWM mode on rising, falling, or both edges of the CCP output, as defined by the CTL.TBEVENT In addition, when this bit is set and a capture event occurs, Timer A automatically generates triggers to the DMA if the trigger capability is enabled by setting the CTL.TBOTE bit and the DMAEV.CBEDMAEN bit respectively. 0 Capture event interrupt is disabled. 1 Capture event interrupt is enabled. This bit is only valid in PWM mode."]
     #[inline(always)]
     #[must_use]
-    pub fn tbpwmie(&mut self) -> TBPWMIE_W<9> {
-        TBPWMIE_W::new(self)
+    pub fn tbpwmie(&mut self) -> TbpwmieW<TbmrSpec> {
+        TbpwmieW::new(self, 9)
     }
     #[doc = "Bit 10 - 10:10\\]
 Timer B Match Register Update mode This bit defines when the TBMATCHR and TBPR registers are updated If the timer is disabled (CTL.TBEN is clear) when this bit is set, TBMATCHR and TBPR are updated when the timer is enabled. If the timer is stalled (CTL.TBSTALL is set) when this bit is set, TBMATCHR and TBPR are updated according to the configuration of this bit."]
     #[inline(always)]
     #[must_use]
-    pub fn tbmrsu(&mut self) -> TBMRSU_W<10> {
-        TBMRSU_W::new(self)
+    pub fn tbmrsu(&mut self) -> TbmrsuW<TbmrSpec> {
+        TbmrsuW::new(self, 10)
     }
     #[doc = "Bit 11 - 11:11\\]
 GPTM Timer B PWM Legacy Operation 0 Legacy operation with CCP pin driven Low when the TBILR register is reloaded after the timer reaches 0. 1 CCP is driven High when the TBILR register is reloaded after the timer reaches 0. This bit is only valid in PWM mode."]
     #[inline(always)]
     #[must_use]
-    pub fn tbplo(&mut self) -> TBPLO_W<11> {
-        TBPLO_W::new(self)
+    pub fn tbplo(&mut self) -> TbploW<TbmrSpec> {
+        TbploW::new(self, 11)
     }
     #[doc = "Bit 12 - 12:12\\]
 One-Shot/Periodic Interrupt Mode"]
     #[inline(always)]
     #[must_use]
-    pub fn tbcintd(&mut self) -> TBCINTD_W<12> {
-        TBCINTD_W::new(self)
+    pub fn tbcintd(&mut self) -> TbcintdW<TbmrSpec> {
+        TbcintdW::new(self, 12)
     }
     #[doc = "Bits 13:15 - 15:13\\]
 Timer Compare Action Select"]
     #[inline(always)]
     #[must_use]
-    pub fn tcact(&mut self) -> TCACT_W<13> {
-        TCACT_W::new(self)
+    pub fn tcact(&mut self) -> TcactW<TbmrSpec> {
+        TcactW::new(self, 13)
     }
     #[doc = "Bits 16:31 - 31:16\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved16(&mut self) -> RESERVED16_W<16> {
-        RESERVED16_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved16(&mut self) -> Reserved16W<TbmrSpec> {
+        Reserved16W::new(self, 16)
     }
 }
-#[doc = "Timer B Mode\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [tbmr](index.html) module"]
-pub struct TBMR_SPEC;
-impl crate::RegisterSpec for TBMR_SPEC {
+#[doc = "Timer B Mode\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`tbmr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`tbmr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct TbmrSpec;
+impl crate::RegisterSpec for TbmrSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [tbmr::R](R) reader structure"]
-impl crate::Readable for TBMR_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [tbmr::W](W) writer structure"]
-impl crate::Writable for TBMR_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`tbmr::R`](R) reader structure"]
+impl crate::Readable for TbmrSpec {}
+#[doc = "`write(|w| ..)` method takes [`tbmr::W`](W) writer structure"]
+impl crate::Writable for TbmrSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets TBMR to value 0"]
-impl crate::Resettable for TBMR_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for TbmrSpec {
+    const RESET_VALUE: u32 = 0;
 }

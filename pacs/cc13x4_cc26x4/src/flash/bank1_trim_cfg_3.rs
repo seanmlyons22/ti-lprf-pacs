@@ -1,52 +1,19 @@
 #[doc = "Register `BANK1_TRIM_CFG_3` reader"]
-pub struct R(crate::R<BANK1_TRIM_CFG_3_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<BANK1_TRIM_CFG_3_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<BANK1_TRIM_CFG_3_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<BANK1_TRIM_CFG_3_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Bank1TrimCfg3Spec>;
 #[doc = "Register `BANK1_TRIM_CFG_3` writer"]
-pub struct W(crate::W<BANK1_TRIM_CFG_3_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<BANK1_TRIM_CFG_3_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<BANK1_TRIM_CFG_3_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<BANK1_TRIM_CFG_3_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<Bank1TrimCfg3Spec>;
 #[doc = "Field `RESERVED32` reader - 31:0\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED32_R = crate::FieldReader<u32, u32>;
+pub type Reserved32R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED32` writer - 31:0\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED32_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, BANK1_TRIM_CFG_3_SPEC, u32, u32, 32, O>;
+pub type Reserved32W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn reserved32(&self) -> RESERVED32_R {
-        RESERVED32_R::new(self.bits)
+    pub fn reserved32(&self) -> Reserved32R {
+        Reserved32R::new(self.bits)
     }
 }
 impl W {
@@ -54,32 +21,24 @@ impl W {
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved32(&mut self) -> RESERVED32_W<0> {
-        RESERVED32_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved32(&mut self) -> Reserved32W<Bank1TrimCfg3Spec> {
+        Reserved32W::new(self, 0)
     }
 }
-#[doc = "Internal. Only to be used through TI provided API.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [bank1_trim_cfg_3](index.html) module"]
-pub struct BANK1_TRIM_CFG_3_SPEC;
-impl crate::RegisterSpec for BANK1_TRIM_CFG_3_SPEC {
+#[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`bank1_trim_cfg_3::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`bank1_trim_cfg_3::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Bank1TrimCfg3Spec;
+impl crate::RegisterSpec for Bank1TrimCfg3Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [bank1_trim_cfg_3::R](R) reader structure"]
-impl crate::Readable for BANK1_TRIM_CFG_3_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [bank1_trim_cfg_3::W](W) writer structure"]
-impl crate::Writable for BANK1_TRIM_CFG_3_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`bank1_trim_cfg_3::R`](R) reader structure"]
+impl crate::Readable for Bank1TrimCfg3Spec {}
+#[doc = "`write(|w| ..)` method takes [`bank1_trim_cfg_3::W`](W) writer structure"]
+impl crate::Writable for Bank1TrimCfg3Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets BANK1_TRIM_CFG_3 to value 0"]
-impl crate::Resettable for BANK1_TRIM_CFG_3_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for Bank1TrimCfg3Spec {
+    const RESET_VALUE: u32 = 0;
 }

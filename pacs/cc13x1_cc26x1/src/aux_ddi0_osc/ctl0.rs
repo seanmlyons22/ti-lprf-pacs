@@ -1,440 +1,418 @@
 #[doc = "Register `CTL0` reader"]
-pub struct R(crate::R<CTL0_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<CTL0_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<CTL0_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<CTL0_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Ctl0Spec>;
 #[doc = "Register `CTL0` writer"]
-pub struct W(crate::W<CTL0_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<CTL0_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
+pub type W = crate::W<Ctl0Spec>;
+#[doc = "0:0\\]
+Source select for sclk_hf.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum SclkHfSrcSel {
+    #[doc = "1: High frequency XOSC or HPOSC clk (use HPOSC when HPOSC_MODE_EN = 1"]
+    Xosc = 1,
+    #[doc = "0: High frequency RCOSC clock"]
+    Rcosc = 0,
 }
-impl core::ops::DerefMut for W {
+impl From<SclkHfSrcSel> for bool {
     #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<CTL0_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<CTL0_SPEC>) -> Self {
-        W(writer)
+    fn from(variant: SclkHfSrcSel) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `SCLK_HF_SRC_SEL` reader - 0:0\\]
 Source select for sclk_hf."]
-pub type SCLK_HF_SRC_SEL_R = crate::BitReader<SCLK_HF_SRC_SEL_A>;
-#[doc = "0:0\\]
-Source select for sclk_hf.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum SCLK_HF_SRC_SEL_A {
-    #[doc = "1: High frequency XOSC or HPOSC clk (use HPOSC when HPOSC_MODE_EN = 1"]
-    XOSC = 1,
-    #[doc = "0: High frequency RCOSC clock"]
-    RCOSC = 0,
-}
-impl From<SCLK_HF_SRC_SEL_A> for bool {
-    #[inline(always)]
-    fn from(variant: SCLK_HF_SRC_SEL_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl SCLK_HF_SRC_SEL_R {
+pub type SclkHfSrcSelR = crate::BitReader<SclkHfSrcSel>;
+impl SclkHfSrcSelR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> SCLK_HF_SRC_SEL_A {
+    pub const fn variant(&self) -> SclkHfSrcSel {
         match self.bits {
-            true => SCLK_HF_SRC_SEL_A::XOSC,
-            false => SCLK_HF_SRC_SEL_A::RCOSC,
+            true => SclkHfSrcSel::Xosc,
+            false => SclkHfSrcSel::Rcosc,
         }
     }
-    #[doc = "Checks if the value of the field is `XOSC`"]
+    #[doc = "High frequency XOSC or HPOSC clk (use HPOSC when HPOSC_MODE_EN = 1"]
     #[inline(always)]
     pub fn is_xosc(&self) -> bool {
-        *self == SCLK_HF_SRC_SEL_A::XOSC
+        *self == SclkHfSrcSel::Xosc
     }
-    #[doc = "Checks if the value of the field is `RCOSC`"]
+    #[doc = "High frequency RCOSC clock"]
     #[inline(always)]
     pub fn is_rcosc(&self) -> bool {
-        *self == SCLK_HF_SRC_SEL_A::RCOSC
+        *self == SclkHfSrcSel::Rcosc
     }
 }
 #[doc = "Field `SCLK_HF_SRC_SEL` writer - 0:0\\]
 Source select for sclk_hf."]
-pub type SCLK_HF_SRC_SEL_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, CTL0_SPEC, SCLK_HF_SRC_SEL_A, O>;
-impl<'a, const O: u8> SCLK_HF_SRC_SEL_W<'a, O> {
+pub type SclkHfSrcSelW<'a, REG> = crate::BitWriter<'a, REG, SclkHfSrcSel>;
+impl<'a, REG> SclkHfSrcSelW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "High frequency XOSC or HPOSC clk (use HPOSC when HPOSC_MODE_EN = 1"]
     #[inline(always)]
-    pub fn xosc(self) -> &'a mut W {
-        self.variant(SCLK_HF_SRC_SEL_A::XOSC)
+    pub fn xosc(self) -> &'a mut crate::W<REG> {
+        self.variant(SclkHfSrcSel::Xosc)
     }
     #[doc = "High frequency RCOSC clock"]
     #[inline(always)]
-    pub fn rcosc(self) -> &'a mut W {
-        self.variant(SCLK_HF_SRC_SEL_A::RCOSC)
+    pub fn rcosc(self) -> &'a mut crate::W<REG> {
+        self.variant(SclkHfSrcSel::Rcosc)
     }
 }
 #[doc = "Field `RESERVED1` reader - 1:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED1_R = crate::BitReader<bool>;
+pub type Reserved1R = crate::BitReader;
 #[doc = "Field `RESERVED1` writer - 1:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED1_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTL0_SPEC, bool, O>;
-#[doc = "Field `SCLK_LF_SRC_SEL` reader - 3:2\\]
-Source select for sclk_lf"]
-pub type SCLK_LF_SRC_SEL_R = crate::FieldReader<u8, SCLK_LF_SRC_SEL_A>;
+pub type Reserved1W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "3:2\\]
 Source select for sclk_lf\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum SCLK_LF_SRC_SEL_A {
+pub enum SclkLfSrcSel {
     #[doc = "3: Low frequency XOSC"]
-    XOSCLF = 3,
+    Xosclf = 3,
     #[doc = "2: Low frequency RCOSC"]
-    RCOSCLF = 2,
+    Rcosclf = 2,
     #[doc = "1: Low frequency clock derived from High Frequency XOSC or HPOSC clk (use HPOSC when HPOSC_MODE_EN = 1)"]
-    XOSCHFDLF = 1,
+    Xoschfdlf = 1,
     #[doc = "0: Low frequency clock derived from High Frequency RCOSC"]
-    RCOSCHFDLF = 0,
+    Rcoschfdlf = 0,
 }
-impl From<SCLK_LF_SRC_SEL_A> for u8 {
+impl From<SclkLfSrcSel> for u8 {
     #[inline(always)]
-    fn from(variant: SCLK_LF_SRC_SEL_A) -> Self {
+    fn from(variant: SclkLfSrcSel) -> Self {
         variant as _
     }
 }
-impl SCLK_LF_SRC_SEL_R {
+impl crate::FieldSpec for SclkLfSrcSel {
+    type Ux = u8;
+}
+impl crate::IsEnum for SclkLfSrcSel {}
+#[doc = "Field `SCLK_LF_SRC_SEL` reader - 3:2\\]
+Source select for sclk_lf"]
+pub type SclkLfSrcSelR = crate::FieldReader<SclkLfSrcSel>;
+impl SclkLfSrcSelR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> SCLK_LF_SRC_SEL_A {
+    pub const fn variant(&self) -> SclkLfSrcSel {
         match self.bits {
-            3 => SCLK_LF_SRC_SEL_A::XOSCLF,
-            2 => SCLK_LF_SRC_SEL_A::RCOSCLF,
-            1 => SCLK_LF_SRC_SEL_A::XOSCHFDLF,
-            0 => SCLK_LF_SRC_SEL_A::RCOSCHFDLF,
+            3 => SclkLfSrcSel::Xosclf,
+            2 => SclkLfSrcSel::Rcosclf,
+            1 => SclkLfSrcSel::Xoschfdlf,
+            0 => SclkLfSrcSel::Rcoschfdlf,
             _ => unreachable!(),
         }
     }
-    #[doc = "Checks if the value of the field is `XOSCLF`"]
+    #[doc = "Low frequency XOSC"]
     #[inline(always)]
     pub fn is_xosclf(&self) -> bool {
-        *self == SCLK_LF_SRC_SEL_A::XOSCLF
+        *self == SclkLfSrcSel::Xosclf
     }
-    #[doc = "Checks if the value of the field is `RCOSCLF`"]
+    #[doc = "Low frequency RCOSC"]
     #[inline(always)]
     pub fn is_rcosclf(&self) -> bool {
-        *self == SCLK_LF_SRC_SEL_A::RCOSCLF
+        *self == SclkLfSrcSel::Rcosclf
     }
-    #[doc = "Checks if the value of the field is `XOSCHFDLF`"]
+    #[doc = "Low frequency clock derived from High Frequency XOSC or HPOSC clk (use HPOSC when HPOSC_MODE_EN = 1)"]
     #[inline(always)]
     pub fn is_xoschfdlf(&self) -> bool {
-        *self == SCLK_LF_SRC_SEL_A::XOSCHFDLF
+        *self == SclkLfSrcSel::Xoschfdlf
     }
-    #[doc = "Checks if the value of the field is `RCOSCHFDLF`"]
+    #[doc = "Low frequency clock derived from High Frequency RCOSC"]
     #[inline(always)]
     pub fn is_rcoschfdlf(&self) -> bool {
-        *self == SCLK_LF_SRC_SEL_A::RCOSCHFDLF
+        *self == SclkLfSrcSel::Rcoschfdlf
     }
 }
 #[doc = "Field `SCLK_LF_SRC_SEL` writer - 3:2\\]
 Source select for sclk_lf"]
-pub type SCLK_LF_SRC_SEL_W<'a, const O: u8> =
-    crate::FieldWriterSafe<'a, u32, CTL0_SPEC, u8, SCLK_LF_SRC_SEL_A, 2, O>;
-impl<'a, const O: u8> SCLK_LF_SRC_SEL_W<'a, O> {
+pub type SclkLfSrcSelW<'a, REG> = crate::FieldWriter<'a, REG, 2, SclkLfSrcSel, crate::Safe>;
+impl<'a, REG> SclkLfSrcSelW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "Low frequency XOSC"]
     #[inline(always)]
-    pub fn xosclf(self) -> &'a mut W {
-        self.variant(SCLK_LF_SRC_SEL_A::XOSCLF)
+    pub fn xosclf(self) -> &'a mut crate::W<REG> {
+        self.variant(SclkLfSrcSel::Xosclf)
     }
     #[doc = "Low frequency RCOSC"]
     #[inline(always)]
-    pub fn rcosclf(self) -> &'a mut W {
-        self.variant(SCLK_LF_SRC_SEL_A::RCOSCLF)
+    pub fn rcosclf(self) -> &'a mut crate::W<REG> {
+        self.variant(SclkLfSrcSel::Rcosclf)
     }
     #[doc = "Low frequency clock derived from High Frequency XOSC or HPOSC clk (use HPOSC when HPOSC_MODE_EN = 1)"]
     #[inline(always)]
-    pub fn xoschfdlf(self) -> &'a mut W {
-        self.variant(SCLK_LF_SRC_SEL_A::XOSCHFDLF)
+    pub fn xoschfdlf(self) -> &'a mut crate::W<REG> {
+        self.variant(SclkLfSrcSel::Xoschfdlf)
     }
     #[doc = "Low frequency clock derived from High Frequency RCOSC"]
     #[inline(always)]
-    pub fn rcoschfdlf(self) -> &'a mut W {
-        self.variant(SCLK_LF_SRC_SEL_A::RCOSCHFDLF)
+    pub fn rcoschfdlf(self) -> &'a mut crate::W<REG> {
+        self.variant(SclkLfSrcSel::Rcoschfdlf)
     }
 }
 #[doc = "Field `ACLK_REF_SRC_SEL` reader - 6:4\\]
 Source select for aclk_ref 000: RCOSC_HF derived (31.25kHz) 001: XOSC_HF derived (31.25kHz) 010: RCOSC_LF (32kHz) 011: XOSC_LF (32.768kHz) 100: RCOSC_MF (2MHz) 101-111: Not used"]
-pub type ACLK_REF_SRC_SEL_R = crate::FieldReader<u8, u8>;
+pub type AclkRefSrcSelR = crate::FieldReader;
 #[doc = "Field `ACLK_REF_SRC_SEL` writer - 6:4\\]
 Source select for aclk_ref 000: RCOSC_HF derived (31.25kHz) 001: XOSC_HF derived (31.25kHz) 010: RCOSC_LF (32kHz) 011: XOSC_LF (32.768kHz) 100: RCOSC_MF (2MHz) 101-111: Not used"]
-pub type ACLK_REF_SRC_SEL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CTL0_SPEC, u8, u8, 3, O>;
+pub type AclkRefSrcSelW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `ACLK_TDC_SRC_SEL` reader - 8:7\\]
 Source select for aclk_tdc. 00: RCOSC_HF (48MHz) 01: RCOSC_HF (24MHz) 10: XOSC_HF (24MHz) 11: Not used"]
-pub type ACLK_TDC_SRC_SEL_R = crate::FieldReader<u8, u8>;
+pub type AclkTdcSrcSelR = crate::FieldReader;
 #[doc = "Field `ACLK_TDC_SRC_SEL` writer - 8:7\\]
 Source select for aclk_tdc. 00: RCOSC_HF (48MHz) 01: RCOSC_HF (24MHz) 10: XOSC_HF (24MHz) 11: Not used"]
-pub type ACLK_TDC_SRC_SEL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CTL0_SPEC, u8, u8, 2, O>;
+pub type AclkTdcSrcSelW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `CLK_LOSS_EN` reader - 9:9\\]
 Enable clock loss detection and hence the indicators to the system controller. Checks both SCLK_HF, SCLK_MF and SCLK_LF clock loss indicators. 0: Disable 1: Enable Clock loss detection must be disabled when changing the sclk_lf source. STAT0.SCLK_LF_SRC can be polled to determine when a change to a new sclk_lf source has completed."]
-pub type CLK_LOSS_EN_R = crate::BitReader<bool>;
+pub type ClkLossEnR = crate::BitReader;
 #[doc = "Field `CLK_LOSS_EN` writer - 9:9\\]
 Enable clock loss detection and hence the indicators to the system controller. Checks both SCLK_HF, SCLK_MF and SCLK_LF clock loss indicators. 0: Disable 1: Enable Clock loss detection must be disabled when changing the sclk_lf source. STAT0.SCLK_LF_SRC can be polled to determine when a change to a new sclk_lf source has completed."]
-pub type CLK_LOSS_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTL0_SPEC, bool, O>;
+pub type ClkLossEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `XOSC_LF_DIG_BYPASS` reader - 10:10\\]
 Bypass XOSC_LF and use the digital input clock from AON for the xosc_lf clock. 0: Use 32kHz XOSC as xosc_lf clock source 1: Use digital input (from AON) as xosc_lf clock source. This bit will only have effect when SCLK_LF_SRC_SEL is selecting the xosc_lf as the sclk_lf source. The muxing performed by this bit is not glitch free. The following procedure must be followed when changing this field to avoid glitches on sclk_lf. 1) Set SCLK_LF_SRC_SEL to select any source other than the xosc_lf clock source. 2) Set or clear this bit to bypass or not bypass the xosc_lf. 3) Set SCLK_LF_SRC_SEL to use xosc_lf. It is recommended that either the rcosc_hf or xosc_hf (whichever is currently active) be selected as the source in step 1 above. This provides a faster clock change."]
-pub type XOSC_LF_DIG_BYPASS_R = crate::BitReader<bool>;
+pub type XoscLfDigBypassR = crate::BitReader;
 #[doc = "Field `XOSC_LF_DIG_BYPASS` writer - 10:10\\]
 Bypass XOSC_LF and use the digital input clock from AON for the xosc_lf clock. 0: Use 32kHz XOSC as xosc_lf clock source 1: Use digital input (from AON) as xosc_lf clock source. This bit will only have effect when SCLK_LF_SRC_SEL is selecting the xosc_lf as the sclk_lf source. The muxing performed by this bit is not glitch free. The following procedure must be followed when changing this field to avoid glitches on sclk_lf. 1) Set SCLK_LF_SRC_SEL to select any source other than the xosc_lf clock source. 2) Set or clear this bit to bypass or not bypass the xosc_lf. 3) Set SCLK_LF_SRC_SEL to use xosc_lf. It is recommended that either the rcosc_hf or xosc_hf (whichever is currently active) be selected as the source in step 1 above. This provides a faster clock change."]
-pub type XOSC_LF_DIG_BYPASS_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTL0_SPEC, bool, O>;
+pub type XoscLfDigBypassW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `XOSC_HF_POWER_MODE` reader - 11:11\\]
 Internal. Only to be used through TI provided API."]
-pub type XOSC_HF_POWER_MODE_R = crate::BitReader<bool>;
+pub type XoscHfPowerModeR = crate::BitReader;
 #[doc = "Field `XOSC_HF_POWER_MODE` writer - 11:11\\]
 Internal. Only to be used through TI provided API."]
-pub type XOSC_HF_POWER_MODE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTL0_SPEC, bool, O>;
+pub type XoscHfPowerModeW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RCOSC_LF_TRIMMED` reader - 12:12\\]
 Internal. Only to be used through TI provided API."]
-pub type RCOSC_LF_TRIMMED_R = crate::BitReader<bool>;
+pub type RcoscLfTrimmedR = crate::BitReader;
 #[doc = "Field `RCOSC_LF_TRIMMED` writer - 12:12\\]
 Internal. Only to be used through TI provided API."]
-pub type RCOSC_LF_TRIMMED_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTL0_SPEC, bool, O>;
+pub type RcoscLfTrimmedW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED13` reader - 13:13\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED13_R = crate::BitReader<bool>;
+pub type Reserved13R = crate::BitReader;
 #[doc = "Field `RESERVED13` writer - 13:13\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED13_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTL0_SPEC, bool, O>;
+pub type Reserved13W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `HPOSC_MODE_EN` reader - 14:14\\]
 0: HPOSC mode is not enabled. The 48 MHz crystal is required for radio operation. 1: Enables HPOSC mode. The internal HPOSC can be used as HF system clock and for radio operation."]
-pub type HPOSC_MODE_EN_R = crate::BitReader<bool>;
+pub type HposcModeEnR = crate::BitReader;
 #[doc = "Field `HPOSC_MODE_EN` writer - 14:14\\]
 0: HPOSC mode is not enabled. The 48 MHz crystal is required for radio operation. 1: Enables HPOSC mode. The internal HPOSC can be used as HF system clock and for radio operation."]
-pub type HPOSC_MODE_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTL0_SPEC, bool, O>;
+pub type HposcModeEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED15` reader - 23:15\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED15_R = crate::FieldReader<u16, u16>;
+pub type Reserved15R = crate::FieldReader<u16>;
 #[doc = "Field `RESERVED15` writer - 23:15\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED15_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CTL0_SPEC, u16, u16, 9, O>;
+pub type Reserved15W<'a, REG> = crate::FieldWriter<'a, REG, 9, u16>;
 #[doc = "Field `CLK_DCDC_SRC_SEL` reader - 24:24\\]
 Select DCDC clock source. 0: CLK_DCDC is 48 MHz clock from RCOSC or XOSC / HPOSC 1: CLK_DCDC is always 48 MHz clock from RCOSC"]
-pub type CLK_DCDC_SRC_SEL_R = crate::BitReader<bool>;
+pub type ClkDcdcSrcSelR = crate::BitReader;
 #[doc = "Field `CLK_DCDC_SRC_SEL` writer - 24:24\\]
 Select DCDC clock source. 0: CLK_DCDC is 48 MHz clock from RCOSC or XOSC / HPOSC 1: CLK_DCDC is always 48 MHz clock from RCOSC"]
-pub type CLK_DCDC_SRC_SEL_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTL0_SPEC, bool, O>;
+pub type ClkDcdcSrcSelW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DOUBLER_RESET_DURATION` reader - 25:25\\]
 Internal. Only to be used through TI provided API."]
-pub type DOUBLER_RESET_DURATION_R = crate::BitReader<bool>;
+pub type DoublerResetDurationR = crate::BitReader;
 #[doc = "Field `DOUBLER_RESET_DURATION` writer - 25:25\\]
 Internal. Only to be used through TI provided API."]
-pub type DOUBLER_RESET_DURATION_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTL0_SPEC, bool, O>;
+pub type DoublerResetDurationW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DOUBLER_START_DURATION` reader - 27:26\\]
 Internal. Only to be used through TI provided API."]
-pub type DOUBLER_START_DURATION_R = crate::FieldReader<u8, u8>;
+pub type DoublerStartDurationR = crate::FieldReader;
 #[doc = "Field `DOUBLER_START_DURATION` writer - 27:26\\]
 Internal. Only to be used through TI provided API."]
-pub type DOUBLER_START_DURATION_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, CTL0_SPEC, u8, u8, 2, O>;
+pub type DoublerStartDurationW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `BYPASS_RCOSC_LF_CLK_QUAL` reader - 28:28\\]
 Internal. Only to be used through TI provided API."]
-pub type BYPASS_RCOSC_LF_CLK_QUAL_R = crate::BitReader<bool>;
+pub type BypassRcoscLfClkQualR = crate::BitReader;
 #[doc = "Field `BYPASS_RCOSC_LF_CLK_QUAL` writer - 28:28\\]
 Internal. Only to be used through TI provided API."]
-pub type BYPASS_RCOSC_LF_CLK_QUAL_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, CTL0_SPEC, bool, O>;
+pub type BypassRcoscLfClkQualW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `BYPASS_XOSC_LF_CLK_QUAL` reader - 29:29\\]
 Internal. Only to be used through TI provided API."]
-pub type BYPASS_XOSC_LF_CLK_QUAL_R = crate::BitReader<bool>;
+pub type BypassXoscLfClkQualR = crate::BitReader;
 #[doc = "Field `BYPASS_XOSC_LF_CLK_QUAL` writer - 29:29\\]
 Internal. Only to be used through TI provided API."]
-pub type BYPASS_XOSC_LF_CLK_QUAL_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTL0_SPEC, bool, O>;
+pub type BypassXoscLfClkQualW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED30` reader - 30:30\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED30_R = crate::BitReader<bool>;
+pub type Reserved30R = crate::BitReader;
 #[doc = "Field `RESERVED30` writer - 30:30\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED30_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTL0_SPEC, bool, O>;
-#[doc = "Field `XTAL_IS_24M` reader - 31:31\\]
-Set based on the accurate high frequency XTAL."]
-pub type XTAL_IS_24M_R = crate::BitReader<XTAL_IS_24M_A>;
+pub type Reserved30W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "31:31\\]
 Set based on the accurate high frequency XTAL.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum XTAL_IS_24M_A {
+pub enum XtalIs24m {
     #[doc = "1: Internal. Only to be used through TI provided API."]
-    _24M = 1,
+    _24m = 1,
     #[doc = "0: Internal. Only to be used through TI provided API."]
-    _48M = 0,
+    _48m = 0,
 }
-impl From<XTAL_IS_24M_A> for bool {
+impl From<XtalIs24m> for bool {
     #[inline(always)]
-    fn from(variant: XTAL_IS_24M_A) -> Self {
+    fn from(variant: XtalIs24m) -> Self {
         variant as u8 != 0
     }
 }
-impl XTAL_IS_24M_R {
+#[doc = "Field `XTAL_IS_24M` reader - 31:31\\]
+Set based on the accurate high frequency XTAL."]
+pub type XtalIs24mR = crate::BitReader<XtalIs24m>;
+impl XtalIs24mR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> XTAL_IS_24M_A {
+    pub const fn variant(&self) -> XtalIs24m {
         match self.bits {
-            true => XTAL_IS_24M_A::_24M,
-            false => XTAL_IS_24M_A::_48M,
+            true => XtalIs24m::_24m,
+            false => XtalIs24m::_48m,
         }
     }
-    #[doc = "Checks if the value of the field is `_24M`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_24m(&self) -> bool {
-        *self == XTAL_IS_24M_A::_24M
+        *self == XtalIs24m::_24m
     }
-    #[doc = "Checks if the value of the field is `_48M`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_48m(&self) -> bool {
-        *self == XTAL_IS_24M_A::_48M
+        *self == XtalIs24m::_48m
     }
 }
 #[doc = "Field `XTAL_IS_24M` writer - 31:31\\]
 Set based on the accurate high frequency XTAL."]
-pub type XTAL_IS_24M_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTL0_SPEC, XTAL_IS_24M_A, O>;
-impl<'a, const O: u8> XTAL_IS_24M_W<'a, O> {
+pub type XtalIs24mW<'a, REG> = crate::BitWriter<'a, REG, XtalIs24m>;
+impl<'a, REG> XtalIs24mW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn _24m(self) -> &'a mut W {
-        self.variant(XTAL_IS_24M_A::_24M)
+    pub fn _24m(self) -> &'a mut crate::W<REG> {
+        self.variant(XtalIs24m::_24m)
     }
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn _48m(self) -> &'a mut W {
-        self.variant(XTAL_IS_24M_A::_48M)
+    pub fn _48m(self) -> &'a mut crate::W<REG> {
+        self.variant(XtalIs24m::_48m)
     }
 }
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Source select for sclk_hf."]
     #[inline(always)]
-    pub fn sclk_hf_src_sel(&self) -> SCLK_HF_SRC_SEL_R {
-        SCLK_HF_SRC_SEL_R::new((self.bits & 1) != 0)
+    pub fn sclk_hf_src_sel(&self) -> SclkHfSrcSelR {
+        SclkHfSrcSelR::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved1(&self) -> RESERVED1_R {
-        RESERVED1_R::new(((self.bits >> 1) & 1) != 0)
+    pub fn reserved1(&self) -> Reserved1R {
+        Reserved1R::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bits 2:3 - 3:2\\]
 Source select for sclk_lf"]
     #[inline(always)]
-    pub fn sclk_lf_src_sel(&self) -> SCLK_LF_SRC_SEL_R {
-        SCLK_LF_SRC_SEL_R::new(((self.bits >> 2) & 3) as u8)
+    pub fn sclk_lf_src_sel(&self) -> SclkLfSrcSelR {
+        SclkLfSrcSelR::new(((self.bits >> 2) & 3) as u8)
     }
     #[doc = "Bits 4:6 - 6:4\\]
 Source select for aclk_ref 000: RCOSC_HF derived (31.25kHz) 001: XOSC_HF derived (31.25kHz) 010: RCOSC_LF (32kHz) 011: XOSC_LF (32.768kHz) 100: RCOSC_MF (2MHz) 101-111: Not used"]
     #[inline(always)]
-    pub fn aclk_ref_src_sel(&self) -> ACLK_REF_SRC_SEL_R {
-        ACLK_REF_SRC_SEL_R::new(((self.bits >> 4) & 7) as u8)
+    pub fn aclk_ref_src_sel(&self) -> AclkRefSrcSelR {
+        AclkRefSrcSelR::new(((self.bits >> 4) & 7) as u8)
     }
     #[doc = "Bits 7:8 - 8:7\\]
 Source select for aclk_tdc. 00: RCOSC_HF (48MHz) 01: RCOSC_HF (24MHz) 10: XOSC_HF (24MHz) 11: Not used"]
     #[inline(always)]
-    pub fn aclk_tdc_src_sel(&self) -> ACLK_TDC_SRC_SEL_R {
-        ACLK_TDC_SRC_SEL_R::new(((self.bits >> 7) & 3) as u8)
+    pub fn aclk_tdc_src_sel(&self) -> AclkTdcSrcSelR {
+        AclkTdcSrcSelR::new(((self.bits >> 7) & 3) as u8)
     }
     #[doc = "Bit 9 - 9:9\\]
 Enable clock loss detection and hence the indicators to the system controller. Checks both SCLK_HF, SCLK_MF and SCLK_LF clock loss indicators. 0: Disable 1: Enable Clock loss detection must be disabled when changing the sclk_lf source. STAT0.SCLK_LF_SRC can be polled to determine when a change to a new sclk_lf source has completed."]
     #[inline(always)]
-    pub fn clk_loss_en(&self) -> CLK_LOSS_EN_R {
-        CLK_LOSS_EN_R::new(((self.bits >> 9) & 1) != 0)
+    pub fn clk_loss_en(&self) -> ClkLossEnR {
+        ClkLossEnR::new(((self.bits >> 9) & 1) != 0)
     }
     #[doc = "Bit 10 - 10:10\\]
 Bypass XOSC_LF and use the digital input clock from AON for the xosc_lf clock. 0: Use 32kHz XOSC as xosc_lf clock source 1: Use digital input (from AON) as xosc_lf clock source. This bit will only have effect when SCLK_LF_SRC_SEL is selecting the xosc_lf as the sclk_lf source. The muxing performed by this bit is not glitch free. The following procedure must be followed when changing this field to avoid glitches on sclk_lf. 1) Set SCLK_LF_SRC_SEL to select any source other than the xosc_lf clock source. 2) Set or clear this bit to bypass or not bypass the xosc_lf. 3) Set SCLK_LF_SRC_SEL to use xosc_lf. It is recommended that either the rcosc_hf or xosc_hf (whichever is currently active) be selected as the source in step 1 above. This provides a faster clock change."]
     #[inline(always)]
-    pub fn xosc_lf_dig_bypass(&self) -> XOSC_LF_DIG_BYPASS_R {
-        XOSC_LF_DIG_BYPASS_R::new(((self.bits >> 10) & 1) != 0)
+    pub fn xosc_lf_dig_bypass(&self) -> XoscLfDigBypassR {
+        XoscLfDigBypassR::new(((self.bits >> 10) & 1) != 0)
     }
     #[doc = "Bit 11 - 11:11\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn xosc_hf_power_mode(&self) -> XOSC_HF_POWER_MODE_R {
-        XOSC_HF_POWER_MODE_R::new(((self.bits >> 11) & 1) != 0)
+    pub fn xosc_hf_power_mode(&self) -> XoscHfPowerModeR {
+        XoscHfPowerModeR::new(((self.bits >> 11) & 1) != 0)
     }
     #[doc = "Bit 12 - 12:12\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn rcosc_lf_trimmed(&self) -> RCOSC_LF_TRIMMED_R {
-        RCOSC_LF_TRIMMED_R::new(((self.bits >> 12) & 1) != 0)
+    pub fn rcosc_lf_trimmed(&self) -> RcoscLfTrimmedR {
+        RcoscLfTrimmedR::new(((self.bits >> 12) & 1) != 0)
     }
     #[doc = "Bit 13 - 13:13\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved13(&self) -> RESERVED13_R {
-        RESERVED13_R::new(((self.bits >> 13) & 1) != 0)
+    pub fn reserved13(&self) -> Reserved13R {
+        Reserved13R::new(((self.bits >> 13) & 1) != 0)
     }
     #[doc = "Bit 14 - 14:14\\]
 0: HPOSC mode is not enabled. The 48 MHz crystal is required for radio operation. 1: Enables HPOSC mode. The internal HPOSC can be used as HF system clock and for radio operation."]
     #[inline(always)]
-    pub fn hposc_mode_en(&self) -> HPOSC_MODE_EN_R {
-        HPOSC_MODE_EN_R::new(((self.bits >> 14) & 1) != 0)
+    pub fn hposc_mode_en(&self) -> HposcModeEnR {
+        HposcModeEnR::new(((self.bits >> 14) & 1) != 0)
     }
     #[doc = "Bits 15:23 - 23:15\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved15(&self) -> RESERVED15_R {
-        RESERVED15_R::new(((self.bits >> 15) & 0x01ff) as u16)
+    pub fn reserved15(&self) -> Reserved15R {
+        Reserved15R::new(((self.bits >> 15) & 0x01ff) as u16)
     }
     #[doc = "Bit 24 - 24:24\\]
 Select DCDC clock source. 0: CLK_DCDC is 48 MHz clock from RCOSC or XOSC / HPOSC 1: CLK_DCDC is always 48 MHz clock from RCOSC"]
     #[inline(always)]
-    pub fn clk_dcdc_src_sel(&self) -> CLK_DCDC_SRC_SEL_R {
-        CLK_DCDC_SRC_SEL_R::new(((self.bits >> 24) & 1) != 0)
+    pub fn clk_dcdc_src_sel(&self) -> ClkDcdcSrcSelR {
+        ClkDcdcSrcSelR::new(((self.bits >> 24) & 1) != 0)
     }
     #[doc = "Bit 25 - 25:25\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn doubler_reset_duration(&self) -> DOUBLER_RESET_DURATION_R {
-        DOUBLER_RESET_DURATION_R::new(((self.bits >> 25) & 1) != 0)
+    pub fn doubler_reset_duration(&self) -> DoublerResetDurationR {
+        DoublerResetDurationR::new(((self.bits >> 25) & 1) != 0)
     }
     #[doc = "Bits 26:27 - 27:26\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn doubler_start_duration(&self) -> DOUBLER_START_DURATION_R {
-        DOUBLER_START_DURATION_R::new(((self.bits >> 26) & 3) as u8)
+    pub fn doubler_start_duration(&self) -> DoublerStartDurationR {
+        DoublerStartDurationR::new(((self.bits >> 26) & 3) as u8)
     }
     #[doc = "Bit 28 - 28:28\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn bypass_rcosc_lf_clk_qual(&self) -> BYPASS_RCOSC_LF_CLK_QUAL_R {
-        BYPASS_RCOSC_LF_CLK_QUAL_R::new(((self.bits >> 28) & 1) != 0)
+    pub fn bypass_rcosc_lf_clk_qual(&self) -> BypassRcoscLfClkQualR {
+        BypassRcoscLfClkQualR::new(((self.bits >> 28) & 1) != 0)
     }
     #[doc = "Bit 29 - 29:29\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn bypass_xosc_lf_clk_qual(&self) -> BYPASS_XOSC_LF_CLK_QUAL_R {
-        BYPASS_XOSC_LF_CLK_QUAL_R::new(((self.bits >> 29) & 1) != 0)
+    pub fn bypass_xosc_lf_clk_qual(&self) -> BypassXoscLfClkQualR {
+        BypassXoscLfClkQualR::new(((self.bits >> 29) & 1) != 0)
     }
     #[doc = "Bit 30 - 30:30\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved30(&self) -> RESERVED30_R {
-        RESERVED30_R::new(((self.bits >> 30) & 1) != 0)
+    pub fn reserved30(&self) -> Reserved30R {
+        Reserved30R::new(((self.bits >> 30) & 1) != 0)
     }
     #[doc = "Bit 31 - 31:31\\]
 Set based on the accurate high frequency XTAL."]
     #[inline(always)]
-    pub fn xtal_is_24m(&self) -> XTAL_IS_24M_R {
-        XTAL_IS_24M_R::new(((self.bits >> 31) & 1) != 0)
+    pub fn xtal_is_24m(&self) -> XtalIs24mR {
+        XtalIs24mR::new(((self.bits >> 31) & 1) != 0)
     }
 }
 impl W {
@@ -442,158 +420,150 @@ impl W {
 Source select for sclk_hf."]
     #[inline(always)]
     #[must_use]
-    pub fn sclk_hf_src_sel(&mut self) -> SCLK_HF_SRC_SEL_W<0> {
-        SCLK_HF_SRC_SEL_W::new(self)
+    pub fn sclk_hf_src_sel(&mut self) -> SclkHfSrcSelW<Ctl0Spec> {
+        SclkHfSrcSelW::new(self, 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved1(&mut self) -> RESERVED1_W<1> {
-        RESERVED1_W::new(self)
+    pub fn reserved1(&mut self) -> Reserved1W<Ctl0Spec> {
+        Reserved1W::new(self, 1)
     }
     #[doc = "Bits 2:3 - 3:2\\]
 Source select for sclk_lf"]
     #[inline(always)]
     #[must_use]
-    pub fn sclk_lf_src_sel(&mut self) -> SCLK_LF_SRC_SEL_W<2> {
-        SCLK_LF_SRC_SEL_W::new(self)
+    pub fn sclk_lf_src_sel(&mut self) -> SclkLfSrcSelW<Ctl0Spec> {
+        SclkLfSrcSelW::new(self, 2)
     }
     #[doc = "Bits 4:6 - 6:4\\]
 Source select for aclk_ref 000: RCOSC_HF derived (31.25kHz) 001: XOSC_HF derived (31.25kHz) 010: RCOSC_LF (32kHz) 011: XOSC_LF (32.768kHz) 100: RCOSC_MF (2MHz) 101-111: Not used"]
     #[inline(always)]
     #[must_use]
-    pub fn aclk_ref_src_sel(&mut self) -> ACLK_REF_SRC_SEL_W<4> {
-        ACLK_REF_SRC_SEL_W::new(self)
+    pub fn aclk_ref_src_sel(&mut self) -> AclkRefSrcSelW<Ctl0Spec> {
+        AclkRefSrcSelW::new(self, 4)
     }
     #[doc = "Bits 7:8 - 8:7\\]
 Source select for aclk_tdc. 00: RCOSC_HF (48MHz) 01: RCOSC_HF (24MHz) 10: XOSC_HF (24MHz) 11: Not used"]
     #[inline(always)]
     #[must_use]
-    pub fn aclk_tdc_src_sel(&mut self) -> ACLK_TDC_SRC_SEL_W<7> {
-        ACLK_TDC_SRC_SEL_W::new(self)
+    pub fn aclk_tdc_src_sel(&mut self) -> AclkTdcSrcSelW<Ctl0Spec> {
+        AclkTdcSrcSelW::new(self, 7)
     }
     #[doc = "Bit 9 - 9:9\\]
 Enable clock loss detection and hence the indicators to the system controller. Checks both SCLK_HF, SCLK_MF and SCLK_LF clock loss indicators. 0: Disable 1: Enable Clock loss detection must be disabled when changing the sclk_lf source. STAT0.SCLK_LF_SRC can be polled to determine when a change to a new sclk_lf source has completed."]
     #[inline(always)]
     #[must_use]
-    pub fn clk_loss_en(&mut self) -> CLK_LOSS_EN_W<9> {
-        CLK_LOSS_EN_W::new(self)
+    pub fn clk_loss_en(&mut self) -> ClkLossEnW<Ctl0Spec> {
+        ClkLossEnW::new(self, 9)
     }
     #[doc = "Bit 10 - 10:10\\]
 Bypass XOSC_LF and use the digital input clock from AON for the xosc_lf clock. 0: Use 32kHz XOSC as xosc_lf clock source 1: Use digital input (from AON) as xosc_lf clock source. This bit will only have effect when SCLK_LF_SRC_SEL is selecting the xosc_lf as the sclk_lf source. The muxing performed by this bit is not glitch free. The following procedure must be followed when changing this field to avoid glitches on sclk_lf. 1) Set SCLK_LF_SRC_SEL to select any source other than the xosc_lf clock source. 2) Set or clear this bit to bypass or not bypass the xosc_lf. 3) Set SCLK_LF_SRC_SEL to use xosc_lf. It is recommended that either the rcosc_hf or xosc_hf (whichever is currently active) be selected as the source in step 1 above. This provides a faster clock change."]
     #[inline(always)]
     #[must_use]
-    pub fn xosc_lf_dig_bypass(&mut self) -> XOSC_LF_DIG_BYPASS_W<10> {
-        XOSC_LF_DIG_BYPASS_W::new(self)
+    pub fn xosc_lf_dig_bypass(&mut self) -> XoscLfDigBypassW<Ctl0Spec> {
+        XoscLfDigBypassW::new(self, 10)
     }
     #[doc = "Bit 11 - 11:11\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn xosc_hf_power_mode(&mut self) -> XOSC_HF_POWER_MODE_W<11> {
-        XOSC_HF_POWER_MODE_W::new(self)
+    pub fn xosc_hf_power_mode(&mut self) -> XoscHfPowerModeW<Ctl0Spec> {
+        XoscHfPowerModeW::new(self, 11)
     }
     #[doc = "Bit 12 - 12:12\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn rcosc_lf_trimmed(&mut self) -> RCOSC_LF_TRIMMED_W<12> {
-        RCOSC_LF_TRIMMED_W::new(self)
+    pub fn rcosc_lf_trimmed(&mut self) -> RcoscLfTrimmedW<Ctl0Spec> {
+        RcoscLfTrimmedW::new(self, 12)
     }
     #[doc = "Bit 13 - 13:13\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved13(&mut self) -> RESERVED13_W<13> {
-        RESERVED13_W::new(self)
+    pub fn reserved13(&mut self) -> Reserved13W<Ctl0Spec> {
+        Reserved13W::new(self, 13)
     }
     #[doc = "Bit 14 - 14:14\\]
 0: HPOSC mode is not enabled. The 48 MHz crystal is required for radio operation. 1: Enables HPOSC mode. The internal HPOSC can be used as HF system clock and for radio operation."]
     #[inline(always)]
     #[must_use]
-    pub fn hposc_mode_en(&mut self) -> HPOSC_MODE_EN_W<14> {
-        HPOSC_MODE_EN_W::new(self)
+    pub fn hposc_mode_en(&mut self) -> HposcModeEnW<Ctl0Spec> {
+        HposcModeEnW::new(self, 14)
     }
     #[doc = "Bits 15:23 - 23:15\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved15(&mut self) -> RESERVED15_W<15> {
-        RESERVED15_W::new(self)
+    pub fn reserved15(&mut self) -> Reserved15W<Ctl0Spec> {
+        Reserved15W::new(self, 15)
     }
     #[doc = "Bit 24 - 24:24\\]
 Select DCDC clock source. 0: CLK_DCDC is 48 MHz clock from RCOSC or XOSC / HPOSC 1: CLK_DCDC is always 48 MHz clock from RCOSC"]
     #[inline(always)]
     #[must_use]
-    pub fn clk_dcdc_src_sel(&mut self) -> CLK_DCDC_SRC_SEL_W<24> {
-        CLK_DCDC_SRC_SEL_W::new(self)
+    pub fn clk_dcdc_src_sel(&mut self) -> ClkDcdcSrcSelW<Ctl0Spec> {
+        ClkDcdcSrcSelW::new(self, 24)
     }
     #[doc = "Bit 25 - 25:25\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn doubler_reset_duration(&mut self) -> DOUBLER_RESET_DURATION_W<25> {
-        DOUBLER_RESET_DURATION_W::new(self)
+    pub fn doubler_reset_duration(&mut self) -> DoublerResetDurationW<Ctl0Spec> {
+        DoublerResetDurationW::new(self, 25)
     }
     #[doc = "Bits 26:27 - 27:26\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn doubler_start_duration(&mut self) -> DOUBLER_START_DURATION_W<26> {
-        DOUBLER_START_DURATION_W::new(self)
+    pub fn doubler_start_duration(&mut self) -> DoublerStartDurationW<Ctl0Spec> {
+        DoublerStartDurationW::new(self, 26)
     }
     #[doc = "Bit 28 - 28:28\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn bypass_rcosc_lf_clk_qual(&mut self) -> BYPASS_RCOSC_LF_CLK_QUAL_W<28> {
-        BYPASS_RCOSC_LF_CLK_QUAL_W::new(self)
+    pub fn bypass_rcosc_lf_clk_qual(&mut self) -> BypassRcoscLfClkQualW<Ctl0Spec> {
+        BypassRcoscLfClkQualW::new(self, 28)
     }
     #[doc = "Bit 29 - 29:29\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn bypass_xosc_lf_clk_qual(&mut self) -> BYPASS_XOSC_LF_CLK_QUAL_W<29> {
-        BYPASS_XOSC_LF_CLK_QUAL_W::new(self)
+    pub fn bypass_xosc_lf_clk_qual(&mut self) -> BypassXoscLfClkQualW<Ctl0Spec> {
+        BypassXoscLfClkQualW::new(self, 29)
     }
     #[doc = "Bit 30 - 30:30\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved30(&mut self) -> RESERVED30_W<30> {
-        RESERVED30_W::new(self)
+    pub fn reserved30(&mut self) -> Reserved30W<Ctl0Spec> {
+        Reserved30W::new(self, 30)
     }
     #[doc = "Bit 31 - 31:31\\]
 Set based on the accurate high frequency XTAL."]
     #[inline(always)]
     #[must_use]
-    pub fn xtal_is_24m(&mut self) -> XTAL_IS_24M_W<31> {
-        XTAL_IS_24M_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn xtal_is_24m(&mut self) -> XtalIs24mW<Ctl0Spec> {
+        XtalIs24mW::new(self, 31)
     }
 }
-#[doc = "Control 0 Controls clock source selects\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ctl0](index.html) module"]
-pub struct CTL0_SPEC;
-impl crate::RegisterSpec for CTL0_SPEC {
+#[doc = "Control 0 Controls clock source selects\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ctl0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ctl0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Ctl0Spec;
+impl crate::RegisterSpec for Ctl0Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [ctl0::R](R) reader structure"]
-impl crate::Readable for CTL0_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [ctl0::W](W) writer structure"]
-impl crate::Writable for CTL0_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`ctl0::R`](R) reader structure"]
+impl crate::Readable for Ctl0Spec {}
+#[doc = "`write(|w| ..)` method takes [`ctl0::W`](W) writer structure"]
+impl crate::Writable for Ctl0Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets CTL0 to value 0"]
-impl crate::Resettable for CTL0_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for Ctl0Spec {
+    const RESET_VALUE: u32 = 0;
 }

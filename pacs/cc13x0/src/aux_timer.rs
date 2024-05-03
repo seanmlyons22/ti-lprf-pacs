@@ -1,40 +1,78 @@
-#[doc = r"Register block"]
 #[repr(C)]
+#[doc = "Register block"]
 pub struct RegisterBlock {
-    #[doc = "0x00 - Timer 0 Configuration"]
-    pub t0cfg: T0CFG,
-    #[doc = "0x04 - Timer 1 Configuration"]
-    pub t1cfg: T1CFG,
-    #[doc = "0x08 - Timer 0 Control"]
-    pub t0ctl: T0CTL,
-    #[doc = "0x0c - Timer 0 Target"]
-    pub t0target: T0TARGET,
-    #[doc = "0x10 - Timer 1 Target Timer 1 counter target value"]
-    pub t1target: T1TARGET,
-    #[doc = "0x14 - Timer 1 Control"]
-    pub t1ctl: T1CTL,
+    t0cfg: T0cfg,
+    t1cfg: T1cfg,
+    t0ctl: T0ctl,
+    t0target: T0target,
+    t1target: T1target,
+    t1ctl: T1ctl,
 }
-#[doc = "T0CFG (rw) register accessor: an alias for `Reg<T0CFG_SPEC>`"]
-pub type T0CFG = crate::Reg<t0cfg::T0CFG_SPEC>;
+impl RegisterBlock {
+    #[doc = "0x00 - Timer 0 Configuration"]
+    #[inline(always)]
+    pub const fn t0cfg(&self) -> &T0cfg {
+        &self.t0cfg
+    }
+    #[doc = "0x04 - Timer 1 Configuration"]
+    #[inline(always)]
+    pub const fn t1cfg(&self) -> &T1cfg {
+        &self.t1cfg
+    }
+    #[doc = "0x08 - Timer 0 Control"]
+    #[inline(always)]
+    pub const fn t0ctl(&self) -> &T0ctl {
+        &self.t0ctl
+    }
+    #[doc = "0x0c - Timer 0 Target"]
+    #[inline(always)]
+    pub const fn t0target(&self) -> &T0target {
+        &self.t0target
+    }
+    #[doc = "0x10 - Timer 1 Target Timer 1 counter target value"]
+    #[inline(always)]
+    pub const fn t1target(&self) -> &T1target {
+        &self.t1target
+    }
+    #[doc = "0x14 - Timer 1 Control"]
+    #[inline(always)]
+    pub const fn t1ctl(&self) -> &T1ctl {
+        &self.t1ctl
+    }
+}
+#[doc = "T0CFG (rw) register accessor: Timer 0 Configuration\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`t0cfg::R`].  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`t0cfg::W`]. You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@t0cfg`]
+module"]
+#[doc(alias = "T0CFG")]
+pub type T0cfg = crate::Reg<t0cfg::T0cfgSpec>;
 #[doc = "Timer 0 Configuration"]
 pub mod t0cfg;
-#[doc = "T1CFG (rw) register accessor: an alias for `Reg<T1CFG_SPEC>`"]
-pub type T1CFG = crate::Reg<t1cfg::T1CFG_SPEC>;
+#[doc = "T1CFG (rw) register accessor: Timer 1 Configuration\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`t1cfg::R`].  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`t1cfg::W`]. You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@t1cfg`]
+module"]
+#[doc(alias = "T1CFG")]
+pub type T1cfg = crate::Reg<t1cfg::T1cfgSpec>;
 #[doc = "Timer 1 Configuration"]
 pub mod t1cfg;
-#[doc = "T0CTL (rw) register accessor: an alias for `Reg<T0CTL_SPEC>`"]
-pub type T0CTL = crate::Reg<t0ctl::T0CTL_SPEC>;
+#[doc = "T0CTL (rw) register accessor: Timer 0 Control\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`t0ctl::R`].  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`t0ctl::W`]. You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@t0ctl`]
+module"]
+#[doc(alias = "T0CTL")]
+pub type T0ctl = crate::Reg<t0ctl::T0ctlSpec>;
 #[doc = "Timer 0 Control"]
 pub mod t0ctl;
-#[doc = "T0TARGET (rw) register accessor: an alias for `Reg<T0TARGET_SPEC>`"]
-pub type T0TARGET = crate::Reg<t0target::T0TARGET_SPEC>;
+#[doc = "T0TARGET (rw) register accessor: Timer 0 Target\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`t0target::R`].  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`t0target::W`]. You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@t0target`]
+module"]
+#[doc(alias = "T0TARGET")]
+pub type T0target = crate::Reg<t0target::T0targetSpec>;
 #[doc = "Timer 0 Target"]
 pub mod t0target;
-#[doc = "T1TARGET (rw) register accessor: an alias for `Reg<T1TARGET_SPEC>`"]
-pub type T1TARGET = crate::Reg<t1target::T1TARGET_SPEC>;
+#[doc = "T1TARGET (rw) register accessor: Timer 1 Target Timer 1 counter target value\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`t1target::R`].  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`t1target::W`]. You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@t1target`]
+module"]
+#[doc(alias = "T1TARGET")]
+pub type T1target = crate::Reg<t1target::T1targetSpec>;
 #[doc = "Timer 1 Target Timer 1 counter target value"]
 pub mod t1target;
-#[doc = "T1CTL (rw) register accessor: an alias for `Reg<T1CTL_SPEC>`"]
-pub type T1CTL = crate::Reg<t1ctl::T1CTL_SPEC>;
+#[doc = "T1CTL (rw) register accessor: Timer 1 Control\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`t1ctl::R`].  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`t1ctl::W`]. You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@t1ctl`]
+module"]
+#[doc(alias = "T1CTL")]
+pub type T1ctl = crate::Reg<t1ctl::T1ctlSpec>;
 #[doc = "Timer 1 Control"]
 pub mod t1ctl;

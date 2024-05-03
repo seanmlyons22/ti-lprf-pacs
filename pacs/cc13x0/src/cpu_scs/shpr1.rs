@@ -1,87 +1,55 @@
 #[doc = "Register `SHPR1` reader"]
-pub struct R(crate::R<SHPR1_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<SHPR1_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<SHPR1_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<SHPR1_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Shpr1Spec>;
 #[doc = "Register `SHPR1` writer"]
-pub struct W(crate::W<SHPR1_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<SHPR1_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<SHPR1_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<SHPR1_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<Shpr1Spec>;
 #[doc = "Field `PRI_4` reader - 7:0\\]
 Priority of system handler 4: MemManage"]
-pub type PRI_4_R = crate::FieldReader<u8, u8>;
+pub type Pri4R = crate::FieldReader;
 #[doc = "Field `PRI_4` writer - 7:0\\]
 Priority of system handler 4: MemManage"]
-pub type PRI_4_W<'a, const O: u8> = crate::FieldWriter<'a, u32, SHPR1_SPEC, u8, u8, 8, O>;
+pub type Pri4W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `PRI_5` reader - 15:8\\]
 Priority of system handler 5: BusFault"]
-pub type PRI_5_R = crate::FieldReader<u8, u8>;
+pub type Pri5R = crate::FieldReader;
 #[doc = "Field `PRI_5` writer - 15:8\\]
 Priority of system handler 5: BusFault"]
-pub type PRI_5_W<'a, const O: u8> = crate::FieldWriter<'a, u32, SHPR1_SPEC, u8, u8, 8, O>;
+pub type Pri5W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `PRI_6` reader - 23:16\\]
 Priority of system handler 6. UsageFault"]
-pub type PRI_6_R = crate::FieldReader<u8, u8>;
+pub type Pri6R = crate::FieldReader;
 #[doc = "Field `PRI_6` writer - 23:16\\]
 Priority of system handler 6. UsageFault"]
-pub type PRI_6_W<'a, const O: u8> = crate::FieldWriter<'a, u32, SHPR1_SPEC, u8, u8, 8, O>;
+pub type Pri6W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `RESERVED24` reader - 31:24\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED24_R = crate::FieldReader<u8, u8>;
+pub type Reserved24R = crate::FieldReader;
 #[doc = "Field `RESERVED24` writer - 31:24\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED24_W<'a, const O: u8> = crate::FieldWriter<'a, u32, SHPR1_SPEC, u8, u8, 8, O>;
+pub type Reserved24W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Priority of system handler 4: MemManage"]
     #[inline(always)]
-    pub fn pri_4(&self) -> PRI_4_R {
-        PRI_4_R::new((self.bits & 0xff) as u8)
+    pub fn pri_4(&self) -> Pri4R {
+        Pri4R::new((self.bits & 0xff) as u8)
     }
     #[doc = "Bits 8:15 - 15:8\\]
 Priority of system handler 5: BusFault"]
     #[inline(always)]
-    pub fn pri_5(&self) -> PRI_5_R {
-        PRI_5_R::new(((self.bits >> 8) & 0xff) as u8)
+    pub fn pri_5(&self) -> Pri5R {
+        Pri5R::new(((self.bits >> 8) & 0xff) as u8)
     }
     #[doc = "Bits 16:23 - 23:16\\]
 Priority of system handler 6. UsageFault"]
     #[inline(always)]
-    pub fn pri_6(&self) -> PRI_6_R {
-        PRI_6_R::new(((self.bits >> 16) & 0xff) as u8)
+    pub fn pri_6(&self) -> Pri6R {
+        Pri6R::new(((self.bits >> 16) & 0xff) as u8)
     }
     #[doc = "Bits 24:31 - 31:24\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved24(&self) -> RESERVED24_R {
-        RESERVED24_R::new(((self.bits >> 24) & 0xff) as u8)
+    pub fn reserved24(&self) -> Reserved24R {
+        Reserved24R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
 impl W {
@@ -89,53 +57,45 @@ impl W {
 Priority of system handler 4: MemManage"]
     #[inline(always)]
     #[must_use]
-    pub fn pri_4(&mut self) -> PRI_4_W<0> {
-        PRI_4_W::new(self)
+    pub fn pri_4(&mut self) -> Pri4W<Shpr1Spec> {
+        Pri4W::new(self, 0)
     }
     #[doc = "Bits 8:15 - 15:8\\]
 Priority of system handler 5: BusFault"]
     #[inline(always)]
     #[must_use]
-    pub fn pri_5(&mut self) -> PRI_5_W<8> {
-        PRI_5_W::new(self)
+    pub fn pri_5(&mut self) -> Pri5W<Shpr1Spec> {
+        Pri5W::new(self, 8)
     }
     #[doc = "Bits 16:23 - 23:16\\]
 Priority of system handler 6. UsageFault"]
     #[inline(always)]
     #[must_use]
-    pub fn pri_6(&mut self) -> PRI_6_W<16> {
-        PRI_6_W::new(self)
+    pub fn pri_6(&mut self) -> Pri6W<Shpr1Spec> {
+        Pri6W::new(self, 16)
     }
     #[doc = "Bits 24:31 - 31:24\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved24(&mut self) -> RESERVED24_W<24> {
-        RESERVED24_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved24(&mut self) -> Reserved24W<Shpr1Spec> {
+        Reserved24W::new(self, 24)
     }
 }
-#[doc = "System Handlers 4-7 Priority This register is used to prioritize the following system handlers: Memory manage, Bus fault, and Usage fault. System Handlers are a special class of exception handler that can have their priority set to any of the priority levels. Most can be masked on (enabled) or off (disabled). When disabled, the fault is always treated as a Hard Fault.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [shpr1](index.html) module"]
-pub struct SHPR1_SPEC;
-impl crate::RegisterSpec for SHPR1_SPEC {
+#[doc = "System Handlers 4-7 Priority This register is used to prioritize the following system handlers: Memory manage, Bus fault, and Usage fault. System Handlers are a special class of exception handler that can have their priority set to any of the priority levels. Most can be masked on (enabled) or off (disabled). When disabled, the fault is always treated as a Hard Fault.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`shpr1::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`shpr1::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Shpr1Spec;
+impl crate::RegisterSpec for Shpr1Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [shpr1::R](R) reader structure"]
-impl crate::Readable for SHPR1_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [shpr1::W](W) writer structure"]
-impl crate::Writable for SHPR1_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`shpr1::R`](R) reader structure"]
+impl crate::Readable for Shpr1Spec {}
+#[doc = "`write(|w| ..)` method takes [`shpr1::W`](W) writer structure"]
+impl crate::Writable for Shpr1Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets SHPR1 to value 0"]
-impl crate::Resettable for SHPR1_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for Shpr1Spec {
+    const RESET_VALUE: u32 = 0;
 }

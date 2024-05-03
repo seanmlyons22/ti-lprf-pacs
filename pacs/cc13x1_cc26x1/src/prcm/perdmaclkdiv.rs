@@ -1,205 +1,179 @@
 #[doc = "Register `PERDMACLKDIV` reader"]
-pub struct R(crate::R<PERDMACLKDIV_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<PERDMACLKDIV_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<PERDMACLKDIV_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<PERDMACLKDIV_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<PerdmaclkdivSpec>;
 #[doc = "Register `PERDMACLKDIV` writer"]
-pub struct W(crate::W<PERDMACLKDIV_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<PERDMACLKDIV_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<PERDMACLKDIV_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<PERDMACLKDIV_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `RATIO` reader - 3:0\\]
-Internal. Only to be used through TI provided API."]
-pub type RATIO_R = crate::FieldReader<u8, RATIO_A>;
+pub type W = crate::W<PerdmaclkdivSpec>;
 #[doc = "3:0\\]
 Internal. Only to be used through TI provided API.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum RATIO_A {
+pub enum Ratio {
     #[doc = "8: Internal. Only to be used through TI provided API."]
-    DIV256 = 8,
+    Div256 = 8,
     #[doc = "7: Internal. Only to be used through TI provided API."]
-    DIV128 = 7,
+    Div128 = 7,
     #[doc = "6: Internal. Only to be used through TI provided API."]
-    DIV64 = 6,
+    Div64 = 6,
     #[doc = "5: Internal. Only to be used through TI provided API."]
-    DIV32 = 5,
+    Div32 = 5,
     #[doc = "4: Internal. Only to be used through TI provided API."]
-    DIV16 = 4,
+    Div16 = 4,
     #[doc = "3: Internal. Only to be used through TI provided API."]
-    DIV8 = 3,
+    Div8 = 3,
     #[doc = "2: Internal. Only to be used through TI provided API."]
-    DIV4 = 2,
+    Div4 = 2,
     #[doc = "1: Internal. Only to be used through TI provided API."]
-    DIV2 = 1,
+    Div2 = 1,
     #[doc = "0: Internal. Only to be used through TI provided API."]
-    DIV1 = 0,
+    Div1 = 0,
 }
-impl From<RATIO_A> for u8 {
+impl From<Ratio> for u8 {
     #[inline(always)]
-    fn from(variant: RATIO_A) -> Self {
+    fn from(variant: Ratio) -> Self {
         variant as _
     }
 }
-impl RATIO_R {
+impl crate::FieldSpec for Ratio {
+    type Ux = u8;
+}
+impl crate::IsEnum for Ratio {}
+#[doc = "Field `RATIO` reader - 3:0\\]
+Internal. Only to be used through TI provided API."]
+pub type RatioR = crate::FieldReader<Ratio>;
+impl RatioR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<RATIO_A> {
+    pub const fn variant(&self) -> Option<Ratio> {
         match self.bits {
-            8 => Some(RATIO_A::DIV256),
-            7 => Some(RATIO_A::DIV128),
-            6 => Some(RATIO_A::DIV64),
-            5 => Some(RATIO_A::DIV32),
-            4 => Some(RATIO_A::DIV16),
-            3 => Some(RATIO_A::DIV8),
-            2 => Some(RATIO_A::DIV4),
-            1 => Some(RATIO_A::DIV2),
-            0 => Some(RATIO_A::DIV1),
+            8 => Some(Ratio::Div256),
+            7 => Some(Ratio::Div128),
+            6 => Some(Ratio::Div64),
+            5 => Some(Ratio::Div32),
+            4 => Some(Ratio::Div16),
+            3 => Some(Ratio::Div8),
+            2 => Some(Ratio::Div4),
+            1 => Some(Ratio::Div2),
+            0 => Some(Ratio::Div1),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `DIV256`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_div256(&self) -> bool {
-        *self == RATIO_A::DIV256
+        *self == Ratio::Div256
     }
-    #[doc = "Checks if the value of the field is `DIV128`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_div128(&self) -> bool {
-        *self == RATIO_A::DIV128
+        *self == Ratio::Div128
     }
-    #[doc = "Checks if the value of the field is `DIV64`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_div64(&self) -> bool {
-        *self == RATIO_A::DIV64
+        *self == Ratio::Div64
     }
-    #[doc = "Checks if the value of the field is `DIV32`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_div32(&self) -> bool {
-        *self == RATIO_A::DIV32
+        *self == Ratio::Div32
     }
-    #[doc = "Checks if the value of the field is `DIV16`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_div16(&self) -> bool {
-        *self == RATIO_A::DIV16
+        *self == Ratio::Div16
     }
-    #[doc = "Checks if the value of the field is `DIV8`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_div8(&self) -> bool {
-        *self == RATIO_A::DIV8
+        *self == Ratio::Div8
     }
-    #[doc = "Checks if the value of the field is `DIV4`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_div4(&self) -> bool {
-        *self == RATIO_A::DIV4
+        *self == Ratio::Div4
     }
-    #[doc = "Checks if the value of the field is `DIV2`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_div2(&self) -> bool {
-        *self == RATIO_A::DIV2
+        *self == Ratio::Div2
     }
-    #[doc = "Checks if the value of the field is `DIV1`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_div1(&self) -> bool {
-        *self == RATIO_A::DIV1
+        *self == Ratio::Div1
     }
 }
 #[doc = "Field `RATIO` writer - 3:0\\]
 Internal. Only to be used through TI provided API."]
-pub type RATIO_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, PERDMACLKDIV_SPEC, u8, RATIO_A, 4, O>;
-impl<'a, const O: u8> RATIO_W<'a, O> {
+pub type RatioW<'a, REG> = crate::FieldWriter<'a, REG, 4, Ratio>;
+impl<'a, REG> RatioW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn div256(self) -> &'a mut W {
-        self.variant(RATIO_A::DIV256)
+    pub fn div256(self) -> &'a mut crate::W<REG> {
+        self.variant(Ratio::Div256)
     }
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn div128(self) -> &'a mut W {
-        self.variant(RATIO_A::DIV128)
+    pub fn div128(self) -> &'a mut crate::W<REG> {
+        self.variant(Ratio::Div128)
     }
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn div64(self) -> &'a mut W {
-        self.variant(RATIO_A::DIV64)
+    pub fn div64(self) -> &'a mut crate::W<REG> {
+        self.variant(Ratio::Div64)
     }
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn div32(self) -> &'a mut W {
-        self.variant(RATIO_A::DIV32)
+    pub fn div32(self) -> &'a mut crate::W<REG> {
+        self.variant(Ratio::Div32)
     }
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn div16(self) -> &'a mut W {
-        self.variant(RATIO_A::DIV16)
+    pub fn div16(self) -> &'a mut crate::W<REG> {
+        self.variant(Ratio::Div16)
     }
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn div8(self) -> &'a mut W {
-        self.variant(RATIO_A::DIV8)
+    pub fn div8(self) -> &'a mut crate::W<REG> {
+        self.variant(Ratio::Div8)
     }
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn div4(self) -> &'a mut W {
-        self.variant(RATIO_A::DIV4)
+    pub fn div4(self) -> &'a mut crate::W<REG> {
+        self.variant(Ratio::Div4)
     }
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn div2(self) -> &'a mut W {
-        self.variant(RATIO_A::DIV2)
+    pub fn div2(self) -> &'a mut crate::W<REG> {
+        self.variant(Ratio::Div2)
     }
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn div1(self) -> &'a mut W {
-        self.variant(RATIO_A::DIV1)
+    pub fn div1(self) -> &'a mut crate::W<REG> {
+        self.variant(Ratio::Div1)
     }
 }
 #[doc = "Field `RESERVED4` reader - 31:4\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED4_R = crate::FieldReader<u32, u32>;
+pub type Reserved4R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED4` writer - 31:4\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED4_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, PERDMACLKDIV_SPEC, u32, u32, 28, O>;
+pub type Reserved4W<'a, REG> = crate::FieldWriter<'a, REG, 28, u32>;
 impl R {
     #[doc = "Bits 0:3 - 3:0\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn ratio(&self) -> RATIO_R {
-        RATIO_R::new((self.bits & 0x0f) as u8)
+    pub fn ratio(&self) -> RatioR {
+        RatioR::new((self.bits & 0x0f) as u8)
     }
     #[doc = "Bits 4:31 - 31:4\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn reserved4(&self) -> RESERVED4_R {
-        RESERVED4_R::new((self.bits >> 4) & 0x0fff_ffff)
+    pub fn reserved4(&self) -> Reserved4R {
+        Reserved4R::new((self.bits >> 4) & 0x0fff_ffff)
     }
 }
 impl W {
@@ -207,39 +181,31 @@ impl W {
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn ratio(&mut self) -> RATIO_W<0> {
-        RATIO_W::new(self)
+    pub fn ratio(&mut self) -> RatioW<PerdmaclkdivSpec> {
+        RatioW::new(self, 0)
     }
     #[doc = "Bits 4:31 - 31:4\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved4(&mut self) -> RESERVED4_W<4> {
-        RESERVED4_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved4(&mut self) -> Reserved4W<PerdmaclkdivSpec> {
+        Reserved4W::new(self, 4)
     }
 }
-#[doc = "Internal. Only to be used through TI provided API.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [perdmaclkdiv](index.html) module"]
-pub struct PERDMACLKDIV_SPEC;
-impl crate::RegisterSpec for PERDMACLKDIV_SPEC {
+#[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`perdmaclkdiv::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`perdmaclkdiv::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct PerdmaclkdivSpec;
+impl crate::RegisterSpec for PerdmaclkdivSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [perdmaclkdiv::R](R) reader structure"]
-impl crate::Readable for PERDMACLKDIV_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [perdmaclkdiv::W](W) writer structure"]
-impl crate::Writable for PERDMACLKDIV_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`perdmaclkdiv::R`](R) reader structure"]
+impl crate::Readable for PerdmaclkdivSpec {}
+#[doc = "`write(|w| ..)` method takes [`perdmaclkdiv::W`](W) writer structure"]
+impl crate::Writable for PerdmaclkdivSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets PERDMACLKDIV to value 0"]
-impl crate::Resettable for PERDMACLKDIV_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for PerdmaclkdivSpec {
+    const RESET_VALUE: u32 = 0;
 }

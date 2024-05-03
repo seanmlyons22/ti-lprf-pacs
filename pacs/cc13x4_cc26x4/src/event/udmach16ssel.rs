@@ -1,87 +1,63 @@
 #[doc = "Register `UDMACH16SSEL` reader"]
-pub struct R(crate::R<UDMACH16SSEL_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<UDMACH16SSEL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<UDMACH16SSEL_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<UDMACH16SSEL_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Udmach16sselSpec>;
 #[doc = "Register `UDMACH16SSEL` writer"]
-pub struct W(crate::W<UDMACH16SSEL_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<UDMACH16SSEL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<UDMACH16SSEL_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<UDMACH16SSEL_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `EV` reader - 7:0\\]
-Read only selection value"]
-pub type EV_R = crate::FieldReader<u8, EV_A>;
+pub type W = crate::W<Udmach16sselSpec>;
 #[doc = "7:0\\]
 Read only selection value\n\nValue on reset: 45"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum EV_A {
+pub enum Ev {
     #[doc = "45: SPI1 RX DMA single request, controlled by SPI0:DMACR.RXDMAE"]
-    SPI1_RX_DMASREQ = 45,
+    Spi1RxDmasreq = 45,
 }
-impl From<EV_A> for u8 {
+impl From<Ev> for u8 {
     #[inline(always)]
-    fn from(variant: EV_A) -> Self {
+    fn from(variant: Ev) -> Self {
         variant as _
     }
 }
-impl EV_R {
+impl crate::FieldSpec for Ev {
+    type Ux = u8;
+}
+impl crate::IsEnum for Ev {}
+#[doc = "Field `EV` reader - 7:0\\]
+Read only selection value"]
+pub type EvR = crate::FieldReader<Ev>;
+impl EvR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<EV_A> {
+    pub const fn variant(&self) -> Option<Ev> {
         match self.bits {
-            45 => Some(EV_A::SPI1_RX_DMASREQ),
+            45 => Some(Ev::Spi1RxDmasreq),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `SPI1_RX_DMASREQ`"]
+    #[doc = "SPI1 RX DMA single request, controlled by SPI0:DMACR.RXDMAE"]
     #[inline(always)]
     pub fn is_spi1_rx_dmasreq(&self) -> bool {
-        *self == EV_A::SPI1_RX_DMASREQ
+        *self == Ev::Spi1RxDmasreq
     }
 }
 #[doc = "Field `EV` writer - 7:0\\]
 Read only selection value"]
-pub type EV_W<'a, const O: u8> = crate::FieldWriter<'a, u32, UDMACH16SSEL_SPEC, u8, EV_A, 8, O>;
-impl<'a, const O: u8> EV_W<'a, O> {
+pub type EvW<'a, REG> = crate::FieldWriter<'a, REG, 8, Ev>;
+impl<'a, REG> EvW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "SPI1 RX DMA single request, controlled by SPI0:DMACR.RXDMAE"]
     #[inline(always)]
-    pub fn spi1_rx_dmasreq(self) -> &'a mut W {
-        self.variant(EV_A::SPI1_RX_DMASREQ)
+    pub fn spi1_rx_dmasreq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Spi1RxDmasreq)
     }
 }
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Read only selection value"]
     #[inline(always)]
-    pub fn ev(&self) -> EV_R {
-        EV_R::new((self.bits & 0xff) as u8)
+    pub fn ev(&self) -> EvR {
+        EvR::new((self.bits & 0xff) as u8)
     }
 }
 impl W {
@@ -89,32 +65,24 @@ impl W {
 Read only selection value"]
     #[inline(always)]
     #[must_use]
-    pub fn ev(&mut self) -> EV_W<0> {
-        EV_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn ev(&mut self) -> EvW<Udmach16sselSpec> {
+        EvW::new(self, 0)
     }
 }
-#[doc = "Output Selection for DMA Channel 16 SREQ\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [udmach16ssel](index.html) module"]
-pub struct UDMACH16SSEL_SPEC;
-impl crate::RegisterSpec for UDMACH16SSEL_SPEC {
+#[doc = "Output Selection for DMA Channel 16 SREQ\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`udmach16ssel::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`udmach16ssel::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Udmach16sselSpec;
+impl crate::RegisterSpec for Udmach16sselSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [udmach16ssel::R](R) reader structure"]
-impl crate::Readable for UDMACH16SSEL_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [udmach16ssel::W](W) writer structure"]
-impl crate::Writable for UDMACH16SSEL_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`udmach16ssel::R`](R) reader structure"]
+impl crate::Readable for Udmach16sselSpec {}
+#[doc = "`write(|w| ..)` method takes [`udmach16ssel::W`](W) writer structure"]
+impl crate::Writable for Udmach16sselSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets UDMACH16SSEL to value 0x2d"]
-impl crate::Resettable for UDMACH16SSEL_SPEC {
-    const RESET_VALUE: Self::Ux = 0x2d;
+impl crate::Resettable for Udmach16sselSpec {
+    const RESET_VALUE: u32 = 0x2d;
 }

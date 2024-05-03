@@ -1,51 +1,19 @@
 #[doc = "Register `VALUE` reader"]
-pub struct R(crate::R<VALUE_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<VALUE_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<VALUE_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<VALUE_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<ValueSpec>;
 #[doc = "Register `VALUE` writer"]
-pub struct W(crate::W<VALUE_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<VALUE_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<VALUE_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<VALUE_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<ValueSpec>;
 #[doc = "Field `WDTVALUE` reader - 31:0\\]
 This register contains the current count value of the timer."]
-pub type WDTVALUE_R = crate::FieldReader<u32, u32>;
+pub type WdtvalueR = crate::FieldReader<u32>;
 #[doc = "Field `WDTVALUE` writer - 31:0\\]
 This register contains the current count value of the timer."]
-pub type WDTVALUE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, VALUE_SPEC, u32, u32, 32, O>;
+pub type WdtvalueW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 This register contains the current count value of the timer."]
     #[inline(always)]
-    pub fn wdtvalue(&self) -> WDTVALUE_R {
-        WDTVALUE_R::new(self.bits)
+    pub fn wdtvalue(&self) -> WdtvalueR {
+        WdtvalueR::new(self.bits)
     }
 }
 impl W {
@@ -53,32 +21,24 @@ impl W {
 This register contains the current count value of the timer."]
     #[inline(always)]
     #[must_use]
-    pub fn wdtvalue(&mut self) -> WDTVALUE_W<0> {
-        WDTVALUE_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn wdtvalue(&mut self) -> WdtvalueW<ValueSpec> {
+        WdtvalueW::new(self, 0)
     }
 }
-#[doc = "Current Count Value\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [value](index.html) module"]
-pub struct VALUE_SPEC;
-impl crate::RegisterSpec for VALUE_SPEC {
+#[doc = "Current Count Value\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`value::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`value::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct ValueSpec;
+impl crate::RegisterSpec for ValueSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [value::R](R) reader structure"]
-impl crate::Readable for VALUE_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [value::W](W) writer structure"]
-impl crate::Writable for VALUE_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`value::R`](R) reader structure"]
+impl crate::Readable for ValueSpec {}
+#[doc = "`write(|w| ..)` method takes [`value::W`](W) writer structure"]
+impl crate::Writable for ValueSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets VALUE to value 0xffff_ffff"]
-impl crate::Resettable for VALUE_SPEC {
-    const RESET_VALUE: Self::Ux = 0xffff_ffff;
+impl crate::Resettable for ValueSpec {
+    const RESET_VALUE: u32 = 0xffff_ffff;
 }

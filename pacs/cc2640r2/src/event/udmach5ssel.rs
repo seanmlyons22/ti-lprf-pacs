@@ -1,52 +1,19 @@
 #[doc = "Register `UDMACH5SSEL` reader"]
-pub struct R(crate::R<UDMACH5SSEL_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<UDMACH5SSEL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<UDMACH5SSEL_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<UDMACH5SSEL_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Udmach5sselSpec>;
 #[doc = "Register `UDMACH5SSEL` writer"]
-pub struct W(crate::W<UDMACH5SSEL_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<UDMACH5SSEL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<UDMACH5SSEL_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<UDMACH5SSEL_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<Udmach5sselSpec>;
 #[doc = "Field `RESERVED0` reader - 31:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED0_R = crate::FieldReader<u32, u32>;
+pub type Reserved0R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED0` writer - 31:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED0_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, UDMACH5SSEL_SPEC, u32, u32, 32, O>;
+pub type Reserved0W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved0(&self) -> RESERVED0_R {
-        RESERVED0_R::new(self.bits)
+    pub fn reserved0(&self) -> Reserved0R {
+        Reserved0R::new(self.bits)
     }
 }
 impl W {
@@ -54,32 +21,24 @@ impl W {
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved0(&mut self) -> RESERVED0_W<0> {
-        RESERVED0_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved0(&mut self) -> Reserved0W<Udmach5sselSpec> {
+        Reserved0W::new(self, 0)
     }
 }
-#[doc = "Output Selection for DMA Channel 5 SREQ\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [udmach5ssel](index.html) module"]
-pub struct UDMACH5SSEL_SPEC;
-impl crate::RegisterSpec for UDMACH5SSEL_SPEC {
+#[doc = "Output Selection for DMA Channel 5 SREQ\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`udmach5ssel::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`udmach5ssel::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Udmach5sselSpec;
+impl crate::RegisterSpec for Udmach5sselSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [udmach5ssel::R](R) reader structure"]
-impl crate::Readable for UDMACH5SSEL_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [udmach5ssel::W](W) writer structure"]
-impl crate::Writable for UDMACH5SSEL_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`udmach5ssel::R`](R) reader structure"]
+impl crate::Readable for Udmach5sselSpec {}
+#[doc = "`write(|w| ..)` method takes [`udmach5ssel::W`](W) writer structure"]
+impl crate::Writable for Udmach5sselSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets UDMACH5SSEL to value 0x3a"]
-impl crate::Resettable for UDMACH5SSEL_SPEC {
-    const RESET_VALUE: Self::Ux = 0x3a;
+impl crate::Resettable for Udmach5sselSpec {
+    const RESET_VALUE: u32 = 0x3a;
 }

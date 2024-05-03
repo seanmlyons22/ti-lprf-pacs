@@ -1,114 +1,79 @@
 #[doc = "Register `RADCEXTCFG` reader"]
-pub struct R(crate::R<RADCEXTCFG_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<RADCEXTCFG_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<RADCEXTCFG_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<RADCEXTCFG_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<RadcextcfgSpec>;
 #[doc = "Register `RADCEXTCFG` writer"]
-pub struct W(crate::W<RADCEXTCFG_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<RADCEXTCFG_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<RADCEXTCFG_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<RADCEXTCFG_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<RadcextcfgSpec>;
 #[doc = "Field `RESERVED0` reader - 4:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED0_R = crate::FieldReader<u8, u8>;
+pub type Reserved0R = crate::FieldReader;
 #[doc = "Field `RESERVED0` writer - 4:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED0_W<'a, const O: u8> = crate::FieldWriter<'a, u32, RADCEXTCFG_SPEC, u8, u8, 5, O>;
+pub type Reserved0W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 #[doc = "Field `RADC_MODE_IS_SAR` reader - 5:5\\]
 Internal. Only to be used through TI provided API."]
-pub type RADC_MODE_IS_SAR_R = crate::BitReader<bool>;
+pub type RadcModeIsSarR = crate::BitReader;
 #[doc = "Field `RADC_MODE_IS_SAR` writer - 5:5\\]
 Internal. Only to be used through TI provided API."]
-pub type RADC_MODE_IS_SAR_W<'a, const O: u8> = crate::BitWriter<'a, u32, RADCEXTCFG_SPEC, bool, O>;
+pub type RadcModeIsSarW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RADC_DAC_TH` reader - 11:6\\]
 Internal. Only to be used through TI provided API."]
-pub type RADC_DAC_TH_R = crate::FieldReader<u8, u8>;
+pub type RadcDacThR = crate::FieldReader;
 #[doc = "Field `RADC_DAC_TH` writer - 11:6\\]
 Internal. Only to be used through TI provided API."]
-pub type RADC_DAC_TH_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, RADCEXTCFG_SPEC, u8, u8, 6, O>;
+pub type RadcDacThW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `IDAC_STEP` reader - 15:12\\]
 Internal. Only to be used through TI provided API."]
-pub type IDAC_STEP_R = crate::FieldReader<u8, u8>;
+pub type IdacStepR = crate::FieldReader;
 #[doc = "Field `IDAC_STEP` writer - 15:12\\]
 Internal. Only to be used through TI provided API."]
-pub type IDAC_STEP_W<'a, const O: u8> = crate::FieldWriter<'a, u32, RADCEXTCFG_SPEC, u8, u8, 4, O>;
+pub type IdacStepW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `LPM_IBIAS_WAIT_CNT` reader - 21:16\\]
 Internal. Only to be used through TI provided API."]
-pub type LPM_IBIAS_WAIT_CNT_R = crate::FieldReader<u8, u8>;
+pub type LpmIbiasWaitCntR = crate::FieldReader;
 #[doc = "Field `LPM_IBIAS_WAIT_CNT` writer - 21:16\\]
 Internal. Only to be used through TI provided API."]
-pub type LPM_IBIAS_WAIT_CNT_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, RADCEXTCFG_SPEC, u8, u8, 6, O>;
+pub type LpmIbiasWaitCntW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `HPM_IBIAS_WAIT_CNT` reader - 31:22\\]
 Internal. Only to be used through TI provided API."]
-pub type HPM_IBIAS_WAIT_CNT_R = crate::FieldReader<u16, u16>;
+pub type HpmIbiasWaitCntR = crate::FieldReader<u16>;
 #[doc = "Field `HPM_IBIAS_WAIT_CNT` writer - 31:22\\]
 Internal. Only to be used through TI provided API."]
-pub type HPM_IBIAS_WAIT_CNT_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, RADCEXTCFG_SPEC, u16, u16, 10, O>;
+pub type HpmIbiasWaitCntW<'a, REG> = crate::FieldWriter<'a, REG, 10, u16>;
 impl R {
     #[doc = "Bits 0:4 - 4:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved0(&self) -> RESERVED0_R {
-        RESERVED0_R::new((self.bits & 0x1f) as u8)
+    pub fn reserved0(&self) -> Reserved0R {
+        Reserved0R::new((self.bits & 0x1f) as u8)
     }
     #[doc = "Bit 5 - 5:5\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn radc_mode_is_sar(&self) -> RADC_MODE_IS_SAR_R {
-        RADC_MODE_IS_SAR_R::new(((self.bits >> 5) & 1) != 0)
+    pub fn radc_mode_is_sar(&self) -> RadcModeIsSarR {
+        RadcModeIsSarR::new(((self.bits >> 5) & 1) != 0)
     }
     #[doc = "Bits 6:11 - 11:6\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn radc_dac_th(&self) -> RADC_DAC_TH_R {
-        RADC_DAC_TH_R::new(((self.bits >> 6) & 0x3f) as u8)
+    pub fn radc_dac_th(&self) -> RadcDacThR {
+        RadcDacThR::new(((self.bits >> 6) & 0x3f) as u8)
     }
     #[doc = "Bits 12:15 - 15:12\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn idac_step(&self) -> IDAC_STEP_R {
-        IDAC_STEP_R::new(((self.bits >> 12) & 0x0f) as u8)
+    pub fn idac_step(&self) -> IdacStepR {
+        IdacStepR::new(((self.bits >> 12) & 0x0f) as u8)
     }
     #[doc = "Bits 16:21 - 21:16\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn lpm_ibias_wait_cnt(&self) -> LPM_IBIAS_WAIT_CNT_R {
-        LPM_IBIAS_WAIT_CNT_R::new(((self.bits >> 16) & 0x3f) as u8)
+    pub fn lpm_ibias_wait_cnt(&self) -> LpmIbiasWaitCntR {
+        LpmIbiasWaitCntR::new(((self.bits >> 16) & 0x3f) as u8)
     }
     #[doc = "Bits 22:31 - 31:22\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn hpm_ibias_wait_cnt(&self) -> HPM_IBIAS_WAIT_CNT_R {
-        HPM_IBIAS_WAIT_CNT_R::new(((self.bits >> 22) & 0x03ff) as u16)
+    pub fn hpm_ibias_wait_cnt(&self) -> HpmIbiasWaitCntR {
+        HpmIbiasWaitCntR::new(((self.bits >> 22) & 0x03ff) as u16)
     }
 }
 impl W {
@@ -116,67 +81,59 @@ impl W {
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved0(&mut self) -> RESERVED0_W<0> {
-        RESERVED0_W::new(self)
+    pub fn reserved0(&mut self) -> Reserved0W<RadcextcfgSpec> {
+        Reserved0W::new(self, 0)
     }
     #[doc = "Bit 5 - 5:5\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn radc_mode_is_sar(&mut self) -> RADC_MODE_IS_SAR_W<5> {
-        RADC_MODE_IS_SAR_W::new(self)
+    pub fn radc_mode_is_sar(&mut self) -> RadcModeIsSarW<RadcextcfgSpec> {
+        RadcModeIsSarW::new(self, 5)
     }
     #[doc = "Bits 6:11 - 11:6\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn radc_dac_th(&mut self) -> RADC_DAC_TH_W<6> {
-        RADC_DAC_TH_W::new(self)
+    pub fn radc_dac_th(&mut self) -> RadcDacThW<RadcextcfgSpec> {
+        RadcDacThW::new(self, 6)
     }
     #[doc = "Bits 12:15 - 15:12\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn idac_step(&mut self) -> IDAC_STEP_W<12> {
-        IDAC_STEP_W::new(self)
+    pub fn idac_step(&mut self) -> IdacStepW<RadcextcfgSpec> {
+        IdacStepW::new(self, 12)
     }
     #[doc = "Bits 16:21 - 21:16\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn lpm_ibias_wait_cnt(&mut self) -> LPM_IBIAS_WAIT_CNT_W<16> {
-        LPM_IBIAS_WAIT_CNT_W::new(self)
+    pub fn lpm_ibias_wait_cnt(&mut self) -> LpmIbiasWaitCntW<RadcextcfgSpec> {
+        LpmIbiasWaitCntW::new(self, 16)
     }
     #[doc = "Bits 22:31 - 31:22\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn hpm_ibias_wait_cnt(&mut self) -> HPM_IBIAS_WAIT_CNT_W<22> {
-        HPM_IBIAS_WAIT_CNT_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn hpm_ibias_wait_cnt(&mut self) -> HpmIbiasWaitCntW<RadcextcfgSpec> {
+        HpmIbiasWaitCntW::new(self, 22)
     }
 }
-#[doc = "RADC External Configuration\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [radcextcfg](index.html) module"]
-pub struct RADCEXTCFG_SPEC;
-impl crate::RegisterSpec for RADCEXTCFG_SPEC {
+#[doc = "RADC External Configuration\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`radcextcfg::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`radcextcfg::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct RadcextcfgSpec;
+impl crate::RegisterSpec for RadcextcfgSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [radcextcfg::R](R) reader structure"]
-impl crate::Readable for RADCEXTCFG_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [radcextcfg::W](W) writer structure"]
-impl crate::Writable for RADCEXTCFG_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`radcextcfg::R`](R) reader structure"]
+impl crate::Readable for RadcextcfgSpec {}
+#[doc = "`write(|w| ..)` method takes [`radcextcfg::W`](W) writer structure"]
+impl crate::Writable for RadcextcfgSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets RADCEXTCFG to value 0"]
-impl crate::Resettable for RADCEXTCFG_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for RadcextcfgSpec {
+    const RESET_VALUE: u32 = 0;
 }

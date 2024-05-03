@@ -1,181 +1,155 @@
 #[doc = "Register `SIMR` reader"]
-pub struct R(crate::R<SIMR_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<SIMR_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<SIMR_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<SIMR_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<SimrSpec>;
 #[doc = "Register `SIMR` writer"]
-pub struct W(crate::W<SIMR_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<SIMR_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<SIMR_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<SIMR_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<SimrSpec>;
 #[doc = "Field `DATAIM` reader - 0:0\\]
 Data interrupt mask 0: The SRIS.DATARIS interrupt is suppressed and not sent to the interrupt controller. 1: The SRIS.DATARIS interrupt is enabled and sent to the interrupt controller."]
-pub type DATAIM_R = crate::BitReader<bool>;
+pub type DataimR = crate::BitReader;
 #[doc = "Field `DATAIM` writer - 0:0\\]
 Data interrupt mask 0: The SRIS.DATARIS interrupt is suppressed and not sent to the interrupt controller. 1: The SRIS.DATARIS interrupt is enabled and sent to the interrupt controller."]
-pub type DATAIM_W<'a, const O: u8> = crate::BitWriter<'a, u32, SIMR_SPEC, bool, O>;
-#[doc = "Field `STARTIM` reader - 1:1\\]
-Start condition interrupt mask 0: The SRIS.STARTRIS interrupt is suppressed and not sent to the interrupt controller. 1: The SRIS.STARTRIS interrupt is enabled and sent to the interrupt controller."]
-pub type STARTIM_R = crate::BitReader<STARTIM_A>;
+pub type DataimW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "1:1\\]
 Start condition interrupt mask 0: The SRIS.STARTRIS interrupt is suppressed and not sent to the interrupt controller. 1: The SRIS.STARTRIS interrupt is enabled and sent to the interrupt controller.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum STARTIM_A {
+pub enum Startim {
     #[doc = "1: Enable Interrupt"]
-    EN = 1,
+    En = 1,
     #[doc = "0: Disable Interrupt"]
-    DIS = 0,
+    Dis = 0,
 }
-impl From<STARTIM_A> for bool {
+impl From<Startim> for bool {
     #[inline(always)]
-    fn from(variant: STARTIM_A) -> Self {
+    fn from(variant: Startim) -> Self {
         variant as u8 != 0
     }
 }
-impl STARTIM_R {
+#[doc = "Field `STARTIM` reader - 1:1\\]
+Start condition interrupt mask 0: The SRIS.STARTRIS interrupt is suppressed and not sent to the interrupt controller. 1: The SRIS.STARTRIS interrupt is enabled and sent to the interrupt controller."]
+pub type StartimR = crate::BitReader<Startim>;
+impl StartimR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> STARTIM_A {
+    pub const fn variant(&self) -> Startim {
         match self.bits {
-            true => STARTIM_A::EN,
-            false => STARTIM_A::DIS,
+            true => Startim::En,
+            false => Startim::Dis,
         }
     }
-    #[doc = "Checks if the value of the field is `EN`"]
+    #[doc = "Enable Interrupt"]
     #[inline(always)]
     pub fn is_en(&self) -> bool {
-        *self == STARTIM_A::EN
+        *self == Startim::En
     }
-    #[doc = "Checks if the value of the field is `DIS`"]
+    #[doc = "Disable Interrupt"]
     #[inline(always)]
     pub fn is_dis(&self) -> bool {
-        *self == STARTIM_A::DIS
+        *self == Startim::Dis
     }
 }
 #[doc = "Field `STARTIM` writer - 1:1\\]
 Start condition interrupt mask 0: The SRIS.STARTRIS interrupt is suppressed and not sent to the interrupt controller. 1: The SRIS.STARTRIS interrupt is enabled and sent to the interrupt controller."]
-pub type STARTIM_W<'a, const O: u8> = crate::BitWriter<'a, u32, SIMR_SPEC, STARTIM_A, O>;
-impl<'a, const O: u8> STARTIM_W<'a, O> {
+pub type StartimW<'a, REG> = crate::BitWriter<'a, REG, Startim>;
+impl<'a, REG> StartimW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Enable Interrupt"]
     #[inline(always)]
-    pub fn en(self) -> &'a mut W {
-        self.variant(STARTIM_A::EN)
+    pub fn en(self) -> &'a mut crate::W<REG> {
+        self.variant(Startim::En)
     }
     #[doc = "Disable Interrupt"]
     #[inline(always)]
-    pub fn dis(self) -> &'a mut W {
-        self.variant(STARTIM_A::DIS)
+    pub fn dis(self) -> &'a mut crate::W<REG> {
+        self.variant(Startim::Dis)
+    }
+}
+#[doc = "2:2\\]
+Stop condition interrupt mask 0: The SRIS.STOPRIS interrupt is suppressed and not sent to the interrupt controller. 1: The SRIS.STOPRIS interrupt is enabled and sent to the interrupt controller.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Stopim {
+    #[doc = "1: Enable Interrupt"]
+    En = 1,
+    #[doc = "0: Disable Interrupt"]
+    Dis = 0,
+}
+impl From<Stopim> for bool {
+    #[inline(always)]
+    fn from(variant: Stopim) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `STOPIM` reader - 2:2\\]
 Stop condition interrupt mask 0: The SRIS.STOPRIS interrupt is suppressed and not sent to the interrupt controller. 1: The SRIS.STOPRIS interrupt is enabled and sent to the interrupt controller."]
-pub type STOPIM_R = crate::BitReader<STOPIM_A>;
-#[doc = "2:2\\]
-Stop condition interrupt mask 0: The SRIS.STOPRIS interrupt is suppressed and not sent to the interrupt controller. 1: The SRIS.STOPRIS interrupt is enabled and sent to the interrupt controller.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum STOPIM_A {
-    #[doc = "1: Enable Interrupt"]
-    EN = 1,
-    #[doc = "0: Disable Interrupt"]
-    DIS = 0,
-}
-impl From<STOPIM_A> for bool {
-    #[inline(always)]
-    fn from(variant: STOPIM_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl STOPIM_R {
+pub type StopimR = crate::BitReader<Stopim>;
+impl StopimR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> STOPIM_A {
+    pub const fn variant(&self) -> Stopim {
         match self.bits {
-            true => STOPIM_A::EN,
-            false => STOPIM_A::DIS,
+            true => Stopim::En,
+            false => Stopim::Dis,
         }
     }
-    #[doc = "Checks if the value of the field is `EN`"]
+    #[doc = "Enable Interrupt"]
     #[inline(always)]
     pub fn is_en(&self) -> bool {
-        *self == STOPIM_A::EN
+        *self == Stopim::En
     }
-    #[doc = "Checks if the value of the field is `DIS`"]
+    #[doc = "Disable Interrupt"]
     #[inline(always)]
     pub fn is_dis(&self) -> bool {
-        *self == STOPIM_A::DIS
+        *self == Stopim::Dis
     }
 }
 #[doc = "Field `STOPIM` writer - 2:2\\]
 Stop condition interrupt mask 0: The SRIS.STOPRIS interrupt is suppressed and not sent to the interrupt controller. 1: The SRIS.STOPRIS interrupt is enabled and sent to the interrupt controller."]
-pub type STOPIM_W<'a, const O: u8> = crate::BitWriter<'a, u32, SIMR_SPEC, STOPIM_A, O>;
-impl<'a, const O: u8> STOPIM_W<'a, O> {
+pub type StopimW<'a, REG> = crate::BitWriter<'a, REG, Stopim>;
+impl<'a, REG> StopimW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Enable Interrupt"]
     #[inline(always)]
-    pub fn en(self) -> &'a mut W {
-        self.variant(STOPIM_A::EN)
+    pub fn en(self) -> &'a mut crate::W<REG> {
+        self.variant(Stopim::En)
     }
     #[doc = "Disable Interrupt"]
     #[inline(always)]
-    pub fn dis(self) -> &'a mut W {
-        self.variant(STOPIM_A::DIS)
+    pub fn dis(self) -> &'a mut crate::W<REG> {
+        self.variant(Stopim::Dis)
     }
 }
 #[doc = "Field `RESERVED3` reader - 31:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED3_R = crate::FieldReader<u32, u32>;
+pub type Reserved3R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED3` writer - 31:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED3_W<'a, const O: u8> = crate::FieldWriter<'a, u32, SIMR_SPEC, u32, u32, 29, O>;
+pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 29, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Data interrupt mask 0: The SRIS.DATARIS interrupt is suppressed and not sent to the interrupt controller. 1: The SRIS.DATARIS interrupt is enabled and sent to the interrupt controller."]
     #[inline(always)]
-    pub fn dataim(&self) -> DATAIM_R {
-        DATAIM_R::new((self.bits & 1) != 0)
+    pub fn dataim(&self) -> DataimR {
+        DataimR::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 Start condition interrupt mask 0: The SRIS.STARTRIS interrupt is suppressed and not sent to the interrupt controller. 1: The SRIS.STARTRIS interrupt is enabled and sent to the interrupt controller."]
     #[inline(always)]
-    pub fn startim(&self) -> STARTIM_R {
-        STARTIM_R::new(((self.bits >> 1) & 1) != 0)
+    pub fn startim(&self) -> StartimR {
+        StartimR::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bit 2 - 2:2\\]
 Stop condition interrupt mask 0: The SRIS.STOPRIS interrupt is suppressed and not sent to the interrupt controller. 1: The SRIS.STOPRIS interrupt is enabled and sent to the interrupt controller."]
     #[inline(always)]
-    pub fn stopim(&self) -> STOPIM_R {
-        STOPIM_R::new(((self.bits >> 2) & 1) != 0)
+    pub fn stopim(&self) -> StopimR {
+        StopimR::new(((self.bits >> 2) & 1) != 0)
     }
     #[doc = "Bits 3:31 - 31:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved3(&self) -> RESERVED3_R {
-        RESERVED3_R::new((self.bits >> 3) & 0x1fff_ffff)
+    pub fn reserved3(&self) -> Reserved3R {
+        Reserved3R::new((self.bits >> 3) & 0x1fff_ffff)
     }
 }
 impl W {
@@ -183,53 +157,45 @@ impl W {
 Data interrupt mask 0: The SRIS.DATARIS interrupt is suppressed and not sent to the interrupt controller. 1: The SRIS.DATARIS interrupt is enabled and sent to the interrupt controller."]
     #[inline(always)]
     #[must_use]
-    pub fn dataim(&mut self) -> DATAIM_W<0> {
-        DATAIM_W::new(self)
+    pub fn dataim(&mut self) -> DataimW<SimrSpec> {
+        DataimW::new(self, 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 Start condition interrupt mask 0: The SRIS.STARTRIS interrupt is suppressed and not sent to the interrupt controller. 1: The SRIS.STARTRIS interrupt is enabled and sent to the interrupt controller."]
     #[inline(always)]
     #[must_use]
-    pub fn startim(&mut self) -> STARTIM_W<1> {
-        STARTIM_W::new(self)
+    pub fn startim(&mut self) -> StartimW<SimrSpec> {
+        StartimW::new(self, 1)
     }
     #[doc = "Bit 2 - 2:2\\]
 Stop condition interrupt mask 0: The SRIS.STOPRIS interrupt is suppressed and not sent to the interrupt controller. 1: The SRIS.STOPRIS interrupt is enabled and sent to the interrupt controller."]
     #[inline(always)]
     #[must_use]
-    pub fn stopim(&mut self) -> STOPIM_W<2> {
-        STOPIM_W::new(self)
+    pub fn stopim(&mut self) -> StopimW<SimrSpec> {
+        StopimW::new(self, 2)
     }
     #[doc = "Bits 3:31 - 31:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved3(&mut self) -> RESERVED3_W<3> {
-        RESERVED3_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved3(&mut self) -> Reserved3W<SimrSpec> {
+        Reserved3W::new(self, 3)
     }
 }
-#[doc = "Slave Interrupt Mask This register controls whether a raw interrupt is promoted to a controller interrupt.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [simr](index.html) module"]
-pub struct SIMR_SPEC;
-impl crate::RegisterSpec for SIMR_SPEC {
+#[doc = "Slave Interrupt Mask This register controls whether a raw interrupt is promoted to a controller interrupt.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`simr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`simr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct SimrSpec;
+impl crate::RegisterSpec for SimrSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [simr::R](R) reader structure"]
-impl crate::Readable for SIMR_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [simr::W](W) writer structure"]
-impl crate::Writable for SIMR_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`simr::R`](R) reader structure"]
+impl crate::Readable for SimrSpec {}
+#[doc = "`write(|w| ..)` method takes [`simr::W`](W) writer structure"]
+impl crate::Writable for SimrSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets SIMR to value 0"]
-impl crate::Resettable for SIMR_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for SimrSpec {
+    const RESET_VALUE: u32 = 0;
 }

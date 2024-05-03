@@ -1,87 +1,63 @@
 #[doc = "Register `CPUIRQSEL4` reader"]
-pub struct R(crate::R<CPUIRQSEL4_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<CPUIRQSEL4_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<CPUIRQSEL4_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<CPUIRQSEL4_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Cpuirqsel4Spec>;
 #[doc = "Register `CPUIRQSEL4` writer"]
-pub struct W(crate::W<CPUIRQSEL4_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<CPUIRQSEL4_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<CPUIRQSEL4_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<CPUIRQSEL4_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `EV` reader - 6:0\\]
-Read only selection value"]
-pub type EV_R = crate::FieldReader<u8, EV_A>;
+pub type W = crate::W<Cpuirqsel4Spec>;
 #[doc = "6:0\\]
 Read only selection value\n\nValue on reset: 7"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum EV_A {
+pub enum Ev {
     #[doc = "7: Event from AON_RTC, controlled by the AON_RTC:CTL.COMB_EV_MASK setting"]
-    AON_RTC_COMB = 7,
+    AonRtcComb = 7,
 }
-impl From<EV_A> for u8 {
+impl From<Ev> for u8 {
     #[inline(always)]
-    fn from(variant: EV_A) -> Self {
+    fn from(variant: Ev) -> Self {
         variant as _
     }
 }
-impl EV_R {
+impl crate::FieldSpec for Ev {
+    type Ux = u8;
+}
+impl crate::IsEnum for Ev {}
+#[doc = "Field `EV` reader - 6:0\\]
+Read only selection value"]
+pub type EvR = crate::FieldReader<Ev>;
+impl EvR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<EV_A> {
+    pub const fn variant(&self) -> Option<Ev> {
         match self.bits {
-            7 => Some(EV_A::AON_RTC_COMB),
+            7 => Some(Ev::AonRtcComb),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `AON_RTC_COMB`"]
+    #[doc = "Event from AON_RTC, controlled by the AON_RTC:CTL.COMB_EV_MASK setting"]
     #[inline(always)]
     pub fn is_aon_rtc_comb(&self) -> bool {
-        *self == EV_A::AON_RTC_COMB
+        *self == Ev::AonRtcComb
     }
 }
 #[doc = "Field `EV` writer - 6:0\\]
 Read only selection value"]
-pub type EV_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CPUIRQSEL4_SPEC, u8, EV_A, 7, O>;
-impl<'a, const O: u8> EV_W<'a, O> {
+pub type EvW<'a, REG> = crate::FieldWriter<'a, REG, 7, Ev>;
+impl<'a, REG> EvW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "Event from AON_RTC, controlled by the AON_RTC:CTL.COMB_EV_MASK setting"]
     #[inline(always)]
-    pub fn aon_rtc_comb(self) -> &'a mut W {
-        self.variant(EV_A::AON_RTC_COMB)
+    pub fn aon_rtc_comb(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AonRtcComb)
     }
 }
 impl R {
     #[doc = "Bits 0:6 - 6:0\\]
 Read only selection value"]
     #[inline(always)]
-    pub fn ev(&self) -> EV_R {
-        EV_R::new((self.bits & 0x7f) as u8)
+    pub fn ev(&self) -> EvR {
+        EvR::new((self.bits & 0x7f) as u8)
     }
 }
 impl W {
@@ -89,32 +65,24 @@ impl W {
 Read only selection value"]
     #[inline(always)]
     #[must_use]
-    pub fn ev(&mut self) -> EV_W<0> {
-        EV_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn ev(&mut self) -> EvW<Cpuirqsel4Spec> {
+        EvW::new(self, 0)
     }
 }
-#[doc = "Output Selection for CPU Interrupt 4\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cpuirqsel4](index.html) module"]
-pub struct CPUIRQSEL4_SPEC;
-impl crate::RegisterSpec for CPUIRQSEL4_SPEC {
+#[doc = "Output Selection for CPU Interrupt 4\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`cpuirqsel4::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`cpuirqsel4::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Cpuirqsel4Spec;
+impl crate::RegisterSpec for Cpuirqsel4Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [cpuirqsel4::R](R) reader structure"]
-impl crate::Readable for CPUIRQSEL4_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [cpuirqsel4::W](W) writer structure"]
-impl crate::Writable for CPUIRQSEL4_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`cpuirqsel4::R`](R) reader structure"]
+impl crate::Readable for Cpuirqsel4Spec {}
+#[doc = "`write(|w| ..)` method takes [`cpuirqsel4::W`](W) writer structure"]
+impl crate::Writable for Cpuirqsel4Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets CPUIRQSEL4 to value 0x07"]
-impl crate::Resettable for CPUIRQSEL4_SPEC {
-    const RESET_VALUE: Self::Ux = 0x07;
+impl crate::Resettable for Cpuirqsel4Spec {
+    const RESET_VALUE: u32 = 0x07;
 }

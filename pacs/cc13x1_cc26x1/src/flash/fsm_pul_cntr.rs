@@ -1,91 +1,55 @@
 #[doc = "Register `FSM_PUL_CNTR` reader"]
-pub struct R(crate::R<FSM_PUL_CNTR_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<FSM_PUL_CNTR_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<FSM_PUL_CNTR_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<FSM_PUL_CNTR_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<FsmPulCntrSpec>;
 #[doc = "Register `FSM_PUL_CNTR` writer"]
-pub struct W(crate::W<FSM_PUL_CNTR_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<FSM_PUL_CNTR_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<FSM_PUL_CNTR_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<FSM_PUL_CNTR_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<FsmPulCntrSpec>;
 #[doc = "Field `PUL_CNTR` reader - 11:0\\]
 Internal. Only to be used through TI provided API."]
-pub type PUL_CNTR_R = crate::FieldReader<u16, u16>;
+pub type PulCntrR = crate::FieldReader<u16>;
 #[doc = "Field `PUL_CNTR` writer - 11:0\\]
 Internal. Only to be used through TI provided API."]
-pub type PUL_CNTR_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, FSM_PUL_CNTR_SPEC, u16, u16, 12, O>;
+pub type PulCntrW<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
 #[doc = "Field `RESERVED12` reader - 15:12\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED12_R = crate::FieldReader<u8, u8>;
+pub type Reserved12R = crate::FieldReader;
 #[doc = "Field `RESERVED12` writer - 15:12\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED12_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, FSM_PUL_CNTR_SPEC, u8, u8, 4, O>;
+pub type Reserved12W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `CUR_EC_LEVEL` reader - 24:16\\]
 Internal. Only to be used through TI provided API."]
-pub type CUR_EC_LEVEL_R = crate::FieldReader<u16, u16>;
+pub type CurEcLevelR = crate::FieldReader<u16>;
 #[doc = "Field `CUR_EC_LEVEL` writer - 24:16\\]
 Internal. Only to be used through TI provided API."]
-pub type CUR_EC_LEVEL_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, FSM_PUL_CNTR_SPEC, u16, u16, 9, O>;
+pub type CurEcLevelW<'a, REG> = crate::FieldWriter<'a, REG, 9, u16>;
 #[doc = "Field `RESERVED25` reader - 31:25\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED25_R = crate::FieldReader<u8, u8>;
+pub type Reserved25R = crate::FieldReader;
 #[doc = "Field `RESERVED25` writer - 31:25\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED25_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, FSM_PUL_CNTR_SPEC, u8, u8, 7, O>;
+pub type Reserved25W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 impl R {
     #[doc = "Bits 0:11 - 11:0\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn pul_cntr(&self) -> PUL_CNTR_R {
-        PUL_CNTR_R::new((self.bits & 0x0fff) as u16)
+    pub fn pul_cntr(&self) -> PulCntrR {
+        PulCntrR::new((self.bits & 0x0fff) as u16)
     }
     #[doc = "Bits 12:15 - 15:12\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn reserved12(&self) -> RESERVED12_R {
-        RESERVED12_R::new(((self.bits >> 12) & 0x0f) as u8)
+    pub fn reserved12(&self) -> Reserved12R {
+        Reserved12R::new(((self.bits >> 12) & 0x0f) as u8)
     }
     #[doc = "Bits 16:24 - 24:16\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn cur_ec_level(&self) -> CUR_EC_LEVEL_R {
-        CUR_EC_LEVEL_R::new(((self.bits >> 16) & 0x01ff) as u16)
+    pub fn cur_ec_level(&self) -> CurEcLevelR {
+        CurEcLevelR::new(((self.bits >> 16) & 0x01ff) as u16)
     }
     #[doc = "Bits 25:31 - 31:25\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn reserved25(&self) -> RESERVED25_R {
-        RESERVED25_R::new(((self.bits >> 25) & 0x7f) as u8)
+    pub fn reserved25(&self) -> Reserved25R {
+        Reserved25R::new(((self.bits >> 25) & 0x7f) as u8)
     }
 }
 impl W {
@@ -93,53 +57,45 @@ impl W {
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn pul_cntr(&mut self) -> PUL_CNTR_W<0> {
-        PUL_CNTR_W::new(self)
+    pub fn pul_cntr(&mut self) -> PulCntrW<FsmPulCntrSpec> {
+        PulCntrW::new(self, 0)
     }
     #[doc = "Bits 12:15 - 15:12\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved12(&mut self) -> RESERVED12_W<12> {
-        RESERVED12_W::new(self)
+    pub fn reserved12(&mut self) -> Reserved12W<FsmPulCntrSpec> {
+        Reserved12W::new(self, 12)
     }
     #[doc = "Bits 16:24 - 24:16\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn cur_ec_level(&mut self) -> CUR_EC_LEVEL_W<16> {
-        CUR_EC_LEVEL_W::new(self)
+    pub fn cur_ec_level(&mut self) -> CurEcLevelW<FsmPulCntrSpec> {
+        CurEcLevelW::new(self, 16)
     }
     #[doc = "Bits 25:31 - 31:25\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved25(&mut self) -> RESERVED25_W<25> {
-        RESERVED25_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved25(&mut self) -> Reserved25W<FsmPulCntrSpec> {
+        Reserved25W::new(self, 25)
     }
 }
-#[doc = "Internal. Only to be used through TI provided API.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fsm_pul_cntr](index.html) module"]
-pub struct FSM_PUL_CNTR_SPEC;
-impl crate::RegisterSpec for FSM_PUL_CNTR_SPEC {
+#[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fsm_pul_cntr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fsm_pul_cntr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct FsmPulCntrSpec;
+impl crate::RegisterSpec for FsmPulCntrSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [fsm_pul_cntr::R](R) reader structure"]
-impl crate::Readable for FSM_PUL_CNTR_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [fsm_pul_cntr::W](W) writer structure"]
-impl crate::Writable for FSM_PUL_CNTR_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`fsm_pul_cntr::R`](R) reader structure"]
+impl crate::Readable for FsmPulCntrSpec {}
+#[doc = "`write(|w| ..)` method takes [`fsm_pul_cntr::W`](W) writer structure"]
+impl crate::Writable for FsmPulCntrSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets FSM_PUL_CNTR to value 0"]
-impl crate::Resettable for FSM_PUL_CNTR_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for FsmPulCntrSpec {
+    const RESET_VALUE: u32 = 0;
 }

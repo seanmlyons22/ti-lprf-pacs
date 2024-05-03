@@ -1,64 +1,31 @@
 #[doc = "Register `DFTDATARED2` reader"]
-pub struct R(crate::R<DFTDATARED2_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<DFTDATARED2_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<DFTDATARED2_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<DFTDATARED2_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Dftdatared2Spec>;
 #[doc = "Register `DFTDATARED2` writer"]
-pub struct W(crate::W<DFTDATARED2_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<DFTDATARED2_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<DFTDATARED2_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<DFTDATARED2_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<Dftdatared2Spec>;
 #[doc = "Field `VAL` reader - 3:0\\]
 Data for redundant bits"]
-pub type VAL_R = crate::FieldReader<u8, u8>;
+pub type ValR = crate::FieldReader;
 #[doc = "Field `VAL` writer - 3:0\\]
 Data for redundant bits"]
-pub type VAL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, DFTDATARED2_SPEC, u8, u8, 4, O>;
+pub type ValW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED4` reader - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED4_R = crate::FieldReader<u32, u32>;
+pub type Reserved4R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED4` writer - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED4_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, DFTDATARED2_SPEC, u32, u32, 28, O>;
+pub type Reserved4W<'a, REG> = crate::FieldWriter<'a, REG, 28, u32>;
 impl R {
     #[doc = "Bits 0:3 - 3:0\\]
 Data for redundant bits"]
     #[inline(always)]
-    pub fn val(&self) -> VAL_R {
-        VAL_R::new((self.bits & 0x0f) as u8)
+    pub fn val(&self) -> ValR {
+        ValR::new((self.bits & 0x0f) as u8)
     }
     #[doc = "Bits 4:31 - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved4(&self) -> RESERVED4_R {
-        RESERVED4_R::new((self.bits >> 4) & 0x0fff_ffff)
+    pub fn reserved4(&self) -> Reserved4R {
+        Reserved4R::new((self.bits >> 4) & 0x0fff_ffff)
     }
 }
 impl W {
@@ -66,39 +33,31 @@ impl W {
 Data for redundant bits"]
     #[inline(always)]
     #[must_use]
-    pub fn val(&mut self) -> VAL_W<0> {
-        VAL_W::new(self)
+    pub fn val(&mut self) -> ValW<Dftdatared2Spec> {
+        ValW::new(self, 0)
     }
     #[doc = "Bits 4:31 - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved4(&mut self) -> RESERVED4_W<4> {
-        RESERVED4_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved4(&mut self) -> Reserved4W<Dftdatared2Spec> {
+        Reserved4W::new(self, 4)
     }
 }
-#[doc = "DFT Redundancy Data Register 2 This register is used when testing the redundant columns in the flash. It acts as an extension of the CMDDATA* registers. The bits in this register correspond to flash data word register 2. In addition, this register is used to aggregate masking for bits that do not require additional program pulses during program operations. The original data written to this register will be lost during program command execution. Use cases for this register are as follows: 1)Program - Contains the data to be programmed. 2)Erase - Not used. 3)Read Verify - Contains data to be verified. This register is only writable when DFTEN.ENABLE is set. This register is blocked for writes after a 1 is written to the CMDEXEC register and prior to STATCMD.DONE being set by the NoWrapper hardware.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dftdatared2](index.html) module"]
-pub struct DFTDATARED2_SPEC;
-impl crate::RegisterSpec for DFTDATARED2_SPEC {
+#[doc = "DFT Redundancy Data Register 2 This register is used when testing the redundant columns in the flash. It acts as an extension of the CMDDATA* registers. The bits in this register correspond to flash data word register 2. In addition, this register is used to aggregate masking for bits that do not require additional program pulses during program operations. The original data written to this register will be lost during program command execution. Use cases for this register are as follows: 1)Program - Contains the data to be programmed. 2)Erase - Not used. 3)Read Verify - Contains data to be verified. This register is only writable when DFTEN.ENABLE is set. This register is blocked for writes after a 1 is written to the CMDEXEC register and prior to STATCMD.DONE being set by the NoWrapper hardware.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`dftdatared2::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`dftdatared2::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Dftdatared2Spec;
+impl crate::RegisterSpec for Dftdatared2Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [dftdatared2::R](R) reader structure"]
-impl crate::Readable for DFTDATARED2_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [dftdatared2::W](W) writer structure"]
-impl crate::Writable for DFTDATARED2_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`dftdatared2::R`](R) reader structure"]
+impl crate::Readable for Dftdatared2Spec {}
+#[doc = "`write(|w| ..)` method takes [`dftdatared2::W`](W) writer structure"]
+impl crate::Writable for Dftdatared2Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets DFTDATARED2 to value 0x0f"]
-impl crate::Resettable for DFTDATARED2_SPEC {
-    const RESET_VALUE: Self::Ux = 0x0f;
+impl crate::Resettable for Dftdatared2Spec {
+    const RESET_VALUE: u32 = 0x0f;
 }

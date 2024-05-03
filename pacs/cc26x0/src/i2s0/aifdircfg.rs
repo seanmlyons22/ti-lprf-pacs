@@ -1,212 +1,195 @@
 #[doc = "Register `AIFDIRCFG` reader"]
-pub struct R(crate::R<AIFDIRCFG_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<AIFDIRCFG_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<AIFDIRCFG_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<AIFDIRCFG_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<AifdircfgSpec>;
 #[doc = "Register `AIFDIRCFG` writer"]
-pub struct W(crate::W<AIFDIRCFG_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<AIFDIRCFG_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<AIFDIRCFG_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<AIFDIRCFG_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `AD0` reader - 1:0\\]
-Configures the AD0 audio data pin usage: 0x3: Reserved"]
-pub type AD0_R = crate::FieldReader<u8, AD0_A>;
+pub type W = crate::W<AifdircfgSpec>;
 #[doc = "1:0\\]
 Configures the AD0 audio data pin usage: 0x3: Reserved\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum AD0_A {
+pub enum Ad0 {
     #[doc = "2: Output mode"]
-    OUT = 2,
+    Out = 2,
     #[doc = "1: Input mode"]
-    IN = 1,
+    In = 1,
     #[doc = "0: Not in use (disabled)"]
-    DIS = 0,
+    Dis = 0,
 }
-impl From<AD0_A> for u8 {
+impl From<Ad0> for u8 {
     #[inline(always)]
-    fn from(variant: AD0_A) -> Self {
+    fn from(variant: Ad0) -> Self {
         variant as _
     }
 }
-impl AD0_R {
+impl crate::FieldSpec for Ad0 {
+    type Ux = u8;
+}
+impl crate::IsEnum for Ad0 {}
+#[doc = "Field `AD0` reader - 1:0\\]
+Configures the AD0 audio data pin usage: 0x3: Reserved"]
+pub type Ad0R = crate::FieldReader<Ad0>;
+impl Ad0R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<AD0_A> {
+    pub const fn variant(&self) -> Option<Ad0> {
         match self.bits {
-            2 => Some(AD0_A::OUT),
-            1 => Some(AD0_A::IN),
-            0 => Some(AD0_A::DIS),
+            2 => Some(Ad0::Out),
+            1 => Some(Ad0::In),
+            0 => Some(Ad0::Dis),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `OUT`"]
+    #[doc = "Output mode"]
     #[inline(always)]
     pub fn is_out(&self) -> bool {
-        *self == AD0_A::OUT
+        *self == Ad0::Out
     }
-    #[doc = "Checks if the value of the field is `IN`"]
+    #[doc = "Input mode"]
     #[inline(always)]
     pub fn is_in(&self) -> bool {
-        *self == AD0_A::IN
+        *self == Ad0::In
     }
-    #[doc = "Checks if the value of the field is `DIS`"]
+    #[doc = "Not in use (disabled)"]
     #[inline(always)]
     pub fn is_dis(&self) -> bool {
-        *self == AD0_A::DIS
+        *self == Ad0::Dis
     }
 }
 #[doc = "Field `AD0` writer - 1:0\\]
 Configures the AD0 audio data pin usage: 0x3: Reserved"]
-pub type AD0_W<'a, const O: u8> = crate::FieldWriter<'a, u32, AIFDIRCFG_SPEC, u8, AD0_A, 2, O>;
-impl<'a, const O: u8> AD0_W<'a, O> {
+pub type Ad0W<'a, REG> = crate::FieldWriter<'a, REG, 2, Ad0>;
+impl<'a, REG> Ad0W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "Output mode"]
     #[inline(always)]
-    pub fn out(self) -> &'a mut W {
-        self.variant(AD0_A::OUT)
+    pub fn out(self) -> &'a mut crate::W<REG> {
+        self.variant(Ad0::Out)
     }
     #[doc = "Input mode"]
     #[inline(always)]
-    pub fn in_(self) -> &'a mut W {
-        self.variant(AD0_A::IN)
+    pub fn in_(self) -> &'a mut crate::W<REG> {
+        self.variant(Ad0::In)
     }
     #[doc = "Not in use (disabled)"]
     #[inline(always)]
-    pub fn dis(self) -> &'a mut W {
-        self.variant(AD0_A::DIS)
+    pub fn dis(self) -> &'a mut crate::W<REG> {
+        self.variant(Ad0::Dis)
     }
 }
 #[doc = "Field `RESERVED2` reader - 3:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED2_R = crate::FieldReader<u8, u8>;
+pub type Reserved2R = crate::FieldReader;
 #[doc = "Field `RESERVED2` writer - 3:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED2_W<'a, const O: u8> = crate::FieldWriter<'a, u32, AIFDIRCFG_SPEC, u8, u8, 2, O>;
-#[doc = "Field `AD1` reader - 5:4\\]
-Configures the AD1 audio data pin usage: 0x3: Reserved"]
-pub type AD1_R = crate::FieldReader<u8, AD1_A>;
+pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "5:4\\]
 Configures the AD1 audio data pin usage: 0x3: Reserved\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum AD1_A {
+pub enum Ad1 {
     #[doc = "2: Output mode"]
-    OUT = 2,
+    Out = 2,
     #[doc = "1: Input mode"]
-    IN = 1,
+    In = 1,
     #[doc = "0: Not in use (disabled)"]
-    DIS = 0,
+    Dis = 0,
 }
-impl From<AD1_A> for u8 {
+impl From<Ad1> for u8 {
     #[inline(always)]
-    fn from(variant: AD1_A) -> Self {
+    fn from(variant: Ad1) -> Self {
         variant as _
     }
 }
-impl AD1_R {
+impl crate::FieldSpec for Ad1 {
+    type Ux = u8;
+}
+impl crate::IsEnum for Ad1 {}
+#[doc = "Field `AD1` reader - 5:4\\]
+Configures the AD1 audio data pin usage: 0x3: Reserved"]
+pub type Ad1R = crate::FieldReader<Ad1>;
+impl Ad1R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<AD1_A> {
+    pub const fn variant(&self) -> Option<Ad1> {
         match self.bits {
-            2 => Some(AD1_A::OUT),
-            1 => Some(AD1_A::IN),
-            0 => Some(AD1_A::DIS),
+            2 => Some(Ad1::Out),
+            1 => Some(Ad1::In),
+            0 => Some(Ad1::Dis),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `OUT`"]
+    #[doc = "Output mode"]
     #[inline(always)]
     pub fn is_out(&self) -> bool {
-        *self == AD1_A::OUT
+        *self == Ad1::Out
     }
-    #[doc = "Checks if the value of the field is `IN`"]
+    #[doc = "Input mode"]
     #[inline(always)]
     pub fn is_in(&self) -> bool {
-        *self == AD1_A::IN
+        *self == Ad1::In
     }
-    #[doc = "Checks if the value of the field is `DIS`"]
+    #[doc = "Not in use (disabled)"]
     #[inline(always)]
     pub fn is_dis(&self) -> bool {
-        *self == AD1_A::DIS
+        *self == Ad1::Dis
     }
 }
 #[doc = "Field `AD1` writer - 5:4\\]
 Configures the AD1 audio data pin usage: 0x3: Reserved"]
-pub type AD1_W<'a, const O: u8> = crate::FieldWriter<'a, u32, AIFDIRCFG_SPEC, u8, AD1_A, 2, O>;
-impl<'a, const O: u8> AD1_W<'a, O> {
+pub type Ad1W<'a, REG> = crate::FieldWriter<'a, REG, 2, Ad1>;
+impl<'a, REG> Ad1W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "Output mode"]
     #[inline(always)]
-    pub fn out(self) -> &'a mut W {
-        self.variant(AD1_A::OUT)
+    pub fn out(self) -> &'a mut crate::W<REG> {
+        self.variant(Ad1::Out)
     }
     #[doc = "Input mode"]
     #[inline(always)]
-    pub fn in_(self) -> &'a mut W {
-        self.variant(AD1_A::IN)
+    pub fn in_(self) -> &'a mut crate::W<REG> {
+        self.variant(Ad1::In)
     }
     #[doc = "Not in use (disabled)"]
     #[inline(always)]
-    pub fn dis(self) -> &'a mut W {
-        self.variant(AD1_A::DIS)
+    pub fn dis(self) -> &'a mut crate::W<REG> {
+        self.variant(Ad1::Dis)
     }
 }
 #[doc = "Field `RESERVED6` reader - 31:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED6_R = crate::FieldReader<u32, u32>;
+pub type Reserved6R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED6` writer - 31:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED6_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, AIFDIRCFG_SPEC, u32, u32, 26, O>;
+pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 26, u32>;
 impl R {
     #[doc = "Bits 0:1 - 1:0\\]
 Configures the AD0 audio data pin usage: 0x3: Reserved"]
     #[inline(always)]
-    pub fn ad0(&self) -> AD0_R {
-        AD0_R::new((self.bits & 3) as u8)
+    pub fn ad0(&self) -> Ad0R {
+        Ad0R::new((self.bits & 3) as u8)
     }
     #[doc = "Bits 2:3 - 3:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved2(&self) -> RESERVED2_R {
-        RESERVED2_R::new(((self.bits >> 2) & 3) as u8)
+    pub fn reserved2(&self) -> Reserved2R {
+        Reserved2R::new(((self.bits >> 2) & 3) as u8)
     }
     #[doc = "Bits 4:5 - 5:4\\]
 Configures the AD1 audio data pin usage: 0x3: Reserved"]
     #[inline(always)]
-    pub fn ad1(&self) -> AD1_R {
-        AD1_R::new(((self.bits >> 4) & 3) as u8)
+    pub fn ad1(&self) -> Ad1R {
+        Ad1R::new(((self.bits >> 4) & 3) as u8)
     }
     #[doc = "Bits 6:31 - 31:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved6(&self) -> RESERVED6_R {
-        RESERVED6_R::new((self.bits >> 6) & 0x03ff_ffff)
+    pub fn reserved6(&self) -> Reserved6R {
+        Reserved6R::new((self.bits >> 6) & 0x03ff_ffff)
     }
 }
 impl W {
@@ -214,53 +197,45 @@ impl W {
 Configures the AD0 audio data pin usage: 0x3: Reserved"]
     #[inline(always)]
     #[must_use]
-    pub fn ad0(&mut self) -> AD0_W<0> {
-        AD0_W::new(self)
+    pub fn ad0(&mut self) -> Ad0W<AifdircfgSpec> {
+        Ad0W::new(self, 0)
     }
     #[doc = "Bits 2:3 - 3:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved2(&mut self) -> RESERVED2_W<2> {
-        RESERVED2_W::new(self)
+    pub fn reserved2(&mut self) -> Reserved2W<AifdircfgSpec> {
+        Reserved2W::new(self, 2)
     }
     #[doc = "Bits 4:5 - 5:4\\]
 Configures the AD1 audio data pin usage: 0x3: Reserved"]
     #[inline(always)]
     #[must_use]
-    pub fn ad1(&mut self) -> AD1_W<4> {
-        AD1_W::new(self)
+    pub fn ad1(&mut self) -> Ad1W<AifdircfgSpec> {
+        Ad1W::new(self, 4)
     }
     #[doc = "Bits 6:31 - 31:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved6(&mut self) -> RESERVED6_W<6> {
-        RESERVED6_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved6(&mut self) -> Reserved6W<AifdircfgSpec> {
+        Reserved6W::new(self, 6)
     }
 }
-#[doc = "Pin Direction\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [aifdircfg](index.html) module"]
-pub struct AIFDIRCFG_SPEC;
-impl crate::RegisterSpec for AIFDIRCFG_SPEC {
+#[doc = "Pin Direction\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`aifdircfg::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`aifdircfg::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct AifdircfgSpec;
+impl crate::RegisterSpec for AifdircfgSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [aifdircfg::R](R) reader structure"]
-impl crate::Readable for AIFDIRCFG_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [aifdircfg::W](W) writer structure"]
-impl crate::Writable for AIFDIRCFG_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`aifdircfg::R`](R) reader structure"]
+impl crate::Readable for AifdircfgSpec {}
+#[doc = "`write(|w| ..)` method takes [`aifdircfg::W`](W) writer structure"]
+impl crate::Writable for AifdircfgSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets AIFDIRCFG to value 0"]
-impl crate::Resettable for AIFDIRCFG_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for AifdircfgSpec {
+    const RESET_VALUE: u32 = 0;
 }

@@ -1,595 +1,589 @@
 #[doc = "Register `STATCMD` reader"]
-pub struct R(crate::R<STATCMD_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<STATCMD_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<STATCMD_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<STATCMD_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<StatcmdSpec>;
 #[doc = "Register `STATCMD` writer"]
-pub struct W(crate::W<STATCMD_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<STATCMD_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
+pub type W = crate::W<StatcmdSpec>;
+#[doc = "0:0\\]
+Command Done\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Cmddone {
+    #[doc = "1: Done"]
+    Statdone = 1,
+    #[doc = "0: Not Done"]
+    Statnotdone = 0,
 }
-impl core::ops::DerefMut for W {
+impl From<Cmddone> for bool {
     #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<STATCMD_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<STATCMD_SPEC>) -> Self {
-        W(writer)
+    fn from(variant: Cmddone) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `CMDDONE` reader - 0:0\\]
 Command Done"]
-pub type CMDDONE_R = crate::BitReader<CMDDONE_A>;
-#[doc = "0:0\\]
-Command Done\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum CMDDONE_A {
-    #[doc = "1: Done"]
-    STATDONE = 1,
-    #[doc = "0: Not Done"]
-    STATNOTDONE = 0,
-}
-impl From<CMDDONE_A> for bool {
-    #[inline(always)]
-    fn from(variant: CMDDONE_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl CMDDONE_R {
+pub type CmddoneR = crate::BitReader<Cmddone>;
+impl CmddoneR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> CMDDONE_A {
+    pub const fn variant(&self) -> Cmddone {
         match self.bits {
-            true => CMDDONE_A::STATDONE,
-            false => CMDDONE_A::STATNOTDONE,
+            true => Cmddone::Statdone,
+            false => Cmddone::Statnotdone,
         }
     }
-    #[doc = "Checks if the value of the field is `STATDONE`"]
+    #[doc = "Done"]
     #[inline(always)]
     pub fn is_statdone(&self) -> bool {
-        *self == CMDDONE_A::STATDONE
+        *self == Cmddone::Statdone
     }
-    #[doc = "Checks if the value of the field is `STATNOTDONE`"]
+    #[doc = "Not Done"]
     #[inline(always)]
     pub fn is_statnotdone(&self) -> bool {
-        *self == CMDDONE_A::STATNOTDONE
+        *self == Cmddone::Statnotdone
     }
 }
 #[doc = "Field `CMDDONE` writer - 0:0\\]
 Command Done"]
-pub type CMDDONE_W<'a, const O: u8> = crate::BitWriter<'a, u32, STATCMD_SPEC, CMDDONE_A, O>;
-impl<'a, const O: u8> CMDDONE_W<'a, O> {
+pub type CmddoneW<'a, REG> = crate::BitWriter<'a, REG, Cmddone>;
+impl<'a, REG> CmddoneW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Done"]
     #[inline(always)]
-    pub fn statdone(self) -> &'a mut W {
-        self.variant(CMDDONE_A::STATDONE)
+    pub fn statdone(self) -> &'a mut crate::W<REG> {
+        self.variant(Cmddone::Statdone)
     }
     #[doc = "Not Done"]
     #[inline(always)]
-    pub fn statnotdone(self) -> &'a mut W {
-        self.variant(CMDDONE_A::STATNOTDONE)
+    pub fn statnotdone(self) -> &'a mut crate::W<REG> {
+        self.variant(Cmddone::Statnotdone)
+    }
+}
+#[doc = "1:1\\]
+Command Pass - valid when CMD_DONE field is 1\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Cmdpass {
+    #[doc = "1: Pass"]
+    Statpass = 1,
+    #[doc = "0: Fail"]
+    Statfail = 0,
+}
+impl From<Cmdpass> for bool {
+    #[inline(always)]
+    fn from(variant: Cmdpass) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `CMDPASS` reader - 1:1\\]
 Command Pass - valid when CMD_DONE field is 1"]
-pub type CMDPASS_R = crate::BitReader<CMDPASS_A>;
-#[doc = "1:1\\]
-Command Pass - valid when CMD_DONE field is 1\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum CMDPASS_A {
-    #[doc = "1: Pass"]
-    STATPASS = 1,
-    #[doc = "0: Fail"]
-    STATFAIL = 0,
-}
-impl From<CMDPASS_A> for bool {
-    #[inline(always)]
-    fn from(variant: CMDPASS_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl CMDPASS_R {
+pub type CmdpassR = crate::BitReader<Cmdpass>;
+impl CmdpassR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> CMDPASS_A {
+    pub const fn variant(&self) -> Cmdpass {
         match self.bits {
-            true => CMDPASS_A::STATPASS,
-            false => CMDPASS_A::STATFAIL,
+            true => Cmdpass::Statpass,
+            false => Cmdpass::Statfail,
         }
     }
-    #[doc = "Checks if the value of the field is `STATPASS`"]
+    #[doc = "Pass"]
     #[inline(always)]
     pub fn is_statpass(&self) -> bool {
-        *self == CMDPASS_A::STATPASS
+        *self == Cmdpass::Statpass
     }
-    #[doc = "Checks if the value of the field is `STATFAIL`"]
+    #[doc = "Fail"]
     #[inline(always)]
     pub fn is_statfail(&self) -> bool {
-        *self == CMDPASS_A::STATFAIL
+        *self == Cmdpass::Statfail
     }
 }
 #[doc = "Field `CMDPASS` writer - 1:1\\]
 Command Pass - valid when CMD_DONE field is 1"]
-pub type CMDPASS_W<'a, const O: u8> = crate::BitWriter<'a, u32, STATCMD_SPEC, CMDPASS_A, O>;
-impl<'a, const O: u8> CMDPASS_W<'a, O> {
+pub type CmdpassW<'a, REG> = crate::BitWriter<'a, REG, Cmdpass>;
+impl<'a, REG> CmdpassW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Pass"]
     #[inline(always)]
-    pub fn statpass(self) -> &'a mut W {
-        self.variant(CMDPASS_A::STATPASS)
+    pub fn statpass(self) -> &'a mut crate::W<REG> {
+        self.variant(Cmdpass::Statpass)
     }
     #[doc = "Fail"]
     #[inline(always)]
-    pub fn statfail(self) -> &'a mut W {
-        self.variant(CMDPASS_A::STATFAIL)
+    pub fn statfail(self) -> &'a mut crate::W<REG> {
+        self.variant(Cmdpass::Statfail)
+    }
+}
+#[doc = "2:2\\]
+Command In Progress\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Cmdinprogress {
+    #[doc = "1: In Progress"]
+    Statinprogress = 1,
+    #[doc = "0: Complete"]
+    Statcomplete = 0,
+}
+impl From<Cmdinprogress> for bool {
+    #[inline(always)]
+    fn from(variant: Cmdinprogress) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `CMDINPROGRESS` reader - 2:2\\]
 Command In Progress"]
-pub type CMDINPROGRESS_R = crate::BitReader<CMDINPROGRESS_A>;
-#[doc = "2:2\\]
-Command In Progress\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum CMDINPROGRESS_A {
-    #[doc = "1: In Progress"]
-    STATINPROGRESS = 1,
-    #[doc = "0: Complete"]
-    STATCOMPLETE = 0,
-}
-impl From<CMDINPROGRESS_A> for bool {
-    #[inline(always)]
-    fn from(variant: CMDINPROGRESS_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl CMDINPROGRESS_R {
+pub type CmdinprogressR = crate::BitReader<Cmdinprogress>;
+impl CmdinprogressR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> CMDINPROGRESS_A {
+    pub const fn variant(&self) -> Cmdinprogress {
         match self.bits {
-            true => CMDINPROGRESS_A::STATINPROGRESS,
-            false => CMDINPROGRESS_A::STATCOMPLETE,
+            true => Cmdinprogress::Statinprogress,
+            false => Cmdinprogress::Statcomplete,
         }
     }
-    #[doc = "Checks if the value of the field is `STATINPROGRESS`"]
+    #[doc = "In Progress"]
     #[inline(always)]
     pub fn is_statinprogress(&self) -> bool {
-        *self == CMDINPROGRESS_A::STATINPROGRESS
+        *self == Cmdinprogress::Statinprogress
     }
-    #[doc = "Checks if the value of the field is `STATCOMPLETE`"]
+    #[doc = "Complete"]
     #[inline(always)]
     pub fn is_statcomplete(&self) -> bool {
-        *self == CMDINPROGRESS_A::STATCOMPLETE
+        *self == Cmdinprogress::Statcomplete
     }
 }
 #[doc = "Field `CMDINPROGRESS` writer - 2:2\\]
 Command In Progress"]
-pub type CMDINPROGRESS_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, STATCMD_SPEC, CMDINPROGRESS_A, O>;
-impl<'a, const O: u8> CMDINPROGRESS_W<'a, O> {
+pub type CmdinprogressW<'a, REG> = crate::BitWriter<'a, REG, Cmdinprogress>;
+impl<'a, REG> CmdinprogressW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "In Progress"]
     #[inline(always)]
-    pub fn statinprogress(self) -> &'a mut W {
-        self.variant(CMDINPROGRESS_A::STATINPROGRESS)
+    pub fn statinprogress(self) -> &'a mut crate::W<REG> {
+        self.variant(Cmdinprogress::Statinprogress)
     }
     #[doc = "Complete"]
     #[inline(always)]
-    pub fn statcomplete(self) -> &'a mut W {
-        self.variant(CMDINPROGRESS_A::STATCOMPLETE)
+    pub fn statcomplete(self) -> &'a mut crate::W<REG> {
+        self.variant(Cmdinprogress::Statcomplete)
     }
 }
 #[doc = "Field `RESERVED3` reader - 3:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED3_R = crate::BitReader<bool>;
+pub type Reserved3R = crate::BitReader;
 #[doc = "Field `RESERVED3` writer - 3:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED3_W<'a, const O: u8> = crate::BitWriter<'a, u32, STATCMD_SPEC, bool, O>;
-#[doc = "Field `FAILWEPROT` reader - 4:4\\]
-Command failed due to Write/Erase Protect Sector Violation"]
-pub type FAILWEPROT_R = crate::BitReader<FAILWEPROT_A>;
+pub type Reserved3W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "4:4\\]
 Command failed due to Write/Erase Protect Sector Violation\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum FAILWEPROT_A {
+pub enum Failweprot {
     #[doc = "1: Fail"]
-    STATFAIL = 1,
+    Statfail = 1,
     #[doc = "0: No Fail"]
-    STATNOFAIL = 0,
+    Statnofail = 0,
 }
-impl From<FAILWEPROT_A> for bool {
+impl From<Failweprot> for bool {
     #[inline(always)]
-    fn from(variant: FAILWEPROT_A) -> Self {
+    fn from(variant: Failweprot) -> Self {
         variant as u8 != 0
     }
 }
-impl FAILWEPROT_R {
+#[doc = "Field `FAILWEPROT` reader - 4:4\\]
+Command failed due to Write/Erase Protect Sector Violation"]
+pub type FailweprotR = crate::BitReader<Failweprot>;
+impl FailweprotR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> FAILWEPROT_A {
+    pub const fn variant(&self) -> Failweprot {
         match self.bits {
-            true => FAILWEPROT_A::STATFAIL,
-            false => FAILWEPROT_A::STATNOFAIL,
+            true => Failweprot::Statfail,
+            false => Failweprot::Statnofail,
         }
     }
-    #[doc = "Checks if the value of the field is `STATFAIL`"]
+    #[doc = "Fail"]
     #[inline(always)]
     pub fn is_statfail(&self) -> bool {
-        *self == FAILWEPROT_A::STATFAIL
+        *self == Failweprot::Statfail
     }
-    #[doc = "Checks if the value of the field is `STATNOFAIL`"]
+    #[doc = "No Fail"]
     #[inline(always)]
     pub fn is_statnofail(&self) -> bool {
-        *self == FAILWEPROT_A::STATNOFAIL
+        *self == Failweprot::Statnofail
     }
 }
 #[doc = "Field `FAILWEPROT` writer - 4:4\\]
 Command failed due to Write/Erase Protect Sector Violation"]
-pub type FAILWEPROT_W<'a, const O: u8> = crate::BitWriter<'a, u32, STATCMD_SPEC, FAILWEPROT_A, O>;
-impl<'a, const O: u8> FAILWEPROT_W<'a, O> {
+pub type FailweprotW<'a, REG> = crate::BitWriter<'a, REG, Failweprot>;
+impl<'a, REG> FailweprotW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Fail"]
     #[inline(always)]
-    pub fn statfail(self) -> &'a mut W {
-        self.variant(FAILWEPROT_A::STATFAIL)
+    pub fn statfail(self) -> &'a mut crate::W<REG> {
+        self.variant(Failweprot::Statfail)
     }
     #[doc = "No Fail"]
     #[inline(always)]
-    pub fn statnofail(self) -> &'a mut W {
-        self.variant(FAILWEPROT_A::STATNOFAIL)
+    pub fn statnofail(self) -> &'a mut crate::W<REG> {
+        self.variant(Failweprot::Statnofail)
+    }
+}
+#[doc = "5:5\\]
+Command failed due to verify error\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Failverify {
+    #[doc = "1: Fail"]
+    Statfail = 1,
+    #[doc = "0: No Fail"]
+    Statnofail = 0,
+}
+impl From<Failverify> for bool {
+    #[inline(always)]
+    fn from(variant: Failverify) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `FAILVERIFY` reader - 5:5\\]
 Command failed due to verify error"]
-pub type FAILVERIFY_R = crate::BitReader<FAILVERIFY_A>;
-#[doc = "5:5\\]
-Command failed due to verify error\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum FAILVERIFY_A {
-    #[doc = "1: Fail"]
-    STATFAIL = 1,
-    #[doc = "0: No Fail"]
-    STATNOFAIL = 0,
-}
-impl From<FAILVERIFY_A> for bool {
-    #[inline(always)]
-    fn from(variant: FAILVERIFY_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl FAILVERIFY_R {
+pub type FailverifyR = crate::BitReader<Failverify>;
+impl FailverifyR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> FAILVERIFY_A {
+    pub const fn variant(&self) -> Failverify {
         match self.bits {
-            true => FAILVERIFY_A::STATFAIL,
-            false => FAILVERIFY_A::STATNOFAIL,
+            true => Failverify::Statfail,
+            false => Failverify::Statnofail,
         }
     }
-    #[doc = "Checks if the value of the field is `STATFAIL`"]
+    #[doc = "Fail"]
     #[inline(always)]
     pub fn is_statfail(&self) -> bool {
-        *self == FAILVERIFY_A::STATFAIL
+        *self == Failverify::Statfail
     }
-    #[doc = "Checks if the value of the field is `STATNOFAIL`"]
+    #[doc = "No Fail"]
     #[inline(always)]
     pub fn is_statnofail(&self) -> bool {
-        *self == FAILVERIFY_A::STATNOFAIL
+        *self == Failverify::Statnofail
     }
 }
 #[doc = "Field `FAILVERIFY` writer - 5:5\\]
 Command failed due to verify error"]
-pub type FAILVERIFY_W<'a, const O: u8> = crate::BitWriter<'a, u32, STATCMD_SPEC, FAILVERIFY_A, O>;
-impl<'a, const O: u8> FAILVERIFY_W<'a, O> {
+pub type FailverifyW<'a, REG> = crate::BitWriter<'a, REG, Failverify>;
+impl<'a, REG> FailverifyW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Fail"]
     #[inline(always)]
-    pub fn statfail(self) -> &'a mut W {
-        self.variant(FAILVERIFY_A::STATFAIL)
+    pub fn statfail(self) -> &'a mut crate::W<REG> {
+        self.variant(Failverify::Statfail)
     }
     #[doc = "No Fail"]
     #[inline(always)]
-    pub fn statnofail(self) -> &'a mut W {
-        self.variant(FAILVERIFY_A::STATNOFAIL)
+    pub fn statnofail(self) -> &'a mut crate::W<REG> {
+        self.variant(Failverify::Statnofail)
+    }
+}
+#[doc = "6:6\\]
+Command failed due to the use of an illegal address\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Faililladdr {
+    #[doc = "1: Fail"]
+    Statfail = 1,
+    #[doc = "0: No Fail"]
+    Statnofail = 0,
+}
+impl From<Faililladdr> for bool {
+    #[inline(always)]
+    fn from(variant: Faililladdr) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `FAILILLADDR` reader - 6:6\\]
 Command failed due to the use of an illegal address"]
-pub type FAILILLADDR_R = crate::BitReader<FAILILLADDR_A>;
-#[doc = "6:6\\]
-Command failed due to the use of an illegal address\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum FAILILLADDR_A {
-    #[doc = "1: Fail"]
-    STATFAIL = 1,
-    #[doc = "0: No Fail"]
-    STATNOFAIL = 0,
-}
-impl From<FAILILLADDR_A> for bool {
-    #[inline(always)]
-    fn from(variant: FAILILLADDR_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl FAILILLADDR_R {
+pub type FaililladdrR = crate::BitReader<Faililladdr>;
+impl FaililladdrR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> FAILILLADDR_A {
+    pub const fn variant(&self) -> Faililladdr {
         match self.bits {
-            true => FAILILLADDR_A::STATFAIL,
-            false => FAILILLADDR_A::STATNOFAIL,
+            true => Faililladdr::Statfail,
+            false => Faililladdr::Statnofail,
         }
     }
-    #[doc = "Checks if the value of the field is `STATFAIL`"]
+    #[doc = "Fail"]
     #[inline(always)]
     pub fn is_statfail(&self) -> bool {
-        *self == FAILILLADDR_A::STATFAIL
+        *self == Faililladdr::Statfail
     }
-    #[doc = "Checks if the value of the field is `STATNOFAIL`"]
+    #[doc = "No Fail"]
     #[inline(always)]
     pub fn is_statnofail(&self) -> bool {
-        *self == FAILILLADDR_A::STATNOFAIL
+        *self == Faililladdr::Statnofail
     }
 }
 #[doc = "Field `FAILILLADDR` writer - 6:6\\]
 Command failed due to the use of an illegal address"]
-pub type FAILILLADDR_W<'a, const O: u8> = crate::BitWriter<'a, u32, STATCMD_SPEC, FAILILLADDR_A, O>;
-impl<'a, const O: u8> FAILILLADDR_W<'a, O> {
+pub type FaililladdrW<'a, REG> = crate::BitWriter<'a, REG, Faililladdr>;
+impl<'a, REG> FaililladdrW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Fail"]
     #[inline(always)]
-    pub fn statfail(self) -> &'a mut W {
-        self.variant(FAILILLADDR_A::STATFAIL)
+    pub fn statfail(self) -> &'a mut crate::W<REG> {
+        self.variant(Faililladdr::Statfail)
     }
     #[doc = "No Fail"]
     #[inline(always)]
-    pub fn statnofail(self) -> &'a mut W {
-        self.variant(FAILILLADDR_A::STATNOFAIL)
+    pub fn statnofail(self) -> &'a mut crate::W<REG> {
+        self.variant(Faililladdr::Statnofail)
+    }
+}
+#[doc = "7:7\\]
+Command failed because a bank has been set to a mode other than READ. Program and Erase commands cannot be initiated unless all banks are in READ mode.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Failmode {
+    #[doc = "1: Fail"]
+    Statfail = 1,
+    #[doc = "0: No Fail"]
+    Statnofail = 0,
+}
+impl From<Failmode> for bool {
+    #[inline(always)]
+    fn from(variant: Failmode) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `FAILMODE` reader - 7:7\\]
 Command failed because a bank has been set to a mode other than READ. Program and Erase commands cannot be initiated unless all banks are in READ mode."]
-pub type FAILMODE_R = crate::BitReader<FAILMODE_A>;
-#[doc = "7:7\\]
-Command failed because a bank has been set to a mode other than READ. Program and Erase commands cannot be initiated unless all banks are in READ mode.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum FAILMODE_A {
-    #[doc = "1: Fail"]
-    STATFAIL = 1,
-    #[doc = "0: No Fail"]
-    STATNOFAIL = 0,
-}
-impl From<FAILMODE_A> for bool {
-    #[inline(always)]
-    fn from(variant: FAILMODE_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl FAILMODE_R {
+pub type FailmodeR = crate::BitReader<Failmode>;
+impl FailmodeR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> FAILMODE_A {
+    pub const fn variant(&self) -> Failmode {
         match self.bits {
-            true => FAILMODE_A::STATFAIL,
-            false => FAILMODE_A::STATNOFAIL,
+            true => Failmode::Statfail,
+            false => Failmode::Statnofail,
         }
     }
-    #[doc = "Checks if the value of the field is `STATFAIL`"]
+    #[doc = "Fail"]
     #[inline(always)]
     pub fn is_statfail(&self) -> bool {
-        *self == FAILMODE_A::STATFAIL
+        *self == Failmode::Statfail
     }
-    #[doc = "Checks if the value of the field is `STATNOFAIL`"]
+    #[doc = "No Fail"]
     #[inline(always)]
     pub fn is_statnofail(&self) -> bool {
-        *self == FAILMODE_A::STATNOFAIL
+        *self == Failmode::Statnofail
     }
 }
 #[doc = "Field `FAILMODE` writer - 7:7\\]
 Command failed because a bank has been set to a mode other than READ. Program and Erase commands cannot be initiated unless all banks are in READ mode."]
-pub type FAILMODE_W<'a, const O: u8> = crate::BitWriter<'a, u32, STATCMD_SPEC, FAILMODE_A, O>;
-impl<'a, const O: u8> FAILMODE_W<'a, O> {
+pub type FailmodeW<'a, REG> = crate::BitWriter<'a, REG, Failmode>;
+impl<'a, REG> FailmodeW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Fail"]
     #[inline(always)]
-    pub fn statfail(self) -> &'a mut W {
-        self.variant(FAILMODE_A::STATFAIL)
+    pub fn statfail(self) -> &'a mut crate::W<REG> {
+        self.variant(Failmode::Statfail)
     }
     #[doc = "No Fail"]
     #[inline(always)]
-    pub fn statnofail(self) -> &'a mut W {
-        self.variant(FAILMODE_A::STATNOFAIL)
+    pub fn statnofail(self) -> &'a mut crate::W<REG> {
+        self.variant(Failmode::Statnofail)
+    }
+}
+#[doc = "8:8\\]
+Program command failed because an attempt was made to program a stored 0 value to a 1.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Failinvdata {
+    #[doc = "1: Fail"]
+    Statfail = 1,
+    #[doc = "0: No Fail"]
+    Statnofail = 0,
+}
+impl From<Failinvdata> for bool {
+    #[inline(always)]
+    fn from(variant: Failinvdata) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `FAILINVDATA` reader - 8:8\\]
 Program command failed because an attempt was made to program a stored 0 value to a 1."]
-pub type FAILINVDATA_R = crate::BitReader<FAILINVDATA_A>;
-#[doc = "8:8\\]
-Program command failed because an attempt was made to program a stored 0 value to a 1.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum FAILINVDATA_A {
-    #[doc = "1: Fail"]
-    STATFAIL = 1,
-    #[doc = "0: No Fail"]
-    STATNOFAIL = 0,
-}
-impl From<FAILINVDATA_A> for bool {
-    #[inline(always)]
-    fn from(variant: FAILINVDATA_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl FAILINVDATA_R {
+pub type FailinvdataR = crate::BitReader<Failinvdata>;
+impl FailinvdataR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> FAILINVDATA_A {
+    pub const fn variant(&self) -> Failinvdata {
         match self.bits {
-            true => FAILINVDATA_A::STATFAIL,
-            false => FAILINVDATA_A::STATNOFAIL,
+            true => Failinvdata::Statfail,
+            false => Failinvdata::Statnofail,
         }
     }
-    #[doc = "Checks if the value of the field is `STATFAIL`"]
+    #[doc = "Fail"]
     #[inline(always)]
     pub fn is_statfail(&self) -> bool {
-        *self == FAILINVDATA_A::STATFAIL
+        *self == Failinvdata::Statfail
     }
-    #[doc = "Checks if the value of the field is `STATNOFAIL`"]
+    #[doc = "No Fail"]
     #[inline(always)]
     pub fn is_statnofail(&self) -> bool {
-        *self == FAILINVDATA_A::STATNOFAIL
+        *self == Failinvdata::Statnofail
     }
 }
 #[doc = "Field `FAILINVDATA` writer - 8:8\\]
 Program command failed because an attempt was made to program a stored 0 value to a 1."]
-pub type FAILINVDATA_W<'a, const O: u8> = crate::BitWriter<'a, u32, STATCMD_SPEC, FAILINVDATA_A, O>;
-impl<'a, const O: u8> FAILINVDATA_W<'a, O> {
+pub type FailinvdataW<'a, REG> = crate::BitWriter<'a, REG, Failinvdata>;
+impl<'a, REG> FailinvdataW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Fail"]
     #[inline(always)]
-    pub fn statfail(self) -> &'a mut W {
-        self.variant(FAILINVDATA_A::STATFAIL)
+    pub fn statfail(self) -> &'a mut crate::W<REG> {
+        self.variant(Failinvdata::Statfail)
     }
     #[doc = "No Fail"]
     #[inline(always)]
-    pub fn statnofail(self) -> &'a mut W {
-        self.variant(FAILINVDATA_A::STATNOFAIL)
+    pub fn statnofail(self) -> &'a mut crate::W<REG> {
+        self.variant(Failinvdata::Statnofail)
+    }
+}
+#[doc = "12:12\\]
+Command failed due to error other than write/erase protect violation or verify error. This is an extra bit in case a new failure mechanism is added which requires a status bit.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Failmisc {
+    #[doc = "1: Fail"]
+    Statfail = 1,
+    #[doc = "0: No Fail"]
+    Statnofail = 0,
+}
+impl From<Failmisc> for bool {
+    #[inline(always)]
+    fn from(variant: Failmisc) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `FAILMISC` reader - 12:12\\]
 Command failed due to error other than write/erase protect violation or verify error. This is an extra bit in case a new failure mechanism is added which requires a status bit."]
-pub type FAILMISC_R = crate::BitReader<FAILMISC_A>;
-#[doc = "12:12\\]
-Command failed due to error other than write/erase protect violation or verify error. This is an extra bit in case a new failure mechanism is added which requires a status bit.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum FAILMISC_A {
-    #[doc = "1: Fail"]
-    STATFAIL = 1,
-    #[doc = "0: No Fail"]
-    STATNOFAIL = 0,
-}
-impl From<FAILMISC_A> for bool {
-    #[inline(always)]
-    fn from(variant: FAILMISC_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl FAILMISC_R {
+pub type FailmiscR = crate::BitReader<Failmisc>;
+impl FailmiscR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> FAILMISC_A {
+    pub const fn variant(&self) -> Failmisc {
         match self.bits {
-            true => FAILMISC_A::STATFAIL,
-            false => FAILMISC_A::STATNOFAIL,
+            true => Failmisc::Statfail,
+            false => Failmisc::Statnofail,
         }
     }
-    #[doc = "Checks if the value of the field is `STATFAIL`"]
+    #[doc = "Fail"]
     #[inline(always)]
     pub fn is_statfail(&self) -> bool {
-        *self == FAILMISC_A::STATFAIL
+        *self == Failmisc::Statfail
     }
-    #[doc = "Checks if the value of the field is `STATNOFAIL`"]
+    #[doc = "No Fail"]
     #[inline(always)]
     pub fn is_statnofail(&self) -> bool {
-        *self == FAILMISC_A::STATNOFAIL
+        *self == Failmisc::Statnofail
     }
 }
 #[doc = "Field `FAILMISC` writer - 12:12\\]
 Command failed due to error other than write/erase protect violation or verify error. This is an extra bit in case a new failure mechanism is added which requires a status bit."]
-pub type FAILMISC_W<'a, const O: u8> = crate::BitWriter<'a, u32, STATCMD_SPEC, FAILMISC_A, O>;
-impl<'a, const O: u8> FAILMISC_W<'a, O> {
+pub type FailmiscW<'a, REG> = crate::BitWriter<'a, REG, Failmisc>;
+impl<'a, REG> FailmiscW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Fail"]
     #[inline(always)]
-    pub fn statfail(self) -> &'a mut W {
-        self.variant(FAILMISC_A::STATFAIL)
+    pub fn statfail(self) -> &'a mut crate::W<REG> {
+        self.variant(Failmisc::Statfail)
     }
     #[doc = "No Fail"]
     #[inline(always)]
-    pub fn statnofail(self) -> &'a mut W {
-        self.variant(FAILMISC_A::STATNOFAIL)
+    pub fn statnofail(self) -> &'a mut crate::W<REG> {
+        self.variant(Failmisc::Statnofail)
     }
 }
 #[doc = "Field `RESERVED13` reader - 31:13\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED13_R = crate::FieldReader<u32, u32>;
+pub type Reserved13R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED13` writer - 31:13\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED13_W<'a, const O: u8> = crate::FieldWriter<'a, u32, STATCMD_SPEC, u32, u32, 19, O>;
+pub type Reserved13W<'a, REG> = crate::FieldWriter<'a, REG, 19, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Command Done"]
     #[inline(always)]
-    pub fn cmddone(&self) -> CMDDONE_R {
-        CMDDONE_R::new((self.bits & 1) != 0)
+    pub fn cmddone(&self) -> CmddoneR {
+        CmddoneR::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 Command Pass - valid when CMD_DONE field is 1"]
     #[inline(always)]
-    pub fn cmdpass(&self) -> CMDPASS_R {
-        CMDPASS_R::new(((self.bits >> 1) & 1) != 0)
+    pub fn cmdpass(&self) -> CmdpassR {
+        CmdpassR::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bit 2 - 2:2\\]
 Command In Progress"]
     #[inline(always)]
-    pub fn cmdinprogress(&self) -> CMDINPROGRESS_R {
-        CMDINPROGRESS_R::new(((self.bits >> 2) & 1) != 0)
+    pub fn cmdinprogress(&self) -> CmdinprogressR {
+        CmdinprogressR::new(((self.bits >> 2) & 1) != 0)
     }
     #[doc = "Bit 3 - 3:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved3(&self) -> RESERVED3_R {
-        RESERVED3_R::new(((self.bits >> 3) & 1) != 0)
+    pub fn reserved3(&self) -> Reserved3R {
+        Reserved3R::new(((self.bits >> 3) & 1) != 0)
     }
     #[doc = "Bit 4 - 4:4\\]
 Command failed due to Write/Erase Protect Sector Violation"]
     #[inline(always)]
-    pub fn failweprot(&self) -> FAILWEPROT_R {
-        FAILWEPROT_R::new(((self.bits >> 4) & 1) != 0)
+    pub fn failweprot(&self) -> FailweprotR {
+        FailweprotR::new(((self.bits >> 4) & 1) != 0)
     }
     #[doc = "Bit 5 - 5:5\\]
 Command failed due to verify error"]
     #[inline(always)]
-    pub fn failverify(&self) -> FAILVERIFY_R {
-        FAILVERIFY_R::new(((self.bits >> 5) & 1) != 0)
+    pub fn failverify(&self) -> FailverifyR {
+        FailverifyR::new(((self.bits >> 5) & 1) != 0)
     }
     #[doc = "Bit 6 - 6:6\\]
 Command failed due to the use of an illegal address"]
     #[inline(always)]
-    pub fn faililladdr(&self) -> FAILILLADDR_R {
-        FAILILLADDR_R::new(((self.bits >> 6) & 1) != 0)
+    pub fn faililladdr(&self) -> FaililladdrR {
+        FaililladdrR::new(((self.bits >> 6) & 1) != 0)
     }
     #[doc = "Bit 7 - 7:7\\]
 Command failed because a bank has been set to a mode other than READ. Program and Erase commands cannot be initiated unless all banks are in READ mode."]
     #[inline(always)]
-    pub fn failmode(&self) -> FAILMODE_R {
-        FAILMODE_R::new(((self.bits >> 7) & 1) != 0)
+    pub fn failmode(&self) -> FailmodeR {
+        FailmodeR::new(((self.bits >> 7) & 1) != 0)
     }
     #[doc = "Bit 8 - 8:8\\]
 Program command failed because an attempt was made to program a stored 0 value to a 1."]
     #[inline(always)]
-    pub fn failinvdata(&self) -> FAILINVDATA_R {
-        FAILINVDATA_R::new(((self.bits >> 8) & 1) != 0)
+    pub fn failinvdata(&self) -> FailinvdataR {
+        FailinvdataR::new(((self.bits >> 8) & 1) != 0)
     }
     #[doc = "Bit 12 - 12:12\\]
 Command failed due to error other than write/erase protect violation or verify error. This is an extra bit in case a new failure mechanism is added which requires a status bit."]
     #[inline(always)]
-    pub fn failmisc(&self) -> FAILMISC_R {
-        FAILMISC_R::new(((self.bits >> 12) & 1) != 0)
+    pub fn failmisc(&self) -> FailmiscR {
+        FailmiscR::new(((self.bits >> 12) & 1) != 0)
     }
     #[doc = "Bits 13:31 - 31:13\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved13(&self) -> RESERVED13_R {
-        RESERVED13_R::new((self.bits >> 13) & 0x0007_ffff)
+    pub fn reserved13(&self) -> Reserved13R {
+        Reserved13R::new((self.bits >> 13) & 0x0007_ffff)
     }
 }
 impl W {
@@ -597,102 +591,94 @@ impl W {
 Command Done"]
     #[inline(always)]
     #[must_use]
-    pub fn cmddone(&mut self) -> CMDDONE_W<0> {
-        CMDDONE_W::new(self)
+    pub fn cmddone(&mut self) -> CmddoneW<StatcmdSpec> {
+        CmddoneW::new(self, 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 Command Pass - valid when CMD_DONE field is 1"]
     #[inline(always)]
     #[must_use]
-    pub fn cmdpass(&mut self) -> CMDPASS_W<1> {
-        CMDPASS_W::new(self)
+    pub fn cmdpass(&mut self) -> CmdpassW<StatcmdSpec> {
+        CmdpassW::new(self, 1)
     }
     #[doc = "Bit 2 - 2:2\\]
 Command In Progress"]
     #[inline(always)]
     #[must_use]
-    pub fn cmdinprogress(&mut self) -> CMDINPROGRESS_W<2> {
-        CMDINPROGRESS_W::new(self)
+    pub fn cmdinprogress(&mut self) -> CmdinprogressW<StatcmdSpec> {
+        CmdinprogressW::new(self, 2)
     }
     #[doc = "Bit 3 - 3:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved3(&mut self) -> RESERVED3_W<3> {
-        RESERVED3_W::new(self)
+    pub fn reserved3(&mut self) -> Reserved3W<StatcmdSpec> {
+        Reserved3W::new(self, 3)
     }
     #[doc = "Bit 4 - 4:4\\]
 Command failed due to Write/Erase Protect Sector Violation"]
     #[inline(always)]
     #[must_use]
-    pub fn failweprot(&mut self) -> FAILWEPROT_W<4> {
-        FAILWEPROT_W::new(self)
+    pub fn failweprot(&mut self) -> FailweprotW<StatcmdSpec> {
+        FailweprotW::new(self, 4)
     }
     #[doc = "Bit 5 - 5:5\\]
 Command failed due to verify error"]
     #[inline(always)]
     #[must_use]
-    pub fn failverify(&mut self) -> FAILVERIFY_W<5> {
-        FAILVERIFY_W::new(self)
+    pub fn failverify(&mut self) -> FailverifyW<StatcmdSpec> {
+        FailverifyW::new(self, 5)
     }
     #[doc = "Bit 6 - 6:6\\]
 Command failed due to the use of an illegal address"]
     #[inline(always)]
     #[must_use]
-    pub fn faililladdr(&mut self) -> FAILILLADDR_W<6> {
-        FAILILLADDR_W::new(self)
+    pub fn faililladdr(&mut self) -> FaililladdrW<StatcmdSpec> {
+        FaililladdrW::new(self, 6)
     }
     #[doc = "Bit 7 - 7:7\\]
 Command failed because a bank has been set to a mode other than READ. Program and Erase commands cannot be initiated unless all banks are in READ mode."]
     #[inline(always)]
     #[must_use]
-    pub fn failmode(&mut self) -> FAILMODE_W<7> {
-        FAILMODE_W::new(self)
+    pub fn failmode(&mut self) -> FailmodeW<StatcmdSpec> {
+        FailmodeW::new(self, 7)
     }
     #[doc = "Bit 8 - 8:8\\]
 Program command failed because an attempt was made to program a stored 0 value to a 1."]
     #[inline(always)]
     #[must_use]
-    pub fn failinvdata(&mut self) -> FAILINVDATA_W<8> {
-        FAILINVDATA_W::new(self)
+    pub fn failinvdata(&mut self) -> FailinvdataW<StatcmdSpec> {
+        FailinvdataW::new(self, 8)
     }
     #[doc = "Bit 12 - 12:12\\]
 Command failed due to error other than write/erase protect violation or verify error. This is an extra bit in case a new failure mechanism is added which requires a status bit."]
     #[inline(always)]
     #[must_use]
-    pub fn failmisc(&mut self) -> FAILMISC_W<12> {
-        FAILMISC_W::new(self)
+    pub fn failmisc(&mut self) -> FailmiscW<StatcmdSpec> {
+        FailmiscW::new(self, 12)
     }
     #[doc = "Bits 13:31 - 31:13\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved13(&mut self) -> RESERVED13_W<13> {
-        RESERVED13_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved13(&mut self) -> Reserved13W<StatcmdSpec> {
+        Reserved13W::new(self, 13)
     }
 }
-#[doc = "Command Status Register This register contains status regarding completion and errors of command execution.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [statcmd](index.html) module"]
-pub struct STATCMD_SPEC;
-impl crate::RegisterSpec for STATCMD_SPEC {
+#[doc = "Command Status Register This register contains status regarding completion and errors of command execution.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`statcmd::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`statcmd::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct StatcmdSpec;
+impl crate::RegisterSpec for StatcmdSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [statcmd::R](R) reader structure"]
-impl crate::Readable for STATCMD_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [statcmd::W](W) writer structure"]
-impl crate::Writable for STATCMD_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`statcmd::R`](R) reader structure"]
+impl crate::Readable for StatcmdSpec {}
+#[doc = "`write(|w| ..)` method takes [`statcmd::W`](W) writer structure"]
+impl crate::Writable for StatcmdSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets STATCMD to value 0"]
-impl crate::Resettable for STATCMD_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for StatcmdSpec {
+    const RESET_VALUE: u32 = 0;
 }

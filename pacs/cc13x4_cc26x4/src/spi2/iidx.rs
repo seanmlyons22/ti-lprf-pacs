@@ -1,216 +1,192 @@
 #[doc = "Register `IIDX` reader"]
-pub struct R(crate::R<IIDX_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<IIDX_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<IIDX_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<IIDX_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<IidxSpec>;
 #[doc = "Register `IIDX` writer"]
-pub struct W(crate::W<IIDX_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<IIDX_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<IIDX_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<IIDX_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `STAT` reader - 7:0\\]
-Interrupt index status"]
-pub type STAT_R = crate::FieldReader<u8, STAT_A>;
+pub type W = crate::W<IidxSpec>;
 #[doc = "7:0\\]
 Interrupt index status\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum STAT_A {
+pub enum Stat {
     #[doc = "9: DMA Done for Transmit Event/interrupt pending"]
-    DMA_DONE_TX_EVT = 9,
+    DmaDoneTxEvt = 9,
     #[doc = "8: DMA Done for Receive Event/interrupt pending"]
-    DMA_DONE_RX_EVT = 8,
+    DmaDoneRxEvt = 8,
     #[doc = "7: End of Transmit Event/interrupt pending"]
-    IDLE_EVT = 7,
+    IdleEvt = 7,
     #[doc = "6: Transmit Buffer Empty Event/interrupt pending"]
-    TX_EMPTY = 6,
+    TxEmpty = 6,
     #[doc = "5: Transmit Event/interrupt pending"]
-    TX_EVT = 5,
+    TxEvt = 5,
     #[doc = "4: Receive Event/interrupt pending"]
-    RX_EVT = 4,
+    RxEvt = 4,
     #[doc = "3: SPI Receive Time-Out Event/interrupt pending"]
-    RTOUT_EVT = 3,
+    RtoutEvt = 3,
     #[doc = "2: Transmit Parity Event/interrupt pending"]
-    PER_EVT = 2,
+    PerEvt = 2,
     #[doc = "1: RX FIFO Overflow Event/interrupt pending"]
-    RXFIFO_OFV_EVT = 1,
+    RxfifoOfvEvt = 1,
     #[doc = "0: No interrupt pending"]
-    NO_INTR = 0,
+    NoIntr = 0,
 }
-impl From<STAT_A> for u8 {
+impl From<Stat> for u8 {
     #[inline(always)]
-    fn from(variant: STAT_A) -> Self {
+    fn from(variant: Stat) -> Self {
         variant as _
     }
 }
-impl STAT_R {
+impl crate::FieldSpec for Stat {
+    type Ux = u8;
+}
+impl crate::IsEnum for Stat {}
+#[doc = "Field `STAT` reader - 7:0\\]
+Interrupt index status"]
+pub type StatR = crate::FieldReader<Stat>;
+impl StatR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<STAT_A> {
+    pub const fn variant(&self) -> Option<Stat> {
         match self.bits {
-            9 => Some(STAT_A::DMA_DONE_TX_EVT),
-            8 => Some(STAT_A::DMA_DONE_RX_EVT),
-            7 => Some(STAT_A::IDLE_EVT),
-            6 => Some(STAT_A::TX_EMPTY),
-            5 => Some(STAT_A::TX_EVT),
-            4 => Some(STAT_A::RX_EVT),
-            3 => Some(STAT_A::RTOUT_EVT),
-            2 => Some(STAT_A::PER_EVT),
-            1 => Some(STAT_A::RXFIFO_OFV_EVT),
-            0 => Some(STAT_A::NO_INTR),
+            9 => Some(Stat::DmaDoneTxEvt),
+            8 => Some(Stat::DmaDoneRxEvt),
+            7 => Some(Stat::IdleEvt),
+            6 => Some(Stat::TxEmpty),
+            5 => Some(Stat::TxEvt),
+            4 => Some(Stat::RxEvt),
+            3 => Some(Stat::RtoutEvt),
+            2 => Some(Stat::PerEvt),
+            1 => Some(Stat::RxfifoOfvEvt),
+            0 => Some(Stat::NoIntr),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `DMA_DONE_TX_EVT`"]
+    #[doc = "DMA Done for Transmit Event/interrupt pending"]
     #[inline(always)]
     pub fn is_dma_done_tx_evt(&self) -> bool {
-        *self == STAT_A::DMA_DONE_TX_EVT
+        *self == Stat::DmaDoneTxEvt
     }
-    #[doc = "Checks if the value of the field is `DMA_DONE_RX_EVT`"]
+    #[doc = "DMA Done for Receive Event/interrupt pending"]
     #[inline(always)]
     pub fn is_dma_done_rx_evt(&self) -> bool {
-        *self == STAT_A::DMA_DONE_RX_EVT
+        *self == Stat::DmaDoneRxEvt
     }
-    #[doc = "Checks if the value of the field is `IDLE_EVT`"]
+    #[doc = "End of Transmit Event/interrupt pending"]
     #[inline(always)]
     pub fn is_idle_evt(&self) -> bool {
-        *self == STAT_A::IDLE_EVT
+        *self == Stat::IdleEvt
     }
-    #[doc = "Checks if the value of the field is `TX_EMPTY`"]
+    #[doc = "Transmit Buffer Empty Event/interrupt pending"]
     #[inline(always)]
     pub fn is_tx_empty(&self) -> bool {
-        *self == STAT_A::TX_EMPTY
+        *self == Stat::TxEmpty
     }
-    #[doc = "Checks if the value of the field is `TX_EVT`"]
+    #[doc = "Transmit Event/interrupt pending"]
     #[inline(always)]
     pub fn is_tx_evt(&self) -> bool {
-        *self == STAT_A::TX_EVT
+        *self == Stat::TxEvt
     }
-    #[doc = "Checks if the value of the field is `RX_EVT`"]
+    #[doc = "Receive Event/interrupt pending"]
     #[inline(always)]
     pub fn is_rx_evt(&self) -> bool {
-        *self == STAT_A::RX_EVT
+        *self == Stat::RxEvt
     }
-    #[doc = "Checks if the value of the field is `RTOUT_EVT`"]
+    #[doc = "SPI Receive Time-Out Event/interrupt pending"]
     #[inline(always)]
     pub fn is_rtout_evt(&self) -> bool {
-        *self == STAT_A::RTOUT_EVT
+        *self == Stat::RtoutEvt
     }
-    #[doc = "Checks if the value of the field is `PER_EVT`"]
+    #[doc = "Transmit Parity Event/interrupt pending"]
     #[inline(always)]
     pub fn is_per_evt(&self) -> bool {
-        *self == STAT_A::PER_EVT
+        *self == Stat::PerEvt
     }
-    #[doc = "Checks if the value of the field is `RXFIFO_OFV_EVT`"]
+    #[doc = "RX FIFO Overflow Event/interrupt pending"]
     #[inline(always)]
     pub fn is_rxfifo_ofv_evt(&self) -> bool {
-        *self == STAT_A::RXFIFO_OFV_EVT
+        *self == Stat::RxfifoOfvEvt
     }
-    #[doc = "Checks if the value of the field is `NO_INTR`"]
+    #[doc = "No interrupt pending"]
     #[inline(always)]
     pub fn is_no_intr(&self) -> bool {
-        *self == STAT_A::NO_INTR
+        *self == Stat::NoIntr
     }
 }
 #[doc = "Field `STAT` writer - 7:0\\]
 Interrupt index status"]
-pub type STAT_W<'a, const O: u8> = crate::FieldWriter<'a, u32, IIDX_SPEC, u8, STAT_A, 8, O>;
-impl<'a, const O: u8> STAT_W<'a, O> {
+pub type StatW<'a, REG> = crate::FieldWriter<'a, REG, 8, Stat>;
+impl<'a, REG> StatW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "DMA Done for Transmit Event/interrupt pending"]
     #[inline(always)]
-    pub fn dma_done_tx_evt(self) -> &'a mut W {
-        self.variant(STAT_A::DMA_DONE_TX_EVT)
+    pub fn dma_done_tx_evt(self) -> &'a mut crate::W<REG> {
+        self.variant(Stat::DmaDoneTxEvt)
     }
     #[doc = "DMA Done for Receive Event/interrupt pending"]
     #[inline(always)]
-    pub fn dma_done_rx_evt(self) -> &'a mut W {
-        self.variant(STAT_A::DMA_DONE_RX_EVT)
+    pub fn dma_done_rx_evt(self) -> &'a mut crate::W<REG> {
+        self.variant(Stat::DmaDoneRxEvt)
     }
     #[doc = "End of Transmit Event/interrupt pending"]
     #[inline(always)]
-    pub fn idle_evt(self) -> &'a mut W {
-        self.variant(STAT_A::IDLE_EVT)
+    pub fn idle_evt(self) -> &'a mut crate::W<REG> {
+        self.variant(Stat::IdleEvt)
     }
     #[doc = "Transmit Buffer Empty Event/interrupt pending"]
     #[inline(always)]
-    pub fn tx_empty(self) -> &'a mut W {
-        self.variant(STAT_A::TX_EMPTY)
+    pub fn tx_empty(self) -> &'a mut crate::W<REG> {
+        self.variant(Stat::TxEmpty)
     }
     #[doc = "Transmit Event/interrupt pending"]
     #[inline(always)]
-    pub fn tx_evt(self) -> &'a mut W {
-        self.variant(STAT_A::TX_EVT)
+    pub fn tx_evt(self) -> &'a mut crate::W<REG> {
+        self.variant(Stat::TxEvt)
     }
     #[doc = "Receive Event/interrupt pending"]
     #[inline(always)]
-    pub fn rx_evt(self) -> &'a mut W {
-        self.variant(STAT_A::RX_EVT)
+    pub fn rx_evt(self) -> &'a mut crate::W<REG> {
+        self.variant(Stat::RxEvt)
     }
     #[doc = "SPI Receive Time-Out Event/interrupt pending"]
     #[inline(always)]
-    pub fn rtout_evt(self) -> &'a mut W {
-        self.variant(STAT_A::RTOUT_EVT)
+    pub fn rtout_evt(self) -> &'a mut crate::W<REG> {
+        self.variant(Stat::RtoutEvt)
     }
     #[doc = "Transmit Parity Event/interrupt pending"]
     #[inline(always)]
-    pub fn per_evt(self) -> &'a mut W {
-        self.variant(STAT_A::PER_EVT)
+    pub fn per_evt(self) -> &'a mut crate::W<REG> {
+        self.variant(Stat::PerEvt)
     }
     #[doc = "RX FIFO Overflow Event/interrupt pending"]
     #[inline(always)]
-    pub fn rxfifo_ofv_evt(self) -> &'a mut W {
-        self.variant(STAT_A::RXFIFO_OFV_EVT)
+    pub fn rxfifo_ofv_evt(self) -> &'a mut crate::W<REG> {
+        self.variant(Stat::RxfifoOfvEvt)
     }
     #[doc = "No interrupt pending"]
     #[inline(always)]
-    pub fn no_intr(self) -> &'a mut W {
-        self.variant(STAT_A::NO_INTR)
+    pub fn no_intr(self) -> &'a mut crate::W<REG> {
+        self.variant(Stat::NoIntr)
     }
 }
 #[doc = "Field `RESERVED8` reader - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED8_R = crate::FieldReader<u32, u32>;
+pub type Reserved8R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED8` writer - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED8_W<'a, const O: u8> = crate::FieldWriter<'a, u32, IIDX_SPEC, u32, u32, 24, O>;
+pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Interrupt index status"]
     #[inline(always)]
-    pub fn stat(&self) -> STAT_R {
-        STAT_R::new((self.bits & 0xff) as u8)
+    pub fn stat(&self) -> StatR {
+        StatR::new((self.bits & 0xff) as u8)
     }
     #[doc = "Bits 8:31 - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved8(&self) -> RESERVED8_R {
-        RESERVED8_R::new((self.bits >> 8) & 0x00ff_ffff)
+    pub fn reserved8(&self) -> Reserved8R {
+        Reserved8R::new((self.bits >> 8) & 0x00ff_ffff)
     }
 }
 impl W {
@@ -218,39 +194,31 @@ impl W {
 Interrupt index status"]
     #[inline(always)]
     #[must_use]
-    pub fn stat(&mut self) -> STAT_W<0> {
-        STAT_W::new(self)
+    pub fn stat(&mut self) -> StatW<IidxSpec> {
+        StatW::new(self, 0)
     }
     #[doc = "Bits 8:31 - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved8(&mut self) -> RESERVED8_W<8> {
-        RESERVED8_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved8(&mut self) -> Reserved8W<IidxSpec> {
+        Reserved8W::new(self, 8)
     }
 }
-#[doc = "This register provides the highest priority enabled interrupt index. Value 0x00 means no event pending. Interrupt 1 is the highest priority, and 31 is the least priority. That is, the least bit position that is set to 1 denotes the highest priority pending interrupt. The priority order is fixed. However, users can implement their own prioritization schemes using other registers that expose the full set of interrupts that have occurred. On each read, only one interrupt is indicated. On a read, the current interrupt (highest priority) is automatically cleared by the hardware and the corresponding interrupt flag in RIS and MIS are cleared as well. After a read from the CPU (not from the debug interface), the register is updated with the next highest priority interrupt, if none are pending, then it would display 0x0.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [iidx](index.html) module"]
-pub struct IIDX_SPEC;
-impl crate::RegisterSpec for IIDX_SPEC {
+#[doc = "This register provides the highest priority enabled interrupt index. Value 0x00 means no event pending. Interrupt 1 is the highest priority, and 31 is the least priority. That is, the least bit position that is set to 1 denotes the highest priority pending interrupt. The priority order is fixed. However, users can implement their own prioritization schemes using other registers that expose the full set of interrupts that have occurred. On each read, only one interrupt is indicated. On a read, the current interrupt (highest priority) is automatically cleared by the hardware and the corresponding interrupt flag in RIS and MIS are cleared as well. After a read from the CPU (not from the debug interface), the register is updated with the next highest priority interrupt, if none are pending, then it would display 0x0.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`iidx::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`iidx::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct IidxSpec;
+impl crate::RegisterSpec for IidxSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [iidx::R](R) reader structure"]
-impl crate::Readable for IIDX_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [iidx::W](W) writer structure"]
-impl crate::Writable for IIDX_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`iidx::R`](R) reader structure"]
+impl crate::Readable for IidxSpec {}
+#[doc = "`write(|w| ..)` method takes [`iidx::W`](W) writer structure"]
+impl crate::Writable for IidxSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets IIDX to value 0"]
-impl crate::Resettable for IIDX_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for IidxSpec {
+    const RESET_VALUE: u32 = 0;
 }

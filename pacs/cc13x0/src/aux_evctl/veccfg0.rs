@@ -1,1203 +1,1197 @@
 #[doc = "Register `VECCFG0` reader"]
-pub struct R(crate::R<VECCFG0_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<VECCFG0_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<VECCFG0_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<VECCFG0_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Veccfg0Spec>;
 #[doc = "Register `VECCFG0` writer"]
-pub struct W(crate::W<VECCFG0_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<VECCFG0_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<VECCFG0_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<VECCFG0_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `VEC0_EV` reader - 4:0\\]
-Select vector 0 trigger source event."]
-pub type VEC0_EV_R = crate::FieldReader<u8, VEC0_EV_A>;
+pub type W = crate::W<Veccfg0Spec>;
 #[doc = "4:0\\]
 Select vector 0 trigger source event.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum VEC0_EV_A {
+pub enum Vec0Ev {
     #[doc = "31: EVSTAT1.ADC_IRQ"]
-    ADC_IRQ = 31,
+    AdcIrq = 31,
     #[doc = "30: EVSTAT1.MCU_EV"]
-    MCU_EV = 30,
+    McuEv = 30,
     #[doc = "29: EVSTAT1.ACLK_REF"]
-    ACLK_REF = 29,
+    AclkRef = 29,
     #[doc = "28: EVSTAT1.AUXIO15"]
-    AUXIO15 = 28,
+    Auxio15 = 28,
     #[doc = "27: EVSTAT1.AUXIO14"]
-    AUXIO14 = 27,
+    Auxio14 = 27,
     #[doc = "26: EVSTAT1.AUXIO13"]
-    AUXIO13 = 26,
+    Auxio13 = 26,
     #[doc = "25: EVSTAT1.AUXIO12"]
-    AUXIO12 = 25,
+    Auxio12 = 25,
     #[doc = "24: EVSTAT1.AUXIO11"]
-    AUXIO11 = 24,
+    Auxio11 = 24,
     #[doc = "23: EVSTAT1.AUXIO10"]
-    AUXIO10 = 23,
+    Auxio10 = 23,
     #[doc = "22: EVSTAT1.AUXIO9"]
-    AUXIO9 = 22,
+    Auxio9 = 22,
     #[doc = "21: EVSTAT1.AUXIO8"]
-    AUXIO8 = 21,
+    Auxio8 = 21,
     #[doc = "20: EVSTAT1.AUXIO7"]
-    AUXIO7 = 20,
+    Auxio7 = 20,
     #[doc = "19: EVSTAT1.AUXIO6"]
-    AUXIO6 = 19,
+    Auxio6 = 19,
     #[doc = "18: EVSTAT1.AUXIO5"]
-    AUXIO5 = 18,
+    Auxio5 = 18,
     #[doc = "17: EVSTAT1.AUXIO4"]
-    AUXIO4 = 17,
+    Auxio4 = 17,
     #[doc = "16: EVSTAT1.AUXIO3"]
-    AUXIO3 = 16,
+    Auxio3 = 16,
     #[doc = "15: EVSTAT0.AUXIO2"]
-    AUXIO2 = 15,
+    Auxio2 = 15,
     #[doc = "14: EVSTAT0.AUXIO1"]
-    AUXIO1 = 14,
+    Auxio1 = 14,
     #[doc = "13: EVSTAT0.AUXIO0"]
-    AUXIO0 = 13,
+    Auxio0 = 13,
     #[doc = "12: EVSTAT0.AON_PROG_WU"]
-    AON_PROG_WU = 12,
+    AonProgWu = 12,
     #[doc = "11: EVSTAT0.AON_SW"]
-    AON_SW = 11,
+    AonSw = 11,
     #[doc = "10: EVSTAT0.OBSMUX1"]
-    OBSMUX1 = 10,
+    Obsmux1 = 10,
     #[doc = "9: EVSTAT0.OBSMUX0"]
-    OBSMUX0 = 9,
+    Obsmux0 = 9,
     #[doc = "8: EVSTAT0.ADC_FIFO_ALMOST_FULL"]
-    ADC_FIFO_ALMOST_FULL = 8,
+    AdcFifoAlmostFull = 8,
     #[doc = "7: EVSTAT0.ADC_DONE"]
-    ADC_DONE = 7,
+    AdcDone = 7,
     #[doc = "6: EVSTAT0.SMPH_AUTOTAKE_DONE"]
-    SMPH_AUTOTAKE_DONE = 6,
+    SmphAutotakeDone = 6,
     #[doc = "5: EVSTAT0.TIMER1_EV"]
-    TIMER1_EV = 5,
+    Timer1Ev = 5,
     #[doc = "4: EVSTAT0.TIMER0_EV"]
-    TIMER0_EV = 4,
+    Timer0Ev = 4,
     #[doc = "3: EVSTAT0.TDC_DONE"]
-    TDC_DONE = 3,
+    TdcDone = 3,
     #[doc = "2: EVSTAT0.AUX_COMPB"]
-    AUX_COMPB = 2,
+    AuxCompb = 2,
     #[doc = "1: EVSTAT0.AUX_COMPA"]
-    AUX_COMPA = 1,
+    AuxCompa = 1,
     #[doc = "0: EVSTAT0.AON_RTC_CH2"]
-    AON_RTC_CH2 = 0,
+    AonRtcCh2 = 0,
 }
-impl From<VEC0_EV_A> for u8 {
+impl From<Vec0Ev> for u8 {
     #[inline(always)]
-    fn from(variant: VEC0_EV_A) -> Self {
+    fn from(variant: Vec0Ev) -> Self {
         variant as _
     }
 }
-impl VEC0_EV_R {
+impl crate::FieldSpec for Vec0Ev {
+    type Ux = u8;
+}
+impl crate::IsEnum for Vec0Ev {}
+#[doc = "Field `VEC0_EV` reader - 4:0\\]
+Select vector 0 trigger source event."]
+pub type Vec0EvR = crate::FieldReader<Vec0Ev>;
+impl Vec0EvR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> VEC0_EV_A {
+    pub const fn variant(&self) -> Vec0Ev {
         match self.bits {
-            31 => VEC0_EV_A::ADC_IRQ,
-            30 => VEC0_EV_A::MCU_EV,
-            29 => VEC0_EV_A::ACLK_REF,
-            28 => VEC0_EV_A::AUXIO15,
-            27 => VEC0_EV_A::AUXIO14,
-            26 => VEC0_EV_A::AUXIO13,
-            25 => VEC0_EV_A::AUXIO12,
-            24 => VEC0_EV_A::AUXIO11,
-            23 => VEC0_EV_A::AUXIO10,
-            22 => VEC0_EV_A::AUXIO9,
-            21 => VEC0_EV_A::AUXIO8,
-            20 => VEC0_EV_A::AUXIO7,
-            19 => VEC0_EV_A::AUXIO6,
-            18 => VEC0_EV_A::AUXIO5,
-            17 => VEC0_EV_A::AUXIO4,
-            16 => VEC0_EV_A::AUXIO3,
-            15 => VEC0_EV_A::AUXIO2,
-            14 => VEC0_EV_A::AUXIO1,
-            13 => VEC0_EV_A::AUXIO0,
-            12 => VEC0_EV_A::AON_PROG_WU,
-            11 => VEC0_EV_A::AON_SW,
-            10 => VEC0_EV_A::OBSMUX1,
-            9 => VEC0_EV_A::OBSMUX0,
-            8 => VEC0_EV_A::ADC_FIFO_ALMOST_FULL,
-            7 => VEC0_EV_A::ADC_DONE,
-            6 => VEC0_EV_A::SMPH_AUTOTAKE_DONE,
-            5 => VEC0_EV_A::TIMER1_EV,
-            4 => VEC0_EV_A::TIMER0_EV,
-            3 => VEC0_EV_A::TDC_DONE,
-            2 => VEC0_EV_A::AUX_COMPB,
-            1 => VEC0_EV_A::AUX_COMPA,
-            0 => VEC0_EV_A::AON_RTC_CH2,
+            31 => Vec0Ev::AdcIrq,
+            30 => Vec0Ev::McuEv,
+            29 => Vec0Ev::AclkRef,
+            28 => Vec0Ev::Auxio15,
+            27 => Vec0Ev::Auxio14,
+            26 => Vec0Ev::Auxio13,
+            25 => Vec0Ev::Auxio12,
+            24 => Vec0Ev::Auxio11,
+            23 => Vec0Ev::Auxio10,
+            22 => Vec0Ev::Auxio9,
+            21 => Vec0Ev::Auxio8,
+            20 => Vec0Ev::Auxio7,
+            19 => Vec0Ev::Auxio6,
+            18 => Vec0Ev::Auxio5,
+            17 => Vec0Ev::Auxio4,
+            16 => Vec0Ev::Auxio3,
+            15 => Vec0Ev::Auxio2,
+            14 => Vec0Ev::Auxio1,
+            13 => Vec0Ev::Auxio0,
+            12 => Vec0Ev::AonProgWu,
+            11 => Vec0Ev::AonSw,
+            10 => Vec0Ev::Obsmux1,
+            9 => Vec0Ev::Obsmux0,
+            8 => Vec0Ev::AdcFifoAlmostFull,
+            7 => Vec0Ev::AdcDone,
+            6 => Vec0Ev::SmphAutotakeDone,
+            5 => Vec0Ev::Timer1Ev,
+            4 => Vec0Ev::Timer0Ev,
+            3 => Vec0Ev::TdcDone,
+            2 => Vec0Ev::AuxCompb,
+            1 => Vec0Ev::AuxCompa,
+            0 => Vec0Ev::AonRtcCh2,
             _ => unreachable!(),
         }
     }
-    #[doc = "Checks if the value of the field is `ADC_IRQ`"]
+    #[doc = "EVSTAT1.ADC_IRQ"]
     #[inline(always)]
     pub fn is_adc_irq(&self) -> bool {
-        *self == VEC0_EV_A::ADC_IRQ
+        *self == Vec0Ev::AdcIrq
     }
-    #[doc = "Checks if the value of the field is `MCU_EV`"]
+    #[doc = "EVSTAT1.MCU_EV"]
     #[inline(always)]
     pub fn is_mcu_ev(&self) -> bool {
-        *self == VEC0_EV_A::MCU_EV
+        *self == Vec0Ev::McuEv
     }
-    #[doc = "Checks if the value of the field is `ACLK_REF`"]
+    #[doc = "EVSTAT1.ACLK_REF"]
     #[inline(always)]
     pub fn is_aclk_ref(&self) -> bool {
-        *self == VEC0_EV_A::ACLK_REF
+        *self == Vec0Ev::AclkRef
     }
-    #[doc = "Checks if the value of the field is `AUXIO15`"]
+    #[doc = "EVSTAT1.AUXIO15"]
     #[inline(always)]
     pub fn is_auxio15(&self) -> bool {
-        *self == VEC0_EV_A::AUXIO15
+        *self == Vec0Ev::Auxio15
     }
-    #[doc = "Checks if the value of the field is `AUXIO14`"]
+    #[doc = "EVSTAT1.AUXIO14"]
     #[inline(always)]
     pub fn is_auxio14(&self) -> bool {
-        *self == VEC0_EV_A::AUXIO14
+        *self == Vec0Ev::Auxio14
     }
-    #[doc = "Checks if the value of the field is `AUXIO13`"]
+    #[doc = "EVSTAT1.AUXIO13"]
     #[inline(always)]
     pub fn is_auxio13(&self) -> bool {
-        *self == VEC0_EV_A::AUXIO13
+        *self == Vec0Ev::Auxio13
     }
-    #[doc = "Checks if the value of the field is `AUXIO12`"]
+    #[doc = "EVSTAT1.AUXIO12"]
     #[inline(always)]
     pub fn is_auxio12(&self) -> bool {
-        *self == VEC0_EV_A::AUXIO12
+        *self == Vec0Ev::Auxio12
     }
-    #[doc = "Checks if the value of the field is `AUXIO11`"]
+    #[doc = "EVSTAT1.AUXIO11"]
     #[inline(always)]
     pub fn is_auxio11(&self) -> bool {
-        *self == VEC0_EV_A::AUXIO11
+        *self == Vec0Ev::Auxio11
     }
-    #[doc = "Checks if the value of the field is `AUXIO10`"]
+    #[doc = "EVSTAT1.AUXIO10"]
     #[inline(always)]
     pub fn is_auxio10(&self) -> bool {
-        *self == VEC0_EV_A::AUXIO10
+        *self == Vec0Ev::Auxio10
     }
-    #[doc = "Checks if the value of the field is `AUXIO9`"]
+    #[doc = "EVSTAT1.AUXIO9"]
     #[inline(always)]
     pub fn is_auxio9(&self) -> bool {
-        *self == VEC0_EV_A::AUXIO9
+        *self == Vec0Ev::Auxio9
     }
-    #[doc = "Checks if the value of the field is `AUXIO8`"]
+    #[doc = "EVSTAT1.AUXIO8"]
     #[inline(always)]
     pub fn is_auxio8(&self) -> bool {
-        *self == VEC0_EV_A::AUXIO8
+        *self == Vec0Ev::Auxio8
     }
-    #[doc = "Checks if the value of the field is `AUXIO7`"]
+    #[doc = "EVSTAT1.AUXIO7"]
     #[inline(always)]
     pub fn is_auxio7(&self) -> bool {
-        *self == VEC0_EV_A::AUXIO7
+        *self == Vec0Ev::Auxio7
     }
-    #[doc = "Checks if the value of the field is `AUXIO6`"]
+    #[doc = "EVSTAT1.AUXIO6"]
     #[inline(always)]
     pub fn is_auxio6(&self) -> bool {
-        *self == VEC0_EV_A::AUXIO6
+        *self == Vec0Ev::Auxio6
     }
-    #[doc = "Checks if the value of the field is `AUXIO5`"]
+    #[doc = "EVSTAT1.AUXIO5"]
     #[inline(always)]
     pub fn is_auxio5(&self) -> bool {
-        *self == VEC0_EV_A::AUXIO5
+        *self == Vec0Ev::Auxio5
     }
-    #[doc = "Checks if the value of the field is `AUXIO4`"]
+    #[doc = "EVSTAT1.AUXIO4"]
     #[inline(always)]
     pub fn is_auxio4(&self) -> bool {
-        *self == VEC0_EV_A::AUXIO4
+        *self == Vec0Ev::Auxio4
     }
-    #[doc = "Checks if the value of the field is `AUXIO3`"]
+    #[doc = "EVSTAT1.AUXIO3"]
     #[inline(always)]
     pub fn is_auxio3(&self) -> bool {
-        *self == VEC0_EV_A::AUXIO3
+        *self == Vec0Ev::Auxio3
     }
-    #[doc = "Checks if the value of the field is `AUXIO2`"]
+    #[doc = "EVSTAT0.AUXIO2"]
     #[inline(always)]
     pub fn is_auxio2(&self) -> bool {
-        *self == VEC0_EV_A::AUXIO2
+        *self == Vec0Ev::Auxio2
     }
-    #[doc = "Checks if the value of the field is `AUXIO1`"]
+    #[doc = "EVSTAT0.AUXIO1"]
     #[inline(always)]
     pub fn is_auxio1(&self) -> bool {
-        *self == VEC0_EV_A::AUXIO1
+        *self == Vec0Ev::Auxio1
     }
-    #[doc = "Checks if the value of the field is `AUXIO0`"]
+    #[doc = "EVSTAT0.AUXIO0"]
     #[inline(always)]
     pub fn is_auxio0(&self) -> bool {
-        *self == VEC0_EV_A::AUXIO0
+        *self == Vec0Ev::Auxio0
     }
-    #[doc = "Checks if the value of the field is `AON_PROG_WU`"]
+    #[doc = "EVSTAT0.AON_PROG_WU"]
     #[inline(always)]
     pub fn is_aon_prog_wu(&self) -> bool {
-        *self == VEC0_EV_A::AON_PROG_WU
+        *self == Vec0Ev::AonProgWu
     }
-    #[doc = "Checks if the value of the field is `AON_SW`"]
+    #[doc = "EVSTAT0.AON_SW"]
     #[inline(always)]
     pub fn is_aon_sw(&self) -> bool {
-        *self == VEC0_EV_A::AON_SW
+        *self == Vec0Ev::AonSw
     }
-    #[doc = "Checks if the value of the field is `OBSMUX1`"]
+    #[doc = "EVSTAT0.OBSMUX1"]
     #[inline(always)]
     pub fn is_obsmux1(&self) -> bool {
-        *self == VEC0_EV_A::OBSMUX1
+        *self == Vec0Ev::Obsmux1
     }
-    #[doc = "Checks if the value of the field is `OBSMUX0`"]
+    #[doc = "EVSTAT0.OBSMUX0"]
     #[inline(always)]
     pub fn is_obsmux0(&self) -> bool {
-        *self == VEC0_EV_A::OBSMUX0
+        *self == Vec0Ev::Obsmux0
     }
-    #[doc = "Checks if the value of the field is `ADC_FIFO_ALMOST_FULL`"]
+    #[doc = "EVSTAT0.ADC_FIFO_ALMOST_FULL"]
     #[inline(always)]
     pub fn is_adc_fifo_almost_full(&self) -> bool {
-        *self == VEC0_EV_A::ADC_FIFO_ALMOST_FULL
+        *self == Vec0Ev::AdcFifoAlmostFull
     }
-    #[doc = "Checks if the value of the field is `ADC_DONE`"]
+    #[doc = "EVSTAT0.ADC_DONE"]
     #[inline(always)]
     pub fn is_adc_done(&self) -> bool {
-        *self == VEC0_EV_A::ADC_DONE
+        *self == Vec0Ev::AdcDone
     }
-    #[doc = "Checks if the value of the field is `SMPH_AUTOTAKE_DONE`"]
+    #[doc = "EVSTAT0.SMPH_AUTOTAKE_DONE"]
     #[inline(always)]
     pub fn is_smph_autotake_done(&self) -> bool {
-        *self == VEC0_EV_A::SMPH_AUTOTAKE_DONE
+        *self == Vec0Ev::SmphAutotakeDone
     }
-    #[doc = "Checks if the value of the field is `TIMER1_EV`"]
+    #[doc = "EVSTAT0.TIMER1_EV"]
     #[inline(always)]
     pub fn is_timer1_ev(&self) -> bool {
-        *self == VEC0_EV_A::TIMER1_EV
+        *self == Vec0Ev::Timer1Ev
     }
-    #[doc = "Checks if the value of the field is `TIMER0_EV`"]
+    #[doc = "EVSTAT0.TIMER0_EV"]
     #[inline(always)]
     pub fn is_timer0_ev(&self) -> bool {
-        *self == VEC0_EV_A::TIMER0_EV
+        *self == Vec0Ev::Timer0Ev
     }
-    #[doc = "Checks if the value of the field is `TDC_DONE`"]
+    #[doc = "EVSTAT0.TDC_DONE"]
     #[inline(always)]
     pub fn is_tdc_done(&self) -> bool {
-        *self == VEC0_EV_A::TDC_DONE
+        *self == Vec0Ev::TdcDone
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPB`"]
+    #[doc = "EVSTAT0.AUX_COMPB"]
     #[inline(always)]
     pub fn is_aux_compb(&self) -> bool {
-        *self == VEC0_EV_A::AUX_COMPB
+        *self == Vec0Ev::AuxCompb
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPA`"]
+    #[doc = "EVSTAT0.AUX_COMPA"]
     #[inline(always)]
     pub fn is_aux_compa(&self) -> bool {
-        *self == VEC0_EV_A::AUX_COMPA
+        *self == Vec0Ev::AuxCompa
     }
-    #[doc = "Checks if the value of the field is `AON_RTC_CH2`"]
+    #[doc = "EVSTAT0.AON_RTC_CH2"]
     #[inline(always)]
     pub fn is_aon_rtc_ch2(&self) -> bool {
-        *self == VEC0_EV_A::AON_RTC_CH2
+        *self == Vec0Ev::AonRtcCh2
     }
 }
 #[doc = "Field `VEC0_EV` writer - 4:0\\]
 Select vector 0 trigger source event."]
-pub type VEC0_EV_W<'a, const O: u8> =
-    crate::FieldWriterSafe<'a, u32, VECCFG0_SPEC, u8, VEC0_EV_A, 5, O>;
-impl<'a, const O: u8> VEC0_EV_W<'a, O> {
+pub type Vec0EvW<'a, REG> = crate::FieldWriter<'a, REG, 5, Vec0Ev, crate::Safe>;
+impl<'a, REG> Vec0EvW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "EVSTAT1.ADC_IRQ"]
     #[inline(always)]
-    pub fn adc_irq(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::ADC_IRQ)
+    pub fn adc_irq(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::AdcIrq)
     }
     #[doc = "EVSTAT1.MCU_EV"]
     #[inline(always)]
-    pub fn mcu_ev(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::MCU_EV)
+    pub fn mcu_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::McuEv)
     }
     #[doc = "EVSTAT1.ACLK_REF"]
     #[inline(always)]
-    pub fn aclk_ref(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::ACLK_REF)
+    pub fn aclk_ref(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::AclkRef)
     }
     #[doc = "EVSTAT1.AUXIO15"]
     #[inline(always)]
-    pub fn auxio15(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::AUXIO15)
+    pub fn auxio15(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::Auxio15)
     }
     #[doc = "EVSTAT1.AUXIO14"]
     #[inline(always)]
-    pub fn auxio14(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::AUXIO14)
+    pub fn auxio14(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::Auxio14)
     }
     #[doc = "EVSTAT1.AUXIO13"]
     #[inline(always)]
-    pub fn auxio13(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::AUXIO13)
+    pub fn auxio13(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::Auxio13)
     }
     #[doc = "EVSTAT1.AUXIO12"]
     #[inline(always)]
-    pub fn auxio12(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::AUXIO12)
+    pub fn auxio12(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::Auxio12)
     }
     #[doc = "EVSTAT1.AUXIO11"]
     #[inline(always)]
-    pub fn auxio11(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::AUXIO11)
+    pub fn auxio11(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::Auxio11)
     }
     #[doc = "EVSTAT1.AUXIO10"]
     #[inline(always)]
-    pub fn auxio10(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::AUXIO10)
+    pub fn auxio10(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::Auxio10)
     }
     #[doc = "EVSTAT1.AUXIO9"]
     #[inline(always)]
-    pub fn auxio9(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::AUXIO9)
+    pub fn auxio9(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::Auxio9)
     }
     #[doc = "EVSTAT1.AUXIO8"]
     #[inline(always)]
-    pub fn auxio8(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::AUXIO8)
+    pub fn auxio8(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::Auxio8)
     }
     #[doc = "EVSTAT1.AUXIO7"]
     #[inline(always)]
-    pub fn auxio7(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::AUXIO7)
+    pub fn auxio7(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::Auxio7)
     }
     #[doc = "EVSTAT1.AUXIO6"]
     #[inline(always)]
-    pub fn auxio6(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::AUXIO6)
+    pub fn auxio6(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::Auxio6)
     }
     #[doc = "EVSTAT1.AUXIO5"]
     #[inline(always)]
-    pub fn auxio5(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::AUXIO5)
+    pub fn auxio5(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::Auxio5)
     }
     #[doc = "EVSTAT1.AUXIO4"]
     #[inline(always)]
-    pub fn auxio4(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::AUXIO4)
+    pub fn auxio4(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::Auxio4)
     }
     #[doc = "EVSTAT1.AUXIO3"]
     #[inline(always)]
-    pub fn auxio3(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::AUXIO3)
+    pub fn auxio3(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::Auxio3)
     }
     #[doc = "EVSTAT0.AUXIO2"]
     #[inline(always)]
-    pub fn auxio2(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::AUXIO2)
+    pub fn auxio2(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::Auxio2)
     }
     #[doc = "EVSTAT0.AUXIO1"]
     #[inline(always)]
-    pub fn auxio1(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::AUXIO1)
+    pub fn auxio1(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::Auxio1)
     }
     #[doc = "EVSTAT0.AUXIO0"]
     #[inline(always)]
-    pub fn auxio0(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::AUXIO0)
+    pub fn auxio0(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::Auxio0)
     }
     #[doc = "EVSTAT0.AON_PROG_WU"]
     #[inline(always)]
-    pub fn aon_prog_wu(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::AON_PROG_WU)
+    pub fn aon_prog_wu(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::AonProgWu)
     }
     #[doc = "EVSTAT0.AON_SW"]
     #[inline(always)]
-    pub fn aon_sw(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::AON_SW)
+    pub fn aon_sw(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::AonSw)
     }
     #[doc = "EVSTAT0.OBSMUX1"]
     #[inline(always)]
-    pub fn obsmux1(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::OBSMUX1)
+    pub fn obsmux1(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::Obsmux1)
     }
     #[doc = "EVSTAT0.OBSMUX0"]
     #[inline(always)]
-    pub fn obsmux0(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::OBSMUX0)
+    pub fn obsmux0(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::Obsmux0)
     }
     #[doc = "EVSTAT0.ADC_FIFO_ALMOST_FULL"]
     #[inline(always)]
-    pub fn adc_fifo_almost_full(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::ADC_FIFO_ALMOST_FULL)
+    pub fn adc_fifo_almost_full(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::AdcFifoAlmostFull)
     }
     #[doc = "EVSTAT0.ADC_DONE"]
     #[inline(always)]
-    pub fn adc_done(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::ADC_DONE)
+    pub fn adc_done(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::AdcDone)
     }
     #[doc = "EVSTAT0.SMPH_AUTOTAKE_DONE"]
     #[inline(always)]
-    pub fn smph_autotake_done(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::SMPH_AUTOTAKE_DONE)
+    pub fn smph_autotake_done(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::SmphAutotakeDone)
     }
     #[doc = "EVSTAT0.TIMER1_EV"]
     #[inline(always)]
-    pub fn timer1_ev(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::TIMER1_EV)
+    pub fn timer1_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::Timer1Ev)
     }
     #[doc = "EVSTAT0.TIMER0_EV"]
     #[inline(always)]
-    pub fn timer0_ev(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::TIMER0_EV)
+    pub fn timer0_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::Timer0Ev)
     }
     #[doc = "EVSTAT0.TDC_DONE"]
     #[inline(always)]
-    pub fn tdc_done(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::TDC_DONE)
+    pub fn tdc_done(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::TdcDone)
     }
     #[doc = "EVSTAT0.AUX_COMPB"]
     #[inline(always)]
-    pub fn aux_compb(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::AUX_COMPB)
+    pub fn aux_compb(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::AuxCompb)
     }
     #[doc = "EVSTAT0.AUX_COMPA"]
     #[inline(always)]
-    pub fn aux_compa(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::AUX_COMPA)
+    pub fn aux_compa(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::AuxCompa)
     }
     #[doc = "EVSTAT0.AON_RTC_CH2"]
     #[inline(always)]
-    pub fn aon_rtc_ch2(self) -> &'a mut W {
-        self.variant(VEC0_EV_A::AON_RTC_CH2)
+    pub fn aon_rtc_ch2(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Ev::AonRtcCh2)
+    }
+}
+#[doc = "5:5\\]
+Vector 0 trigger enable. When enabled, VEC0_EV event with VEC0_POL polarity triggers a jump to vector # 0 when AUX_SCE sleeps.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Vec0En {
+    #[doc = "1: Enable vector 0 trigger."]
+    En = 1,
+    #[doc = "0: Disable vector 0 trigger."]
+    Dis = 0,
+}
+impl From<Vec0En> for bool {
+    #[inline(always)]
+    fn from(variant: Vec0En) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `VEC0_EN` reader - 5:5\\]
 Vector 0 trigger enable. When enabled, VEC0_EV event with VEC0_POL polarity triggers a jump to vector # 0 when AUX_SCE sleeps."]
-pub type VEC0_EN_R = crate::BitReader<VEC0_EN_A>;
-#[doc = "5:5\\]
-Vector 0 trigger enable. When enabled, VEC0_EV event with VEC0_POL polarity triggers a jump to vector # 0 when AUX_SCE sleeps.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum VEC0_EN_A {
-    #[doc = "1: Enable vector 0 trigger."]
-    EN = 1,
-    #[doc = "0: Disable vector 0 trigger."]
-    DIS = 0,
-}
-impl From<VEC0_EN_A> for bool {
-    #[inline(always)]
-    fn from(variant: VEC0_EN_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl VEC0_EN_R {
+pub type Vec0EnR = crate::BitReader<Vec0En>;
+impl Vec0EnR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> VEC0_EN_A {
+    pub const fn variant(&self) -> Vec0En {
         match self.bits {
-            true => VEC0_EN_A::EN,
-            false => VEC0_EN_A::DIS,
+            true => Vec0En::En,
+            false => Vec0En::Dis,
         }
     }
-    #[doc = "Checks if the value of the field is `EN`"]
+    #[doc = "Enable vector 0 trigger."]
     #[inline(always)]
     pub fn is_en(&self) -> bool {
-        *self == VEC0_EN_A::EN
+        *self == Vec0En::En
     }
-    #[doc = "Checks if the value of the field is `DIS`"]
+    #[doc = "Disable vector 0 trigger."]
     #[inline(always)]
     pub fn is_dis(&self) -> bool {
-        *self == VEC0_EN_A::DIS
+        *self == Vec0En::Dis
     }
 }
 #[doc = "Field `VEC0_EN` writer - 5:5\\]
 Vector 0 trigger enable. When enabled, VEC0_EV event with VEC0_POL polarity triggers a jump to vector # 0 when AUX_SCE sleeps."]
-pub type VEC0_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, VECCFG0_SPEC, VEC0_EN_A, O>;
-impl<'a, const O: u8> VEC0_EN_W<'a, O> {
+pub type Vec0EnW<'a, REG> = crate::BitWriter<'a, REG, Vec0En>;
+impl<'a, REG> Vec0EnW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Enable vector 0 trigger."]
     #[inline(always)]
-    pub fn en(self) -> &'a mut W {
-        self.variant(VEC0_EN_A::EN)
+    pub fn en(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0En::En)
     }
     #[doc = "Disable vector 0 trigger."]
     #[inline(always)]
-    pub fn dis(self) -> &'a mut W {
-        self.variant(VEC0_EN_A::DIS)
+    pub fn dis(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0En::Dis)
+    }
+}
+#[doc = "6:6\\]
+Vector 0 trigger event polarity. To manually trigger vector 0 execution: - AUX_SCE must sleep. - Set VEC0_EV to a known static value. - Toggle VEC0_POL twice.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Vec0Pol {
+    #[doc = "1: Falling edge triggers vector 0 execution."]
+    Fall = 1,
+    #[doc = "0: Rising edge triggers vector 0 execution."]
+    Rise = 0,
+}
+impl From<Vec0Pol> for bool {
+    #[inline(always)]
+    fn from(variant: Vec0Pol) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `VEC0_POL` reader - 6:6\\]
 Vector 0 trigger event polarity. To manually trigger vector 0 execution: - AUX_SCE must sleep. - Set VEC0_EV to a known static value. - Toggle VEC0_POL twice."]
-pub type VEC0_POL_R = crate::BitReader<VEC0_POL_A>;
-#[doc = "6:6\\]
-Vector 0 trigger event polarity. To manually trigger vector 0 execution: - AUX_SCE must sleep. - Set VEC0_EV to a known static value. - Toggle VEC0_POL twice.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum VEC0_POL_A {
-    #[doc = "1: Falling edge triggers vector 0 execution."]
-    FALL = 1,
-    #[doc = "0: Rising edge triggers vector 0 execution."]
-    RISE = 0,
-}
-impl From<VEC0_POL_A> for bool {
-    #[inline(always)]
-    fn from(variant: VEC0_POL_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl VEC0_POL_R {
+pub type Vec0PolR = crate::BitReader<Vec0Pol>;
+impl Vec0PolR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> VEC0_POL_A {
+    pub const fn variant(&self) -> Vec0Pol {
         match self.bits {
-            true => VEC0_POL_A::FALL,
-            false => VEC0_POL_A::RISE,
+            true => Vec0Pol::Fall,
+            false => Vec0Pol::Rise,
         }
     }
-    #[doc = "Checks if the value of the field is `FALL`"]
+    #[doc = "Falling edge triggers vector 0 execution."]
     #[inline(always)]
     pub fn is_fall(&self) -> bool {
-        *self == VEC0_POL_A::FALL
+        *self == Vec0Pol::Fall
     }
-    #[doc = "Checks if the value of the field is `RISE`"]
+    #[doc = "Rising edge triggers vector 0 execution."]
     #[inline(always)]
     pub fn is_rise(&self) -> bool {
-        *self == VEC0_POL_A::RISE
+        *self == Vec0Pol::Rise
     }
 }
 #[doc = "Field `VEC0_POL` writer - 6:6\\]
 Vector 0 trigger event polarity. To manually trigger vector 0 execution: - AUX_SCE must sleep. - Set VEC0_EV to a known static value. - Toggle VEC0_POL twice."]
-pub type VEC0_POL_W<'a, const O: u8> = crate::BitWriter<'a, u32, VECCFG0_SPEC, VEC0_POL_A, O>;
-impl<'a, const O: u8> VEC0_POL_W<'a, O> {
+pub type Vec0PolW<'a, REG> = crate::BitWriter<'a, REG, Vec0Pol>;
+impl<'a, REG> Vec0PolW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Falling edge triggers vector 0 execution."]
     #[inline(always)]
-    pub fn fall(self) -> &'a mut W {
-        self.variant(VEC0_POL_A::FALL)
+    pub fn fall(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Pol::Fall)
     }
     #[doc = "Rising edge triggers vector 0 execution."]
     #[inline(always)]
-    pub fn rise(self) -> &'a mut W {
-        self.variant(VEC0_POL_A::RISE)
+    pub fn rise(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec0Pol::Rise)
     }
 }
 #[doc = "Field `RESERVED7` reader - 7:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED7_R = crate::BitReader<bool>;
+pub type Reserved7R = crate::BitReader;
 #[doc = "Field `RESERVED7` writer - 7:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED7_W<'a, const O: u8> = crate::BitWriter<'a, u32, VECCFG0_SPEC, bool, O>;
-#[doc = "Field `VEC1_EV` reader - 12:8\\]
-Select vector 1 trigger source event."]
-pub type VEC1_EV_R = crate::FieldReader<u8, VEC1_EV_A>;
+pub type Reserved7W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "12:8\\]
 Select vector 1 trigger source event.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum VEC1_EV_A {
+pub enum Vec1Ev {
     #[doc = "31: EVSTAT1.ADC_IRQ"]
-    ADC_IRQ = 31,
+    AdcIrq = 31,
     #[doc = "30: EVSTAT1.MCU_EV"]
-    MCU_EV = 30,
+    McuEv = 30,
     #[doc = "29: EVSTAT1.ACLK_REF"]
-    ACLK_REF = 29,
+    AclkRef = 29,
     #[doc = "28: EVSTAT1.AUXIO15"]
-    AUXIO15 = 28,
+    Auxio15 = 28,
     #[doc = "27: EVSTAT1.AUXIO14"]
-    AUXIO14 = 27,
+    Auxio14 = 27,
     #[doc = "26: EVSTAT1.AUXIO13"]
-    AUXIO13 = 26,
+    Auxio13 = 26,
     #[doc = "25: EVSTAT1.AUXIO12"]
-    AUXIO12 = 25,
+    Auxio12 = 25,
     #[doc = "24: EVSTAT1.AUXIO11"]
-    AUXIO11 = 24,
+    Auxio11 = 24,
     #[doc = "23: EVSTAT1.AUXIO10"]
-    AUXIO10 = 23,
+    Auxio10 = 23,
     #[doc = "22: EVSTAT1.AUXIO9"]
-    AUXIO9 = 22,
+    Auxio9 = 22,
     #[doc = "21: EVSTAT1.AUXIO8"]
-    AUXIO8 = 21,
+    Auxio8 = 21,
     #[doc = "20: EVSTAT1.AUXIO7"]
-    AUXIO7 = 20,
+    Auxio7 = 20,
     #[doc = "19: EVSTAT1.AUXIO6"]
-    AUXIO6 = 19,
+    Auxio6 = 19,
     #[doc = "18: EVSTAT1.AUXIO5"]
-    AUXIO5 = 18,
+    Auxio5 = 18,
     #[doc = "17: EVSTAT1.AUXIO4"]
-    AUXIO4 = 17,
+    Auxio4 = 17,
     #[doc = "16: EVSTAT1.AUXIO3"]
-    AUXIO3 = 16,
+    Auxio3 = 16,
     #[doc = "15: EVSTAT0.AUXIO2"]
-    AUXIO2 = 15,
+    Auxio2 = 15,
     #[doc = "14: EVSTAT0.AUXIO1"]
-    AUXIO1 = 14,
+    Auxio1 = 14,
     #[doc = "13: EVSTAT0.AUXIO0"]
-    AUXIO0 = 13,
+    Auxio0 = 13,
     #[doc = "12: EVSTAT0.AON_PROG_WU"]
-    AON_PROG_WU = 12,
+    AonProgWu = 12,
     #[doc = "11: EVSTAT0.AON_SW"]
-    AON_SW = 11,
+    AonSw = 11,
     #[doc = "10: EVSTAT0.OBSMUX1"]
-    OBSMUX1 = 10,
+    Obsmux1 = 10,
     #[doc = "9: EVSTAT0.OBSMUX0"]
-    OBSMUX0 = 9,
+    Obsmux0 = 9,
     #[doc = "8: EVSTAT0.ADC_FIFO_ALMOST_FULL"]
-    ADC_FIFO_ALMOST_FULL = 8,
+    AdcFifoAlmostFull = 8,
     #[doc = "7: EVSTAT0.ADC_DONE"]
-    ADC_DONE = 7,
+    AdcDone = 7,
     #[doc = "6: EVSTAT0.SMPH_AUTOTAKE_DONE"]
-    SMPH_AUTOTAKE_DONE = 6,
+    SmphAutotakeDone = 6,
     #[doc = "5: EVSTAT0.TIMER1_EV"]
-    TIMER1_EV = 5,
+    Timer1Ev = 5,
     #[doc = "4: EVSTAT0.TIMER0_EV"]
-    TIMER0_EV = 4,
+    Timer0Ev = 4,
     #[doc = "3: EVSTAT0.TDC_DONE"]
-    TDC_DONE = 3,
+    TdcDone = 3,
     #[doc = "2: EVSTAT0.AUX_COMPB"]
-    AUX_COMPB = 2,
+    AuxCompb = 2,
     #[doc = "1: EVSTAT0.AUX_COMPA"]
-    AUX_COMPA = 1,
+    AuxCompa = 1,
     #[doc = "0: EVSTAT0.AON_RTC_CH2"]
-    AON_RTC_CH2 = 0,
+    AonRtcCh2 = 0,
 }
-impl From<VEC1_EV_A> for u8 {
+impl From<Vec1Ev> for u8 {
     #[inline(always)]
-    fn from(variant: VEC1_EV_A) -> Self {
+    fn from(variant: Vec1Ev) -> Self {
         variant as _
     }
 }
-impl VEC1_EV_R {
+impl crate::FieldSpec for Vec1Ev {
+    type Ux = u8;
+}
+impl crate::IsEnum for Vec1Ev {}
+#[doc = "Field `VEC1_EV` reader - 12:8\\]
+Select vector 1 trigger source event."]
+pub type Vec1EvR = crate::FieldReader<Vec1Ev>;
+impl Vec1EvR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> VEC1_EV_A {
+    pub const fn variant(&self) -> Vec1Ev {
         match self.bits {
-            31 => VEC1_EV_A::ADC_IRQ,
-            30 => VEC1_EV_A::MCU_EV,
-            29 => VEC1_EV_A::ACLK_REF,
-            28 => VEC1_EV_A::AUXIO15,
-            27 => VEC1_EV_A::AUXIO14,
-            26 => VEC1_EV_A::AUXIO13,
-            25 => VEC1_EV_A::AUXIO12,
-            24 => VEC1_EV_A::AUXIO11,
-            23 => VEC1_EV_A::AUXIO10,
-            22 => VEC1_EV_A::AUXIO9,
-            21 => VEC1_EV_A::AUXIO8,
-            20 => VEC1_EV_A::AUXIO7,
-            19 => VEC1_EV_A::AUXIO6,
-            18 => VEC1_EV_A::AUXIO5,
-            17 => VEC1_EV_A::AUXIO4,
-            16 => VEC1_EV_A::AUXIO3,
-            15 => VEC1_EV_A::AUXIO2,
-            14 => VEC1_EV_A::AUXIO1,
-            13 => VEC1_EV_A::AUXIO0,
-            12 => VEC1_EV_A::AON_PROG_WU,
-            11 => VEC1_EV_A::AON_SW,
-            10 => VEC1_EV_A::OBSMUX1,
-            9 => VEC1_EV_A::OBSMUX0,
-            8 => VEC1_EV_A::ADC_FIFO_ALMOST_FULL,
-            7 => VEC1_EV_A::ADC_DONE,
-            6 => VEC1_EV_A::SMPH_AUTOTAKE_DONE,
-            5 => VEC1_EV_A::TIMER1_EV,
-            4 => VEC1_EV_A::TIMER0_EV,
-            3 => VEC1_EV_A::TDC_DONE,
-            2 => VEC1_EV_A::AUX_COMPB,
-            1 => VEC1_EV_A::AUX_COMPA,
-            0 => VEC1_EV_A::AON_RTC_CH2,
+            31 => Vec1Ev::AdcIrq,
+            30 => Vec1Ev::McuEv,
+            29 => Vec1Ev::AclkRef,
+            28 => Vec1Ev::Auxio15,
+            27 => Vec1Ev::Auxio14,
+            26 => Vec1Ev::Auxio13,
+            25 => Vec1Ev::Auxio12,
+            24 => Vec1Ev::Auxio11,
+            23 => Vec1Ev::Auxio10,
+            22 => Vec1Ev::Auxio9,
+            21 => Vec1Ev::Auxio8,
+            20 => Vec1Ev::Auxio7,
+            19 => Vec1Ev::Auxio6,
+            18 => Vec1Ev::Auxio5,
+            17 => Vec1Ev::Auxio4,
+            16 => Vec1Ev::Auxio3,
+            15 => Vec1Ev::Auxio2,
+            14 => Vec1Ev::Auxio1,
+            13 => Vec1Ev::Auxio0,
+            12 => Vec1Ev::AonProgWu,
+            11 => Vec1Ev::AonSw,
+            10 => Vec1Ev::Obsmux1,
+            9 => Vec1Ev::Obsmux0,
+            8 => Vec1Ev::AdcFifoAlmostFull,
+            7 => Vec1Ev::AdcDone,
+            6 => Vec1Ev::SmphAutotakeDone,
+            5 => Vec1Ev::Timer1Ev,
+            4 => Vec1Ev::Timer0Ev,
+            3 => Vec1Ev::TdcDone,
+            2 => Vec1Ev::AuxCompb,
+            1 => Vec1Ev::AuxCompa,
+            0 => Vec1Ev::AonRtcCh2,
             _ => unreachable!(),
         }
     }
-    #[doc = "Checks if the value of the field is `ADC_IRQ`"]
+    #[doc = "EVSTAT1.ADC_IRQ"]
     #[inline(always)]
     pub fn is_adc_irq(&self) -> bool {
-        *self == VEC1_EV_A::ADC_IRQ
+        *self == Vec1Ev::AdcIrq
     }
-    #[doc = "Checks if the value of the field is `MCU_EV`"]
+    #[doc = "EVSTAT1.MCU_EV"]
     #[inline(always)]
     pub fn is_mcu_ev(&self) -> bool {
-        *self == VEC1_EV_A::MCU_EV
+        *self == Vec1Ev::McuEv
     }
-    #[doc = "Checks if the value of the field is `ACLK_REF`"]
+    #[doc = "EVSTAT1.ACLK_REF"]
     #[inline(always)]
     pub fn is_aclk_ref(&self) -> bool {
-        *self == VEC1_EV_A::ACLK_REF
+        *self == Vec1Ev::AclkRef
     }
-    #[doc = "Checks if the value of the field is `AUXIO15`"]
+    #[doc = "EVSTAT1.AUXIO15"]
     #[inline(always)]
     pub fn is_auxio15(&self) -> bool {
-        *self == VEC1_EV_A::AUXIO15
+        *self == Vec1Ev::Auxio15
     }
-    #[doc = "Checks if the value of the field is `AUXIO14`"]
+    #[doc = "EVSTAT1.AUXIO14"]
     #[inline(always)]
     pub fn is_auxio14(&self) -> bool {
-        *self == VEC1_EV_A::AUXIO14
+        *self == Vec1Ev::Auxio14
     }
-    #[doc = "Checks if the value of the field is `AUXIO13`"]
+    #[doc = "EVSTAT1.AUXIO13"]
     #[inline(always)]
     pub fn is_auxio13(&self) -> bool {
-        *self == VEC1_EV_A::AUXIO13
+        *self == Vec1Ev::Auxio13
     }
-    #[doc = "Checks if the value of the field is `AUXIO12`"]
+    #[doc = "EVSTAT1.AUXIO12"]
     #[inline(always)]
     pub fn is_auxio12(&self) -> bool {
-        *self == VEC1_EV_A::AUXIO12
+        *self == Vec1Ev::Auxio12
     }
-    #[doc = "Checks if the value of the field is `AUXIO11`"]
+    #[doc = "EVSTAT1.AUXIO11"]
     #[inline(always)]
     pub fn is_auxio11(&self) -> bool {
-        *self == VEC1_EV_A::AUXIO11
+        *self == Vec1Ev::Auxio11
     }
-    #[doc = "Checks if the value of the field is `AUXIO10`"]
+    #[doc = "EVSTAT1.AUXIO10"]
     #[inline(always)]
     pub fn is_auxio10(&self) -> bool {
-        *self == VEC1_EV_A::AUXIO10
+        *self == Vec1Ev::Auxio10
     }
-    #[doc = "Checks if the value of the field is `AUXIO9`"]
+    #[doc = "EVSTAT1.AUXIO9"]
     #[inline(always)]
     pub fn is_auxio9(&self) -> bool {
-        *self == VEC1_EV_A::AUXIO9
+        *self == Vec1Ev::Auxio9
     }
-    #[doc = "Checks if the value of the field is `AUXIO8`"]
+    #[doc = "EVSTAT1.AUXIO8"]
     #[inline(always)]
     pub fn is_auxio8(&self) -> bool {
-        *self == VEC1_EV_A::AUXIO8
+        *self == Vec1Ev::Auxio8
     }
-    #[doc = "Checks if the value of the field is `AUXIO7`"]
+    #[doc = "EVSTAT1.AUXIO7"]
     #[inline(always)]
     pub fn is_auxio7(&self) -> bool {
-        *self == VEC1_EV_A::AUXIO7
+        *self == Vec1Ev::Auxio7
     }
-    #[doc = "Checks if the value of the field is `AUXIO6`"]
+    #[doc = "EVSTAT1.AUXIO6"]
     #[inline(always)]
     pub fn is_auxio6(&self) -> bool {
-        *self == VEC1_EV_A::AUXIO6
+        *self == Vec1Ev::Auxio6
     }
-    #[doc = "Checks if the value of the field is `AUXIO5`"]
+    #[doc = "EVSTAT1.AUXIO5"]
     #[inline(always)]
     pub fn is_auxio5(&self) -> bool {
-        *self == VEC1_EV_A::AUXIO5
+        *self == Vec1Ev::Auxio5
     }
-    #[doc = "Checks if the value of the field is `AUXIO4`"]
+    #[doc = "EVSTAT1.AUXIO4"]
     #[inline(always)]
     pub fn is_auxio4(&self) -> bool {
-        *self == VEC1_EV_A::AUXIO4
+        *self == Vec1Ev::Auxio4
     }
-    #[doc = "Checks if the value of the field is `AUXIO3`"]
+    #[doc = "EVSTAT1.AUXIO3"]
     #[inline(always)]
     pub fn is_auxio3(&self) -> bool {
-        *self == VEC1_EV_A::AUXIO3
+        *self == Vec1Ev::Auxio3
     }
-    #[doc = "Checks if the value of the field is `AUXIO2`"]
+    #[doc = "EVSTAT0.AUXIO2"]
     #[inline(always)]
     pub fn is_auxio2(&self) -> bool {
-        *self == VEC1_EV_A::AUXIO2
+        *self == Vec1Ev::Auxio2
     }
-    #[doc = "Checks if the value of the field is `AUXIO1`"]
+    #[doc = "EVSTAT0.AUXIO1"]
     #[inline(always)]
     pub fn is_auxio1(&self) -> bool {
-        *self == VEC1_EV_A::AUXIO1
+        *self == Vec1Ev::Auxio1
     }
-    #[doc = "Checks if the value of the field is `AUXIO0`"]
+    #[doc = "EVSTAT0.AUXIO0"]
     #[inline(always)]
     pub fn is_auxio0(&self) -> bool {
-        *self == VEC1_EV_A::AUXIO0
+        *self == Vec1Ev::Auxio0
     }
-    #[doc = "Checks if the value of the field is `AON_PROG_WU`"]
+    #[doc = "EVSTAT0.AON_PROG_WU"]
     #[inline(always)]
     pub fn is_aon_prog_wu(&self) -> bool {
-        *self == VEC1_EV_A::AON_PROG_WU
+        *self == Vec1Ev::AonProgWu
     }
-    #[doc = "Checks if the value of the field is `AON_SW`"]
+    #[doc = "EVSTAT0.AON_SW"]
     #[inline(always)]
     pub fn is_aon_sw(&self) -> bool {
-        *self == VEC1_EV_A::AON_SW
+        *self == Vec1Ev::AonSw
     }
-    #[doc = "Checks if the value of the field is `OBSMUX1`"]
+    #[doc = "EVSTAT0.OBSMUX1"]
     #[inline(always)]
     pub fn is_obsmux1(&self) -> bool {
-        *self == VEC1_EV_A::OBSMUX1
+        *self == Vec1Ev::Obsmux1
     }
-    #[doc = "Checks if the value of the field is `OBSMUX0`"]
+    #[doc = "EVSTAT0.OBSMUX0"]
     #[inline(always)]
     pub fn is_obsmux0(&self) -> bool {
-        *self == VEC1_EV_A::OBSMUX0
+        *self == Vec1Ev::Obsmux0
     }
-    #[doc = "Checks if the value of the field is `ADC_FIFO_ALMOST_FULL`"]
+    #[doc = "EVSTAT0.ADC_FIFO_ALMOST_FULL"]
     #[inline(always)]
     pub fn is_adc_fifo_almost_full(&self) -> bool {
-        *self == VEC1_EV_A::ADC_FIFO_ALMOST_FULL
+        *self == Vec1Ev::AdcFifoAlmostFull
     }
-    #[doc = "Checks if the value of the field is `ADC_DONE`"]
+    #[doc = "EVSTAT0.ADC_DONE"]
     #[inline(always)]
     pub fn is_adc_done(&self) -> bool {
-        *self == VEC1_EV_A::ADC_DONE
+        *self == Vec1Ev::AdcDone
     }
-    #[doc = "Checks if the value of the field is `SMPH_AUTOTAKE_DONE`"]
+    #[doc = "EVSTAT0.SMPH_AUTOTAKE_DONE"]
     #[inline(always)]
     pub fn is_smph_autotake_done(&self) -> bool {
-        *self == VEC1_EV_A::SMPH_AUTOTAKE_DONE
+        *self == Vec1Ev::SmphAutotakeDone
     }
-    #[doc = "Checks if the value of the field is `TIMER1_EV`"]
+    #[doc = "EVSTAT0.TIMER1_EV"]
     #[inline(always)]
     pub fn is_timer1_ev(&self) -> bool {
-        *self == VEC1_EV_A::TIMER1_EV
+        *self == Vec1Ev::Timer1Ev
     }
-    #[doc = "Checks if the value of the field is `TIMER0_EV`"]
+    #[doc = "EVSTAT0.TIMER0_EV"]
     #[inline(always)]
     pub fn is_timer0_ev(&self) -> bool {
-        *self == VEC1_EV_A::TIMER0_EV
+        *self == Vec1Ev::Timer0Ev
     }
-    #[doc = "Checks if the value of the field is `TDC_DONE`"]
+    #[doc = "EVSTAT0.TDC_DONE"]
     #[inline(always)]
     pub fn is_tdc_done(&self) -> bool {
-        *self == VEC1_EV_A::TDC_DONE
+        *self == Vec1Ev::TdcDone
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPB`"]
+    #[doc = "EVSTAT0.AUX_COMPB"]
     #[inline(always)]
     pub fn is_aux_compb(&self) -> bool {
-        *self == VEC1_EV_A::AUX_COMPB
+        *self == Vec1Ev::AuxCompb
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPA`"]
+    #[doc = "EVSTAT0.AUX_COMPA"]
     #[inline(always)]
     pub fn is_aux_compa(&self) -> bool {
-        *self == VEC1_EV_A::AUX_COMPA
+        *self == Vec1Ev::AuxCompa
     }
-    #[doc = "Checks if the value of the field is `AON_RTC_CH2`"]
+    #[doc = "EVSTAT0.AON_RTC_CH2"]
     #[inline(always)]
     pub fn is_aon_rtc_ch2(&self) -> bool {
-        *self == VEC1_EV_A::AON_RTC_CH2
+        *self == Vec1Ev::AonRtcCh2
     }
 }
 #[doc = "Field `VEC1_EV` writer - 12:8\\]
 Select vector 1 trigger source event."]
-pub type VEC1_EV_W<'a, const O: u8> =
-    crate::FieldWriterSafe<'a, u32, VECCFG0_SPEC, u8, VEC1_EV_A, 5, O>;
-impl<'a, const O: u8> VEC1_EV_W<'a, O> {
+pub type Vec1EvW<'a, REG> = crate::FieldWriter<'a, REG, 5, Vec1Ev, crate::Safe>;
+impl<'a, REG> Vec1EvW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "EVSTAT1.ADC_IRQ"]
     #[inline(always)]
-    pub fn adc_irq(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::ADC_IRQ)
+    pub fn adc_irq(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::AdcIrq)
     }
     #[doc = "EVSTAT1.MCU_EV"]
     #[inline(always)]
-    pub fn mcu_ev(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::MCU_EV)
+    pub fn mcu_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::McuEv)
     }
     #[doc = "EVSTAT1.ACLK_REF"]
     #[inline(always)]
-    pub fn aclk_ref(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::ACLK_REF)
+    pub fn aclk_ref(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::AclkRef)
     }
     #[doc = "EVSTAT1.AUXIO15"]
     #[inline(always)]
-    pub fn auxio15(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::AUXIO15)
+    pub fn auxio15(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::Auxio15)
     }
     #[doc = "EVSTAT1.AUXIO14"]
     #[inline(always)]
-    pub fn auxio14(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::AUXIO14)
+    pub fn auxio14(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::Auxio14)
     }
     #[doc = "EVSTAT1.AUXIO13"]
     #[inline(always)]
-    pub fn auxio13(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::AUXIO13)
+    pub fn auxio13(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::Auxio13)
     }
     #[doc = "EVSTAT1.AUXIO12"]
     #[inline(always)]
-    pub fn auxio12(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::AUXIO12)
+    pub fn auxio12(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::Auxio12)
     }
     #[doc = "EVSTAT1.AUXIO11"]
     #[inline(always)]
-    pub fn auxio11(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::AUXIO11)
+    pub fn auxio11(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::Auxio11)
     }
     #[doc = "EVSTAT1.AUXIO10"]
     #[inline(always)]
-    pub fn auxio10(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::AUXIO10)
+    pub fn auxio10(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::Auxio10)
     }
     #[doc = "EVSTAT1.AUXIO9"]
     #[inline(always)]
-    pub fn auxio9(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::AUXIO9)
+    pub fn auxio9(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::Auxio9)
     }
     #[doc = "EVSTAT1.AUXIO8"]
     #[inline(always)]
-    pub fn auxio8(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::AUXIO8)
+    pub fn auxio8(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::Auxio8)
     }
     #[doc = "EVSTAT1.AUXIO7"]
     #[inline(always)]
-    pub fn auxio7(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::AUXIO7)
+    pub fn auxio7(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::Auxio7)
     }
     #[doc = "EVSTAT1.AUXIO6"]
     #[inline(always)]
-    pub fn auxio6(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::AUXIO6)
+    pub fn auxio6(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::Auxio6)
     }
     #[doc = "EVSTAT1.AUXIO5"]
     #[inline(always)]
-    pub fn auxio5(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::AUXIO5)
+    pub fn auxio5(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::Auxio5)
     }
     #[doc = "EVSTAT1.AUXIO4"]
     #[inline(always)]
-    pub fn auxio4(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::AUXIO4)
+    pub fn auxio4(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::Auxio4)
     }
     #[doc = "EVSTAT1.AUXIO3"]
     #[inline(always)]
-    pub fn auxio3(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::AUXIO3)
+    pub fn auxio3(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::Auxio3)
     }
     #[doc = "EVSTAT0.AUXIO2"]
     #[inline(always)]
-    pub fn auxio2(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::AUXIO2)
+    pub fn auxio2(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::Auxio2)
     }
     #[doc = "EVSTAT0.AUXIO1"]
     #[inline(always)]
-    pub fn auxio1(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::AUXIO1)
+    pub fn auxio1(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::Auxio1)
     }
     #[doc = "EVSTAT0.AUXIO0"]
     #[inline(always)]
-    pub fn auxio0(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::AUXIO0)
+    pub fn auxio0(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::Auxio0)
     }
     #[doc = "EVSTAT0.AON_PROG_WU"]
     #[inline(always)]
-    pub fn aon_prog_wu(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::AON_PROG_WU)
+    pub fn aon_prog_wu(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::AonProgWu)
     }
     #[doc = "EVSTAT0.AON_SW"]
     #[inline(always)]
-    pub fn aon_sw(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::AON_SW)
+    pub fn aon_sw(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::AonSw)
     }
     #[doc = "EVSTAT0.OBSMUX1"]
     #[inline(always)]
-    pub fn obsmux1(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::OBSMUX1)
+    pub fn obsmux1(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::Obsmux1)
     }
     #[doc = "EVSTAT0.OBSMUX0"]
     #[inline(always)]
-    pub fn obsmux0(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::OBSMUX0)
+    pub fn obsmux0(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::Obsmux0)
     }
     #[doc = "EVSTAT0.ADC_FIFO_ALMOST_FULL"]
     #[inline(always)]
-    pub fn adc_fifo_almost_full(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::ADC_FIFO_ALMOST_FULL)
+    pub fn adc_fifo_almost_full(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::AdcFifoAlmostFull)
     }
     #[doc = "EVSTAT0.ADC_DONE"]
     #[inline(always)]
-    pub fn adc_done(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::ADC_DONE)
+    pub fn adc_done(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::AdcDone)
     }
     #[doc = "EVSTAT0.SMPH_AUTOTAKE_DONE"]
     #[inline(always)]
-    pub fn smph_autotake_done(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::SMPH_AUTOTAKE_DONE)
+    pub fn smph_autotake_done(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::SmphAutotakeDone)
     }
     #[doc = "EVSTAT0.TIMER1_EV"]
     #[inline(always)]
-    pub fn timer1_ev(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::TIMER1_EV)
+    pub fn timer1_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::Timer1Ev)
     }
     #[doc = "EVSTAT0.TIMER0_EV"]
     #[inline(always)]
-    pub fn timer0_ev(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::TIMER0_EV)
+    pub fn timer0_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::Timer0Ev)
     }
     #[doc = "EVSTAT0.TDC_DONE"]
     #[inline(always)]
-    pub fn tdc_done(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::TDC_DONE)
+    pub fn tdc_done(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::TdcDone)
     }
     #[doc = "EVSTAT0.AUX_COMPB"]
     #[inline(always)]
-    pub fn aux_compb(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::AUX_COMPB)
+    pub fn aux_compb(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::AuxCompb)
     }
     #[doc = "EVSTAT0.AUX_COMPA"]
     #[inline(always)]
-    pub fn aux_compa(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::AUX_COMPA)
+    pub fn aux_compa(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::AuxCompa)
     }
     #[doc = "EVSTAT0.AON_RTC_CH2"]
     #[inline(always)]
-    pub fn aon_rtc_ch2(self) -> &'a mut W {
-        self.variant(VEC1_EV_A::AON_RTC_CH2)
+    pub fn aon_rtc_ch2(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Ev::AonRtcCh2)
+    }
+}
+#[doc = "13:13\\]
+Vector 1 trigger enable. When enabled, VEC1_EV event with VEC1_POL polarity triggers a jump to vector # 1 when AUX_SCE sleeps. Lower vectors (0) have priority.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Vec1En {
+    #[doc = "1: Enable vector 1 trigger."]
+    En = 1,
+    #[doc = "0: Disable vector 1 trigger."]
+    Dis = 0,
+}
+impl From<Vec1En> for bool {
+    #[inline(always)]
+    fn from(variant: Vec1En) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `VEC1_EN` reader - 13:13\\]
 Vector 1 trigger enable. When enabled, VEC1_EV event with VEC1_POL polarity triggers a jump to vector # 1 when AUX_SCE sleeps. Lower vectors (0) have priority."]
-pub type VEC1_EN_R = crate::BitReader<VEC1_EN_A>;
-#[doc = "13:13\\]
-Vector 1 trigger enable. When enabled, VEC1_EV event with VEC1_POL polarity triggers a jump to vector # 1 when AUX_SCE sleeps. Lower vectors (0) have priority.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum VEC1_EN_A {
-    #[doc = "1: Enable vector 1 trigger."]
-    EN = 1,
-    #[doc = "0: Disable vector 1 trigger."]
-    DIS = 0,
-}
-impl From<VEC1_EN_A> for bool {
-    #[inline(always)]
-    fn from(variant: VEC1_EN_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl VEC1_EN_R {
+pub type Vec1EnR = crate::BitReader<Vec1En>;
+impl Vec1EnR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> VEC1_EN_A {
+    pub const fn variant(&self) -> Vec1En {
         match self.bits {
-            true => VEC1_EN_A::EN,
-            false => VEC1_EN_A::DIS,
+            true => Vec1En::En,
+            false => Vec1En::Dis,
         }
     }
-    #[doc = "Checks if the value of the field is `EN`"]
+    #[doc = "Enable vector 1 trigger."]
     #[inline(always)]
     pub fn is_en(&self) -> bool {
-        *self == VEC1_EN_A::EN
+        *self == Vec1En::En
     }
-    #[doc = "Checks if the value of the field is `DIS`"]
+    #[doc = "Disable vector 1 trigger."]
     #[inline(always)]
     pub fn is_dis(&self) -> bool {
-        *self == VEC1_EN_A::DIS
+        *self == Vec1En::Dis
     }
 }
 #[doc = "Field `VEC1_EN` writer - 13:13\\]
 Vector 1 trigger enable. When enabled, VEC1_EV event with VEC1_POL polarity triggers a jump to vector # 1 when AUX_SCE sleeps. Lower vectors (0) have priority."]
-pub type VEC1_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, VECCFG0_SPEC, VEC1_EN_A, O>;
-impl<'a, const O: u8> VEC1_EN_W<'a, O> {
+pub type Vec1EnW<'a, REG> = crate::BitWriter<'a, REG, Vec1En>;
+impl<'a, REG> Vec1EnW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Enable vector 1 trigger."]
     #[inline(always)]
-    pub fn en(self) -> &'a mut W {
-        self.variant(VEC1_EN_A::EN)
+    pub fn en(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1En::En)
     }
     #[doc = "Disable vector 1 trigger."]
     #[inline(always)]
-    pub fn dis(self) -> &'a mut W {
-        self.variant(VEC1_EN_A::DIS)
+    pub fn dis(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1En::Dis)
+    }
+}
+#[doc = "14:14\\]
+Vector 1 trigger event polarity. To manually trigger vector 1 execution: - AUX_SCE must sleep. - Set VEC1_EV to a known static value. - Toggle VEC1_POL twice.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Vec1Pol {
+    #[doc = "1: Falling edge triggers vector 1 execution."]
+    Fall = 1,
+    #[doc = "0: Rising edge triggers vector 1 execution."]
+    Rise = 0,
+}
+impl From<Vec1Pol> for bool {
+    #[inline(always)]
+    fn from(variant: Vec1Pol) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `VEC1_POL` reader - 14:14\\]
 Vector 1 trigger event polarity. To manually trigger vector 1 execution: - AUX_SCE must sleep. - Set VEC1_EV to a known static value. - Toggle VEC1_POL twice."]
-pub type VEC1_POL_R = crate::BitReader<VEC1_POL_A>;
-#[doc = "14:14\\]
-Vector 1 trigger event polarity. To manually trigger vector 1 execution: - AUX_SCE must sleep. - Set VEC1_EV to a known static value. - Toggle VEC1_POL twice.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum VEC1_POL_A {
-    #[doc = "1: Falling edge triggers vector 1 execution."]
-    FALL = 1,
-    #[doc = "0: Rising edge triggers vector 1 execution."]
-    RISE = 0,
-}
-impl From<VEC1_POL_A> for bool {
-    #[inline(always)]
-    fn from(variant: VEC1_POL_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl VEC1_POL_R {
+pub type Vec1PolR = crate::BitReader<Vec1Pol>;
+impl Vec1PolR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> VEC1_POL_A {
+    pub const fn variant(&self) -> Vec1Pol {
         match self.bits {
-            true => VEC1_POL_A::FALL,
-            false => VEC1_POL_A::RISE,
+            true => Vec1Pol::Fall,
+            false => Vec1Pol::Rise,
         }
     }
-    #[doc = "Checks if the value of the field is `FALL`"]
+    #[doc = "Falling edge triggers vector 1 execution."]
     #[inline(always)]
     pub fn is_fall(&self) -> bool {
-        *self == VEC1_POL_A::FALL
+        *self == Vec1Pol::Fall
     }
-    #[doc = "Checks if the value of the field is `RISE`"]
+    #[doc = "Rising edge triggers vector 1 execution."]
     #[inline(always)]
     pub fn is_rise(&self) -> bool {
-        *self == VEC1_POL_A::RISE
+        *self == Vec1Pol::Rise
     }
 }
 #[doc = "Field `VEC1_POL` writer - 14:14\\]
 Vector 1 trigger event polarity. To manually trigger vector 1 execution: - AUX_SCE must sleep. - Set VEC1_EV to a known static value. - Toggle VEC1_POL twice."]
-pub type VEC1_POL_W<'a, const O: u8> = crate::BitWriter<'a, u32, VECCFG0_SPEC, VEC1_POL_A, O>;
-impl<'a, const O: u8> VEC1_POL_W<'a, O> {
+pub type Vec1PolW<'a, REG> = crate::BitWriter<'a, REG, Vec1Pol>;
+impl<'a, REG> Vec1PolW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Falling edge triggers vector 1 execution."]
     #[inline(always)]
-    pub fn fall(self) -> &'a mut W {
-        self.variant(VEC1_POL_A::FALL)
+    pub fn fall(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Pol::Fall)
     }
     #[doc = "Rising edge triggers vector 1 execution."]
     #[inline(always)]
-    pub fn rise(self) -> &'a mut W {
-        self.variant(VEC1_POL_A::RISE)
+    pub fn rise(self) -> &'a mut crate::W<REG> {
+        self.variant(Vec1Pol::Rise)
     }
 }
 #[doc = "Field `RESERVED15` reader - 31:15\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED15_R = crate::FieldReader<u32, u32>;
+pub type Reserved15R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED15` writer - 31:15\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED15_W<'a, const O: u8> = crate::FieldWriter<'a, u32, VECCFG0_SPEC, u32, u32, 17, O>;
+pub type Reserved15W<'a, REG> = crate::FieldWriter<'a, REG, 17, u32>;
 impl R {
     #[doc = "Bits 0:4 - 4:0\\]
 Select vector 0 trigger source event."]
     #[inline(always)]
-    pub fn vec0_ev(&self) -> VEC0_EV_R {
-        VEC0_EV_R::new((self.bits & 0x1f) as u8)
+    pub fn vec0_ev(&self) -> Vec0EvR {
+        Vec0EvR::new((self.bits & 0x1f) as u8)
     }
     #[doc = "Bit 5 - 5:5\\]
 Vector 0 trigger enable. When enabled, VEC0_EV event with VEC0_POL polarity triggers a jump to vector # 0 when AUX_SCE sleeps."]
     #[inline(always)]
-    pub fn vec0_en(&self) -> VEC0_EN_R {
-        VEC0_EN_R::new(((self.bits >> 5) & 1) != 0)
+    pub fn vec0_en(&self) -> Vec0EnR {
+        Vec0EnR::new(((self.bits >> 5) & 1) != 0)
     }
     #[doc = "Bit 6 - 6:6\\]
 Vector 0 trigger event polarity. To manually trigger vector 0 execution: - AUX_SCE must sleep. - Set VEC0_EV to a known static value. - Toggle VEC0_POL twice."]
     #[inline(always)]
-    pub fn vec0_pol(&self) -> VEC0_POL_R {
-        VEC0_POL_R::new(((self.bits >> 6) & 1) != 0)
+    pub fn vec0_pol(&self) -> Vec0PolR {
+        Vec0PolR::new(((self.bits >> 6) & 1) != 0)
     }
     #[doc = "Bit 7 - 7:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved7(&self) -> RESERVED7_R {
-        RESERVED7_R::new(((self.bits >> 7) & 1) != 0)
+    pub fn reserved7(&self) -> Reserved7R {
+        Reserved7R::new(((self.bits >> 7) & 1) != 0)
     }
     #[doc = "Bits 8:12 - 12:8\\]
 Select vector 1 trigger source event."]
     #[inline(always)]
-    pub fn vec1_ev(&self) -> VEC1_EV_R {
-        VEC1_EV_R::new(((self.bits >> 8) & 0x1f) as u8)
+    pub fn vec1_ev(&self) -> Vec1EvR {
+        Vec1EvR::new(((self.bits >> 8) & 0x1f) as u8)
     }
     #[doc = "Bit 13 - 13:13\\]
 Vector 1 trigger enable. When enabled, VEC1_EV event with VEC1_POL polarity triggers a jump to vector # 1 when AUX_SCE sleeps. Lower vectors (0) have priority."]
     #[inline(always)]
-    pub fn vec1_en(&self) -> VEC1_EN_R {
-        VEC1_EN_R::new(((self.bits >> 13) & 1) != 0)
+    pub fn vec1_en(&self) -> Vec1EnR {
+        Vec1EnR::new(((self.bits >> 13) & 1) != 0)
     }
     #[doc = "Bit 14 - 14:14\\]
 Vector 1 trigger event polarity. To manually trigger vector 1 execution: - AUX_SCE must sleep. - Set VEC1_EV to a known static value. - Toggle VEC1_POL twice."]
     #[inline(always)]
-    pub fn vec1_pol(&self) -> VEC1_POL_R {
-        VEC1_POL_R::new(((self.bits >> 14) & 1) != 0)
+    pub fn vec1_pol(&self) -> Vec1PolR {
+        Vec1PolR::new(((self.bits >> 14) & 1) != 0)
     }
     #[doc = "Bits 15:31 - 31:15\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved15(&self) -> RESERVED15_R {
-        RESERVED15_R::new((self.bits >> 15) & 0x0001_ffff)
+    pub fn reserved15(&self) -> Reserved15R {
+        Reserved15R::new((self.bits >> 15) & 0x0001_ffff)
     }
 }
 impl W {
@@ -1205,81 +1199,73 @@ impl W {
 Select vector 0 trigger source event."]
     #[inline(always)]
     #[must_use]
-    pub fn vec0_ev(&mut self) -> VEC0_EV_W<0> {
-        VEC0_EV_W::new(self)
+    pub fn vec0_ev(&mut self) -> Vec0EvW<Veccfg0Spec> {
+        Vec0EvW::new(self, 0)
     }
     #[doc = "Bit 5 - 5:5\\]
 Vector 0 trigger enable. When enabled, VEC0_EV event with VEC0_POL polarity triggers a jump to vector # 0 when AUX_SCE sleeps."]
     #[inline(always)]
     #[must_use]
-    pub fn vec0_en(&mut self) -> VEC0_EN_W<5> {
-        VEC0_EN_W::new(self)
+    pub fn vec0_en(&mut self) -> Vec0EnW<Veccfg0Spec> {
+        Vec0EnW::new(self, 5)
     }
     #[doc = "Bit 6 - 6:6\\]
 Vector 0 trigger event polarity. To manually trigger vector 0 execution: - AUX_SCE must sleep. - Set VEC0_EV to a known static value. - Toggle VEC0_POL twice."]
     #[inline(always)]
     #[must_use]
-    pub fn vec0_pol(&mut self) -> VEC0_POL_W<6> {
-        VEC0_POL_W::new(self)
+    pub fn vec0_pol(&mut self) -> Vec0PolW<Veccfg0Spec> {
+        Vec0PolW::new(self, 6)
     }
     #[doc = "Bit 7 - 7:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved7(&mut self) -> RESERVED7_W<7> {
-        RESERVED7_W::new(self)
+    pub fn reserved7(&mut self) -> Reserved7W<Veccfg0Spec> {
+        Reserved7W::new(self, 7)
     }
     #[doc = "Bits 8:12 - 12:8\\]
 Select vector 1 trigger source event."]
     #[inline(always)]
     #[must_use]
-    pub fn vec1_ev(&mut self) -> VEC1_EV_W<8> {
-        VEC1_EV_W::new(self)
+    pub fn vec1_ev(&mut self) -> Vec1EvW<Veccfg0Spec> {
+        Vec1EvW::new(self, 8)
     }
     #[doc = "Bit 13 - 13:13\\]
 Vector 1 trigger enable. When enabled, VEC1_EV event with VEC1_POL polarity triggers a jump to vector # 1 when AUX_SCE sleeps. Lower vectors (0) have priority."]
     #[inline(always)]
     #[must_use]
-    pub fn vec1_en(&mut self) -> VEC1_EN_W<13> {
-        VEC1_EN_W::new(self)
+    pub fn vec1_en(&mut self) -> Vec1EnW<Veccfg0Spec> {
+        Vec1EnW::new(self, 13)
     }
     #[doc = "Bit 14 - 14:14\\]
 Vector 1 trigger event polarity. To manually trigger vector 1 execution: - AUX_SCE must sleep. - Set VEC1_EV to a known static value. - Toggle VEC1_POL twice."]
     #[inline(always)]
     #[must_use]
-    pub fn vec1_pol(&mut self) -> VEC1_POL_W<14> {
-        VEC1_POL_W::new(self)
+    pub fn vec1_pol(&mut self) -> Vec1PolW<Veccfg0Spec> {
+        Vec1PolW::new(self, 14)
     }
     #[doc = "Bits 15:31 - 31:15\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved15(&mut self) -> RESERVED15_W<15> {
-        RESERVED15_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved15(&mut self) -> Reserved15W<Veccfg0Spec> {
+        Reserved15W::new(self, 15)
     }
 }
-#[doc = "Vector Configuration 0 AUX_SCE wakeup vector 0 and 1 configuration\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [veccfg0](index.html) module"]
-pub struct VECCFG0_SPEC;
-impl crate::RegisterSpec for VECCFG0_SPEC {
+#[doc = "Vector Configuration 0 AUX_SCE wakeup vector 0 and 1 configuration\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`veccfg0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`veccfg0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Veccfg0Spec;
+impl crate::RegisterSpec for Veccfg0Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [veccfg0::R](R) reader structure"]
-impl crate::Readable for VECCFG0_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [veccfg0::W](W) writer structure"]
-impl crate::Writable for VECCFG0_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`veccfg0::R`](R) reader structure"]
+impl crate::Readable for Veccfg0Spec {}
+#[doc = "`write(|w| ..)` method takes [`veccfg0::W`](W) writer structure"]
+impl crate::Writable for Veccfg0Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets VECCFG0 to value 0"]
-impl crate::Resettable for VECCFG0_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for Veccfg0Spec {
+    const RESET_VALUE: u32 = 0;
 }

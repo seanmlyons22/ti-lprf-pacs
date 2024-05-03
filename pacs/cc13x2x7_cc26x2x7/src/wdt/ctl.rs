@@ -1,228 +1,205 @@
 #[doc = "Register `CTL` reader"]
-pub struct R(crate::R<CTL_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<CTL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<CTL_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<CTL_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<CtlSpec>;
 #[doc = "Register `CTL` writer"]
-pub struct W(crate::W<CTL_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<CTL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
+pub type W = crate::W<CtlSpec>;
+#[doc = "0:0\\]
+WDT Interrupt Enable 0: Interrupt event disabled. 1: Interrupt event enabled. Once set, this bit can only be cleared by a hardware reset.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Inten {
+    #[doc = "1: Interrupt Enabled"]
+    En = 1,
+    #[doc = "0: Interrupt Disabled"]
+    Dis = 0,
 }
-impl core::ops::DerefMut for W {
+impl From<Inten> for bool {
     #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<CTL_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<CTL_SPEC>) -> Self {
-        W(writer)
+    fn from(variant: Inten) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `INTEN` reader - 0:0\\]
 WDT Interrupt Enable 0: Interrupt event disabled. 1: Interrupt event enabled. Once set, this bit can only be cleared by a hardware reset."]
-pub type INTEN_R = crate::BitReader<INTEN_A>;
-#[doc = "0:0\\]
-WDT Interrupt Enable 0: Interrupt event disabled. 1: Interrupt event enabled. Once set, this bit can only be cleared by a hardware reset.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum INTEN_A {
-    #[doc = "1: Interrupt Enabled"]
-    EN = 1,
-    #[doc = "0: Interrupt Disabled"]
-    DIS = 0,
-}
-impl From<INTEN_A> for bool {
-    #[inline(always)]
-    fn from(variant: INTEN_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl INTEN_R {
+pub type IntenR = crate::BitReader<Inten>;
+impl IntenR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> INTEN_A {
+    pub const fn variant(&self) -> Inten {
         match self.bits {
-            true => INTEN_A::EN,
-            false => INTEN_A::DIS,
+            true => Inten::En,
+            false => Inten::Dis,
         }
     }
-    #[doc = "Checks if the value of the field is `EN`"]
+    #[doc = "Interrupt Enabled"]
     #[inline(always)]
     pub fn is_en(&self) -> bool {
-        *self == INTEN_A::EN
+        *self == Inten::En
     }
-    #[doc = "Checks if the value of the field is `DIS`"]
+    #[doc = "Interrupt Disabled"]
     #[inline(always)]
     pub fn is_dis(&self) -> bool {
-        *self == INTEN_A::DIS
+        *self == Inten::Dis
     }
 }
 #[doc = "Field `INTEN` writer - 0:0\\]
 WDT Interrupt Enable 0: Interrupt event disabled. 1: Interrupt event enabled. Once set, this bit can only be cleared by a hardware reset."]
-pub type INTEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTL_SPEC, INTEN_A, O>;
-impl<'a, const O: u8> INTEN_W<'a, O> {
+pub type IntenW<'a, REG> = crate::BitWriter<'a, REG, Inten>;
+impl<'a, REG> IntenW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Interrupt Enabled"]
     #[inline(always)]
-    pub fn en(self) -> &'a mut W {
-        self.variant(INTEN_A::EN)
+    pub fn en(self) -> &'a mut crate::W<REG> {
+        self.variant(Inten::En)
     }
     #[doc = "Interrupt Disabled"]
     #[inline(always)]
-    pub fn dis(self) -> &'a mut W {
-        self.variant(INTEN_A::DIS)
+    pub fn dis(self) -> &'a mut crate::W<REG> {
+        self.variant(Inten::Dis)
+    }
+}
+#[doc = "1:1\\]
+WDT Reset Enable. Defines the function of the WDT reset source (see PRCM:WARMRESET.WDT_STAT if enabled) 0: Disabled. 1: Enable the Watchdog reset output.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Resen {
+    #[doc = "1: Reset output Enabled"]
+    En = 1,
+    #[doc = "0: Reset output Disabled"]
+    Dis = 0,
+}
+impl From<Resen> for bool {
+    #[inline(always)]
+    fn from(variant: Resen) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `RESEN` reader - 1:1\\]
 WDT Reset Enable. Defines the function of the WDT reset source (see PRCM:WARMRESET.WDT_STAT if enabled) 0: Disabled. 1: Enable the Watchdog reset output."]
-pub type RESEN_R = crate::BitReader<RESEN_A>;
-#[doc = "1:1\\]
-WDT Reset Enable. Defines the function of the WDT reset source (see PRCM:WARMRESET.WDT_STAT if enabled) 0: Disabled. 1: Enable the Watchdog reset output.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum RESEN_A {
-    #[doc = "1: Reset output Enabled"]
-    EN = 1,
-    #[doc = "0: Reset output Disabled"]
-    DIS = 0,
-}
-impl From<RESEN_A> for bool {
-    #[inline(always)]
-    fn from(variant: RESEN_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl RESEN_R {
+pub type ResenR = crate::BitReader<Resen>;
+impl ResenR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> RESEN_A {
+    pub const fn variant(&self) -> Resen {
         match self.bits {
-            true => RESEN_A::EN,
-            false => RESEN_A::DIS,
+            true => Resen::En,
+            false => Resen::Dis,
         }
     }
-    #[doc = "Checks if the value of the field is `EN`"]
+    #[doc = "Reset output Enabled"]
     #[inline(always)]
     pub fn is_en(&self) -> bool {
-        *self == RESEN_A::EN
+        *self == Resen::En
     }
-    #[doc = "Checks if the value of the field is `DIS`"]
+    #[doc = "Reset output Disabled"]
     #[inline(always)]
     pub fn is_dis(&self) -> bool {
-        *self == RESEN_A::DIS
+        *self == Resen::Dis
     }
 }
 #[doc = "Field `RESEN` writer - 1:1\\]
 WDT Reset Enable. Defines the function of the WDT reset source (see PRCM:WARMRESET.WDT_STAT if enabled) 0: Disabled. 1: Enable the Watchdog reset output."]
-pub type RESEN_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTL_SPEC, RESEN_A, O>;
-impl<'a, const O: u8> RESEN_W<'a, O> {
+pub type ResenW<'a, REG> = crate::BitWriter<'a, REG, Resen>;
+impl<'a, REG> ResenW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Reset output Enabled"]
     #[inline(always)]
-    pub fn en(self) -> &'a mut W {
-        self.variant(RESEN_A::EN)
+    pub fn en(self) -> &'a mut crate::W<REG> {
+        self.variant(Resen::En)
     }
     #[doc = "Reset output Disabled"]
     #[inline(always)]
-    pub fn dis(self) -> &'a mut W {
-        self.variant(RESEN_A::DIS)
+    pub fn dis(self) -> &'a mut crate::W<REG> {
+        self.variant(Resen::Dis)
+    }
+}
+#[doc = "2:2\\]
+WDT Interrupt Type 0: WDT interrupt is a standard interrupt. 1: WDT interrupt is a non-maskable interrupt.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Inttype {
+    #[doc = "1: Non-maskable interrupt"]
+    Nonmaskable = 1,
+    #[doc = "0: Maskable interrupt"]
+    Maskable = 0,
+}
+impl From<Inttype> for bool {
+    #[inline(always)]
+    fn from(variant: Inttype) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `INTTYPE` reader - 2:2\\]
 WDT Interrupt Type 0: WDT interrupt is a standard interrupt. 1: WDT interrupt is a non-maskable interrupt."]
-pub type INTTYPE_R = crate::BitReader<INTTYPE_A>;
-#[doc = "2:2\\]
-WDT Interrupt Type 0: WDT interrupt is a standard interrupt. 1: WDT interrupt is a non-maskable interrupt.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum INTTYPE_A {
-    #[doc = "1: Non-maskable interrupt"]
-    NONMASKABLE = 1,
-    #[doc = "0: Maskable interrupt"]
-    MASKABLE = 0,
-}
-impl From<INTTYPE_A> for bool {
-    #[inline(always)]
-    fn from(variant: INTTYPE_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl INTTYPE_R {
+pub type InttypeR = crate::BitReader<Inttype>;
+impl InttypeR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> INTTYPE_A {
+    pub const fn variant(&self) -> Inttype {
         match self.bits {
-            true => INTTYPE_A::NONMASKABLE,
-            false => INTTYPE_A::MASKABLE,
+            true => Inttype::Nonmaskable,
+            false => Inttype::Maskable,
         }
     }
-    #[doc = "Checks if the value of the field is `NONMASKABLE`"]
+    #[doc = "Non-maskable interrupt"]
     #[inline(always)]
     pub fn is_nonmaskable(&self) -> bool {
-        *self == INTTYPE_A::NONMASKABLE
+        *self == Inttype::Nonmaskable
     }
-    #[doc = "Checks if the value of the field is `MASKABLE`"]
+    #[doc = "Maskable interrupt"]
     #[inline(always)]
     pub fn is_maskable(&self) -> bool {
-        *self == INTTYPE_A::MASKABLE
+        *self == Inttype::Maskable
     }
 }
 #[doc = "Field `INTTYPE` writer - 2:2\\]
 WDT Interrupt Type 0: WDT interrupt is a standard interrupt. 1: WDT interrupt is a non-maskable interrupt."]
-pub type INTTYPE_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTL_SPEC, INTTYPE_A, O>;
-impl<'a, const O: u8> INTTYPE_W<'a, O> {
+pub type InttypeW<'a, REG> = crate::BitWriter<'a, REG, Inttype>;
+impl<'a, REG> InttypeW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Non-maskable interrupt"]
     #[inline(always)]
-    pub fn nonmaskable(self) -> &'a mut W {
-        self.variant(INTTYPE_A::NONMASKABLE)
+    pub fn nonmaskable(self) -> &'a mut crate::W<REG> {
+        self.variant(Inttype::Nonmaskable)
     }
     #[doc = "Maskable interrupt"]
     #[inline(always)]
-    pub fn maskable(self) -> &'a mut W {
-        self.variant(INTTYPE_A::MASKABLE)
+    pub fn maskable(self) -> &'a mut crate::W<REG> {
+        self.variant(Inttype::Maskable)
     }
 }
 #[doc = "Field `RESERVED3` reader - 31:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED3_R = crate::FieldReader<u32, u32>;
+pub type Reserved3R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED3` writer - 31:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED3_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CTL_SPEC, u32, u32, 29, O>;
+pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 29, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 WDT Interrupt Enable 0: Interrupt event disabled. 1: Interrupt event enabled. Once set, this bit can only be cleared by a hardware reset."]
     #[inline(always)]
-    pub fn inten(&self) -> INTEN_R {
-        INTEN_R::new((self.bits & 1) != 0)
+    pub fn inten(&self) -> IntenR {
+        IntenR::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 WDT Reset Enable. Defines the function of the WDT reset source (see PRCM:WARMRESET.WDT_STAT if enabled) 0: Disabled. 1: Enable the Watchdog reset output."]
     #[inline(always)]
-    pub fn resen(&self) -> RESEN_R {
-        RESEN_R::new(((self.bits >> 1) & 1) != 0)
+    pub fn resen(&self) -> ResenR {
+        ResenR::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bit 2 - 2:2\\]
 WDT Interrupt Type 0: WDT interrupt is a standard interrupt. 1: WDT interrupt is a non-maskable interrupt."]
     #[inline(always)]
-    pub fn inttype(&self) -> INTTYPE_R {
-        INTTYPE_R::new(((self.bits >> 2) & 1) != 0)
+    pub fn inttype(&self) -> InttypeR {
+        InttypeR::new(((self.bits >> 2) & 1) != 0)
     }
     #[doc = "Bits 3:31 - 31:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved3(&self) -> RESERVED3_R {
-        RESERVED3_R::new((self.bits >> 3) & 0x1fff_ffff)
+    pub fn reserved3(&self) -> Reserved3R {
+        Reserved3R::new((self.bits >> 3) & 0x1fff_ffff)
     }
 }
 impl W {
@@ -230,53 +207,45 @@ impl W {
 WDT Interrupt Enable 0: Interrupt event disabled. 1: Interrupt event enabled. Once set, this bit can only be cleared by a hardware reset."]
     #[inline(always)]
     #[must_use]
-    pub fn inten(&mut self) -> INTEN_W<0> {
-        INTEN_W::new(self)
+    pub fn inten(&mut self) -> IntenW<CtlSpec> {
+        IntenW::new(self, 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 WDT Reset Enable. Defines the function of the WDT reset source (see PRCM:WARMRESET.WDT_STAT if enabled) 0: Disabled. 1: Enable the Watchdog reset output."]
     #[inline(always)]
     #[must_use]
-    pub fn resen(&mut self) -> RESEN_W<1> {
-        RESEN_W::new(self)
+    pub fn resen(&mut self) -> ResenW<CtlSpec> {
+        ResenW::new(self, 1)
     }
     #[doc = "Bit 2 - 2:2\\]
 WDT Interrupt Type 0: WDT interrupt is a standard interrupt. 1: WDT interrupt is a non-maskable interrupt."]
     #[inline(always)]
     #[must_use]
-    pub fn inttype(&mut self) -> INTTYPE_W<2> {
-        INTTYPE_W::new(self)
+    pub fn inttype(&mut self) -> InttypeW<CtlSpec> {
+        InttypeW::new(self, 2)
     }
     #[doc = "Bits 3:31 - 31:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved3(&mut self) -> RESERVED3_W<3> {
-        RESERVED3_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved3(&mut self) -> Reserved3W<CtlSpec> {
+        Reserved3W::new(self, 3)
     }
 }
-#[doc = "Control\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ctl](index.html) module"]
-pub struct CTL_SPEC;
-impl crate::RegisterSpec for CTL_SPEC {
+#[doc = "Control\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct CtlSpec;
+impl crate::RegisterSpec for CtlSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [ctl::R](R) reader structure"]
-impl crate::Readable for CTL_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [ctl::W](W) writer structure"]
-impl crate::Writable for CTL_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`ctl::R`](R) reader structure"]
+impl crate::Readable for CtlSpec {}
+#[doc = "`write(|w| ..)` method takes [`ctl::W`](W) writer structure"]
+impl crate::Writable for CtlSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets CTL to value 0"]
-impl crate::Resettable for CTL_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for CtlSpec {
+    const RESET_VALUE: u32 = 0;
 }

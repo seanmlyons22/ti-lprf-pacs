@@ -1,110 +1,81 @@
 #[doc = "Register `DFTEN` reader"]
-pub struct R(crate::R<DFTEN_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<DFTEN_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<DFTEN_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<DFTEN_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<DftenSpec>;
 #[doc = "Register `DFTEN` writer"]
-pub struct W(crate::W<DFTEN_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<DFTEN_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
+pub type W = crate::W<DftenSpec>;
+#[doc = "0:0\\]
+Enable Test Features\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Enable {
+    #[doc = "1: Command"]
+    Enabled = 1,
+    #[doc = "0: Command"]
+    Disabled = 0,
 }
-impl core::ops::DerefMut for W {
+impl From<Enable> for bool {
     #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<DFTEN_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<DFTEN_SPEC>) -> Self {
-        W(writer)
+    fn from(variant: Enable) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `ENABLE` reader - 0:0\\]
 Enable Test Features"]
-pub type ENABLE_R = crate::BitReader<ENABLE_A>;
-#[doc = "0:0\\]
-Enable Test Features\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum ENABLE_A {
-    #[doc = "1: Command"]
-    ENABLED = 1,
-    #[doc = "0: Command"]
-    DISABLED = 0,
-}
-impl From<ENABLE_A> for bool {
-    #[inline(always)]
-    fn from(variant: ENABLE_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl ENABLE_R {
+pub type EnableR = crate::BitReader<Enable>;
+impl EnableR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> ENABLE_A {
+    pub const fn variant(&self) -> Enable {
         match self.bits {
-            true => ENABLE_A::ENABLED,
-            false => ENABLE_A::DISABLED,
+            true => Enable::Enabled,
+            false => Enable::Disabled,
         }
     }
-    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[doc = "Command"]
     #[inline(always)]
     pub fn is_enabled(&self) -> bool {
-        *self == ENABLE_A::ENABLED
+        *self == Enable::Enabled
     }
-    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[doc = "Command"]
     #[inline(always)]
     pub fn is_disabled(&self) -> bool {
-        *self == ENABLE_A::DISABLED
+        *self == Enable::Disabled
     }
 }
 #[doc = "Field `ENABLE` writer - 0:0\\]
 Enable Test Features"]
-pub type ENABLE_W<'a, const O: u8> = crate::BitWriter<'a, u32, DFTEN_SPEC, ENABLE_A, O>;
-impl<'a, const O: u8> ENABLE_W<'a, O> {
+pub type EnableW<'a, REG> = crate::BitWriter<'a, REG, Enable>;
+impl<'a, REG> EnableW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Command"]
     #[inline(always)]
-    pub fn enabled(self) -> &'a mut W {
-        self.variant(ENABLE_A::ENABLED)
+    pub fn enabled(self) -> &'a mut crate::W<REG> {
+        self.variant(Enable::Enabled)
     }
     #[doc = "Command"]
     #[inline(always)]
-    pub fn disabled(self) -> &'a mut W {
-        self.variant(ENABLE_A::DISABLED)
+    pub fn disabled(self) -> &'a mut crate::W<REG> {
+        self.variant(Enable::Disabled)
     }
 }
 #[doc = "Field `RESERVED1` reader - 31:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED1_R = crate::FieldReader<u32, u32>;
+pub type Reserved1R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED1` writer - 31:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED1_W<'a, const O: u8> = crate::FieldWriter<'a, u32, DFTEN_SPEC, u32, u32, 31, O>;
+pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 31, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Enable Test Features"]
     #[inline(always)]
-    pub fn enable(&self) -> ENABLE_R {
-        ENABLE_R::new((self.bits & 1) != 0)
+    pub fn enable(&self) -> EnableR {
+        EnableR::new((self.bits & 1) != 0)
     }
     #[doc = "Bits 1:31 - 31:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved1(&self) -> RESERVED1_R {
-        RESERVED1_R::new((self.bits >> 1) & 0x7fff_ffff)
+    pub fn reserved1(&self) -> Reserved1R {
+        Reserved1R::new((self.bits >> 1) & 0x7fff_ffff)
     }
 }
 impl W {
@@ -112,39 +83,31 @@ impl W {
 Enable Test Features"]
     #[inline(always)]
     #[must_use]
-    pub fn enable(&mut self) -> ENABLE_W<0> {
-        ENABLE_W::new(self)
+    pub fn enable(&mut self) -> EnableW<DftenSpec> {
+        EnableW::new(self, 0)
     }
     #[doc = "Bits 1:31 - 31:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved1(&mut self) -> RESERVED1_W<1> {
-        RESERVED1_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved1(&mut self) -> Reserved1W<DftenSpec> {
+        Reserved1W::new(self, 1)
     }
 }
-#[doc = "DFT Enable Register Allows control of NoWrapper test features. When set, DFT* registers in this aperture open for write access. When cleared, DFT* registers are read-only. This register is blocked for writes after a 1 is written to the CMDEXEC register and prior to STATCMD.DONE being set by the NoWrapper hardware.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dften](index.html) module"]
-pub struct DFTEN_SPEC;
-impl crate::RegisterSpec for DFTEN_SPEC {
+#[doc = "DFT Enable Register Allows control of NoWrapper test features. When set, DFT* registers in this aperture open for write access. When cleared, DFT* registers are read-only. This register is blocked for writes after a 1 is written to the CMDEXEC register and prior to STATCMD.DONE being set by the NoWrapper hardware.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`dften::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`dften::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct DftenSpec;
+impl crate::RegisterSpec for DftenSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [dften::R](R) reader structure"]
-impl crate::Readable for DFTEN_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [dften::W](W) writer structure"]
-impl crate::Writable for DFTEN_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`dften::R`](R) reader structure"]
+impl crate::Readable for DftenSpec {}
+#[doc = "`write(|w| ..)` method takes [`dften::W`](W) writer structure"]
+impl crate::Writable for DftenSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets DFTEN to value 0"]
-impl crate::Resettable for DFTEN_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for DftenSpec {
+    const RESET_VALUE: u32 = 0;
 }

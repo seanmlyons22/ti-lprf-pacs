@@ -1,63 +1,31 @@
 #[doc = "Register `ACC` reader"]
-pub struct R(crate::R<ACC_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<ACC_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<ACC_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<ACC_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<AccSpec>;
 #[doc = "Register `ACC` writer"]
-pub struct W(crate::W<ACC_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<ACC_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<ACC_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<ACC_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<AccSpec>;
 #[doc = "Field `ACCUMULATOR` reader - 23:0\\]
 Internal. Only to be used through TI provided API."]
-pub type ACCUMULATOR_R = crate::FieldReader<u32, u32>;
+pub type AccumulatorR = crate::FieldReader<u32>;
 #[doc = "Field `ACCUMULATOR` writer - 23:0\\]
 Internal. Only to be used through TI provided API."]
-pub type ACCUMULATOR_W<'a, const O: u8> = crate::FieldWriter<'a, u32, ACC_SPEC, u32, u32, 24, O>;
+pub type AccumulatorW<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 #[doc = "Field `RESERVED24` reader - 31:24\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED24_R = crate::FieldReader<u8, u8>;
+pub type Reserved24R = crate::FieldReader;
 #[doc = "Field `RESERVED24` writer - 31:24\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED24_W<'a, const O: u8> = crate::FieldWriter<'a, u32, ACC_SPEC, u8, u8, 8, O>;
+pub type Reserved24W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 impl R {
     #[doc = "Bits 0:23 - 23:0\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn accumulator(&self) -> ACCUMULATOR_R {
-        ACCUMULATOR_R::new(self.bits & 0x00ff_ffff)
+    pub fn accumulator(&self) -> AccumulatorR {
+        AccumulatorR::new(self.bits & 0x00ff_ffff)
     }
     #[doc = "Bits 24:31 - 31:24\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn reserved24(&self) -> RESERVED24_R {
-        RESERVED24_R::new(((self.bits >> 24) & 0xff) as u8)
+    pub fn reserved24(&self) -> Reserved24R {
+        Reserved24R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
 impl W {
@@ -65,39 +33,31 @@ impl W {
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn accumulator(&mut self) -> ACCUMULATOR_W<0> {
-        ACCUMULATOR_W::new(self)
+    pub fn accumulator(&mut self) -> AccumulatorW<AccSpec> {
+        AccumulatorW::new(self, 0)
     }
     #[doc = "Bits 24:31 - 31:24\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved24(&mut self) -> RESERVED24_W<24> {
-        RESERVED24_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved24(&mut self) -> Reserved24W<AccSpec> {
+        Reserved24W::new(self, 24)
     }
 }
-#[doc = "Internal. Only to be used through TI provided API.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [acc](index.html) module"]
-pub struct ACC_SPEC;
-impl crate::RegisterSpec for ACC_SPEC {
+#[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`acc::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`acc::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct AccSpec;
+impl crate::RegisterSpec for AccSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [acc::R](R) reader structure"]
-impl crate::Readable for ACC_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [acc::W](W) writer structure"]
-impl crate::Writable for ACC_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`acc::R`](R) reader structure"]
+impl crate::Readable for AccSpec {}
+#[doc = "`write(|w| ..)` method takes [`acc::W`](W) writer structure"]
+impl crate::Writable for AccSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets ACC to value 0"]
-impl crate::Resettable for ACC_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for AccSpec {
+    const RESET_VALUE: u32 = 0;
 }

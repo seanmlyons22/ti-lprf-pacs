@@ -1,532 +1,515 @@
 #[doc = "Register `KEYWRITEAREA` reader"]
-pub struct R(crate::R<KEYWRITEAREA_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<KEYWRITEAREA_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<KEYWRITEAREA_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<KEYWRITEAREA_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<KeywriteareaSpec>;
 #[doc = "Register `KEYWRITEAREA` writer"]
-pub struct W(crate::W<KEYWRITEAREA_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<KEYWRITEAREA_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
+pub type W = crate::W<KeywriteareaSpec>;
+#[doc = "0:0\\]
+Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA0 is not selected to be written. 1: RAM_AREA0 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum RamArea0 {
+    #[doc = "1: This RAM area is selected to be written"]
+    Sel = 1,
+    #[doc = "0: This RAM area is not selected to be written"]
+    NotSel = 0,
 }
-impl core::ops::DerefMut for W {
+impl From<RamArea0> for bool {
     #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<KEYWRITEAREA_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<KEYWRITEAREA_SPEC>) -> Self {
-        W(writer)
+    fn from(variant: RamArea0) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `RAM_AREA0` reader - 0:0\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA0 is not selected to be written. 1: RAM_AREA0 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
-pub type RAM_AREA0_R = crate::BitReader<RAM_AREA0_A>;
-#[doc = "0:0\\]
-Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA0 is not selected to be written. 1: RAM_AREA0 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum RAM_AREA0_A {
-    #[doc = "1: This RAM area is selected to be written"]
-    SEL = 1,
-    #[doc = "0: This RAM area is not selected to be written"]
-    NOT_SEL = 0,
-}
-impl From<RAM_AREA0_A> for bool {
-    #[inline(always)]
-    fn from(variant: RAM_AREA0_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl RAM_AREA0_R {
+pub type RamArea0R = crate::BitReader<RamArea0>;
+impl RamArea0R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> RAM_AREA0_A {
+    pub const fn variant(&self) -> RamArea0 {
         match self.bits {
-            true => RAM_AREA0_A::SEL,
-            false => RAM_AREA0_A::NOT_SEL,
+            true => RamArea0::Sel,
+            false => RamArea0::NotSel,
         }
     }
-    #[doc = "Checks if the value of the field is `SEL`"]
+    #[doc = "This RAM area is selected to be written"]
     #[inline(always)]
     pub fn is_sel(&self) -> bool {
-        *self == RAM_AREA0_A::SEL
+        *self == RamArea0::Sel
     }
-    #[doc = "Checks if the value of the field is `NOT_SEL`"]
+    #[doc = "This RAM area is not selected to be written"]
     #[inline(always)]
     pub fn is_not_sel(&self) -> bool {
-        *self == RAM_AREA0_A::NOT_SEL
+        *self == RamArea0::NotSel
     }
 }
 #[doc = "Field `RAM_AREA0` writer - 0:0\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA0 is not selected to be written. 1: RAM_AREA0 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
-pub type RAM_AREA0_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, KEYWRITEAREA_SPEC, RAM_AREA0_A, O>;
-impl<'a, const O: u8> RAM_AREA0_W<'a, O> {
+pub type RamArea0W<'a, REG> = crate::BitWriter<'a, REG, RamArea0>;
+impl<'a, REG> RamArea0W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "This RAM area is selected to be written"]
     #[inline(always)]
-    pub fn sel(self) -> &'a mut W {
-        self.variant(RAM_AREA0_A::SEL)
+    pub fn sel(self) -> &'a mut crate::W<REG> {
+        self.variant(RamArea0::Sel)
     }
     #[doc = "This RAM area is not selected to be written"]
     #[inline(always)]
-    pub fn not_sel(self) -> &'a mut W {
-        self.variant(RAM_AREA0_A::NOT_SEL)
+    pub fn not_sel(self) -> &'a mut crate::W<REG> {
+        self.variant(RamArea0::NotSel)
+    }
+}
+#[doc = "1:1\\]
+Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA1 is not selected to be written. 1: RAM_AREA1 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum RamArea1 {
+    #[doc = "1: This RAM area is selected to be written"]
+    Sel = 1,
+    #[doc = "0: This RAM area is not selected to be written"]
+    NotSel = 0,
+}
+impl From<RamArea1> for bool {
+    #[inline(always)]
+    fn from(variant: RamArea1) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `RAM_AREA1` reader - 1:1\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA1 is not selected to be written. 1: RAM_AREA1 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
-pub type RAM_AREA1_R = crate::BitReader<RAM_AREA1_A>;
-#[doc = "1:1\\]
-Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA1 is not selected to be written. 1: RAM_AREA1 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum RAM_AREA1_A {
-    #[doc = "1: This RAM area is selected to be written"]
-    SEL = 1,
-    #[doc = "0: This RAM area is not selected to be written"]
-    NOT_SEL = 0,
-}
-impl From<RAM_AREA1_A> for bool {
-    #[inline(always)]
-    fn from(variant: RAM_AREA1_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl RAM_AREA1_R {
+pub type RamArea1R = crate::BitReader<RamArea1>;
+impl RamArea1R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> RAM_AREA1_A {
+    pub const fn variant(&self) -> RamArea1 {
         match self.bits {
-            true => RAM_AREA1_A::SEL,
-            false => RAM_AREA1_A::NOT_SEL,
+            true => RamArea1::Sel,
+            false => RamArea1::NotSel,
         }
     }
-    #[doc = "Checks if the value of the field is `SEL`"]
+    #[doc = "This RAM area is selected to be written"]
     #[inline(always)]
     pub fn is_sel(&self) -> bool {
-        *self == RAM_AREA1_A::SEL
+        *self == RamArea1::Sel
     }
-    #[doc = "Checks if the value of the field is `NOT_SEL`"]
+    #[doc = "This RAM area is not selected to be written"]
     #[inline(always)]
     pub fn is_not_sel(&self) -> bool {
-        *self == RAM_AREA1_A::NOT_SEL
+        *self == RamArea1::NotSel
     }
 }
 #[doc = "Field `RAM_AREA1` writer - 1:1\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA1 is not selected to be written. 1: RAM_AREA1 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
-pub type RAM_AREA1_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, KEYWRITEAREA_SPEC, RAM_AREA1_A, O>;
-impl<'a, const O: u8> RAM_AREA1_W<'a, O> {
+pub type RamArea1W<'a, REG> = crate::BitWriter<'a, REG, RamArea1>;
+impl<'a, REG> RamArea1W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "This RAM area is selected to be written"]
     #[inline(always)]
-    pub fn sel(self) -> &'a mut W {
-        self.variant(RAM_AREA1_A::SEL)
+    pub fn sel(self) -> &'a mut crate::W<REG> {
+        self.variant(RamArea1::Sel)
     }
     #[doc = "This RAM area is not selected to be written"]
     #[inline(always)]
-    pub fn not_sel(self) -> &'a mut W {
-        self.variant(RAM_AREA1_A::NOT_SEL)
+    pub fn not_sel(self) -> &'a mut crate::W<REG> {
+        self.variant(RamArea1::NotSel)
+    }
+}
+#[doc = "2:2\\]
+Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA2 is not selected to be written. 1: RAM_AREA2 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum RamArea2 {
+    #[doc = "1: This RAM area is selected to be written"]
+    Sel = 1,
+    #[doc = "0: This RAM area is not selected to be written"]
+    NotSel = 0,
+}
+impl From<RamArea2> for bool {
+    #[inline(always)]
+    fn from(variant: RamArea2) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `RAM_AREA2` reader - 2:2\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA2 is not selected to be written. 1: RAM_AREA2 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
-pub type RAM_AREA2_R = crate::BitReader<RAM_AREA2_A>;
-#[doc = "2:2\\]
-Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA2 is not selected to be written. 1: RAM_AREA2 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum RAM_AREA2_A {
-    #[doc = "1: This RAM area is selected to be written"]
-    SEL = 1,
-    #[doc = "0: This RAM area is not selected to be written"]
-    NOT_SEL = 0,
-}
-impl From<RAM_AREA2_A> for bool {
-    #[inline(always)]
-    fn from(variant: RAM_AREA2_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl RAM_AREA2_R {
+pub type RamArea2R = crate::BitReader<RamArea2>;
+impl RamArea2R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> RAM_AREA2_A {
+    pub const fn variant(&self) -> RamArea2 {
         match self.bits {
-            true => RAM_AREA2_A::SEL,
-            false => RAM_AREA2_A::NOT_SEL,
+            true => RamArea2::Sel,
+            false => RamArea2::NotSel,
         }
     }
-    #[doc = "Checks if the value of the field is `SEL`"]
+    #[doc = "This RAM area is selected to be written"]
     #[inline(always)]
     pub fn is_sel(&self) -> bool {
-        *self == RAM_AREA2_A::SEL
+        *self == RamArea2::Sel
     }
-    #[doc = "Checks if the value of the field is `NOT_SEL`"]
+    #[doc = "This RAM area is not selected to be written"]
     #[inline(always)]
     pub fn is_not_sel(&self) -> bool {
-        *self == RAM_AREA2_A::NOT_SEL
+        *self == RamArea2::NotSel
     }
 }
 #[doc = "Field `RAM_AREA2` writer - 2:2\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA2 is not selected to be written. 1: RAM_AREA2 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
-pub type RAM_AREA2_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, KEYWRITEAREA_SPEC, RAM_AREA2_A, O>;
-impl<'a, const O: u8> RAM_AREA2_W<'a, O> {
+pub type RamArea2W<'a, REG> = crate::BitWriter<'a, REG, RamArea2>;
+impl<'a, REG> RamArea2W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "This RAM area is selected to be written"]
     #[inline(always)]
-    pub fn sel(self) -> &'a mut W {
-        self.variant(RAM_AREA2_A::SEL)
+    pub fn sel(self) -> &'a mut crate::W<REG> {
+        self.variant(RamArea2::Sel)
     }
     #[doc = "This RAM area is not selected to be written"]
     #[inline(always)]
-    pub fn not_sel(self) -> &'a mut W {
-        self.variant(RAM_AREA2_A::NOT_SEL)
+    pub fn not_sel(self) -> &'a mut crate::W<REG> {
+        self.variant(RamArea2::NotSel)
+    }
+}
+#[doc = "3:3\\]
+Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA3 is not selected to be written. 1: RAM_AREA3 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum RamArea3 {
+    #[doc = "1: This RAM area is selected to be written"]
+    Sel = 1,
+    #[doc = "0: This RAM area is not selected to be written"]
+    NotSel = 0,
+}
+impl From<RamArea3> for bool {
+    #[inline(always)]
+    fn from(variant: RamArea3) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `RAM_AREA3` reader - 3:3\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA3 is not selected to be written. 1: RAM_AREA3 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
-pub type RAM_AREA3_R = crate::BitReader<RAM_AREA3_A>;
-#[doc = "3:3\\]
-Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA3 is not selected to be written. 1: RAM_AREA3 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum RAM_AREA3_A {
-    #[doc = "1: This RAM area is selected to be written"]
-    SEL = 1,
-    #[doc = "0: This RAM area is not selected to be written"]
-    NOT_SEL = 0,
-}
-impl From<RAM_AREA3_A> for bool {
-    #[inline(always)]
-    fn from(variant: RAM_AREA3_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl RAM_AREA3_R {
+pub type RamArea3R = crate::BitReader<RamArea3>;
+impl RamArea3R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> RAM_AREA3_A {
+    pub const fn variant(&self) -> RamArea3 {
         match self.bits {
-            true => RAM_AREA3_A::SEL,
-            false => RAM_AREA3_A::NOT_SEL,
+            true => RamArea3::Sel,
+            false => RamArea3::NotSel,
         }
     }
-    #[doc = "Checks if the value of the field is `SEL`"]
+    #[doc = "This RAM area is selected to be written"]
     #[inline(always)]
     pub fn is_sel(&self) -> bool {
-        *self == RAM_AREA3_A::SEL
+        *self == RamArea3::Sel
     }
-    #[doc = "Checks if the value of the field is `NOT_SEL`"]
+    #[doc = "This RAM area is not selected to be written"]
     #[inline(always)]
     pub fn is_not_sel(&self) -> bool {
-        *self == RAM_AREA3_A::NOT_SEL
+        *self == RamArea3::NotSel
     }
 }
 #[doc = "Field `RAM_AREA3` writer - 3:3\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA3 is not selected to be written. 1: RAM_AREA3 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
-pub type RAM_AREA3_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, KEYWRITEAREA_SPEC, RAM_AREA3_A, O>;
-impl<'a, const O: u8> RAM_AREA3_W<'a, O> {
+pub type RamArea3W<'a, REG> = crate::BitWriter<'a, REG, RamArea3>;
+impl<'a, REG> RamArea3W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "This RAM area is selected to be written"]
     #[inline(always)]
-    pub fn sel(self) -> &'a mut W {
-        self.variant(RAM_AREA3_A::SEL)
+    pub fn sel(self) -> &'a mut crate::W<REG> {
+        self.variant(RamArea3::Sel)
     }
     #[doc = "This RAM area is not selected to be written"]
     #[inline(always)]
-    pub fn not_sel(self) -> &'a mut W {
-        self.variant(RAM_AREA3_A::NOT_SEL)
+    pub fn not_sel(self) -> &'a mut crate::W<REG> {
+        self.variant(RamArea3::NotSel)
+    }
+}
+#[doc = "4:4\\]
+Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA4 is not selected to be written. 1: RAM_AREA4 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum RamArea4 {
+    #[doc = "1: This RAM area is selected to be written"]
+    Sel = 1,
+    #[doc = "0: This RAM area is not selected to be written"]
+    NotSel = 0,
+}
+impl From<RamArea4> for bool {
+    #[inline(always)]
+    fn from(variant: RamArea4) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `RAM_AREA4` reader - 4:4\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA4 is not selected to be written. 1: RAM_AREA4 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
-pub type RAM_AREA4_R = crate::BitReader<RAM_AREA4_A>;
-#[doc = "4:4\\]
-Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA4 is not selected to be written. 1: RAM_AREA4 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum RAM_AREA4_A {
-    #[doc = "1: This RAM area is selected to be written"]
-    SEL = 1,
-    #[doc = "0: This RAM area is not selected to be written"]
-    NOT_SEL = 0,
-}
-impl From<RAM_AREA4_A> for bool {
-    #[inline(always)]
-    fn from(variant: RAM_AREA4_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl RAM_AREA4_R {
+pub type RamArea4R = crate::BitReader<RamArea4>;
+impl RamArea4R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> RAM_AREA4_A {
+    pub const fn variant(&self) -> RamArea4 {
         match self.bits {
-            true => RAM_AREA4_A::SEL,
-            false => RAM_AREA4_A::NOT_SEL,
+            true => RamArea4::Sel,
+            false => RamArea4::NotSel,
         }
     }
-    #[doc = "Checks if the value of the field is `SEL`"]
+    #[doc = "This RAM area is selected to be written"]
     #[inline(always)]
     pub fn is_sel(&self) -> bool {
-        *self == RAM_AREA4_A::SEL
+        *self == RamArea4::Sel
     }
-    #[doc = "Checks if the value of the field is `NOT_SEL`"]
+    #[doc = "This RAM area is not selected to be written"]
     #[inline(always)]
     pub fn is_not_sel(&self) -> bool {
-        *self == RAM_AREA4_A::NOT_SEL
+        *self == RamArea4::NotSel
     }
 }
 #[doc = "Field `RAM_AREA4` writer - 4:4\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA4 is not selected to be written. 1: RAM_AREA4 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
-pub type RAM_AREA4_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, KEYWRITEAREA_SPEC, RAM_AREA4_A, O>;
-impl<'a, const O: u8> RAM_AREA4_W<'a, O> {
+pub type RamArea4W<'a, REG> = crate::BitWriter<'a, REG, RamArea4>;
+impl<'a, REG> RamArea4W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "This RAM area is selected to be written"]
     #[inline(always)]
-    pub fn sel(self) -> &'a mut W {
-        self.variant(RAM_AREA4_A::SEL)
+    pub fn sel(self) -> &'a mut crate::W<REG> {
+        self.variant(RamArea4::Sel)
     }
     #[doc = "This RAM area is not selected to be written"]
     #[inline(always)]
-    pub fn not_sel(self) -> &'a mut W {
-        self.variant(RAM_AREA4_A::NOT_SEL)
+    pub fn not_sel(self) -> &'a mut crate::W<REG> {
+        self.variant(RamArea4::NotSel)
+    }
+}
+#[doc = "5:5\\]
+Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA5 is not selected to be written. 1: RAM_AREA5 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum RamArea5 {
+    #[doc = "1: This RAM area is selected to be written"]
+    Sel = 1,
+    #[doc = "0: This RAM area is not selected to be written"]
+    NotSel = 0,
+}
+impl From<RamArea5> for bool {
+    #[inline(always)]
+    fn from(variant: RamArea5) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `RAM_AREA5` reader - 5:5\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA5 is not selected to be written. 1: RAM_AREA5 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
-pub type RAM_AREA5_R = crate::BitReader<RAM_AREA5_A>;
-#[doc = "5:5\\]
-Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA5 is not selected to be written. 1: RAM_AREA5 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum RAM_AREA5_A {
-    #[doc = "1: This RAM area is selected to be written"]
-    SEL = 1,
-    #[doc = "0: This RAM area is not selected to be written"]
-    NOT_SEL = 0,
-}
-impl From<RAM_AREA5_A> for bool {
-    #[inline(always)]
-    fn from(variant: RAM_AREA5_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl RAM_AREA5_R {
+pub type RamArea5R = crate::BitReader<RamArea5>;
+impl RamArea5R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> RAM_AREA5_A {
+    pub const fn variant(&self) -> RamArea5 {
         match self.bits {
-            true => RAM_AREA5_A::SEL,
-            false => RAM_AREA5_A::NOT_SEL,
+            true => RamArea5::Sel,
+            false => RamArea5::NotSel,
         }
     }
-    #[doc = "Checks if the value of the field is `SEL`"]
+    #[doc = "This RAM area is selected to be written"]
     #[inline(always)]
     pub fn is_sel(&self) -> bool {
-        *self == RAM_AREA5_A::SEL
+        *self == RamArea5::Sel
     }
-    #[doc = "Checks if the value of the field is `NOT_SEL`"]
+    #[doc = "This RAM area is not selected to be written"]
     #[inline(always)]
     pub fn is_not_sel(&self) -> bool {
-        *self == RAM_AREA5_A::NOT_SEL
+        *self == RamArea5::NotSel
     }
 }
 #[doc = "Field `RAM_AREA5` writer - 5:5\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA5 is not selected to be written. 1: RAM_AREA5 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
-pub type RAM_AREA5_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, KEYWRITEAREA_SPEC, RAM_AREA5_A, O>;
-impl<'a, const O: u8> RAM_AREA5_W<'a, O> {
+pub type RamArea5W<'a, REG> = crate::BitWriter<'a, REG, RamArea5>;
+impl<'a, REG> RamArea5W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "This RAM area is selected to be written"]
     #[inline(always)]
-    pub fn sel(self) -> &'a mut W {
-        self.variant(RAM_AREA5_A::SEL)
+    pub fn sel(self) -> &'a mut crate::W<REG> {
+        self.variant(RamArea5::Sel)
     }
     #[doc = "This RAM area is not selected to be written"]
     #[inline(always)]
-    pub fn not_sel(self) -> &'a mut W {
-        self.variant(RAM_AREA5_A::NOT_SEL)
+    pub fn not_sel(self) -> &'a mut crate::W<REG> {
+        self.variant(RamArea5::NotSel)
+    }
+}
+#[doc = "6:6\\]
+Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA6 is not selected to be written. 1: RAM_AREA6 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum RamArea6 {
+    #[doc = "1: This RAM area is selected to be written"]
+    Sel = 1,
+    #[doc = "0: This RAM area is not selected to be written"]
+    NotSel = 0,
+}
+impl From<RamArea6> for bool {
+    #[inline(always)]
+    fn from(variant: RamArea6) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `RAM_AREA6` reader - 6:6\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA6 is not selected to be written. 1: RAM_AREA6 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
-pub type RAM_AREA6_R = crate::BitReader<RAM_AREA6_A>;
-#[doc = "6:6\\]
-Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA6 is not selected to be written. 1: RAM_AREA6 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum RAM_AREA6_A {
-    #[doc = "1: This RAM area is selected to be written"]
-    SEL = 1,
-    #[doc = "0: This RAM area is not selected to be written"]
-    NOT_SEL = 0,
-}
-impl From<RAM_AREA6_A> for bool {
-    #[inline(always)]
-    fn from(variant: RAM_AREA6_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl RAM_AREA6_R {
+pub type RamArea6R = crate::BitReader<RamArea6>;
+impl RamArea6R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> RAM_AREA6_A {
+    pub const fn variant(&self) -> RamArea6 {
         match self.bits {
-            true => RAM_AREA6_A::SEL,
-            false => RAM_AREA6_A::NOT_SEL,
+            true => RamArea6::Sel,
+            false => RamArea6::NotSel,
         }
     }
-    #[doc = "Checks if the value of the field is `SEL`"]
+    #[doc = "This RAM area is selected to be written"]
     #[inline(always)]
     pub fn is_sel(&self) -> bool {
-        *self == RAM_AREA6_A::SEL
+        *self == RamArea6::Sel
     }
-    #[doc = "Checks if the value of the field is `NOT_SEL`"]
+    #[doc = "This RAM area is not selected to be written"]
     #[inline(always)]
     pub fn is_not_sel(&self) -> bool {
-        *self == RAM_AREA6_A::NOT_SEL
+        *self == RamArea6::NotSel
     }
 }
 #[doc = "Field `RAM_AREA6` writer - 6:6\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA6 is not selected to be written. 1: RAM_AREA6 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
-pub type RAM_AREA6_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, KEYWRITEAREA_SPEC, RAM_AREA6_A, O>;
-impl<'a, const O: u8> RAM_AREA6_W<'a, O> {
+pub type RamArea6W<'a, REG> = crate::BitWriter<'a, REG, RamArea6>;
+impl<'a, REG> RamArea6W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "This RAM area is selected to be written"]
     #[inline(always)]
-    pub fn sel(self) -> &'a mut W {
-        self.variant(RAM_AREA6_A::SEL)
+    pub fn sel(self) -> &'a mut crate::W<REG> {
+        self.variant(RamArea6::Sel)
     }
     #[doc = "This RAM area is not selected to be written"]
     #[inline(always)]
-    pub fn not_sel(self) -> &'a mut W {
-        self.variant(RAM_AREA6_A::NOT_SEL)
+    pub fn not_sel(self) -> &'a mut crate::W<REG> {
+        self.variant(RamArea6::NotSel)
+    }
+}
+#[doc = "7:7\\]
+Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA7 is not selected to be written. 1: RAM_AREA7 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum RamArea7 {
+    #[doc = "1: This RAM area is selected to be written"]
+    Sel = 1,
+    #[doc = "0: This RAM area is not selected to be written"]
+    NotSel = 0,
+}
+impl From<RamArea7> for bool {
+    #[inline(always)]
+    fn from(variant: RamArea7) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `RAM_AREA7` reader - 7:7\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA7 is not selected to be written. 1: RAM_AREA7 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
-pub type RAM_AREA7_R = crate::BitReader<RAM_AREA7_A>;
-#[doc = "7:7\\]
-Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA7 is not selected to be written. 1: RAM_AREA7 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum RAM_AREA7_A {
-    #[doc = "1: This RAM area is selected to be written"]
-    SEL = 1,
-    #[doc = "0: This RAM area is not selected to be written"]
-    NOT_SEL = 0,
-}
-impl From<RAM_AREA7_A> for bool {
-    #[inline(always)]
-    fn from(variant: RAM_AREA7_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl RAM_AREA7_R {
+pub type RamArea7R = crate::BitReader<RamArea7>;
+impl RamArea7R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> RAM_AREA7_A {
+    pub const fn variant(&self) -> RamArea7 {
         match self.bits {
-            true => RAM_AREA7_A::SEL,
-            false => RAM_AREA7_A::NOT_SEL,
+            true => RamArea7::Sel,
+            false => RamArea7::NotSel,
         }
     }
-    #[doc = "Checks if the value of the field is `SEL`"]
+    #[doc = "This RAM area is selected to be written"]
     #[inline(always)]
     pub fn is_sel(&self) -> bool {
-        *self == RAM_AREA7_A::SEL
+        *self == RamArea7::Sel
     }
-    #[doc = "Checks if the value of the field is `NOT_SEL`"]
+    #[doc = "This RAM area is not selected to be written"]
     #[inline(always)]
     pub fn is_not_sel(&self) -> bool {
-        *self == RAM_AREA7_A::NOT_SEL
+        *self == RamArea7::NotSel
     }
 }
 #[doc = "Field `RAM_AREA7` writer - 7:7\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA7 is not selected to be written. 1: RAM_AREA7 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
-pub type RAM_AREA7_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, KEYWRITEAREA_SPEC, RAM_AREA7_A, O>;
-impl<'a, const O: u8> RAM_AREA7_W<'a, O> {
+pub type RamArea7W<'a, REG> = crate::BitWriter<'a, REG, RamArea7>;
+impl<'a, REG> RamArea7W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "This RAM area is selected to be written"]
     #[inline(always)]
-    pub fn sel(self) -> &'a mut W {
-        self.variant(RAM_AREA7_A::SEL)
+    pub fn sel(self) -> &'a mut crate::W<REG> {
+        self.variant(RamArea7::Sel)
     }
     #[doc = "This RAM area is not selected to be written"]
     #[inline(always)]
-    pub fn not_sel(self) -> &'a mut W {
-        self.variant(RAM_AREA7_A::NOT_SEL)
+    pub fn not_sel(self) -> &'a mut crate::W<REG> {
+        self.variant(RamArea7::NotSel)
     }
 }
 #[doc = "Field `RESERVED8` reader - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED8_R = crate::FieldReader<u32, u32>;
+pub type Reserved8R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED8` writer - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED8_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, KEYWRITEAREA_SPEC, u32, u32, 24, O>;
+pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA0 is not selected to be written. 1: RAM_AREA0 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
     #[inline(always)]
-    pub fn ram_area0(&self) -> RAM_AREA0_R {
-        RAM_AREA0_R::new((self.bits & 1) != 0)
+    pub fn ram_area0(&self) -> RamArea0R {
+        RamArea0R::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA1 is not selected to be written. 1: RAM_AREA1 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
     #[inline(always)]
-    pub fn ram_area1(&self) -> RAM_AREA1_R {
-        RAM_AREA1_R::new(((self.bits >> 1) & 1) != 0)
+    pub fn ram_area1(&self) -> RamArea1R {
+        RamArea1R::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bit 2 - 2:2\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA2 is not selected to be written. 1: RAM_AREA2 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
     #[inline(always)]
-    pub fn ram_area2(&self) -> RAM_AREA2_R {
-        RAM_AREA2_R::new(((self.bits >> 2) & 1) != 0)
+    pub fn ram_area2(&self) -> RamArea2R {
+        RamArea2R::new(((self.bits >> 2) & 1) != 0)
     }
     #[doc = "Bit 3 - 3:3\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA3 is not selected to be written. 1: RAM_AREA3 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
     #[inline(always)]
-    pub fn ram_area3(&self) -> RAM_AREA3_R {
-        RAM_AREA3_R::new(((self.bits >> 3) & 1) != 0)
+    pub fn ram_area3(&self) -> RamArea3R {
+        RamArea3R::new(((self.bits >> 3) & 1) != 0)
     }
     #[doc = "Bit 4 - 4:4\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA4 is not selected to be written. 1: RAM_AREA4 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
     #[inline(always)]
-    pub fn ram_area4(&self) -> RAM_AREA4_R {
-        RAM_AREA4_R::new(((self.bits >> 4) & 1) != 0)
+    pub fn ram_area4(&self) -> RamArea4R {
+        RamArea4R::new(((self.bits >> 4) & 1) != 0)
     }
     #[doc = "Bit 5 - 5:5\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA5 is not selected to be written. 1: RAM_AREA5 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
     #[inline(always)]
-    pub fn ram_area5(&self) -> RAM_AREA5_R {
-        RAM_AREA5_R::new(((self.bits >> 5) & 1) != 0)
+    pub fn ram_area5(&self) -> RamArea5R {
+        RamArea5R::new(((self.bits >> 5) & 1) != 0)
     }
     #[doc = "Bit 6 - 6:6\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA6 is not selected to be written. 1: RAM_AREA6 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
     #[inline(always)]
-    pub fn ram_area6(&self) -> RAM_AREA6_R {
-        RAM_AREA6_R::new(((self.bits >> 6) & 1) != 0)
+    pub fn ram_area6(&self) -> RamArea6R {
+        RamArea6R::new(((self.bits >> 6) & 1) != 0)
     }
     #[doc = "Bit 7 - 7:7\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA7 is not selected to be written. 1: RAM_AREA7 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
     #[inline(always)]
-    pub fn ram_area7(&self) -> RAM_AREA7_R {
-        RAM_AREA7_R::new(((self.bits >> 7) & 1) != 0)
+    pub fn ram_area7(&self) -> RamArea7R {
+        RamArea7R::new(((self.bits >> 7) & 1) != 0)
     }
     #[doc = "Bits 8:31 - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved8(&self) -> RESERVED8_R {
-        RESERVED8_R::new((self.bits >> 8) & 0x00ff_ffff)
+    pub fn reserved8(&self) -> Reserved8R {
+        Reserved8R::new((self.bits >> 8) & 0x00ff_ffff)
     }
 }
 impl W {
@@ -534,88 +517,80 @@ impl W {
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA0 is not selected to be written. 1: RAM_AREA0 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
     #[inline(always)]
     #[must_use]
-    pub fn ram_area0(&mut self) -> RAM_AREA0_W<0> {
-        RAM_AREA0_W::new(self)
+    pub fn ram_area0(&mut self) -> RamArea0W<KeywriteareaSpec> {
+        RamArea0W::new(self, 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA1 is not selected to be written. 1: RAM_AREA1 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
     #[inline(always)]
     #[must_use]
-    pub fn ram_area1(&mut self) -> RAM_AREA1_W<1> {
-        RAM_AREA1_W::new(self)
+    pub fn ram_area1(&mut self) -> RamArea1W<KeywriteareaSpec> {
+        RamArea1W::new(self, 1)
     }
     #[doc = "Bit 2 - 2:2\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA2 is not selected to be written. 1: RAM_AREA2 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
     #[inline(always)]
     #[must_use]
-    pub fn ram_area2(&mut self) -> RAM_AREA2_W<2> {
-        RAM_AREA2_W::new(self)
+    pub fn ram_area2(&mut self) -> RamArea2W<KeywriteareaSpec> {
+        RamArea2W::new(self, 2)
     }
     #[doc = "Bit 3 - 3:3\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA3 is not selected to be written. 1: RAM_AREA3 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
     #[inline(always)]
     #[must_use]
-    pub fn ram_area3(&mut self) -> RAM_AREA3_W<3> {
-        RAM_AREA3_W::new(self)
+    pub fn ram_area3(&mut self) -> RamArea3W<KeywriteareaSpec> {
+        RamArea3W::new(self, 3)
     }
     #[doc = "Bit 4 - 4:4\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA4 is not selected to be written. 1: RAM_AREA4 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
     #[inline(always)]
     #[must_use]
-    pub fn ram_area4(&mut self) -> RAM_AREA4_W<4> {
-        RAM_AREA4_W::new(self)
+    pub fn ram_area4(&mut self) -> RamArea4W<KeywriteareaSpec> {
+        RamArea4W::new(self, 4)
     }
     #[doc = "Bit 5 - 5:5\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA5 is not selected to be written. 1: RAM_AREA5 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
     #[inline(always)]
     #[must_use]
-    pub fn ram_area5(&mut self) -> RAM_AREA5_W<5> {
-        RAM_AREA5_W::new(self)
+    pub fn ram_area5(&mut self) -> RamArea5W<KeywriteareaSpec> {
+        RamArea5W::new(self, 5)
     }
     #[doc = "Bit 6 - 6:6\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA6 is not selected to be written. 1: RAM_AREA6 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
     #[inline(always)]
     #[must_use]
-    pub fn ram_area6(&mut self) -> RAM_AREA6_W<6> {
-        RAM_AREA6_W::new(self)
+    pub fn ram_area6(&mut self) -> RamArea6W<KeywriteareaSpec> {
+        RamArea6W::new(self, 6)
     }
     #[doc = "Bit 7 - 7:7\\]
 Each RAM_AREAx represents an area of 128 bits. Select the key store RAM area(s) where the key(s) needs to be written 0: RAM_AREA7 is not selected to be written. 1: RAM_AREA7 is selected to be written. Writing to multiple RAM locations is possible only when the selected RAM areas are sequential. Keys that require more than one RAM locations (key size is 192 or 256 bits), must start at one of the following areas: RAM_AREA0, RAM_AREA2, RAM_AREA4, or RAM_AREA6."]
     #[inline(always)]
     #[must_use]
-    pub fn ram_area7(&mut self) -> RAM_AREA7_W<7> {
-        RAM_AREA7_W::new(self)
+    pub fn ram_area7(&mut self) -> RamArea7W<KeywriteareaSpec> {
+        RamArea7W::new(self, 7)
     }
     #[doc = "Bits 8:31 - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved8(&mut self) -> RESERVED8_W<8> {
-        RESERVED8_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved8(&mut self) -> Reserved8W<KeywriteareaSpec> {
+        Reserved8W::new(self, 8)
     }
 }
-#[doc = "Key Store Write Area This register defines where the keys should be written in the key store RAM. After writing this register, the key store module is ready to receive the keys through a DMA operation. In case the key data transfer triggered an error in the key store, the error will be available in the interrupt status register after the DMA is finished. The key store write-error is asserted when the programmed/selected area is not completely written. This error is also asserted when the DMA operation writes to ram areas that are not selected. The key store RAM is divided into 8 areas of 128 bits. 192-bit keys written in the key store RAM should start on boundaries of 256 bits. This means that writing a 192-bit key to the key store RAM must be done by writing 256 bits of data with the 64 most-significant bits set to 0. These bits are ignored by the AES engine.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [keywritearea](index.html) module"]
-pub struct KEYWRITEAREA_SPEC;
-impl crate::RegisterSpec for KEYWRITEAREA_SPEC {
+#[doc = "Key Store Write Area This register defines where the keys should be written in the key store RAM. After writing this register, the key store module is ready to receive the keys through a DMA operation. In case the key data transfer triggered an error in the key store, the error will be available in the interrupt status register after the DMA is finished. The key store write-error is asserted when the programmed/selected area is not completely written. This error is also asserted when the DMA operation writes to ram areas that are not selected. The key store RAM is divided into 8 areas of 128 bits. 192-bit keys written in the key store RAM should start on boundaries of 256 bits. This means that writing a 192-bit key to the key store RAM must be done by writing 256 bits of data with the 64 most-significant bits set to 0. These bits are ignored by the AES engine.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`keywritearea::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`keywritearea::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct KeywriteareaSpec;
+impl crate::RegisterSpec for KeywriteareaSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [keywritearea::R](R) reader structure"]
-impl crate::Readable for KEYWRITEAREA_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [keywritearea::W](W) writer structure"]
-impl crate::Writable for KEYWRITEAREA_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`keywritearea::R`](R) reader structure"]
+impl crate::Readable for KeywriteareaSpec {}
+#[doc = "`write(|w| ..)` method takes [`keywritearea::W`](W) writer structure"]
+impl crate::Writable for KeywriteareaSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets KEYWRITEAREA to value 0"]
-impl crate::Resettable for KEYWRITEAREA_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for KeywriteareaSpec {
+    const RESET_VALUE: u32 = 0;
 }

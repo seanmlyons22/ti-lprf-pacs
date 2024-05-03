@@ -1,64 +1,31 @@
 #[doc = "Register `DMAPROTCTL` reader"]
-pub struct R(crate::R<DMAPROTCTL_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<DMAPROTCTL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<DMAPROTCTL_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<DMAPROTCTL_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<DmaprotctlSpec>;
 #[doc = "Register `DMAPROTCTL` writer"]
-pub struct W(crate::W<DMAPROTCTL_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<DMAPROTCTL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<DMAPROTCTL_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<DMAPROTCTL_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<DmaprotctlSpec>;
 #[doc = "Field `PROT_EN` reader - 0:0\\]
 Select AHB transfer protection control for DMA transfers using the key store area as destination. 0 : transfers use 'USER' type access. 1 : transfers use 'PRIVILEGED' type access."]
-pub type PROT_EN_R = crate::BitReader<bool>;
+pub type ProtEnR = crate::BitReader;
 #[doc = "Field `PROT_EN` writer - 0:0\\]
 Select AHB transfer protection control for DMA transfers using the key store area as destination. 0 : transfers use 'USER' type access. 1 : transfers use 'PRIVILEGED' type access."]
-pub type PROT_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, DMAPROTCTL_SPEC, bool, O>;
+pub type ProtEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED1` reader - 31:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED1_R = crate::FieldReader<u32, u32>;
+pub type Reserved1R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED1` writer - 31:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED1_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, DMAPROTCTL_SPEC, u32, u32, 31, O>;
+pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 31, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Select AHB transfer protection control for DMA transfers using the key store area as destination. 0 : transfers use 'USER' type access. 1 : transfers use 'PRIVILEGED' type access."]
     #[inline(always)]
-    pub fn prot_en(&self) -> PROT_EN_R {
-        PROT_EN_R::new((self.bits & 1) != 0)
+    pub fn prot_en(&self) -> ProtEnR {
+        ProtEnR::new((self.bits & 1) != 0)
     }
     #[doc = "Bits 1:31 - 31:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved1(&self) -> RESERVED1_R {
-        RESERVED1_R::new((self.bits >> 1) & 0x7fff_ffff)
+    pub fn reserved1(&self) -> Reserved1R {
+        Reserved1R::new((self.bits >> 1) & 0x7fff_ffff)
     }
 }
 impl W {
@@ -66,39 +33,31 @@ impl W {
 Select AHB transfer protection control for DMA transfers using the key store area as destination. 0 : transfers use 'USER' type access. 1 : transfers use 'PRIVILEGED' type access."]
     #[inline(always)]
     #[must_use]
-    pub fn prot_en(&mut self) -> PROT_EN_W<0> {
-        PROT_EN_W::new(self)
+    pub fn prot_en(&mut self) -> ProtEnW<DmaprotctlSpec> {
+        ProtEnW::new(self, 0)
     }
     #[doc = "Bits 1:31 - 31:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved1(&mut self) -> RESERVED1_W<1> {
-        RESERVED1_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved1(&mut self) -> Reserved1W<DmaprotctlSpec> {
+        Reserved1W::new(self, 1)
     }
 }
-#[doc = "DMA Protection Control Master PROT privileged access enable This register enables the second bit (bit \\[1\\]) of the AHB HPROT bus of the AHB master interface when a read action of key(s) is performed on the AHB master interface for writing keys into the store module.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dmaprotctl](index.html) module"]
-pub struct DMAPROTCTL_SPEC;
-impl crate::RegisterSpec for DMAPROTCTL_SPEC {
+#[doc = "DMA Protection Control Master PROT privileged access enable This register enables the second bit (bit \\[1\\]) of the AHB HPROT bus of the AHB master interface when a read action of key(s) is performed on the AHB master interface for writing keys into the store module.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`dmaprotctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`dmaprotctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct DmaprotctlSpec;
+impl crate::RegisterSpec for DmaprotctlSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [dmaprotctl::R](R) reader structure"]
-impl crate::Readable for DMAPROTCTL_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [dmaprotctl::W](W) writer structure"]
-impl crate::Writable for DMAPROTCTL_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`dmaprotctl::R`](R) reader structure"]
+impl crate::Readable for DmaprotctlSpec {}
+#[doc = "`write(|w| ..)` method takes [`dmaprotctl::W`](W) writer structure"]
+impl crate::Writable for DmaprotctlSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets DMAPROTCTL to value 0"]
-impl crate::Resettable for DMAPROTCTL_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for DmaprotctlSpec {
+    const RESET_VALUE: u32 = 0;
 }

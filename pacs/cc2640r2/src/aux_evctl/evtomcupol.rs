@@ -1,703 +1,701 @@
 #[doc = "Register `EVTOMCUPOL` reader"]
-pub struct R(crate::R<EVTOMCUPOL_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<EVTOMCUPOL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<EVTOMCUPOL_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<EVTOMCUPOL_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<EvtomcupolSpec>;
 #[doc = "Register `EVTOMCUPOL` writer"]
-pub struct W(crate::W<EVTOMCUPOL_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<EVTOMCUPOL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
+pub type W = crate::W<EvtomcupolSpec>;
+#[doc = "0:0\\]
+Select the event source level that sets EVTOMCUFLAGS.AON_WU_EV.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum AonWuEv {
+    #[doc = "1: Low level"]
+    Low = 1,
+    #[doc = "0: High level"]
+    High = 0,
 }
-impl core::ops::DerefMut for W {
+impl From<AonWuEv> for bool {
     #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<EVTOMCUPOL_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<EVTOMCUPOL_SPEC>) -> Self {
-        W(writer)
+    fn from(variant: AonWuEv) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `AON_WU_EV` reader - 0:0\\]
 Select the event source level that sets EVTOMCUFLAGS.AON_WU_EV."]
-pub type AON_WU_EV_R = crate::BitReader<AON_WU_EV_A>;
-#[doc = "0:0\\]
-Select the event source level that sets EVTOMCUFLAGS.AON_WU_EV.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum AON_WU_EV_A {
-    #[doc = "1: Low level"]
-    LOW = 1,
-    #[doc = "0: High level"]
-    HIGH = 0,
-}
-impl From<AON_WU_EV_A> for bool {
-    #[inline(always)]
-    fn from(variant: AON_WU_EV_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl AON_WU_EV_R {
+pub type AonWuEvR = crate::BitReader<AonWuEv>;
+impl AonWuEvR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> AON_WU_EV_A {
+    pub const fn variant(&self) -> AonWuEv {
         match self.bits {
-            true => AON_WU_EV_A::LOW,
-            false => AON_WU_EV_A::HIGH,
+            true => AonWuEv::Low,
+            false => AonWuEv::High,
         }
     }
-    #[doc = "Checks if the value of the field is `LOW`"]
+    #[doc = "Low level"]
     #[inline(always)]
     pub fn is_low(&self) -> bool {
-        *self == AON_WU_EV_A::LOW
+        *self == AonWuEv::Low
     }
-    #[doc = "Checks if the value of the field is `HIGH`"]
+    #[doc = "High level"]
     #[inline(always)]
     pub fn is_high(&self) -> bool {
-        *self == AON_WU_EV_A::HIGH
+        *self == AonWuEv::High
     }
 }
 #[doc = "Field `AON_WU_EV` writer - 0:0\\]
 Select the event source level that sets EVTOMCUFLAGS.AON_WU_EV."]
-pub type AON_WU_EV_W<'a, const O: u8> = crate::BitWriter<'a, u32, EVTOMCUPOL_SPEC, AON_WU_EV_A, O>;
-impl<'a, const O: u8> AON_WU_EV_W<'a, O> {
+pub type AonWuEvW<'a, REG> = crate::BitWriter<'a, REG, AonWuEv>;
+impl<'a, REG> AonWuEvW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Low level"]
     #[inline(always)]
-    pub fn low(self) -> &'a mut W {
-        self.variant(AON_WU_EV_A::LOW)
+    pub fn low(self) -> &'a mut crate::W<REG> {
+        self.variant(AonWuEv::Low)
     }
     #[doc = "High level"]
     #[inline(always)]
-    pub fn high(self) -> &'a mut W {
-        self.variant(AON_WU_EV_A::HIGH)
+    pub fn high(self) -> &'a mut crate::W<REG> {
+        self.variant(AonWuEv::High)
+    }
+}
+#[doc = "1:1\\]
+Select the event source level that sets EVTOMCUFLAGS.AUX_COMPA.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum AuxCompa {
+    #[doc = "1: Low level"]
+    Low = 1,
+    #[doc = "0: High level"]
+    High = 0,
+}
+impl From<AuxCompa> for bool {
+    #[inline(always)]
+    fn from(variant: AuxCompa) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `AUX_COMPA` reader - 1:1\\]
 Select the event source level that sets EVTOMCUFLAGS.AUX_COMPA."]
-pub type AUX_COMPA_R = crate::BitReader<AUX_COMPA_A>;
-#[doc = "1:1\\]
-Select the event source level that sets EVTOMCUFLAGS.AUX_COMPA.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum AUX_COMPA_A {
-    #[doc = "1: Low level"]
-    LOW = 1,
-    #[doc = "0: High level"]
-    HIGH = 0,
-}
-impl From<AUX_COMPA_A> for bool {
-    #[inline(always)]
-    fn from(variant: AUX_COMPA_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl AUX_COMPA_R {
+pub type AuxCompaR = crate::BitReader<AuxCompa>;
+impl AuxCompaR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> AUX_COMPA_A {
+    pub const fn variant(&self) -> AuxCompa {
         match self.bits {
-            true => AUX_COMPA_A::LOW,
-            false => AUX_COMPA_A::HIGH,
+            true => AuxCompa::Low,
+            false => AuxCompa::High,
         }
     }
-    #[doc = "Checks if the value of the field is `LOW`"]
+    #[doc = "Low level"]
     #[inline(always)]
     pub fn is_low(&self) -> bool {
-        *self == AUX_COMPA_A::LOW
+        *self == AuxCompa::Low
     }
-    #[doc = "Checks if the value of the field is `HIGH`"]
+    #[doc = "High level"]
     #[inline(always)]
     pub fn is_high(&self) -> bool {
-        *self == AUX_COMPA_A::HIGH
+        *self == AuxCompa::High
     }
 }
 #[doc = "Field `AUX_COMPA` writer - 1:1\\]
 Select the event source level that sets EVTOMCUFLAGS.AUX_COMPA."]
-pub type AUX_COMPA_W<'a, const O: u8> = crate::BitWriter<'a, u32, EVTOMCUPOL_SPEC, AUX_COMPA_A, O>;
-impl<'a, const O: u8> AUX_COMPA_W<'a, O> {
+pub type AuxCompaW<'a, REG> = crate::BitWriter<'a, REG, AuxCompa>;
+impl<'a, REG> AuxCompaW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Low level"]
     #[inline(always)]
-    pub fn low(self) -> &'a mut W {
-        self.variant(AUX_COMPA_A::LOW)
+    pub fn low(self) -> &'a mut crate::W<REG> {
+        self.variant(AuxCompa::Low)
     }
     #[doc = "High level"]
     #[inline(always)]
-    pub fn high(self) -> &'a mut W {
-        self.variant(AUX_COMPA_A::HIGH)
+    pub fn high(self) -> &'a mut crate::W<REG> {
+        self.variant(AuxCompa::High)
+    }
+}
+#[doc = "2:2\\]
+Select the event source level that sets EVTOMCUFLAGS.AUX_COMPB.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum AuxCompb {
+    #[doc = "1: Low level"]
+    Low = 1,
+    #[doc = "0: High level"]
+    High = 0,
+}
+impl From<AuxCompb> for bool {
+    #[inline(always)]
+    fn from(variant: AuxCompb) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `AUX_COMPB` reader - 2:2\\]
 Select the event source level that sets EVTOMCUFLAGS.AUX_COMPB."]
-pub type AUX_COMPB_R = crate::BitReader<AUX_COMPB_A>;
-#[doc = "2:2\\]
-Select the event source level that sets EVTOMCUFLAGS.AUX_COMPB.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum AUX_COMPB_A {
-    #[doc = "1: Low level"]
-    LOW = 1,
-    #[doc = "0: High level"]
-    HIGH = 0,
-}
-impl From<AUX_COMPB_A> for bool {
-    #[inline(always)]
-    fn from(variant: AUX_COMPB_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl AUX_COMPB_R {
+pub type AuxCompbR = crate::BitReader<AuxCompb>;
+impl AuxCompbR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> AUX_COMPB_A {
+    pub const fn variant(&self) -> AuxCompb {
         match self.bits {
-            true => AUX_COMPB_A::LOW,
-            false => AUX_COMPB_A::HIGH,
+            true => AuxCompb::Low,
+            false => AuxCompb::High,
         }
     }
-    #[doc = "Checks if the value of the field is `LOW`"]
+    #[doc = "Low level"]
     #[inline(always)]
     pub fn is_low(&self) -> bool {
-        *self == AUX_COMPB_A::LOW
+        *self == AuxCompb::Low
     }
-    #[doc = "Checks if the value of the field is `HIGH`"]
+    #[doc = "High level"]
     #[inline(always)]
     pub fn is_high(&self) -> bool {
-        *self == AUX_COMPB_A::HIGH
+        *self == AuxCompb::High
     }
 }
 #[doc = "Field `AUX_COMPB` writer - 2:2\\]
 Select the event source level that sets EVTOMCUFLAGS.AUX_COMPB."]
-pub type AUX_COMPB_W<'a, const O: u8> = crate::BitWriter<'a, u32, EVTOMCUPOL_SPEC, AUX_COMPB_A, O>;
-impl<'a, const O: u8> AUX_COMPB_W<'a, O> {
+pub type AuxCompbW<'a, REG> = crate::BitWriter<'a, REG, AuxCompb>;
+impl<'a, REG> AuxCompbW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Low level"]
     #[inline(always)]
-    pub fn low(self) -> &'a mut W {
-        self.variant(AUX_COMPB_A::LOW)
+    pub fn low(self) -> &'a mut crate::W<REG> {
+        self.variant(AuxCompb::Low)
     }
     #[doc = "High level"]
     #[inline(always)]
-    pub fn high(self) -> &'a mut W {
-        self.variant(AUX_COMPB_A::HIGH)
+    pub fn high(self) -> &'a mut crate::W<REG> {
+        self.variant(AuxCompb::High)
+    }
+}
+#[doc = "3:3\\]
+Select the event source level that sets EVTOMCUFLAGS.TDC_DONE.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum TdcDone {
+    #[doc = "1: Low level"]
+    Low = 1,
+    #[doc = "0: High level"]
+    High = 0,
+}
+impl From<TdcDone> for bool {
+    #[inline(always)]
+    fn from(variant: TdcDone) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `TDC_DONE` reader - 3:3\\]
 Select the event source level that sets EVTOMCUFLAGS.TDC_DONE."]
-pub type TDC_DONE_R = crate::BitReader<TDC_DONE_A>;
-#[doc = "3:3\\]
-Select the event source level that sets EVTOMCUFLAGS.TDC_DONE.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum TDC_DONE_A {
-    #[doc = "1: Low level"]
-    LOW = 1,
-    #[doc = "0: High level"]
-    HIGH = 0,
-}
-impl From<TDC_DONE_A> for bool {
-    #[inline(always)]
-    fn from(variant: TDC_DONE_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl TDC_DONE_R {
+pub type TdcDoneR = crate::BitReader<TdcDone>;
+impl TdcDoneR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> TDC_DONE_A {
+    pub const fn variant(&self) -> TdcDone {
         match self.bits {
-            true => TDC_DONE_A::LOW,
-            false => TDC_DONE_A::HIGH,
+            true => TdcDone::Low,
+            false => TdcDone::High,
         }
     }
-    #[doc = "Checks if the value of the field is `LOW`"]
+    #[doc = "Low level"]
     #[inline(always)]
     pub fn is_low(&self) -> bool {
-        *self == TDC_DONE_A::LOW
+        *self == TdcDone::Low
     }
-    #[doc = "Checks if the value of the field is `HIGH`"]
+    #[doc = "High level"]
     #[inline(always)]
     pub fn is_high(&self) -> bool {
-        *self == TDC_DONE_A::HIGH
+        *self == TdcDone::High
     }
 }
 #[doc = "Field `TDC_DONE` writer - 3:3\\]
 Select the event source level that sets EVTOMCUFLAGS.TDC_DONE."]
-pub type TDC_DONE_W<'a, const O: u8> = crate::BitWriter<'a, u32, EVTOMCUPOL_SPEC, TDC_DONE_A, O>;
-impl<'a, const O: u8> TDC_DONE_W<'a, O> {
+pub type TdcDoneW<'a, REG> = crate::BitWriter<'a, REG, TdcDone>;
+impl<'a, REG> TdcDoneW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Low level"]
     #[inline(always)]
-    pub fn low(self) -> &'a mut W {
-        self.variant(TDC_DONE_A::LOW)
+    pub fn low(self) -> &'a mut crate::W<REG> {
+        self.variant(TdcDone::Low)
     }
     #[doc = "High level"]
     #[inline(always)]
-    pub fn high(self) -> &'a mut W {
-        self.variant(TDC_DONE_A::HIGH)
+    pub fn high(self) -> &'a mut crate::W<REG> {
+        self.variant(TdcDone::High)
+    }
+}
+#[doc = "4:4\\]
+Select the event source level that sets EVTOMCUFLAGS.TIMER0_EV.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Timer0Ev {
+    #[doc = "1: Low level"]
+    Low = 1,
+    #[doc = "0: High level"]
+    High = 0,
+}
+impl From<Timer0Ev> for bool {
+    #[inline(always)]
+    fn from(variant: Timer0Ev) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `TIMER0_EV` reader - 4:4\\]
 Select the event source level that sets EVTOMCUFLAGS.TIMER0_EV."]
-pub type TIMER0_EV_R = crate::BitReader<TIMER0_EV_A>;
-#[doc = "4:4\\]
-Select the event source level that sets EVTOMCUFLAGS.TIMER0_EV.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum TIMER0_EV_A {
-    #[doc = "1: Low level"]
-    LOW = 1,
-    #[doc = "0: High level"]
-    HIGH = 0,
-}
-impl From<TIMER0_EV_A> for bool {
-    #[inline(always)]
-    fn from(variant: TIMER0_EV_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl TIMER0_EV_R {
+pub type Timer0EvR = crate::BitReader<Timer0Ev>;
+impl Timer0EvR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> TIMER0_EV_A {
+    pub const fn variant(&self) -> Timer0Ev {
         match self.bits {
-            true => TIMER0_EV_A::LOW,
-            false => TIMER0_EV_A::HIGH,
+            true => Timer0Ev::Low,
+            false => Timer0Ev::High,
         }
     }
-    #[doc = "Checks if the value of the field is `LOW`"]
+    #[doc = "Low level"]
     #[inline(always)]
     pub fn is_low(&self) -> bool {
-        *self == TIMER0_EV_A::LOW
+        *self == Timer0Ev::Low
     }
-    #[doc = "Checks if the value of the field is `HIGH`"]
+    #[doc = "High level"]
     #[inline(always)]
     pub fn is_high(&self) -> bool {
-        *self == TIMER0_EV_A::HIGH
+        *self == Timer0Ev::High
     }
 }
 #[doc = "Field `TIMER0_EV` writer - 4:4\\]
 Select the event source level that sets EVTOMCUFLAGS.TIMER0_EV."]
-pub type TIMER0_EV_W<'a, const O: u8> = crate::BitWriter<'a, u32, EVTOMCUPOL_SPEC, TIMER0_EV_A, O>;
-impl<'a, const O: u8> TIMER0_EV_W<'a, O> {
+pub type Timer0EvW<'a, REG> = crate::BitWriter<'a, REG, Timer0Ev>;
+impl<'a, REG> Timer0EvW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Low level"]
     #[inline(always)]
-    pub fn low(self) -> &'a mut W {
-        self.variant(TIMER0_EV_A::LOW)
+    pub fn low(self) -> &'a mut crate::W<REG> {
+        self.variant(Timer0Ev::Low)
     }
     #[doc = "High level"]
     #[inline(always)]
-    pub fn high(self) -> &'a mut W {
-        self.variant(TIMER0_EV_A::HIGH)
+    pub fn high(self) -> &'a mut crate::W<REG> {
+        self.variant(Timer0Ev::High)
+    }
+}
+#[doc = "5:5\\]
+Select the event source level that sets EVTOMCUFLAGS.TIMER1_EV.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Timer1Ev {
+    #[doc = "1: Low level"]
+    Low = 1,
+    #[doc = "0: High level"]
+    High = 0,
+}
+impl From<Timer1Ev> for bool {
+    #[inline(always)]
+    fn from(variant: Timer1Ev) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `TIMER1_EV` reader - 5:5\\]
 Select the event source level that sets EVTOMCUFLAGS.TIMER1_EV."]
-pub type TIMER1_EV_R = crate::BitReader<TIMER1_EV_A>;
-#[doc = "5:5\\]
-Select the event source level that sets EVTOMCUFLAGS.TIMER1_EV.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum TIMER1_EV_A {
-    #[doc = "1: Low level"]
-    LOW = 1,
-    #[doc = "0: High level"]
-    HIGH = 0,
-}
-impl From<TIMER1_EV_A> for bool {
-    #[inline(always)]
-    fn from(variant: TIMER1_EV_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl TIMER1_EV_R {
+pub type Timer1EvR = crate::BitReader<Timer1Ev>;
+impl Timer1EvR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> TIMER1_EV_A {
+    pub const fn variant(&self) -> Timer1Ev {
         match self.bits {
-            true => TIMER1_EV_A::LOW,
-            false => TIMER1_EV_A::HIGH,
+            true => Timer1Ev::Low,
+            false => Timer1Ev::High,
         }
     }
-    #[doc = "Checks if the value of the field is `LOW`"]
+    #[doc = "Low level"]
     #[inline(always)]
     pub fn is_low(&self) -> bool {
-        *self == TIMER1_EV_A::LOW
+        *self == Timer1Ev::Low
     }
-    #[doc = "Checks if the value of the field is `HIGH`"]
+    #[doc = "High level"]
     #[inline(always)]
     pub fn is_high(&self) -> bool {
-        *self == TIMER1_EV_A::HIGH
+        *self == Timer1Ev::High
     }
 }
 #[doc = "Field `TIMER1_EV` writer - 5:5\\]
 Select the event source level that sets EVTOMCUFLAGS.TIMER1_EV."]
-pub type TIMER1_EV_W<'a, const O: u8> = crate::BitWriter<'a, u32, EVTOMCUPOL_SPEC, TIMER1_EV_A, O>;
-impl<'a, const O: u8> TIMER1_EV_W<'a, O> {
+pub type Timer1EvW<'a, REG> = crate::BitWriter<'a, REG, Timer1Ev>;
+impl<'a, REG> Timer1EvW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Low level"]
     #[inline(always)]
-    pub fn low(self) -> &'a mut W {
-        self.variant(TIMER1_EV_A::LOW)
+    pub fn low(self) -> &'a mut crate::W<REG> {
+        self.variant(Timer1Ev::Low)
     }
     #[doc = "High level"]
     #[inline(always)]
-    pub fn high(self) -> &'a mut W {
-        self.variant(TIMER1_EV_A::HIGH)
+    pub fn high(self) -> &'a mut crate::W<REG> {
+        self.variant(Timer1Ev::High)
+    }
+}
+#[doc = "6:6\\]
+Select the event source level that sets EVTOMCUFLAGS.SMPH_AUTOTAKE_DONE.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum SmphAutotakeDone {
+    #[doc = "1: Low level"]
+    Low = 1,
+    #[doc = "0: High level"]
+    High = 0,
+}
+impl From<SmphAutotakeDone> for bool {
+    #[inline(always)]
+    fn from(variant: SmphAutotakeDone) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `SMPH_AUTOTAKE_DONE` reader - 6:6\\]
 Select the event source level that sets EVTOMCUFLAGS.SMPH_AUTOTAKE_DONE."]
-pub type SMPH_AUTOTAKE_DONE_R = crate::BitReader<SMPH_AUTOTAKE_DONE_A>;
-#[doc = "6:6\\]
-Select the event source level that sets EVTOMCUFLAGS.SMPH_AUTOTAKE_DONE.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum SMPH_AUTOTAKE_DONE_A {
-    #[doc = "1: Low level"]
-    LOW = 1,
-    #[doc = "0: High level"]
-    HIGH = 0,
-}
-impl From<SMPH_AUTOTAKE_DONE_A> for bool {
-    #[inline(always)]
-    fn from(variant: SMPH_AUTOTAKE_DONE_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl SMPH_AUTOTAKE_DONE_R {
+pub type SmphAutotakeDoneR = crate::BitReader<SmphAutotakeDone>;
+impl SmphAutotakeDoneR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> SMPH_AUTOTAKE_DONE_A {
+    pub const fn variant(&self) -> SmphAutotakeDone {
         match self.bits {
-            true => SMPH_AUTOTAKE_DONE_A::LOW,
-            false => SMPH_AUTOTAKE_DONE_A::HIGH,
+            true => SmphAutotakeDone::Low,
+            false => SmphAutotakeDone::High,
         }
     }
-    #[doc = "Checks if the value of the field is `LOW`"]
+    #[doc = "Low level"]
     #[inline(always)]
     pub fn is_low(&self) -> bool {
-        *self == SMPH_AUTOTAKE_DONE_A::LOW
+        *self == SmphAutotakeDone::Low
     }
-    #[doc = "Checks if the value of the field is `HIGH`"]
+    #[doc = "High level"]
     #[inline(always)]
     pub fn is_high(&self) -> bool {
-        *self == SMPH_AUTOTAKE_DONE_A::HIGH
+        *self == SmphAutotakeDone::High
     }
 }
 #[doc = "Field `SMPH_AUTOTAKE_DONE` writer - 6:6\\]
 Select the event source level that sets EVTOMCUFLAGS.SMPH_AUTOTAKE_DONE."]
-pub type SMPH_AUTOTAKE_DONE_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, EVTOMCUPOL_SPEC, SMPH_AUTOTAKE_DONE_A, O>;
-impl<'a, const O: u8> SMPH_AUTOTAKE_DONE_W<'a, O> {
+pub type SmphAutotakeDoneW<'a, REG> = crate::BitWriter<'a, REG, SmphAutotakeDone>;
+impl<'a, REG> SmphAutotakeDoneW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Low level"]
     #[inline(always)]
-    pub fn low(self) -> &'a mut W {
-        self.variant(SMPH_AUTOTAKE_DONE_A::LOW)
+    pub fn low(self) -> &'a mut crate::W<REG> {
+        self.variant(SmphAutotakeDone::Low)
     }
     #[doc = "High level"]
     #[inline(always)]
-    pub fn high(self) -> &'a mut W {
-        self.variant(SMPH_AUTOTAKE_DONE_A::HIGH)
+    pub fn high(self) -> &'a mut crate::W<REG> {
+        self.variant(SmphAutotakeDone::High)
+    }
+}
+#[doc = "7:7\\]
+Select the event source level that sets EVTOMCUFLAGS.ADC_DONE.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum AdcDone {
+    #[doc = "1: Low level"]
+    Low = 1,
+    #[doc = "0: High level"]
+    High = 0,
+}
+impl From<AdcDone> for bool {
+    #[inline(always)]
+    fn from(variant: AdcDone) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `ADC_DONE` reader - 7:7\\]
 Select the event source level that sets EVTOMCUFLAGS.ADC_DONE."]
-pub type ADC_DONE_R = crate::BitReader<ADC_DONE_A>;
-#[doc = "7:7\\]
-Select the event source level that sets EVTOMCUFLAGS.ADC_DONE.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum ADC_DONE_A {
-    #[doc = "1: Low level"]
-    LOW = 1,
-    #[doc = "0: High level"]
-    HIGH = 0,
-}
-impl From<ADC_DONE_A> for bool {
-    #[inline(always)]
-    fn from(variant: ADC_DONE_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl ADC_DONE_R {
+pub type AdcDoneR = crate::BitReader<AdcDone>;
+impl AdcDoneR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> ADC_DONE_A {
+    pub const fn variant(&self) -> AdcDone {
         match self.bits {
-            true => ADC_DONE_A::LOW,
-            false => ADC_DONE_A::HIGH,
+            true => AdcDone::Low,
+            false => AdcDone::High,
         }
     }
-    #[doc = "Checks if the value of the field is `LOW`"]
+    #[doc = "Low level"]
     #[inline(always)]
     pub fn is_low(&self) -> bool {
-        *self == ADC_DONE_A::LOW
+        *self == AdcDone::Low
     }
-    #[doc = "Checks if the value of the field is `HIGH`"]
+    #[doc = "High level"]
     #[inline(always)]
     pub fn is_high(&self) -> bool {
-        *self == ADC_DONE_A::HIGH
+        *self == AdcDone::High
     }
 }
 #[doc = "Field `ADC_DONE` writer - 7:7\\]
 Select the event source level that sets EVTOMCUFLAGS.ADC_DONE."]
-pub type ADC_DONE_W<'a, const O: u8> = crate::BitWriter<'a, u32, EVTOMCUPOL_SPEC, ADC_DONE_A, O>;
-impl<'a, const O: u8> ADC_DONE_W<'a, O> {
+pub type AdcDoneW<'a, REG> = crate::BitWriter<'a, REG, AdcDone>;
+impl<'a, REG> AdcDoneW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Low level"]
     #[inline(always)]
-    pub fn low(self) -> &'a mut W {
-        self.variant(ADC_DONE_A::LOW)
+    pub fn low(self) -> &'a mut crate::W<REG> {
+        self.variant(AdcDone::Low)
     }
     #[doc = "High level"]
     #[inline(always)]
-    pub fn high(self) -> &'a mut W {
-        self.variant(ADC_DONE_A::HIGH)
+    pub fn high(self) -> &'a mut crate::W<REG> {
+        self.variant(AdcDone::High)
+    }
+}
+#[doc = "8:8\\]
+Select the event source level that sets EVTOMCUFLAGS.ADC_FIFO_ALMOST_FULL.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum AdcFifoAlmostFull {
+    #[doc = "1: Low level"]
+    Low = 1,
+    #[doc = "0: High level"]
+    High = 0,
+}
+impl From<AdcFifoAlmostFull> for bool {
+    #[inline(always)]
+    fn from(variant: AdcFifoAlmostFull) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `ADC_FIFO_ALMOST_FULL` reader - 8:8\\]
 Select the event source level that sets EVTOMCUFLAGS.ADC_FIFO_ALMOST_FULL."]
-pub type ADC_FIFO_ALMOST_FULL_R = crate::BitReader<ADC_FIFO_ALMOST_FULL_A>;
-#[doc = "8:8\\]
-Select the event source level that sets EVTOMCUFLAGS.ADC_FIFO_ALMOST_FULL.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum ADC_FIFO_ALMOST_FULL_A {
-    #[doc = "1: Low level"]
-    LOW = 1,
-    #[doc = "0: High level"]
-    HIGH = 0,
-}
-impl From<ADC_FIFO_ALMOST_FULL_A> for bool {
-    #[inline(always)]
-    fn from(variant: ADC_FIFO_ALMOST_FULL_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl ADC_FIFO_ALMOST_FULL_R {
+pub type AdcFifoAlmostFullR = crate::BitReader<AdcFifoAlmostFull>;
+impl AdcFifoAlmostFullR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> ADC_FIFO_ALMOST_FULL_A {
+    pub const fn variant(&self) -> AdcFifoAlmostFull {
         match self.bits {
-            true => ADC_FIFO_ALMOST_FULL_A::LOW,
-            false => ADC_FIFO_ALMOST_FULL_A::HIGH,
+            true => AdcFifoAlmostFull::Low,
+            false => AdcFifoAlmostFull::High,
         }
     }
-    #[doc = "Checks if the value of the field is `LOW`"]
+    #[doc = "Low level"]
     #[inline(always)]
     pub fn is_low(&self) -> bool {
-        *self == ADC_FIFO_ALMOST_FULL_A::LOW
+        *self == AdcFifoAlmostFull::Low
     }
-    #[doc = "Checks if the value of the field is `HIGH`"]
+    #[doc = "High level"]
     #[inline(always)]
     pub fn is_high(&self) -> bool {
-        *self == ADC_FIFO_ALMOST_FULL_A::HIGH
+        *self == AdcFifoAlmostFull::High
     }
 }
 #[doc = "Field `ADC_FIFO_ALMOST_FULL` writer - 8:8\\]
 Select the event source level that sets EVTOMCUFLAGS.ADC_FIFO_ALMOST_FULL."]
-pub type ADC_FIFO_ALMOST_FULL_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, EVTOMCUPOL_SPEC, ADC_FIFO_ALMOST_FULL_A, O>;
-impl<'a, const O: u8> ADC_FIFO_ALMOST_FULL_W<'a, O> {
+pub type AdcFifoAlmostFullW<'a, REG> = crate::BitWriter<'a, REG, AdcFifoAlmostFull>;
+impl<'a, REG> AdcFifoAlmostFullW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Low level"]
     #[inline(always)]
-    pub fn low(self) -> &'a mut W {
-        self.variant(ADC_FIFO_ALMOST_FULL_A::LOW)
+    pub fn low(self) -> &'a mut crate::W<REG> {
+        self.variant(AdcFifoAlmostFull::Low)
     }
     #[doc = "High level"]
     #[inline(always)]
-    pub fn high(self) -> &'a mut W {
-        self.variant(ADC_FIFO_ALMOST_FULL_A::HIGH)
+    pub fn high(self) -> &'a mut crate::W<REG> {
+        self.variant(AdcFifoAlmostFull::High)
+    }
+}
+#[doc = "9:9\\]
+Select the event source level that sets EVTOMCUFLAGS.OBSMUX0.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Obsmux0 {
+    #[doc = "1: Low level"]
+    Low = 1,
+    #[doc = "0: High level"]
+    High = 0,
+}
+impl From<Obsmux0> for bool {
+    #[inline(always)]
+    fn from(variant: Obsmux0) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `OBSMUX0` reader - 9:9\\]
 Select the event source level that sets EVTOMCUFLAGS.OBSMUX0."]
-pub type OBSMUX0_R = crate::BitReader<OBSMUX0_A>;
-#[doc = "9:9\\]
-Select the event source level that sets EVTOMCUFLAGS.OBSMUX0.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum OBSMUX0_A {
-    #[doc = "1: Low level"]
-    LOW = 1,
-    #[doc = "0: High level"]
-    HIGH = 0,
-}
-impl From<OBSMUX0_A> for bool {
-    #[inline(always)]
-    fn from(variant: OBSMUX0_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl OBSMUX0_R {
+pub type Obsmux0R = crate::BitReader<Obsmux0>;
+impl Obsmux0R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> OBSMUX0_A {
+    pub const fn variant(&self) -> Obsmux0 {
         match self.bits {
-            true => OBSMUX0_A::LOW,
-            false => OBSMUX0_A::HIGH,
+            true => Obsmux0::Low,
+            false => Obsmux0::High,
         }
     }
-    #[doc = "Checks if the value of the field is `LOW`"]
+    #[doc = "Low level"]
     #[inline(always)]
     pub fn is_low(&self) -> bool {
-        *self == OBSMUX0_A::LOW
+        *self == Obsmux0::Low
     }
-    #[doc = "Checks if the value of the field is `HIGH`"]
+    #[doc = "High level"]
     #[inline(always)]
     pub fn is_high(&self) -> bool {
-        *self == OBSMUX0_A::HIGH
+        *self == Obsmux0::High
     }
 }
 #[doc = "Field `OBSMUX0` writer - 9:9\\]
 Select the event source level that sets EVTOMCUFLAGS.OBSMUX0."]
-pub type OBSMUX0_W<'a, const O: u8> = crate::BitWriter<'a, u32, EVTOMCUPOL_SPEC, OBSMUX0_A, O>;
-impl<'a, const O: u8> OBSMUX0_W<'a, O> {
+pub type Obsmux0W<'a, REG> = crate::BitWriter<'a, REG, Obsmux0>;
+impl<'a, REG> Obsmux0W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Low level"]
     #[inline(always)]
-    pub fn low(self) -> &'a mut W {
-        self.variant(OBSMUX0_A::LOW)
+    pub fn low(self) -> &'a mut crate::W<REG> {
+        self.variant(Obsmux0::Low)
     }
     #[doc = "High level"]
     #[inline(always)]
-    pub fn high(self) -> &'a mut W {
-        self.variant(OBSMUX0_A::HIGH)
+    pub fn high(self) -> &'a mut crate::W<REG> {
+        self.variant(Obsmux0::High)
+    }
+}
+#[doc = "10:10\\]
+Select the event source level that sets EVTOMCUFLAGS.ADC_IRQ.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum AdcIrq {
+    #[doc = "1: Low level"]
+    Low = 1,
+    #[doc = "0: High level"]
+    High = 0,
+}
+impl From<AdcIrq> for bool {
+    #[inline(always)]
+    fn from(variant: AdcIrq) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `ADC_IRQ` reader - 10:10\\]
 Select the event source level that sets EVTOMCUFLAGS.ADC_IRQ."]
-pub type ADC_IRQ_R = crate::BitReader<ADC_IRQ_A>;
-#[doc = "10:10\\]
-Select the event source level that sets EVTOMCUFLAGS.ADC_IRQ.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum ADC_IRQ_A {
-    #[doc = "1: Low level"]
-    LOW = 1,
-    #[doc = "0: High level"]
-    HIGH = 0,
-}
-impl From<ADC_IRQ_A> for bool {
-    #[inline(always)]
-    fn from(variant: ADC_IRQ_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl ADC_IRQ_R {
+pub type AdcIrqR = crate::BitReader<AdcIrq>;
+impl AdcIrqR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> ADC_IRQ_A {
+    pub const fn variant(&self) -> AdcIrq {
         match self.bits {
-            true => ADC_IRQ_A::LOW,
-            false => ADC_IRQ_A::HIGH,
+            true => AdcIrq::Low,
+            false => AdcIrq::High,
         }
     }
-    #[doc = "Checks if the value of the field is `LOW`"]
+    #[doc = "Low level"]
     #[inline(always)]
     pub fn is_low(&self) -> bool {
-        *self == ADC_IRQ_A::LOW
+        *self == AdcIrq::Low
     }
-    #[doc = "Checks if the value of the field is `HIGH`"]
+    #[doc = "High level"]
     #[inline(always)]
     pub fn is_high(&self) -> bool {
-        *self == ADC_IRQ_A::HIGH
+        *self == AdcIrq::High
     }
 }
 #[doc = "Field `ADC_IRQ` writer - 10:10\\]
 Select the event source level that sets EVTOMCUFLAGS.ADC_IRQ."]
-pub type ADC_IRQ_W<'a, const O: u8> = crate::BitWriter<'a, u32, EVTOMCUPOL_SPEC, ADC_IRQ_A, O>;
-impl<'a, const O: u8> ADC_IRQ_W<'a, O> {
+pub type AdcIrqW<'a, REG> = crate::BitWriter<'a, REG, AdcIrq>;
+impl<'a, REG> AdcIrqW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Low level"]
     #[inline(always)]
-    pub fn low(self) -> &'a mut W {
-        self.variant(ADC_IRQ_A::LOW)
+    pub fn low(self) -> &'a mut crate::W<REG> {
+        self.variant(AdcIrq::Low)
     }
     #[doc = "High level"]
     #[inline(always)]
-    pub fn high(self) -> &'a mut W {
-        self.variant(ADC_IRQ_A::HIGH)
+    pub fn high(self) -> &'a mut crate::W<REG> {
+        self.variant(AdcIrq::High)
     }
 }
 #[doc = "Field `RESERVED11` reader - 31:11\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED11_R = crate::FieldReader<u32, u32>;
+pub type Reserved11R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED11` writer - 31:11\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED11_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, EVTOMCUPOL_SPEC, u32, u32, 21, O>;
+pub type Reserved11W<'a, REG> = crate::FieldWriter<'a, REG, 21, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Select the event source level that sets EVTOMCUFLAGS.AON_WU_EV."]
     #[inline(always)]
-    pub fn aon_wu_ev(&self) -> AON_WU_EV_R {
-        AON_WU_EV_R::new((self.bits & 1) != 0)
+    pub fn aon_wu_ev(&self) -> AonWuEvR {
+        AonWuEvR::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 Select the event source level that sets EVTOMCUFLAGS.AUX_COMPA."]
     #[inline(always)]
-    pub fn aux_compa(&self) -> AUX_COMPA_R {
-        AUX_COMPA_R::new(((self.bits >> 1) & 1) != 0)
+    pub fn aux_compa(&self) -> AuxCompaR {
+        AuxCompaR::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bit 2 - 2:2\\]
 Select the event source level that sets EVTOMCUFLAGS.AUX_COMPB."]
     #[inline(always)]
-    pub fn aux_compb(&self) -> AUX_COMPB_R {
-        AUX_COMPB_R::new(((self.bits >> 2) & 1) != 0)
+    pub fn aux_compb(&self) -> AuxCompbR {
+        AuxCompbR::new(((self.bits >> 2) & 1) != 0)
     }
     #[doc = "Bit 3 - 3:3\\]
 Select the event source level that sets EVTOMCUFLAGS.TDC_DONE."]
     #[inline(always)]
-    pub fn tdc_done(&self) -> TDC_DONE_R {
-        TDC_DONE_R::new(((self.bits >> 3) & 1) != 0)
+    pub fn tdc_done(&self) -> TdcDoneR {
+        TdcDoneR::new(((self.bits >> 3) & 1) != 0)
     }
     #[doc = "Bit 4 - 4:4\\]
 Select the event source level that sets EVTOMCUFLAGS.TIMER0_EV."]
     #[inline(always)]
-    pub fn timer0_ev(&self) -> TIMER0_EV_R {
-        TIMER0_EV_R::new(((self.bits >> 4) & 1) != 0)
+    pub fn timer0_ev(&self) -> Timer0EvR {
+        Timer0EvR::new(((self.bits >> 4) & 1) != 0)
     }
     #[doc = "Bit 5 - 5:5\\]
 Select the event source level that sets EVTOMCUFLAGS.TIMER1_EV."]
     #[inline(always)]
-    pub fn timer1_ev(&self) -> TIMER1_EV_R {
-        TIMER1_EV_R::new(((self.bits >> 5) & 1) != 0)
+    pub fn timer1_ev(&self) -> Timer1EvR {
+        Timer1EvR::new(((self.bits >> 5) & 1) != 0)
     }
     #[doc = "Bit 6 - 6:6\\]
 Select the event source level that sets EVTOMCUFLAGS.SMPH_AUTOTAKE_DONE."]
     #[inline(always)]
-    pub fn smph_autotake_done(&self) -> SMPH_AUTOTAKE_DONE_R {
-        SMPH_AUTOTAKE_DONE_R::new(((self.bits >> 6) & 1) != 0)
+    pub fn smph_autotake_done(&self) -> SmphAutotakeDoneR {
+        SmphAutotakeDoneR::new(((self.bits >> 6) & 1) != 0)
     }
     #[doc = "Bit 7 - 7:7\\]
 Select the event source level that sets EVTOMCUFLAGS.ADC_DONE."]
     #[inline(always)]
-    pub fn adc_done(&self) -> ADC_DONE_R {
-        ADC_DONE_R::new(((self.bits >> 7) & 1) != 0)
+    pub fn adc_done(&self) -> AdcDoneR {
+        AdcDoneR::new(((self.bits >> 7) & 1) != 0)
     }
     #[doc = "Bit 8 - 8:8\\]
 Select the event source level that sets EVTOMCUFLAGS.ADC_FIFO_ALMOST_FULL."]
     #[inline(always)]
-    pub fn adc_fifo_almost_full(&self) -> ADC_FIFO_ALMOST_FULL_R {
-        ADC_FIFO_ALMOST_FULL_R::new(((self.bits >> 8) & 1) != 0)
+    pub fn adc_fifo_almost_full(&self) -> AdcFifoAlmostFullR {
+        AdcFifoAlmostFullR::new(((self.bits >> 8) & 1) != 0)
     }
     #[doc = "Bit 9 - 9:9\\]
 Select the event source level that sets EVTOMCUFLAGS.OBSMUX0."]
     #[inline(always)]
-    pub fn obsmux0(&self) -> OBSMUX0_R {
-        OBSMUX0_R::new(((self.bits >> 9) & 1) != 0)
+    pub fn obsmux0(&self) -> Obsmux0R {
+        Obsmux0R::new(((self.bits >> 9) & 1) != 0)
     }
     #[doc = "Bit 10 - 10:10\\]
 Select the event source level that sets EVTOMCUFLAGS.ADC_IRQ."]
     #[inline(always)]
-    pub fn adc_irq(&self) -> ADC_IRQ_R {
-        ADC_IRQ_R::new(((self.bits >> 10) & 1) != 0)
+    pub fn adc_irq(&self) -> AdcIrqR {
+        AdcIrqR::new(((self.bits >> 10) & 1) != 0)
     }
     #[doc = "Bits 11:31 - 31:11\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved11(&self) -> RESERVED11_R {
-        RESERVED11_R::new((self.bits >> 11) & 0x001f_ffff)
+    pub fn reserved11(&self) -> Reserved11R {
+        Reserved11R::new((self.bits >> 11) & 0x001f_ffff)
     }
 }
 impl W {
@@ -705,109 +703,101 @@ impl W {
 Select the event source level that sets EVTOMCUFLAGS.AON_WU_EV."]
     #[inline(always)]
     #[must_use]
-    pub fn aon_wu_ev(&mut self) -> AON_WU_EV_W<0> {
-        AON_WU_EV_W::new(self)
+    pub fn aon_wu_ev(&mut self) -> AonWuEvW<EvtomcupolSpec> {
+        AonWuEvW::new(self, 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 Select the event source level that sets EVTOMCUFLAGS.AUX_COMPA."]
     #[inline(always)]
     #[must_use]
-    pub fn aux_compa(&mut self) -> AUX_COMPA_W<1> {
-        AUX_COMPA_W::new(self)
+    pub fn aux_compa(&mut self) -> AuxCompaW<EvtomcupolSpec> {
+        AuxCompaW::new(self, 1)
     }
     #[doc = "Bit 2 - 2:2\\]
 Select the event source level that sets EVTOMCUFLAGS.AUX_COMPB."]
     #[inline(always)]
     #[must_use]
-    pub fn aux_compb(&mut self) -> AUX_COMPB_W<2> {
-        AUX_COMPB_W::new(self)
+    pub fn aux_compb(&mut self) -> AuxCompbW<EvtomcupolSpec> {
+        AuxCompbW::new(self, 2)
     }
     #[doc = "Bit 3 - 3:3\\]
 Select the event source level that sets EVTOMCUFLAGS.TDC_DONE."]
     #[inline(always)]
     #[must_use]
-    pub fn tdc_done(&mut self) -> TDC_DONE_W<3> {
-        TDC_DONE_W::new(self)
+    pub fn tdc_done(&mut self) -> TdcDoneW<EvtomcupolSpec> {
+        TdcDoneW::new(self, 3)
     }
     #[doc = "Bit 4 - 4:4\\]
 Select the event source level that sets EVTOMCUFLAGS.TIMER0_EV."]
     #[inline(always)]
     #[must_use]
-    pub fn timer0_ev(&mut self) -> TIMER0_EV_W<4> {
-        TIMER0_EV_W::new(self)
+    pub fn timer0_ev(&mut self) -> Timer0EvW<EvtomcupolSpec> {
+        Timer0EvW::new(self, 4)
     }
     #[doc = "Bit 5 - 5:5\\]
 Select the event source level that sets EVTOMCUFLAGS.TIMER1_EV."]
     #[inline(always)]
     #[must_use]
-    pub fn timer1_ev(&mut self) -> TIMER1_EV_W<5> {
-        TIMER1_EV_W::new(self)
+    pub fn timer1_ev(&mut self) -> Timer1EvW<EvtomcupolSpec> {
+        Timer1EvW::new(self, 5)
     }
     #[doc = "Bit 6 - 6:6\\]
 Select the event source level that sets EVTOMCUFLAGS.SMPH_AUTOTAKE_DONE."]
     #[inline(always)]
     #[must_use]
-    pub fn smph_autotake_done(&mut self) -> SMPH_AUTOTAKE_DONE_W<6> {
-        SMPH_AUTOTAKE_DONE_W::new(self)
+    pub fn smph_autotake_done(&mut self) -> SmphAutotakeDoneW<EvtomcupolSpec> {
+        SmphAutotakeDoneW::new(self, 6)
     }
     #[doc = "Bit 7 - 7:7\\]
 Select the event source level that sets EVTOMCUFLAGS.ADC_DONE."]
     #[inline(always)]
     #[must_use]
-    pub fn adc_done(&mut self) -> ADC_DONE_W<7> {
-        ADC_DONE_W::new(self)
+    pub fn adc_done(&mut self) -> AdcDoneW<EvtomcupolSpec> {
+        AdcDoneW::new(self, 7)
     }
     #[doc = "Bit 8 - 8:8\\]
 Select the event source level that sets EVTOMCUFLAGS.ADC_FIFO_ALMOST_FULL."]
     #[inline(always)]
     #[must_use]
-    pub fn adc_fifo_almost_full(&mut self) -> ADC_FIFO_ALMOST_FULL_W<8> {
-        ADC_FIFO_ALMOST_FULL_W::new(self)
+    pub fn adc_fifo_almost_full(&mut self) -> AdcFifoAlmostFullW<EvtomcupolSpec> {
+        AdcFifoAlmostFullW::new(self, 8)
     }
     #[doc = "Bit 9 - 9:9\\]
 Select the event source level that sets EVTOMCUFLAGS.OBSMUX0."]
     #[inline(always)]
     #[must_use]
-    pub fn obsmux0(&mut self) -> OBSMUX0_W<9> {
-        OBSMUX0_W::new(self)
+    pub fn obsmux0(&mut self) -> Obsmux0W<EvtomcupolSpec> {
+        Obsmux0W::new(self, 9)
     }
     #[doc = "Bit 10 - 10:10\\]
 Select the event source level that sets EVTOMCUFLAGS.ADC_IRQ."]
     #[inline(always)]
     #[must_use]
-    pub fn adc_irq(&mut self) -> ADC_IRQ_W<10> {
-        ADC_IRQ_W::new(self)
+    pub fn adc_irq(&mut self) -> AdcIrqW<EvtomcupolSpec> {
+        AdcIrqW::new(self, 10)
     }
     #[doc = "Bits 11:31 - 31:11\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved11(&mut self) -> RESERVED11_W<11> {
-        RESERVED11_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved11(&mut self) -> Reserved11W<EvtomcupolSpec> {
+        Reserved11W::new(self, 11)
     }
 }
-#[doc = "Event To MCU Polarity Event source polarity configuration for EVTOMCUFLAGS.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [evtomcupol](index.html) module"]
-pub struct EVTOMCUPOL_SPEC;
-impl crate::RegisterSpec for EVTOMCUPOL_SPEC {
+#[doc = "Event To MCU Polarity Event source polarity configuration for EVTOMCUFLAGS.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`evtomcupol::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`evtomcupol::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct EvtomcupolSpec;
+impl crate::RegisterSpec for EvtomcupolSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [evtomcupol::R](R) reader structure"]
-impl crate::Readable for EVTOMCUPOL_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [evtomcupol::W](W) writer structure"]
-impl crate::Writable for EVTOMCUPOL_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`evtomcupol::R`](R) reader structure"]
+impl crate::Readable for EvtomcupolSpec {}
+#[doc = "`write(|w| ..)` method takes [`evtomcupol::W`](W) writer structure"]
+impl crate::Writable for EvtomcupolSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets EVTOMCUPOL to value 0"]
-impl crate::Resettable for EVTOMCUPOL_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for EvtomcupolSpec {
+    const RESET_VALUE: u32 = 0;
 }

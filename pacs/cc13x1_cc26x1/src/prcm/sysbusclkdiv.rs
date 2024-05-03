@@ -1,114 +1,88 @@
 #[doc = "Register `SYSBUSCLKDIV` reader"]
-pub struct R(crate::R<SYSBUSCLKDIV_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<SYSBUSCLKDIV_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<SYSBUSCLKDIV_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<SYSBUSCLKDIV_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<SysbusclkdivSpec>;
 #[doc = "Register `SYSBUSCLKDIV` writer"]
-pub struct W(crate::W<SYSBUSCLKDIV_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<SYSBUSCLKDIV_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<SYSBUSCLKDIV_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<SYSBUSCLKDIV_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `RATIO` reader - 2:0\\]
-Internal. Only to be used through TI provided API."]
-pub type RATIO_R = crate::FieldReader<u8, RATIO_A>;
+pub type W = crate::W<SysbusclkdivSpec>;
 #[doc = "2:0\\]
 Internal. Only to be used through TI provided API.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum RATIO_A {
+pub enum Ratio {
     #[doc = "1: Internal. Only to be used through TI provided API."]
-    DIV2 = 1,
+    Div2 = 1,
     #[doc = "0: Internal. Only to be used through TI provided API."]
-    DIV1 = 0,
+    Div1 = 0,
 }
-impl From<RATIO_A> for u8 {
+impl From<Ratio> for u8 {
     #[inline(always)]
-    fn from(variant: RATIO_A) -> Self {
+    fn from(variant: Ratio) -> Self {
         variant as _
     }
 }
-impl RATIO_R {
+impl crate::FieldSpec for Ratio {
+    type Ux = u8;
+}
+impl crate::IsEnum for Ratio {}
+#[doc = "Field `RATIO` reader - 2:0\\]
+Internal. Only to be used through TI provided API."]
+pub type RatioR = crate::FieldReader<Ratio>;
+impl RatioR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<RATIO_A> {
+    pub const fn variant(&self) -> Option<Ratio> {
         match self.bits {
-            1 => Some(RATIO_A::DIV2),
-            0 => Some(RATIO_A::DIV1),
+            1 => Some(Ratio::Div2),
+            0 => Some(Ratio::Div1),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `DIV2`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_div2(&self) -> bool {
-        *self == RATIO_A::DIV2
+        *self == Ratio::Div2
     }
-    #[doc = "Checks if the value of the field is `DIV1`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_div1(&self) -> bool {
-        *self == RATIO_A::DIV1
+        *self == Ratio::Div1
     }
 }
 #[doc = "Field `RATIO` writer - 2:0\\]
 Internal. Only to be used through TI provided API."]
-pub type RATIO_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, SYSBUSCLKDIV_SPEC, u8, RATIO_A, 3, O>;
-impl<'a, const O: u8> RATIO_W<'a, O> {
+pub type RatioW<'a, REG> = crate::FieldWriter<'a, REG, 3, Ratio>;
+impl<'a, REG> RatioW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn div2(self) -> &'a mut W {
-        self.variant(RATIO_A::DIV2)
+    pub fn div2(self) -> &'a mut crate::W<REG> {
+        self.variant(Ratio::Div2)
     }
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn div1(self) -> &'a mut W {
-        self.variant(RATIO_A::DIV1)
+    pub fn div1(self) -> &'a mut crate::W<REG> {
+        self.variant(Ratio::Div1)
     }
 }
 #[doc = "Field `RESERVED3` reader - 31:3\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED3_R = crate::FieldReader<u32, u32>;
+pub type Reserved3R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED3` writer - 31:3\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED3_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, SYSBUSCLKDIV_SPEC, u32, u32, 29, O>;
+pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 29, u32>;
 impl R {
     #[doc = "Bits 0:2 - 2:0\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn ratio(&self) -> RATIO_R {
-        RATIO_R::new((self.bits & 7) as u8)
+    pub fn ratio(&self) -> RatioR {
+        RatioR::new((self.bits & 7) as u8)
     }
     #[doc = "Bits 3:31 - 31:3\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn reserved3(&self) -> RESERVED3_R {
-        RESERVED3_R::new((self.bits >> 3) & 0x1fff_ffff)
+    pub fn reserved3(&self) -> Reserved3R {
+        Reserved3R::new((self.bits >> 3) & 0x1fff_ffff)
     }
 }
 impl W {
@@ -116,39 +90,31 @@ impl W {
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn ratio(&mut self) -> RATIO_W<0> {
-        RATIO_W::new(self)
+    pub fn ratio(&mut self) -> RatioW<SysbusclkdivSpec> {
+        RatioW::new(self, 0)
     }
     #[doc = "Bits 3:31 - 31:3\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved3(&mut self) -> RESERVED3_W<3> {
-        RESERVED3_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved3(&mut self) -> Reserved3W<SysbusclkdivSpec> {
+        Reserved3W::new(self, 3)
     }
 }
-#[doc = "Internal. Only to be used through TI provided API.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sysbusclkdiv](index.html) module"]
-pub struct SYSBUSCLKDIV_SPEC;
-impl crate::RegisterSpec for SYSBUSCLKDIV_SPEC {
+#[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`sysbusclkdiv::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`sysbusclkdiv::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct SysbusclkdivSpec;
+impl crate::RegisterSpec for SysbusclkdivSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [sysbusclkdiv::R](R) reader structure"]
-impl crate::Readable for SYSBUSCLKDIV_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [sysbusclkdiv::W](W) writer structure"]
-impl crate::Writable for SYSBUSCLKDIV_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`sysbusclkdiv::R`](R) reader structure"]
+impl crate::Readable for SysbusclkdivSpec {}
+#[doc = "`write(|w| ..)` method takes [`sysbusclkdiv::W`](W) writer structure"]
+impl crate::Writable for SysbusclkdivSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets SYSBUSCLKDIV to value 0"]
-impl crate::Resettable for SYSBUSCLKDIV_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for SysbusclkdivSpec {
+    const RESET_VALUE: u32 = 0;
 }

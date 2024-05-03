@@ -1,75 +1,43 @@
 #[doc = "Register `VTOR` reader"]
-pub struct R(crate::R<VTOR_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<VTOR_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<VTOR_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<VTOR_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<VtorSpec>;
 #[doc = "Register `VTOR` writer"]
-pub struct W(crate::W<VTOR_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<VTOR_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<VTOR_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<VTOR_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<VtorSpec>;
 #[doc = "Field `RESERVED0` reader - 6:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED0_R = crate::FieldReader<u8, u8>;
+pub type Reserved0R = crate::FieldReader;
 #[doc = "Field `RESERVED0` writer - 6:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED0_W<'a, const O: u8> = crate::FieldWriter<'a, u32, VTOR_SPEC, u8, u8, 7, O>;
+pub type Reserved0W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "Field `TBLOFF` reader - 29:7\\]
 Bits 29 down to 7 of the vector table base offset."]
-pub type TBLOFF_R = crate::FieldReader<u32, u32>;
+pub type TbloffR = crate::FieldReader<u32>;
 #[doc = "Field `TBLOFF` writer - 29:7\\]
 Bits 29 down to 7 of the vector table base offset."]
-pub type TBLOFF_W<'a, const O: u8> = crate::FieldWriter<'a, u32, VTOR_SPEC, u32, u32, 23, O>;
+pub type TbloffW<'a, REG> = crate::FieldWriter<'a, REG, 23, u32>;
 #[doc = "Field `RESERVED30` reader - 31:30\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED30_R = crate::FieldReader<u8, u8>;
+pub type Reserved30R = crate::FieldReader;
 #[doc = "Field `RESERVED30` writer - 31:30\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED30_W<'a, const O: u8> = crate::FieldWriter<'a, u32, VTOR_SPEC, u8, u8, 2, O>;
+pub type Reserved30W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 impl R {
     #[doc = "Bits 0:6 - 6:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved0(&self) -> RESERVED0_R {
-        RESERVED0_R::new((self.bits & 0x7f) as u8)
+    pub fn reserved0(&self) -> Reserved0R {
+        Reserved0R::new((self.bits & 0x7f) as u8)
     }
     #[doc = "Bits 7:29 - 29:7\\]
 Bits 29 down to 7 of the vector table base offset."]
     #[inline(always)]
-    pub fn tbloff(&self) -> TBLOFF_R {
-        TBLOFF_R::new((self.bits >> 7) & 0x007f_ffff)
+    pub fn tbloff(&self) -> TbloffR {
+        TbloffR::new((self.bits >> 7) & 0x007f_ffff)
     }
     #[doc = "Bits 30:31 - 31:30\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved30(&self) -> RESERVED30_R {
-        RESERVED30_R::new(((self.bits >> 30) & 3) as u8)
+    pub fn reserved30(&self) -> Reserved30R {
+        Reserved30R::new(((self.bits >> 30) & 3) as u8)
     }
 }
 impl W {
@@ -77,46 +45,38 @@ impl W {
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved0(&mut self) -> RESERVED0_W<0> {
-        RESERVED0_W::new(self)
+    pub fn reserved0(&mut self) -> Reserved0W<VtorSpec> {
+        Reserved0W::new(self, 0)
     }
     #[doc = "Bits 7:29 - 29:7\\]
 Bits 29 down to 7 of the vector table base offset."]
     #[inline(always)]
     #[must_use]
-    pub fn tbloff(&mut self) -> TBLOFF_W<7> {
-        TBLOFF_W::new(self)
+    pub fn tbloff(&mut self) -> TbloffW<VtorSpec> {
+        TbloffW::new(self, 7)
     }
     #[doc = "Bits 30:31 - 31:30\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved30(&mut self) -> RESERVED30_W<30> {
-        RESERVED30_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved30(&mut self) -> Reserved30W<VtorSpec> {
+        Reserved30W::new(self, 30)
     }
 }
-#[doc = "Vector Table Offset This register is used to relocated the vector table base address. The vector table base offset determines the offset from the bottom of the memory map. The two most significant bits and the seven least significant bits of the vector table base offset must be 0. The portion of vector table base offset that is allowed to change is TBLOFF.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [vtor](index.html) module"]
-pub struct VTOR_SPEC;
-impl crate::RegisterSpec for VTOR_SPEC {
+#[doc = "Vector Table Offset This register is used to relocated the vector table base address. The vector table base offset determines the offset from the bottom of the memory map. The two most significant bits and the seven least significant bits of the vector table base offset must be 0. The portion of vector table base offset that is allowed to change is TBLOFF.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`vtor::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`vtor::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct VtorSpec;
+impl crate::RegisterSpec for VtorSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [vtor::R](R) reader structure"]
-impl crate::Readable for VTOR_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [vtor::W](W) writer structure"]
-impl crate::Writable for VTOR_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`vtor::R`](R) reader structure"]
+impl crate::Readable for VtorSpec {}
+#[doc = "`write(|w| ..)` method takes [`vtor::W`](W) writer structure"]
+impl crate::Writable for VtorSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets VTOR to value 0"]
-impl crate::Resettable for VTOR_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for VtorSpec {
+    const RESET_VALUE: u32 = 0;
 }

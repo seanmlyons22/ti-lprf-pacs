@@ -1,326 +1,316 @@
 #[doc = "Register `AUXCLK` reader"]
-pub struct R(crate::R<AUXCLK_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<AUXCLK_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<AUXCLK_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<AUXCLK_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<AuxclkSpec>;
 #[doc = "Register `AUXCLK` writer"]
-pub struct W(crate::W<AUXCLK_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<AUXCLK_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<AUXCLK_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<AUXCLK_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `SRC` reader - 2:0\\]
-Selects the clock source for AUX: NB: Switching the clock source is guaranteed to be glitchless"]
-pub type SRC_R = crate::FieldReader<u8, SRC_A>;
+pub type W = crate::W<AuxclkSpec>;
 #[doc = "2:0\\]
 Selects the clock source for AUX: NB: Switching the clock source is guaranteed to be glitchless\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum SRC_A {
+pub enum Src {
     #[doc = "4: LF Clock (SCLK_LF)"]
-    SCLK_LF = 4,
+    SclkLf = 4,
     #[doc = "1: HF Clock (SCLK_HF)"]
-    SCLK_HF = 1,
+    SclkHf = 1,
 }
-impl From<SRC_A> for u8 {
+impl From<Src> for u8 {
     #[inline(always)]
-    fn from(variant: SRC_A) -> Self {
+    fn from(variant: Src) -> Self {
         variant as _
     }
 }
-impl SRC_R {
+impl crate::FieldSpec for Src {
+    type Ux = u8;
+}
+impl crate::IsEnum for Src {}
+#[doc = "Field `SRC` reader - 2:0\\]
+Selects the clock source for AUX: NB: Switching the clock source is guaranteed to be glitchless"]
+pub type SrcR = crate::FieldReader<Src>;
+impl SrcR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<SRC_A> {
+    pub const fn variant(&self) -> Option<Src> {
         match self.bits {
-            4 => Some(SRC_A::SCLK_LF),
-            1 => Some(SRC_A::SCLK_HF),
+            4 => Some(Src::SclkLf),
+            1 => Some(Src::SclkHf),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `SCLK_LF`"]
+    #[doc = "LF Clock (SCLK_LF)"]
     #[inline(always)]
     pub fn is_sclk_lf(&self) -> bool {
-        *self == SRC_A::SCLK_LF
+        *self == Src::SclkLf
     }
-    #[doc = "Checks if the value of the field is `SCLK_HF`"]
+    #[doc = "HF Clock (SCLK_HF)"]
     #[inline(always)]
     pub fn is_sclk_hf(&self) -> bool {
-        *self == SRC_A::SCLK_HF
+        *self == Src::SclkHf
     }
 }
 #[doc = "Field `SRC` writer - 2:0\\]
 Selects the clock source for AUX: NB: Switching the clock source is guaranteed to be glitchless"]
-pub type SRC_W<'a, const O: u8> = crate::FieldWriter<'a, u32, AUXCLK_SPEC, u8, SRC_A, 3, O>;
-impl<'a, const O: u8> SRC_W<'a, O> {
+pub type SrcW<'a, REG> = crate::FieldWriter<'a, REG, 3, Src>;
+impl<'a, REG> SrcW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "LF Clock (SCLK_LF)"]
     #[inline(always)]
-    pub fn sclk_lf(self) -> &'a mut W {
-        self.variant(SRC_A::SCLK_LF)
+    pub fn sclk_lf(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::SclkLf)
     }
     #[doc = "HF Clock (SCLK_HF)"]
     #[inline(always)]
-    pub fn sclk_hf(self) -> &'a mut W {
-        self.variant(SRC_A::SCLK_HF)
+    pub fn sclk_hf(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::SclkHf)
     }
 }
 #[doc = "Field `RESERVED3` reader - 7:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED3_R = crate::FieldReader<u8, u8>;
+pub type Reserved3R = crate::FieldReader;
 #[doc = "Field `RESERVED3` writer - 7:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED3_W<'a, const O: u8> = crate::FieldWriter<'a, u32, AUXCLK_SPEC, u8, u8, 5, O>;
-#[doc = "Field `SCLK_HF_DIV` reader - 10:8\\]
-Select the AUX clock divider for SCLK_HF NB: It is not supported to change the AUX clock divider while SCLK_HF is active source for AUX"]
-pub type SCLK_HF_DIV_R = crate::FieldReader<u8, SCLK_HF_DIV_A>;
+pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 #[doc = "10:8\\]
 Select the AUX clock divider for SCLK_HF NB: It is not supported to change the AUX clock divider while SCLK_HF is active source for AUX\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum SCLK_HF_DIV_A {
+pub enum SclkHfDiv {
     #[doc = "7: Divide by 256"]
-    DIV256 = 7,
+    Div256 = 7,
     #[doc = "6: Divide by 128"]
-    DIV128 = 6,
+    Div128 = 6,
     #[doc = "5: Divide by 64"]
-    DIV64 = 5,
+    Div64 = 5,
     #[doc = "4: Divide by 32"]
-    DIV32 = 4,
+    Div32 = 4,
     #[doc = "3: Divide by 16"]
-    DIV16 = 3,
+    Div16 = 3,
     #[doc = "2: Divide by 8"]
-    DIV8 = 2,
+    Div8 = 2,
     #[doc = "1: Divide by 4"]
-    DIV4 = 1,
+    Div4 = 1,
     #[doc = "0: Divide by 2"]
-    DIV2 = 0,
+    Div2 = 0,
 }
-impl From<SCLK_HF_DIV_A> for u8 {
+impl From<SclkHfDiv> for u8 {
     #[inline(always)]
-    fn from(variant: SCLK_HF_DIV_A) -> Self {
+    fn from(variant: SclkHfDiv) -> Self {
         variant as _
     }
 }
-impl SCLK_HF_DIV_R {
+impl crate::FieldSpec for SclkHfDiv {
+    type Ux = u8;
+}
+impl crate::IsEnum for SclkHfDiv {}
+#[doc = "Field `SCLK_HF_DIV` reader - 10:8\\]
+Select the AUX clock divider for SCLK_HF NB: It is not supported to change the AUX clock divider while SCLK_HF is active source for AUX"]
+pub type SclkHfDivR = crate::FieldReader<SclkHfDiv>;
+impl SclkHfDivR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> SCLK_HF_DIV_A {
+    pub const fn variant(&self) -> SclkHfDiv {
         match self.bits {
-            7 => SCLK_HF_DIV_A::DIV256,
-            6 => SCLK_HF_DIV_A::DIV128,
-            5 => SCLK_HF_DIV_A::DIV64,
-            4 => SCLK_HF_DIV_A::DIV32,
-            3 => SCLK_HF_DIV_A::DIV16,
-            2 => SCLK_HF_DIV_A::DIV8,
-            1 => SCLK_HF_DIV_A::DIV4,
-            0 => SCLK_HF_DIV_A::DIV2,
+            7 => SclkHfDiv::Div256,
+            6 => SclkHfDiv::Div128,
+            5 => SclkHfDiv::Div64,
+            4 => SclkHfDiv::Div32,
+            3 => SclkHfDiv::Div16,
+            2 => SclkHfDiv::Div8,
+            1 => SclkHfDiv::Div4,
+            0 => SclkHfDiv::Div2,
             _ => unreachable!(),
         }
     }
-    #[doc = "Checks if the value of the field is `DIV256`"]
+    #[doc = "Divide by 256"]
     #[inline(always)]
     pub fn is_div256(&self) -> bool {
-        *self == SCLK_HF_DIV_A::DIV256
+        *self == SclkHfDiv::Div256
     }
-    #[doc = "Checks if the value of the field is `DIV128`"]
+    #[doc = "Divide by 128"]
     #[inline(always)]
     pub fn is_div128(&self) -> bool {
-        *self == SCLK_HF_DIV_A::DIV128
+        *self == SclkHfDiv::Div128
     }
-    #[doc = "Checks if the value of the field is `DIV64`"]
+    #[doc = "Divide by 64"]
     #[inline(always)]
     pub fn is_div64(&self) -> bool {
-        *self == SCLK_HF_DIV_A::DIV64
+        *self == SclkHfDiv::Div64
     }
-    #[doc = "Checks if the value of the field is `DIV32`"]
+    #[doc = "Divide by 32"]
     #[inline(always)]
     pub fn is_div32(&self) -> bool {
-        *self == SCLK_HF_DIV_A::DIV32
+        *self == SclkHfDiv::Div32
     }
-    #[doc = "Checks if the value of the field is `DIV16`"]
+    #[doc = "Divide by 16"]
     #[inline(always)]
     pub fn is_div16(&self) -> bool {
-        *self == SCLK_HF_DIV_A::DIV16
+        *self == SclkHfDiv::Div16
     }
-    #[doc = "Checks if the value of the field is `DIV8`"]
+    #[doc = "Divide by 8"]
     #[inline(always)]
     pub fn is_div8(&self) -> bool {
-        *self == SCLK_HF_DIV_A::DIV8
+        *self == SclkHfDiv::Div8
     }
-    #[doc = "Checks if the value of the field is `DIV4`"]
+    #[doc = "Divide by 4"]
     #[inline(always)]
     pub fn is_div4(&self) -> bool {
-        *self == SCLK_HF_DIV_A::DIV4
+        *self == SclkHfDiv::Div4
     }
-    #[doc = "Checks if the value of the field is `DIV2`"]
+    #[doc = "Divide by 2"]
     #[inline(always)]
     pub fn is_div2(&self) -> bool {
-        *self == SCLK_HF_DIV_A::DIV2
+        *self == SclkHfDiv::Div2
     }
 }
 #[doc = "Field `SCLK_HF_DIV` writer - 10:8\\]
 Select the AUX clock divider for SCLK_HF NB: It is not supported to change the AUX clock divider while SCLK_HF is active source for AUX"]
-pub type SCLK_HF_DIV_W<'a, const O: u8> =
-    crate::FieldWriterSafe<'a, u32, AUXCLK_SPEC, u8, SCLK_HF_DIV_A, 3, O>;
-impl<'a, const O: u8> SCLK_HF_DIV_W<'a, O> {
+pub type SclkHfDivW<'a, REG> = crate::FieldWriter<'a, REG, 3, SclkHfDiv, crate::Safe>;
+impl<'a, REG> SclkHfDivW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "Divide by 256"]
     #[inline(always)]
-    pub fn div256(self) -> &'a mut W {
-        self.variant(SCLK_HF_DIV_A::DIV256)
+    pub fn div256(self) -> &'a mut crate::W<REG> {
+        self.variant(SclkHfDiv::Div256)
     }
     #[doc = "Divide by 128"]
     #[inline(always)]
-    pub fn div128(self) -> &'a mut W {
-        self.variant(SCLK_HF_DIV_A::DIV128)
+    pub fn div128(self) -> &'a mut crate::W<REG> {
+        self.variant(SclkHfDiv::Div128)
     }
     #[doc = "Divide by 64"]
     #[inline(always)]
-    pub fn div64(self) -> &'a mut W {
-        self.variant(SCLK_HF_DIV_A::DIV64)
+    pub fn div64(self) -> &'a mut crate::W<REG> {
+        self.variant(SclkHfDiv::Div64)
     }
     #[doc = "Divide by 32"]
     #[inline(always)]
-    pub fn div32(self) -> &'a mut W {
-        self.variant(SCLK_HF_DIV_A::DIV32)
+    pub fn div32(self) -> &'a mut crate::W<REG> {
+        self.variant(SclkHfDiv::Div32)
     }
     #[doc = "Divide by 16"]
     #[inline(always)]
-    pub fn div16(self) -> &'a mut W {
-        self.variant(SCLK_HF_DIV_A::DIV16)
+    pub fn div16(self) -> &'a mut crate::W<REG> {
+        self.variant(SclkHfDiv::Div16)
     }
     #[doc = "Divide by 8"]
     #[inline(always)]
-    pub fn div8(self) -> &'a mut W {
-        self.variant(SCLK_HF_DIV_A::DIV8)
+    pub fn div8(self) -> &'a mut crate::W<REG> {
+        self.variant(SclkHfDiv::Div8)
     }
     #[doc = "Divide by 4"]
     #[inline(always)]
-    pub fn div4(self) -> &'a mut W {
-        self.variant(SCLK_HF_DIV_A::DIV4)
+    pub fn div4(self) -> &'a mut crate::W<REG> {
+        self.variant(SclkHfDiv::Div4)
     }
     #[doc = "Divide by 2"]
     #[inline(always)]
-    pub fn div2(self) -> &'a mut W {
-        self.variant(SCLK_HF_DIV_A::DIV2)
+    pub fn div2(self) -> &'a mut crate::W<REG> {
+        self.variant(SclkHfDiv::Div2)
     }
 }
-#[doc = "Field `PWR_DWN_SRC` reader - 12:11\\]
-When AUX requests powerdown with SCLK_HF as source, then WUC will switch over to this clock source during powerdown, and automatically switch back to SCLK_HF when AUX system is back in active mode"]
-pub type PWR_DWN_SRC_R = crate::FieldReader<u8, PWR_DWN_SRC_A>;
 #[doc = "12:11\\]
 When AUX requests powerdown with SCLK_HF as source, then WUC will switch over to this clock source during powerdown, and automatically switch back to SCLK_HF when AUX system is back in active mode\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum PWR_DWN_SRC_A {
+pub enum PwrDwnSrc {
     #[doc = "1: Use SCLK_LF in Powerdown"]
-    SCLK_LF = 1,
+    SclkLf = 1,
     #[doc = "0: No clock in Powerdown"]
-    NONE = 0,
+    None = 0,
 }
-impl From<PWR_DWN_SRC_A> for u8 {
+impl From<PwrDwnSrc> for u8 {
     #[inline(always)]
-    fn from(variant: PWR_DWN_SRC_A) -> Self {
+    fn from(variant: PwrDwnSrc) -> Self {
         variant as _
     }
 }
-impl PWR_DWN_SRC_R {
+impl crate::FieldSpec for PwrDwnSrc {
+    type Ux = u8;
+}
+impl crate::IsEnum for PwrDwnSrc {}
+#[doc = "Field `PWR_DWN_SRC` reader - 12:11\\]
+When AUX requests powerdown with SCLK_HF as source, then WUC will switch over to this clock source during powerdown, and automatically switch back to SCLK_HF when AUX system is back in active mode"]
+pub type PwrDwnSrcR = crate::FieldReader<PwrDwnSrc>;
+impl PwrDwnSrcR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<PWR_DWN_SRC_A> {
+    pub const fn variant(&self) -> Option<PwrDwnSrc> {
         match self.bits {
-            1 => Some(PWR_DWN_SRC_A::SCLK_LF),
-            0 => Some(PWR_DWN_SRC_A::NONE),
+            1 => Some(PwrDwnSrc::SclkLf),
+            0 => Some(PwrDwnSrc::None),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `SCLK_LF`"]
+    #[doc = "Use SCLK_LF in Powerdown"]
     #[inline(always)]
     pub fn is_sclk_lf(&self) -> bool {
-        *self == PWR_DWN_SRC_A::SCLK_LF
+        *self == PwrDwnSrc::SclkLf
     }
-    #[doc = "Checks if the value of the field is `NONE`"]
+    #[doc = "No clock in Powerdown"]
     #[inline(always)]
     pub fn is_none(&self) -> bool {
-        *self == PWR_DWN_SRC_A::NONE
+        *self == PwrDwnSrc::None
     }
 }
 #[doc = "Field `PWR_DWN_SRC` writer - 12:11\\]
 When AUX requests powerdown with SCLK_HF as source, then WUC will switch over to this clock source during powerdown, and automatically switch back to SCLK_HF when AUX system is back in active mode"]
-pub type PWR_DWN_SRC_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, AUXCLK_SPEC, u8, PWR_DWN_SRC_A, 2, O>;
-impl<'a, const O: u8> PWR_DWN_SRC_W<'a, O> {
+pub type PwrDwnSrcW<'a, REG> = crate::FieldWriter<'a, REG, 2, PwrDwnSrc>;
+impl<'a, REG> PwrDwnSrcW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "Use SCLK_LF in Powerdown"]
     #[inline(always)]
-    pub fn sclk_lf(self) -> &'a mut W {
-        self.variant(PWR_DWN_SRC_A::SCLK_LF)
+    pub fn sclk_lf(self) -> &'a mut crate::W<REG> {
+        self.variant(PwrDwnSrc::SclkLf)
     }
     #[doc = "No clock in Powerdown"]
     #[inline(always)]
-    pub fn none(self) -> &'a mut W {
-        self.variant(PWR_DWN_SRC_A::NONE)
+    pub fn none(self) -> &'a mut crate::W<REG> {
+        self.variant(PwrDwnSrc::None)
     }
 }
 #[doc = "Field `RESERVED13` reader - 31:13\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED13_R = crate::FieldReader<u32, u32>;
+pub type Reserved13R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED13` writer - 31:13\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED13_W<'a, const O: u8> = crate::FieldWriter<'a, u32, AUXCLK_SPEC, u32, u32, 19, O>;
+pub type Reserved13W<'a, REG> = crate::FieldWriter<'a, REG, 19, u32>;
 impl R {
     #[doc = "Bits 0:2 - 2:0\\]
 Selects the clock source for AUX: NB: Switching the clock source is guaranteed to be glitchless"]
     #[inline(always)]
-    pub fn src(&self) -> SRC_R {
-        SRC_R::new((self.bits & 7) as u8)
+    pub fn src(&self) -> SrcR {
+        SrcR::new((self.bits & 7) as u8)
     }
     #[doc = "Bits 3:7 - 7:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved3(&self) -> RESERVED3_R {
-        RESERVED3_R::new(((self.bits >> 3) & 0x1f) as u8)
+    pub fn reserved3(&self) -> Reserved3R {
+        Reserved3R::new(((self.bits >> 3) & 0x1f) as u8)
     }
     #[doc = "Bits 8:10 - 10:8\\]
 Select the AUX clock divider for SCLK_HF NB: It is not supported to change the AUX clock divider while SCLK_HF is active source for AUX"]
     #[inline(always)]
-    pub fn sclk_hf_div(&self) -> SCLK_HF_DIV_R {
-        SCLK_HF_DIV_R::new(((self.bits >> 8) & 7) as u8)
+    pub fn sclk_hf_div(&self) -> SclkHfDivR {
+        SclkHfDivR::new(((self.bits >> 8) & 7) as u8)
     }
     #[doc = "Bits 11:12 - 12:11\\]
 When AUX requests powerdown with SCLK_HF as source, then WUC will switch over to this clock source during powerdown, and automatically switch back to SCLK_HF when AUX system is back in active mode"]
     #[inline(always)]
-    pub fn pwr_dwn_src(&self) -> PWR_DWN_SRC_R {
-        PWR_DWN_SRC_R::new(((self.bits >> 11) & 3) as u8)
+    pub fn pwr_dwn_src(&self) -> PwrDwnSrcR {
+        PwrDwnSrcR::new(((self.bits >> 11) & 3) as u8)
     }
     #[doc = "Bits 13:31 - 31:13\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved13(&self) -> RESERVED13_R {
-        RESERVED13_R::new((self.bits >> 13) & 0x0007_ffff)
+    pub fn reserved13(&self) -> Reserved13R {
+        Reserved13R::new((self.bits >> 13) & 0x0007_ffff)
     }
 }
 impl W {
@@ -328,60 +318,52 @@ impl W {
 Selects the clock source for AUX: NB: Switching the clock source is guaranteed to be glitchless"]
     #[inline(always)]
     #[must_use]
-    pub fn src(&mut self) -> SRC_W<0> {
-        SRC_W::new(self)
+    pub fn src(&mut self) -> SrcW<AuxclkSpec> {
+        SrcW::new(self, 0)
     }
     #[doc = "Bits 3:7 - 7:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved3(&mut self) -> RESERVED3_W<3> {
-        RESERVED3_W::new(self)
+    pub fn reserved3(&mut self) -> Reserved3W<AuxclkSpec> {
+        Reserved3W::new(self, 3)
     }
     #[doc = "Bits 8:10 - 10:8\\]
 Select the AUX clock divider for SCLK_HF NB: It is not supported to change the AUX clock divider while SCLK_HF is active source for AUX"]
     #[inline(always)]
     #[must_use]
-    pub fn sclk_hf_div(&mut self) -> SCLK_HF_DIV_W<8> {
-        SCLK_HF_DIV_W::new(self)
+    pub fn sclk_hf_div(&mut self) -> SclkHfDivW<AuxclkSpec> {
+        SclkHfDivW::new(self, 8)
     }
     #[doc = "Bits 11:12 - 12:11\\]
 When AUX requests powerdown with SCLK_HF as source, then WUC will switch over to this clock source during powerdown, and automatically switch back to SCLK_HF when AUX system is back in active mode"]
     #[inline(always)]
     #[must_use]
-    pub fn pwr_dwn_src(&mut self) -> PWR_DWN_SRC_W<11> {
-        PWR_DWN_SRC_W::new(self)
+    pub fn pwr_dwn_src(&mut self) -> PwrDwnSrcW<AuxclkSpec> {
+        PwrDwnSrcW::new(self, 11)
     }
     #[doc = "Bits 13:31 - 31:13\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved13(&mut self) -> RESERVED13_W<13> {
-        RESERVED13_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved13(&mut self) -> Reserved13W<AuxclkSpec> {
+        Reserved13W::new(self, 13)
     }
 }
-#[doc = "AUX Clock Management This register contains bitfields that are relevant for setting up the clock to the AUX domain.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [auxclk](index.html) module"]
-pub struct AUXCLK_SPEC;
-impl crate::RegisterSpec for AUXCLK_SPEC {
+#[doc = "AUX Clock Management This register contains bitfields that are relevant for setting up the clock to the AUX domain.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`auxclk::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`auxclk::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct AuxclkSpec;
+impl crate::RegisterSpec for AuxclkSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [auxclk::R](R) reader structure"]
-impl crate::Readable for AUXCLK_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [auxclk::W](W) writer structure"]
-impl crate::Writable for AUXCLK_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`auxclk::R`](R) reader structure"]
+impl crate::Readable for AuxclkSpec {}
+#[doc = "`write(|w| ..)` method takes [`auxclk::W`](W) writer structure"]
+impl crate::Writable for AuxclkSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets AUXCLK to value 0x01"]
-impl crate::Resettable for AUXCLK_SPEC {
-    const RESET_VALUE: Self::Ux = 0x01;
+impl crate::Resettable for AuxclkSpec {
+    const RESET_VALUE: u32 = 0x01;
 }

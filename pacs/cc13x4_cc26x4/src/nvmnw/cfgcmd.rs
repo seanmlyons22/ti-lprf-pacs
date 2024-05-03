@@ -1,113 +1,88 @@
 #[doc = "Register `CFGCMD` reader"]
-pub struct R(crate::R<CFGCMD_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<CFGCMD_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<CFGCMD_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<CFGCMD_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<CfgcmdSpec>;
 #[doc = "Register `CFGCMD` writer"]
-pub struct W(crate::W<CFGCMD_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<CFGCMD_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<CFGCMD_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<CFGCMD_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `WAITSTATE` reader - 3:0\\]
-Wait State setting for program verify, erase verify and read verify"]
-pub type WAITSTATE_R = crate::FieldReader<u8, WAITSTATE_A>;
+pub type W = crate::W<CfgcmdSpec>;
 #[doc = "3:0\\]
 Wait State setting for program verify, erase verify and read verify\n\nValue on reset: 2"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum WAITSTATE_A {
+pub enum Waitstate {
     #[doc = "15: Maximum value"]
-    MAXIMUM = 15,
+    Maximum = 15,
     #[doc = "0: Minimum value"]
-    MINIMUM = 0,
+    Minimum = 0,
 }
-impl From<WAITSTATE_A> for u8 {
+impl From<Waitstate> for u8 {
     #[inline(always)]
-    fn from(variant: WAITSTATE_A) -> Self {
+    fn from(variant: Waitstate) -> Self {
         variant as _
     }
 }
-impl WAITSTATE_R {
+impl crate::FieldSpec for Waitstate {
+    type Ux = u8;
+}
+impl crate::IsEnum for Waitstate {}
+#[doc = "Field `WAITSTATE` reader - 3:0\\]
+Wait State setting for program verify, erase verify and read verify"]
+pub type WaitstateR = crate::FieldReader<Waitstate>;
+impl WaitstateR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<WAITSTATE_A> {
+    pub const fn variant(&self) -> Option<Waitstate> {
         match self.bits {
-            15 => Some(WAITSTATE_A::MAXIMUM),
-            0 => Some(WAITSTATE_A::MINIMUM),
+            15 => Some(Waitstate::Maximum),
+            0 => Some(Waitstate::Minimum),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `MAXIMUM`"]
+    #[doc = "Maximum value"]
     #[inline(always)]
     pub fn is_maximum(&self) -> bool {
-        *self == WAITSTATE_A::MAXIMUM
+        *self == Waitstate::Maximum
     }
-    #[doc = "Checks if the value of the field is `MINIMUM`"]
+    #[doc = "Minimum value"]
     #[inline(always)]
     pub fn is_minimum(&self) -> bool {
-        *self == WAITSTATE_A::MINIMUM
+        *self == Waitstate::Minimum
     }
 }
 #[doc = "Field `WAITSTATE` writer - 3:0\\]
 Wait State setting for program verify, erase verify and read verify"]
-pub type WAITSTATE_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, CFGCMD_SPEC, u8, WAITSTATE_A, 4, O>;
-impl<'a, const O: u8> WAITSTATE_W<'a, O> {
+pub type WaitstateW<'a, REG> = crate::FieldWriter<'a, REG, 4, Waitstate>;
+impl<'a, REG> WaitstateW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "Maximum value"]
     #[inline(always)]
-    pub fn maximum(self) -> &'a mut W {
-        self.variant(WAITSTATE_A::MAXIMUM)
+    pub fn maximum(self) -> &'a mut crate::W<REG> {
+        self.variant(Waitstate::Maximum)
     }
     #[doc = "Minimum value"]
     #[inline(always)]
-    pub fn minimum(self) -> &'a mut W {
-        self.variant(WAITSTATE_A::MINIMUM)
+    pub fn minimum(self) -> &'a mut crate::W<REG> {
+        self.variant(Waitstate::Minimum)
     }
 }
 #[doc = "Field `RESERVED4` reader - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED4_R = crate::FieldReader<u32, u32>;
+pub type Reserved4R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED4` writer - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED4_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CFGCMD_SPEC, u32, u32, 28, O>;
+pub type Reserved4W<'a, REG> = crate::FieldWriter<'a, REG, 28, u32>;
 impl R {
     #[doc = "Bits 0:3 - 3:0\\]
 Wait State setting for program verify, erase verify and read verify"]
     #[inline(always)]
-    pub fn waitstate(&self) -> WAITSTATE_R {
-        WAITSTATE_R::new((self.bits & 0x0f) as u8)
+    pub fn waitstate(&self) -> WaitstateR {
+        WaitstateR::new((self.bits & 0x0f) as u8)
     }
     #[doc = "Bits 4:31 - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved4(&self) -> RESERVED4_R {
-        RESERVED4_R::new((self.bits >> 4) & 0x0fff_ffff)
+    pub fn reserved4(&self) -> Reserved4R {
+        Reserved4R::new((self.bits >> 4) & 0x0fff_ffff)
     }
 }
 impl W {
@@ -115,39 +90,31 @@ impl W {
 Wait State setting for program verify, erase verify and read verify"]
     #[inline(always)]
     #[must_use]
-    pub fn waitstate(&mut self) -> WAITSTATE_W<0> {
-        WAITSTATE_W::new(self)
+    pub fn waitstate(&mut self) -> WaitstateW<CfgcmdSpec> {
+        WaitstateW::new(self, 0)
     }
     #[doc = "Bits 4:31 - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved4(&mut self) -> RESERVED4_W<4> {
-        RESERVED4_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved4(&mut self) -> Reserved4W<CfgcmdSpec> {
+        Reserved4W::new(self, 4)
     }
 }
-#[doc = "Command Configuration Register This register configures specific capabilities of the state machine for related to the execution of a command. This register is blocked for writes after CMDEXEC is written to a 1 and prior to STATCMD.DONE being set by the hardware to indicate that command execution has completed.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cfgcmd](index.html) module"]
-pub struct CFGCMD_SPEC;
-impl crate::RegisterSpec for CFGCMD_SPEC {
+#[doc = "Command Configuration Register This register configures specific capabilities of the state machine for related to the execution of a command. This register is blocked for writes after CMDEXEC is written to a 1 and prior to STATCMD.DONE being set by the hardware to indicate that command execution has completed.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`cfgcmd::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`cfgcmd::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct CfgcmdSpec;
+impl crate::RegisterSpec for CfgcmdSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [cfgcmd::R](R) reader structure"]
-impl crate::Readable for CFGCMD_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [cfgcmd::W](W) writer structure"]
-impl crate::Writable for CFGCMD_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`cfgcmd::R`](R) reader structure"]
+impl crate::Readable for CfgcmdSpec {}
+#[doc = "`write(|w| ..)` method takes [`cfgcmd::W`](W) writer structure"]
+impl crate::Writable for CfgcmdSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets CFGCMD to value 0x02"]
-impl crate::Resettable for CFGCMD_SPEC {
-    const RESET_VALUE: Self::Ux = 0x02;
+impl crate::Resettable for CfgcmdSpec {
+    const RESET_VALUE: u32 = 0x02;
 }

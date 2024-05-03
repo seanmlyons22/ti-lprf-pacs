@@ -1,52 +1,19 @@
 #[doc = "Register `MPU_RASR_A1` reader"]
-pub struct R(crate::R<MPU_RASR_A1_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<MPU_RASR_A1_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<MPU_RASR_A1_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<MPU_RASR_A1_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<MpuRasrA1Spec>;
 #[doc = "Register `MPU_RASR_A1` writer"]
-pub struct W(crate::W<MPU_RASR_A1_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<MPU_RASR_A1_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<MPU_RASR_A1_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<MPU_RASR_A1_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<MpuRasrA1Spec>;
 #[doc = "Field `MPU_RASR_A1` reader - 31:0\\]
 Alias for MPU_RASR"]
-pub type MPU_RASR_A1_R = crate::FieldReader<u32, u32>;
+pub type MpuRasrA1R = crate::FieldReader<u32>;
 #[doc = "Field `MPU_RASR_A1` writer - 31:0\\]
 Alias for MPU_RASR"]
-pub type MPU_RASR_A1_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, MPU_RASR_A1_SPEC, u32, u32, 32, O>;
+pub type MpuRasrA1W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 Alias for MPU_RASR"]
     #[inline(always)]
-    pub fn mpu_rasr_a1(&self) -> MPU_RASR_A1_R {
-        MPU_RASR_A1_R::new(self.bits)
+    pub fn mpu_rasr_a1(&self) -> MpuRasrA1R {
+        MpuRasrA1R::new(self.bits)
     }
 }
 impl W {
@@ -54,32 +21,24 @@ impl W {
 Alias for MPU_RASR"]
     #[inline(always)]
     #[must_use]
-    pub fn mpu_rasr_a1(&mut self) -> MPU_RASR_A1_W<0> {
-        MPU_RASR_A1_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn mpu_rasr_a1(&mut self) -> MpuRasrA1W<MpuRasrA1Spec> {
+        MpuRasrA1W::new(self, 0)
     }
 }
-#[doc = "MPU Alias 1 Region Attribute and Size Alias for MPU_RASR\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mpu_rasr_a1](index.html) module"]
-pub struct MPU_RASR_A1_SPEC;
-impl crate::RegisterSpec for MPU_RASR_A1_SPEC {
+#[doc = "MPU Alias 1 Region Attribute and Size Alias for MPU_RASR\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`mpu_rasr_a1::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`mpu_rasr_a1::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct MpuRasrA1Spec;
+impl crate::RegisterSpec for MpuRasrA1Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [mpu_rasr_a1::R](R) reader structure"]
-impl crate::Readable for MPU_RASR_A1_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [mpu_rasr_a1::W](W) writer structure"]
-impl crate::Writable for MPU_RASR_A1_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`mpu_rasr_a1::R`](R) reader structure"]
+impl crate::Readable for MpuRasrA1Spec {}
+#[doc = "`write(|w| ..)` method takes [`mpu_rasr_a1::W`](W) writer structure"]
+impl crate::Writable for MpuRasrA1Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets MPU_RASR_A1 to value 0"]
-impl crate::Resettable for MPU_RASR_A1_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for MpuRasrA1Spec {
+    const RESET_VALUE: u32 = 0;
 }

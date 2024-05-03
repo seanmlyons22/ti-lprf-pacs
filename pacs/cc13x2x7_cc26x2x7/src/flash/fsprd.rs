@@ -1,99 +1,67 @@
 #[doc = "Register `FSPRD` reader"]
-pub struct R(crate::R<FSPRD_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<FSPRD_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<FSPRD_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<FSPRD_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<FsprdSpec>;
 #[doc = "Register `FSPRD` writer"]
-pub struct W(crate::W<FSPRD_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<FSPRD_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<FSPRD_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<FSPRD_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<FsprdSpec>;
 #[doc = "Field `RM0` reader - 0:0\\]
 Internal. Only to be used through TI provided API."]
-pub type RM0_R = crate::BitReader<bool>;
+pub type Rm0R = crate::BitReader;
 #[doc = "Field `RM0` writer - 0:0\\]
 Internal. Only to be used through TI provided API."]
-pub type RM0_W<'a, const O: u8> = crate::BitWriter<'a, u32, FSPRD_SPEC, bool, O>;
+pub type Rm0W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RM1` reader - 1:1\\]
 Internal. Only to be used through TI provided API."]
-pub type RM1_R = crate::BitReader<bool>;
+pub type Rm1R = crate::BitReader;
 #[doc = "Field `RM1` writer - 1:1\\]
 Internal. Only to be used through TI provided API."]
-pub type RM1_W<'a, const O: u8> = crate::BitWriter<'a, u32, FSPRD_SPEC, bool, O>;
+pub type Rm1W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED2` reader - 7:2\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED2_R = crate::FieldReader<u8, u8>;
+pub type Reserved2R = crate::FieldReader;
 #[doc = "Field `RESERVED2` writer - 7:2\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED2_W<'a, const O: u8> = crate::FieldWriter<'a, u32, FSPRD_SPEC, u8, u8, 6, O>;
+pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `RMBSEM` reader - 15:8\\]
 Internal. Only to be used through TI provided API."]
-pub type RMBSEM_R = crate::FieldReader<u8, u8>;
+pub type RmbsemR = crate::FieldReader;
 #[doc = "Field `RMBSEM` writer - 15:8\\]
 Internal. Only to be used through TI provided API."]
-pub type RMBSEM_W<'a, const O: u8> = crate::FieldWriter<'a, u32, FSPRD_SPEC, u8, u8, 8, O>;
+pub type RmbsemW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `DIS_PREEMPT` reader - 31:16\\]
 Internal. Only to be used through TI provided API."]
-pub type DIS_PREEMPT_R = crate::FieldReader<u16, u16>;
+pub type DisPreemptR = crate::FieldReader<u16>;
 #[doc = "Field `DIS_PREEMPT` writer - 31:16\\]
 Internal. Only to be used through TI provided API."]
-pub type DIS_PREEMPT_W<'a, const O: u8> = crate::FieldWriter<'a, u32, FSPRD_SPEC, u16, u16, 16, O>;
+pub type DisPreemptW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn rm0(&self) -> RM0_R {
-        RM0_R::new((self.bits & 1) != 0)
+    pub fn rm0(&self) -> Rm0R {
+        Rm0R::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn rm1(&self) -> RM1_R {
-        RM1_R::new(((self.bits >> 1) & 1) != 0)
+    pub fn rm1(&self) -> Rm1R {
+        Rm1R::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bits 2:7 - 7:2\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn reserved2(&self) -> RESERVED2_R {
-        RESERVED2_R::new(((self.bits >> 2) & 0x3f) as u8)
+    pub fn reserved2(&self) -> Reserved2R {
+        Reserved2R::new(((self.bits >> 2) & 0x3f) as u8)
     }
     #[doc = "Bits 8:15 - 15:8\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn rmbsem(&self) -> RMBSEM_R {
-        RMBSEM_R::new(((self.bits >> 8) & 0xff) as u8)
+    pub fn rmbsem(&self) -> RmbsemR {
+        RmbsemR::new(((self.bits >> 8) & 0xff) as u8)
     }
     #[doc = "Bits 16:31 - 31:16\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn dis_preempt(&self) -> DIS_PREEMPT_R {
-        DIS_PREEMPT_R::new(((self.bits >> 16) & 0xffff) as u16)
+    pub fn dis_preempt(&self) -> DisPreemptR {
+        DisPreemptR::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
 impl W {
@@ -101,60 +69,52 @@ impl W {
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn rm0(&mut self) -> RM0_W<0> {
-        RM0_W::new(self)
+    pub fn rm0(&mut self) -> Rm0W<FsprdSpec> {
+        Rm0W::new(self, 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn rm1(&mut self) -> RM1_W<1> {
-        RM1_W::new(self)
+    pub fn rm1(&mut self) -> Rm1W<FsprdSpec> {
+        Rm1W::new(self, 1)
     }
     #[doc = "Bits 2:7 - 7:2\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved2(&mut self) -> RESERVED2_W<2> {
-        RESERVED2_W::new(self)
+    pub fn reserved2(&mut self) -> Reserved2W<FsprdSpec> {
+        Reserved2W::new(self, 2)
     }
     #[doc = "Bits 8:15 - 15:8\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn rmbsem(&mut self) -> RMBSEM_W<8> {
-        RMBSEM_W::new(self)
+    pub fn rmbsem(&mut self) -> RmbsemW<FsprdSpec> {
+        RmbsemW::new(self, 8)
     }
     #[doc = "Bits 16:31 - 31:16\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn dis_preempt(&mut self) -> DIS_PREEMPT_W<16> {
-        DIS_PREEMPT_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn dis_preempt(&mut self) -> DisPreemptW<FsprdSpec> {
+        DisPreemptW::new(self, 16)
     }
 }
-#[doc = "Internal. Only to be used through TI provided API.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fsprd](index.html) module"]
-pub struct FSPRD_SPEC;
-impl crate::RegisterSpec for FSPRD_SPEC {
+#[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fsprd::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fsprd::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct FsprdSpec;
+impl crate::RegisterSpec for FsprdSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [fsprd::R](R) reader structure"]
-impl crate::Readable for FSPRD_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [fsprd::W](W) writer structure"]
-impl crate::Writable for FSPRD_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`fsprd::R`](R) reader structure"]
+impl crate::Readable for FsprdSpec {}
+#[doc = "`write(|w| ..)` method takes [`fsprd::W`](W) writer structure"]
+impl crate::Writable for FsprdSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets FSPRD to value 0"]
-impl crate::Resettable for FSPRD_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for FsprdSpec {
+    const RESET_VALUE: u32 = 0;
 }

@@ -1,75 +1,43 @@
 #[doc = "Register `FSM_ADDR` reader"]
-pub struct R(crate::R<FSM_ADDR_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<FSM_ADDR_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<FSM_ADDR_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<FSM_ADDR_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<FsmAddrSpec>;
 #[doc = "Register `FSM_ADDR` writer"]
-pub struct W(crate::W<FSM_ADDR_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<FSM_ADDR_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<FSM_ADDR_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<FSM_ADDR_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<FsmAddrSpec>;
 #[doc = "Field `CUR_ADDR` reader - 27:0\\]
 Internal. Only to be used through TI provided API."]
-pub type CUR_ADDR_R = crate::FieldReader<u32, u32>;
+pub type CurAddrR = crate::FieldReader<u32>;
 #[doc = "Field `CUR_ADDR` writer - 27:0\\]
 Internal. Only to be used through TI provided API."]
-pub type CUR_ADDR_W<'a, const O: u8> = crate::FieldWriter<'a, u32, FSM_ADDR_SPEC, u32, u32, 28, O>;
+pub type CurAddrW<'a, REG> = crate::FieldWriter<'a, REG, 28, u32>;
 #[doc = "Field `BANK` reader - 30:28\\]
 Internal. Only to be used through TI provided API."]
-pub type BANK_R = crate::FieldReader<u8, u8>;
+pub type BankR = crate::FieldReader;
 #[doc = "Field `BANK` writer - 30:28\\]
 Internal. Only to be used through TI provided API."]
-pub type BANK_W<'a, const O: u8> = crate::FieldWriter<'a, u32, FSM_ADDR_SPEC, u8, u8, 3, O>;
+pub type BankW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `RESERVED31` reader - 31:31\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED31_R = crate::BitReader<bool>;
+pub type Reserved31R = crate::BitReader;
 #[doc = "Field `RESERVED31` writer - 31:31\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED31_W<'a, const O: u8> = crate::BitWriter<'a, u32, FSM_ADDR_SPEC, bool, O>;
+pub type Reserved31W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bits 0:27 - 27:0\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn cur_addr(&self) -> CUR_ADDR_R {
-        CUR_ADDR_R::new(self.bits & 0x0fff_ffff)
+    pub fn cur_addr(&self) -> CurAddrR {
+        CurAddrR::new(self.bits & 0x0fff_ffff)
     }
     #[doc = "Bits 28:30 - 30:28\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn bank(&self) -> BANK_R {
-        BANK_R::new(((self.bits >> 28) & 7) as u8)
+    pub fn bank(&self) -> BankR {
+        BankR::new(((self.bits >> 28) & 7) as u8)
     }
     #[doc = "Bit 31 - 31:31\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn reserved31(&self) -> RESERVED31_R {
-        RESERVED31_R::new(((self.bits >> 31) & 1) != 0)
+    pub fn reserved31(&self) -> Reserved31R {
+        Reserved31R::new(((self.bits >> 31) & 1) != 0)
     }
 }
 impl W {
@@ -77,46 +45,38 @@ impl W {
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn cur_addr(&mut self) -> CUR_ADDR_W<0> {
-        CUR_ADDR_W::new(self)
+    pub fn cur_addr(&mut self) -> CurAddrW<FsmAddrSpec> {
+        CurAddrW::new(self, 0)
     }
     #[doc = "Bits 28:30 - 30:28\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn bank(&mut self) -> BANK_W<28> {
-        BANK_W::new(self)
+    pub fn bank(&mut self) -> BankW<FsmAddrSpec> {
+        BankW::new(self, 28)
     }
     #[doc = "Bit 31 - 31:31\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved31(&mut self) -> RESERVED31_W<31> {
-        RESERVED31_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved31(&mut self) -> Reserved31W<FsmAddrSpec> {
+        Reserved31W::new(self, 31)
     }
 }
-#[doc = "Internal. Only to be used through TI provided API.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fsm_addr](index.html) module"]
-pub struct FSM_ADDR_SPEC;
-impl crate::RegisterSpec for FSM_ADDR_SPEC {
+#[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fsm_addr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fsm_addr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct FsmAddrSpec;
+impl crate::RegisterSpec for FsmAddrSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [fsm_addr::R](R) reader structure"]
-impl crate::Readable for FSM_ADDR_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [fsm_addr::W](W) writer structure"]
-impl crate::Writable for FSM_ADDR_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`fsm_addr::R`](R) reader structure"]
+impl crate::Readable for FsmAddrSpec {}
+#[doc = "`write(|w| ..)` method takes [`fsm_addr::W`](W) writer structure"]
+impl crate::Writable for FsmAddrSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets FSM_ADDR to value 0"]
-impl crate::Resettable for FSM_ADDR_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for FsmAddrSpec {
+    const RESET_VALUE: u32 = 0;
 }

@@ -1,51 +1,19 @@
 #[doc = "Register `FEMU_ADDR` reader"]
-pub struct R(crate::R<FEMU_ADDR_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<FEMU_ADDR_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<FEMU_ADDR_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<FEMU_ADDR_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<FemuAddrSpec>;
 #[doc = "Register `FEMU_ADDR` writer"]
-pub struct W(crate::W<FEMU_ADDR_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<FEMU_ADDR_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<FEMU_ADDR_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<FEMU_ADDR_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<FemuAddrSpec>;
 #[doc = "Field `EMU_ADDR` reader - 31:0\\]
 Internal. Only to be used through TI provided API."]
-pub type EMU_ADDR_R = crate::FieldReader<u32, u32>;
+pub type EmuAddrR = crate::FieldReader<u32>;
 #[doc = "Field `EMU_ADDR` writer - 31:0\\]
 Internal. Only to be used through TI provided API."]
-pub type EMU_ADDR_W<'a, const O: u8> = crate::FieldWriter<'a, u32, FEMU_ADDR_SPEC, u32, u32, 32, O>;
+pub type EmuAddrW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn emu_addr(&self) -> EMU_ADDR_R {
-        EMU_ADDR_R::new(self.bits)
+    pub fn emu_addr(&self) -> EmuAddrR {
+        EmuAddrR::new(self.bits)
     }
 }
 impl W {
@@ -53,32 +21,24 @@ impl W {
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn emu_addr(&mut self) -> EMU_ADDR_W<0> {
-        EMU_ADDR_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn emu_addr(&mut self) -> EmuAddrW<FemuAddrSpec> {
+        EmuAddrW::new(self, 0)
     }
 }
-#[doc = "Internal. Only to be used through TI provided API.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [femu_addr](index.html) module"]
-pub struct FEMU_ADDR_SPEC;
-impl crate::RegisterSpec for FEMU_ADDR_SPEC {
+#[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`femu_addr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`femu_addr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct FemuAddrSpec;
+impl crate::RegisterSpec for FemuAddrSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [femu_addr::R](R) reader structure"]
-impl crate::Readable for FEMU_ADDR_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [femu_addr::W](W) writer structure"]
-impl crate::Writable for FEMU_ADDR_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`femu_addr::R`](R) reader structure"]
+impl crate::Readable for FemuAddrSpec {}
+#[doc = "`write(|w| ..)` method takes [`femu_addr::W`](W) writer structure"]
+impl crate::Writable for FemuAddrSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets FEMU_ADDR to value 0"]
-impl crate::Resettable for FEMU_ADDR_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for FemuAddrSpec {
+    const RESET_VALUE: u32 = 0;
 }

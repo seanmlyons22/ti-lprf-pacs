@@ -1,51 +1,19 @@
 #[doc = "Register `STIM28` reader"]
-pub struct R(crate::R<STIM28_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<STIM28_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<STIM28_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<STIM28_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Stim28Spec>;
 #[doc = "Register `STIM28` writer"]
-pub struct W(crate::W<STIM28_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<STIM28_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<STIM28_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<STIM28_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<Stim28Spec>;
 #[doc = "Field `STIM28` reader - 31:0\\]
 A write to this location causes data to be written into the FIFO if TER.STIMENA28 is set. Reading from the stimulus port returns the FIFO status in bit \\[0\\]: 0 = full, 1 = not full. The polled FIFO interface does not provide an atomic read-modify-write, so it's users responsibility to ensure exclusive read-modify-write if this ITM port is used concurrently by interrupts or other threads."]
-pub type STIM28_R = crate::FieldReader<u32, u32>;
+pub type Stim28R = crate::FieldReader<u32>;
 #[doc = "Field `STIM28` writer - 31:0\\]
 A write to this location causes data to be written into the FIFO if TER.STIMENA28 is set. Reading from the stimulus port returns the FIFO status in bit \\[0\\]: 0 = full, 1 = not full. The polled FIFO interface does not provide an atomic read-modify-write, so it's users responsibility to ensure exclusive read-modify-write if this ITM port is used concurrently by interrupts or other threads."]
-pub type STIM28_W<'a, const O: u8> = crate::FieldWriter<'a, u32, STIM28_SPEC, u32, u32, 32, O>;
+pub type Stim28W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 A write to this location causes data to be written into the FIFO if TER.STIMENA28 is set. Reading from the stimulus port returns the FIFO status in bit \\[0\\]: 0 = full, 1 = not full. The polled FIFO interface does not provide an atomic read-modify-write, so it's users responsibility to ensure exclusive read-modify-write if this ITM port is used concurrently by interrupts or other threads."]
     #[inline(always)]
-    pub fn stim28(&self) -> STIM28_R {
-        STIM28_R::new(self.bits)
+    pub fn stim28(&self) -> Stim28R {
+        Stim28R::new(self.bits)
     }
 }
 impl W {
@@ -53,32 +21,24 @@ impl W {
 A write to this location causes data to be written into the FIFO if TER.STIMENA28 is set. Reading from the stimulus port returns the FIFO status in bit \\[0\\]: 0 = full, 1 = not full. The polled FIFO interface does not provide an atomic read-modify-write, so it's users responsibility to ensure exclusive read-modify-write if this ITM port is used concurrently by interrupts or other threads."]
     #[inline(always)]
     #[must_use]
-    pub fn stim28(&mut self) -> STIM28_W<0> {
-        STIM28_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn stim28(&mut self) -> Stim28W<Stim28Spec> {
+        Stim28W::new(self, 0)
     }
 }
-#[doc = "Stimulus Port 28\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [stim28](index.html) module"]
-pub struct STIM28_SPEC;
-impl crate::RegisterSpec for STIM28_SPEC {
+#[doc = "Stimulus Port 28\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`stim28::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`stim28::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Stim28Spec;
+impl crate::RegisterSpec for Stim28Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [stim28::R](R) reader structure"]
-impl crate::Readable for STIM28_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [stim28::W](W) writer structure"]
-impl crate::Writable for STIM28_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`stim28::R`](R) reader structure"]
+impl crate::Readable for Stim28Spec {}
+#[doc = "`write(|w| ..)` method takes [`stim28::W`](W) writer structure"]
+impl crate::Writable for Stim28Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets STIM28 to value 0"]
-impl crate::Resettable for STIM28_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for Stim28Spec {
+    const RESET_VALUE: u32 = 0;
 }

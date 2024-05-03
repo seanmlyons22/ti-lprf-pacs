@@ -1,99 +1,67 @@
 #[doc = "Register `MPU_TYPE` reader"]
-pub struct R(crate::R<MPU_TYPE_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<MPU_TYPE_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<MPU_TYPE_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<MPU_TYPE_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<MpuTypeSpec>;
 #[doc = "Register `MPU_TYPE` writer"]
-pub struct W(crate::W<MPU_TYPE_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<MPU_TYPE_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<MPU_TYPE_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<MPU_TYPE_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<MpuTypeSpec>;
 #[doc = "Field `SEPARATE` reader - 0:0\\]
 The processor core uses only a unified MPU, thus this field is always 0."]
-pub type SEPARATE_R = crate::BitReader<bool>;
+pub type SeparateR = crate::BitReader;
 #[doc = "Field `SEPARATE` writer - 0:0\\]
 The processor core uses only a unified MPU, thus this field is always 0."]
-pub type SEPARATE_W<'a, const O: u8> = crate::BitWriter<'a, u32, MPU_TYPE_SPEC, bool, O>;
+pub type SeparateW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED1` reader - 7:1\\]
 Reads 0."]
-pub type RESERVED1_R = crate::FieldReader<u8, u8>;
+pub type Reserved1R = crate::FieldReader;
 #[doc = "Field `RESERVED1` writer - 7:1\\]
 Reads 0."]
-pub type RESERVED1_W<'a, const O: u8> = crate::FieldWriter<'a, u32, MPU_TYPE_SPEC, u8, u8, 7, O>;
+pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "Field `DREGION` reader - 15:8\\]
 Number of supported MPU regions field. This field reads 0x08 indicating eight MPU regions."]
-pub type DREGION_R = crate::FieldReader<u8, u8>;
+pub type DregionR = crate::FieldReader;
 #[doc = "Field `DREGION` writer - 15:8\\]
 Number of supported MPU regions field. This field reads 0x08 indicating eight MPU regions."]
-pub type DREGION_W<'a, const O: u8> = crate::FieldWriter<'a, u32, MPU_TYPE_SPEC, u8, u8, 8, O>;
+pub type DregionW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `IREGION` reader - 23:16\\]
 The processor core uses only a unified MPU, this field always reads 0x0."]
-pub type IREGION_R = crate::FieldReader<u8, u8>;
+pub type IregionR = crate::FieldReader;
 #[doc = "Field `IREGION` writer - 23:16\\]
 The processor core uses only a unified MPU, this field always reads 0x0."]
-pub type IREGION_W<'a, const O: u8> = crate::FieldWriter<'a, u32, MPU_TYPE_SPEC, u8, u8, 8, O>;
+pub type IregionW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `RESERVED24` reader - 31:24\\]
 Reads 0."]
-pub type RESERVED24_R = crate::FieldReader<u8, u8>;
+pub type Reserved24R = crate::FieldReader;
 #[doc = "Field `RESERVED24` writer - 31:24\\]
 Reads 0."]
-pub type RESERVED24_W<'a, const O: u8> = crate::FieldWriter<'a, u32, MPU_TYPE_SPEC, u8, u8, 8, O>;
+pub type Reserved24W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 The processor core uses only a unified MPU, thus this field is always 0."]
     #[inline(always)]
-    pub fn separate(&self) -> SEPARATE_R {
-        SEPARATE_R::new((self.bits & 1) != 0)
+    pub fn separate(&self) -> SeparateR {
+        SeparateR::new((self.bits & 1) != 0)
     }
     #[doc = "Bits 1:7 - 7:1\\]
 Reads 0."]
     #[inline(always)]
-    pub fn reserved1(&self) -> RESERVED1_R {
-        RESERVED1_R::new(((self.bits >> 1) & 0x7f) as u8)
+    pub fn reserved1(&self) -> Reserved1R {
+        Reserved1R::new(((self.bits >> 1) & 0x7f) as u8)
     }
     #[doc = "Bits 8:15 - 15:8\\]
 Number of supported MPU regions field. This field reads 0x08 indicating eight MPU regions."]
     #[inline(always)]
-    pub fn dregion(&self) -> DREGION_R {
-        DREGION_R::new(((self.bits >> 8) & 0xff) as u8)
+    pub fn dregion(&self) -> DregionR {
+        DregionR::new(((self.bits >> 8) & 0xff) as u8)
     }
     #[doc = "Bits 16:23 - 23:16\\]
 The processor core uses only a unified MPU, this field always reads 0x0."]
     #[inline(always)]
-    pub fn iregion(&self) -> IREGION_R {
-        IREGION_R::new(((self.bits >> 16) & 0xff) as u8)
+    pub fn iregion(&self) -> IregionR {
+        IregionR::new(((self.bits >> 16) & 0xff) as u8)
     }
     #[doc = "Bits 24:31 - 31:24\\]
 Reads 0."]
     #[inline(always)]
-    pub fn reserved24(&self) -> RESERVED24_R {
-        RESERVED24_R::new(((self.bits >> 24) & 0xff) as u8)
+    pub fn reserved24(&self) -> Reserved24R {
+        Reserved24R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
 impl W {
@@ -101,60 +69,52 @@ impl W {
 The processor core uses only a unified MPU, thus this field is always 0."]
     #[inline(always)]
     #[must_use]
-    pub fn separate(&mut self) -> SEPARATE_W<0> {
-        SEPARATE_W::new(self)
+    pub fn separate(&mut self) -> SeparateW<MpuTypeSpec> {
+        SeparateW::new(self, 0)
     }
     #[doc = "Bits 1:7 - 7:1\\]
 Reads 0."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved1(&mut self) -> RESERVED1_W<1> {
-        RESERVED1_W::new(self)
+    pub fn reserved1(&mut self) -> Reserved1W<MpuTypeSpec> {
+        Reserved1W::new(self, 1)
     }
     #[doc = "Bits 8:15 - 15:8\\]
 Number of supported MPU regions field. This field reads 0x08 indicating eight MPU regions."]
     #[inline(always)]
     #[must_use]
-    pub fn dregion(&mut self) -> DREGION_W<8> {
-        DREGION_W::new(self)
+    pub fn dregion(&mut self) -> DregionW<MpuTypeSpec> {
+        DregionW::new(self, 8)
     }
     #[doc = "Bits 16:23 - 23:16\\]
 The processor core uses only a unified MPU, this field always reads 0x0."]
     #[inline(always)]
     #[must_use]
-    pub fn iregion(&mut self) -> IREGION_W<16> {
-        IREGION_W::new(self)
+    pub fn iregion(&mut self) -> IregionW<MpuTypeSpec> {
+        IregionW::new(self, 16)
     }
     #[doc = "Bits 24:31 - 31:24\\]
 Reads 0."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved24(&mut self) -> RESERVED24_W<24> {
-        RESERVED24_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved24(&mut self) -> Reserved24W<MpuTypeSpec> {
+        Reserved24W::new(self, 24)
     }
 }
-#[doc = "MPU Type This register indicates many regions the MPU supports.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mpu_type](index.html) module"]
-pub struct MPU_TYPE_SPEC;
-impl crate::RegisterSpec for MPU_TYPE_SPEC {
+#[doc = "MPU Type This register indicates many regions the MPU supports.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`mpu_type::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`mpu_type::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct MpuTypeSpec;
+impl crate::RegisterSpec for MpuTypeSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [mpu_type::R](R) reader structure"]
-impl crate::Readable for MPU_TYPE_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [mpu_type::W](W) writer structure"]
-impl crate::Writable for MPU_TYPE_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`mpu_type::R`](R) reader structure"]
+impl crate::Readable for MpuTypeSpec {}
+#[doc = "`write(|w| ..)` method takes [`mpu_type::W`](W) writer structure"]
+impl crate::Writable for MpuTypeSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets MPU_TYPE to value 0x0800"]
-impl crate::Resettable for MPU_TYPE_SPEC {
-    const RESET_VALUE: Self::Ux = 0x0800;
+impl crate::Resettable for MpuTypeSpec {
+    const RESET_VALUE: u32 = 0x0800;
 }

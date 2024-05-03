@@ -1,512 +1,503 @@
 #[doc = "Register `MODCLKEN0` reader"]
-pub struct R(crate::R<MODCLKEN0_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<MODCLKEN0_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<MODCLKEN0_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<MODCLKEN0_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Modclken0Spec>;
 #[doc = "Register `MODCLKEN0` writer"]
-pub struct W(crate::W<MODCLKEN0_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<MODCLKEN0_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
+pub type W = crate::W<Modclken0Spec>;
+#[doc = "0:0\\]
+Enables (1) or disables (0) clock for AUX_SMPH.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Smph {
+    #[doc = "1: System CPU has requested clock for SMPH"]
+    En = 1,
+    #[doc = "0: System CPU has not requested clock for SMPH"]
+    Dis = 0,
 }
-impl core::ops::DerefMut for W {
+impl From<Smph> for bool {
     #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<MODCLKEN0_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<MODCLKEN0_SPEC>) -> Self {
-        W(writer)
+    fn from(variant: Smph) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `SMPH` reader - 0:0\\]
 Enables (1) or disables (0) clock for AUX_SMPH."]
-pub type SMPH_R = crate::BitReader<SMPH_A>;
-#[doc = "0:0\\]
-Enables (1) or disables (0) clock for AUX_SMPH.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum SMPH_A {
-    #[doc = "1: System CPU has requested clock for SMPH"]
-    EN = 1,
-    #[doc = "0: System CPU has not requested clock for SMPH"]
-    DIS = 0,
-}
-impl From<SMPH_A> for bool {
-    #[inline(always)]
-    fn from(variant: SMPH_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl SMPH_R {
+pub type SmphR = crate::BitReader<Smph>;
+impl SmphR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> SMPH_A {
+    pub const fn variant(&self) -> Smph {
         match self.bits {
-            true => SMPH_A::EN,
-            false => SMPH_A::DIS,
+            true => Smph::En,
+            false => Smph::Dis,
         }
     }
-    #[doc = "Checks if the value of the field is `EN`"]
+    #[doc = "System CPU has requested clock for SMPH"]
     #[inline(always)]
     pub fn is_en(&self) -> bool {
-        *self == SMPH_A::EN
+        *self == Smph::En
     }
-    #[doc = "Checks if the value of the field is `DIS`"]
+    #[doc = "System CPU has not requested clock for SMPH"]
     #[inline(always)]
     pub fn is_dis(&self) -> bool {
-        *self == SMPH_A::DIS
+        *self == Smph::Dis
     }
 }
 #[doc = "Field `SMPH` writer - 0:0\\]
 Enables (1) or disables (0) clock for AUX_SMPH."]
-pub type SMPH_W<'a, const O: u8> = crate::BitWriter<'a, u32, MODCLKEN0_SPEC, SMPH_A, O>;
-impl<'a, const O: u8> SMPH_W<'a, O> {
+pub type SmphW<'a, REG> = crate::BitWriter<'a, REG, Smph>;
+impl<'a, REG> SmphW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "System CPU has requested clock for SMPH"]
     #[inline(always)]
-    pub fn en(self) -> &'a mut W {
-        self.variant(SMPH_A::EN)
+    pub fn en(self) -> &'a mut crate::W<REG> {
+        self.variant(Smph::En)
     }
     #[doc = "System CPU has not requested clock for SMPH"]
     #[inline(always)]
-    pub fn dis(self) -> &'a mut W {
-        self.variant(SMPH_A::DIS)
+    pub fn dis(self) -> &'a mut crate::W<REG> {
+        self.variant(Smph::Dis)
+    }
+}
+#[doc = "1:1\\]
+Enables (1) or disables (0) clock for AUX_AIODIO0.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Aiodio0 {
+    #[doc = "1: System CPU has requested clock for AIODIO0"]
+    En = 1,
+    #[doc = "0: System CPU has not requested clock for AIODIO0"]
+    Dis = 0,
+}
+impl From<Aiodio0> for bool {
+    #[inline(always)]
+    fn from(variant: Aiodio0) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `AIODIO0` reader - 1:1\\]
 Enables (1) or disables (0) clock for AUX_AIODIO0."]
-pub type AIODIO0_R = crate::BitReader<AIODIO0_A>;
-#[doc = "1:1\\]
-Enables (1) or disables (0) clock for AUX_AIODIO0.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum AIODIO0_A {
-    #[doc = "1: System CPU has requested clock for AIODIO0"]
-    EN = 1,
-    #[doc = "0: System CPU has not requested clock for AIODIO0"]
-    DIS = 0,
-}
-impl From<AIODIO0_A> for bool {
-    #[inline(always)]
-    fn from(variant: AIODIO0_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl AIODIO0_R {
+pub type Aiodio0R = crate::BitReader<Aiodio0>;
+impl Aiodio0R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> AIODIO0_A {
+    pub const fn variant(&self) -> Aiodio0 {
         match self.bits {
-            true => AIODIO0_A::EN,
-            false => AIODIO0_A::DIS,
+            true => Aiodio0::En,
+            false => Aiodio0::Dis,
         }
     }
-    #[doc = "Checks if the value of the field is `EN`"]
+    #[doc = "System CPU has requested clock for AIODIO0"]
     #[inline(always)]
     pub fn is_en(&self) -> bool {
-        *self == AIODIO0_A::EN
+        *self == Aiodio0::En
     }
-    #[doc = "Checks if the value of the field is `DIS`"]
+    #[doc = "System CPU has not requested clock for AIODIO0"]
     #[inline(always)]
     pub fn is_dis(&self) -> bool {
-        *self == AIODIO0_A::DIS
+        *self == Aiodio0::Dis
     }
 }
 #[doc = "Field `AIODIO0` writer - 1:1\\]
 Enables (1) or disables (0) clock for AUX_AIODIO0."]
-pub type AIODIO0_W<'a, const O: u8> = crate::BitWriter<'a, u32, MODCLKEN0_SPEC, AIODIO0_A, O>;
-impl<'a, const O: u8> AIODIO0_W<'a, O> {
+pub type Aiodio0W<'a, REG> = crate::BitWriter<'a, REG, Aiodio0>;
+impl<'a, REG> Aiodio0W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "System CPU has requested clock for AIODIO0"]
     #[inline(always)]
-    pub fn en(self) -> &'a mut W {
-        self.variant(AIODIO0_A::EN)
+    pub fn en(self) -> &'a mut crate::W<REG> {
+        self.variant(Aiodio0::En)
     }
     #[doc = "System CPU has not requested clock for AIODIO0"]
     #[inline(always)]
-    pub fn dis(self) -> &'a mut W {
-        self.variant(AIODIO0_A::DIS)
+    pub fn dis(self) -> &'a mut crate::W<REG> {
+        self.variant(Aiodio0::Dis)
+    }
+}
+#[doc = "2:2\\]
+Enables (1) or disables (0) clock for AUX_AIODIO1.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Aiodio1 {
+    #[doc = "1: System CPU has requested clock for AIODIO1"]
+    En = 1,
+    #[doc = "0: System CPU has not requested clock for AIODIO1"]
+    Dis = 0,
+}
+impl From<Aiodio1> for bool {
+    #[inline(always)]
+    fn from(variant: Aiodio1) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `AIODIO1` reader - 2:2\\]
 Enables (1) or disables (0) clock for AUX_AIODIO1."]
-pub type AIODIO1_R = crate::BitReader<AIODIO1_A>;
-#[doc = "2:2\\]
-Enables (1) or disables (0) clock for AUX_AIODIO1.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum AIODIO1_A {
-    #[doc = "1: System CPU has requested clock for AIODIO1"]
-    EN = 1,
-    #[doc = "0: System CPU has not requested clock for AIODIO1"]
-    DIS = 0,
-}
-impl From<AIODIO1_A> for bool {
-    #[inline(always)]
-    fn from(variant: AIODIO1_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl AIODIO1_R {
+pub type Aiodio1R = crate::BitReader<Aiodio1>;
+impl Aiodio1R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> AIODIO1_A {
+    pub const fn variant(&self) -> Aiodio1 {
         match self.bits {
-            true => AIODIO1_A::EN,
-            false => AIODIO1_A::DIS,
+            true => Aiodio1::En,
+            false => Aiodio1::Dis,
         }
     }
-    #[doc = "Checks if the value of the field is `EN`"]
+    #[doc = "System CPU has requested clock for AIODIO1"]
     #[inline(always)]
     pub fn is_en(&self) -> bool {
-        *self == AIODIO1_A::EN
+        *self == Aiodio1::En
     }
-    #[doc = "Checks if the value of the field is `DIS`"]
+    #[doc = "System CPU has not requested clock for AIODIO1"]
     #[inline(always)]
     pub fn is_dis(&self) -> bool {
-        *self == AIODIO1_A::DIS
+        *self == Aiodio1::Dis
     }
 }
 #[doc = "Field `AIODIO1` writer - 2:2\\]
 Enables (1) or disables (0) clock for AUX_AIODIO1."]
-pub type AIODIO1_W<'a, const O: u8> = crate::BitWriter<'a, u32, MODCLKEN0_SPEC, AIODIO1_A, O>;
-impl<'a, const O: u8> AIODIO1_W<'a, O> {
+pub type Aiodio1W<'a, REG> = crate::BitWriter<'a, REG, Aiodio1>;
+impl<'a, REG> Aiodio1W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "System CPU has requested clock for AIODIO1"]
     #[inline(always)]
-    pub fn en(self) -> &'a mut W {
-        self.variant(AIODIO1_A::EN)
+    pub fn en(self) -> &'a mut crate::W<REG> {
+        self.variant(Aiodio1::En)
     }
     #[doc = "System CPU has not requested clock for AIODIO1"]
     #[inline(always)]
-    pub fn dis(self) -> &'a mut W {
-        self.variant(AIODIO1_A::DIS)
+    pub fn dis(self) -> &'a mut crate::W<REG> {
+        self.variant(Aiodio1::Dis)
+    }
+}
+#[doc = "3:3\\]
+Enables (1) or disables (0) clock for AUX_TIMER.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Timer {
+    #[doc = "1: System CPU has requested clock for TIMER"]
+    En = 1,
+    #[doc = "0: System CPU has not requested clock for TIMER"]
+    Dis = 0,
+}
+impl From<Timer> for bool {
+    #[inline(always)]
+    fn from(variant: Timer) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `TIMER` reader - 3:3\\]
 Enables (1) or disables (0) clock for AUX_TIMER."]
-pub type TIMER_R = crate::BitReader<TIMER_A>;
-#[doc = "3:3\\]
-Enables (1) or disables (0) clock for AUX_TIMER.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum TIMER_A {
-    #[doc = "1: System CPU has requested clock for TIMER"]
-    EN = 1,
-    #[doc = "0: System CPU has not requested clock for TIMER"]
-    DIS = 0,
-}
-impl From<TIMER_A> for bool {
-    #[inline(always)]
-    fn from(variant: TIMER_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl TIMER_R {
+pub type TimerR = crate::BitReader<Timer>;
+impl TimerR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> TIMER_A {
+    pub const fn variant(&self) -> Timer {
         match self.bits {
-            true => TIMER_A::EN,
-            false => TIMER_A::DIS,
+            true => Timer::En,
+            false => Timer::Dis,
         }
     }
-    #[doc = "Checks if the value of the field is `EN`"]
+    #[doc = "System CPU has requested clock for TIMER"]
     #[inline(always)]
     pub fn is_en(&self) -> bool {
-        *self == TIMER_A::EN
+        *self == Timer::En
     }
-    #[doc = "Checks if the value of the field is `DIS`"]
+    #[doc = "System CPU has not requested clock for TIMER"]
     #[inline(always)]
     pub fn is_dis(&self) -> bool {
-        *self == TIMER_A::DIS
+        *self == Timer::Dis
     }
 }
 #[doc = "Field `TIMER` writer - 3:3\\]
 Enables (1) or disables (0) clock for AUX_TIMER."]
-pub type TIMER_W<'a, const O: u8> = crate::BitWriter<'a, u32, MODCLKEN0_SPEC, TIMER_A, O>;
-impl<'a, const O: u8> TIMER_W<'a, O> {
+pub type TimerW<'a, REG> = crate::BitWriter<'a, REG, Timer>;
+impl<'a, REG> TimerW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "System CPU has requested clock for TIMER"]
     #[inline(always)]
-    pub fn en(self) -> &'a mut W {
-        self.variant(TIMER_A::EN)
+    pub fn en(self) -> &'a mut crate::W<REG> {
+        self.variant(Timer::En)
     }
     #[doc = "System CPU has not requested clock for TIMER"]
     #[inline(always)]
-    pub fn dis(self) -> &'a mut W {
-        self.variant(TIMER_A::DIS)
+    pub fn dis(self) -> &'a mut crate::W<REG> {
+        self.variant(Timer::Dis)
+    }
+}
+#[doc = "4:4\\]
+Enables (1) or disables (0) clock for AUX_ANAIF. Note that the ADC internal clock must be requested separately using ADCCLKCTL.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Anaif {
+    #[doc = "1: System CPU has requested clock for ANAIF"]
+    En = 1,
+    #[doc = "0: System CPU has not requested clock for ANAIF"]
+    Dis = 0,
+}
+impl From<Anaif> for bool {
+    #[inline(always)]
+    fn from(variant: Anaif) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `ANAIF` reader - 4:4\\]
 Enables (1) or disables (0) clock for AUX_ANAIF. Note that the ADC internal clock must be requested separately using ADCCLKCTL."]
-pub type ANAIF_R = crate::BitReader<ANAIF_A>;
-#[doc = "4:4\\]
-Enables (1) or disables (0) clock for AUX_ANAIF. Note that the ADC internal clock must be requested separately using ADCCLKCTL.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum ANAIF_A {
-    #[doc = "1: System CPU has requested clock for ANAIF"]
-    EN = 1,
-    #[doc = "0: System CPU has not requested clock for ANAIF"]
-    DIS = 0,
-}
-impl From<ANAIF_A> for bool {
-    #[inline(always)]
-    fn from(variant: ANAIF_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl ANAIF_R {
+pub type AnaifR = crate::BitReader<Anaif>;
+impl AnaifR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> ANAIF_A {
+    pub const fn variant(&self) -> Anaif {
         match self.bits {
-            true => ANAIF_A::EN,
-            false => ANAIF_A::DIS,
+            true => Anaif::En,
+            false => Anaif::Dis,
         }
     }
-    #[doc = "Checks if the value of the field is `EN`"]
+    #[doc = "System CPU has requested clock for ANAIF"]
     #[inline(always)]
     pub fn is_en(&self) -> bool {
-        *self == ANAIF_A::EN
+        *self == Anaif::En
     }
-    #[doc = "Checks if the value of the field is `DIS`"]
+    #[doc = "System CPU has not requested clock for ANAIF"]
     #[inline(always)]
     pub fn is_dis(&self) -> bool {
-        *self == ANAIF_A::DIS
+        *self == Anaif::Dis
     }
 }
 #[doc = "Field `ANAIF` writer - 4:4\\]
 Enables (1) or disables (0) clock for AUX_ANAIF. Note that the ADC internal clock must be requested separately using ADCCLKCTL."]
-pub type ANAIF_W<'a, const O: u8> = crate::BitWriter<'a, u32, MODCLKEN0_SPEC, ANAIF_A, O>;
-impl<'a, const O: u8> ANAIF_W<'a, O> {
+pub type AnaifW<'a, REG> = crate::BitWriter<'a, REG, Anaif>;
+impl<'a, REG> AnaifW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "System CPU has requested clock for ANAIF"]
     #[inline(always)]
-    pub fn en(self) -> &'a mut W {
-        self.variant(ANAIF_A::EN)
+    pub fn en(self) -> &'a mut crate::W<REG> {
+        self.variant(Anaif::En)
     }
     #[doc = "System CPU has not requested clock for ANAIF"]
     #[inline(always)]
-    pub fn dis(self) -> &'a mut W {
-        self.variant(ANAIF_A::DIS)
+    pub fn dis(self) -> &'a mut crate::W<REG> {
+        self.variant(Anaif::Dis)
+    }
+}
+#[doc = "5:5\\]
+Enables (1) or disables (0) clock for AUX_TDCIF. Note that the TDC counter and reference clock sources must be requested separately using TDCCLKCTL and REFCLKCTL, respectively.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Tdc {
+    #[doc = "1: System CPU has requested clock for TDC"]
+    En = 1,
+    #[doc = "0: System CPU has not requested clock for TDC"]
+    Dis = 0,
+}
+impl From<Tdc> for bool {
+    #[inline(always)]
+    fn from(variant: Tdc) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `TDC` reader - 5:5\\]
 Enables (1) or disables (0) clock for AUX_TDCIF. Note that the TDC counter and reference clock sources must be requested separately using TDCCLKCTL and REFCLKCTL, respectively."]
-pub type TDC_R = crate::BitReader<TDC_A>;
-#[doc = "5:5\\]
-Enables (1) or disables (0) clock for AUX_TDCIF. Note that the TDC counter and reference clock sources must be requested separately using TDCCLKCTL and REFCLKCTL, respectively.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum TDC_A {
-    #[doc = "1: System CPU has requested clock for TDC"]
-    EN = 1,
-    #[doc = "0: System CPU has not requested clock for TDC"]
-    DIS = 0,
-}
-impl From<TDC_A> for bool {
-    #[inline(always)]
-    fn from(variant: TDC_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl TDC_R {
+pub type TdcR = crate::BitReader<Tdc>;
+impl TdcR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> TDC_A {
+    pub const fn variant(&self) -> Tdc {
         match self.bits {
-            true => TDC_A::EN,
-            false => TDC_A::DIS,
+            true => Tdc::En,
+            false => Tdc::Dis,
         }
     }
-    #[doc = "Checks if the value of the field is `EN`"]
+    #[doc = "System CPU has requested clock for TDC"]
     #[inline(always)]
     pub fn is_en(&self) -> bool {
-        *self == TDC_A::EN
+        *self == Tdc::En
     }
-    #[doc = "Checks if the value of the field is `DIS`"]
+    #[doc = "System CPU has not requested clock for TDC"]
     #[inline(always)]
     pub fn is_dis(&self) -> bool {
-        *self == TDC_A::DIS
+        *self == Tdc::Dis
     }
 }
 #[doc = "Field `TDC` writer - 5:5\\]
 Enables (1) or disables (0) clock for AUX_TDCIF. Note that the TDC counter and reference clock sources must be requested separately using TDCCLKCTL and REFCLKCTL, respectively."]
-pub type TDC_W<'a, const O: u8> = crate::BitWriter<'a, u32, MODCLKEN0_SPEC, TDC_A, O>;
-impl<'a, const O: u8> TDC_W<'a, O> {
+pub type TdcW<'a, REG> = crate::BitWriter<'a, REG, Tdc>;
+impl<'a, REG> TdcW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "System CPU has requested clock for TDC"]
     #[inline(always)]
-    pub fn en(self) -> &'a mut W {
-        self.variant(TDC_A::EN)
+    pub fn en(self) -> &'a mut crate::W<REG> {
+        self.variant(Tdc::En)
     }
     #[doc = "System CPU has not requested clock for TDC"]
     #[inline(always)]
-    pub fn dis(self) -> &'a mut W {
-        self.variant(TDC_A::DIS)
+    pub fn dis(self) -> &'a mut crate::W<REG> {
+        self.variant(Tdc::Dis)
+    }
+}
+#[doc = "6:6\\]
+Enables (1) or disables (0) clock for AUX_DDI0_OSC.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum AuxDdi0Osc {
+    #[doc = "1: System CPU has requested clock for AUX_DDI0_OSC"]
+    En = 1,
+    #[doc = "0: System CPU has not requested clock for AUX_DDI0_OSC"]
+    Dis = 0,
+}
+impl From<AuxDdi0Osc> for bool {
+    #[inline(always)]
+    fn from(variant: AuxDdi0Osc) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `AUX_DDI0_OSC` reader - 6:6\\]
 Enables (1) or disables (0) clock for AUX_DDI0_OSC."]
-pub type AUX_DDI0_OSC_R = crate::BitReader<AUX_DDI0_OSC_A>;
-#[doc = "6:6\\]
-Enables (1) or disables (0) clock for AUX_DDI0_OSC.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum AUX_DDI0_OSC_A {
-    #[doc = "1: System CPU has requested clock for AUX_DDI0_OSC"]
-    EN = 1,
-    #[doc = "0: System CPU has not requested clock for AUX_DDI0_OSC"]
-    DIS = 0,
-}
-impl From<AUX_DDI0_OSC_A> for bool {
-    #[inline(always)]
-    fn from(variant: AUX_DDI0_OSC_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl AUX_DDI0_OSC_R {
+pub type AuxDdi0OscR = crate::BitReader<AuxDdi0Osc>;
+impl AuxDdi0OscR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> AUX_DDI0_OSC_A {
+    pub const fn variant(&self) -> AuxDdi0Osc {
         match self.bits {
-            true => AUX_DDI0_OSC_A::EN,
-            false => AUX_DDI0_OSC_A::DIS,
+            true => AuxDdi0Osc::En,
+            false => AuxDdi0Osc::Dis,
         }
     }
-    #[doc = "Checks if the value of the field is `EN`"]
+    #[doc = "System CPU has requested clock for AUX_DDI0_OSC"]
     #[inline(always)]
     pub fn is_en(&self) -> bool {
-        *self == AUX_DDI0_OSC_A::EN
+        *self == AuxDdi0Osc::En
     }
-    #[doc = "Checks if the value of the field is `DIS`"]
+    #[doc = "System CPU has not requested clock for AUX_DDI0_OSC"]
     #[inline(always)]
     pub fn is_dis(&self) -> bool {
-        *self == AUX_DDI0_OSC_A::DIS
+        *self == AuxDdi0Osc::Dis
     }
 }
 #[doc = "Field `AUX_DDI0_OSC` writer - 6:6\\]
 Enables (1) or disables (0) clock for AUX_DDI0_OSC."]
-pub type AUX_DDI0_OSC_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, MODCLKEN0_SPEC, AUX_DDI0_OSC_A, O>;
-impl<'a, const O: u8> AUX_DDI0_OSC_W<'a, O> {
+pub type AuxDdi0OscW<'a, REG> = crate::BitWriter<'a, REG, AuxDdi0Osc>;
+impl<'a, REG> AuxDdi0OscW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "System CPU has requested clock for AUX_DDI0_OSC"]
     #[inline(always)]
-    pub fn en(self) -> &'a mut W {
-        self.variant(AUX_DDI0_OSC_A::EN)
+    pub fn en(self) -> &'a mut crate::W<REG> {
+        self.variant(AuxDdi0Osc::En)
     }
     #[doc = "System CPU has not requested clock for AUX_DDI0_OSC"]
     #[inline(always)]
-    pub fn dis(self) -> &'a mut W {
-        self.variant(AUX_DDI0_OSC_A::DIS)
+    pub fn dis(self) -> &'a mut crate::W<REG> {
+        self.variant(AuxDdi0Osc::Dis)
+    }
+}
+#[doc = "7:7\\]
+Enables (1) or disables (0) clock for AUX_ADI4.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum AuxAdi4 {
+    #[doc = "1: System CPU has requested clock for AUX_ADI4"]
+    En = 1,
+    #[doc = "0: System CPU has not requested clock for AUX_ADI4"]
+    Dis = 0,
+}
+impl From<AuxAdi4> for bool {
+    #[inline(always)]
+    fn from(variant: AuxAdi4) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `AUX_ADI4` reader - 7:7\\]
 Enables (1) or disables (0) clock for AUX_ADI4."]
-pub type AUX_ADI4_R = crate::BitReader<AUX_ADI4_A>;
-#[doc = "7:7\\]
-Enables (1) or disables (0) clock for AUX_ADI4.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum AUX_ADI4_A {
-    #[doc = "1: System CPU has requested clock for AUX_ADI4"]
-    EN = 1,
-    #[doc = "0: System CPU has not requested clock for AUX_ADI4"]
-    DIS = 0,
-}
-impl From<AUX_ADI4_A> for bool {
-    #[inline(always)]
-    fn from(variant: AUX_ADI4_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl AUX_ADI4_R {
+pub type AuxAdi4R = crate::BitReader<AuxAdi4>;
+impl AuxAdi4R {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> AUX_ADI4_A {
+    pub const fn variant(&self) -> AuxAdi4 {
         match self.bits {
-            true => AUX_ADI4_A::EN,
-            false => AUX_ADI4_A::DIS,
+            true => AuxAdi4::En,
+            false => AuxAdi4::Dis,
         }
     }
-    #[doc = "Checks if the value of the field is `EN`"]
+    #[doc = "System CPU has requested clock for AUX_ADI4"]
     #[inline(always)]
     pub fn is_en(&self) -> bool {
-        *self == AUX_ADI4_A::EN
+        *self == AuxAdi4::En
     }
-    #[doc = "Checks if the value of the field is `DIS`"]
+    #[doc = "System CPU has not requested clock for AUX_ADI4"]
     #[inline(always)]
     pub fn is_dis(&self) -> bool {
-        *self == AUX_ADI4_A::DIS
+        *self == AuxAdi4::Dis
     }
 }
 #[doc = "Field `AUX_ADI4` writer - 7:7\\]
 Enables (1) or disables (0) clock for AUX_ADI4."]
-pub type AUX_ADI4_W<'a, const O: u8> = crate::BitWriter<'a, u32, MODCLKEN0_SPEC, AUX_ADI4_A, O>;
-impl<'a, const O: u8> AUX_ADI4_W<'a, O> {
+pub type AuxAdi4W<'a, REG> = crate::BitWriter<'a, REG, AuxAdi4>;
+impl<'a, REG> AuxAdi4W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "System CPU has requested clock for AUX_ADI4"]
     #[inline(always)]
-    pub fn en(self) -> &'a mut W {
-        self.variant(AUX_ADI4_A::EN)
+    pub fn en(self) -> &'a mut crate::W<REG> {
+        self.variant(AuxAdi4::En)
     }
     #[doc = "System CPU has not requested clock for AUX_ADI4"]
     #[inline(always)]
-    pub fn dis(self) -> &'a mut W {
-        self.variant(AUX_ADI4_A::DIS)
+    pub fn dis(self) -> &'a mut crate::W<REG> {
+        self.variant(AuxAdi4::Dis)
     }
 }
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Enables (1) or disables (0) clock for AUX_SMPH."]
     #[inline(always)]
-    pub fn smph(&self) -> SMPH_R {
-        SMPH_R::new((self.bits & 1) != 0)
+    pub fn smph(&self) -> SmphR {
+        SmphR::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 Enables (1) or disables (0) clock for AUX_AIODIO0."]
     #[inline(always)]
-    pub fn aiodio0(&self) -> AIODIO0_R {
-        AIODIO0_R::new(((self.bits >> 1) & 1) != 0)
+    pub fn aiodio0(&self) -> Aiodio0R {
+        Aiodio0R::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bit 2 - 2:2\\]
 Enables (1) or disables (0) clock for AUX_AIODIO1."]
     #[inline(always)]
-    pub fn aiodio1(&self) -> AIODIO1_R {
-        AIODIO1_R::new(((self.bits >> 2) & 1) != 0)
+    pub fn aiodio1(&self) -> Aiodio1R {
+        Aiodio1R::new(((self.bits >> 2) & 1) != 0)
     }
     #[doc = "Bit 3 - 3:3\\]
 Enables (1) or disables (0) clock for AUX_TIMER."]
     #[inline(always)]
-    pub fn timer(&self) -> TIMER_R {
-        TIMER_R::new(((self.bits >> 3) & 1) != 0)
+    pub fn timer(&self) -> TimerR {
+        TimerR::new(((self.bits >> 3) & 1) != 0)
     }
     #[doc = "Bit 4 - 4:4\\]
 Enables (1) or disables (0) clock for AUX_ANAIF. Note that the ADC internal clock must be requested separately using ADCCLKCTL."]
     #[inline(always)]
-    pub fn anaif(&self) -> ANAIF_R {
-        ANAIF_R::new(((self.bits >> 4) & 1) != 0)
+    pub fn anaif(&self) -> AnaifR {
+        AnaifR::new(((self.bits >> 4) & 1) != 0)
     }
     #[doc = "Bit 5 - 5:5\\]
 Enables (1) or disables (0) clock for AUX_TDCIF. Note that the TDC counter and reference clock sources must be requested separately using TDCCLKCTL and REFCLKCTL, respectively."]
     #[inline(always)]
-    pub fn tdc(&self) -> TDC_R {
-        TDC_R::new(((self.bits >> 5) & 1) != 0)
+    pub fn tdc(&self) -> TdcR {
+        TdcR::new(((self.bits >> 5) & 1) != 0)
     }
     #[doc = "Bit 6 - 6:6\\]
 Enables (1) or disables (0) clock for AUX_DDI0_OSC."]
     #[inline(always)]
-    pub fn aux_ddi0_osc(&self) -> AUX_DDI0_OSC_R {
-        AUX_DDI0_OSC_R::new(((self.bits >> 6) & 1) != 0)
+    pub fn aux_ddi0_osc(&self) -> AuxDdi0OscR {
+        AuxDdi0OscR::new(((self.bits >> 6) & 1) != 0)
     }
     #[doc = "Bit 7 - 7:7\\]
 Enables (1) or disables (0) clock for AUX_ADI4."]
     #[inline(always)]
-    pub fn aux_adi4(&self) -> AUX_ADI4_R {
-        AUX_ADI4_R::new(((self.bits >> 7) & 1) != 0)
+    pub fn aux_adi4(&self) -> AuxAdi4R {
+        AuxAdi4R::new(((self.bits >> 7) & 1) != 0)
     }
 }
 impl W {
@@ -514,81 +505,73 @@ impl W {
 Enables (1) or disables (0) clock for AUX_SMPH."]
     #[inline(always)]
     #[must_use]
-    pub fn smph(&mut self) -> SMPH_W<0> {
-        SMPH_W::new(self)
+    pub fn smph(&mut self) -> SmphW<Modclken0Spec> {
+        SmphW::new(self, 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 Enables (1) or disables (0) clock for AUX_AIODIO0."]
     #[inline(always)]
     #[must_use]
-    pub fn aiodio0(&mut self) -> AIODIO0_W<1> {
-        AIODIO0_W::new(self)
+    pub fn aiodio0(&mut self) -> Aiodio0W<Modclken0Spec> {
+        Aiodio0W::new(self, 1)
     }
     #[doc = "Bit 2 - 2:2\\]
 Enables (1) or disables (0) clock for AUX_AIODIO1."]
     #[inline(always)]
     #[must_use]
-    pub fn aiodio1(&mut self) -> AIODIO1_W<2> {
-        AIODIO1_W::new(self)
+    pub fn aiodio1(&mut self) -> Aiodio1W<Modclken0Spec> {
+        Aiodio1W::new(self, 2)
     }
     #[doc = "Bit 3 - 3:3\\]
 Enables (1) or disables (0) clock for AUX_TIMER."]
     #[inline(always)]
     #[must_use]
-    pub fn timer(&mut self) -> TIMER_W<3> {
-        TIMER_W::new(self)
+    pub fn timer(&mut self) -> TimerW<Modclken0Spec> {
+        TimerW::new(self, 3)
     }
     #[doc = "Bit 4 - 4:4\\]
 Enables (1) or disables (0) clock for AUX_ANAIF. Note that the ADC internal clock must be requested separately using ADCCLKCTL."]
     #[inline(always)]
     #[must_use]
-    pub fn anaif(&mut self) -> ANAIF_W<4> {
-        ANAIF_W::new(self)
+    pub fn anaif(&mut self) -> AnaifW<Modclken0Spec> {
+        AnaifW::new(self, 4)
     }
     #[doc = "Bit 5 - 5:5\\]
 Enables (1) or disables (0) clock for AUX_TDCIF. Note that the TDC counter and reference clock sources must be requested separately using TDCCLKCTL and REFCLKCTL, respectively."]
     #[inline(always)]
     #[must_use]
-    pub fn tdc(&mut self) -> TDC_W<5> {
-        TDC_W::new(self)
+    pub fn tdc(&mut self) -> TdcW<Modclken0Spec> {
+        TdcW::new(self, 5)
     }
     #[doc = "Bit 6 - 6:6\\]
 Enables (1) or disables (0) clock for AUX_DDI0_OSC."]
     #[inline(always)]
     #[must_use]
-    pub fn aux_ddi0_osc(&mut self) -> AUX_DDI0_OSC_W<6> {
-        AUX_DDI0_OSC_W::new(self)
+    pub fn aux_ddi0_osc(&mut self) -> AuxDdi0OscW<Modclken0Spec> {
+        AuxDdi0OscW::new(self, 6)
     }
     #[doc = "Bit 7 - 7:7\\]
 Enables (1) or disables (0) clock for AUX_ADI4."]
     #[inline(always)]
     #[must_use]
-    pub fn aux_adi4(&mut self) -> AUX_ADI4_W<7> {
-        AUX_ADI4_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn aux_adi4(&mut self) -> AuxAdi4W<Modclken0Spec> {
+        AuxAdi4W::new(self, 7)
     }
 }
-#[doc = "Module Clock Enable Clock enable for each module in the AUX domain For use by the system CPU The settings in this register are OR'ed with the corresponding settings in MODCLKEN1. This allows the system CPU and AUX_SCE to request clocks independently. Settings take effect immediately.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [modclken0](index.html) module"]
-pub struct MODCLKEN0_SPEC;
-impl crate::RegisterSpec for MODCLKEN0_SPEC {
+#[doc = "Module Clock Enable Clock enable for each module in the AUX domain For use by the system CPU The settings in this register are OR'ed with the corresponding settings in MODCLKEN1. This allows the system CPU and AUX_SCE to request clocks independently. Settings take effect immediately.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`modclken0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`modclken0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Modclken0Spec;
+impl crate::RegisterSpec for Modclken0Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [modclken0::R](R) reader structure"]
-impl crate::Readable for MODCLKEN0_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [modclken0::W](W) writer structure"]
-impl crate::Writable for MODCLKEN0_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`modclken0::R`](R) reader structure"]
+impl crate::Readable for Modclken0Spec {}
+#[doc = "`write(|w| ..)` method takes [`modclken0::W`](W) writer structure"]
+impl crate::Writable for Modclken0Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets MODCLKEN0 to value 0"]
-impl crate::Resettable for MODCLKEN0_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for Modclken0Spec {
+    const RESET_VALUE: u32 = 0;
 }

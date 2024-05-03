@@ -1,159 +1,127 @@
 #[doc = "Register `CFG` reader"]
-pub struct R(crate::R<CFG_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<CFG_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<CFG_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<CFG_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<CfgSpec>;
 #[doc = "Register `CFG` writer"]
-pub struct W(crate::W<CFG_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<CFG_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<CFG_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<CFG_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<CfgSpec>;
 #[doc = "Field `RESERVED0` reader - 0:0\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED0_R = crate::BitReader<bool>;
+pub type Reserved0R = crate::BitReader;
 #[doc = "Field `RESERVED0` writer - 0:0\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED0_W<'a, const O: u8> = crate::BitWriter<'a, u32, CFG_SPEC, bool, O>;
+pub type Reserved0W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIS_STANDBY` reader - 1:1\\]
 Internal. Only to be used through TI provided API."]
-pub type DIS_STANDBY_R = crate::BitReader<bool>;
+pub type DisStandbyR = crate::BitReader;
 #[doc = "Field `DIS_STANDBY` writer - 1:1\\]
 Internal. Only to be used through TI provided API."]
-pub type DIS_STANDBY_W<'a, const O: u8> = crate::BitWriter<'a, u32, CFG_SPEC, bool, O>;
+pub type DisStandbyW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED2` reader - 2:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED2_R = crate::BitReader<bool>;
+pub type Reserved2R = crate::BitReader;
 #[doc = "Field `RESERVED2` writer - 2:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED2_W<'a, const O: u8> = crate::BitWriter<'a, u32, CFG_SPEC, bool, O>;
+pub type Reserved2W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `ENABLE_SWINTF` reader - 3:3\\]
 Internal. Only to be used through TI provided API."]
-pub type ENABLE_SWINTF_R = crate::BitReader<bool>;
+pub type EnableSwintfR = crate::BitReader;
 #[doc = "Field `ENABLE_SWINTF` writer - 3:3\\]
 Internal. Only to be used through TI provided API."]
-pub type ENABLE_SWINTF_W<'a, const O: u8> = crate::BitWriter<'a, u32, CFG_SPEC, bool, O>;
+pub type EnableSwintfW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIS_READACCESS` reader - 4:4\\]
 Internal. Only to be used through TI provided API."]
-pub type DIS_READACCESS_R = crate::BitReader<bool>;
+pub type DisReadaccessR = crate::BitReader;
 #[doc = "Field `DIS_READACCESS` writer - 4:4\\]
 Internal. Only to be used through TI provided API."]
-pub type DIS_READACCESS_W<'a, const O: u8> = crate::BitWriter<'a, u32, CFG_SPEC, bool, O>;
+pub type DisReadaccessW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIS_EFUSECLK` reader - 5:5\\]
 Internal. Only to be used through TI provided API."]
-pub type DIS_EFUSECLK_R = crate::BitReader<bool>;
+pub type DisEfuseclkR = crate::BitReader;
 #[doc = "Field `DIS_EFUSECLK` writer - 5:5\\]
 Internal. Only to be used through TI provided API."]
-pub type DIS_EFUSECLK_W<'a, const O: u8> = crate::BitWriter<'a, u32, CFG_SPEC, bool, O>;
+pub type DisEfuseclkW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `STANDBY_PW_SEL` reader - 7:6\\]
 Internal. Only to be used through TI provided API."]
-pub type STANDBY_PW_SEL_R = crate::FieldReader<u8, u8>;
+pub type StandbyPwSelR = crate::FieldReader;
 #[doc = "Field `STANDBY_PW_SEL` writer - 7:6\\]
 Internal. Only to be used through TI provided API."]
-pub type STANDBY_PW_SEL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CFG_SPEC, u8, u8, 2, O>;
+pub type StandbyPwSelW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `STANDBY_MODE_SEL` reader - 8:8\\]
 Internal. Only to be used through TI provided API."]
-pub type STANDBY_MODE_SEL_R = crate::BitReader<bool>;
+pub type StandbyModeSelR = crate::BitReader;
 #[doc = "Field `STANDBY_MODE_SEL` writer - 8:8\\]
 Internal. Only to be used through TI provided API."]
-pub type STANDBY_MODE_SEL_W<'a, const O: u8> = crate::BitWriter<'a, u32, CFG_SPEC, bool, O>;
+pub type StandbyModeSelW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `FORCE_STANDBY` reader - 9:9\\]
 Internal. Only to be used through TI provided API."]
-pub type FORCE_STANDBY_R = crate::BitReader<bool>;
+pub type ForceStandbyR = crate::BitReader;
 #[doc = "Field `FORCE_STANDBY` writer - 9:9\\]
 Internal. Only to be used through TI provided API."]
-pub type FORCE_STANDBY_W<'a, const O: u8> = crate::BitWriter<'a, u32, CFG_SPEC, bool, O>;
+pub type ForceStandbyW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED21` reader - 31:10\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED21_R = crate::FieldReader<u32, u32>;
+pub type Reserved21R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED21` writer - 31:10\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED21_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CFG_SPEC, u32, u32, 22, O>;
+pub type Reserved21W<'a, REG> = crate::FieldWriter<'a, REG, 22, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn reserved0(&self) -> RESERVED0_R {
-        RESERVED0_R::new((self.bits & 1) != 0)
+    pub fn reserved0(&self) -> Reserved0R {
+        Reserved0R::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn dis_standby(&self) -> DIS_STANDBY_R {
-        DIS_STANDBY_R::new(((self.bits >> 1) & 1) != 0)
+    pub fn dis_standby(&self) -> DisStandbyR {
+        DisStandbyR::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bit 2 - 2:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved2(&self) -> RESERVED2_R {
-        RESERVED2_R::new(((self.bits >> 2) & 1) != 0)
+    pub fn reserved2(&self) -> Reserved2R {
+        Reserved2R::new(((self.bits >> 2) & 1) != 0)
     }
     #[doc = "Bit 3 - 3:3\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn enable_swintf(&self) -> ENABLE_SWINTF_R {
-        ENABLE_SWINTF_R::new(((self.bits >> 3) & 1) != 0)
+    pub fn enable_swintf(&self) -> EnableSwintfR {
+        EnableSwintfR::new(((self.bits >> 3) & 1) != 0)
     }
     #[doc = "Bit 4 - 4:4\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn dis_readaccess(&self) -> DIS_READACCESS_R {
-        DIS_READACCESS_R::new(((self.bits >> 4) & 1) != 0)
+    pub fn dis_readaccess(&self) -> DisReadaccessR {
+        DisReadaccessR::new(((self.bits >> 4) & 1) != 0)
     }
     #[doc = "Bit 5 - 5:5\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn dis_efuseclk(&self) -> DIS_EFUSECLK_R {
-        DIS_EFUSECLK_R::new(((self.bits >> 5) & 1) != 0)
+    pub fn dis_efuseclk(&self) -> DisEfuseclkR {
+        DisEfuseclkR::new(((self.bits >> 5) & 1) != 0)
     }
     #[doc = "Bits 6:7 - 7:6\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn standby_pw_sel(&self) -> STANDBY_PW_SEL_R {
-        STANDBY_PW_SEL_R::new(((self.bits >> 6) & 3) as u8)
+    pub fn standby_pw_sel(&self) -> StandbyPwSelR {
+        StandbyPwSelR::new(((self.bits >> 6) & 3) as u8)
     }
     #[doc = "Bit 8 - 8:8\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn standby_mode_sel(&self) -> STANDBY_MODE_SEL_R {
-        STANDBY_MODE_SEL_R::new(((self.bits >> 8) & 1) != 0)
+    pub fn standby_mode_sel(&self) -> StandbyModeSelR {
+        StandbyModeSelR::new(((self.bits >> 8) & 1) != 0)
     }
     #[doc = "Bit 9 - 9:9\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn force_standby(&self) -> FORCE_STANDBY_R {
-        FORCE_STANDBY_R::new(((self.bits >> 9) & 1) != 0)
+    pub fn force_standby(&self) -> ForceStandbyR {
+        ForceStandbyR::new(((self.bits >> 9) & 1) != 0)
     }
     #[doc = "Bits 10:31 - 31:10\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn reserved21(&self) -> RESERVED21_R {
-        RESERVED21_R::new((self.bits >> 10) & 0x003f_ffff)
+    pub fn reserved21(&self) -> Reserved21R {
+        Reserved21R::new((self.bits >> 10) & 0x003f_ffff)
     }
 }
 impl W {
@@ -161,95 +129,87 @@ impl W {
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved0(&mut self) -> RESERVED0_W<0> {
-        RESERVED0_W::new(self)
+    pub fn reserved0(&mut self) -> Reserved0W<CfgSpec> {
+        Reserved0W::new(self, 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn dis_standby(&mut self) -> DIS_STANDBY_W<1> {
-        DIS_STANDBY_W::new(self)
+    pub fn dis_standby(&mut self) -> DisStandbyW<CfgSpec> {
+        DisStandbyW::new(self, 1)
     }
     #[doc = "Bit 2 - 2:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved2(&mut self) -> RESERVED2_W<2> {
-        RESERVED2_W::new(self)
+    pub fn reserved2(&mut self) -> Reserved2W<CfgSpec> {
+        Reserved2W::new(self, 2)
     }
     #[doc = "Bit 3 - 3:3\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn enable_swintf(&mut self) -> ENABLE_SWINTF_W<3> {
-        ENABLE_SWINTF_W::new(self)
+    pub fn enable_swintf(&mut self) -> EnableSwintfW<CfgSpec> {
+        EnableSwintfW::new(self, 3)
     }
     #[doc = "Bit 4 - 4:4\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn dis_readaccess(&mut self) -> DIS_READACCESS_W<4> {
-        DIS_READACCESS_W::new(self)
+    pub fn dis_readaccess(&mut self) -> DisReadaccessW<CfgSpec> {
+        DisReadaccessW::new(self, 4)
     }
     #[doc = "Bit 5 - 5:5\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn dis_efuseclk(&mut self) -> DIS_EFUSECLK_W<5> {
-        DIS_EFUSECLK_W::new(self)
+    pub fn dis_efuseclk(&mut self) -> DisEfuseclkW<CfgSpec> {
+        DisEfuseclkW::new(self, 5)
     }
     #[doc = "Bits 6:7 - 7:6\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn standby_pw_sel(&mut self) -> STANDBY_PW_SEL_W<6> {
-        STANDBY_PW_SEL_W::new(self)
+    pub fn standby_pw_sel(&mut self) -> StandbyPwSelW<CfgSpec> {
+        StandbyPwSelW::new(self, 6)
     }
     #[doc = "Bit 8 - 8:8\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn standby_mode_sel(&mut self) -> STANDBY_MODE_SEL_W<8> {
-        STANDBY_MODE_SEL_W::new(self)
+    pub fn standby_mode_sel(&mut self) -> StandbyModeSelW<CfgSpec> {
+        StandbyModeSelW::new(self, 8)
     }
     #[doc = "Bit 9 - 9:9\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn force_standby(&mut self) -> FORCE_STANDBY_W<9> {
-        FORCE_STANDBY_W::new(self)
+    pub fn force_standby(&mut self) -> ForceStandbyW<CfgSpec> {
+        ForceStandbyW::new(self, 9)
     }
     #[doc = "Bits 10:31 - 31:10\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved21(&mut self) -> RESERVED21_W<10> {
-        RESERVED21_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved21(&mut self) -> Reserved21W<CfgSpec> {
+        Reserved21W::new(self, 10)
     }
 }
-#[doc = "Internal. Only to be used through TI provided API.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct CFG_SPEC;
-impl crate::RegisterSpec for CFG_SPEC {
+#[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`cfg::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`cfg::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct CfgSpec;
+impl crate::RegisterSpec for CfgSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [cfg::R](R) reader structure"]
-impl crate::Readable for CFG_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [cfg::W](W) writer structure"]
-impl crate::Writable for CFG_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`cfg::R`](R) reader structure"]
+impl crate::Readable for CfgSpec {}
+#[doc = "`write(|w| ..)` method takes [`cfg::W`](W) writer structure"]
+impl crate::Writable for CfgSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets CFG to value 0"]
-impl crate::Resettable for CFG_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for CfgSpec {
+    const RESET_VALUE: u32 = 0;
 }

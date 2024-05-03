@@ -1,75 +1,43 @@
 #[doc = "Register `HWOPT` reader"]
-pub struct R(crate::R<HWOPT_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<HWOPT_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<HWOPT_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<HWOPT_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<HwoptSpec>;
 #[doc = "Register `HWOPT` writer"]
-pub struct W(crate::W<HWOPT_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<HWOPT_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<HWOPT_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<HWOPT_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<HwoptSpec>;
 #[doc = "Field `RESERVED0` reader - 5:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED0_R = crate::FieldReader<u8, u8>;
+pub type Reserved0R = crate::FieldReader;
 #[doc = "Field `RESERVED0` writer - 5:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED0_W<'a, const O: u8> = crate::FieldWriter<'a, u32, HWOPT_SPEC, u8, u8, 6, O>;
+pub type Reserved0W<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `NR_OF_FROS` reader - 11:6\\]
 Number of FROs implemented in this TRNG, value 24 (decimal)."]
-pub type NR_OF_FROS_R = crate::FieldReader<u8, u8>;
+pub type NrOfFrosR = crate::FieldReader;
 #[doc = "Field `NR_OF_FROS` writer - 11:6\\]
 Number of FROs implemented in this TRNG, value 24 (decimal)."]
-pub type NR_OF_FROS_W<'a, const O: u8> = crate::FieldWriter<'a, u32, HWOPT_SPEC, u8, u8, 6, O>;
+pub type NrOfFrosW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `RESERVED12` reader - 31:12\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED12_R = crate::FieldReader<u32, u32>;
+pub type Reserved12R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED12` writer - 31:12\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED12_W<'a, const O: u8> = crate::FieldWriter<'a, u32, HWOPT_SPEC, u32, u32, 20, O>;
+pub type Reserved12W<'a, REG> = crate::FieldWriter<'a, REG, 20, u32>;
 impl R {
     #[doc = "Bits 0:5 - 5:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved0(&self) -> RESERVED0_R {
-        RESERVED0_R::new((self.bits & 0x3f) as u8)
+    pub fn reserved0(&self) -> Reserved0R {
+        Reserved0R::new((self.bits & 0x3f) as u8)
     }
     #[doc = "Bits 6:11 - 11:6\\]
 Number of FROs implemented in this TRNG, value 24 (decimal)."]
     #[inline(always)]
-    pub fn nr_of_fros(&self) -> NR_OF_FROS_R {
-        NR_OF_FROS_R::new(((self.bits >> 6) & 0x3f) as u8)
+    pub fn nr_of_fros(&self) -> NrOfFrosR {
+        NrOfFrosR::new(((self.bits >> 6) & 0x3f) as u8)
     }
     #[doc = "Bits 12:31 - 31:12\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved12(&self) -> RESERVED12_R {
-        RESERVED12_R::new((self.bits >> 12) & 0x000f_ffff)
+    pub fn reserved12(&self) -> Reserved12R {
+        Reserved12R::new((self.bits >> 12) & 0x000f_ffff)
     }
 }
 impl W {
@@ -77,46 +45,38 @@ impl W {
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved0(&mut self) -> RESERVED0_W<0> {
-        RESERVED0_W::new(self)
+    pub fn reserved0(&mut self) -> Reserved0W<HwoptSpec> {
+        Reserved0W::new(self, 0)
     }
     #[doc = "Bits 6:11 - 11:6\\]
 Number of FROs implemented in this TRNG, value 24 (decimal)."]
     #[inline(always)]
     #[must_use]
-    pub fn nr_of_fros(&mut self) -> NR_OF_FROS_W<6> {
-        NR_OF_FROS_W::new(self)
+    pub fn nr_of_fros(&mut self) -> NrOfFrosW<HwoptSpec> {
+        NrOfFrosW::new(self, 6)
     }
     #[doc = "Bits 12:31 - 31:12\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved12(&mut self) -> RESERVED12_W<12> {
-        RESERVED12_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved12(&mut self) -> Reserved12W<HwoptSpec> {
+        Reserved12W::new(self, 12)
     }
 }
-#[doc = "TRNG Engine Options Information\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hwopt](index.html) module"]
-pub struct HWOPT_SPEC;
-impl crate::RegisterSpec for HWOPT_SPEC {
+#[doc = "TRNG Engine Options Information\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`hwopt::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`hwopt::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct HwoptSpec;
+impl crate::RegisterSpec for HwoptSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [hwopt::R](R) reader structure"]
-impl crate::Readable for HWOPT_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [hwopt::W](W) writer structure"]
-impl crate::Writable for HWOPT_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`hwopt::R`](R) reader structure"]
+impl crate::Readable for HwoptSpec {}
+#[doc = "`write(|w| ..)` method takes [`hwopt::W`](W) writer structure"]
+impl crate::Writable for HwoptSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets HWOPT to value 0x0600"]
-impl crate::Resettable for HWOPT_SPEC {
-    const RESET_VALUE: Self::Ux = 0x0600;
+impl crate::Resettable for HwoptSpec {
+    const RESET_VALUE: u32 = 0x0600;
 }

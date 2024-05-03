@@ -1,137 +1,103 @@
 #[doc = "Register `CONFIG_IF_ADC` reader"]
-pub struct R(crate::R<CONFIG_IF_ADC_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<CONFIG_IF_ADC_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<CONFIG_IF_ADC_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<CONFIG_IF_ADC_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<ConfigIfAdcSpec>;
 #[doc = "Register `CONFIG_IF_ADC` writer"]
-pub struct W(crate::W<CONFIG_IF_ADC_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<CONFIG_IF_ADC_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<CONFIG_IF_ADC_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<CONFIG_IF_ADC_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<ConfigIfAdcSpec>;
 #[doc = "Field `IFANALDO_TRIM_OUTPUT` reader - 4:0\\]
 Internal. Only to be used through TI provided API."]
-pub type IFANALDO_TRIM_OUTPUT_R = crate::FieldReader<u8, u8>;
+pub type IfanaldoTrimOutputR = crate::FieldReader;
 #[doc = "Field `IFANALDO_TRIM_OUTPUT` writer - 4:0\\]
 Internal. Only to be used through TI provided API."]
-pub type IFANALDO_TRIM_OUTPUT_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, CONFIG_IF_ADC_SPEC, u8, u8, 5, O>;
+pub type IfanaldoTrimOutputW<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 #[doc = "Field `IFDIGLDO_TRIM_OUTPUT` reader - 9:5\\]
 Internal. Only to be used through TI provided API."]
-pub type IFDIGLDO_TRIM_OUTPUT_R = crate::FieldReader<u8, u8>;
+pub type IfdigldoTrimOutputR = crate::FieldReader;
 #[doc = "Field `IFDIGLDO_TRIM_OUTPUT` writer - 9:5\\]
 Internal. Only to be used through TI provided API."]
-pub type IFDIGLDO_TRIM_OUTPUT_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, CONFIG_IF_ADC_SPEC, u8, u8, 5, O>;
+pub type IfdigldoTrimOutputW<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 #[doc = "Field `INT2ADJ` reader - 13:10\\]
 Internal. Only to be used through TI provided API."]
-pub type INT2ADJ_R = crate::FieldReader<u8, u8>;
+pub type Int2adjR = crate::FieldReader;
 #[doc = "Field `INT2ADJ` writer - 13:10\\]
 Internal. Only to be used through TI provided API."]
-pub type INT2ADJ_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CONFIG_IF_ADC_SPEC, u8, u8, 4, O>;
+pub type Int2adjW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `AAFCAP` reader - 15:14\\]
 Internal. Only to be used through TI provided API."]
-pub type AAFCAP_R = crate::FieldReader<u8, u8>;
+pub type AafcapR = crate::FieldReader;
 #[doc = "Field `AAFCAP` writer - 15:14\\]
 Internal. Only to be used through TI provided API."]
-pub type AAFCAP_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CONFIG_IF_ADC_SPEC, u8, u8, 2, O>;
+pub type AafcapW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `FF1ADJ` reader - 19:16\\]
 Internal. Only to be used through TI provided API."]
-pub type FF1ADJ_R = crate::FieldReader<u8, u8>;
+pub type Ff1adjR = crate::FieldReader;
 #[doc = "Field `FF1ADJ` writer - 19:16\\]
 Internal. Only to be used through TI provided API."]
-pub type FF1ADJ_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CONFIG_IF_ADC_SPEC, u8, u8, 4, O>;
+pub type Ff1adjW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `INT3ADJ` reader - 23:20\\]
 Internal. Only to be used through TI provided API."]
-pub type INT3ADJ_R = crate::FieldReader<u8, u8>;
+pub type Int3adjR = crate::FieldReader;
 #[doc = "Field `INT3ADJ` writer - 23:20\\]
 Internal. Only to be used through TI provided API."]
-pub type INT3ADJ_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CONFIG_IF_ADC_SPEC, u8, u8, 4, O>;
+pub type Int3adjW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `FF3ADJ` reader - 27:24\\]
 Internal. Only to be used through TI provided API."]
-pub type FF3ADJ_R = crate::FieldReader<u8, u8>;
+pub type Ff3adjR = crate::FieldReader;
 #[doc = "Field `FF3ADJ` writer - 27:24\\]
 Internal. Only to be used through TI provided API."]
-pub type FF3ADJ_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CONFIG_IF_ADC_SPEC, u8, u8, 4, O>;
+pub type Ff3adjW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `FF2ADJ` reader - 31:28\\]
 Internal. Only to be used through TI provided API."]
-pub type FF2ADJ_R = crate::FieldReader<u8, u8>;
+pub type Ff2adjR = crate::FieldReader;
 #[doc = "Field `FF2ADJ` writer - 31:28\\]
 Internal. Only to be used through TI provided API."]
-pub type FF2ADJ_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CONFIG_IF_ADC_SPEC, u8, u8, 4, O>;
+pub type Ff2adjW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 impl R {
     #[doc = "Bits 0:4 - 4:0\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn ifanaldo_trim_output(&self) -> IFANALDO_TRIM_OUTPUT_R {
-        IFANALDO_TRIM_OUTPUT_R::new((self.bits & 0x1f) as u8)
+    pub fn ifanaldo_trim_output(&self) -> IfanaldoTrimOutputR {
+        IfanaldoTrimOutputR::new((self.bits & 0x1f) as u8)
     }
     #[doc = "Bits 5:9 - 9:5\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn ifdigldo_trim_output(&self) -> IFDIGLDO_TRIM_OUTPUT_R {
-        IFDIGLDO_TRIM_OUTPUT_R::new(((self.bits >> 5) & 0x1f) as u8)
+    pub fn ifdigldo_trim_output(&self) -> IfdigldoTrimOutputR {
+        IfdigldoTrimOutputR::new(((self.bits >> 5) & 0x1f) as u8)
     }
     #[doc = "Bits 10:13 - 13:10\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn int2adj(&self) -> INT2ADJ_R {
-        INT2ADJ_R::new(((self.bits >> 10) & 0x0f) as u8)
+    pub fn int2adj(&self) -> Int2adjR {
+        Int2adjR::new(((self.bits >> 10) & 0x0f) as u8)
     }
     #[doc = "Bits 14:15 - 15:14\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn aafcap(&self) -> AAFCAP_R {
-        AAFCAP_R::new(((self.bits >> 14) & 3) as u8)
+    pub fn aafcap(&self) -> AafcapR {
+        AafcapR::new(((self.bits >> 14) & 3) as u8)
     }
     #[doc = "Bits 16:19 - 19:16\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn ff1adj(&self) -> FF1ADJ_R {
-        FF1ADJ_R::new(((self.bits >> 16) & 0x0f) as u8)
+    pub fn ff1adj(&self) -> Ff1adjR {
+        Ff1adjR::new(((self.bits >> 16) & 0x0f) as u8)
     }
     #[doc = "Bits 20:23 - 23:20\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn int3adj(&self) -> INT3ADJ_R {
-        INT3ADJ_R::new(((self.bits >> 20) & 0x0f) as u8)
+    pub fn int3adj(&self) -> Int3adjR {
+        Int3adjR::new(((self.bits >> 20) & 0x0f) as u8)
     }
     #[doc = "Bits 24:27 - 27:24\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn ff3adj(&self) -> FF3ADJ_R {
-        FF3ADJ_R::new(((self.bits >> 24) & 0x0f) as u8)
+    pub fn ff3adj(&self) -> Ff3adjR {
+        Ff3adjR::new(((self.bits >> 24) & 0x0f) as u8)
     }
     #[doc = "Bits 28:31 - 31:28\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn ff2adj(&self) -> FF2ADJ_R {
-        FF2ADJ_R::new(((self.bits >> 28) & 0x0f) as u8)
+    pub fn ff2adj(&self) -> Ff2adjR {
+        Ff2adjR::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
 impl W {
@@ -139,81 +105,73 @@ impl W {
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn ifanaldo_trim_output(&mut self) -> IFANALDO_TRIM_OUTPUT_W<0> {
-        IFANALDO_TRIM_OUTPUT_W::new(self)
+    pub fn ifanaldo_trim_output(&mut self) -> IfanaldoTrimOutputW<ConfigIfAdcSpec> {
+        IfanaldoTrimOutputW::new(self, 0)
     }
     #[doc = "Bits 5:9 - 9:5\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn ifdigldo_trim_output(&mut self) -> IFDIGLDO_TRIM_OUTPUT_W<5> {
-        IFDIGLDO_TRIM_OUTPUT_W::new(self)
+    pub fn ifdigldo_trim_output(&mut self) -> IfdigldoTrimOutputW<ConfigIfAdcSpec> {
+        IfdigldoTrimOutputW::new(self, 5)
     }
     #[doc = "Bits 10:13 - 13:10\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn int2adj(&mut self) -> INT2ADJ_W<10> {
-        INT2ADJ_W::new(self)
+    pub fn int2adj(&mut self) -> Int2adjW<ConfigIfAdcSpec> {
+        Int2adjW::new(self, 10)
     }
     #[doc = "Bits 14:15 - 15:14\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn aafcap(&mut self) -> AAFCAP_W<14> {
-        AAFCAP_W::new(self)
+    pub fn aafcap(&mut self) -> AafcapW<ConfigIfAdcSpec> {
+        AafcapW::new(self, 14)
     }
     #[doc = "Bits 16:19 - 19:16\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn ff1adj(&mut self) -> FF1ADJ_W<16> {
-        FF1ADJ_W::new(self)
+    pub fn ff1adj(&mut self) -> Ff1adjW<ConfigIfAdcSpec> {
+        Ff1adjW::new(self, 16)
     }
     #[doc = "Bits 20:23 - 23:20\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn int3adj(&mut self) -> INT3ADJ_W<20> {
-        INT3ADJ_W::new(self)
+    pub fn int3adj(&mut self) -> Int3adjW<ConfigIfAdcSpec> {
+        Int3adjW::new(self, 20)
     }
     #[doc = "Bits 24:27 - 27:24\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn ff3adj(&mut self) -> FF3ADJ_W<24> {
-        FF3ADJ_W::new(self)
+    pub fn ff3adj(&mut self) -> Ff3adjW<ConfigIfAdcSpec> {
+        Ff3adjW::new(self, 24)
     }
     #[doc = "Bits 28:31 - 31:28\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn ff2adj(&mut self) -> FF2ADJ_W<28> {
-        FF2ADJ_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn ff2adj(&mut self) -> Ff2adjW<ConfigIfAdcSpec> {
+        Ff2adjW::new(self, 28)
     }
 }
-#[doc = "Internal. Only to be used through TI provided API.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [config_if_adc](index.html) module"]
-pub struct CONFIG_IF_ADC_SPEC;
-impl crate::RegisterSpec for CONFIG_IF_ADC_SPEC {
+#[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`config_if_adc::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`config_if_adc::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct ConfigIfAdcSpec;
+impl crate::RegisterSpec for ConfigIfAdcSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [config_if_adc::R](R) reader structure"]
-impl crate::Readable for CONFIG_IF_ADC_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [config_if_adc::W](W) writer structure"]
-impl crate::Writable for CONFIG_IF_ADC_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`config_if_adc::R`](R) reader structure"]
+impl crate::Readable for ConfigIfAdcSpec {}
+#[doc = "`write(|w| ..)` method takes [`config_if_adc::W`](W) writer structure"]
+impl crate::Writable for ConfigIfAdcSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets CONFIG_IF_ADC to value 0x3460_f400"]
-impl crate::Resettable for CONFIG_IF_ADC_SPEC {
-    const RESET_VALUE: Self::Ux = 0x3460_f400;
+impl crate::Resettable for ConfigIfAdcSpec {
+    const RESET_VALUE: u32 = 0x3460_f400;
 }

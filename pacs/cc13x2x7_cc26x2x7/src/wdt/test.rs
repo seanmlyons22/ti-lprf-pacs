@@ -1,181 +1,155 @@
 #[doc = "Register `TEST` reader"]
-pub struct R(crate::R<TEST_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<TEST_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<TEST_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<TEST_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<TestSpec>;
 #[doc = "Register `TEST` writer"]
-pub struct W(crate::W<TEST_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<TEST_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
+pub type W = crate::W<TestSpec>;
+#[doc = "0:0\\]
+The test enable bit 0: Enable external reset 1: Disables the generation of an external reset. Instead bit 1 of the INT_CAUS register is set and an interrupt is generated\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum TestEn {
+    #[doc = "1: Test mode Enabled"]
+    En = 1,
+    #[doc = "0: Test mode Disabled"]
+    Dis = 0,
 }
-impl core::ops::DerefMut for W {
+impl From<TestEn> for bool {
     #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<TEST_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<TEST_SPEC>) -> Self {
-        W(writer)
+    fn from(variant: TestEn) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `TEST_EN` reader - 0:0\\]
 The test enable bit 0: Enable external reset 1: Disables the generation of an external reset. Instead bit 1 of the INT_CAUS register is set and an interrupt is generated"]
-pub type TEST_EN_R = crate::BitReader<TEST_EN_A>;
-#[doc = "0:0\\]
-The test enable bit 0: Enable external reset 1: Disables the generation of an external reset. Instead bit 1 of the INT_CAUS register is set and an interrupt is generated\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum TEST_EN_A {
-    #[doc = "1: Test mode Enabled"]
-    EN = 1,
-    #[doc = "0: Test mode Disabled"]
-    DIS = 0,
-}
-impl From<TEST_EN_A> for bool {
-    #[inline(always)]
-    fn from(variant: TEST_EN_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl TEST_EN_R {
+pub type TestEnR = crate::BitReader<TestEn>;
+impl TestEnR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> TEST_EN_A {
+    pub const fn variant(&self) -> TestEn {
         match self.bits {
-            true => TEST_EN_A::EN,
-            false => TEST_EN_A::DIS,
+            true => TestEn::En,
+            false => TestEn::Dis,
         }
     }
-    #[doc = "Checks if the value of the field is `EN`"]
+    #[doc = "Test mode Enabled"]
     #[inline(always)]
     pub fn is_en(&self) -> bool {
-        *self == TEST_EN_A::EN
+        *self == TestEn::En
     }
-    #[doc = "Checks if the value of the field is `DIS`"]
+    #[doc = "Test mode Disabled"]
     #[inline(always)]
     pub fn is_dis(&self) -> bool {
-        *self == TEST_EN_A::DIS
+        *self == TestEn::Dis
     }
 }
 #[doc = "Field `TEST_EN` writer - 0:0\\]
 The test enable bit 0: Enable external reset 1: Disables the generation of an external reset. Instead bit 1 of the INT_CAUS register is set and an interrupt is generated"]
-pub type TEST_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, TEST_SPEC, TEST_EN_A, O>;
-impl<'a, const O: u8> TEST_EN_W<'a, O> {
+pub type TestEnW<'a, REG> = crate::BitWriter<'a, REG, TestEn>;
+impl<'a, REG> TestEnW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Test mode Enabled"]
     #[inline(always)]
-    pub fn en(self) -> &'a mut W {
-        self.variant(TEST_EN_A::EN)
+    pub fn en(self) -> &'a mut crate::W<REG> {
+        self.variant(TestEn::En)
     }
     #[doc = "Test mode Disabled"]
     #[inline(always)]
-    pub fn dis(self) -> &'a mut W {
-        self.variant(TEST_EN_A::DIS)
+    pub fn dis(self) -> &'a mut crate::W<REG> {
+        self.variant(TestEn::Dis)
     }
 }
 #[doc = "Field `RESERVED1` reader - 7:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED1_R = crate::FieldReader<u8, u8>;
+pub type Reserved1R = crate::FieldReader;
 #[doc = "Field `RESERVED1` writer - 7:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED1_W<'a, const O: u8> = crate::FieldWriter<'a, u32, TEST_SPEC, u8, u8, 7, O>;
-#[doc = "Field `STALL` reader - 8:8\\]
-WDT Stall Enable 0: The WDT timer continues counting if the CPU is stopped with a debugger. 1: If the CPU is stopped with a debugger, the WDT stops counting. Once the CPU is restarted, the WDT resumes counting."]
-pub type STALL_R = crate::BitReader<STALL_A>;
+pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "8:8\\]
 WDT Stall Enable 0: The WDT timer continues counting if the CPU is stopped with a debugger. 1: If the CPU is stopped with a debugger, the WDT stops counting. Once the CPU is restarted, the WDT resumes counting.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum STALL_A {
+pub enum Stall {
     #[doc = "1: Enable STALL"]
-    EN = 1,
+    En = 1,
     #[doc = "0: Disable STALL"]
-    DIS = 0,
+    Dis = 0,
 }
-impl From<STALL_A> for bool {
+impl From<Stall> for bool {
     #[inline(always)]
-    fn from(variant: STALL_A) -> Self {
+    fn from(variant: Stall) -> Self {
         variant as u8 != 0
     }
 }
-impl STALL_R {
+#[doc = "Field `STALL` reader - 8:8\\]
+WDT Stall Enable 0: The WDT timer continues counting if the CPU is stopped with a debugger. 1: If the CPU is stopped with a debugger, the WDT stops counting. Once the CPU is restarted, the WDT resumes counting."]
+pub type StallR = crate::BitReader<Stall>;
+impl StallR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> STALL_A {
+    pub const fn variant(&self) -> Stall {
         match self.bits {
-            true => STALL_A::EN,
-            false => STALL_A::DIS,
+            true => Stall::En,
+            false => Stall::Dis,
         }
     }
-    #[doc = "Checks if the value of the field is `EN`"]
+    #[doc = "Enable STALL"]
     #[inline(always)]
     pub fn is_en(&self) -> bool {
-        *self == STALL_A::EN
+        *self == Stall::En
     }
-    #[doc = "Checks if the value of the field is `DIS`"]
+    #[doc = "Disable STALL"]
     #[inline(always)]
     pub fn is_dis(&self) -> bool {
-        *self == STALL_A::DIS
+        *self == Stall::Dis
     }
 }
 #[doc = "Field `STALL` writer - 8:8\\]
 WDT Stall Enable 0: The WDT timer continues counting if the CPU is stopped with a debugger. 1: If the CPU is stopped with a debugger, the WDT stops counting. Once the CPU is restarted, the WDT resumes counting."]
-pub type STALL_W<'a, const O: u8> = crate::BitWriter<'a, u32, TEST_SPEC, STALL_A, O>;
-impl<'a, const O: u8> STALL_W<'a, O> {
+pub type StallW<'a, REG> = crate::BitWriter<'a, REG, Stall>;
+impl<'a, REG> StallW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Enable STALL"]
     #[inline(always)]
-    pub fn en(self) -> &'a mut W {
-        self.variant(STALL_A::EN)
+    pub fn en(self) -> &'a mut crate::W<REG> {
+        self.variant(Stall::En)
     }
     #[doc = "Disable STALL"]
     #[inline(always)]
-    pub fn dis(self) -> &'a mut W {
-        self.variant(STALL_A::DIS)
+    pub fn dis(self) -> &'a mut crate::W<REG> {
+        self.variant(Stall::Dis)
     }
 }
 #[doc = "Field `RESERVED9` reader - 31:9\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED9_R = crate::FieldReader<u32, u32>;
+pub type Reserved9R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED9` writer - 31:9\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED9_W<'a, const O: u8> = crate::FieldWriter<'a, u32, TEST_SPEC, u32, u32, 23, O>;
+pub type Reserved9W<'a, REG> = crate::FieldWriter<'a, REG, 23, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 The test enable bit 0: Enable external reset 1: Disables the generation of an external reset. Instead bit 1 of the INT_CAUS register is set and an interrupt is generated"]
     #[inline(always)]
-    pub fn test_en(&self) -> TEST_EN_R {
-        TEST_EN_R::new((self.bits & 1) != 0)
+    pub fn test_en(&self) -> TestEnR {
+        TestEnR::new((self.bits & 1) != 0)
     }
     #[doc = "Bits 1:7 - 7:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved1(&self) -> RESERVED1_R {
-        RESERVED1_R::new(((self.bits >> 1) & 0x7f) as u8)
+    pub fn reserved1(&self) -> Reserved1R {
+        Reserved1R::new(((self.bits >> 1) & 0x7f) as u8)
     }
     #[doc = "Bit 8 - 8:8\\]
 WDT Stall Enable 0: The WDT timer continues counting if the CPU is stopped with a debugger. 1: If the CPU is stopped with a debugger, the WDT stops counting. Once the CPU is restarted, the WDT resumes counting."]
     #[inline(always)]
-    pub fn stall(&self) -> STALL_R {
-        STALL_R::new(((self.bits >> 8) & 1) != 0)
+    pub fn stall(&self) -> StallR {
+        StallR::new(((self.bits >> 8) & 1) != 0)
     }
     #[doc = "Bits 9:31 - 31:9\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved9(&self) -> RESERVED9_R {
-        RESERVED9_R::new((self.bits >> 9) & 0x007f_ffff)
+    pub fn reserved9(&self) -> Reserved9R {
+        Reserved9R::new((self.bits >> 9) & 0x007f_ffff)
     }
 }
 impl W {
@@ -183,53 +157,45 @@ impl W {
 The test enable bit 0: Enable external reset 1: Disables the generation of an external reset. Instead bit 1 of the INT_CAUS register is set and an interrupt is generated"]
     #[inline(always)]
     #[must_use]
-    pub fn test_en(&mut self) -> TEST_EN_W<0> {
-        TEST_EN_W::new(self)
+    pub fn test_en(&mut self) -> TestEnW<TestSpec> {
+        TestEnW::new(self, 0)
     }
     #[doc = "Bits 1:7 - 7:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved1(&mut self) -> RESERVED1_W<1> {
-        RESERVED1_W::new(self)
+    pub fn reserved1(&mut self) -> Reserved1W<TestSpec> {
+        Reserved1W::new(self, 1)
     }
     #[doc = "Bit 8 - 8:8\\]
 WDT Stall Enable 0: The WDT timer continues counting if the CPU is stopped with a debugger. 1: If the CPU is stopped with a debugger, the WDT stops counting. Once the CPU is restarted, the WDT resumes counting."]
     #[inline(always)]
     #[must_use]
-    pub fn stall(&mut self) -> STALL_W<8> {
-        STALL_W::new(self)
+    pub fn stall(&mut self) -> StallW<TestSpec> {
+        StallW::new(self, 8)
     }
     #[doc = "Bits 9:31 - 31:9\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved9(&mut self) -> RESERVED9_W<9> {
-        RESERVED9_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved9(&mut self) -> Reserved9W<TestSpec> {
+        Reserved9W::new(self, 9)
     }
 }
-#[doc = "Test Mode\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [test](index.html) module"]
-pub struct TEST_SPEC;
-impl crate::RegisterSpec for TEST_SPEC {
+#[doc = "Test Mode\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`test::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`test::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct TestSpec;
+impl crate::RegisterSpec for TestSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [test::R](R) reader structure"]
-impl crate::Readable for TEST_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [test::W](W) writer structure"]
-impl crate::Writable for TEST_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`test::R`](R) reader structure"]
+impl crate::Readable for TestSpec {}
+#[doc = "`write(|w| ..)` method takes [`test::W`](W) writer structure"]
+impl crate::Writable for TestSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets TEST to value 0"]
-impl crate::Resettable for TEST_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for TestSpec {
+    const RESET_VALUE: u32 = 0;
 }

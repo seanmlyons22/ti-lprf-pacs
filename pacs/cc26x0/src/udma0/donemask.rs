@@ -1,39 +1,7 @@
 #[doc = "Register `DONEMASK` reader"]
-pub struct R(crate::R<DONEMASK_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<DONEMASK_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<DONEMASK_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<DONEMASK_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<DonemaskSpec>;
 #[doc = "Register `DONEMASK` writer"]
-pub struct W(crate::W<DONEMASK_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<DONEMASK_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<DONEMASK_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<DONEMASK_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<DonemaskSpec>;
 #[doc = "Field `CHNLS` reader - 31:0\\]
 Controls the propagation of the uDMA done and active state to the assigned peripheral. Specifically used for software channels. Read as: Bit \\[Ch\\]
 = 0: uDMA done and active state for channel Ch is not blocked from reaching to the peripherals. Note that the uDMA done state for channel \\[Ch\\]
@@ -44,7 +12,7 @@ is not blocked from contributing to generation of combined uDMA done signal Writ
 from contributing to generation of combined uDMA done signal Bit \\[Ch\\]
 = 1: Blocks uDMA done and active state to propagate to the peripherals. Note that this enables uDMA done for channel \\[Ch\\]
 to contribute to generation of combined uDMA done signal."]
-pub type CHNLS_R = crate::FieldReader<u32, u32>;
+pub type ChnlsR = crate::FieldReader<u32>;
 #[doc = "Field `CHNLS` writer - 31:0\\]
 Controls the propagation of the uDMA done and active state to the assigned peripheral. Specifically used for software channels. Read as: Bit \\[Ch\\]
 = 0: uDMA done and active state for channel Ch is not blocked from reaching to the peripherals. Note that the uDMA done state for channel \\[Ch\\]
@@ -55,7 +23,7 @@ is not blocked from contributing to generation of combined uDMA done signal Writ
 from contributing to generation of combined uDMA done signal Bit \\[Ch\\]
 = 1: Blocks uDMA done and active state to propagate to the peripherals. Note that this enables uDMA done for channel \\[Ch\\]
 to contribute to generation of combined uDMA done signal."]
-pub type CHNLS_W<'a, const O: u8> = crate::FieldWriter<'a, u32, DONEMASK_SPEC, u32, u32, 32, O>;
+pub type ChnlsW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 Controls the propagation of the uDMA done and active state to the assigned peripheral. Specifically used for software channels. Read as: Bit \\[Ch\\]
@@ -68,8 +36,8 @@ from contributing to generation of combined uDMA done signal Bit \\[Ch\\]
 = 1: Blocks uDMA done and active state to propagate to the peripherals. Note that this enables uDMA done for channel \\[Ch\\]
 to contribute to generation of combined uDMA done signal."]
     #[inline(always)]
-    pub fn chnls(&self) -> CHNLS_R {
-        CHNLS_R::new(self.bits)
+    pub fn chnls(&self) -> ChnlsR {
+        ChnlsR::new(self.bits)
     }
 }
 impl W {
@@ -85,32 +53,24 @@ from contributing to generation of combined uDMA done signal Bit \\[Ch\\]
 to contribute to generation of combined uDMA done signal."]
     #[inline(always)]
     #[must_use]
-    pub fn chnls(&mut self) -> CHNLS_W<0> {
-        CHNLS_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn chnls(&mut self) -> ChnlsW<DonemaskSpec> {
+        ChnlsW::new(self, 0)
     }
 }
-#[doc = "Channel Request Done Mask\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [donemask](index.html) module"]
-pub struct DONEMASK_SPEC;
-impl crate::RegisterSpec for DONEMASK_SPEC {
+#[doc = "Channel Request Done Mask\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`donemask::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`donemask::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct DonemaskSpec;
+impl crate::RegisterSpec for DonemaskSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [donemask::R](R) reader structure"]
-impl crate::Readable for DONEMASK_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [donemask::W](W) writer structure"]
-impl crate::Writable for DONEMASK_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`donemask::R`](R) reader structure"]
+impl crate::Readable for DonemaskSpec {}
+#[doc = "`write(|w| ..)` method takes [`donemask::W`](W) writer structure"]
+impl crate::Writable for DonemaskSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets DONEMASK to value 0"]
-impl crate::Resettable for DONEMASK_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for DonemaskSpec {
+    const RESET_VALUE: u32 = 0;
 }

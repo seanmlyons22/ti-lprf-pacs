@@ -1,63 +1,31 @@
 #[doc = "Register `SINGLEBIT` reader"]
-pub struct R(crate::R<SINGLEBIT_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<SINGLEBIT_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<SINGLEBIT_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<SINGLEBIT_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<SinglebitSpec>;
 #[doc = "Register `SINGLEBIT` writer"]
-pub struct W(crate::W<SINGLEBIT_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<SINGLEBIT_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<SINGLEBIT_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<SINGLEBIT_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<SinglebitSpec>;
 #[doc = "Field `FROM0` reader - 0:0\\]
 Internal. Only to be used through TI provided API."]
-pub type FROM0_R = crate::BitReader<bool>;
+pub type From0R = crate::BitReader;
 #[doc = "Field `FROM0` writer - 0:0\\]
 Internal. Only to be used through TI provided API."]
-pub type FROM0_W<'a, const O: u8> = crate::BitWriter<'a, u32, SINGLEBIT_SPEC, bool, O>;
+pub type From0W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `FROMN` reader - 31:1\\]
 Internal. Only to be used through TI provided API."]
-pub type FROMN_R = crate::FieldReader<u32, u32>;
+pub type FromnR = crate::FieldReader<u32>;
 #[doc = "Field `FROMN` writer - 31:1\\]
 Internal. Only to be used through TI provided API."]
-pub type FROMN_W<'a, const O: u8> = crate::FieldWriter<'a, u32, SINGLEBIT_SPEC, u32, u32, 31, O>;
+pub type FromnW<'a, REG> = crate::FieldWriter<'a, REG, 31, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn from0(&self) -> FROM0_R {
-        FROM0_R::new((self.bits & 1) != 0)
+    pub fn from0(&self) -> From0R {
+        From0R::new((self.bits & 1) != 0)
     }
     #[doc = "Bits 1:31 - 31:1\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn fromn(&self) -> FROMN_R {
-        FROMN_R::new((self.bits >> 1) & 0x7fff_ffff)
+    pub fn fromn(&self) -> FromnR {
+        FromnR::new((self.bits >> 1) & 0x7fff_ffff)
     }
 }
 impl W {
@@ -65,39 +33,31 @@ impl W {
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn from0(&mut self) -> FROM0_W<0> {
-        FROM0_W::new(self)
+    pub fn from0(&mut self) -> From0W<SinglebitSpec> {
+        From0W::new(self, 0)
     }
     #[doc = "Bits 1:31 - 31:1\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn fromn(&mut self) -> FROMN_W<1> {
-        FROMN_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn fromn(&mut self) -> FromnW<SinglebitSpec> {
+        FromnW::new(self, 1)
     }
 }
-#[doc = "Internal. Only to be used through TI provided API.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [singlebit](index.html) module"]
-pub struct SINGLEBIT_SPEC;
-impl crate::RegisterSpec for SINGLEBIT_SPEC {
+#[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`singlebit::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`singlebit::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct SinglebitSpec;
+impl crate::RegisterSpec for SinglebitSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [singlebit::R](R) reader structure"]
-impl crate::Readable for SINGLEBIT_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [singlebit::W](W) writer structure"]
-impl crate::Writable for SINGLEBIT_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`singlebit::R`](R) reader structure"]
+impl crate::Readable for SinglebitSpec {}
+#[doc = "`write(|w| ..)` method takes [`singlebit::W`](W) writer structure"]
+impl crate::Writable for SinglebitSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets SINGLEBIT to value 0"]
-impl crate::Resettable for SINGLEBIT_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for SinglebitSpec {
+    const RESET_VALUE: u32 = 0;
 }

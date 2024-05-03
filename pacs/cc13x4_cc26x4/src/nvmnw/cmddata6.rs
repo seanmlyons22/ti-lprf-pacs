@@ -1,100 +1,76 @@
 #[doc = "Register `CMDDATA6` reader"]
-pub struct R(crate::R<CMDDATA6_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<CMDDATA6_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<CMDDATA6_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<CMDDATA6_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Cmddata6Spec>;
 #[doc = "Register `CMDDATA6` writer"]
-pub struct W(crate::W<CMDDATA6_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<CMDDATA6_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<CMDDATA6_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<CMDDATA6_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `VAL` reader - 31:0\\]
-A 32-bit data value is placed in this field."]
-pub type VAL_R = crate::FieldReader<u32, VAL_A>;
+pub type W = crate::W<Cmddata6Spec>;
 #[doc = "31:0\\]
 A 32-bit data value is placed in this field.\n\nValue on reset: 4294967295"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u32)]
-pub enum VAL_A {
+pub enum Val {
     #[doc = "4294967295: Maximum value of VAL"]
-    MAXIMUM = 4294967295,
+    Maximum = 4294967295,
     #[doc = "0: Minimum value of VAL"]
-    MINIMUM = 0,
+    Minimum = 0,
 }
-impl From<VAL_A> for u32 {
+impl From<Val> for u32 {
     #[inline(always)]
-    fn from(variant: VAL_A) -> Self {
+    fn from(variant: Val) -> Self {
         variant as _
     }
 }
-impl VAL_R {
+impl crate::FieldSpec for Val {
+    type Ux = u32;
+}
+impl crate::IsEnum for Val {}
+#[doc = "Field `VAL` reader - 31:0\\]
+A 32-bit data value is placed in this field."]
+pub type ValR = crate::FieldReader<Val>;
+impl ValR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<VAL_A> {
+    pub const fn variant(&self) -> Option<Val> {
         match self.bits {
-            4294967295 => Some(VAL_A::MAXIMUM),
-            0 => Some(VAL_A::MINIMUM),
+            4294967295 => Some(Val::Maximum),
+            0 => Some(Val::Minimum),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `MAXIMUM`"]
+    #[doc = "Maximum value of VAL"]
     #[inline(always)]
     pub fn is_maximum(&self) -> bool {
-        *self == VAL_A::MAXIMUM
+        *self == Val::Maximum
     }
-    #[doc = "Checks if the value of the field is `MINIMUM`"]
+    #[doc = "Minimum value of VAL"]
     #[inline(always)]
     pub fn is_minimum(&self) -> bool {
-        *self == VAL_A::MINIMUM
+        *self == Val::Minimum
     }
 }
 #[doc = "Field `VAL` writer - 31:0\\]
 A 32-bit data value is placed in this field."]
-pub type VAL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CMDDATA6_SPEC, u32, VAL_A, 32, O>;
-impl<'a, const O: u8> VAL_W<'a, O> {
+pub type ValW<'a, REG> = crate::FieldWriter<'a, REG, 32, Val>;
+impl<'a, REG> ValW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u32>,
+{
     #[doc = "Maximum value of VAL"]
     #[inline(always)]
-    pub fn maximum(self) -> &'a mut W {
-        self.variant(VAL_A::MAXIMUM)
+    pub fn maximum(self) -> &'a mut crate::W<REG> {
+        self.variant(Val::Maximum)
     }
     #[doc = "Minimum value of VAL"]
     #[inline(always)]
-    pub fn minimum(self) -> &'a mut W {
-        self.variant(VAL_A::MINIMUM)
+    pub fn minimum(self) -> &'a mut crate::W<REG> {
+        self.variant(Val::Minimum)
     }
 }
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 A 32-bit data value is placed in this field."]
     #[inline(always)]
-    pub fn val(&self) -> VAL_R {
-        VAL_R::new(self.bits)
+    pub fn val(&self) -> ValR {
+        ValR::new(self.bits)
     }
 }
 impl W {
@@ -102,32 +78,24 @@ impl W {
 A 32-bit data value is placed in this field."]
     #[inline(always)]
     #[must_use]
-    pub fn val(&mut self) -> VAL_W<0> {
-        VAL_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn val(&mut self) -> ValW<Cmddata6Spec> {
+        ValW::new(self, 0)
     }
 }
-#[doc = "Command Data Register 6 This register forms the data for a command. For DATAWIDTH == 128:This register represents bits 95:64 of flash word data register 1. For DATAWIDTH == 64:This register represents bits 31:0 of flash word data register 3. This register is blocked for writes after a 1 is written to the CMDEXEC register and prior to STATCMD.DONE being set by the NoWrapper hardware. This register is used to aggregate masking for bits that do not require additional program pulses during program operations, and will be written to all 1 after the completion of all NoWrapper commands. Use cases for the CMDDATA* registers are as follows: 1)Program - These registers contain the data to be programmed. 2)Erase - These registers are not used. 3)Read Verify - These registers contain data to be verified.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cmddata6](index.html) module"]
-pub struct CMDDATA6_SPEC;
-impl crate::RegisterSpec for CMDDATA6_SPEC {
+#[doc = "Command Data Register 6 This register forms the data for a command. For DATAWIDTH == 128:This register represents bits 95:64 of flash word data register 1. For DATAWIDTH == 64:This register represents bits 31:0 of flash word data register 3. This register is blocked for writes after a 1 is written to the CMDEXEC register and prior to STATCMD.DONE being set by the NoWrapper hardware. This register is used to aggregate masking for bits that do not require additional program pulses during program operations, and will be written to all 1 after the completion of all NoWrapper commands. Use cases for the CMDDATA* registers are as follows: 1)Program - These registers contain the data to be programmed. 2)Erase - These registers are not used. 3)Read Verify - These registers contain data to be verified.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`cmddata6::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`cmddata6::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Cmddata6Spec;
+impl crate::RegisterSpec for Cmddata6Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [cmddata6::R](R) reader structure"]
-impl crate::Readable for CMDDATA6_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [cmddata6::W](W) writer structure"]
-impl crate::Writable for CMDDATA6_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`cmddata6::R`](R) reader structure"]
+impl crate::Readable for Cmddata6Spec {}
+#[doc = "`write(|w| ..)` method takes [`cmddata6::W`](W) writer structure"]
+impl crate::Writable for Cmddata6Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets CMDDATA6 to value 0xffff_ffff"]
-impl crate::Resettable for CMDDATA6_SPEC {
-    const RESET_VALUE: Self::Ux = 0xffff_ffff;
+impl crate::Resettable for Cmddata6Spec {
+    const RESET_VALUE: u32 = 0xffff_ffff;
 }

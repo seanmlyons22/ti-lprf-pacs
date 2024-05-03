@@ -1,91 +1,55 @@
 #[doc = "Register `RCOSC_HF_TEMPCOMP` reader"]
-pub struct R(crate::R<RCOSC_HF_TEMPCOMP_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<RCOSC_HF_TEMPCOMP_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<RCOSC_HF_TEMPCOMP_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<RCOSC_HF_TEMPCOMP_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<RcoscHfTempcompSpec>;
 #[doc = "Register `RCOSC_HF_TEMPCOMP` writer"]
-pub struct W(crate::W<RCOSC_HF_TEMPCOMP_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<RCOSC_HF_TEMPCOMP_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<RCOSC_HF_TEMPCOMP_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<RCOSC_HF_TEMPCOMP_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<RcoscHfTempcompSpec>;
 #[doc = "Field `CTRIMFRACT_SLOPE` reader - 7:0\\]
 Internal. Only to be used through TI provided API."]
-pub type CTRIMFRACT_SLOPE_R = crate::FieldReader<u8, u8>;
+pub type CtrimfractSlopeR = crate::FieldReader;
 #[doc = "Field `CTRIMFRACT_SLOPE` writer - 7:0\\]
 Internal. Only to be used through TI provided API."]
-pub type CTRIMFRACT_SLOPE_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, RCOSC_HF_TEMPCOMP_SPEC, u8, u8, 8, O>;
+pub type CtrimfractSlopeW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `CTRIMFRACT_QUAD` reader - 15:8\\]
 Internal. Only to be used through TI provided API."]
-pub type CTRIMFRACT_QUAD_R = crate::FieldReader<u8, u8>;
+pub type CtrimfractQuadR = crate::FieldReader;
 #[doc = "Field `CTRIMFRACT_QUAD` writer - 15:8\\]
 Internal. Only to be used through TI provided API."]
-pub type CTRIMFRACT_QUAD_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, RCOSC_HF_TEMPCOMP_SPEC, u8, u8, 8, O>;
+pub type CtrimfractQuadW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `CTRIM` reader - 23:16\\]
 Internal. Only to be used through TI provided API."]
-pub type CTRIM_R = crate::FieldReader<u8, u8>;
+pub type CtrimR = crate::FieldReader;
 #[doc = "Field `CTRIM` writer - 23:16\\]
 Internal. Only to be used through TI provided API."]
-pub type CTRIM_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, RCOSC_HF_TEMPCOMP_SPEC, u8, u8, 8, O>;
+pub type CtrimW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `FINE_RESISTOR` reader - 31:24\\]
 Internal. Only to be used through TI provided API."]
-pub type FINE_RESISTOR_R = crate::FieldReader<u8, u8>;
+pub type FineResistorR = crate::FieldReader;
 #[doc = "Field `FINE_RESISTOR` writer - 31:24\\]
 Internal. Only to be used through TI provided API."]
-pub type FINE_RESISTOR_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, RCOSC_HF_TEMPCOMP_SPEC, u8, u8, 8, O>;
+pub type FineResistorW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn ctrimfract_slope(&self) -> CTRIMFRACT_SLOPE_R {
-        CTRIMFRACT_SLOPE_R::new((self.bits & 0xff) as u8)
+    pub fn ctrimfract_slope(&self) -> CtrimfractSlopeR {
+        CtrimfractSlopeR::new((self.bits & 0xff) as u8)
     }
     #[doc = "Bits 8:15 - 15:8\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn ctrimfract_quad(&self) -> CTRIMFRACT_QUAD_R {
-        CTRIMFRACT_QUAD_R::new(((self.bits >> 8) & 0xff) as u8)
+    pub fn ctrimfract_quad(&self) -> CtrimfractQuadR {
+        CtrimfractQuadR::new(((self.bits >> 8) & 0xff) as u8)
     }
     #[doc = "Bits 16:23 - 23:16\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn ctrim(&self) -> CTRIM_R {
-        CTRIM_R::new(((self.bits >> 16) & 0xff) as u8)
+    pub fn ctrim(&self) -> CtrimR {
+        CtrimR::new(((self.bits >> 16) & 0xff) as u8)
     }
     #[doc = "Bits 24:31 - 31:24\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn fine_resistor(&self) -> FINE_RESISTOR_R {
-        FINE_RESISTOR_R::new(((self.bits >> 24) & 0xff) as u8)
+    pub fn fine_resistor(&self) -> FineResistorR {
+        FineResistorR::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
 impl W {
@@ -93,53 +57,45 @@ impl W {
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn ctrimfract_slope(&mut self) -> CTRIMFRACT_SLOPE_W<0> {
-        CTRIMFRACT_SLOPE_W::new(self)
+    pub fn ctrimfract_slope(&mut self) -> CtrimfractSlopeW<RcoscHfTempcompSpec> {
+        CtrimfractSlopeW::new(self, 0)
     }
     #[doc = "Bits 8:15 - 15:8\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn ctrimfract_quad(&mut self) -> CTRIMFRACT_QUAD_W<8> {
-        CTRIMFRACT_QUAD_W::new(self)
+    pub fn ctrimfract_quad(&mut self) -> CtrimfractQuadW<RcoscHfTempcompSpec> {
+        CtrimfractQuadW::new(self, 8)
     }
     #[doc = "Bits 16:23 - 23:16\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn ctrim(&mut self) -> CTRIM_W<16> {
-        CTRIM_W::new(self)
+    pub fn ctrim(&mut self) -> CtrimW<RcoscHfTempcompSpec> {
+        CtrimW::new(self, 16)
     }
     #[doc = "Bits 24:31 - 31:24\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn fine_resistor(&mut self) -> FINE_RESISTOR_W<24> {
-        FINE_RESISTOR_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn fine_resistor(&mut self) -> FineResistorW<RcoscHfTempcompSpec> {
+        FineResistorW::new(self, 24)
     }
 }
-#[doc = "Internal. Only to be used through TI provided API.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rcosc_hf_tempcomp](index.html) module"]
-pub struct RCOSC_HF_TEMPCOMP_SPEC;
-impl crate::RegisterSpec for RCOSC_HF_TEMPCOMP_SPEC {
+#[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`rcosc_hf_tempcomp::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`rcosc_hf_tempcomp::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct RcoscHfTempcompSpec;
+impl crate::RegisterSpec for RcoscHfTempcompSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [rcosc_hf_tempcomp::R](R) reader structure"]
-impl crate::Readable for RCOSC_HF_TEMPCOMP_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [rcosc_hf_tempcomp::W](W) writer structure"]
-impl crate::Writable for RCOSC_HF_TEMPCOMP_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`rcosc_hf_tempcomp::R`](R) reader structure"]
+impl crate::Readable for RcoscHfTempcompSpec {}
+#[doc = "`write(|w| ..)` method takes [`rcosc_hf_tempcomp::W`](W) writer structure"]
+impl crate::Writable for RcoscHfTempcompSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets RCOSC_HF_TEMPCOMP to value 0x03"]
-impl crate::Resettable for RCOSC_HF_TEMPCOMP_SPEC {
-    const RESET_VALUE: Self::Ux = 0x03;
+impl crate::Resettable for RcoscHfTempcompSpec {
+    const RESET_VALUE: u32 = 0x03;
 }

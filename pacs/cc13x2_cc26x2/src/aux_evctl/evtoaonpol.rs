@@ -1,422 +1,403 @@
 #[doc = "Register `EVTOAONPOL` reader"]
-pub struct R(crate::R<EVTOAONPOL_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<EVTOAONPOL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<EVTOAONPOL_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<EVTOAONPOL_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<EvtoaonpolSpec>;
 #[doc = "Register `EVTOAONPOL` writer"]
-pub struct W(crate::W<EVTOAONPOL_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<EVTOAONPOL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<EVTOAONPOL_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<EVTOAONPOL_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<EvtoaonpolSpec>;
 #[doc = "Field `RESERVED2` reader - 2:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED2_R = crate::FieldReader<u8, u8>;
+pub type Reserved2R = crate::FieldReader;
 #[doc = "Field `RESERVED2` writer - 2:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED2_W<'a, const O: u8> = crate::FieldWriter<'a, u32, EVTOAONPOL_SPEC, u8, u8, 3, O>;
-#[doc = "Field `AUX_COMPA` reader - 3:3\\]
-Select the edge of EVSTAT2.AUX_COMPA that sets EVTOAONFLAGS.AUX_COMPA."]
-pub type AUX_COMPA_R = crate::BitReader<AUX_COMPA_A>;
+pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "3:3\\]
 Select the edge of EVSTAT2.AUX_COMPA that sets EVTOAONFLAGS.AUX_COMPA.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum AUX_COMPA_A {
+pub enum AuxCompa {
     #[doc = "1: Falling edge"]
-    FALL = 1,
+    Fall = 1,
     #[doc = "0: Rising edge"]
-    RISE = 0,
+    Rise = 0,
 }
-impl From<AUX_COMPA_A> for bool {
+impl From<AuxCompa> for bool {
     #[inline(always)]
-    fn from(variant: AUX_COMPA_A) -> Self {
+    fn from(variant: AuxCompa) -> Self {
         variant as u8 != 0
     }
 }
-impl AUX_COMPA_R {
+#[doc = "Field `AUX_COMPA` reader - 3:3\\]
+Select the edge of EVSTAT2.AUX_COMPA that sets EVTOAONFLAGS.AUX_COMPA."]
+pub type AuxCompaR = crate::BitReader<AuxCompa>;
+impl AuxCompaR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> AUX_COMPA_A {
+    pub const fn variant(&self) -> AuxCompa {
         match self.bits {
-            true => AUX_COMPA_A::FALL,
-            false => AUX_COMPA_A::RISE,
+            true => AuxCompa::Fall,
+            false => AuxCompa::Rise,
         }
     }
-    #[doc = "Checks if the value of the field is `FALL`"]
+    #[doc = "Falling edge"]
     #[inline(always)]
     pub fn is_fall(&self) -> bool {
-        *self == AUX_COMPA_A::FALL
+        *self == AuxCompa::Fall
     }
-    #[doc = "Checks if the value of the field is `RISE`"]
+    #[doc = "Rising edge"]
     #[inline(always)]
     pub fn is_rise(&self) -> bool {
-        *self == AUX_COMPA_A::RISE
+        *self == AuxCompa::Rise
     }
 }
 #[doc = "Field `AUX_COMPA` writer - 3:3\\]
 Select the edge of EVSTAT2.AUX_COMPA that sets EVTOAONFLAGS.AUX_COMPA."]
-pub type AUX_COMPA_W<'a, const O: u8> = crate::BitWriter<'a, u32, EVTOAONPOL_SPEC, AUX_COMPA_A, O>;
-impl<'a, const O: u8> AUX_COMPA_W<'a, O> {
+pub type AuxCompaW<'a, REG> = crate::BitWriter<'a, REG, AuxCompa>;
+impl<'a, REG> AuxCompaW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Falling edge"]
     #[inline(always)]
-    pub fn fall(self) -> &'a mut W {
-        self.variant(AUX_COMPA_A::FALL)
+    pub fn fall(self) -> &'a mut crate::W<REG> {
+        self.variant(AuxCompa::Fall)
     }
     #[doc = "Rising edge"]
     #[inline(always)]
-    pub fn rise(self) -> &'a mut W {
-        self.variant(AUX_COMPA_A::RISE)
+    pub fn rise(self) -> &'a mut crate::W<REG> {
+        self.variant(AuxCompa::Rise)
+    }
+}
+#[doc = "4:4\\]
+Select the edge of EVSTAT2.AUX_COMPB that sets EVTOAONFLAGS.AUX_COMPB.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum AuxCompb {
+    #[doc = "1: Falling edge"]
+    Fall = 1,
+    #[doc = "0: Rising edge"]
+    Rise = 0,
+}
+impl From<AuxCompb> for bool {
+    #[inline(always)]
+    fn from(variant: AuxCompb) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `AUX_COMPB` reader - 4:4\\]
 Select the edge of EVSTAT2.AUX_COMPB that sets EVTOAONFLAGS.AUX_COMPB."]
-pub type AUX_COMPB_R = crate::BitReader<AUX_COMPB_A>;
-#[doc = "4:4\\]
-Select the edge of EVSTAT2.AUX_COMPB that sets EVTOAONFLAGS.AUX_COMPB.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum AUX_COMPB_A {
-    #[doc = "1: Falling edge"]
-    FALL = 1,
-    #[doc = "0: Rising edge"]
-    RISE = 0,
-}
-impl From<AUX_COMPB_A> for bool {
-    #[inline(always)]
-    fn from(variant: AUX_COMPB_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl AUX_COMPB_R {
+pub type AuxCompbR = crate::BitReader<AuxCompb>;
+impl AuxCompbR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> AUX_COMPB_A {
+    pub const fn variant(&self) -> AuxCompb {
         match self.bits {
-            true => AUX_COMPB_A::FALL,
-            false => AUX_COMPB_A::RISE,
+            true => AuxCompb::Fall,
+            false => AuxCompb::Rise,
         }
     }
-    #[doc = "Checks if the value of the field is `FALL`"]
+    #[doc = "Falling edge"]
     #[inline(always)]
     pub fn is_fall(&self) -> bool {
-        *self == AUX_COMPB_A::FALL
+        *self == AuxCompb::Fall
     }
-    #[doc = "Checks if the value of the field is `RISE`"]
+    #[doc = "Rising edge"]
     #[inline(always)]
     pub fn is_rise(&self) -> bool {
-        *self == AUX_COMPB_A::RISE
+        *self == AuxCompb::Rise
     }
 }
 #[doc = "Field `AUX_COMPB` writer - 4:4\\]
 Select the edge of EVSTAT2.AUX_COMPB that sets EVTOAONFLAGS.AUX_COMPB."]
-pub type AUX_COMPB_W<'a, const O: u8> = crate::BitWriter<'a, u32, EVTOAONPOL_SPEC, AUX_COMPB_A, O>;
-impl<'a, const O: u8> AUX_COMPB_W<'a, O> {
+pub type AuxCompbW<'a, REG> = crate::BitWriter<'a, REG, AuxCompb>;
+impl<'a, REG> AuxCompbW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Falling edge"]
     #[inline(always)]
-    pub fn fall(self) -> &'a mut W {
-        self.variant(AUX_COMPB_A::FALL)
+    pub fn fall(self) -> &'a mut crate::W<REG> {
+        self.variant(AuxCompb::Fall)
     }
     #[doc = "Rising edge"]
     #[inline(always)]
-    pub fn rise(self) -> &'a mut W {
-        self.variant(AUX_COMPB_A::RISE)
+    pub fn rise(self) -> &'a mut crate::W<REG> {
+        self.variant(AuxCompb::Rise)
+    }
+}
+#[doc = "5:5\\]
+Select the level of EVSTAT3.AUX_ADC_DONE that sets EVTOAONFLAGS.AUX_ADC_DONE.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum AuxAdcDone {
+    #[doc = "1: Low level"]
+    Low = 1,
+    #[doc = "0: High level"]
+    High = 0,
+}
+impl From<AuxAdcDone> for bool {
+    #[inline(always)]
+    fn from(variant: AuxAdcDone) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `AUX_ADC_DONE` reader - 5:5\\]
 Select the level of EVSTAT3.AUX_ADC_DONE that sets EVTOAONFLAGS.AUX_ADC_DONE."]
-pub type AUX_ADC_DONE_R = crate::BitReader<AUX_ADC_DONE_A>;
-#[doc = "5:5\\]
-Select the level of EVSTAT3.AUX_ADC_DONE that sets EVTOAONFLAGS.AUX_ADC_DONE.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum AUX_ADC_DONE_A {
-    #[doc = "1: Low level"]
-    LOW = 1,
-    #[doc = "0: High level"]
-    HIGH = 0,
-}
-impl From<AUX_ADC_DONE_A> for bool {
-    #[inline(always)]
-    fn from(variant: AUX_ADC_DONE_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl AUX_ADC_DONE_R {
+pub type AuxAdcDoneR = crate::BitReader<AuxAdcDone>;
+impl AuxAdcDoneR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> AUX_ADC_DONE_A {
+    pub const fn variant(&self) -> AuxAdcDone {
         match self.bits {
-            true => AUX_ADC_DONE_A::LOW,
-            false => AUX_ADC_DONE_A::HIGH,
+            true => AuxAdcDone::Low,
+            false => AuxAdcDone::High,
         }
     }
-    #[doc = "Checks if the value of the field is `LOW`"]
+    #[doc = "Low level"]
     #[inline(always)]
     pub fn is_low(&self) -> bool {
-        *self == AUX_ADC_DONE_A::LOW
+        *self == AuxAdcDone::Low
     }
-    #[doc = "Checks if the value of the field is `HIGH`"]
+    #[doc = "High level"]
     #[inline(always)]
     pub fn is_high(&self) -> bool {
-        *self == AUX_ADC_DONE_A::HIGH
+        *self == AuxAdcDone::High
     }
 }
 #[doc = "Field `AUX_ADC_DONE` writer - 5:5\\]
 Select the level of EVSTAT3.AUX_ADC_DONE that sets EVTOAONFLAGS.AUX_ADC_DONE."]
-pub type AUX_ADC_DONE_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, EVTOAONPOL_SPEC, AUX_ADC_DONE_A, O>;
-impl<'a, const O: u8> AUX_ADC_DONE_W<'a, O> {
+pub type AuxAdcDoneW<'a, REG> = crate::BitWriter<'a, REG, AuxAdcDone>;
+impl<'a, REG> AuxAdcDoneW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Low level"]
     #[inline(always)]
-    pub fn low(self) -> &'a mut W {
-        self.variant(AUX_ADC_DONE_A::LOW)
+    pub fn low(self) -> &'a mut crate::W<REG> {
+        self.variant(AuxAdcDone::Low)
     }
     #[doc = "High level"]
     #[inline(always)]
-    pub fn high(self) -> &'a mut W {
-        self.variant(AUX_ADC_DONE_A::HIGH)
+    pub fn high(self) -> &'a mut crate::W<REG> {
+        self.variant(AuxAdcDone::High)
+    }
+}
+#[doc = "6:6\\]
+Select level of EVSTAT3.AUX_TDC_DONE that sets EVTOAONFLAGS.AUX_TDC_DONE.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum AuxTdcDone {
+    #[doc = "1: Low level"]
+    Low = 1,
+    #[doc = "0: High level"]
+    High = 0,
+}
+impl From<AuxTdcDone> for bool {
+    #[inline(always)]
+    fn from(variant: AuxTdcDone) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `AUX_TDC_DONE` reader - 6:6\\]
 Select level of EVSTAT3.AUX_TDC_DONE that sets EVTOAONFLAGS.AUX_TDC_DONE."]
-pub type AUX_TDC_DONE_R = crate::BitReader<AUX_TDC_DONE_A>;
-#[doc = "6:6\\]
-Select level of EVSTAT3.AUX_TDC_DONE that sets EVTOAONFLAGS.AUX_TDC_DONE.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum AUX_TDC_DONE_A {
-    #[doc = "1: Low level"]
-    LOW = 1,
-    #[doc = "0: High level"]
-    HIGH = 0,
-}
-impl From<AUX_TDC_DONE_A> for bool {
-    #[inline(always)]
-    fn from(variant: AUX_TDC_DONE_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl AUX_TDC_DONE_R {
+pub type AuxTdcDoneR = crate::BitReader<AuxTdcDone>;
+impl AuxTdcDoneR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> AUX_TDC_DONE_A {
+    pub const fn variant(&self) -> AuxTdcDone {
         match self.bits {
-            true => AUX_TDC_DONE_A::LOW,
-            false => AUX_TDC_DONE_A::HIGH,
+            true => AuxTdcDone::Low,
+            false => AuxTdcDone::High,
         }
     }
-    #[doc = "Checks if the value of the field is `LOW`"]
+    #[doc = "Low level"]
     #[inline(always)]
     pub fn is_low(&self) -> bool {
-        *self == AUX_TDC_DONE_A::LOW
+        *self == AuxTdcDone::Low
     }
-    #[doc = "Checks if the value of the field is `HIGH`"]
+    #[doc = "High level"]
     #[inline(always)]
     pub fn is_high(&self) -> bool {
-        *self == AUX_TDC_DONE_A::HIGH
+        *self == AuxTdcDone::High
     }
 }
 #[doc = "Field `AUX_TDC_DONE` writer - 6:6\\]
 Select level of EVSTAT3.AUX_TDC_DONE that sets EVTOAONFLAGS.AUX_TDC_DONE."]
-pub type AUX_TDC_DONE_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, EVTOAONPOL_SPEC, AUX_TDC_DONE_A, O>;
-impl<'a, const O: u8> AUX_TDC_DONE_W<'a, O> {
+pub type AuxTdcDoneW<'a, REG> = crate::BitWriter<'a, REG, AuxTdcDone>;
+impl<'a, REG> AuxTdcDoneW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Low level"]
     #[inline(always)]
-    pub fn low(self) -> &'a mut W {
-        self.variant(AUX_TDC_DONE_A::LOW)
+    pub fn low(self) -> &'a mut crate::W<REG> {
+        self.variant(AuxTdcDone::Low)
     }
     #[doc = "High level"]
     #[inline(always)]
-    pub fn high(self) -> &'a mut W {
-        self.variant(AUX_TDC_DONE_A::HIGH)
+    pub fn high(self) -> &'a mut crate::W<REG> {
+        self.variant(AuxTdcDone::High)
+    }
+}
+#[doc = "7:7\\]
+Select the level of EVSTAT3.AUX_TIMER0_EV that sets EVTOAONFLAGS.AUX_TIMER0_EV.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum AuxTimer0Ev {
+    #[doc = "1: Low level"]
+    Low = 1,
+    #[doc = "0: High level"]
+    High = 0,
+}
+impl From<AuxTimer0Ev> for bool {
+    #[inline(always)]
+    fn from(variant: AuxTimer0Ev) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `AUX_TIMER0_EV` reader - 7:7\\]
 Select the level of EVSTAT3.AUX_TIMER0_EV that sets EVTOAONFLAGS.AUX_TIMER0_EV."]
-pub type AUX_TIMER0_EV_R = crate::BitReader<AUX_TIMER0_EV_A>;
-#[doc = "7:7\\]
-Select the level of EVSTAT3.AUX_TIMER0_EV that sets EVTOAONFLAGS.AUX_TIMER0_EV.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum AUX_TIMER0_EV_A {
-    #[doc = "1: Low level"]
-    LOW = 1,
-    #[doc = "0: High level"]
-    HIGH = 0,
-}
-impl From<AUX_TIMER0_EV_A> for bool {
-    #[inline(always)]
-    fn from(variant: AUX_TIMER0_EV_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl AUX_TIMER0_EV_R {
+pub type AuxTimer0EvR = crate::BitReader<AuxTimer0Ev>;
+impl AuxTimer0EvR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> AUX_TIMER0_EV_A {
+    pub const fn variant(&self) -> AuxTimer0Ev {
         match self.bits {
-            true => AUX_TIMER0_EV_A::LOW,
-            false => AUX_TIMER0_EV_A::HIGH,
+            true => AuxTimer0Ev::Low,
+            false => AuxTimer0Ev::High,
         }
     }
-    #[doc = "Checks if the value of the field is `LOW`"]
+    #[doc = "Low level"]
     #[inline(always)]
     pub fn is_low(&self) -> bool {
-        *self == AUX_TIMER0_EV_A::LOW
+        *self == AuxTimer0Ev::Low
     }
-    #[doc = "Checks if the value of the field is `HIGH`"]
+    #[doc = "High level"]
     #[inline(always)]
     pub fn is_high(&self) -> bool {
-        *self == AUX_TIMER0_EV_A::HIGH
+        *self == AuxTimer0Ev::High
     }
 }
 #[doc = "Field `AUX_TIMER0_EV` writer - 7:7\\]
 Select the level of EVSTAT3.AUX_TIMER0_EV that sets EVTOAONFLAGS.AUX_TIMER0_EV."]
-pub type AUX_TIMER0_EV_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, EVTOAONPOL_SPEC, AUX_TIMER0_EV_A, O>;
-impl<'a, const O: u8> AUX_TIMER0_EV_W<'a, O> {
+pub type AuxTimer0EvW<'a, REG> = crate::BitWriter<'a, REG, AuxTimer0Ev>;
+impl<'a, REG> AuxTimer0EvW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Low level"]
     #[inline(always)]
-    pub fn low(self) -> &'a mut W {
-        self.variant(AUX_TIMER0_EV_A::LOW)
+    pub fn low(self) -> &'a mut crate::W<REG> {
+        self.variant(AuxTimer0Ev::Low)
     }
     #[doc = "High level"]
     #[inline(always)]
-    pub fn high(self) -> &'a mut W {
-        self.variant(AUX_TIMER0_EV_A::HIGH)
+    pub fn high(self) -> &'a mut crate::W<REG> {
+        self.variant(AuxTimer0Ev::High)
+    }
+}
+#[doc = "8:8\\]
+Select the level of EVSTAT3.AUX_TIMER1_EV that sets EVTOAONFLAGS.AUX_TIMER1_EV.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum AuxTimer1Ev {
+    #[doc = "1: Low level"]
+    Low = 1,
+    #[doc = "0: High level"]
+    High = 0,
+}
+impl From<AuxTimer1Ev> for bool {
+    #[inline(always)]
+    fn from(variant: AuxTimer1Ev) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `AUX_TIMER1_EV` reader - 8:8\\]
 Select the level of EVSTAT3.AUX_TIMER1_EV that sets EVTOAONFLAGS.AUX_TIMER1_EV."]
-pub type AUX_TIMER1_EV_R = crate::BitReader<AUX_TIMER1_EV_A>;
-#[doc = "8:8\\]
-Select the level of EVSTAT3.AUX_TIMER1_EV that sets EVTOAONFLAGS.AUX_TIMER1_EV.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum AUX_TIMER1_EV_A {
-    #[doc = "1: Low level"]
-    LOW = 1,
-    #[doc = "0: High level"]
-    HIGH = 0,
-}
-impl From<AUX_TIMER1_EV_A> for bool {
-    #[inline(always)]
-    fn from(variant: AUX_TIMER1_EV_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl AUX_TIMER1_EV_R {
+pub type AuxTimer1EvR = crate::BitReader<AuxTimer1Ev>;
+impl AuxTimer1EvR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> AUX_TIMER1_EV_A {
+    pub const fn variant(&self) -> AuxTimer1Ev {
         match self.bits {
-            true => AUX_TIMER1_EV_A::LOW,
-            false => AUX_TIMER1_EV_A::HIGH,
+            true => AuxTimer1Ev::Low,
+            false => AuxTimer1Ev::High,
         }
     }
-    #[doc = "Checks if the value of the field is `LOW`"]
+    #[doc = "Low level"]
     #[inline(always)]
     pub fn is_low(&self) -> bool {
-        *self == AUX_TIMER1_EV_A::LOW
+        *self == AuxTimer1Ev::Low
     }
-    #[doc = "Checks if the value of the field is `HIGH`"]
+    #[doc = "High level"]
     #[inline(always)]
     pub fn is_high(&self) -> bool {
-        *self == AUX_TIMER1_EV_A::HIGH
+        *self == AuxTimer1Ev::High
     }
 }
 #[doc = "Field `AUX_TIMER1_EV` writer - 8:8\\]
 Select the level of EVSTAT3.AUX_TIMER1_EV that sets EVTOAONFLAGS.AUX_TIMER1_EV."]
-pub type AUX_TIMER1_EV_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, EVTOAONPOL_SPEC, AUX_TIMER1_EV_A, O>;
-impl<'a, const O: u8> AUX_TIMER1_EV_W<'a, O> {
+pub type AuxTimer1EvW<'a, REG> = crate::BitWriter<'a, REG, AuxTimer1Ev>;
+impl<'a, REG> AuxTimer1EvW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Low level"]
     #[inline(always)]
-    pub fn low(self) -> &'a mut W {
-        self.variant(AUX_TIMER1_EV_A::LOW)
+    pub fn low(self) -> &'a mut crate::W<REG> {
+        self.variant(AuxTimer1Ev::Low)
     }
     #[doc = "High level"]
     #[inline(always)]
-    pub fn high(self) -> &'a mut W {
-        self.variant(AUX_TIMER1_EV_A::HIGH)
+    pub fn high(self) -> &'a mut crate::W<REG> {
+        self.variant(AuxTimer1Ev::High)
     }
 }
 #[doc = "Field `RESERVED9` reader - 31:9\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED9_R = crate::FieldReader<u32, u32>;
+pub type Reserved9R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED9` writer - 31:9\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED9_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, EVTOAONPOL_SPEC, u32, u32, 23, O>;
+pub type Reserved9W<'a, REG> = crate::FieldWriter<'a, REG, 23, u32>;
 impl R {
     #[doc = "Bits 0:2 - 2:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved2(&self) -> RESERVED2_R {
-        RESERVED2_R::new((self.bits & 7) as u8)
+    pub fn reserved2(&self) -> Reserved2R {
+        Reserved2R::new((self.bits & 7) as u8)
     }
     #[doc = "Bit 3 - 3:3\\]
 Select the edge of EVSTAT2.AUX_COMPA that sets EVTOAONFLAGS.AUX_COMPA."]
     #[inline(always)]
-    pub fn aux_compa(&self) -> AUX_COMPA_R {
-        AUX_COMPA_R::new(((self.bits >> 3) & 1) != 0)
+    pub fn aux_compa(&self) -> AuxCompaR {
+        AuxCompaR::new(((self.bits >> 3) & 1) != 0)
     }
     #[doc = "Bit 4 - 4:4\\]
 Select the edge of EVSTAT2.AUX_COMPB that sets EVTOAONFLAGS.AUX_COMPB."]
     #[inline(always)]
-    pub fn aux_compb(&self) -> AUX_COMPB_R {
-        AUX_COMPB_R::new(((self.bits >> 4) & 1) != 0)
+    pub fn aux_compb(&self) -> AuxCompbR {
+        AuxCompbR::new(((self.bits >> 4) & 1) != 0)
     }
     #[doc = "Bit 5 - 5:5\\]
 Select the level of EVSTAT3.AUX_ADC_DONE that sets EVTOAONFLAGS.AUX_ADC_DONE."]
     #[inline(always)]
-    pub fn aux_adc_done(&self) -> AUX_ADC_DONE_R {
-        AUX_ADC_DONE_R::new(((self.bits >> 5) & 1) != 0)
+    pub fn aux_adc_done(&self) -> AuxAdcDoneR {
+        AuxAdcDoneR::new(((self.bits >> 5) & 1) != 0)
     }
     #[doc = "Bit 6 - 6:6\\]
 Select level of EVSTAT3.AUX_TDC_DONE that sets EVTOAONFLAGS.AUX_TDC_DONE."]
     #[inline(always)]
-    pub fn aux_tdc_done(&self) -> AUX_TDC_DONE_R {
-        AUX_TDC_DONE_R::new(((self.bits >> 6) & 1) != 0)
+    pub fn aux_tdc_done(&self) -> AuxTdcDoneR {
+        AuxTdcDoneR::new(((self.bits >> 6) & 1) != 0)
     }
     #[doc = "Bit 7 - 7:7\\]
 Select the level of EVSTAT3.AUX_TIMER0_EV that sets EVTOAONFLAGS.AUX_TIMER0_EV."]
     #[inline(always)]
-    pub fn aux_timer0_ev(&self) -> AUX_TIMER0_EV_R {
-        AUX_TIMER0_EV_R::new(((self.bits >> 7) & 1) != 0)
+    pub fn aux_timer0_ev(&self) -> AuxTimer0EvR {
+        AuxTimer0EvR::new(((self.bits >> 7) & 1) != 0)
     }
     #[doc = "Bit 8 - 8:8\\]
 Select the level of EVSTAT3.AUX_TIMER1_EV that sets EVTOAONFLAGS.AUX_TIMER1_EV."]
     #[inline(always)]
-    pub fn aux_timer1_ev(&self) -> AUX_TIMER1_EV_R {
-        AUX_TIMER1_EV_R::new(((self.bits >> 8) & 1) != 0)
+    pub fn aux_timer1_ev(&self) -> AuxTimer1EvR {
+        AuxTimer1EvR::new(((self.bits >> 8) & 1) != 0)
     }
     #[doc = "Bits 9:31 - 31:9\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved9(&self) -> RESERVED9_R {
-        RESERVED9_R::new((self.bits >> 9) & 0x007f_ffff)
+    pub fn reserved9(&self) -> Reserved9R {
+        Reserved9R::new((self.bits >> 9) & 0x007f_ffff)
     }
 }
 impl W {
@@ -424,81 +405,73 @@ impl W {
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved2(&mut self) -> RESERVED2_W<0> {
-        RESERVED2_W::new(self)
+    pub fn reserved2(&mut self) -> Reserved2W<EvtoaonpolSpec> {
+        Reserved2W::new(self, 0)
     }
     #[doc = "Bit 3 - 3:3\\]
 Select the edge of EVSTAT2.AUX_COMPA that sets EVTOAONFLAGS.AUX_COMPA."]
     #[inline(always)]
     #[must_use]
-    pub fn aux_compa(&mut self) -> AUX_COMPA_W<3> {
-        AUX_COMPA_W::new(self)
+    pub fn aux_compa(&mut self) -> AuxCompaW<EvtoaonpolSpec> {
+        AuxCompaW::new(self, 3)
     }
     #[doc = "Bit 4 - 4:4\\]
 Select the edge of EVSTAT2.AUX_COMPB that sets EVTOAONFLAGS.AUX_COMPB."]
     #[inline(always)]
     #[must_use]
-    pub fn aux_compb(&mut self) -> AUX_COMPB_W<4> {
-        AUX_COMPB_W::new(self)
+    pub fn aux_compb(&mut self) -> AuxCompbW<EvtoaonpolSpec> {
+        AuxCompbW::new(self, 4)
     }
     #[doc = "Bit 5 - 5:5\\]
 Select the level of EVSTAT3.AUX_ADC_DONE that sets EVTOAONFLAGS.AUX_ADC_DONE."]
     #[inline(always)]
     #[must_use]
-    pub fn aux_adc_done(&mut self) -> AUX_ADC_DONE_W<5> {
-        AUX_ADC_DONE_W::new(self)
+    pub fn aux_adc_done(&mut self) -> AuxAdcDoneW<EvtoaonpolSpec> {
+        AuxAdcDoneW::new(self, 5)
     }
     #[doc = "Bit 6 - 6:6\\]
 Select level of EVSTAT3.AUX_TDC_DONE that sets EVTOAONFLAGS.AUX_TDC_DONE."]
     #[inline(always)]
     #[must_use]
-    pub fn aux_tdc_done(&mut self) -> AUX_TDC_DONE_W<6> {
-        AUX_TDC_DONE_W::new(self)
+    pub fn aux_tdc_done(&mut self) -> AuxTdcDoneW<EvtoaonpolSpec> {
+        AuxTdcDoneW::new(self, 6)
     }
     #[doc = "Bit 7 - 7:7\\]
 Select the level of EVSTAT3.AUX_TIMER0_EV that sets EVTOAONFLAGS.AUX_TIMER0_EV."]
     #[inline(always)]
     #[must_use]
-    pub fn aux_timer0_ev(&mut self) -> AUX_TIMER0_EV_W<7> {
-        AUX_TIMER0_EV_W::new(self)
+    pub fn aux_timer0_ev(&mut self) -> AuxTimer0EvW<EvtoaonpolSpec> {
+        AuxTimer0EvW::new(self, 7)
     }
     #[doc = "Bit 8 - 8:8\\]
 Select the level of EVSTAT3.AUX_TIMER1_EV that sets EVTOAONFLAGS.AUX_TIMER1_EV."]
     #[inline(always)]
     #[must_use]
-    pub fn aux_timer1_ev(&mut self) -> AUX_TIMER1_EV_W<8> {
-        AUX_TIMER1_EV_W::new(self)
+    pub fn aux_timer1_ev(&mut self) -> AuxTimer1EvW<EvtoaonpolSpec> {
+        AuxTimer1EvW::new(self, 8)
     }
     #[doc = "Bits 9:31 - 31:9\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved9(&mut self) -> RESERVED9_W<9> {
-        RESERVED9_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved9(&mut self) -> Reserved9W<EvtoaonpolSpec> {
+        Reserved9W::new(self, 9)
     }
 }
-#[doc = "Events To AON Polarity Event source polarity configuration for EVTOAONFLAGS.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [evtoaonpol](index.html) module"]
-pub struct EVTOAONPOL_SPEC;
-impl crate::RegisterSpec for EVTOAONPOL_SPEC {
+#[doc = "Events To AON Polarity Event source polarity configuration for EVTOAONFLAGS.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`evtoaonpol::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`evtoaonpol::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct EvtoaonpolSpec;
+impl crate::RegisterSpec for EvtoaonpolSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [evtoaonpol::R](R) reader structure"]
-impl crate::Readable for EVTOAONPOL_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [evtoaonpol::W](W) writer structure"]
-impl crate::Writable for EVTOAONPOL_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`evtoaonpol::R`](R) reader structure"]
+impl crate::Readable for EvtoaonpolSpec {}
+#[doc = "`write(|w| ..)` method takes [`evtoaonpol::W`](W) writer structure"]
+impl crate::Writable for EvtoaonpolSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets EVTOAONPOL to value 0"]
-impl crate::Resettable for EVTOAONPOL_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for EvtoaonpolSpec {
+    const RESET_VALUE: u32 = 0;
 }

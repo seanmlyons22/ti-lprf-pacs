@@ -1,216 +1,192 @@
 #[doc = "Register `VECCFG0` reader"]
-pub struct R(crate::R<VECCFG0_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<VECCFG0_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<VECCFG0_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<VECCFG0_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Veccfg0Spec>;
 #[doc = "Register `VECCFG0` writer"]
-pub struct W(crate::W<VECCFG0_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<VECCFG0_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<VECCFG0_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<VECCFG0_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `VEC_EV` reader - 3:0\\]
-Select trigger event for vector 0. Non-enumerated values are treated as NONE."]
-pub type VEC_EV_R = crate::FieldReader<u8, VEC_EV_A>;
+pub type W = crate::W<Veccfg0Spec>;
 #[doc = "3:0\\]
 Select trigger event for vector 0. Non-enumerated values are treated as NONE.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum VEC_EV_A {
+pub enum VecEv {
     #[doc = "9: AUX_EVCTL:EVSTAT2.AON_RTC_CH2_DLY"]
-    AON_RTC_CH2_DLY = 9,
+    AonRtcCh2Dly = 9,
     #[doc = "8: WUFLAGS.SW_WU3"]
-    SW_WU3 = 8,
+    SwWu3 = 8,
     #[doc = "7: WUFLAGS.SW_WU2"]
-    SW_WU2 = 7,
+    SwWu2 = 7,
     #[doc = "6: WUFLAGS.SW_WU1"]
-    SW_WU1 = 6,
+    SwWu1 = 6,
     #[doc = "5: WUFLAGS.SW_WU0"]
-    SW_WU0 = 5,
+    SwWu0 = 5,
     #[doc = "4: WUFLAGS.PROG_WU3"]
-    PROG_WU3 = 4,
+    ProgWu3 = 4,
     #[doc = "3: WUFLAGS.PROG_WU2"]
-    PROG_WU2 = 3,
+    ProgWu2 = 3,
     #[doc = "2: WUFLAGS.PROG_WU1"]
-    PROG_WU1 = 2,
+    ProgWu1 = 2,
     #[doc = "1: WUFLAGS.PROG_WU0"]
-    PROG_WU0 = 1,
+    ProgWu0 = 1,
     #[doc = "0: Vector is disabled."]
-    NONE = 0,
+    None = 0,
 }
-impl From<VEC_EV_A> for u8 {
+impl From<VecEv> for u8 {
     #[inline(always)]
-    fn from(variant: VEC_EV_A) -> Self {
+    fn from(variant: VecEv) -> Self {
         variant as _
     }
 }
-impl VEC_EV_R {
+impl crate::FieldSpec for VecEv {
+    type Ux = u8;
+}
+impl crate::IsEnum for VecEv {}
+#[doc = "Field `VEC_EV` reader - 3:0\\]
+Select trigger event for vector 0. Non-enumerated values are treated as NONE."]
+pub type VecEvR = crate::FieldReader<VecEv>;
+impl VecEvR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<VEC_EV_A> {
+    pub const fn variant(&self) -> Option<VecEv> {
         match self.bits {
-            9 => Some(VEC_EV_A::AON_RTC_CH2_DLY),
-            8 => Some(VEC_EV_A::SW_WU3),
-            7 => Some(VEC_EV_A::SW_WU2),
-            6 => Some(VEC_EV_A::SW_WU1),
-            5 => Some(VEC_EV_A::SW_WU0),
-            4 => Some(VEC_EV_A::PROG_WU3),
-            3 => Some(VEC_EV_A::PROG_WU2),
-            2 => Some(VEC_EV_A::PROG_WU1),
-            1 => Some(VEC_EV_A::PROG_WU0),
-            0 => Some(VEC_EV_A::NONE),
+            9 => Some(VecEv::AonRtcCh2Dly),
+            8 => Some(VecEv::SwWu3),
+            7 => Some(VecEv::SwWu2),
+            6 => Some(VecEv::SwWu1),
+            5 => Some(VecEv::SwWu0),
+            4 => Some(VecEv::ProgWu3),
+            3 => Some(VecEv::ProgWu2),
+            2 => Some(VecEv::ProgWu1),
+            1 => Some(VecEv::ProgWu0),
+            0 => Some(VecEv::None),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `AON_RTC_CH2_DLY`"]
+    #[doc = "AUX_EVCTL:EVSTAT2.AON_RTC_CH2_DLY"]
     #[inline(always)]
     pub fn is_aon_rtc_ch2_dly(&self) -> bool {
-        *self == VEC_EV_A::AON_RTC_CH2_DLY
+        *self == VecEv::AonRtcCh2Dly
     }
-    #[doc = "Checks if the value of the field is `SW_WU3`"]
+    #[doc = "WUFLAGS.SW_WU3"]
     #[inline(always)]
     pub fn is_sw_wu3(&self) -> bool {
-        *self == VEC_EV_A::SW_WU3
+        *self == VecEv::SwWu3
     }
-    #[doc = "Checks if the value of the field is `SW_WU2`"]
+    #[doc = "WUFLAGS.SW_WU2"]
     #[inline(always)]
     pub fn is_sw_wu2(&self) -> bool {
-        *self == VEC_EV_A::SW_WU2
+        *self == VecEv::SwWu2
     }
-    #[doc = "Checks if the value of the field is `SW_WU1`"]
+    #[doc = "WUFLAGS.SW_WU1"]
     #[inline(always)]
     pub fn is_sw_wu1(&self) -> bool {
-        *self == VEC_EV_A::SW_WU1
+        *self == VecEv::SwWu1
     }
-    #[doc = "Checks if the value of the field is `SW_WU0`"]
+    #[doc = "WUFLAGS.SW_WU0"]
     #[inline(always)]
     pub fn is_sw_wu0(&self) -> bool {
-        *self == VEC_EV_A::SW_WU0
+        *self == VecEv::SwWu0
     }
-    #[doc = "Checks if the value of the field is `PROG_WU3`"]
+    #[doc = "WUFLAGS.PROG_WU3"]
     #[inline(always)]
     pub fn is_prog_wu3(&self) -> bool {
-        *self == VEC_EV_A::PROG_WU3
+        *self == VecEv::ProgWu3
     }
-    #[doc = "Checks if the value of the field is `PROG_WU2`"]
+    #[doc = "WUFLAGS.PROG_WU2"]
     #[inline(always)]
     pub fn is_prog_wu2(&self) -> bool {
-        *self == VEC_EV_A::PROG_WU2
+        *self == VecEv::ProgWu2
     }
-    #[doc = "Checks if the value of the field is `PROG_WU1`"]
+    #[doc = "WUFLAGS.PROG_WU1"]
     #[inline(always)]
     pub fn is_prog_wu1(&self) -> bool {
-        *self == VEC_EV_A::PROG_WU1
+        *self == VecEv::ProgWu1
     }
-    #[doc = "Checks if the value of the field is `PROG_WU0`"]
+    #[doc = "WUFLAGS.PROG_WU0"]
     #[inline(always)]
     pub fn is_prog_wu0(&self) -> bool {
-        *self == VEC_EV_A::PROG_WU0
+        *self == VecEv::ProgWu0
     }
-    #[doc = "Checks if the value of the field is `NONE`"]
+    #[doc = "Vector is disabled."]
     #[inline(always)]
     pub fn is_none(&self) -> bool {
-        *self == VEC_EV_A::NONE
+        *self == VecEv::None
     }
 }
 #[doc = "Field `VEC_EV` writer - 3:0\\]
 Select trigger event for vector 0. Non-enumerated values are treated as NONE."]
-pub type VEC_EV_W<'a, const O: u8> = crate::FieldWriter<'a, u32, VECCFG0_SPEC, u8, VEC_EV_A, 4, O>;
-impl<'a, const O: u8> VEC_EV_W<'a, O> {
+pub type VecEvW<'a, REG> = crate::FieldWriter<'a, REG, 4, VecEv>;
+impl<'a, REG> VecEvW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "AUX_EVCTL:EVSTAT2.AON_RTC_CH2_DLY"]
     #[inline(always)]
-    pub fn aon_rtc_ch2_dly(self) -> &'a mut W {
-        self.variant(VEC_EV_A::AON_RTC_CH2_DLY)
+    pub fn aon_rtc_ch2_dly(self) -> &'a mut crate::W<REG> {
+        self.variant(VecEv::AonRtcCh2Dly)
     }
     #[doc = "WUFLAGS.SW_WU3"]
     #[inline(always)]
-    pub fn sw_wu3(self) -> &'a mut W {
-        self.variant(VEC_EV_A::SW_WU3)
+    pub fn sw_wu3(self) -> &'a mut crate::W<REG> {
+        self.variant(VecEv::SwWu3)
     }
     #[doc = "WUFLAGS.SW_WU2"]
     #[inline(always)]
-    pub fn sw_wu2(self) -> &'a mut W {
-        self.variant(VEC_EV_A::SW_WU2)
+    pub fn sw_wu2(self) -> &'a mut crate::W<REG> {
+        self.variant(VecEv::SwWu2)
     }
     #[doc = "WUFLAGS.SW_WU1"]
     #[inline(always)]
-    pub fn sw_wu1(self) -> &'a mut W {
-        self.variant(VEC_EV_A::SW_WU1)
+    pub fn sw_wu1(self) -> &'a mut crate::W<REG> {
+        self.variant(VecEv::SwWu1)
     }
     #[doc = "WUFLAGS.SW_WU0"]
     #[inline(always)]
-    pub fn sw_wu0(self) -> &'a mut W {
-        self.variant(VEC_EV_A::SW_WU0)
+    pub fn sw_wu0(self) -> &'a mut crate::W<REG> {
+        self.variant(VecEv::SwWu0)
     }
     #[doc = "WUFLAGS.PROG_WU3"]
     #[inline(always)]
-    pub fn prog_wu3(self) -> &'a mut W {
-        self.variant(VEC_EV_A::PROG_WU3)
+    pub fn prog_wu3(self) -> &'a mut crate::W<REG> {
+        self.variant(VecEv::ProgWu3)
     }
     #[doc = "WUFLAGS.PROG_WU2"]
     #[inline(always)]
-    pub fn prog_wu2(self) -> &'a mut W {
-        self.variant(VEC_EV_A::PROG_WU2)
+    pub fn prog_wu2(self) -> &'a mut crate::W<REG> {
+        self.variant(VecEv::ProgWu2)
     }
     #[doc = "WUFLAGS.PROG_WU1"]
     #[inline(always)]
-    pub fn prog_wu1(self) -> &'a mut W {
-        self.variant(VEC_EV_A::PROG_WU1)
+    pub fn prog_wu1(self) -> &'a mut crate::W<REG> {
+        self.variant(VecEv::ProgWu1)
     }
     #[doc = "WUFLAGS.PROG_WU0"]
     #[inline(always)]
-    pub fn prog_wu0(self) -> &'a mut W {
-        self.variant(VEC_EV_A::PROG_WU0)
+    pub fn prog_wu0(self) -> &'a mut crate::W<REG> {
+        self.variant(VecEv::ProgWu0)
     }
     #[doc = "Vector is disabled."]
     #[inline(always)]
-    pub fn none(self) -> &'a mut W {
-        self.variant(VEC_EV_A::NONE)
+    pub fn none(self) -> &'a mut crate::W<REG> {
+        self.variant(VecEv::None)
     }
 }
 #[doc = "Field `RESERVED4` reader - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED4_R = crate::FieldReader<u32, u32>;
+pub type Reserved4R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED4` writer - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED4_W<'a, const O: u8> = crate::FieldWriter<'a, u32, VECCFG0_SPEC, u32, u32, 28, O>;
+pub type Reserved4W<'a, REG> = crate::FieldWriter<'a, REG, 28, u32>;
 impl R {
     #[doc = "Bits 0:3 - 3:0\\]
 Select trigger event for vector 0. Non-enumerated values are treated as NONE."]
     #[inline(always)]
-    pub fn vec_ev(&self) -> VEC_EV_R {
-        VEC_EV_R::new((self.bits & 0x0f) as u8)
+    pub fn vec_ev(&self) -> VecEvR {
+        VecEvR::new((self.bits & 0x0f) as u8)
     }
     #[doc = "Bits 4:31 - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved4(&self) -> RESERVED4_R {
-        RESERVED4_R::new((self.bits >> 4) & 0x0fff_ffff)
+    pub fn reserved4(&self) -> Reserved4R {
+        Reserved4R::new((self.bits >> 4) & 0x0fff_ffff)
     }
 }
 impl W {
@@ -218,39 +194,31 @@ impl W {
 Select trigger event for vector 0. Non-enumerated values are treated as NONE."]
     #[inline(always)]
     #[must_use]
-    pub fn vec_ev(&mut self) -> VEC_EV_W<0> {
-        VEC_EV_W::new(self)
+    pub fn vec_ev(&mut self) -> VecEvW<Veccfg0Spec> {
+        VecEvW::new(self, 0)
     }
     #[doc = "Bits 4:31 - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved4(&mut self) -> RESERVED4_W<4> {
-        RESERVED4_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved4(&mut self) -> Reserved4W<Veccfg0Spec> {
+        Reserved4W::new(self, 4)
     }
 }
-#[doc = "Vector Configuration 0 AUX_SCE wakeup vector 0 configuration\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [veccfg0](index.html) module"]
-pub struct VECCFG0_SPEC;
-impl crate::RegisterSpec for VECCFG0_SPEC {
+#[doc = "Vector Configuration 0 AUX_SCE wakeup vector 0 configuration\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`veccfg0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`veccfg0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Veccfg0Spec;
+impl crate::RegisterSpec for Veccfg0Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [veccfg0::R](R) reader structure"]
-impl crate::Readable for VECCFG0_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [veccfg0::W](W) writer structure"]
-impl crate::Writable for VECCFG0_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`veccfg0::R`](R) reader structure"]
+impl crate::Readable for Veccfg0Spec {}
+#[doc = "`write(|w| ..)` method takes [`veccfg0::W`](W) writer structure"]
+impl crate::Writable for Veccfg0Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets VECCFG0 to value 0"]
-impl crate::Resettable for VECCFG0_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for Veccfg0Spec {
+    const RESET_VALUE: u32 = 0;
 }

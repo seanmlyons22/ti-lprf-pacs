@@ -1,63 +1,31 @@
 #[doc = "Register `SLEEPCNT` reader"]
-pub struct R(crate::R<SLEEPCNT_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<SLEEPCNT_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<SLEEPCNT_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<SLEEPCNT_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<SleepcntSpec>;
 #[doc = "Register `SLEEPCNT` writer"]
-pub struct W(crate::W<SLEEPCNT_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<SLEEPCNT_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<SLEEPCNT_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<SLEEPCNT_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<SleepcntSpec>;
 #[doc = "Field `SLEEPCNT` reader - 7:0\\]
 Counts one on each cycle when all of the following are true: - DWT_CTRL.SLEEPEVTENA == 1 and DEMCR.TRCENA == 1. - No instruction is executed, see DWT_CPICNT. - No load-store operation is in progress, see DWT_LSUCNT. - No exception-entry or exception-exit operation is in progress, see DWT_EXCCNT. - The PE is in a power saving mode. - Either SecureNoninvasiveDebugAllowed() == TRUE, or the PE is in Non-secure state and NoninvasiveDebugAllowed() == TRUE."]
-pub type SLEEPCNT_R = crate::FieldReader<u8, u8>;
+pub type SleepcntR = crate::FieldReader;
 #[doc = "Field `SLEEPCNT` writer - 7:0\\]
 Counts one on each cycle when all of the following are true: - DWT_CTRL.SLEEPEVTENA == 1 and DEMCR.TRCENA == 1. - No instruction is executed, see DWT_CPICNT. - No load-store operation is in progress, see DWT_LSUCNT. - No exception-entry or exception-exit operation is in progress, see DWT_EXCCNT. - The PE is in a power saving mode. - Either SecureNoninvasiveDebugAllowed() == TRUE, or the PE is in Non-secure state and NoninvasiveDebugAllowed() == TRUE."]
-pub type SLEEPCNT_W<'a, const O: u8> = crate::FieldWriter<'a, u32, SLEEPCNT_SPEC, u8, u8, 8, O>;
+pub type SleepcntW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `RESERVED8` reader - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED8_R = crate::FieldReader<u32, u32>;
+pub type Reserved8R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED8` writer - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED8_W<'a, const O: u8> = crate::FieldWriter<'a, u32, SLEEPCNT_SPEC, u32, u32, 24, O>;
+pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Counts one on each cycle when all of the following are true: - DWT_CTRL.SLEEPEVTENA == 1 and DEMCR.TRCENA == 1. - No instruction is executed, see DWT_CPICNT. - No load-store operation is in progress, see DWT_LSUCNT. - No exception-entry or exception-exit operation is in progress, see DWT_EXCCNT. - The PE is in a power saving mode. - Either SecureNoninvasiveDebugAllowed() == TRUE, or the PE is in Non-secure state and NoninvasiveDebugAllowed() == TRUE."]
     #[inline(always)]
-    pub fn sleepcnt(&self) -> SLEEPCNT_R {
-        SLEEPCNT_R::new((self.bits & 0xff) as u8)
+    pub fn sleepcnt(&self) -> SleepcntR {
+        SleepcntR::new((self.bits & 0xff) as u8)
     }
     #[doc = "Bits 8:31 - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved8(&self) -> RESERVED8_R {
-        RESERVED8_R::new((self.bits >> 8) & 0x00ff_ffff)
+    pub fn reserved8(&self) -> Reserved8R {
+        Reserved8R::new((self.bits >> 8) & 0x00ff_ffff)
     }
 }
 impl W {
@@ -65,39 +33,31 @@ impl W {
 Counts one on each cycle when all of the following are true: - DWT_CTRL.SLEEPEVTENA == 1 and DEMCR.TRCENA == 1. - No instruction is executed, see DWT_CPICNT. - No load-store operation is in progress, see DWT_LSUCNT. - No exception-entry or exception-exit operation is in progress, see DWT_EXCCNT. - The PE is in a power saving mode. - Either SecureNoninvasiveDebugAllowed() == TRUE, or the PE is in Non-secure state and NoninvasiveDebugAllowed() == TRUE."]
     #[inline(always)]
     #[must_use]
-    pub fn sleepcnt(&mut self) -> SLEEPCNT_W<0> {
-        SLEEPCNT_W::new(self)
+    pub fn sleepcnt(&mut self) -> SleepcntW<SleepcntSpec> {
+        SleepcntW::new(self, 0)
     }
     #[doc = "Bits 8:31 - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved8(&mut self) -> RESERVED8_W<8> {
-        RESERVED8_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved8(&mut self) -> Reserved8W<SleepcntSpec> {
+        Reserved8W::new(self, 8)
     }
 }
-#[doc = "Sleep Count Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sleepcnt](index.html) module"]
-pub struct SLEEPCNT_SPEC;
-impl crate::RegisterSpec for SLEEPCNT_SPEC {
+#[doc = "Sleep Count Register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`sleepcnt::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`sleepcnt::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct SleepcntSpec;
+impl crate::RegisterSpec for SleepcntSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [sleepcnt::R](R) reader structure"]
-impl crate::Readable for SLEEPCNT_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [sleepcnt::W](W) writer structure"]
-impl crate::Writable for SLEEPCNT_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`sleepcnt::R`](R) reader structure"]
+impl crate::Readable for SleepcntSpec {}
+#[doc = "`write(|w| ..)` method takes [`sleepcnt::W`](W) writer structure"]
+impl crate::Writable for SleepcntSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets SLEEPCNT to value 0"]
-impl crate::Resettable for SLEEPCNT_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for SleepcntSpec {
+    const RESET_VALUE: u32 = 0;
 }

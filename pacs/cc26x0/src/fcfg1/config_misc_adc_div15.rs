@@ -1,78 +1,43 @@
 #[doc = "Register `CONFIG_MISC_ADC_DIV15` reader"]
-pub struct R(crate::R<CONFIG_MISC_ADC_DIV15_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<CONFIG_MISC_ADC_DIV15_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<CONFIG_MISC_ADC_DIV15_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<CONFIG_MISC_ADC_DIV15_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<ConfigMiscAdcDiv15Spec>;
 #[doc = "Register `CONFIG_MISC_ADC_DIV15` writer"]
-pub struct W(crate::W<CONFIG_MISC_ADC_DIV15_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<CONFIG_MISC_ADC_DIV15_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<CONFIG_MISC_ADC_DIV15_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<CONFIG_MISC_ADC_DIV15_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<ConfigMiscAdcDiv15Spec>;
 #[doc = "Field `DACTRIM` reader - 5:0\\]
 Internal. Only to be used through TI provided API."]
-pub type DACTRIM_R = crate::FieldReader<u8, u8>;
+pub type DactrimR = crate::FieldReader;
 #[doc = "Field `DACTRIM` writer - 5:0\\]
 Internal. Only to be used through TI provided API."]
-pub type DACTRIM_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, CONFIG_MISC_ADC_DIV15_SPEC, u8, u8, 6, O>;
+pub type DactrimW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `QUANTCTLTHRES` reader - 8:6\\]
 Internal. Only to be used through TI provided API."]
-pub type QUANTCTLTHRES_R = crate::FieldReader<u8, u8>;
+pub type QuantctlthresR = crate::FieldReader;
 #[doc = "Field `QUANTCTLTHRES` writer - 8:6\\]
 Internal. Only to be used through TI provided API."]
-pub type QUANTCTLTHRES_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, CONFIG_MISC_ADC_DIV15_SPEC, u8, u8, 3, O>;
+pub type QuantctlthresW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `RSSI_OFFSET` reader - 16:9\\]
 Internal. Only to be used through TI provided API."]
-pub type RSSI_OFFSET_R = crate::FieldReader<u8, u8>;
+pub type RssiOffsetR = crate::FieldReader;
 #[doc = "Field `RSSI_OFFSET` writer - 16:9\\]
 Internal. Only to be used through TI provided API."]
-pub type RSSI_OFFSET_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, CONFIG_MISC_ADC_DIV15_SPEC, u8, u8, 8, O>;
+pub type RssiOffsetW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 impl R {
     #[doc = "Bits 0:5 - 5:0\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn dactrim(&self) -> DACTRIM_R {
-        DACTRIM_R::new((self.bits & 0x3f) as u8)
+    pub fn dactrim(&self) -> DactrimR {
+        DactrimR::new((self.bits & 0x3f) as u8)
     }
     #[doc = "Bits 6:8 - 8:6\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn quantctlthres(&self) -> QUANTCTLTHRES_R {
-        QUANTCTLTHRES_R::new(((self.bits >> 6) & 7) as u8)
+    pub fn quantctlthres(&self) -> QuantctlthresR {
+        QuantctlthresR::new(((self.bits >> 6) & 7) as u8)
     }
     #[doc = "Bits 9:16 - 16:9\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn rssi_offset(&self) -> RSSI_OFFSET_R {
-        RSSI_OFFSET_R::new(((self.bits >> 9) & 0xff) as u8)
+    pub fn rssi_offset(&self) -> RssiOffsetR {
+        RssiOffsetR::new(((self.bits >> 9) & 0xff) as u8)
     }
 }
 impl W {
@@ -80,46 +45,38 @@ impl W {
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn dactrim(&mut self) -> DACTRIM_W<0> {
-        DACTRIM_W::new(self)
+    pub fn dactrim(&mut self) -> DactrimW<ConfigMiscAdcDiv15Spec> {
+        DactrimW::new(self, 0)
     }
     #[doc = "Bits 6:8 - 8:6\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn quantctlthres(&mut self) -> QUANTCTLTHRES_W<6> {
-        QUANTCTLTHRES_W::new(self)
+    pub fn quantctlthres(&mut self) -> QuantctlthresW<ConfigMiscAdcDiv15Spec> {
+        QuantctlthresW::new(self, 6)
     }
     #[doc = "Bits 9:16 - 16:9\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn rssi_offset(&mut self) -> RSSI_OFFSET_W<9> {
-        RSSI_OFFSET_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn rssi_offset(&mut self) -> RssiOffsetW<ConfigMiscAdcDiv15Spec> {
+        RssiOffsetW::new(self, 9)
     }
 }
-#[doc = "Internal. Only to be used through TI provided API.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [config_misc_adc_div15](index.html) module"]
-pub struct CONFIG_MISC_ADC_DIV15_SPEC;
-impl crate::RegisterSpec for CONFIG_MISC_ADC_DIV15_SPEC {
+#[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`config_misc_adc_div15::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`config_misc_adc_div15::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct ConfigMiscAdcDiv15Spec;
+impl crate::RegisterSpec for ConfigMiscAdcDiv15Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [config_misc_adc_div15::R](R) reader structure"]
-impl crate::Readable for CONFIG_MISC_ADC_DIV15_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [config_misc_adc_div15::W](W) writer structure"]
-impl crate::Writable for CONFIG_MISC_ADC_DIV15_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`config_misc_adc_div15::R`](R) reader structure"]
+impl crate::Readable for ConfigMiscAdcDiv15Spec {}
+#[doc = "`write(|w| ..)` method takes [`config_misc_adc_div15::W`](W) writer structure"]
+impl crate::Writable for ConfigMiscAdcDiv15Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets CONFIG_MISC_ADC_DIV15 to value 0xffff_ffff"]
-impl crate::Resettable for CONFIG_MISC_ADC_DIV15_SPEC {
-    const RESET_VALUE: Self::Ux = 0xffff_ffff;
+impl crate::Resettable for ConfigMiscAdcDiv15Spec {
+    const RESET_VALUE: u32 = 0xffff_ffff;
 }

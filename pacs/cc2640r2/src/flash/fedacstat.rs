@@ -1,88 +1,55 @@
 #[doc = "Register `FEDACSTAT` reader"]
-pub struct R(crate::R<FEDACSTAT_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<FEDACSTAT_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<FEDACSTAT_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<FEDACSTAT_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<FedacstatSpec>;
 #[doc = "Register `FEDACSTAT` writer"]
-pub struct W(crate::W<FEDACSTAT_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<FEDACSTAT_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<FEDACSTAT_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<FEDACSTAT_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<FedacstatSpec>;
 #[doc = "Field `ERR_PRF_FLG` reader - 23:0\\]
 Internal. Only to be used through TI provided API."]
-pub type ERR_PRF_FLG_R = crate::FieldReader<u32, u32>;
+pub type ErrPrfFlgR = crate::FieldReader<u32>;
 #[doc = "Field `ERR_PRF_FLG` writer - 23:0\\]
 Internal. Only to be used through TI provided API."]
-pub type ERR_PRF_FLG_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, FEDACSTAT_SPEC, u32, u32, 24, O>;
+pub type ErrPrfFlgW<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 #[doc = "Field `FSM_DONE` reader - 24:24\\]
 Internal. Only to be used through TI provided API."]
-pub type FSM_DONE_R = crate::BitReader<bool>;
+pub type FsmDoneR = crate::BitReader;
 #[doc = "Field `FSM_DONE` writer - 24:24\\]
 Internal. Only to be used through TI provided API."]
-pub type FSM_DONE_W<'a, const O: u8> = crate::BitWriter<'a, u32, FEDACSTAT_SPEC, bool, O>;
+pub type FsmDoneW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RVF_INT` reader - 25:25\\]
 Internal. Only to be used through TI provided API."]
-pub type RVF_INT_R = crate::BitReader<bool>;
+pub type RvfIntR = crate::BitReader;
 #[doc = "Field `RVF_INT` writer - 25:25\\]
 Internal. Only to be used through TI provided API."]
-pub type RVF_INT_W<'a, const O: u8> = crate::BitWriter<'a, u32, FEDACSTAT_SPEC, bool, O>;
+pub type RvfIntW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED26` reader - 31:26\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED26_R = crate::FieldReader<u8, u8>;
+pub type Reserved26R = crate::FieldReader;
 #[doc = "Field `RESERVED26` writer - 31:26\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED26_W<'a, const O: u8> = crate::FieldWriter<'a, u32, FEDACSTAT_SPEC, u8, u8, 6, O>;
+pub type Reserved26W<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 impl R {
     #[doc = "Bits 0:23 - 23:0\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn err_prf_flg(&self) -> ERR_PRF_FLG_R {
-        ERR_PRF_FLG_R::new(self.bits & 0x00ff_ffff)
+    pub fn err_prf_flg(&self) -> ErrPrfFlgR {
+        ErrPrfFlgR::new(self.bits & 0x00ff_ffff)
     }
     #[doc = "Bit 24 - 24:24\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn fsm_done(&self) -> FSM_DONE_R {
-        FSM_DONE_R::new(((self.bits >> 24) & 1) != 0)
+    pub fn fsm_done(&self) -> FsmDoneR {
+        FsmDoneR::new(((self.bits >> 24) & 1) != 0)
     }
     #[doc = "Bit 25 - 25:25\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn rvf_int(&self) -> RVF_INT_R {
-        RVF_INT_R::new(((self.bits >> 25) & 1) != 0)
+    pub fn rvf_int(&self) -> RvfIntR {
+        RvfIntR::new(((self.bits >> 25) & 1) != 0)
     }
     #[doc = "Bits 26:31 - 31:26\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn reserved26(&self) -> RESERVED26_R {
-        RESERVED26_R::new(((self.bits >> 26) & 0x3f) as u8)
+    pub fn reserved26(&self) -> Reserved26R {
+        Reserved26R::new(((self.bits >> 26) & 0x3f) as u8)
     }
 }
 impl W {
@@ -90,53 +57,45 @@ impl W {
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn err_prf_flg(&mut self) -> ERR_PRF_FLG_W<0> {
-        ERR_PRF_FLG_W::new(self)
+    pub fn err_prf_flg(&mut self) -> ErrPrfFlgW<FedacstatSpec> {
+        ErrPrfFlgW::new(self, 0)
     }
     #[doc = "Bit 24 - 24:24\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn fsm_done(&mut self) -> FSM_DONE_W<24> {
-        FSM_DONE_W::new(self)
+    pub fn fsm_done(&mut self) -> FsmDoneW<FedacstatSpec> {
+        FsmDoneW::new(self, 24)
     }
     #[doc = "Bit 25 - 25:25\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn rvf_int(&mut self) -> RVF_INT_W<25> {
-        RVF_INT_W::new(self)
+    pub fn rvf_int(&mut self) -> RvfIntW<FedacstatSpec> {
+        RvfIntW::new(self, 25)
     }
     #[doc = "Bits 26:31 - 31:26\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved26(&mut self) -> RESERVED26_W<26> {
-        RESERVED26_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved26(&mut self) -> Reserved26W<FedacstatSpec> {
+        Reserved26W::new(self, 26)
     }
 }
-#[doc = "Internal. Only to be used through TI provided API.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fedacstat](index.html) module"]
-pub struct FEDACSTAT_SPEC;
-impl crate::RegisterSpec for FEDACSTAT_SPEC {
+#[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fedacstat::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fedacstat::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct FedacstatSpec;
+impl crate::RegisterSpec for FedacstatSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [fedacstat::R](R) reader structure"]
-impl crate::Readable for FEDACSTAT_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [fedacstat::W](W) writer structure"]
-impl crate::Writable for FEDACSTAT_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`fedacstat::R`](R) reader structure"]
+impl crate::Readable for FedacstatSpec {}
+#[doc = "`write(|w| ..)` method takes [`fedacstat::W`](W) writer structure"]
+impl crate::Writable for FedacstatSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets FEDACSTAT to value 0"]
-impl crate::Resettable for FEDACSTAT_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for FedacstatSpec {
+    const RESET_VALUE: u32 = 0;
 }

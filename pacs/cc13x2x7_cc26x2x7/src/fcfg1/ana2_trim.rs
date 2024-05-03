@@ -1,191 +1,151 @@
 #[doc = "Register `ANA2_TRIM` reader"]
-pub struct R(crate::R<ANA2_TRIM_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<ANA2_TRIM_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<ANA2_TRIM_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<ANA2_TRIM_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Ana2TrimSpec>;
 #[doc = "Register `ANA2_TRIM` writer"]
-pub struct W(crate::W<ANA2_TRIM_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<ANA2_TRIM_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<ANA2_TRIM_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<ANA2_TRIM_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<Ana2TrimSpec>;
 #[doc = "Field `DCDC_HIGH_EN_SEL` reader - 2:0\\]
 Internal. Only to be used through TI provided API."]
-pub type DCDC_HIGH_EN_SEL_R = crate::FieldReader<u8, u8>;
+pub type DcdcHighEnSelR = crate::FieldReader;
 #[doc = "Field `DCDC_HIGH_EN_SEL` writer - 2:0\\]
 Internal. Only to be used through TI provided API."]
-pub type DCDC_HIGH_EN_SEL_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, ANA2_TRIM_SPEC, u8, u8, 3, O>;
+pub type DcdcHighEnSelW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `DCDC_LOW_EN_SEL` reader - 5:3\\]
 Internal. Only to be used through TI provided API."]
-pub type DCDC_LOW_EN_SEL_R = crate::FieldReader<u8, u8>;
+pub type DcdcLowEnSelR = crate::FieldReader;
 #[doc = "Field `DCDC_LOW_EN_SEL` writer - 5:3\\]
 Internal. Only to be used through TI provided API."]
-pub type DCDC_LOW_EN_SEL_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, ANA2_TRIM_SPEC, u8, u8, 3, O>;
+pub type DcdcLowEnSelW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `DEAD_TIME_TRIM` reader - 7:6\\]
 Internal. Only to be used through TI provided API."]
-pub type DEAD_TIME_TRIM_R = crate::FieldReader<u8, u8>;
+pub type DeadTimeTrimR = crate::FieldReader;
 #[doc = "Field `DEAD_TIME_TRIM` writer - 7:6\\]
 Internal. Only to be used through TI provided API."]
-pub type DEAD_TIME_TRIM_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, ANA2_TRIM_SPEC, u8, u8, 2, O>;
+pub type DeadTimeTrimW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `DCDC_IPEAK` reader - 10:8\\]
 Internal. Only to be used through TI provided API."]
-pub type DCDC_IPEAK_R = crate::FieldReader<u8, u8>;
+pub type DcdcIpeakR = crate::FieldReader;
 #[doc = "Field `DCDC_IPEAK` writer - 10:8\\]
 Internal. Only to be used through TI provided API."]
-pub type DCDC_IPEAK_W<'a, const O: u8> = crate::FieldWriter<'a, u32, ANA2_TRIM_SPEC, u8, u8, 3, O>;
+pub type DcdcIpeakW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `DITHER_EN` reader - 11:11\\]
 Internal. Only to be used through TI provided API."]
-pub type DITHER_EN_R = crate::BitReader<bool>;
+pub type DitherEnR = crate::BitReader;
 #[doc = "Field `DITHER_EN` writer - 11:11\\]
 Internal. Only to be used through TI provided API."]
-pub type DITHER_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, ANA2_TRIM_SPEC, bool, O>;
+pub type DitherEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED1` reader - 14:12\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED1_R = crate::FieldReader<u8, u8>;
+pub type Reserved1R = crate::FieldReader;
 #[doc = "Field `RESERVED1` writer - 14:12\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED1_W<'a, const O: u8> = crate::FieldWriter<'a, u32, ANA2_TRIM_SPEC, u8, u8, 3, O>;
+pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `NANOAMP_RES_TRIM` reader - 21:15\\]
 Internal. Only to be used through TI provided API."]
-pub type NANOAMP_RES_TRIM_R = crate::FieldReader<u8, u8>;
+pub type NanoampResTrimR = crate::FieldReader;
 #[doc = "Field `NANOAMP_RES_TRIM` writer - 21:15\\]
 Internal. Only to be used through TI provided API."]
-pub type NANOAMP_RES_TRIM_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, ANA2_TRIM_SPEC, u8, u8, 7, O>;
+pub type NanoampResTrimW<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "Field `ATESTLF_UDIGLDO_IBIAS_TRIM` reader - 22:22\\]
 Internal. Only to be used through TI provided API."]
-pub type ATESTLF_UDIGLDO_IBIAS_TRIM_R = crate::BitReader<bool>;
+pub type AtestlfUdigldoIbiasTrimR = crate::BitReader;
 #[doc = "Field `ATESTLF_UDIGLDO_IBIAS_TRIM` writer - 22:22\\]
 Internal. Only to be used through TI provided API."]
-pub type ATESTLF_UDIGLDO_IBIAS_TRIM_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, ANA2_TRIM_SPEC, bool, O>;
+pub type AtestlfUdigldoIbiasTrimW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `SET_RCOSC_HF_FINE_RESISTOR` reader - 24:23\\]
 Internal. Only to be used through TI provided API."]
-pub type SET_RCOSC_HF_FINE_RESISTOR_R = crate::FieldReader<u8, u8>;
+pub type SetRcoscHfFineResistorR = crate::FieldReader;
 #[doc = "Field `SET_RCOSC_HF_FINE_RESISTOR` writer - 24:23\\]
 Internal. Only to be used through TI provided API."]
-pub type SET_RCOSC_HF_FINE_RESISTOR_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, ANA2_TRIM_SPEC, u8, u8, 2, O>;
+pub type SetRcoscHfFineResistorW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `RESERVED0` reader - 25:25\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED0_R = crate::BitReader<bool>;
+pub type Reserved0R = crate::BitReader;
 #[doc = "Field `RESERVED0` writer - 25:25\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED0_W<'a, const O: u8> = crate::BitWriter<'a, u32, ANA2_TRIM_SPEC, bool, O>;
+pub type Reserved0W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RCOSCHFCTRIMFRACT` reader - 30:26\\]
 Internal. Only to be used through TI provided API."]
-pub type RCOSCHFCTRIMFRACT_R = crate::FieldReader<u8, u8>;
+pub type RcoschfctrimfractR = crate::FieldReader;
 #[doc = "Field `RCOSCHFCTRIMFRACT` writer - 30:26\\]
 Internal. Only to be used through TI provided API."]
-pub type RCOSCHFCTRIMFRACT_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, ANA2_TRIM_SPEC, u8, u8, 5, O>;
+pub type RcoschfctrimfractW<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 #[doc = "Field `RCOSCHFCTRIMFRACT_EN` reader - 31:31\\]
 Internal. Only to be used through TI provided API."]
-pub type RCOSCHFCTRIMFRACT_EN_R = crate::BitReader<bool>;
+pub type RcoschfctrimfractEnR = crate::BitReader;
 #[doc = "Field `RCOSCHFCTRIMFRACT_EN` writer - 31:31\\]
 Internal. Only to be used through TI provided API."]
-pub type RCOSCHFCTRIMFRACT_EN_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, ANA2_TRIM_SPEC, bool, O>;
+pub type RcoschfctrimfractEnW<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bits 0:2 - 2:0\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn dcdc_high_en_sel(&self) -> DCDC_HIGH_EN_SEL_R {
-        DCDC_HIGH_EN_SEL_R::new((self.bits & 7) as u8)
+    pub fn dcdc_high_en_sel(&self) -> DcdcHighEnSelR {
+        DcdcHighEnSelR::new((self.bits & 7) as u8)
     }
     #[doc = "Bits 3:5 - 5:3\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn dcdc_low_en_sel(&self) -> DCDC_LOW_EN_SEL_R {
-        DCDC_LOW_EN_SEL_R::new(((self.bits >> 3) & 7) as u8)
+    pub fn dcdc_low_en_sel(&self) -> DcdcLowEnSelR {
+        DcdcLowEnSelR::new(((self.bits >> 3) & 7) as u8)
     }
     #[doc = "Bits 6:7 - 7:6\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn dead_time_trim(&self) -> DEAD_TIME_TRIM_R {
-        DEAD_TIME_TRIM_R::new(((self.bits >> 6) & 3) as u8)
+    pub fn dead_time_trim(&self) -> DeadTimeTrimR {
+        DeadTimeTrimR::new(((self.bits >> 6) & 3) as u8)
     }
     #[doc = "Bits 8:10 - 10:8\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn dcdc_ipeak(&self) -> DCDC_IPEAK_R {
-        DCDC_IPEAK_R::new(((self.bits >> 8) & 7) as u8)
+    pub fn dcdc_ipeak(&self) -> DcdcIpeakR {
+        DcdcIpeakR::new(((self.bits >> 8) & 7) as u8)
     }
     #[doc = "Bit 11 - 11:11\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn dither_en(&self) -> DITHER_EN_R {
-        DITHER_EN_R::new(((self.bits >> 11) & 1) != 0)
+    pub fn dither_en(&self) -> DitherEnR {
+        DitherEnR::new(((self.bits >> 11) & 1) != 0)
     }
     #[doc = "Bits 12:14 - 14:12\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn reserved1(&self) -> RESERVED1_R {
-        RESERVED1_R::new(((self.bits >> 12) & 7) as u8)
+    pub fn reserved1(&self) -> Reserved1R {
+        Reserved1R::new(((self.bits >> 12) & 7) as u8)
     }
     #[doc = "Bits 15:21 - 21:15\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn nanoamp_res_trim(&self) -> NANOAMP_RES_TRIM_R {
-        NANOAMP_RES_TRIM_R::new(((self.bits >> 15) & 0x7f) as u8)
+    pub fn nanoamp_res_trim(&self) -> NanoampResTrimR {
+        NanoampResTrimR::new(((self.bits >> 15) & 0x7f) as u8)
     }
     #[doc = "Bit 22 - 22:22\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn atestlf_udigldo_ibias_trim(&self) -> ATESTLF_UDIGLDO_IBIAS_TRIM_R {
-        ATESTLF_UDIGLDO_IBIAS_TRIM_R::new(((self.bits >> 22) & 1) != 0)
+    pub fn atestlf_udigldo_ibias_trim(&self) -> AtestlfUdigldoIbiasTrimR {
+        AtestlfUdigldoIbiasTrimR::new(((self.bits >> 22) & 1) != 0)
     }
     #[doc = "Bits 23:24 - 24:23\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn set_rcosc_hf_fine_resistor(&self) -> SET_RCOSC_HF_FINE_RESISTOR_R {
-        SET_RCOSC_HF_FINE_RESISTOR_R::new(((self.bits >> 23) & 3) as u8)
+    pub fn set_rcosc_hf_fine_resistor(&self) -> SetRcoscHfFineResistorR {
+        SetRcoscHfFineResistorR::new(((self.bits >> 23) & 3) as u8)
     }
     #[doc = "Bit 25 - 25:25\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn reserved0(&self) -> RESERVED0_R {
-        RESERVED0_R::new(((self.bits >> 25) & 1) != 0)
+    pub fn reserved0(&self) -> Reserved0R {
+        Reserved0R::new(((self.bits >> 25) & 1) != 0)
     }
     #[doc = "Bits 26:30 - 30:26\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn rcoschfctrimfract(&self) -> RCOSCHFCTRIMFRACT_R {
-        RCOSCHFCTRIMFRACT_R::new(((self.bits >> 26) & 0x1f) as u8)
+    pub fn rcoschfctrimfract(&self) -> RcoschfctrimfractR {
+        RcoschfctrimfractR::new(((self.bits >> 26) & 0x1f) as u8)
     }
     #[doc = "Bit 31 - 31:31\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn rcoschfctrimfract_en(&self) -> RCOSCHFCTRIMFRACT_EN_R {
-        RCOSCHFCTRIMFRACT_EN_R::new(((self.bits >> 31) & 1) != 0)
+    pub fn rcoschfctrimfract_en(&self) -> RcoschfctrimfractEnR {
+        RcoschfctrimfractEnR::new(((self.bits >> 31) & 1) != 0)
     }
 }
 impl W {
@@ -193,109 +153,101 @@ impl W {
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn dcdc_high_en_sel(&mut self) -> DCDC_HIGH_EN_SEL_W<0> {
-        DCDC_HIGH_EN_SEL_W::new(self)
+    pub fn dcdc_high_en_sel(&mut self) -> DcdcHighEnSelW<Ana2TrimSpec> {
+        DcdcHighEnSelW::new(self, 0)
     }
     #[doc = "Bits 3:5 - 5:3\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn dcdc_low_en_sel(&mut self) -> DCDC_LOW_EN_SEL_W<3> {
-        DCDC_LOW_EN_SEL_W::new(self)
+    pub fn dcdc_low_en_sel(&mut self) -> DcdcLowEnSelW<Ana2TrimSpec> {
+        DcdcLowEnSelW::new(self, 3)
     }
     #[doc = "Bits 6:7 - 7:6\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn dead_time_trim(&mut self) -> DEAD_TIME_TRIM_W<6> {
-        DEAD_TIME_TRIM_W::new(self)
+    pub fn dead_time_trim(&mut self) -> DeadTimeTrimW<Ana2TrimSpec> {
+        DeadTimeTrimW::new(self, 6)
     }
     #[doc = "Bits 8:10 - 10:8\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn dcdc_ipeak(&mut self) -> DCDC_IPEAK_W<8> {
-        DCDC_IPEAK_W::new(self)
+    pub fn dcdc_ipeak(&mut self) -> DcdcIpeakW<Ana2TrimSpec> {
+        DcdcIpeakW::new(self, 8)
     }
     #[doc = "Bit 11 - 11:11\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn dither_en(&mut self) -> DITHER_EN_W<11> {
-        DITHER_EN_W::new(self)
+    pub fn dither_en(&mut self) -> DitherEnW<Ana2TrimSpec> {
+        DitherEnW::new(self, 11)
     }
     #[doc = "Bits 12:14 - 14:12\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved1(&mut self) -> RESERVED1_W<12> {
-        RESERVED1_W::new(self)
+    pub fn reserved1(&mut self) -> Reserved1W<Ana2TrimSpec> {
+        Reserved1W::new(self, 12)
     }
     #[doc = "Bits 15:21 - 21:15\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn nanoamp_res_trim(&mut self) -> NANOAMP_RES_TRIM_W<15> {
-        NANOAMP_RES_TRIM_W::new(self)
+    pub fn nanoamp_res_trim(&mut self) -> NanoampResTrimW<Ana2TrimSpec> {
+        NanoampResTrimW::new(self, 15)
     }
     #[doc = "Bit 22 - 22:22\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn atestlf_udigldo_ibias_trim(&mut self) -> ATESTLF_UDIGLDO_IBIAS_TRIM_W<22> {
-        ATESTLF_UDIGLDO_IBIAS_TRIM_W::new(self)
+    pub fn atestlf_udigldo_ibias_trim(&mut self) -> AtestlfUdigldoIbiasTrimW<Ana2TrimSpec> {
+        AtestlfUdigldoIbiasTrimW::new(self, 22)
     }
     #[doc = "Bits 23:24 - 24:23\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn set_rcosc_hf_fine_resistor(&mut self) -> SET_RCOSC_HF_FINE_RESISTOR_W<23> {
-        SET_RCOSC_HF_FINE_RESISTOR_W::new(self)
+    pub fn set_rcosc_hf_fine_resistor(&mut self) -> SetRcoscHfFineResistorW<Ana2TrimSpec> {
+        SetRcoscHfFineResistorW::new(self, 23)
     }
     #[doc = "Bit 25 - 25:25\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved0(&mut self) -> RESERVED0_W<25> {
-        RESERVED0_W::new(self)
+    pub fn reserved0(&mut self) -> Reserved0W<Ana2TrimSpec> {
+        Reserved0W::new(self, 25)
     }
     #[doc = "Bits 26:30 - 30:26\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn rcoschfctrimfract(&mut self) -> RCOSCHFCTRIMFRACT_W<26> {
-        RCOSCHFCTRIMFRACT_W::new(self)
+    pub fn rcoschfctrimfract(&mut self) -> RcoschfctrimfractW<Ana2TrimSpec> {
+        RcoschfctrimfractW::new(self, 26)
     }
     #[doc = "Bit 31 - 31:31\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn rcoschfctrimfract_en(&mut self) -> RCOSCHFCTRIMFRACT_EN_W<31> {
-        RCOSCHFCTRIMFRACT_EN_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn rcoschfctrimfract_en(&mut self) -> RcoschfctrimfractEnW<Ana2TrimSpec> {
+        RcoschfctrimfractEnW::new(self, 31)
     }
 }
-#[doc = "Internal. Only to be used through TI provided API.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ana2_trim](index.html) module"]
-pub struct ANA2_TRIM_SPEC;
-impl crate::RegisterSpec for ANA2_TRIM_SPEC {
+#[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ana2_trim::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ana2_trim::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Ana2TrimSpec;
+impl crate::RegisterSpec for Ana2TrimSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [ana2_trim::R](R) reader structure"]
-impl crate::Readable for ANA2_TRIM_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [ana2_trim::W](W) writer structure"]
-impl crate::Writable for ANA2_TRIM_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`ana2_trim::R`](R) reader structure"]
+impl crate::Readable for Ana2TrimSpec {}
+#[doc = "`write(|w| ..)` method takes [`ana2_trim::W`](W) writer structure"]
+impl crate::Writable for Ana2TrimSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets ANA2_TRIM to value 0x8240_787f"]
-impl crate::Resettable for ANA2_TRIM_SPEC {
-    const RESET_VALUE: Self::Ux = 0x8240_787f;
+impl crate::Resettable for Ana2TrimSpec {
+    const RESET_VALUE: u32 = 0x8240_787f;
 }

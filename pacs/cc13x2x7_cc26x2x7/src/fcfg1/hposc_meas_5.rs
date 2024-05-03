@@ -1,77 +1,43 @@
 #[doc = "Register `HPOSC_MEAS_5` reader"]
-pub struct R(crate::R<HPOSC_MEAS_5_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<HPOSC_MEAS_5_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<HPOSC_MEAS_5_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<HPOSC_MEAS_5_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<HposcMeas5Spec>;
 #[doc = "Register `HPOSC_MEAS_5` writer"]
-pub struct W(crate::W<HPOSC_MEAS_5_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<HPOSC_MEAS_5_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<HPOSC_MEAS_5_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<HPOSC_MEAS_5_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<HposcMeas5Spec>;
 #[doc = "Field `HPOSC_DT5` reader - 7:0\\]
 Internal. Only to be used through TI provided API."]
-pub type HPOSC_DT5_R = crate::FieldReader<u8, u8>;
+pub type HposcDt5R = crate::FieldReader;
 #[doc = "Field `HPOSC_DT5` writer - 7:0\\]
 Internal. Only to be used through TI provided API."]
-pub type HPOSC_DT5_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, HPOSC_MEAS_5_SPEC, u8, u8, 8, O>;
+pub type HposcDt5W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `HPOSC_T5` reader - 15:8\\]
 Internal. Only to be used through TI provided API."]
-pub type HPOSC_T5_R = crate::FieldReader<u8, u8>;
+pub type HposcT5R = crate::FieldReader;
 #[doc = "Field `HPOSC_T5` writer - 15:8\\]
 Internal. Only to be used through TI provided API."]
-pub type HPOSC_T5_W<'a, const O: u8> = crate::FieldWriter<'a, u32, HPOSC_MEAS_5_SPEC, u8, u8, 8, O>;
+pub type HposcT5W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `HPOSC_D5` reader - 31:16\\]
 Internal. Only to be used through TI provided API."]
-pub type HPOSC_D5_R = crate::FieldReader<u16, u16>;
+pub type HposcD5R = crate::FieldReader<u16>;
 #[doc = "Field `HPOSC_D5` writer - 31:16\\]
 Internal. Only to be used through TI provided API."]
-pub type HPOSC_D5_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, HPOSC_MEAS_5_SPEC, u16, u16, 16, O>;
+pub type HposcD5W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn hposc_dt5(&self) -> HPOSC_DT5_R {
-        HPOSC_DT5_R::new((self.bits & 0xff) as u8)
+    pub fn hposc_dt5(&self) -> HposcDt5R {
+        HposcDt5R::new((self.bits & 0xff) as u8)
     }
     #[doc = "Bits 8:15 - 15:8\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn hposc_t5(&self) -> HPOSC_T5_R {
-        HPOSC_T5_R::new(((self.bits >> 8) & 0xff) as u8)
+    pub fn hposc_t5(&self) -> HposcT5R {
+        HposcT5R::new(((self.bits >> 8) & 0xff) as u8)
     }
     #[doc = "Bits 16:31 - 31:16\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn hposc_d5(&self) -> HPOSC_D5_R {
-        HPOSC_D5_R::new(((self.bits >> 16) & 0xffff) as u16)
+    pub fn hposc_d5(&self) -> HposcD5R {
+        HposcD5R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
 impl W {
@@ -79,46 +45,38 @@ impl W {
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn hposc_dt5(&mut self) -> HPOSC_DT5_W<0> {
-        HPOSC_DT5_W::new(self)
+    pub fn hposc_dt5(&mut self) -> HposcDt5W<HposcMeas5Spec> {
+        HposcDt5W::new(self, 0)
     }
     #[doc = "Bits 8:15 - 15:8\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn hposc_t5(&mut self) -> HPOSC_T5_W<8> {
-        HPOSC_T5_W::new(self)
+    pub fn hposc_t5(&mut self) -> HposcT5W<HposcMeas5Spec> {
+        HposcT5W::new(self, 8)
     }
     #[doc = "Bits 16:31 - 31:16\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn hposc_d5(&mut self) -> HPOSC_D5_W<16> {
-        HPOSC_D5_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn hposc_d5(&mut self) -> HposcD5W<HposcMeas5Spec> {
+        HposcD5W::new(self, 16)
     }
 }
-#[doc = "Internal. Only to be used through TI provided API.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [hposc_meas_5](index.html) module"]
-pub struct HPOSC_MEAS_5_SPEC;
-impl crate::RegisterSpec for HPOSC_MEAS_5_SPEC {
+#[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`hposc_meas_5::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`hposc_meas_5::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct HposcMeas5Spec;
+impl crate::RegisterSpec for HposcMeas5Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [hposc_meas_5::R](R) reader structure"]
-impl crate::Readable for HPOSC_MEAS_5_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [hposc_meas_5::W](W) writer structure"]
-impl crate::Writable for HPOSC_MEAS_5_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`hposc_meas_5::R`](R) reader structure"]
+impl crate::Readable for HposcMeas5Spec {}
+#[doc = "`write(|w| ..)` method takes [`hposc_meas_5::W`](W) writer structure"]
+impl crate::Writable for HposcMeas5Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets HPOSC_MEAS_5 to value 0"]
-impl crate::Resettable for HPOSC_MEAS_5_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for HposcMeas5Spec {
+    const RESET_VALUE: u32 = 0;
 }

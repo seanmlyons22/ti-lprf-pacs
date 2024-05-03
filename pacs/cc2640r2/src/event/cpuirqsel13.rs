@@ -1,87 +1,63 @@
 #[doc = "Register `CPUIRQSEL13` reader"]
-pub struct R(crate::R<CPUIRQSEL13_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<CPUIRQSEL13_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<CPUIRQSEL13_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<CPUIRQSEL13_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Cpuirqsel13Spec>;
 #[doc = "Register `CPUIRQSEL13` writer"]
-pub struct W(crate::W<CPUIRQSEL13_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<CPUIRQSEL13_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<CPUIRQSEL13_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<CPUIRQSEL13_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `EV` reader - 6:0\\]
-Read only selection value"]
-pub type EV_R = crate::FieldReader<u8, EV_A>;
+pub type W = crate::W<Cpuirqsel13Spec>;
 #[doc = "6:0\\]
 Read only selection value\n\nValue on reset: 29"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum EV_A {
+pub enum Ev {
     #[doc = "29: AUX software event 1, triggered by AUX_EVCTL:SWEVSET.SWEV1, also available as AUX_EVENT2 AON wake up event. MCU domain wakeup control AON_EVENT:MCUWUSEL AUX domain wakeup control AON_EVENT:AUXWUSEL"]
-    AUX_SWEV1 = 29,
+    AuxSwev1 = 29,
 }
-impl From<EV_A> for u8 {
+impl From<Ev> for u8 {
     #[inline(always)]
-    fn from(variant: EV_A) -> Self {
+    fn from(variant: Ev) -> Self {
         variant as _
     }
 }
-impl EV_R {
+impl crate::FieldSpec for Ev {
+    type Ux = u8;
+}
+impl crate::IsEnum for Ev {}
+#[doc = "Field `EV` reader - 6:0\\]
+Read only selection value"]
+pub type EvR = crate::FieldReader<Ev>;
+impl EvR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<EV_A> {
+    pub const fn variant(&self) -> Option<Ev> {
         match self.bits {
-            29 => Some(EV_A::AUX_SWEV1),
+            29 => Some(Ev::AuxSwev1),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `AUX_SWEV1`"]
+    #[doc = "AUX software event 1, triggered by AUX_EVCTL:SWEVSET.SWEV1, also available as AUX_EVENT2 AON wake up event. MCU domain wakeup control AON_EVENT:MCUWUSEL AUX domain wakeup control AON_EVENT:AUXWUSEL"]
     #[inline(always)]
     pub fn is_aux_swev1(&self) -> bool {
-        *self == EV_A::AUX_SWEV1
+        *self == Ev::AuxSwev1
     }
 }
 #[doc = "Field `EV` writer - 6:0\\]
 Read only selection value"]
-pub type EV_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CPUIRQSEL13_SPEC, u8, EV_A, 7, O>;
-impl<'a, const O: u8> EV_W<'a, O> {
+pub type EvW<'a, REG> = crate::FieldWriter<'a, REG, 7, Ev>;
+impl<'a, REG> EvW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "AUX software event 1, triggered by AUX_EVCTL:SWEVSET.SWEV1, also available as AUX_EVENT2 AON wake up event. MCU domain wakeup control AON_EVENT:MCUWUSEL AUX domain wakeup control AON_EVENT:AUXWUSEL"]
     #[inline(always)]
-    pub fn aux_swev1(self) -> &'a mut W {
-        self.variant(EV_A::AUX_SWEV1)
+    pub fn aux_swev1(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxSwev1)
     }
 }
 impl R {
     #[doc = "Bits 0:6 - 6:0\\]
 Read only selection value"]
     #[inline(always)]
-    pub fn ev(&self) -> EV_R {
-        EV_R::new((self.bits & 0x7f) as u8)
+    pub fn ev(&self) -> EvR {
+        EvR::new((self.bits & 0x7f) as u8)
     }
 }
 impl W {
@@ -89,32 +65,24 @@ impl W {
 Read only selection value"]
     #[inline(always)]
     #[must_use]
-    pub fn ev(&mut self) -> EV_W<0> {
-        EV_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn ev(&mut self) -> EvW<Cpuirqsel13Spec> {
+        EvW::new(self, 0)
     }
 }
-#[doc = "Output Selection for CPU Interrupt 13\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cpuirqsel13](index.html) module"]
-pub struct CPUIRQSEL13_SPEC;
-impl crate::RegisterSpec for CPUIRQSEL13_SPEC {
+#[doc = "Output Selection for CPU Interrupt 13\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`cpuirqsel13::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`cpuirqsel13::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Cpuirqsel13Spec;
+impl crate::RegisterSpec for Cpuirqsel13Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [cpuirqsel13::R](R) reader structure"]
-impl crate::Readable for CPUIRQSEL13_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [cpuirqsel13::W](W) writer structure"]
-impl crate::Writable for CPUIRQSEL13_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`cpuirqsel13::R`](R) reader structure"]
+impl crate::Readable for Cpuirqsel13Spec {}
+#[doc = "`write(|w| ..)` method takes [`cpuirqsel13::W`](W) writer structure"]
+impl crate::Writable for Cpuirqsel13Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets CPUIRQSEL13 to value 0x1d"]
-impl crate::Resettable for CPUIRQSEL13_SPEC {
-    const RESET_VALUE: Self::Ux = 0x1d;
+impl crate::Resettable for Cpuirqsel13Spec {
+    const RESET_VALUE: u32 = 0x1d;
 }

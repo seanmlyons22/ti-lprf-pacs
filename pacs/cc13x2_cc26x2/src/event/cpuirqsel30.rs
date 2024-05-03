@@ -1,386 +1,362 @@
 #[doc = "Register `CPUIRQSEL30` reader"]
-pub struct R(crate::R<CPUIRQSEL30_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<CPUIRQSEL30_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<CPUIRQSEL30_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<CPUIRQSEL30_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Cpuirqsel30Spec>;
 #[doc = "Register `CPUIRQSEL30` writer"]
-pub struct W(crate::W<CPUIRQSEL30_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<CPUIRQSEL30_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<CPUIRQSEL30_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<CPUIRQSEL30_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `EV` reader - 6:0\\]
-Read/write selection value Writing any other value than values defined by a ENUM may result in undefined behavior."]
-pub type EV_R = crate::FieldReader<u8, EV_A>;
+pub type W = crate::W<Cpuirqsel30Spec>;
 #[doc = "6:0\\]
 Read/write selection value Writing any other value than values defined by a ENUM may result in undefined behavior.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum EV_A {
+pub enum Ev {
     #[doc = "121: Always asserted"]
-    ALWAYS_ACTIVE = 121,
+    AlwaysActive = 121,
     #[doc = "119: RTC periodic event controlled by AON_RTC:CTL.RTC_UPD_EN"]
-    AON_RTC_UPD = 119,
+    AonRtcUpd = 119,
     #[doc = "114: Loopback of OBSMUX0 through AUX, corresponds to AUX_EVCTL:EVTOMCUFLAGS.MCU_OBSMUX0"]
-    AUX_OBSMUX0 = 114,
+    AuxObsmux0 = 114,
     #[doc = "113: AUX ADC FIFO watermark event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_ADC_FIFO_ALMOST_FULL"]
-    AUX_ADC_FIFO_ALMOST_FULL = 113,
+    AuxAdcFifoAlmostFull = 113,
     #[doc = "112: AUX ADC done, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_ADC_DONE"]
-    AUX_ADC_DONE = 112,
+    AuxAdcDone = 112,
     #[doc = "111: Autotake event from AUX semaphore, configured by AUX_SMPH:AUTOTAKE"]
-    AUX_SMPH_AUTOTAKE_DONE = 111,
+    AuxSmphAutotakeDone = 111,
     #[doc = "110: AUX timer 1 event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER1_EV"]
-    AUX_TIMER1_EV = 110,
+    AuxTimer1Ev = 110,
     #[doc = "109: AUX timer 0 event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER0_EV"]
-    AUX_TIMER0_EV = 109,
+    AuxTimer0Ev = 109,
     #[doc = "108: AUX TDC measurement done event, corresponds to the flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TDC_DONE and the AUX_TDC status AUX_TDC:STAT.DONE"]
-    AUX_TDC_DONE = 108,
+    AuxTdcDone = 108,
     #[doc = "107: AUX Compare B event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_COMPB"]
-    AUX_COMPB = 107,
+    AuxCompb = 107,
     #[doc = "105: AON wakeup event, the corresponding flag is here AUX_EVCTL:EVTOMCUFLAGS.AUX_WU_EV"]
-    AUX_AON_WU_EV = 105,
+    AuxAonWuEv = 105,
     #[doc = "94: CRYPTO DMA input done event, the correspondingg flag is CRYPTO:IRQSTAT.DMA_IN_DONE. Controlled by CRYPTO:IRQEN.DMA_IN_DONE"]
-    CRYPTO_DMA_DONE_IRQ = 94,
+    CryptoDmaDoneIrq = 94,
     #[doc = "60: AUX Timer2 pulse, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_PULSE"]
-    AUX_TIMER2_PULSE = 60,
+    AuxTimer2Pulse = 60,
     #[doc = "59: AUX Timer2 event 3, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_EV3"]
-    AUX_TIMER2_EV3 = 59,
+    AuxTimer2Ev3 = 59,
     #[doc = "58: AUX Timer2 event 2, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_EV2"]
-    AUX_TIMER2_EV2 = 58,
+    AuxTimer2Ev2 = 58,
     #[doc = "57: AUX Timer2 event 1, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_EV1"]
-    AUX_TIMER2_EV1 = 57,
+    AuxTimer2Ev1 = 57,
     #[doc = "56: AUX Timer2 event 0, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_EV0"]
-    AUX_TIMER2_EV0 = 56,
+    AuxTimer2Ev0 = 56,
     #[doc = "22: DMA done for software tiggered UDMA channel 18, see UDMA0:SOFTREQ"]
-    DMA_CH18_DONE = 22,
+    DmaCh18Done = 22,
     #[doc = "20: DMA done for software tiggered UDMA channel 0, see UDMA0:SOFTREQ"]
-    DMA_CH0_DONE = 20,
+    DmaCh0Done = 20,
     #[doc = "10: AUX Software event 0, AUX_EVCTL:SWEVSET.SWEV0"]
-    AON_AUX_SWEV0 = 10,
+    AonAuxSwev0 = 10,
     #[doc = "8: Interrupt event from I2S"]
-    I2S_IRQ = 8,
+    I2sIrq = 8,
     #[doc = "3: AON programmable event 2. Event selected by AON_EVENT MCU event selector, AON_EVENT:EVTOMCUSEL.AON_PROG2_EV"]
-    AON_PROG2 = 3,
+    AonProg2 = 3,
     #[doc = "2: AON programmable event 1. Event selected by AON_EVENT MCU event selector, AON_EVENT:EVTOMCUSEL.AON_PROG1_EV"]
-    AON_PROG1 = 2,
+    AonProg1 = 2,
     #[doc = "0: Always inactive"]
-    NONE = 0,
+    None = 0,
 }
-impl From<EV_A> for u8 {
+impl From<Ev> for u8 {
     #[inline(always)]
-    fn from(variant: EV_A) -> Self {
+    fn from(variant: Ev) -> Self {
         variant as _
     }
 }
-impl EV_R {
+impl crate::FieldSpec for Ev {
+    type Ux = u8;
+}
+impl crate::IsEnum for Ev {}
+#[doc = "Field `EV` reader - 6:0\\]
+Read/write selection value Writing any other value than values defined by a ENUM may result in undefined behavior."]
+pub type EvR = crate::FieldReader<Ev>;
+impl EvR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<EV_A> {
+    pub const fn variant(&self) -> Option<Ev> {
         match self.bits {
-            121 => Some(EV_A::ALWAYS_ACTIVE),
-            119 => Some(EV_A::AON_RTC_UPD),
-            114 => Some(EV_A::AUX_OBSMUX0),
-            113 => Some(EV_A::AUX_ADC_FIFO_ALMOST_FULL),
-            112 => Some(EV_A::AUX_ADC_DONE),
-            111 => Some(EV_A::AUX_SMPH_AUTOTAKE_DONE),
-            110 => Some(EV_A::AUX_TIMER1_EV),
-            109 => Some(EV_A::AUX_TIMER0_EV),
-            108 => Some(EV_A::AUX_TDC_DONE),
-            107 => Some(EV_A::AUX_COMPB),
-            105 => Some(EV_A::AUX_AON_WU_EV),
-            94 => Some(EV_A::CRYPTO_DMA_DONE_IRQ),
-            60 => Some(EV_A::AUX_TIMER2_PULSE),
-            59 => Some(EV_A::AUX_TIMER2_EV3),
-            58 => Some(EV_A::AUX_TIMER2_EV2),
-            57 => Some(EV_A::AUX_TIMER2_EV1),
-            56 => Some(EV_A::AUX_TIMER2_EV0),
-            22 => Some(EV_A::DMA_CH18_DONE),
-            20 => Some(EV_A::DMA_CH0_DONE),
-            10 => Some(EV_A::AON_AUX_SWEV0),
-            8 => Some(EV_A::I2S_IRQ),
-            3 => Some(EV_A::AON_PROG2),
-            2 => Some(EV_A::AON_PROG1),
-            0 => Some(EV_A::NONE),
+            121 => Some(Ev::AlwaysActive),
+            119 => Some(Ev::AonRtcUpd),
+            114 => Some(Ev::AuxObsmux0),
+            113 => Some(Ev::AuxAdcFifoAlmostFull),
+            112 => Some(Ev::AuxAdcDone),
+            111 => Some(Ev::AuxSmphAutotakeDone),
+            110 => Some(Ev::AuxTimer1Ev),
+            109 => Some(Ev::AuxTimer0Ev),
+            108 => Some(Ev::AuxTdcDone),
+            107 => Some(Ev::AuxCompb),
+            105 => Some(Ev::AuxAonWuEv),
+            94 => Some(Ev::CryptoDmaDoneIrq),
+            60 => Some(Ev::AuxTimer2Pulse),
+            59 => Some(Ev::AuxTimer2Ev3),
+            58 => Some(Ev::AuxTimer2Ev2),
+            57 => Some(Ev::AuxTimer2Ev1),
+            56 => Some(Ev::AuxTimer2Ev0),
+            22 => Some(Ev::DmaCh18Done),
+            20 => Some(Ev::DmaCh0Done),
+            10 => Some(Ev::AonAuxSwev0),
+            8 => Some(Ev::I2sIrq),
+            3 => Some(Ev::AonProg2),
+            2 => Some(Ev::AonProg1),
+            0 => Some(Ev::None),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `ALWAYS_ACTIVE`"]
+    #[doc = "Always asserted"]
     #[inline(always)]
     pub fn is_always_active(&self) -> bool {
-        *self == EV_A::ALWAYS_ACTIVE
+        *self == Ev::AlwaysActive
     }
-    #[doc = "Checks if the value of the field is `AON_RTC_UPD`"]
+    #[doc = "RTC periodic event controlled by AON_RTC:CTL.RTC_UPD_EN"]
     #[inline(always)]
     pub fn is_aon_rtc_upd(&self) -> bool {
-        *self == EV_A::AON_RTC_UPD
+        *self == Ev::AonRtcUpd
     }
-    #[doc = "Checks if the value of the field is `AUX_OBSMUX0`"]
+    #[doc = "Loopback of OBSMUX0 through AUX, corresponds to AUX_EVCTL:EVTOMCUFLAGS.MCU_OBSMUX0"]
     #[inline(always)]
     pub fn is_aux_obsmux0(&self) -> bool {
-        *self == EV_A::AUX_OBSMUX0
+        *self == Ev::AuxObsmux0
     }
-    #[doc = "Checks if the value of the field is `AUX_ADC_FIFO_ALMOST_FULL`"]
+    #[doc = "AUX ADC FIFO watermark event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_ADC_FIFO_ALMOST_FULL"]
     #[inline(always)]
     pub fn is_aux_adc_fifo_almost_full(&self) -> bool {
-        *self == EV_A::AUX_ADC_FIFO_ALMOST_FULL
+        *self == Ev::AuxAdcFifoAlmostFull
     }
-    #[doc = "Checks if the value of the field is `AUX_ADC_DONE`"]
+    #[doc = "AUX ADC done, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_ADC_DONE"]
     #[inline(always)]
     pub fn is_aux_adc_done(&self) -> bool {
-        *self == EV_A::AUX_ADC_DONE
+        *self == Ev::AuxAdcDone
     }
-    #[doc = "Checks if the value of the field is `AUX_SMPH_AUTOTAKE_DONE`"]
+    #[doc = "Autotake event from AUX semaphore, configured by AUX_SMPH:AUTOTAKE"]
     #[inline(always)]
     pub fn is_aux_smph_autotake_done(&self) -> bool {
-        *self == EV_A::AUX_SMPH_AUTOTAKE_DONE
+        *self == Ev::AuxSmphAutotakeDone
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER1_EV`"]
+    #[doc = "AUX timer 1 event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER1_EV"]
     #[inline(always)]
     pub fn is_aux_timer1_ev(&self) -> bool {
-        *self == EV_A::AUX_TIMER1_EV
+        *self == Ev::AuxTimer1Ev
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER0_EV`"]
+    #[doc = "AUX timer 0 event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER0_EV"]
     #[inline(always)]
     pub fn is_aux_timer0_ev(&self) -> bool {
-        *self == EV_A::AUX_TIMER0_EV
+        *self == Ev::AuxTimer0Ev
     }
-    #[doc = "Checks if the value of the field is `AUX_TDC_DONE`"]
+    #[doc = "AUX TDC measurement done event, corresponds to the flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TDC_DONE and the AUX_TDC status AUX_TDC:STAT.DONE"]
     #[inline(always)]
     pub fn is_aux_tdc_done(&self) -> bool {
-        *self == EV_A::AUX_TDC_DONE
+        *self == Ev::AuxTdcDone
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPB`"]
+    #[doc = "AUX Compare B event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_COMPB"]
     #[inline(always)]
     pub fn is_aux_compb(&self) -> bool {
-        *self == EV_A::AUX_COMPB
+        *self == Ev::AuxCompb
     }
-    #[doc = "Checks if the value of the field is `AUX_AON_WU_EV`"]
+    #[doc = "AON wakeup event, the corresponding flag is here AUX_EVCTL:EVTOMCUFLAGS.AUX_WU_EV"]
     #[inline(always)]
     pub fn is_aux_aon_wu_ev(&self) -> bool {
-        *self == EV_A::AUX_AON_WU_EV
+        *self == Ev::AuxAonWuEv
     }
-    #[doc = "Checks if the value of the field is `CRYPTO_DMA_DONE_IRQ`"]
+    #[doc = "CRYPTO DMA input done event, the correspondingg flag is CRYPTO:IRQSTAT.DMA_IN_DONE. Controlled by CRYPTO:IRQEN.DMA_IN_DONE"]
     #[inline(always)]
     pub fn is_crypto_dma_done_irq(&self) -> bool {
-        *self == EV_A::CRYPTO_DMA_DONE_IRQ
+        *self == Ev::CryptoDmaDoneIrq
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER2_PULSE`"]
+    #[doc = "AUX Timer2 pulse, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_PULSE"]
     #[inline(always)]
     pub fn is_aux_timer2_pulse(&self) -> bool {
-        *self == EV_A::AUX_TIMER2_PULSE
+        *self == Ev::AuxTimer2Pulse
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER2_EV3`"]
+    #[doc = "AUX Timer2 event 3, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_EV3"]
     #[inline(always)]
     pub fn is_aux_timer2_ev3(&self) -> bool {
-        *self == EV_A::AUX_TIMER2_EV3
+        *self == Ev::AuxTimer2Ev3
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER2_EV2`"]
+    #[doc = "AUX Timer2 event 2, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_EV2"]
     #[inline(always)]
     pub fn is_aux_timer2_ev2(&self) -> bool {
-        *self == EV_A::AUX_TIMER2_EV2
+        *self == Ev::AuxTimer2Ev2
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER2_EV1`"]
+    #[doc = "AUX Timer2 event 1, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_EV1"]
     #[inline(always)]
     pub fn is_aux_timer2_ev1(&self) -> bool {
-        *self == EV_A::AUX_TIMER2_EV1
+        *self == Ev::AuxTimer2Ev1
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER2_EV0`"]
+    #[doc = "AUX Timer2 event 0, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_EV0"]
     #[inline(always)]
     pub fn is_aux_timer2_ev0(&self) -> bool {
-        *self == EV_A::AUX_TIMER2_EV0
+        *self == Ev::AuxTimer2Ev0
     }
-    #[doc = "Checks if the value of the field is `DMA_CH18_DONE`"]
+    #[doc = "DMA done for software tiggered UDMA channel 18, see UDMA0:SOFTREQ"]
     #[inline(always)]
     pub fn is_dma_ch18_done(&self) -> bool {
-        *self == EV_A::DMA_CH18_DONE
+        *self == Ev::DmaCh18Done
     }
-    #[doc = "Checks if the value of the field is `DMA_CH0_DONE`"]
+    #[doc = "DMA done for software tiggered UDMA channel 0, see UDMA0:SOFTREQ"]
     #[inline(always)]
     pub fn is_dma_ch0_done(&self) -> bool {
-        *self == EV_A::DMA_CH0_DONE
+        *self == Ev::DmaCh0Done
     }
-    #[doc = "Checks if the value of the field is `AON_AUX_SWEV0`"]
+    #[doc = "AUX Software event 0, AUX_EVCTL:SWEVSET.SWEV0"]
     #[inline(always)]
     pub fn is_aon_aux_swev0(&self) -> bool {
-        *self == EV_A::AON_AUX_SWEV0
+        *self == Ev::AonAuxSwev0
     }
-    #[doc = "Checks if the value of the field is `I2S_IRQ`"]
+    #[doc = "Interrupt event from I2S"]
     #[inline(always)]
     pub fn is_i2s_irq(&self) -> bool {
-        *self == EV_A::I2S_IRQ
+        *self == Ev::I2sIrq
     }
-    #[doc = "Checks if the value of the field is `AON_PROG2`"]
+    #[doc = "AON programmable event 2. Event selected by AON_EVENT MCU event selector, AON_EVENT:EVTOMCUSEL.AON_PROG2_EV"]
     #[inline(always)]
     pub fn is_aon_prog2(&self) -> bool {
-        *self == EV_A::AON_PROG2
+        *self == Ev::AonProg2
     }
-    #[doc = "Checks if the value of the field is `AON_PROG1`"]
+    #[doc = "AON programmable event 1. Event selected by AON_EVENT MCU event selector, AON_EVENT:EVTOMCUSEL.AON_PROG1_EV"]
     #[inline(always)]
     pub fn is_aon_prog1(&self) -> bool {
-        *self == EV_A::AON_PROG1
+        *self == Ev::AonProg1
     }
-    #[doc = "Checks if the value of the field is `NONE`"]
+    #[doc = "Always inactive"]
     #[inline(always)]
     pub fn is_none(&self) -> bool {
-        *self == EV_A::NONE
+        *self == Ev::None
     }
 }
 #[doc = "Field `EV` writer - 6:0\\]
 Read/write selection value Writing any other value than values defined by a ENUM may result in undefined behavior."]
-pub type EV_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CPUIRQSEL30_SPEC, u8, EV_A, 7, O>;
-impl<'a, const O: u8> EV_W<'a, O> {
+pub type EvW<'a, REG> = crate::FieldWriter<'a, REG, 7, Ev>;
+impl<'a, REG> EvW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "Always asserted"]
     #[inline(always)]
-    pub fn always_active(self) -> &'a mut W {
-        self.variant(EV_A::ALWAYS_ACTIVE)
+    pub fn always_active(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AlwaysActive)
     }
     #[doc = "RTC periodic event controlled by AON_RTC:CTL.RTC_UPD_EN"]
     #[inline(always)]
-    pub fn aon_rtc_upd(self) -> &'a mut W {
-        self.variant(EV_A::AON_RTC_UPD)
+    pub fn aon_rtc_upd(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AonRtcUpd)
     }
     #[doc = "Loopback of OBSMUX0 through AUX, corresponds to AUX_EVCTL:EVTOMCUFLAGS.MCU_OBSMUX0"]
     #[inline(always)]
-    pub fn aux_obsmux0(self) -> &'a mut W {
-        self.variant(EV_A::AUX_OBSMUX0)
+    pub fn aux_obsmux0(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxObsmux0)
     }
     #[doc = "AUX ADC FIFO watermark event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_ADC_FIFO_ALMOST_FULL"]
     #[inline(always)]
-    pub fn aux_adc_fifo_almost_full(self) -> &'a mut W {
-        self.variant(EV_A::AUX_ADC_FIFO_ALMOST_FULL)
+    pub fn aux_adc_fifo_almost_full(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxAdcFifoAlmostFull)
     }
     #[doc = "AUX ADC done, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_ADC_DONE"]
     #[inline(always)]
-    pub fn aux_adc_done(self) -> &'a mut W {
-        self.variant(EV_A::AUX_ADC_DONE)
+    pub fn aux_adc_done(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxAdcDone)
     }
     #[doc = "Autotake event from AUX semaphore, configured by AUX_SMPH:AUTOTAKE"]
     #[inline(always)]
-    pub fn aux_smph_autotake_done(self) -> &'a mut W {
-        self.variant(EV_A::AUX_SMPH_AUTOTAKE_DONE)
+    pub fn aux_smph_autotake_done(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxSmphAutotakeDone)
     }
     #[doc = "AUX timer 1 event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER1_EV"]
     #[inline(always)]
-    pub fn aux_timer1_ev(self) -> &'a mut W {
-        self.variant(EV_A::AUX_TIMER1_EV)
+    pub fn aux_timer1_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxTimer1Ev)
     }
     #[doc = "AUX timer 0 event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER0_EV"]
     #[inline(always)]
-    pub fn aux_timer0_ev(self) -> &'a mut W {
-        self.variant(EV_A::AUX_TIMER0_EV)
+    pub fn aux_timer0_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxTimer0Ev)
     }
     #[doc = "AUX TDC measurement done event, corresponds to the flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TDC_DONE and the AUX_TDC status AUX_TDC:STAT.DONE"]
     #[inline(always)]
-    pub fn aux_tdc_done(self) -> &'a mut W {
-        self.variant(EV_A::AUX_TDC_DONE)
+    pub fn aux_tdc_done(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxTdcDone)
     }
     #[doc = "AUX Compare B event, corresponds to AUX_EVCTL:EVTOMCUFLAGS.AUX_COMPB"]
     #[inline(always)]
-    pub fn aux_compb(self) -> &'a mut W {
-        self.variant(EV_A::AUX_COMPB)
+    pub fn aux_compb(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxCompb)
     }
     #[doc = "AON wakeup event, the corresponding flag is here AUX_EVCTL:EVTOMCUFLAGS.AUX_WU_EV"]
     #[inline(always)]
-    pub fn aux_aon_wu_ev(self) -> &'a mut W {
-        self.variant(EV_A::AUX_AON_WU_EV)
+    pub fn aux_aon_wu_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxAonWuEv)
     }
     #[doc = "CRYPTO DMA input done event, the correspondingg flag is CRYPTO:IRQSTAT.DMA_IN_DONE. Controlled by CRYPTO:IRQEN.DMA_IN_DONE"]
     #[inline(always)]
-    pub fn crypto_dma_done_irq(self) -> &'a mut W {
-        self.variant(EV_A::CRYPTO_DMA_DONE_IRQ)
+    pub fn crypto_dma_done_irq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::CryptoDmaDoneIrq)
     }
     #[doc = "AUX Timer2 pulse, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_PULSE"]
     #[inline(always)]
-    pub fn aux_timer2_pulse(self) -> &'a mut W {
-        self.variant(EV_A::AUX_TIMER2_PULSE)
+    pub fn aux_timer2_pulse(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxTimer2Pulse)
     }
     #[doc = "AUX Timer2 event 3, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_EV3"]
     #[inline(always)]
-    pub fn aux_timer2_ev3(self) -> &'a mut W {
-        self.variant(EV_A::AUX_TIMER2_EV3)
+    pub fn aux_timer2_ev3(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxTimer2Ev3)
     }
     #[doc = "AUX Timer2 event 2, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_EV2"]
     #[inline(always)]
-    pub fn aux_timer2_ev2(self) -> &'a mut W {
-        self.variant(EV_A::AUX_TIMER2_EV2)
+    pub fn aux_timer2_ev2(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxTimer2Ev2)
     }
     #[doc = "AUX Timer2 event 1, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_EV1"]
     #[inline(always)]
-    pub fn aux_timer2_ev1(self) -> &'a mut W {
-        self.variant(EV_A::AUX_TIMER2_EV1)
+    pub fn aux_timer2_ev1(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxTimer2Ev1)
     }
     #[doc = "AUX Timer2 event 0, corresponding to flag AUX_EVCTL:EVTOMCUFLAGS.AUX_TIMER2_EV0"]
     #[inline(always)]
-    pub fn aux_timer2_ev0(self) -> &'a mut W {
-        self.variant(EV_A::AUX_TIMER2_EV0)
+    pub fn aux_timer2_ev0(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AuxTimer2Ev0)
     }
     #[doc = "DMA done for software tiggered UDMA channel 18, see UDMA0:SOFTREQ"]
     #[inline(always)]
-    pub fn dma_ch18_done(self) -> &'a mut W {
-        self.variant(EV_A::DMA_CH18_DONE)
+    pub fn dma_ch18_done(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::DmaCh18Done)
     }
     #[doc = "DMA done for software tiggered UDMA channel 0, see UDMA0:SOFTREQ"]
     #[inline(always)]
-    pub fn dma_ch0_done(self) -> &'a mut W {
-        self.variant(EV_A::DMA_CH0_DONE)
+    pub fn dma_ch0_done(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::DmaCh0Done)
     }
     #[doc = "AUX Software event 0, AUX_EVCTL:SWEVSET.SWEV0"]
     #[inline(always)]
-    pub fn aon_aux_swev0(self) -> &'a mut W {
-        self.variant(EV_A::AON_AUX_SWEV0)
+    pub fn aon_aux_swev0(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AonAuxSwev0)
     }
     #[doc = "Interrupt event from I2S"]
     #[inline(always)]
-    pub fn i2s_irq(self) -> &'a mut W {
-        self.variant(EV_A::I2S_IRQ)
+    pub fn i2s_irq(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::I2sIrq)
     }
     #[doc = "AON programmable event 2. Event selected by AON_EVENT MCU event selector, AON_EVENT:EVTOMCUSEL.AON_PROG2_EV"]
     #[inline(always)]
-    pub fn aon_prog2(self) -> &'a mut W {
-        self.variant(EV_A::AON_PROG2)
+    pub fn aon_prog2(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AonProg2)
     }
     #[doc = "AON programmable event 1. Event selected by AON_EVENT MCU event selector, AON_EVENT:EVTOMCUSEL.AON_PROG1_EV"]
     #[inline(always)]
-    pub fn aon_prog1(self) -> &'a mut W {
-        self.variant(EV_A::AON_PROG1)
+    pub fn aon_prog1(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AonProg1)
     }
     #[doc = "Always inactive"]
     #[inline(always)]
-    pub fn none(self) -> &'a mut W {
-        self.variant(EV_A::NONE)
+    pub fn none(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::None)
     }
 }
 impl R {
     #[doc = "Bits 0:6 - 6:0\\]
 Read/write selection value Writing any other value than values defined by a ENUM may result in undefined behavior."]
     #[inline(always)]
-    pub fn ev(&self) -> EV_R {
-        EV_R::new((self.bits & 0x7f) as u8)
+    pub fn ev(&self) -> EvR {
+        EvR::new((self.bits & 0x7f) as u8)
     }
 }
 impl W {
@@ -388,32 +364,24 @@ impl W {
 Read/write selection value Writing any other value than values defined by a ENUM may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn ev(&mut self) -> EV_W<0> {
-        EV_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn ev(&mut self) -> EvW<Cpuirqsel30Spec> {
+        EvW::new(self, 0)
     }
 }
-#[doc = "Output Selection for CPU Interrupt 30\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cpuirqsel30](index.html) module"]
-pub struct CPUIRQSEL30_SPEC;
-impl crate::RegisterSpec for CPUIRQSEL30_SPEC {
+#[doc = "Output Selection for CPU Interrupt 30\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`cpuirqsel30::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`cpuirqsel30::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Cpuirqsel30Spec;
+impl crate::RegisterSpec for Cpuirqsel30Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [cpuirqsel30::R](R) reader structure"]
-impl crate::Readable for CPUIRQSEL30_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [cpuirqsel30::W](W) writer structure"]
-impl crate::Writable for CPUIRQSEL30_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`cpuirqsel30::R`](R) reader structure"]
+impl crate::Readable for Cpuirqsel30Spec {}
+#[doc = "`write(|w| ..)` method takes [`cpuirqsel30::W`](W) writer structure"]
+impl crate::Writable for Cpuirqsel30Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets CPUIRQSEL30 to value 0"]
-impl crate::Resettable for CPUIRQSEL30_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for Cpuirqsel30Spec {
+    const RESET_VALUE: u32 = 0;
 }

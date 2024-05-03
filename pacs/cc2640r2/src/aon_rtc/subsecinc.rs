@@ -1,69 +1,37 @@
 #[doc = "Register `SUBSECINC` reader"]
-pub struct R(crate::R<SUBSECINC_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<SUBSECINC_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<SUBSECINC_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<SUBSECINC_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<SubsecincSpec>;
 #[doc = "Register `SUBSECINC` writer"]
-pub struct W(crate::W<SUBSECINC_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<SUBSECINC_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<SUBSECINC_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<SUBSECINC_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<SubsecincSpec>;
 #[doc = "Field `VALUEINC` reader - 23:0\\]
 This value compensates for a SCLK_LF clock which has an offset from 32768 Hz. The compensation value can be found as 2^38 / freq, where freq is SCLK_LF clock frequency in Hertz This value is added to SUBSEC.VALUE on every cycle, and carry of this is added to SEC.VALUE. To perform the addition, bits \\[23:6\\]
 are aligned with SUBSEC.VALUE bits \\[17:0\\]. The remaining bits \\[5:0\\]
 are accumulated in a hidden 6-bit register that generates a carry into the above mentioned addition on overflow. The default value corresponds to incrementing by precisely 1/32768 of a second. NOTE: This register is read only. Modification of the register value must be done using registers AUX_WUC:RTCSUBSECINC1 , AUX_WUC:RTCSUBSECINC0 and AUX_WUC:RTCSUBSECINCCTL"]
-pub type VALUEINC_R = crate::FieldReader<u32, u32>;
+pub type ValueincR = crate::FieldReader<u32>;
 #[doc = "Field `VALUEINC` writer - 23:0\\]
 This value compensates for a SCLK_LF clock which has an offset from 32768 Hz. The compensation value can be found as 2^38 / freq, where freq is SCLK_LF clock frequency in Hertz This value is added to SUBSEC.VALUE on every cycle, and carry of this is added to SEC.VALUE. To perform the addition, bits \\[23:6\\]
 are aligned with SUBSEC.VALUE bits \\[17:0\\]. The remaining bits \\[5:0\\]
 are accumulated in a hidden 6-bit register that generates a carry into the above mentioned addition on overflow. The default value corresponds to incrementing by precisely 1/32768 of a second. NOTE: This register is read only. Modification of the register value must be done using registers AUX_WUC:RTCSUBSECINC1 , AUX_WUC:RTCSUBSECINC0 and AUX_WUC:RTCSUBSECINCCTL"]
-pub type VALUEINC_W<'a, const O: u8> = crate::FieldWriter<'a, u32, SUBSECINC_SPEC, u32, u32, 24, O>;
+pub type ValueincW<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 #[doc = "Field `RESERVED24` reader - 31:24\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED24_R = crate::FieldReader<u8, u8>;
+pub type Reserved24R = crate::FieldReader;
 #[doc = "Field `RESERVED24` writer - 31:24\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED24_W<'a, const O: u8> = crate::FieldWriter<'a, u32, SUBSECINC_SPEC, u8, u8, 8, O>;
+pub type Reserved24W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 impl R {
     #[doc = "Bits 0:23 - 23:0\\]
 This value compensates for a SCLK_LF clock which has an offset from 32768 Hz. The compensation value can be found as 2^38 / freq, where freq is SCLK_LF clock frequency in Hertz This value is added to SUBSEC.VALUE on every cycle, and carry of this is added to SEC.VALUE. To perform the addition, bits \\[23:6\\]
 are aligned with SUBSEC.VALUE bits \\[17:0\\]. The remaining bits \\[5:0\\]
 are accumulated in a hidden 6-bit register that generates a carry into the above mentioned addition on overflow. The default value corresponds to incrementing by precisely 1/32768 of a second. NOTE: This register is read only. Modification of the register value must be done using registers AUX_WUC:RTCSUBSECINC1 , AUX_WUC:RTCSUBSECINC0 and AUX_WUC:RTCSUBSECINCCTL"]
     #[inline(always)]
-    pub fn valueinc(&self) -> VALUEINC_R {
-        VALUEINC_R::new(self.bits & 0x00ff_ffff)
+    pub fn valueinc(&self) -> ValueincR {
+        ValueincR::new(self.bits & 0x00ff_ffff)
     }
     #[doc = "Bits 24:31 - 31:24\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved24(&self) -> RESERVED24_R {
-        RESERVED24_R::new(((self.bits >> 24) & 0xff) as u8)
+    pub fn reserved24(&self) -> Reserved24R {
+        Reserved24R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
 impl W {
@@ -73,39 +41,31 @@ are aligned with SUBSEC.VALUE bits \\[17:0\\]. The remaining bits \\[5:0\\]
 are accumulated in a hidden 6-bit register that generates a carry into the above mentioned addition on overflow. The default value corresponds to incrementing by precisely 1/32768 of a second. NOTE: This register is read only. Modification of the register value must be done using registers AUX_WUC:RTCSUBSECINC1 , AUX_WUC:RTCSUBSECINC0 and AUX_WUC:RTCSUBSECINCCTL"]
     #[inline(always)]
     #[must_use]
-    pub fn valueinc(&mut self) -> VALUEINC_W<0> {
-        VALUEINC_W::new(self)
+    pub fn valueinc(&mut self) -> ValueincW<SubsecincSpec> {
+        ValueincW::new(self, 0)
     }
     #[doc = "Bits 24:31 - 31:24\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved24(&mut self) -> RESERVED24_W<24> {
-        RESERVED24_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved24(&mut self) -> Reserved24W<SubsecincSpec> {
+        Reserved24W::new(self, 24)
     }
 }
-#[doc = "Subseconds Increment Value added to SUBSEC.VALUE on every SCLK_LFclock cycle.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [subsecinc](index.html) module"]
-pub struct SUBSECINC_SPEC;
-impl crate::RegisterSpec for SUBSECINC_SPEC {
+#[doc = "Subseconds Increment Value added to SUBSEC.VALUE on every SCLK_LFclock cycle.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`subsecinc::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`subsecinc::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct SubsecincSpec;
+impl crate::RegisterSpec for SubsecincSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [subsecinc::R](R) reader structure"]
-impl crate::Readable for SUBSECINC_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [subsecinc::W](W) writer structure"]
-impl crate::Writable for SUBSECINC_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`subsecinc::R`](R) reader structure"]
+impl crate::Readable for SubsecincSpec {}
+#[doc = "`write(|w| ..)` method takes [`subsecinc::W`](W) writer structure"]
+impl crate::Writable for SubsecincSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets SUBSECINC to value 0x0080_0000"]
-impl crate::Resettable for SUBSECINC_SPEC {
-    const RESET_VALUE: Self::Ux = 0x0080_0000;
+impl crate::Resettable for SubsecincSpec {
+    const RESET_VALUE: u32 = 0x0080_0000;
 }

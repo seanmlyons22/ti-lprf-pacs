@@ -1,63 +1,31 @@
 #[doc = "Register `FSM_RD_H` reader"]
-pub struct R(crate::R<FSM_RD_H_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<FSM_RD_H_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<FSM_RD_H_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<FSM_RD_H_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<FsmRdHSpec>;
 #[doc = "Register `FSM_RD_H` writer"]
-pub struct W(crate::W<FSM_RD_H_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<FSM_RD_H_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<FSM_RD_H_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<FSM_RD_H_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<FsmRdHSpec>;
 #[doc = "Field `RD_H` reader - 7:0\\]
 Internal. Only to be used through TI provided API."]
-pub type RD_H_R = crate::FieldReader<u8, u8>;
+pub type RdHR = crate::FieldReader;
 #[doc = "Field `RD_H` writer - 7:0\\]
 Internal. Only to be used through TI provided API."]
-pub type RD_H_W<'a, const O: u8> = crate::FieldWriter<'a, u32, FSM_RD_H_SPEC, u8, u8, 8, O>;
+pub type RdHW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `RESERVED8` reader - 31:8\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED8_R = crate::FieldReader<u32, u32>;
+pub type Reserved8R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED8` writer - 31:8\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED8_W<'a, const O: u8> = crate::FieldWriter<'a, u32, FSM_RD_H_SPEC, u32, u32, 24, O>;
+pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn rd_h(&self) -> RD_H_R {
-        RD_H_R::new((self.bits & 0xff) as u8)
+    pub fn rd_h(&self) -> RdHR {
+        RdHR::new((self.bits & 0xff) as u8)
     }
     #[doc = "Bits 8:31 - 31:8\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn reserved8(&self) -> RESERVED8_R {
-        RESERVED8_R::new((self.bits >> 8) & 0x00ff_ffff)
+    pub fn reserved8(&self) -> Reserved8R {
+        Reserved8R::new((self.bits >> 8) & 0x00ff_ffff)
     }
 }
 impl W {
@@ -65,39 +33,31 @@ impl W {
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn rd_h(&mut self) -> RD_H_W<0> {
-        RD_H_W::new(self)
+    pub fn rd_h(&mut self) -> RdHW<FsmRdHSpec> {
+        RdHW::new(self, 0)
     }
     #[doc = "Bits 8:31 - 31:8\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved8(&mut self) -> RESERVED8_W<8> {
-        RESERVED8_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved8(&mut self) -> Reserved8W<FsmRdHSpec> {
+        Reserved8W::new(self, 8)
     }
 }
-#[doc = "Internal. Only to be used through TI provided API.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fsm_rd_h](index.html) module"]
-pub struct FSM_RD_H_SPEC;
-impl crate::RegisterSpec for FSM_RD_H_SPEC {
+#[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fsm_rd_h::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fsm_rd_h::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct FsmRdHSpec;
+impl crate::RegisterSpec for FsmRdHSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [fsm_rd_h::R](R) reader structure"]
-impl crate::Readable for FSM_RD_H_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [fsm_rd_h::W](W) writer structure"]
-impl crate::Writable for FSM_RD_H_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`fsm_rd_h::R`](R) reader structure"]
+impl crate::Readable for FsmRdHSpec {}
+#[doc = "`write(|w| ..)` method takes [`fsm_rd_h::W`](W) writer structure"]
+impl crate::Writable for FsmRdHSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets FSM_RD_H to value 0x5a"]
-impl crate::Resettable for FSM_RD_H_SPEC {
-    const RESET_VALUE: Self::Ux = 0x5a;
+impl crate::Resettable for FsmRdHSpec {
+    const RESET_VALUE: u32 = 0x5a;
 }

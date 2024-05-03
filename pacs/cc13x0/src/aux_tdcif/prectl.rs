@@ -1,585 +1,564 @@
 #[doc = "Register `PRECTL` reader"]
-pub struct R(crate::R<PRECTL_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<PRECTL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<PRECTL_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<PRECTL_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<PrectlSpec>;
 #[doc = "Register `PRECTL` writer"]
-pub struct W(crate::W<PRECTL_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<PRECTL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<PRECTL_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<PRECTL_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `SRC` reader - 4:0\\]
-Prescaler event source. Select an event from the asynchronous AUX event bus to connect to the prescaler input. Configure only while RESET_N is 0."]
-pub type SRC_R = crate::FieldReader<u8, SRC_A>;
+pub type W = crate::W<PrectlSpec>;
 #[doc = "4:0\\]
 Prescaler event source. Select an event from the asynchronous AUX event bus to connect to the prescaler input. Configure only while RESET_N is 0.\n\nValue on reset: 31"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum SRC_A {
+pub enum Src {
     #[doc = "31: AUX_EVCTL:EVSTAT1.ADC_IRQ"]
-    ADC_IRQ = 31,
+    AdcIrq = 31,
     #[doc = "30: AUX_EVCTL:EVSTAT1.MCU_EV"]
-    MCU_EV = 30,
+    McuEv = 30,
     #[doc = "29: AUX_EVCTL:EVSTAT1.ACLK_REF"]
-    ACLK_REF = 29,
+    AclkRef = 29,
     #[doc = "28: AUX_EVCTL:EVSTAT1.AUXIO15"]
-    AUXIO15 = 28,
+    Auxio15 = 28,
     #[doc = "27: AUX_EVCTL:EVSTAT1.AUXIO14"]
-    AUXIO14 = 27,
+    Auxio14 = 27,
     #[doc = "26: AUX_EVCTL:EVSTAT1.AUXIO13"]
-    AUXIO13 = 26,
+    Auxio13 = 26,
     #[doc = "25: AUX_EVCTL:EVSTAT1.AUXIO12"]
-    AUXIO12 = 25,
+    Auxio12 = 25,
     #[doc = "24: AUX_EVCTL:EVSTAT1.AUXIO11"]
-    AUXIO11 = 24,
+    Auxio11 = 24,
     #[doc = "23: AUX_EVCTL:EVSTAT1.AUXIO10"]
-    AUXIO10 = 23,
+    Auxio10 = 23,
     #[doc = "22: AUX_EVCTL:EVSTAT1.AUXIO9"]
-    AUXIO9 = 22,
+    Auxio9 = 22,
     #[doc = "21: AUX_EVCTL:EVSTAT1.AUXIO8"]
-    AUXIO8 = 21,
+    Auxio8 = 21,
     #[doc = "20: AUX_EVCTL:EVSTAT1.AUXIO7"]
-    AUXIO7 = 20,
+    Auxio7 = 20,
     #[doc = "19: AUX_EVCTL:EVSTAT1.AUXIO6"]
-    AUXIO6 = 19,
+    Auxio6 = 19,
     #[doc = "18: AUX_EVCTL:EVSTAT1.AUXIO5"]
-    AUXIO5 = 18,
+    Auxio5 = 18,
     #[doc = "17: AUX_EVCTL:EVSTAT1.AUXIO4"]
-    AUXIO4 = 17,
+    Auxio4 = 17,
     #[doc = "16: AUX_EVCTL:EVSTAT1.AUXIO3"]
-    AUXIO3 = 16,
+    Auxio3 = 16,
     #[doc = "15: AUX_EVCTL:EVSTAT0.AUXIO2"]
-    AUXIO2 = 15,
+    Auxio2 = 15,
     #[doc = "14: AUX_EVCTL:EVSTAT0.AUXIO1"]
-    AUXIO1 = 14,
+    Auxio1 = 14,
     #[doc = "13: AUX_EVCTL:EVSTAT0.AUXIO0"]
-    AUXIO0 = 13,
+    Auxio0 = 13,
     #[doc = "12: AUX_EVCTL:EVSTAT0.AON_PROG_WU"]
-    AON_PROG_WU = 12,
+    AonProgWu = 12,
     #[doc = "11: AUX_EVCTL:EVSTAT0.AON_SW"]
-    AON_SW = 11,
+    AonSw = 11,
     #[doc = "10: AUX_EVCTL:EVSTAT0.OBSMUX1"]
-    OBSMUX1 = 10,
+    Obsmux1 = 10,
     #[doc = "9: AUX_EVCTL:EVSTAT0.OBSMUX0"]
-    OBSMUX0 = 9,
+    Obsmux0 = 9,
     #[doc = "8: AUX_EVCTL:EVSTAT0.ADC_FIFO_ALMOST_FULL"]
-    ADC_FIFO_ALMOST_FULL = 8,
+    AdcFifoAlmostFull = 8,
     #[doc = "7: AUX_EVCTL:EVSTAT0.ADC_DONE"]
-    ADC_DONE = 7,
+    AdcDone = 7,
     #[doc = "6: AUX_EVCTL:EVSTAT0.SMPH_AUTOTAKE_DONE"]
-    SMPH_AUTOTAKE_DONE = 6,
+    SmphAutotakeDone = 6,
     #[doc = "5: AUX_EVCTL:EVSTAT0.TIMER1_EV"]
-    TIMER1_EV = 5,
+    Timer1Ev = 5,
     #[doc = "4: AUX_EVCTL:EVSTAT0.TIMER0_EV"]
-    TIMER0_EV = 4,
+    Timer0Ev = 4,
     #[doc = "3: AUX_ANAIF:ISRCCTL.RESET_N"]
-    ISRC_RESET = 3,
+    IsrcReset = 3,
     #[doc = "2: AUX_EVCTL:EVSTAT0.AUX_COMPB"]
-    AUX_COMPB = 2,
+    AuxCompb = 2,
     #[doc = "1: AUX_EVCTL:EVSTAT0.AUX_COMPA"]
-    AUX_COMPA = 1,
+    AuxCompa = 1,
     #[doc = "0: AUX_EVCTL:EVSTAT0.AON_RTC_CH2"]
-    AON_RTC_CH2 = 0,
+    AonRtcCh2 = 0,
 }
-impl From<SRC_A> for u8 {
+impl From<Src> for u8 {
     #[inline(always)]
-    fn from(variant: SRC_A) -> Self {
+    fn from(variant: Src) -> Self {
         variant as _
     }
 }
-impl SRC_R {
+impl crate::FieldSpec for Src {
+    type Ux = u8;
+}
+impl crate::IsEnum for Src {}
+#[doc = "Field `SRC` reader - 4:0\\]
+Prescaler event source. Select an event from the asynchronous AUX event bus to connect to the prescaler input. Configure only while RESET_N is 0."]
+pub type SrcR = crate::FieldReader<Src>;
+impl SrcR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> SRC_A {
+    pub const fn variant(&self) -> Src {
         match self.bits {
-            31 => SRC_A::ADC_IRQ,
-            30 => SRC_A::MCU_EV,
-            29 => SRC_A::ACLK_REF,
-            28 => SRC_A::AUXIO15,
-            27 => SRC_A::AUXIO14,
-            26 => SRC_A::AUXIO13,
-            25 => SRC_A::AUXIO12,
-            24 => SRC_A::AUXIO11,
-            23 => SRC_A::AUXIO10,
-            22 => SRC_A::AUXIO9,
-            21 => SRC_A::AUXIO8,
-            20 => SRC_A::AUXIO7,
-            19 => SRC_A::AUXIO6,
-            18 => SRC_A::AUXIO5,
-            17 => SRC_A::AUXIO4,
-            16 => SRC_A::AUXIO3,
-            15 => SRC_A::AUXIO2,
-            14 => SRC_A::AUXIO1,
-            13 => SRC_A::AUXIO0,
-            12 => SRC_A::AON_PROG_WU,
-            11 => SRC_A::AON_SW,
-            10 => SRC_A::OBSMUX1,
-            9 => SRC_A::OBSMUX0,
-            8 => SRC_A::ADC_FIFO_ALMOST_FULL,
-            7 => SRC_A::ADC_DONE,
-            6 => SRC_A::SMPH_AUTOTAKE_DONE,
-            5 => SRC_A::TIMER1_EV,
-            4 => SRC_A::TIMER0_EV,
-            3 => SRC_A::ISRC_RESET,
-            2 => SRC_A::AUX_COMPB,
-            1 => SRC_A::AUX_COMPA,
-            0 => SRC_A::AON_RTC_CH2,
+            31 => Src::AdcIrq,
+            30 => Src::McuEv,
+            29 => Src::AclkRef,
+            28 => Src::Auxio15,
+            27 => Src::Auxio14,
+            26 => Src::Auxio13,
+            25 => Src::Auxio12,
+            24 => Src::Auxio11,
+            23 => Src::Auxio10,
+            22 => Src::Auxio9,
+            21 => Src::Auxio8,
+            20 => Src::Auxio7,
+            19 => Src::Auxio6,
+            18 => Src::Auxio5,
+            17 => Src::Auxio4,
+            16 => Src::Auxio3,
+            15 => Src::Auxio2,
+            14 => Src::Auxio1,
+            13 => Src::Auxio0,
+            12 => Src::AonProgWu,
+            11 => Src::AonSw,
+            10 => Src::Obsmux1,
+            9 => Src::Obsmux0,
+            8 => Src::AdcFifoAlmostFull,
+            7 => Src::AdcDone,
+            6 => Src::SmphAutotakeDone,
+            5 => Src::Timer1Ev,
+            4 => Src::Timer0Ev,
+            3 => Src::IsrcReset,
+            2 => Src::AuxCompb,
+            1 => Src::AuxCompa,
+            0 => Src::AonRtcCh2,
             _ => unreachable!(),
         }
     }
-    #[doc = "Checks if the value of the field is `ADC_IRQ`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.ADC_IRQ"]
     #[inline(always)]
     pub fn is_adc_irq(&self) -> bool {
-        *self == SRC_A::ADC_IRQ
+        *self == Src::AdcIrq
     }
-    #[doc = "Checks if the value of the field is `MCU_EV`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.MCU_EV"]
     #[inline(always)]
     pub fn is_mcu_ev(&self) -> bool {
-        *self == SRC_A::MCU_EV
+        *self == Src::McuEv
     }
-    #[doc = "Checks if the value of the field is `ACLK_REF`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.ACLK_REF"]
     #[inline(always)]
     pub fn is_aclk_ref(&self) -> bool {
-        *self == SRC_A::ACLK_REF
+        *self == Src::AclkRef
     }
-    #[doc = "Checks if the value of the field is `AUXIO15`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.AUXIO15"]
     #[inline(always)]
     pub fn is_auxio15(&self) -> bool {
-        *self == SRC_A::AUXIO15
+        *self == Src::Auxio15
     }
-    #[doc = "Checks if the value of the field is `AUXIO14`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.AUXIO14"]
     #[inline(always)]
     pub fn is_auxio14(&self) -> bool {
-        *self == SRC_A::AUXIO14
+        *self == Src::Auxio14
     }
-    #[doc = "Checks if the value of the field is `AUXIO13`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.AUXIO13"]
     #[inline(always)]
     pub fn is_auxio13(&self) -> bool {
-        *self == SRC_A::AUXIO13
+        *self == Src::Auxio13
     }
-    #[doc = "Checks if the value of the field is `AUXIO12`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.AUXIO12"]
     #[inline(always)]
     pub fn is_auxio12(&self) -> bool {
-        *self == SRC_A::AUXIO12
+        *self == Src::Auxio12
     }
-    #[doc = "Checks if the value of the field is `AUXIO11`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.AUXIO11"]
     #[inline(always)]
     pub fn is_auxio11(&self) -> bool {
-        *self == SRC_A::AUXIO11
+        *self == Src::Auxio11
     }
-    #[doc = "Checks if the value of the field is `AUXIO10`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.AUXIO10"]
     #[inline(always)]
     pub fn is_auxio10(&self) -> bool {
-        *self == SRC_A::AUXIO10
+        *self == Src::Auxio10
     }
-    #[doc = "Checks if the value of the field is `AUXIO9`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.AUXIO9"]
     #[inline(always)]
     pub fn is_auxio9(&self) -> bool {
-        *self == SRC_A::AUXIO9
+        *self == Src::Auxio9
     }
-    #[doc = "Checks if the value of the field is `AUXIO8`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.AUXIO8"]
     #[inline(always)]
     pub fn is_auxio8(&self) -> bool {
-        *self == SRC_A::AUXIO8
+        *self == Src::Auxio8
     }
-    #[doc = "Checks if the value of the field is `AUXIO7`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.AUXIO7"]
     #[inline(always)]
     pub fn is_auxio7(&self) -> bool {
-        *self == SRC_A::AUXIO7
+        *self == Src::Auxio7
     }
-    #[doc = "Checks if the value of the field is `AUXIO6`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.AUXIO6"]
     #[inline(always)]
     pub fn is_auxio6(&self) -> bool {
-        *self == SRC_A::AUXIO6
+        *self == Src::Auxio6
     }
-    #[doc = "Checks if the value of the field is `AUXIO5`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.AUXIO5"]
     #[inline(always)]
     pub fn is_auxio5(&self) -> bool {
-        *self == SRC_A::AUXIO5
+        *self == Src::Auxio5
     }
-    #[doc = "Checks if the value of the field is `AUXIO4`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.AUXIO4"]
     #[inline(always)]
     pub fn is_auxio4(&self) -> bool {
-        *self == SRC_A::AUXIO4
+        *self == Src::Auxio4
     }
-    #[doc = "Checks if the value of the field is `AUXIO3`"]
+    #[doc = "AUX_EVCTL:EVSTAT1.AUXIO3"]
     #[inline(always)]
     pub fn is_auxio3(&self) -> bool {
-        *self == SRC_A::AUXIO3
+        *self == Src::Auxio3
     }
-    #[doc = "Checks if the value of the field is `AUXIO2`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.AUXIO2"]
     #[inline(always)]
     pub fn is_auxio2(&self) -> bool {
-        *self == SRC_A::AUXIO2
+        *self == Src::Auxio2
     }
-    #[doc = "Checks if the value of the field is `AUXIO1`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.AUXIO1"]
     #[inline(always)]
     pub fn is_auxio1(&self) -> bool {
-        *self == SRC_A::AUXIO1
+        *self == Src::Auxio1
     }
-    #[doc = "Checks if the value of the field is `AUXIO0`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.AUXIO0"]
     #[inline(always)]
     pub fn is_auxio0(&self) -> bool {
-        *self == SRC_A::AUXIO0
+        *self == Src::Auxio0
     }
-    #[doc = "Checks if the value of the field is `AON_PROG_WU`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.AON_PROG_WU"]
     #[inline(always)]
     pub fn is_aon_prog_wu(&self) -> bool {
-        *self == SRC_A::AON_PROG_WU
+        *self == Src::AonProgWu
     }
-    #[doc = "Checks if the value of the field is `AON_SW`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.AON_SW"]
     #[inline(always)]
     pub fn is_aon_sw(&self) -> bool {
-        *self == SRC_A::AON_SW
+        *self == Src::AonSw
     }
-    #[doc = "Checks if the value of the field is `OBSMUX1`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.OBSMUX1"]
     #[inline(always)]
     pub fn is_obsmux1(&self) -> bool {
-        *self == SRC_A::OBSMUX1
+        *self == Src::Obsmux1
     }
-    #[doc = "Checks if the value of the field is `OBSMUX0`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.OBSMUX0"]
     #[inline(always)]
     pub fn is_obsmux0(&self) -> bool {
-        *self == SRC_A::OBSMUX0
+        *self == Src::Obsmux0
     }
-    #[doc = "Checks if the value of the field is `ADC_FIFO_ALMOST_FULL`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.ADC_FIFO_ALMOST_FULL"]
     #[inline(always)]
     pub fn is_adc_fifo_almost_full(&self) -> bool {
-        *self == SRC_A::ADC_FIFO_ALMOST_FULL
+        *self == Src::AdcFifoAlmostFull
     }
-    #[doc = "Checks if the value of the field is `ADC_DONE`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.ADC_DONE"]
     #[inline(always)]
     pub fn is_adc_done(&self) -> bool {
-        *self == SRC_A::ADC_DONE
+        *self == Src::AdcDone
     }
-    #[doc = "Checks if the value of the field is `SMPH_AUTOTAKE_DONE`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.SMPH_AUTOTAKE_DONE"]
     #[inline(always)]
     pub fn is_smph_autotake_done(&self) -> bool {
-        *self == SRC_A::SMPH_AUTOTAKE_DONE
+        *self == Src::SmphAutotakeDone
     }
-    #[doc = "Checks if the value of the field is `TIMER1_EV`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.TIMER1_EV"]
     #[inline(always)]
     pub fn is_timer1_ev(&self) -> bool {
-        *self == SRC_A::TIMER1_EV
+        *self == Src::Timer1Ev
     }
-    #[doc = "Checks if the value of the field is `TIMER0_EV`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.TIMER0_EV"]
     #[inline(always)]
     pub fn is_timer0_ev(&self) -> bool {
-        *self == SRC_A::TIMER0_EV
+        *self == Src::Timer0Ev
     }
-    #[doc = "Checks if the value of the field is `ISRC_RESET`"]
+    #[doc = "AUX_ANAIF:ISRCCTL.RESET_N"]
     #[inline(always)]
     pub fn is_isrc_reset(&self) -> bool {
-        *self == SRC_A::ISRC_RESET
+        *self == Src::IsrcReset
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPB`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.AUX_COMPB"]
     #[inline(always)]
     pub fn is_aux_compb(&self) -> bool {
-        *self == SRC_A::AUX_COMPB
+        *self == Src::AuxCompb
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPA`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.AUX_COMPA"]
     #[inline(always)]
     pub fn is_aux_compa(&self) -> bool {
-        *self == SRC_A::AUX_COMPA
+        *self == Src::AuxCompa
     }
-    #[doc = "Checks if the value of the field is `AON_RTC_CH2`"]
+    #[doc = "AUX_EVCTL:EVSTAT0.AON_RTC_CH2"]
     #[inline(always)]
     pub fn is_aon_rtc_ch2(&self) -> bool {
-        *self == SRC_A::AON_RTC_CH2
+        *self == Src::AonRtcCh2
     }
 }
 #[doc = "Field `SRC` writer - 4:0\\]
 Prescaler event source. Select an event from the asynchronous AUX event bus to connect to the prescaler input. Configure only while RESET_N is 0."]
-pub type SRC_W<'a, const O: u8> = crate::FieldWriterSafe<'a, u32, PRECTL_SPEC, u8, SRC_A, 5, O>;
-impl<'a, const O: u8> SRC_W<'a, O> {
+pub type SrcW<'a, REG> = crate::FieldWriter<'a, REG, 5, Src, crate::Safe>;
+impl<'a, REG> SrcW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "AUX_EVCTL:EVSTAT1.ADC_IRQ"]
     #[inline(always)]
-    pub fn adc_irq(self) -> &'a mut W {
-        self.variant(SRC_A::ADC_IRQ)
+    pub fn adc_irq(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::AdcIrq)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.MCU_EV"]
     #[inline(always)]
-    pub fn mcu_ev(self) -> &'a mut W {
-        self.variant(SRC_A::MCU_EV)
+    pub fn mcu_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::McuEv)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.ACLK_REF"]
     #[inline(always)]
-    pub fn aclk_ref(self) -> &'a mut W {
-        self.variant(SRC_A::ACLK_REF)
+    pub fn aclk_ref(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::AclkRef)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.AUXIO15"]
     #[inline(always)]
-    pub fn auxio15(self) -> &'a mut W {
-        self.variant(SRC_A::AUXIO15)
+    pub fn auxio15(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::Auxio15)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.AUXIO14"]
     #[inline(always)]
-    pub fn auxio14(self) -> &'a mut W {
-        self.variant(SRC_A::AUXIO14)
+    pub fn auxio14(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::Auxio14)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.AUXIO13"]
     #[inline(always)]
-    pub fn auxio13(self) -> &'a mut W {
-        self.variant(SRC_A::AUXIO13)
+    pub fn auxio13(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::Auxio13)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.AUXIO12"]
     #[inline(always)]
-    pub fn auxio12(self) -> &'a mut W {
-        self.variant(SRC_A::AUXIO12)
+    pub fn auxio12(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::Auxio12)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.AUXIO11"]
     #[inline(always)]
-    pub fn auxio11(self) -> &'a mut W {
-        self.variant(SRC_A::AUXIO11)
+    pub fn auxio11(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::Auxio11)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.AUXIO10"]
     #[inline(always)]
-    pub fn auxio10(self) -> &'a mut W {
-        self.variant(SRC_A::AUXIO10)
+    pub fn auxio10(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::Auxio10)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.AUXIO9"]
     #[inline(always)]
-    pub fn auxio9(self) -> &'a mut W {
-        self.variant(SRC_A::AUXIO9)
+    pub fn auxio9(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::Auxio9)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.AUXIO8"]
     #[inline(always)]
-    pub fn auxio8(self) -> &'a mut W {
-        self.variant(SRC_A::AUXIO8)
+    pub fn auxio8(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::Auxio8)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.AUXIO7"]
     #[inline(always)]
-    pub fn auxio7(self) -> &'a mut W {
-        self.variant(SRC_A::AUXIO7)
+    pub fn auxio7(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::Auxio7)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.AUXIO6"]
     #[inline(always)]
-    pub fn auxio6(self) -> &'a mut W {
-        self.variant(SRC_A::AUXIO6)
+    pub fn auxio6(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::Auxio6)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.AUXIO5"]
     #[inline(always)]
-    pub fn auxio5(self) -> &'a mut W {
-        self.variant(SRC_A::AUXIO5)
+    pub fn auxio5(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::Auxio5)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.AUXIO4"]
     #[inline(always)]
-    pub fn auxio4(self) -> &'a mut W {
-        self.variant(SRC_A::AUXIO4)
+    pub fn auxio4(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::Auxio4)
     }
     #[doc = "AUX_EVCTL:EVSTAT1.AUXIO3"]
     #[inline(always)]
-    pub fn auxio3(self) -> &'a mut W {
-        self.variant(SRC_A::AUXIO3)
+    pub fn auxio3(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::Auxio3)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.AUXIO2"]
     #[inline(always)]
-    pub fn auxio2(self) -> &'a mut W {
-        self.variant(SRC_A::AUXIO2)
+    pub fn auxio2(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::Auxio2)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.AUXIO1"]
     #[inline(always)]
-    pub fn auxio1(self) -> &'a mut W {
-        self.variant(SRC_A::AUXIO1)
+    pub fn auxio1(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::Auxio1)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.AUXIO0"]
     #[inline(always)]
-    pub fn auxio0(self) -> &'a mut W {
-        self.variant(SRC_A::AUXIO0)
+    pub fn auxio0(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::Auxio0)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.AON_PROG_WU"]
     #[inline(always)]
-    pub fn aon_prog_wu(self) -> &'a mut W {
-        self.variant(SRC_A::AON_PROG_WU)
+    pub fn aon_prog_wu(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::AonProgWu)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.AON_SW"]
     #[inline(always)]
-    pub fn aon_sw(self) -> &'a mut W {
-        self.variant(SRC_A::AON_SW)
+    pub fn aon_sw(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::AonSw)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.OBSMUX1"]
     #[inline(always)]
-    pub fn obsmux1(self) -> &'a mut W {
-        self.variant(SRC_A::OBSMUX1)
+    pub fn obsmux1(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::Obsmux1)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.OBSMUX0"]
     #[inline(always)]
-    pub fn obsmux0(self) -> &'a mut W {
-        self.variant(SRC_A::OBSMUX0)
+    pub fn obsmux0(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::Obsmux0)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.ADC_FIFO_ALMOST_FULL"]
     #[inline(always)]
-    pub fn adc_fifo_almost_full(self) -> &'a mut W {
-        self.variant(SRC_A::ADC_FIFO_ALMOST_FULL)
+    pub fn adc_fifo_almost_full(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::AdcFifoAlmostFull)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.ADC_DONE"]
     #[inline(always)]
-    pub fn adc_done(self) -> &'a mut W {
-        self.variant(SRC_A::ADC_DONE)
+    pub fn adc_done(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::AdcDone)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.SMPH_AUTOTAKE_DONE"]
     #[inline(always)]
-    pub fn smph_autotake_done(self) -> &'a mut W {
-        self.variant(SRC_A::SMPH_AUTOTAKE_DONE)
+    pub fn smph_autotake_done(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::SmphAutotakeDone)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.TIMER1_EV"]
     #[inline(always)]
-    pub fn timer1_ev(self) -> &'a mut W {
-        self.variant(SRC_A::TIMER1_EV)
+    pub fn timer1_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::Timer1Ev)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.TIMER0_EV"]
     #[inline(always)]
-    pub fn timer0_ev(self) -> &'a mut W {
-        self.variant(SRC_A::TIMER0_EV)
+    pub fn timer0_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::Timer0Ev)
     }
     #[doc = "AUX_ANAIF:ISRCCTL.RESET_N"]
     #[inline(always)]
-    pub fn isrc_reset(self) -> &'a mut W {
-        self.variant(SRC_A::ISRC_RESET)
+    pub fn isrc_reset(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::IsrcReset)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.AUX_COMPB"]
     #[inline(always)]
-    pub fn aux_compb(self) -> &'a mut W {
-        self.variant(SRC_A::AUX_COMPB)
+    pub fn aux_compb(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::AuxCompb)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.AUX_COMPA"]
     #[inline(always)]
-    pub fn aux_compa(self) -> &'a mut W {
-        self.variant(SRC_A::AUX_COMPA)
+    pub fn aux_compa(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::AuxCompa)
     }
     #[doc = "AUX_EVCTL:EVSTAT0.AON_RTC_CH2"]
     #[inline(always)]
-    pub fn aon_rtc_ch2(self) -> &'a mut W {
-        self.variant(SRC_A::AON_RTC_CH2)
+    pub fn aon_rtc_ch2(self) -> &'a mut crate::W<REG> {
+        self.variant(Src::AonRtcCh2)
     }
 }
 #[doc = "Field `RESERVED5` reader - 5:5\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED5_R = crate::BitReader<bool>;
+pub type Reserved5R = crate::BitReader;
 #[doc = "Field `RESERVED5` writer - 5:5\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED5_W<'a, const O: u8> = crate::BitWriter<'a, u32, PRECTL_SPEC, bool, O>;
-#[doc = "Field `RATIO` reader - 6:6\\]
-Prescaler ratio. This controls how often the AUX_TDC_PRE event is generated by the prescaler."]
-pub type RATIO_R = crate::BitReader<RATIO_A>;
+pub type Reserved5W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "6:6\\]
 Prescaler ratio. This controls how often the AUX_TDC_PRE event is generated by the prescaler.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum RATIO_A {
+pub enum Ratio {
     #[doc = "1: Prescaler divides input by 64. AUX_TDC_PRE event has a rising edge for every 64 rising edges of the input. AUX_TDC_PRE event toggles on every 32nd rising edge of the input."]
-    DIV64 = 1,
+    Div64 = 1,
     #[doc = "0: Prescaler divides input by 16. AUX_TDC_PRE event has a rising edge for every 16 rising edges of the input. AUX_TDC_PRE event toggles on every 8th rising edge of the input."]
-    DIV16 = 0,
+    Div16 = 0,
 }
-impl From<RATIO_A> for bool {
+impl From<Ratio> for bool {
     #[inline(always)]
-    fn from(variant: RATIO_A) -> Self {
+    fn from(variant: Ratio) -> Self {
         variant as u8 != 0
     }
 }
-impl RATIO_R {
+#[doc = "Field `RATIO` reader - 6:6\\]
+Prescaler ratio. This controls how often the AUX_TDC_PRE event is generated by the prescaler."]
+pub type RatioR = crate::BitReader<Ratio>;
+impl RatioR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> RATIO_A {
+    pub const fn variant(&self) -> Ratio {
         match self.bits {
-            true => RATIO_A::DIV64,
-            false => RATIO_A::DIV16,
+            true => Ratio::Div64,
+            false => Ratio::Div16,
         }
     }
-    #[doc = "Checks if the value of the field is `DIV64`"]
+    #[doc = "Prescaler divides input by 64. AUX_TDC_PRE event has a rising edge for every 64 rising edges of the input. AUX_TDC_PRE event toggles on every 32nd rising edge of the input."]
     #[inline(always)]
     pub fn is_div64(&self) -> bool {
-        *self == RATIO_A::DIV64
+        *self == Ratio::Div64
     }
-    #[doc = "Checks if the value of the field is `DIV16`"]
+    #[doc = "Prescaler divides input by 16. AUX_TDC_PRE event has a rising edge for every 16 rising edges of the input. AUX_TDC_PRE event toggles on every 8th rising edge of the input."]
     #[inline(always)]
     pub fn is_div16(&self) -> bool {
-        *self == RATIO_A::DIV16
+        *self == Ratio::Div16
     }
 }
 #[doc = "Field `RATIO` writer - 6:6\\]
 Prescaler ratio. This controls how often the AUX_TDC_PRE event is generated by the prescaler."]
-pub type RATIO_W<'a, const O: u8> = crate::BitWriter<'a, u32, PRECTL_SPEC, RATIO_A, O>;
-impl<'a, const O: u8> RATIO_W<'a, O> {
+pub type RatioW<'a, REG> = crate::BitWriter<'a, REG, Ratio>;
+impl<'a, REG> RatioW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Prescaler divides input by 64. AUX_TDC_PRE event has a rising edge for every 64 rising edges of the input. AUX_TDC_PRE event toggles on every 32nd rising edge of the input."]
     #[inline(always)]
-    pub fn div64(self) -> &'a mut W {
-        self.variant(RATIO_A::DIV64)
+    pub fn div64(self) -> &'a mut crate::W<REG> {
+        self.variant(Ratio::Div64)
     }
     #[doc = "Prescaler divides input by 16. AUX_TDC_PRE event has a rising edge for every 16 rising edges of the input. AUX_TDC_PRE event toggles on every 8th rising edge of the input."]
     #[inline(always)]
-    pub fn div16(self) -> &'a mut W {
-        self.variant(RATIO_A::DIV16)
+    pub fn div16(self) -> &'a mut crate::W<REG> {
+        self.variant(Ratio::Div16)
     }
 }
 #[doc = "Field `RESET_N` reader - 7:7\\]
 Prescaler reset. 0: Reset prescaler. 1: Release reset of prescaler. AUX_TDC_PRE event becomes 0 when you reset the prescaler."]
-pub type RESET_N_R = crate::BitReader<bool>;
+pub type ResetNR = crate::BitReader;
 #[doc = "Field `RESET_N` writer - 7:7\\]
 Prescaler reset. 0: Reset prescaler. 1: Release reset of prescaler. AUX_TDC_PRE event becomes 0 when you reset the prescaler."]
-pub type RESET_N_W<'a, const O: u8> = crate::BitWriter<'a, u32, PRECTL_SPEC, bool, O>;
+pub type ResetNW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED8` reader - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED8_R = crate::FieldReader<u32, u32>;
+pub type Reserved8R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED8` writer - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED8_W<'a, const O: u8> = crate::FieldWriter<'a, u32, PRECTL_SPEC, u32, u32, 24, O>;
+pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 impl R {
     #[doc = "Bits 0:4 - 4:0\\]
 Prescaler event source. Select an event from the asynchronous AUX event bus to connect to the prescaler input. Configure only while RESET_N is 0."]
     #[inline(always)]
-    pub fn src(&self) -> SRC_R {
-        SRC_R::new((self.bits & 0x1f) as u8)
+    pub fn src(&self) -> SrcR {
+        SrcR::new((self.bits & 0x1f) as u8)
     }
     #[doc = "Bit 5 - 5:5\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved5(&self) -> RESERVED5_R {
-        RESERVED5_R::new(((self.bits >> 5) & 1) != 0)
+    pub fn reserved5(&self) -> Reserved5R {
+        Reserved5R::new(((self.bits >> 5) & 1) != 0)
     }
     #[doc = "Bit 6 - 6:6\\]
 Prescaler ratio. This controls how often the AUX_TDC_PRE event is generated by the prescaler."]
     #[inline(always)]
-    pub fn ratio(&self) -> RATIO_R {
-        RATIO_R::new(((self.bits >> 6) & 1) != 0)
+    pub fn ratio(&self) -> RatioR {
+        RatioR::new(((self.bits >> 6) & 1) != 0)
     }
     #[doc = "Bit 7 - 7:7\\]
 Prescaler reset. 0: Reset prescaler. 1: Release reset of prescaler. AUX_TDC_PRE event becomes 0 when you reset the prescaler."]
     #[inline(always)]
-    pub fn reset_n(&self) -> RESET_N_R {
-        RESET_N_R::new(((self.bits >> 7) & 1) != 0)
+    pub fn reset_n(&self) -> ResetNR {
+        ResetNR::new(((self.bits >> 7) & 1) != 0)
     }
     #[doc = "Bits 8:31 - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved8(&self) -> RESERVED8_R {
-        RESERVED8_R::new((self.bits >> 8) & 0x00ff_ffff)
+    pub fn reserved8(&self) -> Reserved8R {
+        Reserved8R::new((self.bits >> 8) & 0x00ff_ffff)
     }
 }
 impl W {
@@ -587,60 +566,52 @@ impl W {
 Prescaler event source. Select an event from the asynchronous AUX event bus to connect to the prescaler input. Configure only while RESET_N is 0."]
     #[inline(always)]
     #[must_use]
-    pub fn src(&mut self) -> SRC_W<0> {
-        SRC_W::new(self)
+    pub fn src(&mut self) -> SrcW<PrectlSpec> {
+        SrcW::new(self, 0)
     }
     #[doc = "Bit 5 - 5:5\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved5(&mut self) -> RESERVED5_W<5> {
-        RESERVED5_W::new(self)
+    pub fn reserved5(&mut self) -> Reserved5W<PrectlSpec> {
+        Reserved5W::new(self, 5)
     }
     #[doc = "Bit 6 - 6:6\\]
 Prescaler ratio. This controls how often the AUX_TDC_PRE event is generated by the prescaler."]
     #[inline(always)]
     #[must_use]
-    pub fn ratio(&mut self) -> RATIO_W<6> {
-        RATIO_W::new(self)
+    pub fn ratio(&mut self) -> RatioW<PrectlSpec> {
+        RatioW::new(self, 6)
     }
     #[doc = "Bit 7 - 7:7\\]
 Prescaler reset. 0: Reset prescaler. 1: Release reset of prescaler. AUX_TDC_PRE event becomes 0 when you reset the prescaler."]
     #[inline(always)]
     #[must_use]
-    pub fn reset_n(&mut self) -> RESET_N_W<7> {
-        RESET_N_W::new(self)
+    pub fn reset_n(&mut self) -> ResetNW<PrectlSpec> {
+        ResetNW::new(self, 7)
     }
     #[doc = "Bits 8:31 - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved8(&mut self) -> RESERVED8_W<8> {
-        RESERVED8_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved8(&mut self) -> Reserved8W<PrectlSpec> {
+        Reserved8W::new(self, 8)
     }
 }
-#[doc = "Prescaler Control The prescaler can be used to count events that are faster than the AUX clock frequency. It can be used to: - count pulses on a specified event from the asynchronous event bus. - prescale a specified event from the asynchronous event bus. To use the prescaler output as an event source in TDC measurements you must set both TRIGSRC.START_SRC and TRIGSRC.STOP_SRC to AUX_TDC_PRE. It is recommended to use the prescaler when the signal frequency to measure exceeds 1/10th of the AUX clock frequency.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [prectl](index.html) module"]
-pub struct PRECTL_SPEC;
-impl crate::RegisterSpec for PRECTL_SPEC {
+#[doc = "Prescaler Control The prescaler can be used to count events that are faster than the AUX clock frequency. It can be used to: - count pulses on a specified event from the asynchronous event bus. - prescale a specified event from the asynchronous event bus. To use the prescaler output as an event source in TDC measurements you must set both TRIGSRC.START_SRC and TRIGSRC.STOP_SRC to AUX_TDC_PRE. It is recommended to use the prescaler when the signal frequency to measure exceeds 1/10th of the AUX clock frequency.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`prectl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`prectl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct PrectlSpec;
+impl crate::RegisterSpec for PrectlSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [prectl::R](R) reader structure"]
-impl crate::Readable for PRECTL_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [prectl::W](W) writer structure"]
-impl crate::Writable for PRECTL_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`prectl::R`](R) reader structure"]
+impl crate::Readable for PrectlSpec {}
+#[doc = "`write(|w| ..)` method takes [`prectl::W`](W) writer structure"]
+impl crate::Writable for PrectlSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets PRECTL to value 0x1f"]
-impl crate::Resettable for PRECTL_SPEC {
-    const RESET_VALUE: Self::Ux = 0x1f;
+impl crate::Resettable for PrectlSpec {
+    const RESET_VALUE: u32 = 0x1f;
 }

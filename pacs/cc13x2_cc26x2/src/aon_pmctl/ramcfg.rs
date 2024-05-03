@@ -1,188 +1,163 @@
 #[doc = "Register `RAMCFG` reader"]
-pub struct R(crate::R<RAMCFG_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<RAMCFG_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<RAMCFG_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<RAMCFG_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<RamcfgSpec>;
 #[doc = "Register `RAMCFG` writer"]
-pub struct W(crate::W<RAMCFG_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<RAMCFG_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<RAMCFG_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<RAMCFG_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `BUS_SRAM_RET_EN` reader - 3:0\\]
-MCU SRAM is partitioned into 5 banks . This register controls which of the banks that has retention during MCU Bus domain power off"]
-pub type BUS_SRAM_RET_EN_R = crate::FieldReader<u8, BUS_SRAM_RET_EN_A>;
+pub type W = crate::W<RamcfgSpec>;
 #[doc = "3:0\\]
 MCU SRAM is partitioned into 5 banks . This register controls which of the banks that has retention during MCU Bus domain power off\n\nValue on reset: 15"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum BUS_SRAM_RET_EN_A {
+pub enum BusSramRetEn {
     #[doc = "15: Retention on for all banks SRAM:BANK0, SRAM:BANK1 ,SRAM:BANK2, SRAM:BANK3 and SRAM:BANK4"]
-    RET_FULL = 15,
+    RetFull = 15,
     #[doc = "7: Retention on for SRAM:BANK0, SRAM:BANK1 ,SRAM:BANK2 and SRAM:BANK3"]
-    RET_LEVEL3 = 7,
+    RetLevel3 = 7,
     #[doc = "3: Retention on for SRAM:BANK0, SRAM:BANK1 and SRAM:BANK2"]
-    RET_LEVEL2 = 3,
+    RetLevel2 = 3,
     #[doc = "1: Retention on for SRAM:BANK0 and SRAM:BANK1"]
-    RET_LEVEL1 = 1,
+    RetLevel1 = 1,
     #[doc = "0: Retention is disabled"]
-    RET_NONE = 0,
+    RetNone = 0,
 }
-impl From<BUS_SRAM_RET_EN_A> for u8 {
+impl From<BusSramRetEn> for u8 {
     #[inline(always)]
-    fn from(variant: BUS_SRAM_RET_EN_A) -> Self {
+    fn from(variant: BusSramRetEn) -> Self {
         variant as _
     }
 }
-impl BUS_SRAM_RET_EN_R {
+impl crate::FieldSpec for BusSramRetEn {
+    type Ux = u8;
+}
+impl crate::IsEnum for BusSramRetEn {}
+#[doc = "Field `BUS_SRAM_RET_EN` reader - 3:0\\]
+MCU SRAM is partitioned into 5 banks . This register controls which of the banks that has retention during MCU Bus domain power off"]
+pub type BusSramRetEnR = crate::FieldReader<BusSramRetEn>;
+impl BusSramRetEnR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<BUS_SRAM_RET_EN_A> {
+    pub const fn variant(&self) -> Option<BusSramRetEn> {
         match self.bits {
-            15 => Some(BUS_SRAM_RET_EN_A::RET_FULL),
-            7 => Some(BUS_SRAM_RET_EN_A::RET_LEVEL3),
-            3 => Some(BUS_SRAM_RET_EN_A::RET_LEVEL2),
-            1 => Some(BUS_SRAM_RET_EN_A::RET_LEVEL1),
-            0 => Some(BUS_SRAM_RET_EN_A::RET_NONE),
+            15 => Some(BusSramRetEn::RetFull),
+            7 => Some(BusSramRetEn::RetLevel3),
+            3 => Some(BusSramRetEn::RetLevel2),
+            1 => Some(BusSramRetEn::RetLevel1),
+            0 => Some(BusSramRetEn::RetNone),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `RET_FULL`"]
+    #[doc = "Retention on for all banks SRAM:BANK0, SRAM:BANK1 ,SRAM:BANK2, SRAM:BANK3 and SRAM:BANK4"]
     #[inline(always)]
     pub fn is_ret_full(&self) -> bool {
-        *self == BUS_SRAM_RET_EN_A::RET_FULL
+        *self == BusSramRetEn::RetFull
     }
-    #[doc = "Checks if the value of the field is `RET_LEVEL3`"]
+    #[doc = "Retention on for SRAM:BANK0, SRAM:BANK1 ,SRAM:BANK2 and SRAM:BANK3"]
     #[inline(always)]
     pub fn is_ret_level3(&self) -> bool {
-        *self == BUS_SRAM_RET_EN_A::RET_LEVEL3
+        *self == BusSramRetEn::RetLevel3
     }
-    #[doc = "Checks if the value of the field is `RET_LEVEL2`"]
+    #[doc = "Retention on for SRAM:BANK0, SRAM:BANK1 and SRAM:BANK2"]
     #[inline(always)]
     pub fn is_ret_level2(&self) -> bool {
-        *self == BUS_SRAM_RET_EN_A::RET_LEVEL2
+        *self == BusSramRetEn::RetLevel2
     }
-    #[doc = "Checks if the value of the field is `RET_LEVEL1`"]
+    #[doc = "Retention on for SRAM:BANK0 and SRAM:BANK1"]
     #[inline(always)]
     pub fn is_ret_level1(&self) -> bool {
-        *self == BUS_SRAM_RET_EN_A::RET_LEVEL1
+        *self == BusSramRetEn::RetLevel1
     }
-    #[doc = "Checks if the value of the field is `RET_NONE`"]
+    #[doc = "Retention is disabled"]
     #[inline(always)]
     pub fn is_ret_none(&self) -> bool {
-        *self == BUS_SRAM_RET_EN_A::RET_NONE
+        *self == BusSramRetEn::RetNone
     }
 }
 #[doc = "Field `BUS_SRAM_RET_EN` writer - 3:0\\]
 MCU SRAM is partitioned into 5 banks . This register controls which of the banks that has retention during MCU Bus domain power off"]
-pub type BUS_SRAM_RET_EN_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, RAMCFG_SPEC, u8, BUS_SRAM_RET_EN_A, 4, O>;
-impl<'a, const O: u8> BUS_SRAM_RET_EN_W<'a, O> {
+pub type BusSramRetEnW<'a, REG> = crate::FieldWriter<'a, REG, 4, BusSramRetEn>;
+impl<'a, REG> BusSramRetEnW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "Retention on for all banks SRAM:BANK0, SRAM:BANK1 ,SRAM:BANK2, SRAM:BANK3 and SRAM:BANK4"]
     #[inline(always)]
-    pub fn ret_full(self) -> &'a mut W {
-        self.variant(BUS_SRAM_RET_EN_A::RET_FULL)
+    pub fn ret_full(self) -> &'a mut crate::W<REG> {
+        self.variant(BusSramRetEn::RetFull)
     }
     #[doc = "Retention on for SRAM:BANK0, SRAM:BANK1 ,SRAM:BANK2 and SRAM:BANK3"]
     #[inline(always)]
-    pub fn ret_level3(self) -> &'a mut W {
-        self.variant(BUS_SRAM_RET_EN_A::RET_LEVEL3)
+    pub fn ret_level3(self) -> &'a mut crate::W<REG> {
+        self.variant(BusSramRetEn::RetLevel3)
     }
     #[doc = "Retention on for SRAM:BANK0, SRAM:BANK1 and SRAM:BANK2"]
     #[inline(always)]
-    pub fn ret_level2(self) -> &'a mut W {
-        self.variant(BUS_SRAM_RET_EN_A::RET_LEVEL2)
+    pub fn ret_level2(self) -> &'a mut crate::W<REG> {
+        self.variant(BusSramRetEn::RetLevel2)
     }
     #[doc = "Retention on for SRAM:BANK0 and SRAM:BANK1"]
     #[inline(always)]
-    pub fn ret_level1(self) -> &'a mut W {
-        self.variant(BUS_SRAM_RET_EN_A::RET_LEVEL1)
+    pub fn ret_level1(self) -> &'a mut crate::W<REG> {
+        self.variant(BusSramRetEn::RetLevel1)
     }
     #[doc = "Retention is disabled"]
     #[inline(always)]
-    pub fn ret_none(self) -> &'a mut W {
-        self.variant(BUS_SRAM_RET_EN_A::RET_NONE)
+    pub fn ret_none(self) -> &'a mut crate::W<REG> {
+        self.variant(BusSramRetEn::RetNone)
     }
 }
 #[doc = "Field `RESERVED4` reader - 15:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED4_R = crate::FieldReader<u16, u16>;
+pub type Reserved4R = crate::FieldReader<u16>;
 #[doc = "Field `RESERVED4` writer - 15:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED4_W<'a, const O: u8> = crate::FieldWriter<'a, u32, RAMCFG_SPEC, u16, u16, 12, O>;
+pub type Reserved4W<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
 #[doc = "Field `AUX_SRAM_RET_EN` reader - 16:16\\]
 Internal. Only to be used through TI provided API."]
-pub type AUX_SRAM_RET_EN_R = crate::BitReader<bool>;
+pub type AuxSramRetEnR = crate::BitReader;
 #[doc = "Field `AUX_SRAM_RET_EN` writer - 16:16\\]
 Internal. Only to be used through TI provided API."]
-pub type AUX_SRAM_RET_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, RAMCFG_SPEC, bool, O>;
+pub type AuxSramRetEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `AUX_SRAM_PWR_OFF` reader - 17:17\\]
 Internal. Only to be used through TI provided API."]
-pub type AUX_SRAM_PWR_OFF_R = crate::BitReader<bool>;
+pub type AuxSramPwrOffR = crate::BitReader;
 #[doc = "Field `AUX_SRAM_PWR_OFF` writer - 17:17\\]
 Internal. Only to be used through TI provided API."]
-pub type AUX_SRAM_PWR_OFF_W<'a, const O: u8> = crate::BitWriter<'a, u32, RAMCFG_SPEC, bool, O>;
+pub type AuxSramPwrOffW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED18` reader - 31:18\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED18_R = crate::FieldReader<u16, u16>;
+pub type Reserved18R = crate::FieldReader<u16>;
 #[doc = "Field `RESERVED18` writer - 31:18\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED18_W<'a, const O: u8> = crate::FieldWriter<'a, u32, RAMCFG_SPEC, u16, u16, 14, O>;
+pub type Reserved18W<'a, REG> = crate::FieldWriter<'a, REG, 14, u16>;
 impl R {
     #[doc = "Bits 0:3 - 3:0\\]
 MCU SRAM is partitioned into 5 banks . This register controls which of the banks that has retention during MCU Bus domain power off"]
     #[inline(always)]
-    pub fn bus_sram_ret_en(&self) -> BUS_SRAM_RET_EN_R {
-        BUS_SRAM_RET_EN_R::new((self.bits & 0x0f) as u8)
+    pub fn bus_sram_ret_en(&self) -> BusSramRetEnR {
+        BusSramRetEnR::new((self.bits & 0x0f) as u8)
     }
     #[doc = "Bits 4:15 - 15:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved4(&self) -> RESERVED4_R {
-        RESERVED4_R::new(((self.bits >> 4) & 0x0fff) as u16)
+    pub fn reserved4(&self) -> Reserved4R {
+        Reserved4R::new(((self.bits >> 4) & 0x0fff) as u16)
     }
     #[doc = "Bit 16 - 16:16\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn aux_sram_ret_en(&self) -> AUX_SRAM_RET_EN_R {
-        AUX_SRAM_RET_EN_R::new(((self.bits >> 16) & 1) != 0)
+    pub fn aux_sram_ret_en(&self) -> AuxSramRetEnR {
+        AuxSramRetEnR::new(((self.bits >> 16) & 1) != 0)
     }
     #[doc = "Bit 17 - 17:17\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn aux_sram_pwr_off(&self) -> AUX_SRAM_PWR_OFF_R {
-        AUX_SRAM_PWR_OFF_R::new(((self.bits >> 17) & 1) != 0)
+    pub fn aux_sram_pwr_off(&self) -> AuxSramPwrOffR {
+        AuxSramPwrOffR::new(((self.bits >> 17) & 1) != 0)
     }
     #[doc = "Bits 18:31 - 31:18\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved18(&self) -> RESERVED18_R {
-        RESERVED18_R::new(((self.bits >> 18) & 0x3fff) as u16)
+    pub fn reserved18(&self) -> Reserved18R {
+        Reserved18R::new(((self.bits >> 18) & 0x3fff) as u16)
     }
 }
 impl W {
@@ -190,60 +165,52 @@ impl W {
 MCU SRAM is partitioned into 5 banks . This register controls which of the banks that has retention during MCU Bus domain power off"]
     #[inline(always)]
     #[must_use]
-    pub fn bus_sram_ret_en(&mut self) -> BUS_SRAM_RET_EN_W<0> {
-        BUS_SRAM_RET_EN_W::new(self)
+    pub fn bus_sram_ret_en(&mut self) -> BusSramRetEnW<RamcfgSpec> {
+        BusSramRetEnW::new(self, 0)
     }
     #[doc = "Bits 4:15 - 15:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved4(&mut self) -> RESERVED4_W<4> {
-        RESERVED4_W::new(self)
+    pub fn reserved4(&mut self) -> Reserved4W<RamcfgSpec> {
+        Reserved4W::new(self, 4)
     }
     #[doc = "Bit 16 - 16:16\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn aux_sram_ret_en(&mut self) -> AUX_SRAM_RET_EN_W<16> {
-        AUX_SRAM_RET_EN_W::new(self)
+    pub fn aux_sram_ret_en(&mut self) -> AuxSramRetEnW<RamcfgSpec> {
+        AuxSramRetEnW::new(self, 16)
     }
     #[doc = "Bit 17 - 17:17\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn aux_sram_pwr_off(&mut self) -> AUX_SRAM_PWR_OFF_W<17> {
-        AUX_SRAM_PWR_OFF_W::new(self)
+    pub fn aux_sram_pwr_off(&mut self) -> AuxSramPwrOffW<RamcfgSpec> {
+        AuxSramPwrOffW::new(self, 17)
     }
     #[doc = "Bits 18:31 - 31:18\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved18(&mut self) -> RESERVED18_W<18> {
-        RESERVED18_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved18(&mut self) -> Reserved18W<RamcfgSpec> {
+        Reserved18W::new(self, 18)
     }
 }
-#[doc = "RAM Configuration This register contains power management related configuration for the SRAM in the MCU and AUX domain.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ramcfg](index.html) module"]
-pub struct RAMCFG_SPEC;
-impl crate::RegisterSpec for RAMCFG_SPEC {
+#[doc = "RAM Configuration This register contains power management related configuration for the SRAM in the MCU and AUX domain.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ramcfg::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ramcfg::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct RamcfgSpec;
+impl crate::RegisterSpec for RamcfgSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [ramcfg::R](R) reader structure"]
-impl crate::Readable for RAMCFG_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [ramcfg::W](W) writer structure"]
-impl crate::Writable for RAMCFG_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`ramcfg::R`](R) reader structure"]
+impl crate::Readable for RamcfgSpec {}
+#[doc = "`write(|w| ..)` method takes [`ramcfg::W`](W) writer structure"]
+impl crate::Writable for RamcfgSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets RAMCFG to value 0x0001_000f"]
-impl crate::Resettable for RAMCFG_SPEC {
-    const RESET_VALUE: Self::Ux = 0x0001_000f;
+impl crate::Resettable for RamcfgSpec {
+    const RESET_VALUE: u32 = 0x0001_000f;
 }

@@ -1,3139 +1,3139 @@
 #[doc = "Register `MCUWUSEL` reader"]
-pub struct R(crate::R<MCUWUSEL_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<MCUWUSEL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<MCUWUSEL_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<MCUWUSEL_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<McuwuselSpec>;
 #[doc = "Register `MCUWUSEL` writer"]
-pub struct W(crate::W<MCUWUSEL_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<MCUWUSEL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<MCUWUSEL_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<MCUWUSEL_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `WU0_EV` reader - 5:0\\]
-MCU Wakeup Source #0 AON Event Source selecting 1 of 4 events routed to AON_WUC for waking up the MCU domain from Power Off or Power Down. Note:"]
-pub type WU0_EV_R = crate::FieldReader<u8, WU0_EV_A>;
+pub type W = crate::W<McuwuselSpec>;
 #[doc = "5:0\\]
 MCU Wakeup Source #0 AON Event Source selecting 1 of 4 events routed to AON_WUC for waking up the MCU domain from Power Off or Power Down. Note:\n\nValue on reset: 63"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum WU0_EV_A {
+pub enum Wu0Ev {
     #[doc = "63: No event, always low"]
-    NONE = 63,
+    None = 63,
     #[doc = "56: Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"]
-    AUX_COMPB_ASYNC_N = 56,
+    AuxCompbAsyncN = 56,
     #[doc = "55: Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX"]
-    AUX_COMPB_ASYNC = 55,
+    AuxCompbAsync = 55,
     #[doc = "54: BATMON voltage update event"]
-    BATMON_VOLT = 54,
+    BatmonVolt = 54,
     #[doc = "53: BATMON temperature update event"]
-    BATMON_TEMP = 53,
+    BatmonTemp = 53,
     #[doc = "52: AUX Timer 1 Event"]
-    AUX_TIMER1_EV = 52,
+    AuxTimer1Ev = 52,
     #[doc = "51: AUX Timer 0 Event"]
-    AUX_TIMER0_EV = 51,
+    AuxTimer0Ev = 51,
     #[doc = "50: TDC completed or timed out"]
-    AUX_TDC_DONE = 50,
+    AuxTdcDone = 50,
     #[doc = "49: ADC conversion completed"]
-    AUX_ADC_DONE = 49,
+    AuxAdcDone = 49,
     #[doc = "48: Comparator B triggered"]
-    AUX_COMPB = 48,
+    AuxCompb = 48,
     #[doc = "47: Comparator A triggered"]
-    AUX_COMPA = 47,
+    AuxCompa = 47,
     #[doc = "46: AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2"]
-    AUX_SWEV2 = 46,
+    AuxSwev2 = 46,
     #[doc = "45: AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1"]
-    AUX_SWEV1 = 45,
+    AuxSwev1 = 45,
     #[doc = "44: AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0"]
-    AUX_SWEV0 = 44,
+    AuxSwev0 = 44,
     #[doc = "43: JTAG generated event"]
-    JTAG = 43,
+    Jtag = 43,
     #[doc = "42: RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)"]
-    RTC_UPD = 42,
+    RtcUpd = 42,
     #[doc = "41: RTC combined delayed event"]
-    RTC_COMB_DLY = 41,
+    RtcCombDly = 41,
     #[doc = "40: RTC channel 2 - delayed event"]
-    RTC_CH2_DLY = 40,
+    RtcCh2Dly = 40,
     #[doc = "39: RTC channel 1 - delayed event"]
-    RTC_CH1_DLY = 39,
+    RtcCh1Dly = 39,
     #[doc = "38: RTC channel 0 - delayed event"]
-    RTC_CH0_DLY = 38,
+    RtcCh0Dly = 38,
     #[doc = "37: RTC channel 2 event"]
-    RTC_CH2 = 37,
+    RtcCh2 = 37,
     #[doc = "36: RTC channel 1 event"]
-    RTC_CH1 = 36,
+    RtcCh1 = 36,
     #[doc = "35: RTC channel 0 event"]
-    RTC_CH0 = 35,
+    RtcCh0 = 35,
     #[doc = "32: Edge detect on any PAD"]
-    PAD = 32,
+    Pad = 32,
     #[doc = "31: Edge detect on PAD31"]
-    PAD31 = 31,
+    Pad31 = 31,
     #[doc = "30: Edge detect on PAD30"]
-    PAD30 = 30,
+    Pad30 = 30,
     #[doc = "29: Edge detect on PAD29"]
-    PAD29 = 29,
+    Pad29 = 29,
     #[doc = "28: Edge detect on PAD28"]
-    PAD28 = 28,
+    Pad28 = 28,
     #[doc = "27: Edge detect on PAD27"]
-    PAD27 = 27,
+    Pad27 = 27,
     #[doc = "26: Edge detect on PAD26"]
-    PAD26 = 26,
+    Pad26 = 26,
     #[doc = "25: Edge detect on PAD25"]
-    PAD25 = 25,
+    Pad25 = 25,
     #[doc = "24: Edge detect on PAD24"]
-    PAD24 = 24,
+    Pad24 = 24,
     #[doc = "23: Edge detect on PAD23"]
-    PAD23 = 23,
+    Pad23 = 23,
     #[doc = "22: Edge detect on PAD22"]
-    PAD22 = 22,
+    Pad22 = 22,
     #[doc = "21: Edge detect on PAD21"]
-    PAD21 = 21,
+    Pad21 = 21,
     #[doc = "20: Edge detect on PAD20"]
-    PAD20 = 20,
+    Pad20 = 20,
     #[doc = "19: Edge detect on PAD19"]
-    PAD19 = 19,
+    Pad19 = 19,
     #[doc = "18: Edge detect on PAD18"]
-    PAD18 = 18,
+    Pad18 = 18,
     #[doc = "17: Edge detect on PAD17"]
-    PAD17 = 17,
+    Pad17 = 17,
     #[doc = "16: Edge detect on PAD16"]
-    PAD16 = 16,
+    Pad16 = 16,
     #[doc = "15: Edge detect on PAD15"]
-    PAD15 = 15,
+    Pad15 = 15,
     #[doc = "14: Edge detect on PAD14"]
-    PAD14 = 14,
+    Pad14 = 14,
     #[doc = "13: Edge detect on PAD13"]
-    PAD13 = 13,
+    Pad13 = 13,
     #[doc = "12: Edge detect on PAD12"]
-    PAD12 = 12,
+    Pad12 = 12,
     #[doc = "11: Edge detect on PAD11"]
-    PAD11 = 11,
+    Pad11 = 11,
     #[doc = "10: Edge detect on PAD10"]
-    PAD10 = 10,
+    Pad10 = 10,
     #[doc = "9: Edge detect on PAD9"]
-    PAD9 = 9,
+    Pad9 = 9,
     #[doc = "8: Edge detect on PAD8"]
-    PAD8 = 8,
+    Pad8 = 8,
     #[doc = "7: Edge detect on PAD7"]
-    PAD7 = 7,
+    Pad7 = 7,
     #[doc = "6: Edge detect on PAD6"]
-    PAD6 = 6,
+    Pad6 = 6,
     #[doc = "5: Edge detect on PAD5"]
-    PAD5 = 5,
+    Pad5 = 5,
     #[doc = "4: Edge detect on PAD4"]
-    PAD4 = 4,
+    Pad4 = 4,
     #[doc = "3: Edge detect on PAD3"]
-    PAD3 = 3,
+    Pad3 = 3,
     #[doc = "2: Edge detect on PAD2"]
-    PAD2 = 2,
+    Pad2 = 2,
     #[doc = "1: Edge detect on PAD1"]
-    PAD1 = 1,
+    Pad1 = 1,
     #[doc = "0: Edge detect on PAD0"]
-    PAD0 = 0,
+    Pad0 = 0,
 }
-impl From<WU0_EV_A> for u8 {
+impl From<Wu0Ev> for u8 {
     #[inline(always)]
-    fn from(variant: WU0_EV_A) -> Self {
+    fn from(variant: Wu0Ev) -> Self {
         variant as _
     }
 }
-impl WU0_EV_R {
+impl crate::FieldSpec for Wu0Ev {
+    type Ux = u8;
+}
+impl crate::IsEnum for Wu0Ev {}
+#[doc = "Field `WU0_EV` reader - 5:0\\]
+MCU Wakeup Source #0 AON Event Source selecting 1 of 4 events routed to AON_WUC for waking up the MCU domain from Power Off or Power Down. Note:"]
+pub type Wu0EvR = crate::FieldReader<Wu0Ev>;
+impl Wu0EvR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<WU0_EV_A> {
+    pub const fn variant(&self) -> Option<Wu0Ev> {
         match self.bits {
-            63 => Some(WU0_EV_A::NONE),
-            56 => Some(WU0_EV_A::AUX_COMPB_ASYNC_N),
-            55 => Some(WU0_EV_A::AUX_COMPB_ASYNC),
-            54 => Some(WU0_EV_A::BATMON_VOLT),
-            53 => Some(WU0_EV_A::BATMON_TEMP),
-            52 => Some(WU0_EV_A::AUX_TIMER1_EV),
-            51 => Some(WU0_EV_A::AUX_TIMER0_EV),
-            50 => Some(WU0_EV_A::AUX_TDC_DONE),
-            49 => Some(WU0_EV_A::AUX_ADC_DONE),
-            48 => Some(WU0_EV_A::AUX_COMPB),
-            47 => Some(WU0_EV_A::AUX_COMPA),
-            46 => Some(WU0_EV_A::AUX_SWEV2),
-            45 => Some(WU0_EV_A::AUX_SWEV1),
-            44 => Some(WU0_EV_A::AUX_SWEV0),
-            43 => Some(WU0_EV_A::JTAG),
-            42 => Some(WU0_EV_A::RTC_UPD),
-            41 => Some(WU0_EV_A::RTC_COMB_DLY),
-            40 => Some(WU0_EV_A::RTC_CH2_DLY),
-            39 => Some(WU0_EV_A::RTC_CH1_DLY),
-            38 => Some(WU0_EV_A::RTC_CH0_DLY),
-            37 => Some(WU0_EV_A::RTC_CH2),
-            36 => Some(WU0_EV_A::RTC_CH1),
-            35 => Some(WU0_EV_A::RTC_CH0),
-            32 => Some(WU0_EV_A::PAD),
-            31 => Some(WU0_EV_A::PAD31),
-            30 => Some(WU0_EV_A::PAD30),
-            29 => Some(WU0_EV_A::PAD29),
-            28 => Some(WU0_EV_A::PAD28),
-            27 => Some(WU0_EV_A::PAD27),
-            26 => Some(WU0_EV_A::PAD26),
-            25 => Some(WU0_EV_A::PAD25),
-            24 => Some(WU0_EV_A::PAD24),
-            23 => Some(WU0_EV_A::PAD23),
-            22 => Some(WU0_EV_A::PAD22),
-            21 => Some(WU0_EV_A::PAD21),
-            20 => Some(WU0_EV_A::PAD20),
-            19 => Some(WU0_EV_A::PAD19),
-            18 => Some(WU0_EV_A::PAD18),
-            17 => Some(WU0_EV_A::PAD17),
-            16 => Some(WU0_EV_A::PAD16),
-            15 => Some(WU0_EV_A::PAD15),
-            14 => Some(WU0_EV_A::PAD14),
-            13 => Some(WU0_EV_A::PAD13),
-            12 => Some(WU0_EV_A::PAD12),
-            11 => Some(WU0_EV_A::PAD11),
-            10 => Some(WU0_EV_A::PAD10),
-            9 => Some(WU0_EV_A::PAD9),
-            8 => Some(WU0_EV_A::PAD8),
-            7 => Some(WU0_EV_A::PAD7),
-            6 => Some(WU0_EV_A::PAD6),
-            5 => Some(WU0_EV_A::PAD5),
-            4 => Some(WU0_EV_A::PAD4),
-            3 => Some(WU0_EV_A::PAD3),
-            2 => Some(WU0_EV_A::PAD2),
-            1 => Some(WU0_EV_A::PAD1),
-            0 => Some(WU0_EV_A::PAD0),
+            63 => Some(Wu0Ev::None),
+            56 => Some(Wu0Ev::AuxCompbAsyncN),
+            55 => Some(Wu0Ev::AuxCompbAsync),
+            54 => Some(Wu0Ev::BatmonVolt),
+            53 => Some(Wu0Ev::BatmonTemp),
+            52 => Some(Wu0Ev::AuxTimer1Ev),
+            51 => Some(Wu0Ev::AuxTimer0Ev),
+            50 => Some(Wu0Ev::AuxTdcDone),
+            49 => Some(Wu0Ev::AuxAdcDone),
+            48 => Some(Wu0Ev::AuxCompb),
+            47 => Some(Wu0Ev::AuxCompa),
+            46 => Some(Wu0Ev::AuxSwev2),
+            45 => Some(Wu0Ev::AuxSwev1),
+            44 => Some(Wu0Ev::AuxSwev0),
+            43 => Some(Wu0Ev::Jtag),
+            42 => Some(Wu0Ev::RtcUpd),
+            41 => Some(Wu0Ev::RtcCombDly),
+            40 => Some(Wu0Ev::RtcCh2Dly),
+            39 => Some(Wu0Ev::RtcCh1Dly),
+            38 => Some(Wu0Ev::RtcCh0Dly),
+            37 => Some(Wu0Ev::RtcCh2),
+            36 => Some(Wu0Ev::RtcCh1),
+            35 => Some(Wu0Ev::RtcCh0),
+            32 => Some(Wu0Ev::Pad),
+            31 => Some(Wu0Ev::Pad31),
+            30 => Some(Wu0Ev::Pad30),
+            29 => Some(Wu0Ev::Pad29),
+            28 => Some(Wu0Ev::Pad28),
+            27 => Some(Wu0Ev::Pad27),
+            26 => Some(Wu0Ev::Pad26),
+            25 => Some(Wu0Ev::Pad25),
+            24 => Some(Wu0Ev::Pad24),
+            23 => Some(Wu0Ev::Pad23),
+            22 => Some(Wu0Ev::Pad22),
+            21 => Some(Wu0Ev::Pad21),
+            20 => Some(Wu0Ev::Pad20),
+            19 => Some(Wu0Ev::Pad19),
+            18 => Some(Wu0Ev::Pad18),
+            17 => Some(Wu0Ev::Pad17),
+            16 => Some(Wu0Ev::Pad16),
+            15 => Some(Wu0Ev::Pad15),
+            14 => Some(Wu0Ev::Pad14),
+            13 => Some(Wu0Ev::Pad13),
+            12 => Some(Wu0Ev::Pad12),
+            11 => Some(Wu0Ev::Pad11),
+            10 => Some(Wu0Ev::Pad10),
+            9 => Some(Wu0Ev::Pad9),
+            8 => Some(Wu0Ev::Pad8),
+            7 => Some(Wu0Ev::Pad7),
+            6 => Some(Wu0Ev::Pad6),
+            5 => Some(Wu0Ev::Pad5),
+            4 => Some(Wu0Ev::Pad4),
+            3 => Some(Wu0Ev::Pad3),
+            2 => Some(Wu0Ev::Pad2),
+            1 => Some(Wu0Ev::Pad1),
+            0 => Some(Wu0Ev::Pad0),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `NONE`"]
+    #[doc = "No event, always low"]
     #[inline(always)]
     pub fn is_none(&self) -> bool {
-        *self == WU0_EV_A::NONE
+        *self == Wu0Ev::None
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPB_ASYNC_N`"]
+    #[doc = "Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"]
     #[inline(always)]
     pub fn is_aux_compb_async_n(&self) -> bool {
-        *self == WU0_EV_A::AUX_COMPB_ASYNC_N
+        *self == Wu0Ev::AuxCompbAsyncN
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPB_ASYNC`"]
+    #[doc = "Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX"]
     #[inline(always)]
     pub fn is_aux_compb_async(&self) -> bool {
-        *self == WU0_EV_A::AUX_COMPB_ASYNC
+        *self == Wu0Ev::AuxCompbAsync
     }
-    #[doc = "Checks if the value of the field is `BATMON_VOLT`"]
+    #[doc = "BATMON voltage update event"]
     #[inline(always)]
     pub fn is_batmon_volt(&self) -> bool {
-        *self == WU0_EV_A::BATMON_VOLT
+        *self == Wu0Ev::BatmonVolt
     }
-    #[doc = "Checks if the value of the field is `BATMON_TEMP`"]
+    #[doc = "BATMON temperature update event"]
     #[inline(always)]
     pub fn is_batmon_temp(&self) -> bool {
-        *self == WU0_EV_A::BATMON_TEMP
+        *self == Wu0Ev::BatmonTemp
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER1_EV`"]
+    #[doc = "AUX Timer 1 Event"]
     #[inline(always)]
     pub fn is_aux_timer1_ev(&self) -> bool {
-        *self == WU0_EV_A::AUX_TIMER1_EV
+        *self == Wu0Ev::AuxTimer1Ev
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER0_EV`"]
+    #[doc = "AUX Timer 0 Event"]
     #[inline(always)]
     pub fn is_aux_timer0_ev(&self) -> bool {
-        *self == WU0_EV_A::AUX_TIMER0_EV
+        *self == Wu0Ev::AuxTimer0Ev
     }
-    #[doc = "Checks if the value of the field is `AUX_TDC_DONE`"]
+    #[doc = "TDC completed or timed out"]
     #[inline(always)]
     pub fn is_aux_tdc_done(&self) -> bool {
-        *self == WU0_EV_A::AUX_TDC_DONE
+        *self == Wu0Ev::AuxTdcDone
     }
-    #[doc = "Checks if the value of the field is `AUX_ADC_DONE`"]
+    #[doc = "ADC conversion completed"]
     #[inline(always)]
     pub fn is_aux_adc_done(&self) -> bool {
-        *self == WU0_EV_A::AUX_ADC_DONE
+        *self == Wu0Ev::AuxAdcDone
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPB`"]
+    #[doc = "Comparator B triggered"]
     #[inline(always)]
     pub fn is_aux_compb(&self) -> bool {
-        *self == WU0_EV_A::AUX_COMPB
+        *self == Wu0Ev::AuxCompb
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPA`"]
+    #[doc = "Comparator A triggered"]
     #[inline(always)]
     pub fn is_aux_compa(&self) -> bool {
-        *self == WU0_EV_A::AUX_COMPA
+        *self == Wu0Ev::AuxCompa
     }
-    #[doc = "Checks if the value of the field is `AUX_SWEV2`"]
+    #[doc = "AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2"]
     #[inline(always)]
     pub fn is_aux_swev2(&self) -> bool {
-        *self == WU0_EV_A::AUX_SWEV2
+        *self == Wu0Ev::AuxSwev2
     }
-    #[doc = "Checks if the value of the field is `AUX_SWEV1`"]
+    #[doc = "AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1"]
     #[inline(always)]
     pub fn is_aux_swev1(&self) -> bool {
-        *self == WU0_EV_A::AUX_SWEV1
+        *self == Wu0Ev::AuxSwev1
     }
-    #[doc = "Checks if the value of the field is `AUX_SWEV0`"]
+    #[doc = "AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0"]
     #[inline(always)]
     pub fn is_aux_swev0(&self) -> bool {
-        *self == WU0_EV_A::AUX_SWEV0
+        *self == Wu0Ev::AuxSwev0
     }
-    #[doc = "Checks if the value of the field is `JTAG`"]
+    #[doc = "JTAG generated event"]
     #[inline(always)]
     pub fn is_jtag(&self) -> bool {
-        *self == WU0_EV_A::JTAG
+        *self == Wu0Ev::Jtag
     }
-    #[doc = "Checks if the value of the field is `RTC_UPD`"]
+    #[doc = "RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)"]
     #[inline(always)]
     pub fn is_rtc_upd(&self) -> bool {
-        *self == WU0_EV_A::RTC_UPD
+        *self == Wu0Ev::RtcUpd
     }
-    #[doc = "Checks if the value of the field is `RTC_COMB_DLY`"]
+    #[doc = "RTC combined delayed event"]
     #[inline(always)]
     pub fn is_rtc_comb_dly(&self) -> bool {
-        *self == WU0_EV_A::RTC_COMB_DLY
+        *self == Wu0Ev::RtcCombDly
     }
-    #[doc = "Checks if the value of the field is `RTC_CH2_DLY`"]
+    #[doc = "RTC channel 2 - delayed event"]
     #[inline(always)]
     pub fn is_rtc_ch2_dly(&self) -> bool {
-        *self == WU0_EV_A::RTC_CH2_DLY
+        *self == Wu0Ev::RtcCh2Dly
     }
-    #[doc = "Checks if the value of the field is `RTC_CH1_DLY`"]
+    #[doc = "RTC channel 1 - delayed event"]
     #[inline(always)]
     pub fn is_rtc_ch1_dly(&self) -> bool {
-        *self == WU0_EV_A::RTC_CH1_DLY
+        *self == Wu0Ev::RtcCh1Dly
     }
-    #[doc = "Checks if the value of the field is `RTC_CH0_DLY`"]
+    #[doc = "RTC channel 0 - delayed event"]
     #[inline(always)]
     pub fn is_rtc_ch0_dly(&self) -> bool {
-        *self == WU0_EV_A::RTC_CH0_DLY
+        *self == Wu0Ev::RtcCh0Dly
     }
-    #[doc = "Checks if the value of the field is `RTC_CH2`"]
+    #[doc = "RTC channel 2 event"]
     #[inline(always)]
     pub fn is_rtc_ch2(&self) -> bool {
-        *self == WU0_EV_A::RTC_CH2
+        *self == Wu0Ev::RtcCh2
     }
-    #[doc = "Checks if the value of the field is `RTC_CH1`"]
+    #[doc = "RTC channel 1 event"]
     #[inline(always)]
     pub fn is_rtc_ch1(&self) -> bool {
-        *self == WU0_EV_A::RTC_CH1
+        *self == Wu0Ev::RtcCh1
     }
-    #[doc = "Checks if the value of the field is `RTC_CH0`"]
+    #[doc = "RTC channel 0 event"]
     #[inline(always)]
     pub fn is_rtc_ch0(&self) -> bool {
-        *self == WU0_EV_A::RTC_CH0
+        *self == Wu0Ev::RtcCh0
     }
-    #[doc = "Checks if the value of the field is `PAD`"]
+    #[doc = "Edge detect on any PAD"]
     #[inline(always)]
     pub fn is_pad(&self) -> bool {
-        *self == WU0_EV_A::PAD
+        *self == Wu0Ev::Pad
     }
-    #[doc = "Checks if the value of the field is `PAD31`"]
+    #[doc = "Edge detect on PAD31"]
     #[inline(always)]
     pub fn is_pad31(&self) -> bool {
-        *self == WU0_EV_A::PAD31
+        *self == Wu0Ev::Pad31
     }
-    #[doc = "Checks if the value of the field is `PAD30`"]
+    #[doc = "Edge detect on PAD30"]
     #[inline(always)]
     pub fn is_pad30(&self) -> bool {
-        *self == WU0_EV_A::PAD30
+        *self == Wu0Ev::Pad30
     }
-    #[doc = "Checks if the value of the field is `PAD29`"]
+    #[doc = "Edge detect on PAD29"]
     #[inline(always)]
     pub fn is_pad29(&self) -> bool {
-        *self == WU0_EV_A::PAD29
+        *self == Wu0Ev::Pad29
     }
-    #[doc = "Checks if the value of the field is `PAD28`"]
+    #[doc = "Edge detect on PAD28"]
     #[inline(always)]
     pub fn is_pad28(&self) -> bool {
-        *self == WU0_EV_A::PAD28
+        *self == Wu0Ev::Pad28
     }
-    #[doc = "Checks if the value of the field is `PAD27`"]
+    #[doc = "Edge detect on PAD27"]
     #[inline(always)]
     pub fn is_pad27(&self) -> bool {
-        *self == WU0_EV_A::PAD27
+        *self == Wu0Ev::Pad27
     }
-    #[doc = "Checks if the value of the field is `PAD26`"]
+    #[doc = "Edge detect on PAD26"]
     #[inline(always)]
     pub fn is_pad26(&self) -> bool {
-        *self == WU0_EV_A::PAD26
+        *self == Wu0Ev::Pad26
     }
-    #[doc = "Checks if the value of the field is `PAD25`"]
+    #[doc = "Edge detect on PAD25"]
     #[inline(always)]
     pub fn is_pad25(&self) -> bool {
-        *self == WU0_EV_A::PAD25
+        *self == Wu0Ev::Pad25
     }
-    #[doc = "Checks if the value of the field is `PAD24`"]
+    #[doc = "Edge detect on PAD24"]
     #[inline(always)]
     pub fn is_pad24(&self) -> bool {
-        *self == WU0_EV_A::PAD24
+        *self == Wu0Ev::Pad24
     }
-    #[doc = "Checks if the value of the field is `PAD23`"]
+    #[doc = "Edge detect on PAD23"]
     #[inline(always)]
     pub fn is_pad23(&self) -> bool {
-        *self == WU0_EV_A::PAD23
+        *self == Wu0Ev::Pad23
     }
-    #[doc = "Checks if the value of the field is `PAD22`"]
+    #[doc = "Edge detect on PAD22"]
     #[inline(always)]
     pub fn is_pad22(&self) -> bool {
-        *self == WU0_EV_A::PAD22
+        *self == Wu0Ev::Pad22
     }
-    #[doc = "Checks if the value of the field is `PAD21`"]
+    #[doc = "Edge detect on PAD21"]
     #[inline(always)]
     pub fn is_pad21(&self) -> bool {
-        *self == WU0_EV_A::PAD21
+        *self == Wu0Ev::Pad21
     }
-    #[doc = "Checks if the value of the field is `PAD20`"]
+    #[doc = "Edge detect on PAD20"]
     #[inline(always)]
     pub fn is_pad20(&self) -> bool {
-        *self == WU0_EV_A::PAD20
+        *self == Wu0Ev::Pad20
     }
-    #[doc = "Checks if the value of the field is `PAD19`"]
+    #[doc = "Edge detect on PAD19"]
     #[inline(always)]
     pub fn is_pad19(&self) -> bool {
-        *self == WU0_EV_A::PAD19
+        *self == Wu0Ev::Pad19
     }
-    #[doc = "Checks if the value of the field is `PAD18`"]
+    #[doc = "Edge detect on PAD18"]
     #[inline(always)]
     pub fn is_pad18(&self) -> bool {
-        *self == WU0_EV_A::PAD18
+        *self == Wu0Ev::Pad18
     }
-    #[doc = "Checks if the value of the field is `PAD17`"]
+    #[doc = "Edge detect on PAD17"]
     #[inline(always)]
     pub fn is_pad17(&self) -> bool {
-        *self == WU0_EV_A::PAD17
+        *self == Wu0Ev::Pad17
     }
-    #[doc = "Checks if the value of the field is `PAD16`"]
+    #[doc = "Edge detect on PAD16"]
     #[inline(always)]
     pub fn is_pad16(&self) -> bool {
-        *self == WU0_EV_A::PAD16
+        *self == Wu0Ev::Pad16
     }
-    #[doc = "Checks if the value of the field is `PAD15`"]
+    #[doc = "Edge detect on PAD15"]
     #[inline(always)]
     pub fn is_pad15(&self) -> bool {
-        *self == WU0_EV_A::PAD15
+        *self == Wu0Ev::Pad15
     }
-    #[doc = "Checks if the value of the field is `PAD14`"]
+    #[doc = "Edge detect on PAD14"]
     #[inline(always)]
     pub fn is_pad14(&self) -> bool {
-        *self == WU0_EV_A::PAD14
+        *self == Wu0Ev::Pad14
     }
-    #[doc = "Checks if the value of the field is `PAD13`"]
+    #[doc = "Edge detect on PAD13"]
     #[inline(always)]
     pub fn is_pad13(&self) -> bool {
-        *self == WU0_EV_A::PAD13
+        *self == Wu0Ev::Pad13
     }
-    #[doc = "Checks if the value of the field is `PAD12`"]
+    #[doc = "Edge detect on PAD12"]
     #[inline(always)]
     pub fn is_pad12(&self) -> bool {
-        *self == WU0_EV_A::PAD12
+        *self == Wu0Ev::Pad12
     }
-    #[doc = "Checks if the value of the field is `PAD11`"]
+    #[doc = "Edge detect on PAD11"]
     #[inline(always)]
     pub fn is_pad11(&self) -> bool {
-        *self == WU0_EV_A::PAD11
+        *self == Wu0Ev::Pad11
     }
-    #[doc = "Checks if the value of the field is `PAD10`"]
+    #[doc = "Edge detect on PAD10"]
     #[inline(always)]
     pub fn is_pad10(&self) -> bool {
-        *self == WU0_EV_A::PAD10
+        *self == Wu0Ev::Pad10
     }
-    #[doc = "Checks if the value of the field is `PAD9`"]
+    #[doc = "Edge detect on PAD9"]
     #[inline(always)]
     pub fn is_pad9(&self) -> bool {
-        *self == WU0_EV_A::PAD9
+        *self == Wu0Ev::Pad9
     }
-    #[doc = "Checks if the value of the field is `PAD8`"]
+    #[doc = "Edge detect on PAD8"]
     #[inline(always)]
     pub fn is_pad8(&self) -> bool {
-        *self == WU0_EV_A::PAD8
+        *self == Wu0Ev::Pad8
     }
-    #[doc = "Checks if the value of the field is `PAD7`"]
+    #[doc = "Edge detect on PAD7"]
     #[inline(always)]
     pub fn is_pad7(&self) -> bool {
-        *self == WU0_EV_A::PAD7
+        *self == Wu0Ev::Pad7
     }
-    #[doc = "Checks if the value of the field is `PAD6`"]
+    #[doc = "Edge detect on PAD6"]
     #[inline(always)]
     pub fn is_pad6(&self) -> bool {
-        *self == WU0_EV_A::PAD6
+        *self == Wu0Ev::Pad6
     }
-    #[doc = "Checks if the value of the field is `PAD5`"]
+    #[doc = "Edge detect on PAD5"]
     #[inline(always)]
     pub fn is_pad5(&self) -> bool {
-        *self == WU0_EV_A::PAD5
+        *self == Wu0Ev::Pad5
     }
-    #[doc = "Checks if the value of the field is `PAD4`"]
+    #[doc = "Edge detect on PAD4"]
     #[inline(always)]
     pub fn is_pad4(&self) -> bool {
-        *self == WU0_EV_A::PAD4
+        *self == Wu0Ev::Pad4
     }
-    #[doc = "Checks if the value of the field is `PAD3`"]
+    #[doc = "Edge detect on PAD3"]
     #[inline(always)]
     pub fn is_pad3(&self) -> bool {
-        *self == WU0_EV_A::PAD3
+        *self == Wu0Ev::Pad3
     }
-    #[doc = "Checks if the value of the field is `PAD2`"]
+    #[doc = "Edge detect on PAD2"]
     #[inline(always)]
     pub fn is_pad2(&self) -> bool {
-        *self == WU0_EV_A::PAD2
+        *self == Wu0Ev::Pad2
     }
-    #[doc = "Checks if the value of the field is `PAD1`"]
+    #[doc = "Edge detect on PAD1"]
     #[inline(always)]
     pub fn is_pad1(&self) -> bool {
-        *self == WU0_EV_A::PAD1
+        *self == Wu0Ev::Pad1
     }
-    #[doc = "Checks if the value of the field is `PAD0`"]
+    #[doc = "Edge detect on PAD0"]
     #[inline(always)]
     pub fn is_pad0(&self) -> bool {
-        *self == WU0_EV_A::PAD0
+        *self == Wu0Ev::Pad0
     }
 }
 #[doc = "Field `WU0_EV` writer - 5:0\\]
 MCU Wakeup Source #0 AON Event Source selecting 1 of 4 events routed to AON_WUC for waking up the MCU domain from Power Off or Power Down. Note:"]
-pub type WU0_EV_W<'a, const O: u8> = crate::FieldWriter<'a, u32, MCUWUSEL_SPEC, u8, WU0_EV_A, 6, O>;
-impl<'a, const O: u8> WU0_EV_W<'a, O> {
+pub type Wu0EvW<'a, REG> = crate::FieldWriter<'a, REG, 6, Wu0Ev>;
+impl<'a, REG> Wu0EvW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "No event, always low"]
     #[inline(always)]
-    pub fn none(self) -> &'a mut W {
-        self.variant(WU0_EV_A::NONE)
+    pub fn none(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::None)
     }
     #[doc = "Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"]
     #[inline(always)]
-    pub fn aux_compb_async_n(self) -> &'a mut W {
-        self.variant(WU0_EV_A::AUX_COMPB_ASYNC_N)
+    pub fn aux_compb_async_n(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::AuxCompbAsyncN)
     }
     #[doc = "Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX"]
     #[inline(always)]
-    pub fn aux_compb_async(self) -> &'a mut W {
-        self.variant(WU0_EV_A::AUX_COMPB_ASYNC)
+    pub fn aux_compb_async(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::AuxCompbAsync)
     }
     #[doc = "BATMON voltage update event"]
     #[inline(always)]
-    pub fn batmon_volt(self) -> &'a mut W {
-        self.variant(WU0_EV_A::BATMON_VOLT)
+    pub fn batmon_volt(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::BatmonVolt)
     }
     #[doc = "BATMON temperature update event"]
     #[inline(always)]
-    pub fn batmon_temp(self) -> &'a mut W {
-        self.variant(WU0_EV_A::BATMON_TEMP)
+    pub fn batmon_temp(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::BatmonTemp)
     }
     #[doc = "AUX Timer 1 Event"]
     #[inline(always)]
-    pub fn aux_timer1_ev(self) -> &'a mut W {
-        self.variant(WU0_EV_A::AUX_TIMER1_EV)
+    pub fn aux_timer1_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::AuxTimer1Ev)
     }
     #[doc = "AUX Timer 0 Event"]
     #[inline(always)]
-    pub fn aux_timer0_ev(self) -> &'a mut W {
-        self.variant(WU0_EV_A::AUX_TIMER0_EV)
+    pub fn aux_timer0_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::AuxTimer0Ev)
     }
     #[doc = "TDC completed or timed out"]
     #[inline(always)]
-    pub fn aux_tdc_done(self) -> &'a mut W {
-        self.variant(WU0_EV_A::AUX_TDC_DONE)
+    pub fn aux_tdc_done(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::AuxTdcDone)
     }
     #[doc = "ADC conversion completed"]
     #[inline(always)]
-    pub fn aux_adc_done(self) -> &'a mut W {
-        self.variant(WU0_EV_A::AUX_ADC_DONE)
+    pub fn aux_adc_done(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::AuxAdcDone)
     }
     #[doc = "Comparator B triggered"]
     #[inline(always)]
-    pub fn aux_compb(self) -> &'a mut W {
-        self.variant(WU0_EV_A::AUX_COMPB)
+    pub fn aux_compb(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::AuxCompb)
     }
     #[doc = "Comparator A triggered"]
     #[inline(always)]
-    pub fn aux_compa(self) -> &'a mut W {
-        self.variant(WU0_EV_A::AUX_COMPA)
+    pub fn aux_compa(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::AuxCompa)
     }
     #[doc = "AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2"]
     #[inline(always)]
-    pub fn aux_swev2(self) -> &'a mut W {
-        self.variant(WU0_EV_A::AUX_SWEV2)
+    pub fn aux_swev2(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::AuxSwev2)
     }
     #[doc = "AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1"]
     #[inline(always)]
-    pub fn aux_swev1(self) -> &'a mut W {
-        self.variant(WU0_EV_A::AUX_SWEV1)
+    pub fn aux_swev1(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::AuxSwev1)
     }
     #[doc = "AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0"]
     #[inline(always)]
-    pub fn aux_swev0(self) -> &'a mut W {
-        self.variant(WU0_EV_A::AUX_SWEV0)
+    pub fn aux_swev0(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::AuxSwev0)
     }
     #[doc = "JTAG generated event"]
     #[inline(always)]
-    pub fn jtag(self) -> &'a mut W {
-        self.variant(WU0_EV_A::JTAG)
+    pub fn jtag(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Jtag)
     }
     #[doc = "RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)"]
     #[inline(always)]
-    pub fn rtc_upd(self) -> &'a mut W {
-        self.variant(WU0_EV_A::RTC_UPD)
+    pub fn rtc_upd(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::RtcUpd)
     }
     #[doc = "RTC combined delayed event"]
     #[inline(always)]
-    pub fn rtc_comb_dly(self) -> &'a mut W {
-        self.variant(WU0_EV_A::RTC_COMB_DLY)
+    pub fn rtc_comb_dly(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::RtcCombDly)
     }
     #[doc = "RTC channel 2 - delayed event"]
     #[inline(always)]
-    pub fn rtc_ch2_dly(self) -> &'a mut W {
-        self.variant(WU0_EV_A::RTC_CH2_DLY)
+    pub fn rtc_ch2_dly(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::RtcCh2Dly)
     }
     #[doc = "RTC channel 1 - delayed event"]
     #[inline(always)]
-    pub fn rtc_ch1_dly(self) -> &'a mut W {
-        self.variant(WU0_EV_A::RTC_CH1_DLY)
+    pub fn rtc_ch1_dly(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::RtcCh1Dly)
     }
     #[doc = "RTC channel 0 - delayed event"]
     #[inline(always)]
-    pub fn rtc_ch0_dly(self) -> &'a mut W {
-        self.variant(WU0_EV_A::RTC_CH0_DLY)
+    pub fn rtc_ch0_dly(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::RtcCh0Dly)
     }
     #[doc = "RTC channel 2 event"]
     #[inline(always)]
-    pub fn rtc_ch2(self) -> &'a mut W {
-        self.variant(WU0_EV_A::RTC_CH2)
+    pub fn rtc_ch2(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::RtcCh2)
     }
     #[doc = "RTC channel 1 event"]
     #[inline(always)]
-    pub fn rtc_ch1(self) -> &'a mut W {
-        self.variant(WU0_EV_A::RTC_CH1)
+    pub fn rtc_ch1(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::RtcCh1)
     }
     #[doc = "RTC channel 0 event"]
     #[inline(always)]
-    pub fn rtc_ch0(self) -> &'a mut W {
-        self.variant(WU0_EV_A::RTC_CH0)
+    pub fn rtc_ch0(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::RtcCh0)
     }
     #[doc = "Edge detect on any PAD"]
     #[inline(always)]
-    pub fn pad(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD)
+    pub fn pad(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad)
     }
     #[doc = "Edge detect on PAD31"]
     #[inline(always)]
-    pub fn pad31(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD31)
+    pub fn pad31(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad31)
     }
     #[doc = "Edge detect on PAD30"]
     #[inline(always)]
-    pub fn pad30(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD30)
+    pub fn pad30(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad30)
     }
     #[doc = "Edge detect on PAD29"]
     #[inline(always)]
-    pub fn pad29(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD29)
+    pub fn pad29(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad29)
     }
     #[doc = "Edge detect on PAD28"]
     #[inline(always)]
-    pub fn pad28(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD28)
+    pub fn pad28(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad28)
     }
     #[doc = "Edge detect on PAD27"]
     #[inline(always)]
-    pub fn pad27(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD27)
+    pub fn pad27(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad27)
     }
     #[doc = "Edge detect on PAD26"]
     #[inline(always)]
-    pub fn pad26(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD26)
+    pub fn pad26(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad26)
     }
     #[doc = "Edge detect on PAD25"]
     #[inline(always)]
-    pub fn pad25(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD25)
+    pub fn pad25(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad25)
     }
     #[doc = "Edge detect on PAD24"]
     #[inline(always)]
-    pub fn pad24(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD24)
+    pub fn pad24(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad24)
     }
     #[doc = "Edge detect on PAD23"]
     #[inline(always)]
-    pub fn pad23(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD23)
+    pub fn pad23(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad23)
     }
     #[doc = "Edge detect on PAD22"]
     #[inline(always)]
-    pub fn pad22(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD22)
+    pub fn pad22(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad22)
     }
     #[doc = "Edge detect on PAD21"]
     #[inline(always)]
-    pub fn pad21(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD21)
+    pub fn pad21(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad21)
     }
     #[doc = "Edge detect on PAD20"]
     #[inline(always)]
-    pub fn pad20(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD20)
+    pub fn pad20(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad20)
     }
     #[doc = "Edge detect on PAD19"]
     #[inline(always)]
-    pub fn pad19(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD19)
+    pub fn pad19(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad19)
     }
     #[doc = "Edge detect on PAD18"]
     #[inline(always)]
-    pub fn pad18(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD18)
+    pub fn pad18(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad18)
     }
     #[doc = "Edge detect on PAD17"]
     #[inline(always)]
-    pub fn pad17(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD17)
+    pub fn pad17(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad17)
     }
     #[doc = "Edge detect on PAD16"]
     #[inline(always)]
-    pub fn pad16(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD16)
+    pub fn pad16(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad16)
     }
     #[doc = "Edge detect on PAD15"]
     #[inline(always)]
-    pub fn pad15(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD15)
+    pub fn pad15(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad15)
     }
     #[doc = "Edge detect on PAD14"]
     #[inline(always)]
-    pub fn pad14(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD14)
+    pub fn pad14(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad14)
     }
     #[doc = "Edge detect on PAD13"]
     #[inline(always)]
-    pub fn pad13(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD13)
+    pub fn pad13(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad13)
     }
     #[doc = "Edge detect on PAD12"]
     #[inline(always)]
-    pub fn pad12(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD12)
+    pub fn pad12(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad12)
     }
     #[doc = "Edge detect on PAD11"]
     #[inline(always)]
-    pub fn pad11(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD11)
+    pub fn pad11(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad11)
     }
     #[doc = "Edge detect on PAD10"]
     #[inline(always)]
-    pub fn pad10(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD10)
+    pub fn pad10(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad10)
     }
     #[doc = "Edge detect on PAD9"]
     #[inline(always)]
-    pub fn pad9(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD9)
+    pub fn pad9(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad9)
     }
     #[doc = "Edge detect on PAD8"]
     #[inline(always)]
-    pub fn pad8(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD8)
+    pub fn pad8(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad8)
     }
     #[doc = "Edge detect on PAD7"]
     #[inline(always)]
-    pub fn pad7(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD7)
+    pub fn pad7(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad7)
     }
     #[doc = "Edge detect on PAD6"]
     #[inline(always)]
-    pub fn pad6(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD6)
+    pub fn pad6(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad6)
     }
     #[doc = "Edge detect on PAD5"]
     #[inline(always)]
-    pub fn pad5(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD5)
+    pub fn pad5(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad5)
     }
     #[doc = "Edge detect on PAD4"]
     #[inline(always)]
-    pub fn pad4(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD4)
+    pub fn pad4(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad4)
     }
     #[doc = "Edge detect on PAD3"]
     #[inline(always)]
-    pub fn pad3(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD3)
+    pub fn pad3(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad3)
     }
     #[doc = "Edge detect on PAD2"]
     #[inline(always)]
-    pub fn pad2(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD2)
+    pub fn pad2(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad2)
     }
     #[doc = "Edge detect on PAD1"]
     #[inline(always)]
-    pub fn pad1(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD1)
+    pub fn pad1(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad1)
     }
     #[doc = "Edge detect on PAD0"]
     #[inline(always)]
-    pub fn pad0(self) -> &'a mut W {
-        self.variant(WU0_EV_A::PAD0)
+    pub fn pad0(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu0Ev::Pad0)
     }
 }
 #[doc = "Field `RESERVED6` reader - 7:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED6_R = crate::FieldReader<u8, u8>;
+pub type Reserved6R = crate::FieldReader;
 #[doc = "Field `RESERVED6` writer - 7:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED6_W<'a, const O: u8> = crate::FieldWriter<'a, u32, MCUWUSEL_SPEC, u8, u8, 2, O>;
-#[doc = "Field `WU1_EV` reader - 13:8\\]
-MCU Wakeup Source #1 AON Event Source selecting 1 of 4 events routed to AON_WUC for waking up the MCU domain from Power Off or Power Down. Note:"]
-pub type WU1_EV_R = crate::FieldReader<u8, WU1_EV_A>;
+pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "13:8\\]
 MCU Wakeup Source #1 AON Event Source selecting 1 of 4 events routed to AON_WUC for waking up the MCU domain from Power Off or Power Down. Note:\n\nValue on reset: 63"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum WU1_EV_A {
+pub enum Wu1Ev {
     #[doc = "63: No event, always low"]
-    NONE = 63,
+    None = 63,
     #[doc = "56: Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"]
-    AUX_COMPB_ASYNC_N = 56,
+    AuxCompbAsyncN = 56,
     #[doc = "55: Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX"]
-    AUX_COMPB_ASYNC = 55,
+    AuxCompbAsync = 55,
     #[doc = "54: BATMON voltage update event"]
-    BATMON_VOLT = 54,
+    BatmonVolt = 54,
     #[doc = "53: BATMON temperature update event"]
-    BATMON_TEMP = 53,
+    BatmonTemp = 53,
     #[doc = "52: AUX Timer 1 Event"]
-    AUX_TIMER1_EV = 52,
+    AuxTimer1Ev = 52,
     #[doc = "51: AUX Timer 0 Event"]
-    AUX_TIMER0_EV = 51,
+    AuxTimer0Ev = 51,
     #[doc = "50: TDC completed or timed out"]
-    AUX_TDC_DONE = 50,
+    AuxTdcDone = 50,
     #[doc = "49: ADC conversion completed"]
-    AUX_ADC_DONE = 49,
+    AuxAdcDone = 49,
     #[doc = "48: Comparator B triggered"]
-    AUX_COMPB = 48,
+    AuxCompb = 48,
     #[doc = "47: Comparator A triggered"]
-    AUX_COMPA = 47,
+    AuxCompa = 47,
     #[doc = "46: AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2"]
-    AUX_SWEV2 = 46,
+    AuxSwev2 = 46,
     #[doc = "45: AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1"]
-    AUX_SWEV1 = 45,
+    AuxSwev1 = 45,
     #[doc = "44: AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0"]
-    AUX_SWEV0 = 44,
+    AuxSwev0 = 44,
     #[doc = "43: JTAG generated event"]
-    JTAG = 43,
+    Jtag = 43,
     #[doc = "42: RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)"]
-    RTC_UPD = 42,
+    RtcUpd = 42,
     #[doc = "41: RTC combined delayed event"]
-    RTC_COMB_DLY = 41,
+    RtcCombDly = 41,
     #[doc = "40: RTC channel 2 - delayed event"]
-    RTC_CH2_DLY = 40,
+    RtcCh2Dly = 40,
     #[doc = "39: RTC channel 1 - delayed event"]
-    RTC_CH1_DLY = 39,
+    RtcCh1Dly = 39,
     #[doc = "38: RTC channel 0 - delayed event"]
-    RTC_CH0_DLY = 38,
+    RtcCh0Dly = 38,
     #[doc = "37: RTC channel 2 event"]
-    RTC_CH2 = 37,
+    RtcCh2 = 37,
     #[doc = "36: RTC channel 1 event"]
-    RTC_CH1 = 36,
+    RtcCh1 = 36,
     #[doc = "35: RTC channel 0 event"]
-    RTC_CH0 = 35,
+    RtcCh0 = 35,
     #[doc = "32: Edge detect on any PAD"]
-    PAD = 32,
+    Pad = 32,
     #[doc = "31: Edge detect on PAD31"]
-    PAD31 = 31,
+    Pad31 = 31,
     #[doc = "30: Edge detect on PAD30"]
-    PAD30 = 30,
+    Pad30 = 30,
     #[doc = "29: Edge detect on PAD29"]
-    PAD29 = 29,
+    Pad29 = 29,
     #[doc = "28: Edge detect on PAD28"]
-    PAD28 = 28,
+    Pad28 = 28,
     #[doc = "27: Edge detect on PAD27"]
-    PAD27 = 27,
+    Pad27 = 27,
     #[doc = "26: Edge detect on PAD26"]
-    PAD26 = 26,
+    Pad26 = 26,
     #[doc = "25: Edge detect on PAD25"]
-    PAD25 = 25,
+    Pad25 = 25,
     #[doc = "24: Edge detect on PAD24"]
-    PAD24 = 24,
+    Pad24 = 24,
     #[doc = "23: Edge detect on PAD23"]
-    PAD23 = 23,
+    Pad23 = 23,
     #[doc = "22: Edge detect on PAD22"]
-    PAD22 = 22,
+    Pad22 = 22,
     #[doc = "21: Edge detect on PAD21"]
-    PAD21 = 21,
+    Pad21 = 21,
     #[doc = "20: Edge detect on PAD20"]
-    PAD20 = 20,
+    Pad20 = 20,
     #[doc = "19: Edge detect on PAD19"]
-    PAD19 = 19,
+    Pad19 = 19,
     #[doc = "18: Edge detect on PAD18"]
-    PAD18 = 18,
+    Pad18 = 18,
     #[doc = "17: Edge detect on PAD17"]
-    PAD17 = 17,
+    Pad17 = 17,
     #[doc = "16: Edge detect on PAD16"]
-    PAD16 = 16,
+    Pad16 = 16,
     #[doc = "15: Edge detect on PAD15"]
-    PAD15 = 15,
+    Pad15 = 15,
     #[doc = "14: Edge detect on PAD14"]
-    PAD14 = 14,
+    Pad14 = 14,
     #[doc = "13: Edge detect on PAD13"]
-    PAD13 = 13,
+    Pad13 = 13,
     #[doc = "12: Edge detect on PAD12"]
-    PAD12 = 12,
+    Pad12 = 12,
     #[doc = "11: Edge detect on PAD11"]
-    PAD11 = 11,
+    Pad11 = 11,
     #[doc = "10: Edge detect on PAD10"]
-    PAD10 = 10,
+    Pad10 = 10,
     #[doc = "9: Edge detect on PAD9"]
-    PAD9 = 9,
+    Pad9 = 9,
     #[doc = "8: Edge detect on PAD8"]
-    PAD8 = 8,
+    Pad8 = 8,
     #[doc = "7: Edge detect on PAD7"]
-    PAD7 = 7,
+    Pad7 = 7,
     #[doc = "6: Edge detect on PAD6"]
-    PAD6 = 6,
+    Pad6 = 6,
     #[doc = "5: Edge detect on PAD5"]
-    PAD5 = 5,
+    Pad5 = 5,
     #[doc = "4: Edge detect on PAD4"]
-    PAD4 = 4,
+    Pad4 = 4,
     #[doc = "3: Edge detect on PAD3"]
-    PAD3 = 3,
+    Pad3 = 3,
     #[doc = "2: Edge detect on PAD2"]
-    PAD2 = 2,
+    Pad2 = 2,
     #[doc = "1: Edge detect on PAD1"]
-    PAD1 = 1,
+    Pad1 = 1,
     #[doc = "0: Edge detect on PAD0"]
-    PAD0 = 0,
+    Pad0 = 0,
 }
-impl From<WU1_EV_A> for u8 {
+impl From<Wu1Ev> for u8 {
     #[inline(always)]
-    fn from(variant: WU1_EV_A) -> Self {
+    fn from(variant: Wu1Ev) -> Self {
         variant as _
     }
 }
-impl WU1_EV_R {
+impl crate::FieldSpec for Wu1Ev {
+    type Ux = u8;
+}
+impl crate::IsEnum for Wu1Ev {}
+#[doc = "Field `WU1_EV` reader - 13:8\\]
+MCU Wakeup Source #1 AON Event Source selecting 1 of 4 events routed to AON_WUC for waking up the MCU domain from Power Off or Power Down. Note:"]
+pub type Wu1EvR = crate::FieldReader<Wu1Ev>;
+impl Wu1EvR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<WU1_EV_A> {
+    pub const fn variant(&self) -> Option<Wu1Ev> {
         match self.bits {
-            63 => Some(WU1_EV_A::NONE),
-            56 => Some(WU1_EV_A::AUX_COMPB_ASYNC_N),
-            55 => Some(WU1_EV_A::AUX_COMPB_ASYNC),
-            54 => Some(WU1_EV_A::BATMON_VOLT),
-            53 => Some(WU1_EV_A::BATMON_TEMP),
-            52 => Some(WU1_EV_A::AUX_TIMER1_EV),
-            51 => Some(WU1_EV_A::AUX_TIMER0_EV),
-            50 => Some(WU1_EV_A::AUX_TDC_DONE),
-            49 => Some(WU1_EV_A::AUX_ADC_DONE),
-            48 => Some(WU1_EV_A::AUX_COMPB),
-            47 => Some(WU1_EV_A::AUX_COMPA),
-            46 => Some(WU1_EV_A::AUX_SWEV2),
-            45 => Some(WU1_EV_A::AUX_SWEV1),
-            44 => Some(WU1_EV_A::AUX_SWEV0),
-            43 => Some(WU1_EV_A::JTAG),
-            42 => Some(WU1_EV_A::RTC_UPD),
-            41 => Some(WU1_EV_A::RTC_COMB_DLY),
-            40 => Some(WU1_EV_A::RTC_CH2_DLY),
-            39 => Some(WU1_EV_A::RTC_CH1_DLY),
-            38 => Some(WU1_EV_A::RTC_CH0_DLY),
-            37 => Some(WU1_EV_A::RTC_CH2),
-            36 => Some(WU1_EV_A::RTC_CH1),
-            35 => Some(WU1_EV_A::RTC_CH0),
-            32 => Some(WU1_EV_A::PAD),
-            31 => Some(WU1_EV_A::PAD31),
-            30 => Some(WU1_EV_A::PAD30),
-            29 => Some(WU1_EV_A::PAD29),
-            28 => Some(WU1_EV_A::PAD28),
-            27 => Some(WU1_EV_A::PAD27),
-            26 => Some(WU1_EV_A::PAD26),
-            25 => Some(WU1_EV_A::PAD25),
-            24 => Some(WU1_EV_A::PAD24),
-            23 => Some(WU1_EV_A::PAD23),
-            22 => Some(WU1_EV_A::PAD22),
-            21 => Some(WU1_EV_A::PAD21),
-            20 => Some(WU1_EV_A::PAD20),
-            19 => Some(WU1_EV_A::PAD19),
-            18 => Some(WU1_EV_A::PAD18),
-            17 => Some(WU1_EV_A::PAD17),
-            16 => Some(WU1_EV_A::PAD16),
-            15 => Some(WU1_EV_A::PAD15),
-            14 => Some(WU1_EV_A::PAD14),
-            13 => Some(WU1_EV_A::PAD13),
-            12 => Some(WU1_EV_A::PAD12),
-            11 => Some(WU1_EV_A::PAD11),
-            10 => Some(WU1_EV_A::PAD10),
-            9 => Some(WU1_EV_A::PAD9),
-            8 => Some(WU1_EV_A::PAD8),
-            7 => Some(WU1_EV_A::PAD7),
-            6 => Some(WU1_EV_A::PAD6),
-            5 => Some(WU1_EV_A::PAD5),
-            4 => Some(WU1_EV_A::PAD4),
-            3 => Some(WU1_EV_A::PAD3),
-            2 => Some(WU1_EV_A::PAD2),
-            1 => Some(WU1_EV_A::PAD1),
-            0 => Some(WU1_EV_A::PAD0),
+            63 => Some(Wu1Ev::None),
+            56 => Some(Wu1Ev::AuxCompbAsyncN),
+            55 => Some(Wu1Ev::AuxCompbAsync),
+            54 => Some(Wu1Ev::BatmonVolt),
+            53 => Some(Wu1Ev::BatmonTemp),
+            52 => Some(Wu1Ev::AuxTimer1Ev),
+            51 => Some(Wu1Ev::AuxTimer0Ev),
+            50 => Some(Wu1Ev::AuxTdcDone),
+            49 => Some(Wu1Ev::AuxAdcDone),
+            48 => Some(Wu1Ev::AuxCompb),
+            47 => Some(Wu1Ev::AuxCompa),
+            46 => Some(Wu1Ev::AuxSwev2),
+            45 => Some(Wu1Ev::AuxSwev1),
+            44 => Some(Wu1Ev::AuxSwev0),
+            43 => Some(Wu1Ev::Jtag),
+            42 => Some(Wu1Ev::RtcUpd),
+            41 => Some(Wu1Ev::RtcCombDly),
+            40 => Some(Wu1Ev::RtcCh2Dly),
+            39 => Some(Wu1Ev::RtcCh1Dly),
+            38 => Some(Wu1Ev::RtcCh0Dly),
+            37 => Some(Wu1Ev::RtcCh2),
+            36 => Some(Wu1Ev::RtcCh1),
+            35 => Some(Wu1Ev::RtcCh0),
+            32 => Some(Wu1Ev::Pad),
+            31 => Some(Wu1Ev::Pad31),
+            30 => Some(Wu1Ev::Pad30),
+            29 => Some(Wu1Ev::Pad29),
+            28 => Some(Wu1Ev::Pad28),
+            27 => Some(Wu1Ev::Pad27),
+            26 => Some(Wu1Ev::Pad26),
+            25 => Some(Wu1Ev::Pad25),
+            24 => Some(Wu1Ev::Pad24),
+            23 => Some(Wu1Ev::Pad23),
+            22 => Some(Wu1Ev::Pad22),
+            21 => Some(Wu1Ev::Pad21),
+            20 => Some(Wu1Ev::Pad20),
+            19 => Some(Wu1Ev::Pad19),
+            18 => Some(Wu1Ev::Pad18),
+            17 => Some(Wu1Ev::Pad17),
+            16 => Some(Wu1Ev::Pad16),
+            15 => Some(Wu1Ev::Pad15),
+            14 => Some(Wu1Ev::Pad14),
+            13 => Some(Wu1Ev::Pad13),
+            12 => Some(Wu1Ev::Pad12),
+            11 => Some(Wu1Ev::Pad11),
+            10 => Some(Wu1Ev::Pad10),
+            9 => Some(Wu1Ev::Pad9),
+            8 => Some(Wu1Ev::Pad8),
+            7 => Some(Wu1Ev::Pad7),
+            6 => Some(Wu1Ev::Pad6),
+            5 => Some(Wu1Ev::Pad5),
+            4 => Some(Wu1Ev::Pad4),
+            3 => Some(Wu1Ev::Pad3),
+            2 => Some(Wu1Ev::Pad2),
+            1 => Some(Wu1Ev::Pad1),
+            0 => Some(Wu1Ev::Pad0),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `NONE`"]
+    #[doc = "No event, always low"]
     #[inline(always)]
     pub fn is_none(&self) -> bool {
-        *self == WU1_EV_A::NONE
+        *self == Wu1Ev::None
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPB_ASYNC_N`"]
+    #[doc = "Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"]
     #[inline(always)]
     pub fn is_aux_compb_async_n(&self) -> bool {
-        *self == WU1_EV_A::AUX_COMPB_ASYNC_N
+        *self == Wu1Ev::AuxCompbAsyncN
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPB_ASYNC`"]
+    #[doc = "Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX"]
     #[inline(always)]
     pub fn is_aux_compb_async(&self) -> bool {
-        *self == WU1_EV_A::AUX_COMPB_ASYNC
+        *self == Wu1Ev::AuxCompbAsync
     }
-    #[doc = "Checks if the value of the field is `BATMON_VOLT`"]
+    #[doc = "BATMON voltage update event"]
     #[inline(always)]
     pub fn is_batmon_volt(&self) -> bool {
-        *self == WU1_EV_A::BATMON_VOLT
+        *self == Wu1Ev::BatmonVolt
     }
-    #[doc = "Checks if the value of the field is `BATMON_TEMP`"]
+    #[doc = "BATMON temperature update event"]
     #[inline(always)]
     pub fn is_batmon_temp(&self) -> bool {
-        *self == WU1_EV_A::BATMON_TEMP
+        *self == Wu1Ev::BatmonTemp
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER1_EV`"]
+    #[doc = "AUX Timer 1 Event"]
     #[inline(always)]
     pub fn is_aux_timer1_ev(&self) -> bool {
-        *self == WU1_EV_A::AUX_TIMER1_EV
+        *self == Wu1Ev::AuxTimer1Ev
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER0_EV`"]
+    #[doc = "AUX Timer 0 Event"]
     #[inline(always)]
     pub fn is_aux_timer0_ev(&self) -> bool {
-        *self == WU1_EV_A::AUX_TIMER0_EV
+        *self == Wu1Ev::AuxTimer0Ev
     }
-    #[doc = "Checks if the value of the field is `AUX_TDC_DONE`"]
+    #[doc = "TDC completed or timed out"]
     #[inline(always)]
     pub fn is_aux_tdc_done(&self) -> bool {
-        *self == WU1_EV_A::AUX_TDC_DONE
+        *self == Wu1Ev::AuxTdcDone
     }
-    #[doc = "Checks if the value of the field is `AUX_ADC_DONE`"]
+    #[doc = "ADC conversion completed"]
     #[inline(always)]
     pub fn is_aux_adc_done(&self) -> bool {
-        *self == WU1_EV_A::AUX_ADC_DONE
+        *self == Wu1Ev::AuxAdcDone
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPB`"]
+    #[doc = "Comparator B triggered"]
     #[inline(always)]
     pub fn is_aux_compb(&self) -> bool {
-        *self == WU1_EV_A::AUX_COMPB
+        *self == Wu1Ev::AuxCompb
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPA`"]
+    #[doc = "Comparator A triggered"]
     #[inline(always)]
     pub fn is_aux_compa(&self) -> bool {
-        *self == WU1_EV_A::AUX_COMPA
+        *self == Wu1Ev::AuxCompa
     }
-    #[doc = "Checks if the value of the field is `AUX_SWEV2`"]
+    #[doc = "AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2"]
     #[inline(always)]
     pub fn is_aux_swev2(&self) -> bool {
-        *self == WU1_EV_A::AUX_SWEV2
+        *self == Wu1Ev::AuxSwev2
     }
-    #[doc = "Checks if the value of the field is `AUX_SWEV1`"]
+    #[doc = "AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1"]
     #[inline(always)]
     pub fn is_aux_swev1(&self) -> bool {
-        *self == WU1_EV_A::AUX_SWEV1
+        *self == Wu1Ev::AuxSwev1
     }
-    #[doc = "Checks if the value of the field is `AUX_SWEV0`"]
+    #[doc = "AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0"]
     #[inline(always)]
     pub fn is_aux_swev0(&self) -> bool {
-        *self == WU1_EV_A::AUX_SWEV0
+        *self == Wu1Ev::AuxSwev0
     }
-    #[doc = "Checks if the value of the field is `JTAG`"]
+    #[doc = "JTAG generated event"]
     #[inline(always)]
     pub fn is_jtag(&self) -> bool {
-        *self == WU1_EV_A::JTAG
+        *self == Wu1Ev::Jtag
     }
-    #[doc = "Checks if the value of the field is `RTC_UPD`"]
+    #[doc = "RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)"]
     #[inline(always)]
     pub fn is_rtc_upd(&self) -> bool {
-        *self == WU1_EV_A::RTC_UPD
+        *self == Wu1Ev::RtcUpd
     }
-    #[doc = "Checks if the value of the field is `RTC_COMB_DLY`"]
+    #[doc = "RTC combined delayed event"]
     #[inline(always)]
     pub fn is_rtc_comb_dly(&self) -> bool {
-        *self == WU1_EV_A::RTC_COMB_DLY
+        *self == Wu1Ev::RtcCombDly
     }
-    #[doc = "Checks if the value of the field is `RTC_CH2_DLY`"]
+    #[doc = "RTC channel 2 - delayed event"]
     #[inline(always)]
     pub fn is_rtc_ch2_dly(&self) -> bool {
-        *self == WU1_EV_A::RTC_CH2_DLY
+        *self == Wu1Ev::RtcCh2Dly
     }
-    #[doc = "Checks if the value of the field is `RTC_CH1_DLY`"]
+    #[doc = "RTC channel 1 - delayed event"]
     #[inline(always)]
     pub fn is_rtc_ch1_dly(&self) -> bool {
-        *self == WU1_EV_A::RTC_CH1_DLY
+        *self == Wu1Ev::RtcCh1Dly
     }
-    #[doc = "Checks if the value of the field is `RTC_CH0_DLY`"]
+    #[doc = "RTC channel 0 - delayed event"]
     #[inline(always)]
     pub fn is_rtc_ch0_dly(&self) -> bool {
-        *self == WU1_EV_A::RTC_CH0_DLY
+        *self == Wu1Ev::RtcCh0Dly
     }
-    #[doc = "Checks if the value of the field is `RTC_CH2`"]
+    #[doc = "RTC channel 2 event"]
     #[inline(always)]
     pub fn is_rtc_ch2(&self) -> bool {
-        *self == WU1_EV_A::RTC_CH2
+        *self == Wu1Ev::RtcCh2
     }
-    #[doc = "Checks if the value of the field is `RTC_CH1`"]
+    #[doc = "RTC channel 1 event"]
     #[inline(always)]
     pub fn is_rtc_ch1(&self) -> bool {
-        *self == WU1_EV_A::RTC_CH1
+        *self == Wu1Ev::RtcCh1
     }
-    #[doc = "Checks if the value of the field is `RTC_CH0`"]
+    #[doc = "RTC channel 0 event"]
     #[inline(always)]
     pub fn is_rtc_ch0(&self) -> bool {
-        *self == WU1_EV_A::RTC_CH0
+        *self == Wu1Ev::RtcCh0
     }
-    #[doc = "Checks if the value of the field is `PAD`"]
+    #[doc = "Edge detect on any PAD"]
     #[inline(always)]
     pub fn is_pad(&self) -> bool {
-        *self == WU1_EV_A::PAD
+        *self == Wu1Ev::Pad
     }
-    #[doc = "Checks if the value of the field is `PAD31`"]
+    #[doc = "Edge detect on PAD31"]
     #[inline(always)]
     pub fn is_pad31(&self) -> bool {
-        *self == WU1_EV_A::PAD31
+        *self == Wu1Ev::Pad31
     }
-    #[doc = "Checks if the value of the field is `PAD30`"]
+    #[doc = "Edge detect on PAD30"]
     #[inline(always)]
     pub fn is_pad30(&self) -> bool {
-        *self == WU1_EV_A::PAD30
+        *self == Wu1Ev::Pad30
     }
-    #[doc = "Checks if the value of the field is `PAD29`"]
+    #[doc = "Edge detect on PAD29"]
     #[inline(always)]
     pub fn is_pad29(&self) -> bool {
-        *self == WU1_EV_A::PAD29
+        *self == Wu1Ev::Pad29
     }
-    #[doc = "Checks if the value of the field is `PAD28`"]
+    #[doc = "Edge detect on PAD28"]
     #[inline(always)]
     pub fn is_pad28(&self) -> bool {
-        *self == WU1_EV_A::PAD28
+        *self == Wu1Ev::Pad28
     }
-    #[doc = "Checks if the value of the field is `PAD27`"]
+    #[doc = "Edge detect on PAD27"]
     #[inline(always)]
     pub fn is_pad27(&self) -> bool {
-        *self == WU1_EV_A::PAD27
+        *self == Wu1Ev::Pad27
     }
-    #[doc = "Checks if the value of the field is `PAD26`"]
+    #[doc = "Edge detect on PAD26"]
     #[inline(always)]
     pub fn is_pad26(&self) -> bool {
-        *self == WU1_EV_A::PAD26
+        *self == Wu1Ev::Pad26
     }
-    #[doc = "Checks if the value of the field is `PAD25`"]
+    #[doc = "Edge detect on PAD25"]
     #[inline(always)]
     pub fn is_pad25(&self) -> bool {
-        *self == WU1_EV_A::PAD25
+        *self == Wu1Ev::Pad25
     }
-    #[doc = "Checks if the value of the field is `PAD24`"]
+    #[doc = "Edge detect on PAD24"]
     #[inline(always)]
     pub fn is_pad24(&self) -> bool {
-        *self == WU1_EV_A::PAD24
+        *self == Wu1Ev::Pad24
     }
-    #[doc = "Checks if the value of the field is `PAD23`"]
+    #[doc = "Edge detect on PAD23"]
     #[inline(always)]
     pub fn is_pad23(&self) -> bool {
-        *self == WU1_EV_A::PAD23
+        *self == Wu1Ev::Pad23
     }
-    #[doc = "Checks if the value of the field is `PAD22`"]
+    #[doc = "Edge detect on PAD22"]
     #[inline(always)]
     pub fn is_pad22(&self) -> bool {
-        *self == WU1_EV_A::PAD22
+        *self == Wu1Ev::Pad22
     }
-    #[doc = "Checks if the value of the field is `PAD21`"]
+    #[doc = "Edge detect on PAD21"]
     #[inline(always)]
     pub fn is_pad21(&self) -> bool {
-        *self == WU1_EV_A::PAD21
+        *self == Wu1Ev::Pad21
     }
-    #[doc = "Checks if the value of the field is `PAD20`"]
+    #[doc = "Edge detect on PAD20"]
     #[inline(always)]
     pub fn is_pad20(&self) -> bool {
-        *self == WU1_EV_A::PAD20
+        *self == Wu1Ev::Pad20
     }
-    #[doc = "Checks if the value of the field is `PAD19`"]
+    #[doc = "Edge detect on PAD19"]
     #[inline(always)]
     pub fn is_pad19(&self) -> bool {
-        *self == WU1_EV_A::PAD19
+        *self == Wu1Ev::Pad19
     }
-    #[doc = "Checks if the value of the field is `PAD18`"]
+    #[doc = "Edge detect on PAD18"]
     #[inline(always)]
     pub fn is_pad18(&self) -> bool {
-        *self == WU1_EV_A::PAD18
+        *self == Wu1Ev::Pad18
     }
-    #[doc = "Checks if the value of the field is `PAD17`"]
+    #[doc = "Edge detect on PAD17"]
     #[inline(always)]
     pub fn is_pad17(&self) -> bool {
-        *self == WU1_EV_A::PAD17
+        *self == Wu1Ev::Pad17
     }
-    #[doc = "Checks if the value of the field is `PAD16`"]
+    #[doc = "Edge detect on PAD16"]
     #[inline(always)]
     pub fn is_pad16(&self) -> bool {
-        *self == WU1_EV_A::PAD16
+        *self == Wu1Ev::Pad16
     }
-    #[doc = "Checks if the value of the field is `PAD15`"]
+    #[doc = "Edge detect on PAD15"]
     #[inline(always)]
     pub fn is_pad15(&self) -> bool {
-        *self == WU1_EV_A::PAD15
+        *self == Wu1Ev::Pad15
     }
-    #[doc = "Checks if the value of the field is `PAD14`"]
+    #[doc = "Edge detect on PAD14"]
     #[inline(always)]
     pub fn is_pad14(&self) -> bool {
-        *self == WU1_EV_A::PAD14
+        *self == Wu1Ev::Pad14
     }
-    #[doc = "Checks if the value of the field is `PAD13`"]
+    #[doc = "Edge detect on PAD13"]
     #[inline(always)]
     pub fn is_pad13(&self) -> bool {
-        *self == WU1_EV_A::PAD13
+        *self == Wu1Ev::Pad13
     }
-    #[doc = "Checks if the value of the field is `PAD12`"]
+    #[doc = "Edge detect on PAD12"]
     #[inline(always)]
     pub fn is_pad12(&self) -> bool {
-        *self == WU1_EV_A::PAD12
+        *self == Wu1Ev::Pad12
     }
-    #[doc = "Checks if the value of the field is `PAD11`"]
+    #[doc = "Edge detect on PAD11"]
     #[inline(always)]
     pub fn is_pad11(&self) -> bool {
-        *self == WU1_EV_A::PAD11
+        *self == Wu1Ev::Pad11
     }
-    #[doc = "Checks if the value of the field is `PAD10`"]
+    #[doc = "Edge detect on PAD10"]
     #[inline(always)]
     pub fn is_pad10(&self) -> bool {
-        *self == WU1_EV_A::PAD10
+        *self == Wu1Ev::Pad10
     }
-    #[doc = "Checks if the value of the field is `PAD9`"]
+    #[doc = "Edge detect on PAD9"]
     #[inline(always)]
     pub fn is_pad9(&self) -> bool {
-        *self == WU1_EV_A::PAD9
+        *self == Wu1Ev::Pad9
     }
-    #[doc = "Checks if the value of the field is `PAD8`"]
+    #[doc = "Edge detect on PAD8"]
     #[inline(always)]
     pub fn is_pad8(&self) -> bool {
-        *self == WU1_EV_A::PAD8
+        *self == Wu1Ev::Pad8
     }
-    #[doc = "Checks if the value of the field is `PAD7`"]
+    #[doc = "Edge detect on PAD7"]
     #[inline(always)]
     pub fn is_pad7(&self) -> bool {
-        *self == WU1_EV_A::PAD7
+        *self == Wu1Ev::Pad7
     }
-    #[doc = "Checks if the value of the field is `PAD6`"]
+    #[doc = "Edge detect on PAD6"]
     #[inline(always)]
     pub fn is_pad6(&self) -> bool {
-        *self == WU1_EV_A::PAD6
+        *self == Wu1Ev::Pad6
     }
-    #[doc = "Checks if the value of the field is `PAD5`"]
+    #[doc = "Edge detect on PAD5"]
     #[inline(always)]
     pub fn is_pad5(&self) -> bool {
-        *self == WU1_EV_A::PAD5
+        *self == Wu1Ev::Pad5
     }
-    #[doc = "Checks if the value of the field is `PAD4`"]
+    #[doc = "Edge detect on PAD4"]
     #[inline(always)]
     pub fn is_pad4(&self) -> bool {
-        *self == WU1_EV_A::PAD4
+        *self == Wu1Ev::Pad4
     }
-    #[doc = "Checks if the value of the field is `PAD3`"]
+    #[doc = "Edge detect on PAD3"]
     #[inline(always)]
     pub fn is_pad3(&self) -> bool {
-        *self == WU1_EV_A::PAD3
+        *self == Wu1Ev::Pad3
     }
-    #[doc = "Checks if the value of the field is `PAD2`"]
+    #[doc = "Edge detect on PAD2"]
     #[inline(always)]
     pub fn is_pad2(&self) -> bool {
-        *self == WU1_EV_A::PAD2
+        *self == Wu1Ev::Pad2
     }
-    #[doc = "Checks if the value of the field is `PAD1`"]
+    #[doc = "Edge detect on PAD1"]
     #[inline(always)]
     pub fn is_pad1(&self) -> bool {
-        *self == WU1_EV_A::PAD1
+        *self == Wu1Ev::Pad1
     }
-    #[doc = "Checks if the value of the field is `PAD0`"]
+    #[doc = "Edge detect on PAD0"]
     #[inline(always)]
     pub fn is_pad0(&self) -> bool {
-        *self == WU1_EV_A::PAD0
+        *self == Wu1Ev::Pad0
     }
 }
 #[doc = "Field `WU1_EV` writer - 13:8\\]
 MCU Wakeup Source #1 AON Event Source selecting 1 of 4 events routed to AON_WUC for waking up the MCU domain from Power Off or Power Down. Note:"]
-pub type WU1_EV_W<'a, const O: u8> = crate::FieldWriter<'a, u32, MCUWUSEL_SPEC, u8, WU1_EV_A, 6, O>;
-impl<'a, const O: u8> WU1_EV_W<'a, O> {
+pub type Wu1EvW<'a, REG> = crate::FieldWriter<'a, REG, 6, Wu1Ev>;
+impl<'a, REG> Wu1EvW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "No event, always low"]
     #[inline(always)]
-    pub fn none(self) -> &'a mut W {
-        self.variant(WU1_EV_A::NONE)
+    pub fn none(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::None)
     }
     #[doc = "Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"]
     #[inline(always)]
-    pub fn aux_compb_async_n(self) -> &'a mut W {
-        self.variant(WU1_EV_A::AUX_COMPB_ASYNC_N)
+    pub fn aux_compb_async_n(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::AuxCompbAsyncN)
     }
     #[doc = "Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX"]
     #[inline(always)]
-    pub fn aux_compb_async(self) -> &'a mut W {
-        self.variant(WU1_EV_A::AUX_COMPB_ASYNC)
+    pub fn aux_compb_async(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::AuxCompbAsync)
     }
     #[doc = "BATMON voltage update event"]
     #[inline(always)]
-    pub fn batmon_volt(self) -> &'a mut W {
-        self.variant(WU1_EV_A::BATMON_VOLT)
+    pub fn batmon_volt(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::BatmonVolt)
     }
     #[doc = "BATMON temperature update event"]
     #[inline(always)]
-    pub fn batmon_temp(self) -> &'a mut W {
-        self.variant(WU1_EV_A::BATMON_TEMP)
+    pub fn batmon_temp(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::BatmonTemp)
     }
     #[doc = "AUX Timer 1 Event"]
     #[inline(always)]
-    pub fn aux_timer1_ev(self) -> &'a mut W {
-        self.variant(WU1_EV_A::AUX_TIMER1_EV)
+    pub fn aux_timer1_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::AuxTimer1Ev)
     }
     #[doc = "AUX Timer 0 Event"]
     #[inline(always)]
-    pub fn aux_timer0_ev(self) -> &'a mut W {
-        self.variant(WU1_EV_A::AUX_TIMER0_EV)
+    pub fn aux_timer0_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::AuxTimer0Ev)
     }
     #[doc = "TDC completed or timed out"]
     #[inline(always)]
-    pub fn aux_tdc_done(self) -> &'a mut W {
-        self.variant(WU1_EV_A::AUX_TDC_DONE)
+    pub fn aux_tdc_done(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::AuxTdcDone)
     }
     #[doc = "ADC conversion completed"]
     #[inline(always)]
-    pub fn aux_adc_done(self) -> &'a mut W {
-        self.variant(WU1_EV_A::AUX_ADC_DONE)
+    pub fn aux_adc_done(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::AuxAdcDone)
     }
     #[doc = "Comparator B triggered"]
     #[inline(always)]
-    pub fn aux_compb(self) -> &'a mut W {
-        self.variant(WU1_EV_A::AUX_COMPB)
+    pub fn aux_compb(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::AuxCompb)
     }
     #[doc = "Comparator A triggered"]
     #[inline(always)]
-    pub fn aux_compa(self) -> &'a mut W {
-        self.variant(WU1_EV_A::AUX_COMPA)
+    pub fn aux_compa(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::AuxCompa)
     }
     #[doc = "AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2"]
     #[inline(always)]
-    pub fn aux_swev2(self) -> &'a mut W {
-        self.variant(WU1_EV_A::AUX_SWEV2)
+    pub fn aux_swev2(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::AuxSwev2)
     }
     #[doc = "AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1"]
     #[inline(always)]
-    pub fn aux_swev1(self) -> &'a mut W {
-        self.variant(WU1_EV_A::AUX_SWEV1)
+    pub fn aux_swev1(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::AuxSwev1)
     }
     #[doc = "AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0"]
     #[inline(always)]
-    pub fn aux_swev0(self) -> &'a mut W {
-        self.variant(WU1_EV_A::AUX_SWEV0)
+    pub fn aux_swev0(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::AuxSwev0)
     }
     #[doc = "JTAG generated event"]
     #[inline(always)]
-    pub fn jtag(self) -> &'a mut W {
-        self.variant(WU1_EV_A::JTAG)
+    pub fn jtag(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Jtag)
     }
     #[doc = "RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)"]
     #[inline(always)]
-    pub fn rtc_upd(self) -> &'a mut W {
-        self.variant(WU1_EV_A::RTC_UPD)
+    pub fn rtc_upd(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::RtcUpd)
     }
     #[doc = "RTC combined delayed event"]
     #[inline(always)]
-    pub fn rtc_comb_dly(self) -> &'a mut W {
-        self.variant(WU1_EV_A::RTC_COMB_DLY)
+    pub fn rtc_comb_dly(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::RtcCombDly)
     }
     #[doc = "RTC channel 2 - delayed event"]
     #[inline(always)]
-    pub fn rtc_ch2_dly(self) -> &'a mut W {
-        self.variant(WU1_EV_A::RTC_CH2_DLY)
+    pub fn rtc_ch2_dly(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::RtcCh2Dly)
     }
     #[doc = "RTC channel 1 - delayed event"]
     #[inline(always)]
-    pub fn rtc_ch1_dly(self) -> &'a mut W {
-        self.variant(WU1_EV_A::RTC_CH1_DLY)
+    pub fn rtc_ch1_dly(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::RtcCh1Dly)
     }
     #[doc = "RTC channel 0 - delayed event"]
     #[inline(always)]
-    pub fn rtc_ch0_dly(self) -> &'a mut W {
-        self.variant(WU1_EV_A::RTC_CH0_DLY)
+    pub fn rtc_ch0_dly(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::RtcCh0Dly)
     }
     #[doc = "RTC channel 2 event"]
     #[inline(always)]
-    pub fn rtc_ch2(self) -> &'a mut W {
-        self.variant(WU1_EV_A::RTC_CH2)
+    pub fn rtc_ch2(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::RtcCh2)
     }
     #[doc = "RTC channel 1 event"]
     #[inline(always)]
-    pub fn rtc_ch1(self) -> &'a mut W {
-        self.variant(WU1_EV_A::RTC_CH1)
+    pub fn rtc_ch1(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::RtcCh1)
     }
     #[doc = "RTC channel 0 event"]
     #[inline(always)]
-    pub fn rtc_ch0(self) -> &'a mut W {
-        self.variant(WU1_EV_A::RTC_CH0)
+    pub fn rtc_ch0(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::RtcCh0)
     }
     #[doc = "Edge detect on any PAD"]
     #[inline(always)]
-    pub fn pad(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD)
+    pub fn pad(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad)
     }
     #[doc = "Edge detect on PAD31"]
     #[inline(always)]
-    pub fn pad31(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD31)
+    pub fn pad31(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad31)
     }
     #[doc = "Edge detect on PAD30"]
     #[inline(always)]
-    pub fn pad30(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD30)
+    pub fn pad30(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad30)
     }
     #[doc = "Edge detect on PAD29"]
     #[inline(always)]
-    pub fn pad29(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD29)
+    pub fn pad29(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad29)
     }
     #[doc = "Edge detect on PAD28"]
     #[inline(always)]
-    pub fn pad28(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD28)
+    pub fn pad28(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad28)
     }
     #[doc = "Edge detect on PAD27"]
     #[inline(always)]
-    pub fn pad27(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD27)
+    pub fn pad27(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad27)
     }
     #[doc = "Edge detect on PAD26"]
     #[inline(always)]
-    pub fn pad26(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD26)
+    pub fn pad26(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad26)
     }
     #[doc = "Edge detect on PAD25"]
     #[inline(always)]
-    pub fn pad25(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD25)
+    pub fn pad25(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad25)
     }
     #[doc = "Edge detect on PAD24"]
     #[inline(always)]
-    pub fn pad24(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD24)
+    pub fn pad24(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad24)
     }
     #[doc = "Edge detect on PAD23"]
     #[inline(always)]
-    pub fn pad23(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD23)
+    pub fn pad23(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad23)
     }
     #[doc = "Edge detect on PAD22"]
     #[inline(always)]
-    pub fn pad22(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD22)
+    pub fn pad22(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad22)
     }
     #[doc = "Edge detect on PAD21"]
     #[inline(always)]
-    pub fn pad21(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD21)
+    pub fn pad21(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad21)
     }
     #[doc = "Edge detect on PAD20"]
     #[inline(always)]
-    pub fn pad20(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD20)
+    pub fn pad20(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad20)
     }
     #[doc = "Edge detect on PAD19"]
     #[inline(always)]
-    pub fn pad19(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD19)
+    pub fn pad19(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad19)
     }
     #[doc = "Edge detect on PAD18"]
     #[inline(always)]
-    pub fn pad18(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD18)
+    pub fn pad18(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad18)
     }
     #[doc = "Edge detect on PAD17"]
     #[inline(always)]
-    pub fn pad17(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD17)
+    pub fn pad17(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad17)
     }
     #[doc = "Edge detect on PAD16"]
     #[inline(always)]
-    pub fn pad16(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD16)
+    pub fn pad16(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad16)
     }
     #[doc = "Edge detect on PAD15"]
     #[inline(always)]
-    pub fn pad15(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD15)
+    pub fn pad15(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad15)
     }
     #[doc = "Edge detect on PAD14"]
     #[inline(always)]
-    pub fn pad14(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD14)
+    pub fn pad14(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad14)
     }
     #[doc = "Edge detect on PAD13"]
     #[inline(always)]
-    pub fn pad13(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD13)
+    pub fn pad13(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad13)
     }
     #[doc = "Edge detect on PAD12"]
     #[inline(always)]
-    pub fn pad12(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD12)
+    pub fn pad12(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad12)
     }
     #[doc = "Edge detect on PAD11"]
     #[inline(always)]
-    pub fn pad11(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD11)
+    pub fn pad11(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad11)
     }
     #[doc = "Edge detect on PAD10"]
     #[inline(always)]
-    pub fn pad10(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD10)
+    pub fn pad10(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad10)
     }
     #[doc = "Edge detect on PAD9"]
     #[inline(always)]
-    pub fn pad9(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD9)
+    pub fn pad9(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad9)
     }
     #[doc = "Edge detect on PAD8"]
     #[inline(always)]
-    pub fn pad8(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD8)
+    pub fn pad8(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad8)
     }
     #[doc = "Edge detect on PAD7"]
     #[inline(always)]
-    pub fn pad7(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD7)
+    pub fn pad7(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad7)
     }
     #[doc = "Edge detect on PAD6"]
     #[inline(always)]
-    pub fn pad6(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD6)
+    pub fn pad6(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad6)
     }
     #[doc = "Edge detect on PAD5"]
     #[inline(always)]
-    pub fn pad5(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD5)
+    pub fn pad5(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad5)
     }
     #[doc = "Edge detect on PAD4"]
     #[inline(always)]
-    pub fn pad4(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD4)
+    pub fn pad4(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad4)
     }
     #[doc = "Edge detect on PAD3"]
     #[inline(always)]
-    pub fn pad3(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD3)
+    pub fn pad3(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad3)
     }
     #[doc = "Edge detect on PAD2"]
     #[inline(always)]
-    pub fn pad2(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD2)
+    pub fn pad2(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad2)
     }
     #[doc = "Edge detect on PAD1"]
     #[inline(always)]
-    pub fn pad1(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD1)
+    pub fn pad1(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad1)
     }
     #[doc = "Edge detect on PAD0"]
     #[inline(always)]
-    pub fn pad0(self) -> &'a mut W {
-        self.variant(WU1_EV_A::PAD0)
+    pub fn pad0(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu1Ev::Pad0)
     }
 }
 #[doc = "Field `RESERVED14` reader - 15:14\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED14_R = crate::FieldReader<u8, u8>;
+pub type Reserved14R = crate::FieldReader;
 #[doc = "Field `RESERVED14` writer - 15:14\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED14_W<'a, const O: u8> = crate::FieldWriter<'a, u32, MCUWUSEL_SPEC, u8, u8, 2, O>;
-#[doc = "Field `WU2_EV` reader - 21:16\\]
-MCU Wakeup Source #2 AON Event Source selecting 1 of 4 events routed to AON_WUC for waking up the MCU domain from Power Off or Power Down. Note:"]
-pub type WU2_EV_R = crate::FieldReader<u8, WU2_EV_A>;
+pub type Reserved14W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "21:16\\]
 MCU Wakeup Source #2 AON Event Source selecting 1 of 4 events routed to AON_WUC for waking up the MCU domain from Power Off or Power Down. Note:\n\nValue on reset: 63"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum WU2_EV_A {
+pub enum Wu2Ev {
     #[doc = "63: No event, always low"]
-    NONE = 63,
+    None = 63,
     #[doc = "56: Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"]
-    AUX_COMPB_ASYNC_N = 56,
+    AuxCompbAsyncN = 56,
     #[doc = "55: Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX"]
-    AUX_COMPB_ASYNC = 55,
+    AuxCompbAsync = 55,
     #[doc = "54: BATMON voltage update event"]
-    BATMON_VOLT = 54,
+    BatmonVolt = 54,
     #[doc = "53: BATMON temperature update event"]
-    BATMON_TEMP = 53,
+    BatmonTemp = 53,
     #[doc = "52: AUX Timer 1 Event"]
-    AUX_TIMER1_EV = 52,
+    AuxTimer1Ev = 52,
     #[doc = "51: AUX Timer 0 Event"]
-    AUX_TIMER0_EV = 51,
+    AuxTimer0Ev = 51,
     #[doc = "50: TDC completed or timed out"]
-    AUX_TDC_DONE = 50,
+    AuxTdcDone = 50,
     #[doc = "49: ADC conversion completed"]
-    AUX_ADC_DONE = 49,
+    AuxAdcDone = 49,
     #[doc = "48: Comparator B triggered"]
-    AUX_COMPB = 48,
+    AuxCompb = 48,
     #[doc = "47: Comparator A triggered"]
-    AUX_COMPA = 47,
+    AuxCompa = 47,
     #[doc = "46: AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2"]
-    AUX_SWEV2 = 46,
+    AuxSwev2 = 46,
     #[doc = "45: AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1"]
-    AUX_SWEV1 = 45,
+    AuxSwev1 = 45,
     #[doc = "44: AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0"]
-    AUX_SWEV0 = 44,
+    AuxSwev0 = 44,
     #[doc = "43: JTAG generated event"]
-    JTAG = 43,
+    Jtag = 43,
     #[doc = "42: RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)"]
-    RTC_UPD = 42,
+    RtcUpd = 42,
     #[doc = "41: RTC combined delayed event"]
-    RTC_COMB_DLY = 41,
+    RtcCombDly = 41,
     #[doc = "40: RTC channel 2 - delayed event"]
-    RTC_CH2_DLY = 40,
+    RtcCh2Dly = 40,
     #[doc = "39: RTC channel 1 - delayed event"]
-    RTC_CH1_DLY = 39,
+    RtcCh1Dly = 39,
     #[doc = "38: RTC channel 0 - delayed event"]
-    RTC_CH0_DLY = 38,
+    RtcCh0Dly = 38,
     #[doc = "37: RTC channel 2 event"]
-    RTC_CH2 = 37,
+    RtcCh2 = 37,
     #[doc = "36: RTC channel 1 event"]
-    RTC_CH1 = 36,
+    RtcCh1 = 36,
     #[doc = "35: RTC channel 0 event"]
-    RTC_CH0 = 35,
+    RtcCh0 = 35,
     #[doc = "32: Edge detect on any PAD"]
-    PAD = 32,
+    Pad = 32,
     #[doc = "31: Edge detect on PAD31"]
-    PAD31 = 31,
+    Pad31 = 31,
     #[doc = "30: Edge detect on PAD30"]
-    PAD30 = 30,
+    Pad30 = 30,
     #[doc = "29: Edge detect on PAD29"]
-    PAD29 = 29,
+    Pad29 = 29,
     #[doc = "28: Edge detect on PAD28"]
-    PAD28 = 28,
+    Pad28 = 28,
     #[doc = "27: Edge detect on PAD27"]
-    PAD27 = 27,
+    Pad27 = 27,
     #[doc = "26: Edge detect on PAD26"]
-    PAD26 = 26,
+    Pad26 = 26,
     #[doc = "25: Edge detect on PAD25"]
-    PAD25 = 25,
+    Pad25 = 25,
     #[doc = "24: Edge detect on PAD24"]
-    PAD24 = 24,
+    Pad24 = 24,
     #[doc = "23: Edge detect on PAD23"]
-    PAD23 = 23,
+    Pad23 = 23,
     #[doc = "22: Edge detect on PAD22"]
-    PAD22 = 22,
+    Pad22 = 22,
     #[doc = "21: Edge detect on PAD21"]
-    PAD21 = 21,
+    Pad21 = 21,
     #[doc = "20: Edge detect on PAD20"]
-    PAD20 = 20,
+    Pad20 = 20,
     #[doc = "19: Edge detect on PAD19"]
-    PAD19 = 19,
+    Pad19 = 19,
     #[doc = "18: Edge detect on PAD18"]
-    PAD18 = 18,
+    Pad18 = 18,
     #[doc = "17: Edge detect on PAD17"]
-    PAD17 = 17,
+    Pad17 = 17,
     #[doc = "16: Edge detect on PAD16"]
-    PAD16 = 16,
+    Pad16 = 16,
     #[doc = "15: Edge detect on PAD15"]
-    PAD15 = 15,
+    Pad15 = 15,
     #[doc = "14: Edge detect on PAD14"]
-    PAD14 = 14,
+    Pad14 = 14,
     #[doc = "13: Edge detect on PAD13"]
-    PAD13 = 13,
+    Pad13 = 13,
     #[doc = "12: Edge detect on PAD12"]
-    PAD12 = 12,
+    Pad12 = 12,
     #[doc = "11: Edge detect on PAD11"]
-    PAD11 = 11,
+    Pad11 = 11,
     #[doc = "10: Edge detect on PAD10"]
-    PAD10 = 10,
+    Pad10 = 10,
     #[doc = "9: Edge detect on PAD9"]
-    PAD9 = 9,
+    Pad9 = 9,
     #[doc = "8: Edge detect on PAD8"]
-    PAD8 = 8,
+    Pad8 = 8,
     #[doc = "7: Edge detect on PAD7"]
-    PAD7 = 7,
+    Pad7 = 7,
     #[doc = "6: Edge detect on PAD6"]
-    PAD6 = 6,
+    Pad6 = 6,
     #[doc = "5: Edge detect on PAD5"]
-    PAD5 = 5,
+    Pad5 = 5,
     #[doc = "4: Edge detect on PAD4"]
-    PAD4 = 4,
+    Pad4 = 4,
     #[doc = "3: Edge detect on PAD3"]
-    PAD3 = 3,
+    Pad3 = 3,
     #[doc = "2: Edge detect on PAD2"]
-    PAD2 = 2,
+    Pad2 = 2,
     #[doc = "1: Edge detect on PAD1"]
-    PAD1 = 1,
+    Pad1 = 1,
     #[doc = "0: Edge detect on PAD0"]
-    PAD0 = 0,
+    Pad0 = 0,
 }
-impl From<WU2_EV_A> for u8 {
+impl From<Wu2Ev> for u8 {
     #[inline(always)]
-    fn from(variant: WU2_EV_A) -> Self {
+    fn from(variant: Wu2Ev) -> Self {
         variant as _
     }
 }
-impl WU2_EV_R {
+impl crate::FieldSpec for Wu2Ev {
+    type Ux = u8;
+}
+impl crate::IsEnum for Wu2Ev {}
+#[doc = "Field `WU2_EV` reader - 21:16\\]
+MCU Wakeup Source #2 AON Event Source selecting 1 of 4 events routed to AON_WUC for waking up the MCU domain from Power Off or Power Down. Note:"]
+pub type Wu2EvR = crate::FieldReader<Wu2Ev>;
+impl Wu2EvR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<WU2_EV_A> {
+    pub const fn variant(&self) -> Option<Wu2Ev> {
         match self.bits {
-            63 => Some(WU2_EV_A::NONE),
-            56 => Some(WU2_EV_A::AUX_COMPB_ASYNC_N),
-            55 => Some(WU2_EV_A::AUX_COMPB_ASYNC),
-            54 => Some(WU2_EV_A::BATMON_VOLT),
-            53 => Some(WU2_EV_A::BATMON_TEMP),
-            52 => Some(WU2_EV_A::AUX_TIMER1_EV),
-            51 => Some(WU2_EV_A::AUX_TIMER0_EV),
-            50 => Some(WU2_EV_A::AUX_TDC_DONE),
-            49 => Some(WU2_EV_A::AUX_ADC_DONE),
-            48 => Some(WU2_EV_A::AUX_COMPB),
-            47 => Some(WU2_EV_A::AUX_COMPA),
-            46 => Some(WU2_EV_A::AUX_SWEV2),
-            45 => Some(WU2_EV_A::AUX_SWEV1),
-            44 => Some(WU2_EV_A::AUX_SWEV0),
-            43 => Some(WU2_EV_A::JTAG),
-            42 => Some(WU2_EV_A::RTC_UPD),
-            41 => Some(WU2_EV_A::RTC_COMB_DLY),
-            40 => Some(WU2_EV_A::RTC_CH2_DLY),
-            39 => Some(WU2_EV_A::RTC_CH1_DLY),
-            38 => Some(WU2_EV_A::RTC_CH0_DLY),
-            37 => Some(WU2_EV_A::RTC_CH2),
-            36 => Some(WU2_EV_A::RTC_CH1),
-            35 => Some(WU2_EV_A::RTC_CH0),
-            32 => Some(WU2_EV_A::PAD),
-            31 => Some(WU2_EV_A::PAD31),
-            30 => Some(WU2_EV_A::PAD30),
-            29 => Some(WU2_EV_A::PAD29),
-            28 => Some(WU2_EV_A::PAD28),
-            27 => Some(WU2_EV_A::PAD27),
-            26 => Some(WU2_EV_A::PAD26),
-            25 => Some(WU2_EV_A::PAD25),
-            24 => Some(WU2_EV_A::PAD24),
-            23 => Some(WU2_EV_A::PAD23),
-            22 => Some(WU2_EV_A::PAD22),
-            21 => Some(WU2_EV_A::PAD21),
-            20 => Some(WU2_EV_A::PAD20),
-            19 => Some(WU2_EV_A::PAD19),
-            18 => Some(WU2_EV_A::PAD18),
-            17 => Some(WU2_EV_A::PAD17),
-            16 => Some(WU2_EV_A::PAD16),
-            15 => Some(WU2_EV_A::PAD15),
-            14 => Some(WU2_EV_A::PAD14),
-            13 => Some(WU2_EV_A::PAD13),
-            12 => Some(WU2_EV_A::PAD12),
-            11 => Some(WU2_EV_A::PAD11),
-            10 => Some(WU2_EV_A::PAD10),
-            9 => Some(WU2_EV_A::PAD9),
-            8 => Some(WU2_EV_A::PAD8),
-            7 => Some(WU2_EV_A::PAD7),
-            6 => Some(WU2_EV_A::PAD6),
-            5 => Some(WU2_EV_A::PAD5),
-            4 => Some(WU2_EV_A::PAD4),
-            3 => Some(WU2_EV_A::PAD3),
-            2 => Some(WU2_EV_A::PAD2),
-            1 => Some(WU2_EV_A::PAD1),
-            0 => Some(WU2_EV_A::PAD0),
+            63 => Some(Wu2Ev::None),
+            56 => Some(Wu2Ev::AuxCompbAsyncN),
+            55 => Some(Wu2Ev::AuxCompbAsync),
+            54 => Some(Wu2Ev::BatmonVolt),
+            53 => Some(Wu2Ev::BatmonTemp),
+            52 => Some(Wu2Ev::AuxTimer1Ev),
+            51 => Some(Wu2Ev::AuxTimer0Ev),
+            50 => Some(Wu2Ev::AuxTdcDone),
+            49 => Some(Wu2Ev::AuxAdcDone),
+            48 => Some(Wu2Ev::AuxCompb),
+            47 => Some(Wu2Ev::AuxCompa),
+            46 => Some(Wu2Ev::AuxSwev2),
+            45 => Some(Wu2Ev::AuxSwev1),
+            44 => Some(Wu2Ev::AuxSwev0),
+            43 => Some(Wu2Ev::Jtag),
+            42 => Some(Wu2Ev::RtcUpd),
+            41 => Some(Wu2Ev::RtcCombDly),
+            40 => Some(Wu2Ev::RtcCh2Dly),
+            39 => Some(Wu2Ev::RtcCh1Dly),
+            38 => Some(Wu2Ev::RtcCh0Dly),
+            37 => Some(Wu2Ev::RtcCh2),
+            36 => Some(Wu2Ev::RtcCh1),
+            35 => Some(Wu2Ev::RtcCh0),
+            32 => Some(Wu2Ev::Pad),
+            31 => Some(Wu2Ev::Pad31),
+            30 => Some(Wu2Ev::Pad30),
+            29 => Some(Wu2Ev::Pad29),
+            28 => Some(Wu2Ev::Pad28),
+            27 => Some(Wu2Ev::Pad27),
+            26 => Some(Wu2Ev::Pad26),
+            25 => Some(Wu2Ev::Pad25),
+            24 => Some(Wu2Ev::Pad24),
+            23 => Some(Wu2Ev::Pad23),
+            22 => Some(Wu2Ev::Pad22),
+            21 => Some(Wu2Ev::Pad21),
+            20 => Some(Wu2Ev::Pad20),
+            19 => Some(Wu2Ev::Pad19),
+            18 => Some(Wu2Ev::Pad18),
+            17 => Some(Wu2Ev::Pad17),
+            16 => Some(Wu2Ev::Pad16),
+            15 => Some(Wu2Ev::Pad15),
+            14 => Some(Wu2Ev::Pad14),
+            13 => Some(Wu2Ev::Pad13),
+            12 => Some(Wu2Ev::Pad12),
+            11 => Some(Wu2Ev::Pad11),
+            10 => Some(Wu2Ev::Pad10),
+            9 => Some(Wu2Ev::Pad9),
+            8 => Some(Wu2Ev::Pad8),
+            7 => Some(Wu2Ev::Pad7),
+            6 => Some(Wu2Ev::Pad6),
+            5 => Some(Wu2Ev::Pad5),
+            4 => Some(Wu2Ev::Pad4),
+            3 => Some(Wu2Ev::Pad3),
+            2 => Some(Wu2Ev::Pad2),
+            1 => Some(Wu2Ev::Pad1),
+            0 => Some(Wu2Ev::Pad0),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `NONE`"]
+    #[doc = "No event, always low"]
     #[inline(always)]
     pub fn is_none(&self) -> bool {
-        *self == WU2_EV_A::NONE
+        *self == Wu2Ev::None
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPB_ASYNC_N`"]
+    #[doc = "Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"]
     #[inline(always)]
     pub fn is_aux_compb_async_n(&self) -> bool {
-        *self == WU2_EV_A::AUX_COMPB_ASYNC_N
+        *self == Wu2Ev::AuxCompbAsyncN
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPB_ASYNC`"]
+    #[doc = "Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX"]
     #[inline(always)]
     pub fn is_aux_compb_async(&self) -> bool {
-        *self == WU2_EV_A::AUX_COMPB_ASYNC
+        *self == Wu2Ev::AuxCompbAsync
     }
-    #[doc = "Checks if the value of the field is `BATMON_VOLT`"]
+    #[doc = "BATMON voltage update event"]
     #[inline(always)]
     pub fn is_batmon_volt(&self) -> bool {
-        *self == WU2_EV_A::BATMON_VOLT
+        *self == Wu2Ev::BatmonVolt
     }
-    #[doc = "Checks if the value of the field is `BATMON_TEMP`"]
+    #[doc = "BATMON temperature update event"]
     #[inline(always)]
     pub fn is_batmon_temp(&self) -> bool {
-        *self == WU2_EV_A::BATMON_TEMP
+        *self == Wu2Ev::BatmonTemp
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER1_EV`"]
+    #[doc = "AUX Timer 1 Event"]
     #[inline(always)]
     pub fn is_aux_timer1_ev(&self) -> bool {
-        *self == WU2_EV_A::AUX_TIMER1_EV
+        *self == Wu2Ev::AuxTimer1Ev
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER0_EV`"]
+    #[doc = "AUX Timer 0 Event"]
     #[inline(always)]
     pub fn is_aux_timer0_ev(&self) -> bool {
-        *self == WU2_EV_A::AUX_TIMER0_EV
+        *self == Wu2Ev::AuxTimer0Ev
     }
-    #[doc = "Checks if the value of the field is `AUX_TDC_DONE`"]
+    #[doc = "TDC completed or timed out"]
     #[inline(always)]
     pub fn is_aux_tdc_done(&self) -> bool {
-        *self == WU2_EV_A::AUX_TDC_DONE
+        *self == Wu2Ev::AuxTdcDone
     }
-    #[doc = "Checks if the value of the field is `AUX_ADC_DONE`"]
+    #[doc = "ADC conversion completed"]
     #[inline(always)]
     pub fn is_aux_adc_done(&self) -> bool {
-        *self == WU2_EV_A::AUX_ADC_DONE
+        *self == Wu2Ev::AuxAdcDone
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPB`"]
+    #[doc = "Comparator B triggered"]
     #[inline(always)]
     pub fn is_aux_compb(&self) -> bool {
-        *self == WU2_EV_A::AUX_COMPB
+        *self == Wu2Ev::AuxCompb
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPA`"]
+    #[doc = "Comparator A triggered"]
     #[inline(always)]
     pub fn is_aux_compa(&self) -> bool {
-        *self == WU2_EV_A::AUX_COMPA
+        *self == Wu2Ev::AuxCompa
     }
-    #[doc = "Checks if the value of the field is `AUX_SWEV2`"]
+    #[doc = "AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2"]
     #[inline(always)]
     pub fn is_aux_swev2(&self) -> bool {
-        *self == WU2_EV_A::AUX_SWEV2
+        *self == Wu2Ev::AuxSwev2
     }
-    #[doc = "Checks if the value of the field is `AUX_SWEV1`"]
+    #[doc = "AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1"]
     #[inline(always)]
     pub fn is_aux_swev1(&self) -> bool {
-        *self == WU2_EV_A::AUX_SWEV1
+        *self == Wu2Ev::AuxSwev1
     }
-    #[doc = "Checks if the value of the field is `AUX_SWEV0`"]
+    #[doc = "AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0"]
     #[inline(always)]
     pub fn is_aux_swev0(&self) -> bool {
-        *self == WU2_EV_A::AUX_SWEV0
+        *self == Wu2Ev::AuxSwev0
     }
-    #[doc = "Checks if the value of the field is `JTAG`"]
+    #[doc = "JTAG generated event"]
     #[inline(always)]
     pub fn is_jtag(&self) -> bool {
-        *self == WU2_EV_A::JTAG
+        *self == Wu2Ev::Jtag
     }
-    #[doc = "Checks if the value of the field is `RTC_UPD`"]
+    #[doc = "RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)"]
     #[inline(always)]
     pub fn is_rtc_upd(&self) -> bool {
-        *self == WU2_EV_A::RTC_UPD
+        *self == Wu2Ev::RtcUpd
     }
-    #[doc = "Checks if the value of the field is `RTC_COMB_DLY`"]
+    #[doc = "RTC combined delayed event"]
     #[inline(always)]
     pub fn is_rtc_comb_dly(&self) -> bool {
-        *self == WU2_EV_A::RTC_COMB_DLY
+        *self == Wu2Ev::RtcCombDly
     }
-    #[doc = "Checks if the value of the field is `RTC_CH2_DLY`"]
+    #[doc = "RTC channel 2 - delayed event"]
     #[inline(always)]
     pub fn is_rtc_ch2_dly(&self) -> bool {
-        *self == WU2_EV_A::RTC_CH2_DLY
+        *self == Wu2Ev::RtcCh2Dly
     }
-    #[doc = "Checks if the value of the field is `RTC_CH1_DLY`"]
+    #[doc = "RTC channel 1 - delayed event"]
     #[inline(always)]
     pub fn is_rtc_ch1_dly(&self) -> bool {
-        *self == WU2_EV_A::RTC_CH1_DLY
+        *self == Wu2Ev::RtcCh1Dly
     }
-    #[doc = "Checks if the value of the field is `RTC_CH0_DLY`"]
+    #[doc = "RTC channel 0 - delayed event"]
     #[inline(always)]
     pub fn is_rtc_ch0_dly(&self) -> bool {
-        *self == WU2_EV_A::RTC_CH0_DLY
+        *self == Wu2Ev::RtcCh0Dly
     }
-    #[doc = "Checks if the value of the field is `RTC_CH2`"]
+    #[doc = "RTC channel 2 event"]
     #[inline(always)]
     pub fn is_rtc_ch2(&self) -> bool {
-        *self == WU2_EV_A::RTC_CH2
+        *self == Wu2Ev::RtcCh2
     }
-    #[doc = "Checks if the value of the field is `RTC_CH1`"]
+    #[doc = "RTC channel 1 event"]
     #[inline(always)]
     pub fn is_rtc_ch1(&self) -> bool {
-        *self == WU2_EV_A::RTC_CH1
+        *self == Wu2Ev::RtcCh1
     }
-    #[doc = "Checks if the value of the field is `RTC_CH0`"]
+    #[doc = "RTC channel 0 event"]
     #[inline(always)]
     pub fn is_rtc_ch0(&self) -> bool {
-        *self == WU2_EV_A::RTC_CH0
+        *self == Wu2Ev::RtcCh0
     }
-    #[doc = "Checks if the value of the field is `PAD`"]
+    #[doc = "Edge detect on any PAD"]
     #[inline(always)]
     pub fn is_pad(&self) -> bool {
-        *self == WU2_EV_A::PAD
+        *self == Wu2Ev::Pad
     }
-    #[doc = "Checks if the value of the field is `PAD31`"]
+    #[doc = "Edge detect on PAD31"]
     #[inline(always)]
     pub fn is_pad31(&self) -> bool {
-        *self == WU2_EV_A::PAD31
+        *self == Wu2Ev::Pad31
     }
-    #[doc = "Checks if the value of the field is `PAD30`"]
+    #[doc = "Edge detect on PAD30"]
     #[inline(always)]
     pub fn is_pad30(&self) -> bool {
-        *self == WU2_EV_A::PAD30
+        *self == Wu2Ev::Pad30
     }
-    #[doc = "Checks if the value of the field is `PAD29`"]
+    #[doc = "Edge detect on PAD29"]
     #[inline(always)]
     pub fn is_pad29(&self) -> bool {
-        *self == WU2_EV_A::PAD29
+        *self == Wu2Ev::Pad29
     }
-    #[doc = "Checks if the value of the field is `PAD28`"]
+    #[doc = "Edge detect on PAD28"]
     #[inline(always)]
     pub fn is_pad28(&self) -> bool {
-        *self == WU2_EV_A::PAD28
+        *self == Wu2Ev::Pad28
     }
-    #[doc = "Checks if the value of the field is `PAD27`"]
+    #[doc = "Edge detect on PAD27"]
     #[inline(always)]
     pub fn is_pad27(&self) -> bool {
-        *self == WU2_EV_A::PAD27
+        *self == Wu2Ev::Pad27
     }
-    #[doc = "Checks if the value of the field is `PAD26`"]
+    #[doc = "Edge detect on PAD26"]
     #[inline(always)]
     pub fn is_pad26(&self) -> bool {
-        *self == WU2_EV_A::PAD26
+        *self == Wu2Ev::Pad26
     }
-    #[doc = "Checks if the value of the field is `PAD25`"]
+    #[doc = "Edge detect on PAD25"]
     #[inline(always)]
     pub fn is_pad25(&self) -> bool {
-        *self == WU2_EV_A::PAD25
+        *self == Wu2Ev::Pad25
     }
-    #[doc = "Checks if the value of the field is `PAD24`"]
+    #[doc = "Edge detect on PAD24"]
     #[inline(always)]
     pub fn is_pad24(&self) -> bool {
-        *self == WU2_EV_A::PAD24
+        *self == Wu2Ev::Pad24
     }
-    #[doc = "Checks if the value of the field is `PAD23`"]
+    #[doc = "Edge detect on PAD23"]
     #[inline(always)]
     pub fn is_pad23(&self) -> bool {
-        *self == WU2_EV_A::PAD23
+        *self == Wu2Ev::Pad23
     }
-    #[doc = "Checks if the value of the field is `PAD22`"]
+    #[doc = "Edge detect on PAD22"]
     #[inline(always)]
     pub fn is_pad22(&self) -> bool {
-        *self == WU2_EV_A::PAD22
+        *self == Wu2Ev::Pad22
     }
-    #[doc = "Checks if the value of the field is `PAD21`"]
+    #[doc = "Edge detect on PAD21"]
     #[inline(always)]
     pub fn is_pad21(&self) -> bool {
-        *self == WU2_EV_A::PAD21
+        *self == Wu2Ev::Pad21
     }
-    #[doc = "Checks if the value of the field is `PAD20`"]
+    #[doc = "Edge detect on PAD20"]
     #[inline(always)]
     pub fn is_pad20(&self) -> bool {
-        *self == WU2_EV_A::PAD20
+        *self == Wu2Ev::Pad20
     }
-    #[doc = "Checks if the value of the field is `PAD19`"]
+    #[doc = "Edge detect on PAD19"]
     #[inline(always)]
     pub fn is_pad19(&self) -> bool {
-        *self == WU2_EV_A::PAD19
+        *self == Wu2Ev::Pad19
     }
-    #[doc = "Checks if the value of the field is `PAD18`"]
+    #[doc = "Edge detect on PAD18"]
     #[inline(always)]
     pub fn is_pad18(&self) -> bool {
-        *self == WU2_EV_A::PAD18
+        *self == Wu2Ev::Pad18
     }
-    #[doc = "Checks if the value of the field is `PAD17`"]
+    #[doc = "Edge detect on PAD17"]
     #[inline(always)]
     pub fn is_pad17(&self) -> bool {
-        *self == WU2_EV_A::PAD17
+        *self == Wu2Ev::Pad17
     }
-    #[doc = "Checks if the value of the field is `PAD16`"]
+    #[doc = "Edge detect on PAD16"]
     #[inline(always)]
     pub fn is_pad16(&self) -> bool {
-        *self == WU2_EV_A::PAD16
+        *self == Wu2Ev::Pad16
     }
-    #[doc = "Checks if the value of the field is `PAD15`"]
+    #[doc = "Edge detect on PAD15"]
     #[inline(always)]
     pub fn is_pad15(&self) -> bool {
-        *self == WU2_EV_A::PAD15
+        *self == Wu2Ev::Pad15
     }
-    #[doc = "Checks if the value of the field is `PAD14`"]
+    #[doc = "Edge detect on PAD14"]
     #[inline(always)]
     pub fn is_pad14(&self) -> bool {
-        *self == WU2_EV_A::PAD14
+        *self == Wu2Ev::Pad14
     }
-    #[doc = "Checks if the value of the field is `PAD13`"]
+    #[doc = "Edge detect on PAD13"]
     #[inline(always)]
     pub fn is_pad13(&self) -> bool {
-        *self == WU2_EV_A::PAD13
+        *self == Wu2Ev::Pad13
     }
-    #[doc = "Checks if the value of the field is `PAD12`"]
+    #[doc = "Edge detect on PAD12"]
     #[inline(always)]
     pub fn is_pad12(&self) -> bool {
-        *self == WU2_EV_A::PAD12
+        *self == Wu2Ev::Pad12
     }
-    #[doc = "Checks if the value of the field is `PAD11`"]
+    #[doc = "Edge detect on PAD11"]
     #[inline(always)]
     pub fn is_pad11(&self) -> bool {
-        *self == WU2_EV_A::PAD11
+        *self == Wu2Ev::Pad11
     }
-    #[doc = "Checks if the value of the field is `PAD10`"]
+    #[doc = "Edge detect on PAD10"]
     #[inline(always)]
     pub fn is_pad10(&self) -> bool {
-        *self == WU2_EV_A::PAD10
+        *self == Wu2Ev::Pad10
     }
-    #[doc = "Checks if the value of the field is `PAD9`"]
+    #[doc = "Edge detect on PAD9"]
     #[inline(always)]
     pub fn is_pad9(&self) -> bool {
-        *self == WU2_EV_A::PAD9
+        *self == Wu2Ev::Pad9
     }
-    #[doc = "Checks if the value of the field is `PAD8`"]
+    #[doc = "Edge detect on PAD8"]
     #[inline(always)]
     pub fn is_pad8(&self) -> bool {
-        *self == WU2_EV_A::PAD8
+        *self == Wu2Ev::Pad8
     }
-    #[doc = "Checks if the value of the field is `PAD7`"]
+    #[doc = "Edge detect on PAD7"]
     #[inline(always)]
     pub fn is_pad7(&self) -> bool {
-        *self == WU2_EV_A::PAD7
+        *self == Wu2Ev::Pad7
     }
-    #[doc = "Checks if the value of the field is `PAD6`"]
+    #[doc = "Edge detect on PAD6"]
     #[inline(always)]
     pub fn is_pad6(&self) -> bool {
-        *self == WU2_EV_A::PAD6
+        *self == Wu2Ev::Pad6
     }
-    #[doc = "Checks if the value of the field is `PAD5`"]
+    #[doc = "Edge detect on PAD5"]
     #[inline(always)]
     pub fn is_pad5(&self) -> bool {
-        *self == WU2_EV_A::PAD5
+        *self == Wu2Ev::Pad5
     }
-    #[doc = "Checks if the value of the field is `PAD4`"]
+    #[doc = "Edge detect on PAD4"]
     #[inline(always)]
     pub fn is_pad4(&self) -> bool {
-        *self == WU2_EV_A::PAD4
+        *self == Wu2Ev::Pad4
     }
-    #[doc = "Checks if the value of the field is `PAD3`"]
+    #[doc = "Edge detect on PAD3"]
     #[inline(always)]
     pub fn is_pad3(&self) -> bool {
-        *self == WU2_EV_A::PAD3
+        *self == Wu2Ev::Pad3
     }
-    #[doc = "Checks if the value of the field is `PAD2`"]
+    #[doc = "Edge detect on PAD2"]
     #[inline(always)]
     pub fn is_pad2(&self) -> bool {
-        *self == WU2_EV_A::PAD2
+        *self == Wu2Ev::Pad2
     }
-    #[doc = "Checks if the value of the field is `PAD1`"]
+    #[doc = "Edge detect on PAD1"]
     #[inline(always)]
     pub fn is_pad1(&self) -> bool {
-        *self == WU2_EV_A::PAD1
+        *self == Wu2Ev::Pad1
     }
-    #[doc = "Checks if the value of the field is `PAD0`"]
+    #[doc = "Edge detect on PAD0"]
     #[inline(always)]
     pub fn is_pad0(&self) -> bool {
-        *self == WU2_EV_A::PAD0
+        *self == Wu2Ev::Pad0
     }
 }
 #[doc = "Field `WU2_EV` writer - 21:16\\]
 MCU Wakeup Source #2 AON Event Source selecting 1 of 4 events routed to AON_WUC for waking up the MCU domain from Power Off or Power Down. Note:"]
-pub type WU2_EV_W<'a, const O: u8> = crate::FieldWriter<'a, u32, MCUWUSEL_SPEC, u8, WU2_EV_A, 6, O>;
-impl<'a, const O: u8> WU2_EV_W<'a, O> {
+pub type Wu2EvW<'a, REG> = crate::FieldWriter<'a, REG, 6, Wu2Ev>;
+impl<'a, REG> Wu2EvW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "No event, always low"]
     #[inline(always)]
-    pub fn none(self) -> &'a mut W {
-        self.variant(WU2_EV_A::NONE)
+    pub fn none(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::None)
     }
     #[doc = "Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"]
     #[inline(always)]
-    pub fn aux_compb_async_n(self) -> &'a mut W {
-        self.variant(WU2_EV_A::AUX_COMPB_ASYNC_N)
+    pub fn aux_compb_async_n(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::AuxCompbAsyncN)
     }
     #[doc = "Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX"]
     #[inline(always)]
-    pub fn aux_compb_async(self) -> &'a mut W {
-        self.variant(WU2_EV_A::AUX_COMPB_ASYNC)
+    pub fn aux_compb_async(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::AuxCompbAsync)
     }
     #[doc = "BATMON voltage update event"]
     #[inline(always)]
-    pub fn batmon_volt(self) -> &'a mut W {
-        self.variant(WU2_EV_A::BATMON_VOLT)
+    pub fn batmon_volt(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::BatmonVolt)
     }
     #[doc = "BATMON temperature update event"]
     #[inline(always)]
-    pub fn batmon_temp(self) -> &'a mut W {
-        self.variant(WU2_EV_A::BATMON_TEMP)
+    pub fn batmon_temp(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::BatmonTemp)
     }
     #[doc = "AUX Timer 1 Event"]
     #[inline(always)]
-    pub fn aux_timer1_ev(self) -> &'a mut W {
-        self.variant(WU2_EV_A::AUX_TIMER1_EV)
+    pub fn aux_timer1_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::AuxTimer1Ev)
     }
     #[doc = "AUX Timer 0 Event"]
     #[inline(always)]
-    pub fn aux_timer0_ev(self) -> &'a mut W {
-        self.variant(WU2_EV_A::AUX_TIMER0_EV)
+    pub fn aux_timer0_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::AuxTimer0Ev)
     }
     #[doc = "TDC completed or timed out"]
     #[inline(always)]
-    pub fn aux_tdc_done(self) -> &'a mut W {
-        self.variant(WU2_EV_A::AUX_TDC_DONE)
+    pub fn aux_tdc_done(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::AuxTdcDone)
     }
     #[doc = "ADC conversion completed"]
     #[inline(always)]
-    pub fn aux_adc_done(self) -> &'a mut W {
-        self.variant(WU2_EV_A::AUX_ADC_DONE)
+    pub fn aux_adc_done(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::AuxAdcDone)
     }
     #[doc = "Comparator B triggered"]
     #[inline(always)]
-    pub fn aux_compb(self) -> &'a mut W {
-        self.variant(WU2_EV_A::AUX_COMPB)
+    pub fn aux_compb(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::AuxCompb)
     }
     #[doc = "Comparator A triggered"]
     #[inline(always)]
-    pub fn aux_compa(self) -> &'a mut W {
-        self.variant(WU2_EV_A::AUX_COMPA)
+    pub fn aux_compa(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::AuxCompa)
     }
     #[doc = "AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2"]
     #[inline(always)]
-    pub fn aux_swev2(self) -> &'a mut W {
-        self.variant(WU2_EV_A::AUX_SWEV2)
+    pub fn aux_swev2(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::AuxSwev2)
     }
     #[doc = "AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1"]
     #[inline(always)]
-    pub fn aux_swev1(self) -> &'a mut W {
-        self.variant(WU2_EV_A::AUX_SWEV1)
+    pub fn aux_swev1(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::AuxSwev1)
     }
     #[doc = "AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0"]
     #[inline(always)]
-    pub fn aux_swev0(self) -> &'a mut W {
-        self.variant(WU2_EV_A::AUX_SWEV0)
+    pub fn aux_swev0(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::AuxSwev0)
     }
     #[doc = "JTAG generated event"]
     #[inline(always)]
-    pub fn jtag(self) -> &'a mut W {
-        self.variant(WU2_EV_A::JTAG)
+    pub fn jtag(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Jtag)
     }
     #[doc = "RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)"]
     #[inline(always)]
-    pub fn rtc_upd(self) -> &'a mut W {
-        self.variant(WU2_EV_A::RTC_UPD)
+    pub fn rtc_upd(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::RtcUpd)
     }
     #[doc = "RTC combined delayed event"]
     #[inline(always)]
-    pub fn rtc_comb_dly(self) -> &'a mut W {
-        self.variant(WU2_EV_A::RTC_COMB_DLY)
+    pub fn rtc_comb_dly(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::RtcCombDly)
     }
     #[doc = "RTC channel 2 - delayed event"]
     #[inline(always)]
-    pub fn rtc_ch2_dly(self) -> &'a mut W {
-        self.variant(WU2_EV_A::RTC_CH2_DLY)
+    pub fn rtc_ch2_dly(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::RtcCh2Dly)
     }
     #[doc = "RTC channel 1 - delayed event"]
     #[inline(always)]
-    pub fn rtc_ch1_dly(self) -> &'a mut W {
-        self.variant(WU2_EV_A::RTC_CH1_DLY)
+    pub fn rtc_ch1_dly(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::RtcCh1Dly)
     }
     #[doc = "RTC channel 0 - delayed event"]
     #[inline(always)]
-    pub fn rtc_ch0_dly(self) -> &'a mut W {
-        self.variant(WU2_EV_A::RTC_CH0_DLY)
+    pub fn rtc_ch0_dly(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::RtcCh0Dly)
     }
     #[doc = "RTC channel 2 event"]
     #[inline(always)]
-    pub fn rtc_ch2(self) -> &'a mut W {
-        self.variant(WU2_EV_A::RTC_CH2)
+    pub fn rtc_ch2(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::RtcCh2)
     }
     #[doc = "RTC channel 1 event"]
     #[inline(always)]
-    pub fn rtc_ch1(self) -> &'a mut W {
-        self.variant(WU2_EV_A::RTC_CH1)
+    pub fn rtc_ch1(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::RtcCh1)
     }
     #[doc = "RTC channel 0 event"]
     #[inline(always)]
-    pub fn rtc_ch0(self) -> &'a mut W {
-        self.variant(WU2_EV_A::RTC_CH0)
+    pub fn rtc_ch0(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::RtcCh0)
     }
     #[doc = "Edge detect on any PAD"]
     #[inline(always)]
-    pub fn pad(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD)
+    pub fn pad(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad)
     }
     #[doc = "Edge detect on PAD31"]
     #[inline(always)]
-    pub fn pad31(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD31)
+    pub fn pad31(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad31)
     }
     #[doc = "Edge detect on PAD30"]
     #[inline(always)]
-    pub fn pad30(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD30)
+    pub fn pad30(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad30)
     }
     #[doc = "Edge detect on PAD29"]
     #[inline(always)]
-    pub fn pad29(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD29)
+    pub fn pad29(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad29)
     }
     #[doc = "Edge detect on PAD28"]
     #[inline(always)]
-    pub fn pad28(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD28)
+    pub fn pad28(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad28)
     }
     #[doc = "Edge detect on PAD27"]
     #[inline(always)]
-    pub fn pad27(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD27)
+    pub fn pad27(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad27)
     }
     #[doc = "Edge detect on PAD26"]
     #[inline(always)]
-    pub fn pad26(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD26)
+    pub fn pad26(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad26)
     }
     #[doc = "Edge detect on PAD25"]
     #[inline(always)]
-    pub fn pad25(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD25)
+    pub fn pad25(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad25)
     }
     #[doc = "Edge detect on PAD24"]
     #[inline(always)]
-    pub fn pad24(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD24)
+    pub fn pad24(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad24)
     }
     #[doc = "Edge detect on PAD23"]
     #[inline(always)]
-    pub fn pad23(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD23)
+    pub fn pad23(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad23)
     }
     #[doc = "Edge detect on PAD22"]
     #[inline(always)]
-    pub fn pad22(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD22)
+    pub fn pad22(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad22)
     }
     #[doc = "Edge detect on PAD21"]
     #[inline(always)]
-    pub fn pad21(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD21)
+    pub fn pad21(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad21)
     }
     #[doc = "Edge detect on PAD20"]
     #[inline(always)]
-    pub fn pad20(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD20)
+    pub fn pad20(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad20)
     }
     #[doc = "Edge detect on PAD19"]
     #[inline(always)]
-    pub fn pad19(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD19)
+    pub fn pad19(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad19)
     }
     #[doc = "Edge detect on PAD18"]
     #[inline(always)]
-    pub fn pad18(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD18)
+    pub fn pad18(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad18)
     }
     #[doc = "Edge detect on PAD17"]
     #[inline(always)]
-    pub fn pad17(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD17)
+    pub fn pad17(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad17)
     }
     #[doc = "Edge detect on PAD16"]
     #[inline(always)]
-    pub fn pad16(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD16)
+    pub fn pad16(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad16)
     }
     #[doc = "Edge detect on PAD15"]
     #[inline(always)]
-    pub fn pad15(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD15)
+    pub fn pad15(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad15)
     }
     #[doc = "Edge detect on PAD14"]
     #[inline(always)]
-    pub fn pad14(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD14)
+    pub fn pad14(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad14)
     }
     #[doc = "Edge detect on PAD13"]
     #[inline(always)]
-    pub fn pad13(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD13)
+    pub fn pad13(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad13)
     }
     #[doc = "Edge detect on PAD12"]
     #[inline(always)]
-    pub fn pad12(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD12)
+    pub fn pad12(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad12)
     }
     #[doc = "Edge detect on PAD11"]
     #[inline(always)]
-    pub fn pad11(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD11)
+    pub fn pad11(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad11)
     }
     #[doc = "Edge detect on PAD10"]
     #[inline(always)]
-    pub fn pad10(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD10)
+    pub fn pad10(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad10)
     }
     #[doc = "Edge detect on PAD9"]
     #[inline(always)]
-    pub fn pad9(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD9)
+    pub fn pad9(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad9)
     }
     #[doc = "Edge detect on PAD8"]
     #[inline(always)]
-    pub fn pad8(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD8)
+    pub fn pad8(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad8)
     }
     #[doc = "Edge detect on PAD7"]
     #[inline(always)]
-    pub fn pad7(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD7)
+    pub fn pad7(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad7)
     }
     #[doc = "Edge detect on PAD6"]
     #[inline(always)]
-    pub fn pad6(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD6)
+    pub fn pad6(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad6)
     }
     #[doc = "Edge detect on PAD5"]
     #[inline(always)]
-    pub fn pad5(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD5)
+    pub fn pad5(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad5)
     }
     #[doc = "Edge detect on PAD4"]
     #[inline(always)]
-    pub fn pad4(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD4)
+    pub fn pad4(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad4)
     }
     #[doc = "Edge detect on PAD3"]
     #[inline(always)]
-    pub fn pad3(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD3)
+    pub fn pad3(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad3)
     }
     #[doc = "Edge detect on PAD2"]
     #[inline(always)]
-    pub fn pad2(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD2)
+    pub fn pad2(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad2)
     }
     #[doc = "Edge detect on PAD1"]
     #[inline(always)]
-    pub fn pad1(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD1)
+    pub fn pad1(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad1)
     }
     #[doc = "Edge detect on PAD0"]
     #[inline(always)]
-    pub fn pad0(self) -> &'a mut W {
-        self.variant(WU2_EV_A::PAD0)
+    pub fn pad0(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu2Ev::Pad0)
     }
 }
 #[doc = "Field `RESERVED22` reader - 23:22\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED22_R = crate::FieldReader<u8, u8>;
+pub type Reserved22R = crate::FieldReader;
 #[doc = "Field `RESERVED22` writer - 23:22\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED22_W<'a, const O: u8> = crate::FieldWriter<'a, u32, MCUWUSEL_SPEC, u8, u8, 2, O>;
-#[doc = "Field `WU3_EV` reader - 29:24\\]
-MCU Wakeup Source #3 AON Event Source selecting 1 of 4 events routed to AON_WUC for waking up the MCU domain from Power Off or Power Down. Note:"]
-pub type WU3_EV_R = crate::FieldReader<u8, WU3_EV_A>;
+pub type Reserved22W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "29:24\\]
 MCU Wakeup Source #3 AON Event Source selecting 1 of 4 events routed to AON_WUC for waking up the MCU domain from Power Off or Power Down. Note:\n\nValue on reset: 63"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum WU3_EV_A {
+pub enum Wu3Ev {
     #[doc = "63: No event, always low"]
-    NONE = 63,
+    None = 63,
     #[doc = "56: Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"]
-    AUX_COMPB_ASYNC_N = 56,
+    AuxCompbAsyncN = 56,
     #[doc = "55: Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX"]
-    AUX_COMPB_ASYNC = 55,
+    AuxCompbAsync = 55,
     #[doc = "54: BATMON voltage update event"]
-    BATMON_VOLT = 54,
+    BatmonVolt = 54,
     #[doc = "53: BATMON temperature update event"]
-    BATMON_TEMP = 53,
+    BatmonTemp = 53,
     #[doc = "52: AUX Timer 1 Event"]
-    AUX_TIMER1_EV = 52,
+    AuxTimer1Ev = 52,
     #[doc = "51: AUX Timer 0 Event"]
-    AUX_TIMER0_EV = 51,
+    AuxTimer0Ev = 51,
     #[doc = "50: TDC completed or timed out"]
-    AUX_TDC_DONE = 50,
+    AuxTdcDone = 50,
     #[doc = "49: ADC conversion completed"]
-    AUX_ADC_DONE = 49,
+    AuxAdcDone = 49,
     #[doc = "48: Comparator B triggered"]
-    AUX_COMPB = 48,
+    AuxCompb = 48,
     #[doc = "47: Comparator A triggered"]
-    AUX_COMPA = 47,
+    AuxCompa = 47,
     #[doc = "46: AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2"]
-    AUX_SWEV2 = 46,
+    AuxSwev2 = 46,
     #[doc = "45: AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1"]
-    AUX_SWEV1 = 45,
+    AuxSwev1 = 45,
     #[doc = "44: AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0"]
-    AUX_SWEV0 = 44,
+    AuxSwev0 = 44,
     #[doc = "43: JTAG generated event"]
-    JTAG = 43,
+    Jtag = 43,
     #[doc = "42: RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)"]
-    RTC_UPD = 42,
+    RtcUpd = 42,
     #[doc = "41: RTC combined delayed event"]
-    RTC_COMB_DLY = 41,
+    RtcCombDly = 41,
     #[doc = "40: RTC channel 2 - delayed event"]
-    RTC_CH2_DLY = 40,
+    RtcCh2Dly = 40,
     #[doc = "39: RTC channel 1 - delayed event"]
-    RTC_CH1_DLY = 39,
+    RtcCh1Dly = 39,
     #[doc = "38: RTC channel 0 - delayed event"]
-    RTC_CH0_DLY = 38,
+    RtcCh0Dly = 38,
     #[doc = "37: RTC channel 2 event"]
-    RTC_CH2 = 37,
+    RtcCh2 = 37,
     #[doc = "36: RTC channel 1 event"]
-    RTC_CH1 = 36,
+    RtcCh1 = 36,
     #[doc = "35: RTC channel 0 event"]
-    RTC_CH0 = 35,
+    RtcCh0 = 35,
     #[doc = "32: Edge detect on any PAD"]
-    PAD = 32,
+    Pad = 32,
     #[doc = "31: Edge detect on PAD31"]
-    PAD31 = 31,
+    Pad31 = 31,
     #[doc = "30: Edge detect on PAD30"]
-    PAD30 = 30,
+    Pad30 = 30,
     #[doc = "29: Edge detect on PAD29"]
-    PAD29 = 29,
+    Pad29 = 29,
     #[doc = "28: Edge detect on PAD28"]
-    PAD28 = 28,
+    Pad28 = 28,
     #[doc = "27: Edge detect on PAD27"]
-    PAD27 = 27,
+    Pad27 = 27,
     #[doc = "26: Edge detect on PAD26"]
-    PAD26 = 26,
+    Pad26 = 26,
     #[doc = "25: Edge detect on PAD25"]
-    PAD25 = 25,
+    Pad25 = 25,
     #[doc = "24: Edge detect on PAD24"]
-    PAD24 = 24,
+    Pad24 = 24,
     #[doc = "23: Edge detect on PAD23"]
-    PAD23 = 23,
+    Pad23 = 23,
     #[doc = "22: Edge detect on PAD22"]
-    PAD22 = 22,
+    Pad22 = 22,
     #[doc = "21: Edge detect on PAD21"]
-    PAD21 = 21,
+    Pad21 = 21,
     #[doc = "20: Edge detect on PAD20"]
-    PAD20 = 20,
+    Pad20 = 20,
     #[doc = "19: Edge detect on PAD19"]
-    PAD19 = 19,
+    Pad19 = 19,
     #[doc = "18: Edge detect on PAD18"]
-    PAD18 = 18,
+    Pad18 = 18,
     #[doc = "17: Edge detect on PAD17"]
-    PAD17 = 17,
+    Pad17 = 17,
     #[doc = "16: Edge detect on PAD16"]
-    PAD16 = 16,
+    Pad16 = 16,
     #[doc = "15: Edge detect on PAD15"]
-    PAD15 = 15,
+    Pad15 = 15,
     #[doc = "14: Edge detect on PAD14"]
-    PAD14 = 14,
+    Pad14 = 14,
     #[doc = "13: Edge detect on PAD13"]
-    PAD13 = 13,
+    Pad13 = 13,
     #[doc = "12: Edge detect on PAD12"]
-    PAD12 = 12,
+    Pad12 = 12,
     #[doc = "11: Edge detect on PAD11"]
-    PAD11 = 11,
+    Pad11 = 11,
     #[doc = "10: Edge detect on PAD10"]
-    PAD10 = 10,
+    Pad10 = 10,
     #[doc = "9: Edge detect on PAD9"]
-    PAD9 = 9,
+    Pad9 = 9,
     #[doc = "8: Edge detect on PAD8"]
-    PAD8 = 8,
+    Pad8 = 8,
     #[doc = "7: Edge detect on PAD7"]
-    PAD7 = 7,
+    Pad7 = 7,
     #[doc = "6: Edge detect on PAD6"]
-    PAD6 = 6,
+    Pad6 = 6,
     #[doc = "5: Edge detect on PAD5"]
-    PAD5 = 5,
+    Pad5 = 5,
     #[doc = "4: Edge detect on PAD4"]
-    PAD4 = 4,
+    Pad4 = 4,
     #[doc = "3: Edge detect on PAD3"]
-    PAD3 = 3,
+    Pad3 = 3,
     #[doc = "2: Edge detect on PAD2"]
-    PAD2 = 2,
+    Pad2 = 2,
     #[doc = "1: Edge detect on PAD1"]
-    PAD1 = 1,
+    Pad1 = 1,
     #[doc = "0: Edge detect on PAD0"]
-    PAD0 = 0,
+    Pad0 = 0,
 }
-impl From<WU3_EV_A> for u8 {
+impl From<Wu3Ev> for u8 {
     #[inline(always)]
-    fn from(variant: WU3_EV_A) -> Self {
+    fn from(variant: Wu3Ev) -> Self {
         variant as _
     }
 }
-impl WU3_EV_R {
+impl crate::FieldSpec for Wu3Ev {
+    type Ux = u8;
+}
+impl crate::IsEnum for Wu3Ev {}
+#[doc = "Field `WU3_EV` reader - 29:24\\]
+MCU Wakeup Source #3 AON Event Source selecting 1 of 4 events routed to AON_WUC for waking up the MCU domain from Power Off or Power Down. Note:"]
+pub type Wu3EvR = crate::FieldReader<Wu3Ev>;
+impl Wu3EvR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<WU3_EV_A> {
+    pub const fn variant(&self) -> Option<Wu3Ev> {
         match self.bits {
-            63 => Some(WU3_EV_A::NONE),
-            56 => Some(WU3_EV_A::AUX_COMPB_ASYNC_N),
-            55 => Some(WU3_EV_A::AUX_COMPB_ASYNC),
-            54 => Some(WU3_EV_A::BATMON_VOLT),
-            53 => Some(WU3_EV_A::BATMON_TEMP),
-            52 => Some(WU3_EV_A::AUX_TIMER1_EV),
-            51 => Some(WU3_EV_A::AUX_TIMER0_EV),
-            50 => Some(WU3_EV_A::AUX_TDC_DONE),
-            49 => Some(WU3_EV_A::AUX_ADC_DONE),
-            48 => Some(WU3_EV_A::AUX_COMPB),
-            47 => Some(WU3_EV_A::AUX_COMPA),
-            46 => Some(WU3_EV_A::AUX_SWEV2),
-            45 => Some(WU3_EV_A::AUX_SWEV1),
-            44 => Some(WU3_EV_A::AUX_SWEV0),
-            43 => Some(WU3_EV_A::JTAG),
-            42 => Some(WU3_EV_A::RTC_UPD),
-            41 => Some(WU3_EV_A::RTC_COMB_DLY),
-            40 => Some(WU3_EV_A::RTC_CH2_DLY),
-            39 => Some(WU3_EV_A::RTC_CH1_DLY),
-            38 => Some(WU3_EV_A::RTC_CH0_DLY),
-            37 => Some(WU3_EV_A::RTC_CH2),
-            36 => Some(WU3_EV_A::RTC_CH1),
-            35 => Some(WU3_EV_A::RTC_CH0),
-            32 => Some(WU3_EV_A::PAD),
-            31 => Some(WU3_EV_A::PAD31),
-            30 => Some(WU3_EV_A::PAD30),
-            29 => Some(WU3_EV_A::PAD29),
-            28 => Some(WU3_EV_A::PAD28),
-            27 => Some(WU3_EV_A::PAD27),
-            26 => Some(WU3_EV_A::PAD26),
-            25 => Some(WU3_EV_A::PAD25),
-            24 => Some(WU3_EV_A::PAD24),
-            23 => Some(WU3_EV_A::PAD23),
-            22 => Some(WU3_EV_A::PAD22),
-            21 => Some(WU3_EV_A::PAD21),
-            20 => Some(WU3_EV_A::PAD20),
-            19 => Some(WU3_EV_A::PAD19),
-            18 => Some(WU3_EV_A::PAD18),
-            17 => Some(WU3_EV_A::PAD17),
-            16 => Some(WU3_EV_A::PAD16),
-            15 => Some(WU3_EV_A::PAD15),
-            14 => Some(WU3_EV_A::PAD14),
-            13 => Some(WU3_EV_A::PAD13),
-            12 => Some(WU3_EV_A::PAD12),
-            11 => Some(WU3_EV_A::PAD11),
-            10 => Some(WU3_EV_A::PAD10),
-            9 => Some(WU3_EV_A::PAD9),
-            8 => Some(WU3_EV_A::PAD8),
-            7 => Some(WU3_EV_A::PAD7),
-            6 => Some(WU3_EV_A::PAD6),
-            5 => Some(WU3_EV_A::PAD5),
-            4 => Some(WU3_EV_A::PAD4),
-            3 => Some(WU3_EV_A::PAD3),
-            2 => Some(WU3_EV_A::PAD2),
-            1 => Some(WU3_EV_A::PAD1),
-            0 => Some(WU3_EV_A::PAD0),
+            63 => Some(Wu3Ev::None),
+            56 => Some(Wu3Ev::AuxCompbAsyncN),
+            55 => Some(Wu3Ev::AuxCompbAsync),
+            54 => Some(Wu3Ev::BatmonVolt),
+            53 => Some(Wu3Ev::BatmonTemp),
+            52 => Some(Wu3Ev::AuxTimer1Ev),
+            51 => Some(Wu3Ev::AuxTimer0Ev),
+            50 => Some(Wu3Ev::AuxTdcDone),
+            49 => Some(Wu3Ev::AuxAdcDone),
+            48 => Some(Wu3Ev::AuxCompb),
+            47 => Some(Wu3Ev::AuxCompa),
+            46 => Some(Wu3Ev::AuxSwev2),
+            45 => Some(Wu3Ev::AuxSwev1),
+            44 => Some(Wu3Ev::AuxSwev0),
+            43 => Some(Wu3Ev::Jtag),
+            42 => Some(Wu3Ev::RtcUpd),
+            41 => Some(Wu3Ev::RtcCombDly),
+            40 => Some(Wu3Ev::RtcCh2Dly),
+            39 => Some(Wu3Ev::RtcCh1Dly),
+            38 => Some(Wu3Ev::RtcCh0Dly),
+            37 => Some(Wu3Ev::RtcCh2),
+            36 => Some(Wu3Ev::RtcCh1),
+            35 => Some(Wu3Ev::RtcCh0),
+            32 => Some(Wu3Ev::Pad),
+            31 => Some(Wu3Ev::Pad31),
+            30 => Some(Wu3Ev::Pad30),
+            29 => Some(Wu3Ev::Pad29),
+            28 => Some(Wu3Ev::Pad28),
+            27 => Some(Wu3Ev::Pad27),
+            26 => Some(Wu3Ev::Pad26),
+            25 => Some(Wu3Ev::Pad25),
+            24 => Some(Wu3Ev::Pad24),
+            23 => Some(Wu3Ev::Pad23),
+            22 => Some(Wu3Ev::Pad22),
+            21 => Some(Wu3Ev::Pad21),
+            20 => Some(Wu3Ev::Pad20),
+            19 => Some(Wu3Ev::Pad19),
+            18 => Some(Wu3Ev::Pad18),
+            17 => Some(Wu3Ev::Pad17),
+            16 => Some(Wu3Ev::Pad16),
+            15 => Some(Wu3Ev::Pad15),
+            14 => Some(Wu3Ev::Pad14),
+            13 => Some(Wu3Ev::Pad13),
+            12 => Some(Wu3Ev::Pad12),
+            11 => Some(Wu3Ev::Pad11),
+            10 => Some(Wu3Ev::Pad10),
+            9 => Some(Wu3Ev::Pad9),
+            8 => Some(Wu3Ev::Pad8),
+            7 => Some(Wu3Ev::Pad7),
+            6 => Some(Wu3Ev::Pad6),
+            5 => Some(Wu3Ev::Pad5),
+            4 => Some(Wu3Ev::Pad4),
+            3 => Some(Wu3Ev::Pad3),
+            2 => Some(Wu3Ev::Pad2),
+            1 => Some(Wu3Ev::Pad1),
+            0 => Some(Wu3Ev::Pad0),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `NONE`"]
+    #[doc = "No event, always low"]
     #[inline(always)]
     pub fn is_none(&self) -> bool {
-        *self == WU3_EV_A::NONE
+        *self == Wu3Ev::None
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPB_ASYNC_N`"]
+    #[doc = "Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"]
     #[inline(always)]
     pub fn is_aux_compb_async_n(&self) -> bool {
-        *self == WU3_EV_A::AUX_COMPB_ASYNC_N
+        *self == Wu3Ev::AuxCompbAsyncN
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPB_ASYNC`"]
+    #[doc = "Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX"]
     #[inline(always)]
     pub fn is_aux_compb_async(&self) -> bool {
-        *self == WU3_EV_A::AUX_COMPB_ASYNC
+        *self == Wu3Ev::AuxCompbAsync
     }
-    #[doc = "Checks if the value of the field is `BATMON_VOLT`"]
+    #[doc = "BATMON voltage update event"]
     #[inline(always)]
     pub fn is_batmon_volt(&self) -> bool {
-        *self == WU3_EV_A::BATMON_VOLT
+        *self == Wu3Ev::BatmonVolt
     }
-    #[doc = "Checks if the value of the field is `BATMON_TEMP`"]
+    #[doc = "BATMON temperature update event"]
     #[inline(always)]
     pub fn is_batmon_temp(&self) -> bool {
-        *self == WU3_EV_A::BATMON_TEMP
+        *self == Wu3Ev::BatmonTemp
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER1_EV`"]
+    #[doc = "AUX Timer 1 Event"]
     #[inline(always)]
     pub fn is_aux_timer1_ev(&self) -> bool {
-        *self == WU3_EV_A::AUX_TIMER1_EV
+        *self == Wu3Ev::AuxTimer1Ev
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER0_EV`"]
+    #[doc = "AUX Timer 0 Event"]
     #[inline(always)]
     pub fn is_aux_timer0_ev(&self) -> bool {
-        *self == WU3_EV_A::AUX_TIMER0_EV
+        *self == Wu3Ev::AuxTimer0Ev
     }
-    #[doc = "Checks if the value of the field is `AUX_TDC_DONE`"]
+    #[doc = "TDC completed or timed out"]
     #[inline(always)]
     pub fn is_aux_tdc_done(&self) -> bool {
-        *self == WU3_EV_A::AUX_TDC_DONE
+        *self == Wu3Ev::AuxTdcDone
     }
-    #[doc = "Checks if the value of the field is `AUX_ADC_DONE`"]
+    #[doc = "ADC conversion completed"]
     #[inline(always)]
     pub fn is_aux_adc_done(&self) -> bool {
-        *self == WU3_EV_A::AUX_ADC_DONE
+        *self == Wu3Ev::AuxAdcDone
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPB`"]
+    #[doc = "Comparator B triggered"]
     #[inline(always)]
     pub fn is_aux_compb(&self) -> bool {
-        *self == WU3_EV_A::AUX_COMPB
+        *self == Wu3Ev::AuxCompb
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPA`"]
+    #[doc = "Comparator A triggered"]
     #[inline(always)]
     pub fn is_aux_compa(&self) -> bool {
-        *self == WU3_EV_A::AUX_COMPA
+        *self == Wu3Ev::AuxCompa
     }
-    #[doc = "Checks if the value of the field is `AUX_SWEV2`"]
+    #[doc = "AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2"]
     #[inline(always)]
     pub fn is_aux_swev2(&self) -> bool {
-        *self == WU3_EV_A::AUX_SWEV2
+        *self == Wu3Ev::AuxSwev2
     }
-    #[doc = "Checks if the value of the field is `AUX_SWEV1`"]
+    #[doc = "AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1"]
     #[inline(always)]
     pub fn is_aux_swev1(&self) -> bool {
-        *self == WU3_EV_A::AUX_SWEV1
+        *self == Wu3Ev::AuxSwev1
     }
-    #[doc = "Checks if the value of the field is `AUX_SWEV0`"]
+    #[doc = "AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0"]
     #[inline(always)]
     pub fn is_aux_swev0(&self) -> bool {
-        *self == WU3_EV_A::AUX_SWEV0
+        *self == Wu3Ev::AuxSwev0
     }
-    #[doc = "Checks if the value of the field is `JTAG`"]
+    #[doc = "JTAG generated event"]
     #[inline(always)]
     pub fn is_jtag(&self) -> bool {
-        *self == WU3_EV_A::JTAG
+        *self == Wu3Ev::Jtag
     }
-    #[doc = "Checks if the value of the field is `RTC_UPD`"]
+    #[doc = "RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)"]
     #[inline(always)]
     pub fn is_rtc_upd(&self) -> bool {
-        *self == WU3_EV_A::RTC_UPD
+        *self == Wu3Ev::RtcUpd
     }
-    #[doc = "Checks if the value of the field is `RTC_COMB_DLY`"]
+    #[doc = "RTC combined delayed event"]
     #[inline(always)]
     pub fn is_rtc_comb_dly(&self) -> bool {
-        *self == WU3_EV_A::RTC_COMB_DLY
+        *self == Wu3Ev::RtcCombDly
     }
-    #[doc = "Checks if the value of the field is `RTC_CH2_DLY`"]
+    #[doc = "RTC channel 2 - delayed event"]
     #[inline(always)]
     pub fn is_rtc_ch2_dly(&self) -> bool {
-        *self == WU3_EV_A::RTC_CH2_DLY
+        *self == Wu3Ev::RtcCh2Dly
     }
-    #[doc = "Checks if the value of the field is `RTC_CH1_DLY`"]
+    #[doc = "RTC channel 1 - delayed event"]
     #[inline(always)]
     pub fn is_rtc_ch1_dly(&self) -> bool {
-        *self == WU3_EV_A::RTC_CH1_DLY
+        *self == Wu3Ev::RtcCh1Dly
     }
-    #[doc = "Checks if the value of the field is `RTC_CH0_DLY`"]
+    #[doc = "RTC channel 0 - delayed event"]
     #[inline(always)]
     pub fn is_rtc_ch0_dly(&self) -> bool {
-        *self == WU3_EV_A::RTC_CH0_DLY
+        *self == Wu3Ev::RtcCh0Dly
     }
-    #[doc = "Checks if the value of the field is `RTC_CH2`"]
+    #[doc = "RTC channel 2 event"]
     #[inline(always)]
     pub fn is_rtc_ch2(&self) -> bool {
-        *self == WU3_EV_A::RTC_CH2
+        *self == Wu3Ev::RtcCh2
     }
-    #[doc = "Checks if the value of the field is `RTC_CH1`"]
+    #[doc = "RTC channel 1 event"]
     #[inline(always)]
     pub fn is_rtc_ch1(&self) -> bool {
-        *self == WU3_EV_A::RTC_CH1
+        *self == Wu3Ev::RtcCh1
     }
-    #[doc = "Checks if the value of the field is `RTC_CH0`"]
+    #[doc = "RTC channel 0 event"]
     #[inline(always)]
     pub fn is_rtc_ch0(&self) -> bool {
-        *self == WU3_EV_A::RTC_CH0
+        *self == Wu3Ev::RtcCh0
     }
-    #[doc = "Checks if the value of the field is `PAD`"]
+    #[doc = "Edge detect on any PAD"]
     #[inline(always)]
     pub fn is_pad(&self) -> bool {
-        *self == WU3_EV_A::PAD
+        *self == Wu3Ev::Pad
     }
-    #[doc = "Checks if the value of the field is `PAD31`"]
+    #[doc = "Edge detect on PAD31"]
     #[inline(always)]
     pub fn is_pad31(&self) -> bool {
-        *self == WU3_EV_A::PAD31
+        *self == Wu3Ev::Pad31
     }
-    #[doc = "Checks if the value of the field is `PAD30`"]
+    #[doc = "Edge detect on PAD30"]
     #[inline(always)]
     pub fn is_pad30(&self) -> bool {
-        *self == WU3_EV_A::PAD30
+        *self == Wu3Ev::Pad30
     }
-    #[doc = "Checks if the value of the field is `PAD29`"]
+    #[doc = "Edge detect on PAD29"]
     #[inline(always)]
     pub fn is_pad29(&self) -> bool {
-        *self == WU3_EV_A::PAD29
+        *self == Wu3Ev::Pad29
     }
-    #[doc = "Checks if the value of the field is `PAD28`"]
+    #[doc = "Edge detect on PAD28"]
     #[inline(always)]
     pub fn is_pad28(&self) -> bool {
-        *self == WU3_EV_A::PAD28
+        *self == Wu3Ev::Pad28
     }
-    #[doc = "Checks if the value of the field is `PAD27`"]
+    #[doc = "Edge detect on PAD27"]
     #[inline(always)]
     pub fn is_pad27(&self) -> bool {
-        *self == WU3_EV_A::PAD27
+        *self == Wu3Ev::Pad27
     }
-    #[doc = "Checks if the value of the field is `PAD26`"]
+    #[doc = "Edge detect on PAD26"]
     #[inline(always)]
     pub fn is_pad26(&self) -> bool {
-        *self == WU3_EV_A::PAD26
+        *self == Wu3Ev::Pad26
     }
-    #[doc = "Checks if the value of the field is `PAD25`"]
+    #[doc = "Edge detect on PAD25"]
     #[inline(always)]
     pub fn is_pad25(&self) -> bool {
-        *self == WU3_EV_A::PAD25
+        *self == Wu3Ev::Pad25
     }
-    #[doc = "Checks if the value of the field is `PAD24`"]
+    #[doc = "Edge detect on PAD24"]
     #[inline(always)]
     pub fn is_pad24(&self) -> bool {
-        *self == WU3_EV_A::PAD24
+        *self == Wu3Ev::Pad24
     }
-    #[doc = "Checks if the value of the field is `PAD23`"]
+    #[doc = "Edge detect on PAD23"]
     #[inline(always)]
     pub fn is_pad23(&self) -> bool {
-        *self == WU3_EV_A::PAD23
+        *self == Wu3Ev::Pad23
     }
-    #[doc = "Checks if the value of the field is `PAD22`"]
+    #[doc = "Edge detect on PAD22"]
     #[inline(always)]
     pub fn is_pad22(&self) -> bool {
-        *self == WU3_EV_A::PAD22
+        *self == Wu3Ev::Pad22
     }
-    #[doc = "Checks if the value of the field is `PAD21`"]
+    #[doc = "Edge detect on PAD21"]
     #[inline(always)]
     pub fn is_pad21(&self) -> bool {
-        *self == WU3_EV_A::PAD21
+        *self == Wu3Ev::Pad21
     }
-    #[doc = "Checks if the value of the field is `PAD20`"]
+    #[doc = "Edge detect on PAD20"]
     #[inline(always)]
     pub fn is_pad20(&self) -> bool {
-        *self == WU3_EV_A::PAD20
+        *self == Wu3Ev::Pad20
     }
-    #[doc = "Checks if the value of the field is `PAD19`"]
+    #[doc = "Edge detect on PAD19"]
     #[inline(always)]
     pub fn is_pad19(&self) -> bool {
-        *self == WU3_EV_A::PAD19
+        *self == Wu3Ev::Pad19
     }
-    #[doc = "Checks if the value of the field is `PAD18`"]
+    #[doc = "Edge detect on PAD18"]
     #[inline(always)]
     pub fn is_pad18(&self) -> bool {
-        *self == WU3_EV_A::PAD18
+        *self == Wu3Ev::Pad18
     }
-    #[doc = "Checks if the value of the field is `PAD17`"]
+    #[doc = "Edge detect on PAD17"]
     #[inline(always)]
     pub fn is_pad17(&self) -> bool {
-        *self == WU3_EV_A::PAD17
+        *self == Wu3Ev::Pad17
     }
-    #[doc = "Checks if the value of the field is `PAD16`"]
+    #[doc = "Edge detect on PAD16"]
     #[inline(always)]
     pub fn is_pad16(&self) -> bool {
-        *self == WU3_EV_A::PAD16
+        *self == Wu3Ev::Pad16
     }
-    #[doc = "Checks if the value of the field is `PAD15`"]
+    #[doc = "Edge detect on PAD15"]
     #[inline(always)]
     pub fn is_pad15(&self) -> bool {
-        *self == WU3_EV_A::PAD15
+        *self == Wu3Ev::Pad15
     }
-    #[doc = "Checks if the value of the field is `PAD14`"]
+    #[doc = "Edge detect on PAD14"]
     #[inline(always)]
     pub fn is_pad14(&self) -> bool {
-        *self == WU3_EV_A::PAD14
+        *self == Wu3Ev::Pad14
     }
-    #[doc = "Checks if the value of the field is `PAD13`"]
+    #[doc = "Edge detect on PAD13"]
     #[inline(always)]
     pub fn is_pad13(&self) -> bool {
-        *self == WU3_EV_A::PAD13
+        *self == Wu3Ev::Pad13
     }
-    #[doc = "Checks if the value of the field is `PAD12`"]
+    #[doc = "Edge detect on PAD12"]
     #[inline(always)]
     pub fn is_pad12(&self) -> bool {
-        *self == WU3_EV_A::PAD12
+        *self == Wu3Ev::Pad12
     }
-    #[doc = "Checks if the value of the field is `PAD11`"]
+    #[doc = "Edge detect on PAD11"]
     #[inline(always)]
     pub fn is_pad11(&self) -> bool {
-        *self == WU3_EV_A::PAD11
+        *self == Wu3Ev::Pad11
     }
-    #[doc = "Checks if the value of the field is `PAD10`"]
+    #[doc = "Edge detect on PAD10"]
     #[inline(always)]
     pub fn is_pad10(&self) -> bool {
-        *self == WU3_EV_A::PAD10
+        *self == Wu3Ev::Pad10
     }
-    #[doc = "Checks if the value of the field is `PAD9`"]
+    #[doc = "Edge detect on PAD9"]
     #[inline(always)]
     pub fn is_pad9(&self) -> bool {
-        *self == WU3_EV_A::PAD9
+        *self == Wu3Ev::Pad9
     }
-    #[doc = "Checks if the value of the field is `PAD8`"]
+    #[doc = "Edge detect on PAD8"]
     #[inline(always)]
     pub fn is_pad8(&self) -> bool {
-        *self == WU3_EV_A::PAD8
+        *self == Wu3Ev::Pad8
     }
-    #[doc = "Checks if the value of the field is `PAD7`"]
+    #[doc = "Edge detect on PAD7"]
     #[inline(always)]
     pub fn is_pad7(&self) -> bool {
-        *self == WU3_EV_A::PAD7
+        *self == Wu3Ev::Pad7
     }
-    #[doc = "Checks if the value of the field is `PAD6`"]
+    #[doc = "Edge detect on PAD6"]
     #[inline(always)]
     pub fn is_pad6(&self) -> bool {
-        *self == WU3_EV_A::PAD6
+        *self == Wu3Ev::Pad6
     }
-    #[doc = "Checks if the value of the field is `PAD5`"]
+    #[doc = "Edge detect on PAD5"]
     #[inline(always)]
     pub fn is_pad5(&self) -> bool {
-        *self == WU3_EV_A::PAD5
+        *self == Wu3Ev::Pad5
     }
-    #[doc = "Checks if the value of the field is `PAD4`"]
+    #[doc = "Edge detect on PAD4"]
     #[inline(always)]
     pub fn is_pad4(&self) -> bool {
-        *self == WU3_EV_A::PAD4
+        *self == Wu3Ev::Pad4
     }
-    #[doc = "Checks if the value of the field is `PAD3`"]
+    #[doc = "Edge detect on PAD3"]
     #[inline(always)]
     pub fn is_pad3(&self) -> bool {
-        *self == WU3_EV_A::PAD3
+        *self == Wu3Ev::Pad3
     }
-    #[doc = "Checks if the value of the field is `PAD2`"]
+    #[doc = "Edge detect on PAD2"]
     #[inline(always)]
     pub fn is_pad2(&self) -> bool {
-        *self == WU3_EV_A::PAD2
+        *self == Wu3Ev::Pad2
     }
-    #[doc = "Checks if the value of the field is `PAD1`"]
+    #[doc = "Edge detect on PAD1"]
     #[inline(always)]
     pub fn is_pad1(&self) -> bool {
-        *self == WU3_EV_A::PAD1
+        *self == Wu3Ev::Pad1
     }
-    #[doc = "Checks if the value of the field is `PAD0`"]
+    #[doc = "Edge detect on PAD0"]
     #[inline(always)]
     pub fn is_pad0(&self) -> bool {
-        *self == WU3_EV_A::PAD0
+        *self == Wu3Ev::Pad0
     }
 }
 #[doc = "Field `WU3_EV` writer - 29:24\\]
 MCU Wakeup Source #3 AON Event Source selecting 1 of 4 events routed to AON_WUC for waking up the MCU domain from Power Off or Power Down. Note:"]
-pub type WU3_EV_W<'a, const O: u8> = crate::FieldWriter<'a, u32, MCUWUSEL_SPEC, u8, WU3_EV_A, 6, O>;
-impl<'a, const O: u8> WU3_EV_W<'a, O> {
+pub type Wu3EvW<'a, REG> = crate::FieldWriter<'a, REG, 6, Wu3Ev>;
+impl<'a, REG> Wu3EvW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "No event, always low"]
     #[inline(always)]
-    pub fn none(self) -> &'a mut W {
-        self.variant(WU3_EV_A::NONE)
+    pub fn none(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::None)
     }
     #[doc = "Comparator B not triggered. Asynchronous signal directly from AUX Comparator B (inverted) as opposed to AUX_COMPB which is synchronized in AUX"]
     #[inline(always)]
-    pub fn aux_compb_async_n(self) -> &'a mut W {
-        self.variant(WU3_EV_A::AUX_COMPB_ASYNC_N)
+    pub fn aux_compb_async_n(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::AuxCompbAsyncN)
     }
     #[doc = "Comparator B triggered. Asynchronous signal directly from the AUX Comparator B as opposed to AUX_COMPB which is synchronized in AUX"]
     #[inline(always)]
-    pub fn aux_compb_async(self) -> &'a mut W {
-        self.variant(WU3_EV_A::AUX_COMPB_ASYNC)
+    pub fn aux_compb_async(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::AuxCompbAsync)
     }
     #[doc = "BATMON voltage update event"]
     #[inline(always)]
-    pub fn batmon_volt(self) -> &'a mut W {
-        self.variant(WU3_EV_A::BATMON_VOLT)
+    pub fn batmon_volt(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::BatmonVolt)
     }
     #[doc = "BATMON temperature update event"]
     #[inline(always)]
-    pub fn batmon_temp(self) -> &'a mut W {
-        self.variant(WU3_EV_A::BATMON_TEMP)
+    pub fn batmon_temp(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::BatmonTemp)
     }
     #[doc = "AUX Timer 1 Event"]
     #[inline(always)]
-    pub fn aux_timer1_ev(self) -> &'a mut W {
-        self.variant(WU3_EV_A::AUX_TIMER1_EV)
+    pub fn aux_timer1_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::AuxTimer1Ev)
     }
     #[doc = "AUX Timer 0 Event"]
     #[inline(always)]
-    pub fn aux_timer0_ev(self) -> &'a mut W {
-        self.variant(WU3_EV_A::AUX_TIMER0_EV)
+    pub fn aux_timer0_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::AuxTimer0Ev)
     }
     #[doc = "TDC completed or timed out"]
     #[inline(always)]
-    pub fn aux_tdc_done(self) -> &'a mut W {
-        self.variant(WU3_EV_A::AUX_TDC_DONE)
+    pub fn aux_tdc_done(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::AuxTdcDone)
     }
     #[doc = "ADC conversion completed"]
     #[inline(always)]
-    pub fn aux_adc_done(self) -> &'a mut W {
-        self.variant(WU3_EV_A::AUX_ADC_DONE)
+    pub fn aux_adc_done(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::AuxAdcDone)
     }
     #[doc = "Comparator B triggered"]
     #[inline(always)]
-    pub fn aux_compb(self) -> &'a mut W {
-        self.variant(WU3_EV_A::AUX_COMPB)
+    pub fn aux_compb(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::AuxCompb)
     }
     #[doc = "Comparator A triggered"]
     #[inline(always)]
-    pub fn aux_compa(self) -> &'a mut W {
-        self.variant(WU3_EV_A::AUX_COMPA)
+    pub fn aux_compa(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::AuxCompa)
     }
     #[doc = "AUX Software triggered event #2. Triggered by AUX_EVCTL:SWEVSET.SWEV2"]
     #[inline(always)]
-    pub fn aux_swev2(self) -> &'a mut W {
-        self.variant(WU3_EV_A::AUX_SWEV2)
+    pub fn aux_swev2(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::AuxSwev2)
     }
     #[doc = "AUX Software triggered event #1. Triggered by AUX_EVCTL:SWEVSET.SWEV1"]
     #[inline(always)]
-    pub fn aux_swev1(self) -> &'a mut W {
-        self.variant(WU3_EV_A::AUX_SWEV1)
+    pub fn aux_swev1(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::AuxSwev1)
     }
     #[doc = "AUX Software triggered event #0. Triggered by AUX_EVCTL:SWEVSET.SWEV0"]
     #[inline(always)]
-    pub fn aux_swev0(self) -> &'a mut W {
-        self.variant(WU3_EV_A::AUX_SWEV0)
+    pub fn aux_swev0(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::AuxSwev0)
     }
     #[doc = "JTAG generated event"]
     #[inline(always)]
-    pub fn jtag(self) -> &'a mut W {
-        self.variant(WU3_EV_A::JTAG)
+    pub fn jtag(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Jtag)
     }
     #[doc = "RTC Update Tick (16 kHz signal, i.e. event line toggles value every 32 kHz clock period)"]
     #[inline(always)]
-    pub fn rtc_upd(self) -> &'a mut W {
-        self.variant(WU3_EV_A::RTC_UPD)
+    pub fn rtc_upd(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::RtcUpd)
     }
     #[doc = "RTC combined delayed event"]
     #[inline(always)]
-    pub fn rtc_comb_dly(self) -> &'a mut W {
-        self.variant(WU3_EV_A::RTC_COMB_DLY)
+    pub fn rtc_comb_dly(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::RtcCombDly)
     }
     #[doc = "RTC channel 2 - delayed event"]
     #[inline(always)]
-    pub fn rtc_ch2_dly(self) -> &'a mut W {
-        self.variant(WU3_EV_A::RTC_CH2_DLY)
+    pub fn rtc_ch2_dly(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::RtcCh2Dly)
     }
     #[doc = "RTC channel 1 - delayed event"]
     #[inline(always)]
-    pub fn rtc_ch1_dly(self) -> &'a mut W {
-        self.variant(WU3_EV_A::RTC_CH1_DLY)
+    pub fn rtc_ch1_dly(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::RtcCh1Dly)
     }
     #[doc = "RTC channel 0 - delayed event"]
     #[inline(always)]
-    pub fn rtc_ch0_dly(self) -> &'a mut W {
-        self.variant(WU3_EV_A::RTC_CH0_DLY)
+    pub fn rtc_ch0_dly(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::RtcCh0Dly)
     }
     #[doc = "RTC channel 2 event"]
     #[inline(always)]
-    pub fn rtc_ch2(self) -> &'a mut W {
-        self.variant(WU3_EV_A::RTC_CH2)
+    pub fn rtc_ch2(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::RtcCh2)
     }
     #[doc = "RTC channel 1 event"]
     #[inline(always)]
-    pub fn rtc_ch1(self) -> &'a mut W {
-        self.variant(WU3_EV_A::RTC_CH1)
+    pub fn rtc_ch1(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::RtcCh1)
     }
     #[doc = "RTC channel 0 event"]
     #[inline(always)]
-    pub fn rtc_ch0(self) -> &'a mut W {
-        self.variant(WU3_EV_A::RTC_CH0)
+    pub fn rtc_ch0(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::RtcCh0)
     }
     #[doc = "Edge detect on any PAD"]
     #[inline(always)]
-    pub fn pad(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD)
+    pub fn pad(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad)
     }
     #[doc = "Edge detect on PAD31"]
     #[inline(always)]
-    pub fn pad31(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD31)
+    pub fn pad31(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad31)
     }
     #[doc = "Edge detect on PAD30"]
     #[inline(always)]
-    pub fn pad30(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD30)
+    pub fn pad30(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad30)
     }
     #[doc = "Edge detect on PAD29"]
     #[inline(always)]
-    pub fn pad29(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD29)
+    pub fn pad29(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad29)
     }
     #[doc = "Edge detect on PAD28"]
     #[inline(always)]
-    pub fn pad28(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD28)
+    pub fn pad28(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad28)
     }
     #[doc = "Edge detect on PAD27"]
     #[inline(always)]
-    pub fn pad27(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD27)
+    pub fn pad27(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad27)
     }
     #[doc = "Edge detect on PAD26"]
     #[inline(always)]
-    pub fn pad26(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD26)
+    pub fn pad26(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad26)
     }
     #[doc = "Edge detect on PAD25"]
     #[inline(always)]
-    pub fn pad25(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD25)
+    pub fn pad25(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad25)
     }
     #[doc = "Edge detect on PAD24"]
     #[inline(always)]
-    pub fn pad24(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD24)
+    pub fn pad24(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad24)
     }
     #[doc = "Edge detect on PAD23"]
     #[inline(always)]
-    pub fn pad23(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD23)
+    pub fn pad23(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad23)
     }
     #[doc = "Edge detect on PAD22"]
     #[inline(always)]
-    pub fn pad22(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD22)
+    pub fn pad22(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad22)
     }
     #[doc = "Edge detect on PAD21"]
     #[inline(always)]
-    pub fn pad21(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD21)
+    pub fn pad21(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad21)
     }
     #[doc = "Edge detect on PAD20"]
     #[inline(always)]
-    pub fn pad20(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD20)
+    pub fn pad20(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad20)
     }
     #[doc = "Edge detect on PAD19"]
     #[inline(always)]
-    pub fn pad19(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD19)
+    pub fn pad19(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad19)
     }
     #[doc = "Edge detect on PAD18"]
     #[inline(always)]
-    pub fn pad18(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD18)
+    pub fn pad18(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad18)
     }
     #[doc = "Edge detect on PAD17"]
     #[inline(always)]
-    pub fn pad17(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD17)
+    pub fn pad17(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad17)
     }
     #[doc = "Edge detect on PAD16"]
     #[inline(always)]
-    pub fn pad16(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD16)
+    pub fn pad16(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad16)
     }
     #[doc = "Edge detect on PAD15"]
     #[inline(always)]
-    pub fn pad15(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD15)
+    pub fn pad15(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad15)
     }
     #[doc = "Edge detect on PAD14"]
     #[inline(always)]
-    pub fn pad14(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD14)
+    pub fn pad14(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad14)
     }
     #[doc = "Edge detect on PAD13"]
     #[inline(always)]
-    pub fn pad13(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD13)
+    pub fn pad13(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad13)
     }
     #[doc = "Edge detect on PAD12"]
     #[inline(always)]
-    pub fn pad12(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD12)
+    pub fn pad12(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad12)
     }
     #[doc = "Edge detect on PAD11"]
     #[inline(always)]
-    pub fn pad11(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD11)
+    pub fn pad11(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad11)
     }
     #[doc = "Edge detect on PAD10"]
     #[inline(always)]
-    pub fn pad10(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD10)
+    pub fn pad10(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad10)
     }
     #[doc = "Edge detect on PAD9"]
     #[inline(always)]
-    pub fn pad9(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD9)
+    pub fn pad9(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad9)
     }
     #[doc = "Edge detect on PAD8"]
     #[inline(always)]
-    pub fn pad8(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD8)
+    pub fn pad8(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad8)
     }
     #[doc = "Edge detect on PAD7"]
     #[inline(always)]
-    pub fn pad7(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD7)
+    pub fn pad7(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad7)
     }
     #[doc = "Edge detect on PAD6"]
     #[inline(always)]
-    pub fn pad6(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD6)
+    pub fn pad6(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad6)
     }
     #[doc = "Edge detect on PAD5"]
     #[inline(always)]
-    pub fn pad5(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD5)
+    pub fn pad5(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad5)
     }
     #[doc = "Edge detect on PAD4"]
     #[inline(always)]
-    pub fn pad4(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD4)
+    pub fn pad4(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad4)
     }
     #[doc = "Edge detect on PAD3"]
     #[inline(always)]
-    pub fn pad3(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD3)
+    pub fn pad3(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad3)
     }
     #[doc = "Edge detect on PAD2"]
     #[inline(always)]
-    pub fn pad2(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD2)
+    pub fn pad2(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad2)
     }
     #[doc = "Edge detect on PAD1"]
     #[inline(always)]
-    pub fn pad1(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD1)
+    pub fn pad1(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad1)
     }
     #[doc = "Edge detect on PAD0"]
     #[inline(always)]
-    pub fn pad0(self) -> &'a mut W {
-        self.variant(WU3_EV_A::PAD0)
+    pub fn pad0(self) -> &'a mut crate::W<REG> {
+        self.variant(Wu3Ev::Pad0)
     }
 }
 #[doc = "Field `RESERVED30` reader - 31:30\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED30_R = crate::FieldReader<u8, u8>;
+pub type Reserved30R = crate::FieldReader;
 #[doc = "Field `RESERVED30` writer - 31:30\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED30_W<'a, const O: u8> = crate::FieldWriter<'a, u32, MCUWUSEL_SPEC, u8, u8, 2, O>;
+pub type Reserved30W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 impl R {
     #[doc = "Bits 0:5 - 5:0\\]
 MCU Wakeup Source #0 AON Event Source selecting 1 of 4 events routed to AON_WUC for waking up the MCU domain from Power Off or Power Down. Note:"]
     #[inline(always)]
-    pub fn wu0_ev(&self) -> WU0_EV_R {
-        WU0_EV_R::new((self.bits & 0x3f) as u8)
+    pub fn wu0_ev(&self) -> Wu0EvR {
+        Wu0EvR::new((self.bits & 0x3f) as u8)
     }
     #[doc = "Bits 6:7 - 7:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved6(&self) -> RESERVED6_R {
-        RESERVED6_R::new(((self.bits >> 6) & 3) as u8)
+    pub fn reserved6(&self) -> Reserved6R {
+        Reserved6R::new(((self.bits >> 6) & 3) as u8)
     }
     #[doc = "Bits 8:13 - 13:8\\]
 MCU Wakeup Source #1 AON Event Source selecting 1 of 4 events routed to AON_WUC for waking up the MCU domain from Power Off or Power Down. Note:"]
     #[inline(always)]
-    pub fn wu1_ev(&self) -> WU1_EV_R {
-        WU1_EV_R::new(((self.bits >> 8) & 0x3f) as u8)
+    pub fn wu1_ev(&self) -> Wu1EvR {
+        Wu1EvR::new(((self.bits >> 8) & 0x3f) as u8)
     }
     #[doc = "Bits 14:15 - 15:14\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved14(&self) -> RESERVED14_R {
-        RESERVED14_R::new(((self.bits >> 14) & 3) as u8)
+    pub fn reserved14(&self) -> Reserved14R {
+        Reserved14R::new(((self.bits >> 14) & 3) as u8)
     }
     #[doc = "Bits 16:21 - 21:16\\]
 MCU Wakeup Source #2 AON Event Source selecting 1 of 4 events routed to AON_WUC for waking up the MCU domain from Power Off or Power Down. Note:"]
     #[inline(always)]
-    pub fn wu2_ev(&self) -> WU2_EV_R {
-        WU2_EV_R::new(((self.bits >> 16) & 0x3f) as u8)
+    pub fn wu2_ev(&self) -> Wu2EvR {
+        Wu2EvR::new(((self.bits >> 16) & 0x3f) as u8)
     }
     #[doc = "Bits 22:23 - 23:22\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved22(&self) -> RESERVED22_R {
-        RESERVED22_R::new(((self.bits >> 22) & 3) as u8)
+    pub fn reserved22(&self) -> Reserved22R {
+        Reserved22R::new(((self.bits >> 22) & 3) as u8)
     }
     #[doc = "Bits 24:29 - 29:24\\]
 MCU Wakeup Source #3 AON Event Source selecting 1 of 4 events routed to AON_WUC for waking up the MCU domain from Power Off or Power Down. Note:"]
     #[inline(always)]
-    pub fn wu3_ev(&self) -> WU3_EV_R {
-        WU3_EV_R::new(((self.bits >> 24) & 0x3f) as u8)
+    pub fn wu3_ev(&self) -> Wu3EvR {
+        Wu3EvR::new(((self.bits >> 24) & 0x3f) as u8)
     }
     #[doc = "Bits 30:31 - 31:30\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved30(&self) -> RESERVED30_R {
-        RESERVED30_R::new(((self.bits >> 30) & 3) as u8)
+    pub fn reserved30(&self) -> Reserved30R {
+        Reserved30R::new(((self.bits >> 30) & 3) as u8)
     }
 }
 impl W {
@@ -3141,81 +3141,73 @@ impl W {
 MCU Wakeup Source #0 AON Event Source selecting 1 of 4 events routed to AON_WUC for waking up the MCU domain from Power Off or Power Down. Note:"]
     #[inline(always)]
     #[must_use]
-    pub fn wu0_ev(&mut self) -> WU0_EV_W<0> {
-        WU0_EV_W::new(self)
+    pub fn wu0_ev(&mut self) -> Wu0EvW<McuwuselSpec> {
+        Wu0EvW::new(self, 0)
     }
     #[doc = "Bits 6:7 - 7:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved6(&mut self) -> RESERVED6_W<6> {
-        RESERVED6_W::new(self)
+    pub fn reserved6(&mut self) -> Reserved6W<McuwuselSpec> {
+        Reserved6W::new(self, 6)
     }
     #[doc = "Bits 8:13 - 13:8\\]
 MCU Wakeup Source #1 AON Event Source selecting 1 of 4 events routed to AON_WUC for waking up the MCU domain from Power Off or Power Down. Note:"]
     #[inline(always)]
     #[must_use]
-    pub fn wu1_ev(&mut self) -> WU1_EV_W<8> {
-        WU1_EV_W::new(self)
+    pub fn wu1_ev(&mut self) -> Wu1EvW<McuwuselSpec> {
+        Wu1EvW::new(self, 8)
     }
     #[doc = "Bits 14:15 - 15:14\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved14(&mut self) -> RESERVED14_W<14> {
-        RESERVED14_W::new(self)
+    pub fn reserved14(&mut self) -> Reserved14W<McuwuselSpec> {
+        Reserved14W::new(self, 14)
     }
     #[doc = "Bits 16:21 - 21:16\\]
 MCU Wakeup Source #2 AON Event Source selecting 1 of 4 events routed to AON_WUC for waking up the MCU domain from Power Off or Power Down. Note:"]
     #[inline(always)]
     #[must_use]
-    pub fn wu2_ev(&mut self) -> WU2_EV_W<16> {
-        WU2_EV_W::new(self)
+    pub fn wu2_ev(&mut self) -> Wu2EvW<McuwuselSpec> {
+        Wu2EvW::new(self, 16)
     }
     #[doc = "Bits 22:23 - 23:22\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved22(&mut self) -> RESERVED22_W<22> {
-        RESERVED22_W::new(self)
+    pub fn reserved22(&mut self) -> Reserved22W<McuwuselSpec> {
+        Reserved22W::new(self, 22)
     }
     #[doc = "Bits 24:29 - 29:24\\]
 MCU Wakeup Source #3 AON Event Source selecting 1 of 4 events routed to AON_WUC for waking up the MCU domain from Power Off or Power Down. Note:"]
     #[inline(always)]
     #[must_use]
-    pub fn wu3_ev(&mut self) -> WU3_EV_W<24> {
-        WU3_EV_W::new(self)
+    pub fn wu3_ev(&mut self) -> Wu3EvW<McuwuselSpec> {
+        Wu3EvW::new(self, 24)
     }
     #[doc = "Bits 30:31 - 31:30\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved30(&mut self) -> RESERVED30_W<30> {
-        RESERVED30_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved30(&mut self) -> Reserved30W<McuwuselSpec> {
+        Reserved30W::new(self, 30)
     }
 }
-#[doc = "Wake-up Selector For MCU This register contains pointers to 4 events which are routed to AON_WUC as wakeup sources for MCU. AON_WUC will start a wakeup sequence for the MCU domain when either of the 4 selected events are asserted. A wakeup sequence will guarantee that the MCU power switches are turned on, LDO resources are available and SCLK_HF is available and selected as clock source for MCU. Note: It is recommended ( or required when AON_WUC:MCUCLK.PWR_DWN_SRC=NONE) to also setup a wakeup event here before MCU is requesting powerdown. ( PRCM requests uLDO, see conditions in PRCM:VDCTL.ULDO ) as it will speed up the wakeup procedure.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mcuwusel](index.html) module"]
-pub struct MCUWUSEL_SPEC;
-impl crate::RegisterSpec for MCUWUSEL_SPEC {
+#[doc = "Wake-up Selector For MCU This register contains pointers to 4 events which are routed to AON_WUC as wakeup sources for MCU. AON_WUC will start a wakeup sequence for the MCU domain when either of the 4 selected events are asserted. A wakeup sequence will guarantee that the MCU power switches are turned on, LDO resources are available and SCLK_HF is available and selected as clock source for MCU. Note: It is recommended ( or required when AON_WUC:MCUCLK.PWR_DWN_SRC=NONE) to also setup a wakeup event here before MCU is requesting powerdown. ( PRCM requests uLDO, see conditions in PRCM:VDCTL.ULDO ) as it will speed up the wakeup procedure.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`mcuwusel::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`mcuwusel::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct McuwuselSpec;
+impl crate::RegisterSpec for McuwuselSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [mcuwusel::R](R) reader structure"]
-impl crate::Readable for MCUWUSEL_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [mcuwusel::W](W) writer structure"]
-impl crate::Writable for MCUWUSEL_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`mcuwusel::R`](R) reader structure"]
+impl crate::Readable for McuwuselSpec {}
+#[doc = "`write(|w| ..)` method takes [`mcuwusel::W`](W) writer structure"]
+impl crate::Writable for McuwuselSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets MCUWUSEL to value 0x3f3f_3f3f"]
-impl crate::Resettable for MCUWUSEL_SPEC {
-    const RESET_VALUE: Self::Ux = 0x3f3f_3f3f;
+impl crate::Resettable for McuwuselSpec {
+    const RESET_VALUE: u32 = 0x3f3f_3f3f;
 }

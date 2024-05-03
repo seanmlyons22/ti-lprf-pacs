@@ -1,188 +1,151 @@
 #[doc = "Register `FCFG_WRAPPER` reader"]
-pub struct R(crate::R<FCFG_WRAPPER_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<FCFG_WRAPPER_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<FCFG_WRAPPER_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<FCFG_WRAPPER_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<FcfgWrapperSpec>;
 #[doc = "Register `FCFG_WRAPPER` writer"]
-pub struct W(crate::W<FCFG_WRAPPER_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<FCFG_WRAPPER_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<FCFG_WRAPPER_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<FCFG_WRAPPER_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<FcfgWrapperSpec>;
 #[doc = "Field `CPU_TYPE1` reader - 3:0\\]
 Internal. Only to be used through TI provided API."]
-pub type CPU_TYPE1_R = crate::FieldReader<u8, u8>;
+pub type CpuType1R = crate::FieldReader;
 #[doc = "Field `CPU_TYPE1` writer - 3:0\\]
 Internal. Only to be used through TI provided API."]
-pub type CPU_TYPE1_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, FCFG_WRAPPER_SPEC, u8, u8, 4, O>;
+pub type CpuType1W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `UERR` reader - 5:4\\]
 Internal. Only to be used through TI provided API."]
-pub type UERR_R = crate::FieldReader<u8, u8>;
+pub type UerrR = crate::FieldReader;
 #[doc = "Field `UERR` writer - 5:4\\]
 Internal. Only to be used through TI provided API."]
-pub type UERR_W<'a, const O: u8> = crate::FieldWriter<'a, u32, FCFG_WRAPPER_SPEC, u8, u8, 2, O>;
+pub type UerrW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `AUTO_SUSP` reader - 7:6\\]
 Internal. Only to be used through TI provided API."]
-pub type AUTO_SUSP_R = crate::FieldReader<u8, u8>;
+pub type AutoSuspR = crate::FieldReader;
 #[doc = "Field `AUTO_SUSP` writer - 7:6\\]
 Internal. Only to be used through TI provided API."]
-pub type AUTO_SUSP_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, FCFG_WRAPPER_SPEC, u8, u8, 2, O>;
+pub type AutoSuspW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `ECCA` reader - 8:8\\]
 Internal. Only to be used through TI provided API."]
-pub type ECCA_R = crate::BitReader<bool>;
+pub type EccaR = crate::BitReader;
 #[doc = "Field `ECCA` writer - 8:8\\]
 Internal. Only to be used through TI provided API."]
-pub type ECCA_W<'a, const O: u8> = crate::BitWriter<'a, u32, FCFG_WRAPPER_SPEC, bool, O>;
+pub type EccaW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `SIL3` reader - 9:9\\]
 Internal. Only to be used through TI provided API."]
-pub type SIL3_R = crate::BitReader<bool>;
+pub type Sil3R = crate::BitReader;
 #[doc = "Field `SIL3` writer - 9:9\\]
 Internal. Only to be used through TI provided API."]
-pub type SIL3_W<'a, const O: u8> = crate::BitWriter<'a, u32, FCFG_WRAPPER_SPEC, bool, O>;
+pub type Sil3W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `IFLUSH` reader - 10:10\\]
 Internal. Only to be used through TI provided API."]
-pub type IFLUSH_R = crate::BitReader<bool>;
+pub type IflushR = crate::BitReader;
 #[doc = "Field `IFLUSH` writer - 10:10\\]
 Internal. Only to be used through TI provided API."]
-pub type IFLUSH_W<'a, const O: u8> = crate::BitWriter<'a, u32, FCFG_WRAPPER_SPEC, bool, O>;
+pub type IflushW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `ROM` reader - 11:11\\]
 Internal. Only to be used through TI provided API."]
-pub type ROM_R = crate::BitReader<bool>;
+pub type RomR = crate::BitReader;
 #[doc = "Field `ROM` writer - 11:11\\]
 Internal. Only to be used through TI provided API."]
-pub type ROM_W<'a, const O: u8> = crate::BitWriter<'a, u32, FCFG_WRAPPER_SPEC, bool, O>;
+pub type RomW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `EE_IN_MAIN` reader - 15:12\\]
 Internal. Only to be used through TI provided API."]
-pub type EE_IN_MAIN_R = crate::FieldReader<u8, u8>;
+pub type EeInMainR = crate::FieldReader;
 #[doc = "Field `EE_IN_MAIN` writer - 15:12\\]
 Internal. Only to be used through TI provided API."]
-pub type EE_IN_MAIN_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, FCFG_WRAPPER_SPEC, u8, u8, 4, O>;
+pub type EeInMainW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `CPU2` reader - 19:16\\]
 Internal. Only to be used through TI provided API."]
-pub type CPU2_R = crate::FieldReader<u8, u8>;
+pub type Cpu2R = crate::FieldReader;
 #[doc = "Field `CPU2` writer - 19:16\\]
 Internal. Only to be used through TI provided API."]
-pub type CPU2_W<'a, const O: u8> = crate::FieldWriter<'a, u32, FCFG_WRAPPER_SPEC, u8, u8, 4, O>;
+pub type Cpu2W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `MEM_MAP` reader - 20:20\\]
 Internal. Only to be used through TI provided API."]
-pub type MEM_MAP_R = crate::BitReader<bool>;
+pub type MemMapR = crate::BitReader;
 #[doc = "Field `MEM_MAP` writer - 20:20\\]
 Internal. Only to be used through TI provided API."]
-pub type MEM_MAP_W<'a, const O: u8> = crate::BitWriter<'a, u32, FCFG_WRAPPER_SPEC, bool, O>;
+pub type MemMapW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED21` reader - 23:21\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED21_R = crate::FieldReader<u8, u8>;
+pub type Reserved21R = crate::FieldReader;
 #[doc = "Field `RESERVED21` writer - 23:21\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED21_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, FCFG_WRAPPER_SPEC, u8, u8, 3, O>;
+pub type Reserved21W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `FAMILY_TYPE` reader - 31:24\\]
 Internal. Only to be used through TI provided API."]
-pub type FAMILY_TYPE_R = crate::FieldReader<u8, u8>;
+pub type FamilyTypeR = crate::FieldReader;
 #[doc = "Field `FAMILY_TYPE` writer - 31:24\\]
 Internal. Only to be used through TI provided API."]
-pub type FAMILY_TYPE_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, FCFG_WRAPPER_SPEC, u8, u8, 8, O>;
+pub type FamilyTypeW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 impl R {
     #[doc = "Bits 0:3 - 3:0\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn cpu_type1(&self) -> CPU_TYPE1_R {
-        CPU_TYPE1_R::new((self.bits & 0x0f) as u8)
+    pub fn cpu_type1(&self) -> CpuType1R {
+        CpuType1R::new((self.bits & 0x0f) as u8)
     }
     #[doc = "Bits 4:5 - 5:4\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn uerr(&self) -> UERR_R {
-        UERR_R::new(((self.bits >> 4) & 3) as u8)
+    pub fn uerr(&self) -> UerrR {
+        UerrR::new(((self.bits >> 4) & 3) as u8)
     }
     #[doc = "Bits 6:7 - 7:6\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn auto_susp(&self) -> AUTO_SUSP_R {
-        AUTO_SUSP_R::new(((self.bits >> 6) & 3) as u8)
+    pub fn auto_susp(&self) -> AutoSuspR {
+        AutoSuspR::new(((self.bits >> 6) & 3) as u8)
     }
     #[doc = "Bit 8 - 8:8\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn ecca(&self) -> ECCA_R {
-        ECCA_R::new(((self.bits >> 8) & 1) != 0)
+    pub fn ecca(&self) -> EccaR {
+        EccaR::new(((self.bits >> 8) & 1) != 0)
     }
     #[doc = "Bit 9 - 9:9\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn sil3(&self) -> SIL3_R {
-        SIL3_R::new(((self.bits >> 9) & 1) != 0)
+    pub fn sil3(&self) -> Sil3R {
+        Sil3R::new(((self.bits >> 9) & 1) != 0)
     }
     #[doc = "Bit 10 - 10:10\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn iflush(&self) -> IFLUSH_R {
-        IFLUSH_R::new(((self.bits >> 10) & 1) != 0)
+    pub fn iflush(&self) -> IflushR {
+        IflushR::new(((self.bits >> 10) & 1) != 0)
     }
     #[doc = "Bit 11 - 11:11\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn rom(&self) -> ROM_R {
-        ROM_R::new(((self.bits >> 11) & 1) != 0)
+    pub fn rom(&self) -> RomR {
+        RomR::new(((self.bits >> 11) & 1) != 0)
     }
     #[doc = "Bits 12:15 - 15:12\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn ee_in_main(&self) -> EE_IN_MAIN_R {
-        EE_IN_MAIN_R::new(((self.bits >> 12) & 0x0f) as u8)
+    pub fn ee_in_main(&self) -> EeInMainR {
+        EeInMainR::new(((self.bits >> 12) & 0x0f) as u8)
     }
     #[doc = "Bits 16:19 - 19:16\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn cpu2(&self) -> CPU2_R {
-        CPU2_R::new(((self.bits >> 16) & 0x0f) as u8)
+    pub fn cpu2(&self) -> Cpu2R {
+        Cpu2R::new(((self.bits >> 16) & 0x0f) as u8)
     }
     #[doc = "Bit 20 - 20:20\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn mem_map(&self) -> MEM_MAP_R {
-        MEM_MAP_R::new(((self.bits >> 20) & 1) != 0)
+    pub fn mem_map(&self) -> MemMapR {
+        MemMapR::new(((self.bits >> 20) & 1) != 0)
     }
     #[doc = "Bits 21:23 - 23:21\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn reserved21(&self) -> RESERVED21_R {
-        RESERVED21_R::new(((self.bits >> 21) & 7) as u8)
+    pub fn reserved21(&self) -> Reserved21R {
+        Reserved21R::new(((self.bits >> 21) & 7) as u8)
     }
     #[doc = "Bits 24:31 - 31:24\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn family_type(&self) -> FAMILY_TYPE_R {
-        FAMILY_TYPE_R::new(((self.bits >> 24) & 0xff) as u8)
+    pub fn family_type(&self) -> FamilyTypeR {
+        FamilyTypeR::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
 impl W {
@@ -190,109 +153,101 @@ impl W {
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn cpu_type1(&mut self) -> CPU_TYPE1_W<0> {
-        CPU_TYPE1_W::new(self)
+    pub fn cpu_type1(&mut self) -> CpuType1W<FcfgWrapperSpec> {
+        CpuType1W::new(self, 0)
     }
     #[doc = "Bits 4:5 - 5:4\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn uerr(&mut self) -> UERR_W<4> {
-        UERR_W::new(self)
+    pub fn uerr(&mut self) -> UerrW<FcfgWrapperSpec> {
+        UerrW::new(self, 4)
     }
     #[doc = "Bits 6:7 - 7:6\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn auto_susp(&mut self) -> AUTO_SUSP_W<6> {
-        AUTO_SUSP_W::new(self)
+    pub fn auto_susp(&mut self) -> AutoSuspW<FcfgWrapperSpec> {
+        AutoSuspW::new(self, 6)
     }
     #[doc = "Bit 8 - 8:8\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn ecca(&mut self) -> ECCA_W<8> {
-        ECCA_W::new(self)
+    pub fn ecca(&mut self) -> EccaW<FcfgWrapperSpec> {
+        EccaW::new(self, 8)
     }
     #[doc = "Bit 9 - 9:9\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn sil3(&mut self) -> SIL3_W<9> {
-        SIL3_W::new(self)
+    pub fn sil3(&mut self) -> Sil3W<FcfgWrapperSpec> {
+        Sil3W::new(self, 9)
     }
     #[doc = "Bit 10 - 10:10\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn iflush(&mut self) -> IFLUSH_W<10> {
-        IFLUSH_W::new(self)
+    pub fn iflush(&mut self) -> IflushW<FcfgWrapperSpec> {
+        IflushW::new(self, 10)
     }
     #[doc = "Bit 11 - 11:11\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn rom(&mut self) -> ROM_W<11> {
-        ROM_W::new(self)
+    pub fn rom(&mut self) -> RomW<FcfgWrapperSpec> {
+        RomW::new(self, 11)
     }
     #[doc = "Bits 12:15 - 15:12\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn ee_in_main(&mut self) -> EE_IN_MAIN_W<12> {
-        EE_IN_MAIN_W::new(self)
+    pub fn ee_in_main(&mut self) -> EeInMainW<FcfgWrapperSpec> {
+        EeInMainW::new(self, 12)
     }
     #[doc = "Bits 16:19 - 19:16\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn cpu2(&mut self) -> CPU2_W<16> {
-        CPU2_W::new(self)
+    pub fn cpu2(&mut self) -> Cpu2W<FcfgWrapperSpec> {
+        Cpu2W::new(self, 16)
     }
     #[doc = "Bit 20 - 20:20\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn mem_map(&mut self) -> MEM_MAP_W<20> {
-        MEM_MAP_W::new(self)
+    pub fn mem_map(&mut self) -> MemMapW<FcfgWrapperSpec> {
+        MemMapW::new(self, 20)
     }
     #[doc = "Bits 21:23 - 23:21\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved21(&mut self) -> RESERVED21_W<21> {
-        RESERVED21_W::new(self)
+    pub fn reserved21(&mut self) -> Reserved21W<FcfgWrapperSpec> {
+        Reserved21W::new(self, 21)
     }
     #[doc = "Bits 24:31 - 31:24\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn family_type(&mut self) -> FAMILY_TYPE_W<24> {
-        FAMILY_TYPE_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn family_type(&mut self) -> FamilyTypeW<FcfgWrapperSpec> {
+        FamilyTypeW::new(self, 24)
     }
 }
-#[doc = "Internal. Only to be used through TI provided API.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fcfg_wrapper](index.html) module"]
-pub struct FCFG_WRAPPER_SPEC;
-impl crate::RegisterSpec for FCFG_WRAPPER_SPEC {
+#[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fcfg_wrapper::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fcfg_wrapper::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct FcfgWrapperSpec;
+impl crate::RegisterSpec for FcfgWrapperSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [fcfg_wrapper::R](R) reader structure"]
-impl crate::Readable for FCFG_WRAPPER_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [fcfg_wrapper::W](W) writer structure"]
-impl crate::Writable for FCFG_WRAPPER_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`fcfg_wrapper::R`](R) reader structure"]
+impl crate::Readable for FcfgWrapperSpec {}
+#[doc = "`write(|w| ..)` method takes [`fcfg_wrapper::W`](W) writer structure"]
+impl crate::Writable for FcfgWrapperSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets FCFG_WRAPPER to value 0x6000_9001"]
-impl crate::Resettable for FCFG_WRAPPER_SPEC {
-    const RESET_VALUE: Self::Ux = 0x6000_9001;
+impl crate::Resettable for FcfgWrapperSpec {
+    const RESET_VALUE: u32 = 0x6000_9001;
 }

@@ -1,529 +1,504 @@
 #[doc = "Register `RTCSEL` reader"]
-pub struct R(crate::R<RTCSEL_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<RTCSEL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<RTCSEL_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<RTCSEL_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<RtcselSpec>;
 #[doc = "Register `RTCSEL` writer"]
-pub struct W(crate::W<RTCSEL_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<RTCSEL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<RTCSEL_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<RTCSEL_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `RTC_CH1_CAPT_EV` reader - 5:0\\]
-AON Event Source id# for RTCSEL event which is fed to AON_RTC. Please refer to AON_RTC:CH1CAPT"]
-pub type RTC_CH1_CAPT_EV_R = crate::FieldReader<u8, RTC_CH1_CAPT_EV_A>;
+pub type W = crate::W<RtcselSpec>;
 #[doc = "5:0\\]
 AON Event Source id# for RTCSEL event which is fed to AON_RTC. Please refer to AON_RTC:CH1CAPT\n\nValue on reset: 63"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum RTC_CH1_CAPT_EV_A {
+pub enum RtcCh1CaptEv {
     #[doc = "63: 0"]
-    NONE = 63,
+    None = 63,
     #[doc = "56: 0"]
-    AUX_COMPB_ASYNC_N = 56,
+    AuxCompbAsyncN = 56,
     #[doc = "55: 0"]
-    AUX_COMPB_ASYNC = 55,
+    AuxCompbAsync = 55,
     #[doc = "54: 0"]
-    BATMON_VOLT = 54,
+    BatmonVolt = 54,
     #[doc = "53: 0"]
-    BATMON_TEMP = 53,
+    BatmonTemp = 53,
     #[doc = "52: 0"]
-    AUX_TIMER1_EV = 52,
+    AuxTimer1Ev = 52,
     #[doc = "51: 0"]
-    AUX_TIMER0_EV = 51,
+    AuxTimer0Ev = 51,
     #[doc = "50: 0"]
-    AUX_TDC_DONE = 50,
+    AuxTdcDone = 50,
     #[doc = "49: 0"]
-    AUX_ADC_DONE = 49,
+    AuxAdcDone = 49,
     #[doc = "48: 0"]
-    AUX_COMPB = 48,
+    AuxCompb = 48,
     #[doc = "47: 0"]
-    AUX_COMPA = 47,
+    AuxCompa = 47,
     #[doc = "46: 0"]
-    AUX_SWEV2 = 46,
+    AuxSwev2 = 46,
     #[doc = "45: 0"]
-    AUX_SWEV1 = 45,
+    AuxSwev1 = 45,
     #[doc = "44: 0"]
-    AUX_SWEV0 = 44,
+    AuxSwev0 = 44,
     #[doc = "43: 0"]
-    JTAG = 43,
+    Jtag = 43,
     #[doc = "42: 0"]
-    RTC_UPD = 42,
+    RtcUpd = 42,
     #[doc = "41: 0"]
-    RTC_COMB_DLY = 41,
+    RtcCombDly = 41,
     #[doc = "40: 0"]
-    RTC_CH2_DLY = 40,
+    RtcCh2Dly = 40,
     #[doc = "39: 0"]
-    RTC_CH1_DLY = 39,
+    RtcCh1Dly = 39,
     #[doc = "38: 0"]
-    RTC_CH0_DLY = 38,
+    RtcCh0Dly = 38,
     #[doc = "37: 0"]
-    RTC_CH2 = 37,
+    RtcCh2 = 37,
     #[doc = "36: 0"]
-    RTC_CH1 = 36,
+    RtcCh1 = 36,
     #[doc = "35: 0"]
-    RTC_CH0 = 35,
+    RtcCh0 = 35,
     #[doc = "32: 0"]
-    PAD = 32,
+    Pad = 32,
     #[doc = "9: 0"]
-    BATMON_COMBINED = 9,
+    BatmonCombined = 9,
     #[doc = "8: 0"]
-    BATMON_TEMP_LL = 8,
+    BatmonTempLl = 8,
     #[doc = "7: 0"]
-    BATMON_TEMP_UL = 7,
+    BatmonTempUl = 7,
     #[doc = "6: 0"]
-    BATMON_BATT_LL = 6,
+    BatmonBattLl = 6,
     #[doc = "5: 0"]
-    BATMON_BATT_UL = 5,
+    BatmonBattUl = 5,
     #[doc = "4: 0"]
-    AUX_TIMER2_EV3 = 4,
+    AuxTimer2Ev3 = 4,
     #[doc = "3: 0"]
-    AUX_TIMER2_EV2 = 3,
+    AuxTimer2Ev2 = 3,
     #[doc = "2: 0"]
-    AUX_TIMER2_EV1 = 2,
+    AuxTimer2Ev1 = 2,
     #[doc = "1: 0"]
-    AUX_TIMER2_EV0 = 1,
+    AuxTimer2Ev0 = 1,
     #[doc = "0: Edge detect IO event from the DIO(s) which have enabled contribution to IOEV_RTC in \\[MCU_IOC:IOCFGx.IOEV_RTC_EN\\]"]
-    IOEV_RTC = 0,
+    IoevRtc = 0,
 }
-impl From<RTC_CH1_CAPT_EV_A> for u8 {
+impl From<RtcCh1CaptEv> for u8 {
     #[inline(always)]
-    fn from(variant: RTC_CH1_CAPT_EV_A) -> Self {
+    fn from(variant: RtcCh1CaptEv) -> Self {
         variant as _
     }
 }
-impl RTC_CH1_CAPT_EV_R {
+impl crate::FieldSpec for RtcCh1CaptEv {
+    type Ux = u8;
+}
+impl crate::IsEnum for RtcCh1CaptEv {}
+#[doc = "Field `RTC_CH1_CAPT_EV` reader - 5:0\\]
+AON Event Source id# for RTCSEL event which is fed to AON_RTC. Please refer to AON_RTC:CH1CAPT"]
+pub type RtcCh1CaptEvR = crate::FieldReader<RtcCh1CaptEv>;
+impl RtcCh1CaptEvR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<RTC_CH1_CAPT_EV_A> {
+    pub const fn variant(&self) -> Option<RtcCh1CaptEv> {
         match self.bits {
-            63 => Some(RTC_CH1_CAPT_EV_A::NONE),
-            56 => Some(RTC_CH1_CAPT_EV_A::AUX_COMPB_ASYNC_N),
-            55 => Some(RTC_CH1_CAPT_EV_A::AUX_COMPB_ASYNC),
-            54 => Some(RTC_CH1_CAPT_EV_A::BATMON_VOLT),
-            53 => Some(RTC_CH1_CAPT_EV_A::BATMON_TEMP),
-            52 => Some(RTC_CH1_CAPT_EV_A::AUX_TIMER1_EV),
-            51 => Some(RTC_CH1_CAPT_EV_A::AUX_TIMER0_EV),
-            50 => Some(RTC_CH1_CAPT_EV_A::AUX_TDC_DONE),
-            49 => Some(RTC_CH1_CAPT_EV_A::AUX_ADC_DONE),
-            48 => Some(RTC_CH1_CAPT_EV_A::AUX_COMPB),
-            47 => Some(RTC_CH1_CAPT_EV_A::AUX_COMPA),
-            46 => Some(RTC_CH1_CAPT_EV_A::AUX_SWEV2),
-            45 => Some(RTC_CH1_CAPT_EV_A::AUX_SWEV1),
-            44 => Some(RTC_CH1_CAPT_EV_A::AUX_SWEV0),
-            43 => Some(RTC_CH1_CAPT_EV_A::JTAG),
-            42 => Some(RTC_CH1_CAPT_EV_A::RTC_UPD),
-            41 => Some(RTC_CH1_CAPT_EV_A::RTC_COMB_DLY),
-            40 => Some(RTC_CH1_CAPT_EV_A::RTC_CH2_DLY),
-            39 => Some(RTC_CH1_CAPT_EV_A::RTC_CH1_DLY),
-            38 => Some(RTC_CH1_CAPT_EV_A::RTC_CH0_DLY),
-            37 => Some(RTC_CH1_CAPT_EV_A::RTC_CH2),
-            36 => Some(RTC_CH1_CAPT_EV_A::RTC_CH1),
-            35 => Some(RTC_CH1_CAPT_EV_A::RTC_CH0),
-            32 => Some(RTC_CH1_CAPT_EV_A::PAD),
-            9 => Some(RTC_CH1_CAPT_EV_A::BATMON_COMBINED),
-            8 => Some(RTC_CH1_CAPT_EV_A::BATMON_TEMP_LL),
-            7 => Some(RTC_CH1_CAPT_EV_A::BATMON_TEMP_UL),
-            6 => Some(RTC_CH1_CAPT_EV_A::BATMON_BATT_LL),
-            5 => Some(RTC_CH1_CAPT_EV_A::BATMON_BATT_UL),
-            4 => Some(RTC_CH1_CAPT_EV_A::AUX_TIMER2_EV3),
-            3 => Some(RTC_CH1_CAPT_EV_A::AUX_TIMER2_EV2),
-            2 => Some(RTC_CH1_CAPT_EV_A::AUX_TIMER2_EV1),
-            1 => Some(RTC_CH1_CAPT_EV_A::AUX_TIMER2_EV0),
-            0 => Some(RTC_CH1_CAPT_EV_A::IOEV_RTC),
+            63 => Some(RtcCh1CaptEv::None),
+            56 => Some(RtcCh1CaptEv::AuxCompbAsyncN),
+            55 => Some(RtcCh1CaptEv::AuxCompbAsync),
+            54 => Some(RtcCh1CaptEv::BatmonVolt),
+            53 => Some(RtcCh1CaptEv::BatmonTemp),
+            52 => Some(RtcCh1CaptEv::AuxTimer1Ev),
+            51 => Some(RtcCh1CaptEv::AuxTimer0Ev),
+            50 => Some(RtcCh1CaptEv::AuxTdcDone),
+            49 => Some(RtcCh1CaptEv::AuxAdcDone),
+            48 => Some(RtcCh1CaptEv::AuxCompb),
+            47 => Some(RtcCh1CaptEv::AuxCompa),
+            46 => Some(RtcCh1CaptEv::AuxSwev2),
+            45 => Some(RtcCh1CaptEv::AuxSwev1),
+            44 => Some(RtcCh1CaptEv::AuxSwev0),
+            43 => Some(RtcCh1CaptEv::Jtag),
+            42 => Some(RtcCh1CaptEv::RtcUpd),
+            41 => Some(RtcCh1CaptEv::RtcCombDly),
+            40 => Some(RtcCh1CaptEv::RtcCh2Dly),
+            39 => Some(RtcCh1CaptEv::RtcCh1Dly),
+            38 => Some(RtcCh1CaptEv::RtcCh0Dly),
+            37 => Some(RtcCh1CaptEv::RtcCh2),
+            36 => Some(RtcCh1CaptEv::RtcCh1),
+            35 => Some(RtcCh1CaptEv::RtcCh0),
+            32 => Some(RtcCh1CaptEv::Pad),
+            9 => Some(RtcCh1CaptEv::BatmonCombined),
+            8 => Some(RtcCh1CaptEv::BatmonTempLl),
+            7 => Some(RtcCh1CaptEv::BatmonTempUl),
+            6 => Some(RtcCh1CaptEv::BatmonBattLl),
+            5 => Some(RtcCh1CaptEv::BatmonBattUl),
+            4 => Some(RtcCh1CaptEv::AuxTimer2Ev3),
+            3 => Some(RtcCh1CaptEv::AuxTimer2Ev2),
+            2 => Some(RtcCh1CaptEv::AuxTimer2Ev1),
+            1 => Some(RtcCh1CaptEv::AuxTimer2Ev0),
+            0 => Some(RtcCh1CaptEv::IoevRtc),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `NONE`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_none(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::NONE
+        *self == RtcCh1CaptEv::None
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPB_ASYNC_N`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_aux_compb_async_n(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::AUX_COMPB_ASYNC_N
+        *self == RtcCh1CaptEv::AuxCompbAsyncN
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPB_ASYNC`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_aux_compb_async(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::AUX_COMPB_ASYNC
+        *self == RtcCh1CaptEv::AuxCompbAsync
     }
-    #[doc = "Checks if the value of the field is `BATMON_VOLT`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_batmon_volt(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::BATMON_VOLT
+        *self == RtcCh1CaptEv::BatmonVolt
     }
-    #[doc = "Checks if the value of the field is `BATMON_TEMP`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_batmon_temp(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::BATMON_TEMP
+        *self == RtcCh1CaptEv::BatmonTemp
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER1_EV`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_aux_timer1_ev(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::AUX_TIMER1_EV
+        *self == RtcCh1CaptEv::AuxTimer1Ev
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER0_EV`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_aux_timer0_ev(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::AUX_TIMER0_EV
+        *self == RtcCh1CaptEv::AuxTimer0Ev
     }
-    #[doc = "Checks if the value of the field is `AUX_TDC_DONE`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_aux_tdc_done(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::AUX_TDC_DONE
+        *self == RtcCh1CaptEv::AuxTdcDone
     }
-    #[doc = "Checks if the value of the field is `AUX_ADC_DONE`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_aux_adc_done(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::AUX_ADC_DONE
+        *self == RtcCh1CaptEv::AuxAdcDone
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPB`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_aux_compb(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::AUX_COMPB
+        *self == RtcCh1CaptEv::AuxCompb
     }
-    #[doc = "Checks if the value of the field is `AUX_COMPA`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_aux_compa(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::AUX_COMPA
+        *self == RtcCh1CaptEv::AuxCompa
     }
-    #[doc = "Checks if the value of the field is `AUX_SWEV2`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_aux_swev2(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::AUX_SWEV2
+        *self == RtcCh1CaptEv::AuxSwev2
     }
-    #[doc = "Checks if the value of the field is `AUX_SWEV1`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_aux_swev1(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::AUX_SWEV1
+        *self == RtcCh1CaptEv::AuxSwev1
     }
-    #[doc = "Checks if the value of the field is `AUX_SWEV0`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_aux_swev0(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::AUX_SWEV0
+        *self == RtcCh1CaptEv::AuxSwev0
     }
-    #[doc = "Checks if the value of the field is `JTAG`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_jtag(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::JTAG
+        *self == RtcCh1CaptEv::Jtag
     }
-    #[doc = "Checks if the value of the field is `RTC_UPD`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_rtc_upd(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::RTC_UPD
+        *self == RtcCh1CaptEv::RtcUpd
     }
-    #[doc = "Checks if the value of the field is `RTC_COMB_DLY`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_rtc_comb_dly(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::RTC_COMB_DLY
+        *self == RtcCh1CaptEv::RtcCombDly
     }
-    #[doc = "Checks if the value of the field is `RTC_CH2_DLY`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_rtc_ch2_dly(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::RTC_CH2_DLY
+        *self == RtcCh1CaptEv::RtcCh2Dly
     }
-    #[doc = "Checks if the value of the field is `RTC_CH1_DLY`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_rtc_ch1_dly(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::RTC_CH1_DLY
+        *self == RtcCh1CaptEv::RtcCh1Dly
     }
-    #[doc = "Checks if the value of the field is `RTC_CH0_DLY`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_rtc_ch0_dly(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::RTC_CH0_DLY
+        *self == RtcCh1CaptEv::RtcCh0Dly
     }
-    #[doc = "Checks if the value of the field is `RTC_CH2`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_rtc_ch2(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::RTC_CH2
+        *self == RtcCh1CaptEv::RtcCh2
     }
-    #[doc = "Checks if the value of the field is `RTC_CH1`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_rtc_ch1(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::RTC_CH1
+        *self == RtcCh1CaptEv::RtcCh1
     }
-    #[doc = "Checks if the value of the field is `RTC_CH0`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_rtc_ch0(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::RTC_CH0
+        *self == RtcCh1CaptEv::RtcCh0
     }
-    #[doc = "Checks if the value of the field is `PAD`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_pad(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::PAD
+        *self == RtcCh1CaptEv::Pad
     }
-    #[doc = "Checks if the value of the field is `BATMON_COMBINED`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_batmon_combined(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::BATMON_COMBINED
+        *self == RtcCh1CaptEv::BatmonCombined
     }
-    #[doc = "Checks if the value of the field is `BATMON_TEMP_LL`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_batmon_temp_ll(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::BATMON_TEMP_LL
+        *self == RtcCh1CaptEv::BatmonTempLl
     }
-    #[doc = "Checks if the value of the field is `BATMON_TEMP_UL`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_batmon_temp_ul(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::BATMON_TEMP_UL
+        *self == RtcCh1CaptEv::BatmonTempUl
     }
-    #[doc = "Checks if the value of the field is `BATMON_BATT_LL`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_batmon_batt_ll(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::BATMON_BATT_LL
+        *self == RtcCh1CaptEv::BatmonBattLl
     }
-    #[doc = "Checks if the value of the field is `BATMON_BATT_UL`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_batmon_batt_ul(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::BATMON_BATT_UL
+        *self == RtcCh1CaptEv::BatmonBattUl
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER2_EV3`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_aux_timer2_ev3(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::AUX_TIMER2_EV3
+        *self == RtcCh1CaptEv::AuxTimer2Ev3
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER2_EV2`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_aux_timer2_ev2(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::AUX_TIMER2_EV2
+        *self == RtcCh1CaptEv::AuxTimer2Ev2
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER2_EV1`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_aux_timer2_ev1(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::AUX_TIMER2_EV1
+        *self == RtcCh1CaptEv::AuxTimer2Ev1
     }
-    #[doc = "Checks if the value of the field is `AUX_TIMER2_EV0`"]
+    #[doc = "0"]
     #[inline(always)]
     pub fn is_aux_timer2_ev0(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::AUX_TIMER2_EV0
+        *self == RtcCh1CaptEv::AuxTimer2Ev0
     }
-    #[doc = "Checks if the value of the field is `IOEV_RTC`"]
+    #[doc = "Edge detect IO event from the DIO(s) which have enabled contribution to IOEV_RTC in \\[MCU_IOC:IOCFGx.IOEV_RTC_EN\\]"]
     #[inline(always)]
     pub fn is_ioev_rtc(&self) -> bool {
-        *self == RTC_CH1_CAPT_EV_A::IOEV_RTC
+        *self == RtcCh1CaptEv::IoevRtc
     }
 }
 #[doc = "Field `RTC_CH1_CAPT_EV` writer - 5:0\\]
 AON Event Source id# for RTCSEL event which is fed to AON_RTC. Please refer to AON_RTC:CH1CAPT"]
-pub type RTC_CH1_CAPT_EV_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, RTCSEL_SPEC, u8, RTC_CH1_CAPT_EV_A, 6, O>;
-impl<'a, const O: u8> RTC_CH1_CAPT_EV_W<'a, O> {
+pub type RtcCh1CaptEvW<'a, REG> = crate::FieldWriter<'a, REG, 6, RtcCh1CaptEv>;
+impl<'a, REG> RtcCh1CaptEvW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "0"]
     #[inline(always)]
-    pub fn none(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::NONE)
+    pub fn none(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::None)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn aux_compb_async_n(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::AUX_COMPB_ASYNC_N)
+    pub fn aux_compb_async_n(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::AuxCompbAsyncN)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn aux_compb_async(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::AUX_COMPB_ASYNC)
+    pub fn aux_compb_async(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::AuxCompbAsync)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn batmon_volt(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::BATMON_VOLT)
+    pub fn batmon_volt(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::BatmonVolt)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn batmon_temp(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::BATMON_TEMP)
+    pub fn batmon_temp(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::BatmonTemp)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn aux_timer1_ev(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::AUX_TIMER1_EV)
+    pub fn aux_timer1_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::AuxTimer1Ev)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn aux_timer0_ev(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::AUX_TIMER0_EV)
+    pub fn aux_timer0_ev(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::AuxTimer0Ev)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn aux_tdc_done(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::AUX_TDC_DONE)
+    pub fn aux_tdc_done(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::AuxTdcDone)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn aux_adc_done(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::AUX_ADC_DONE)
+    pub fn aux_adc_done(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::AuxAdcDone)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn aux_compb(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::AUX_COMPB)
+    pub fn aux_compb(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::AuxCompb)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn aux_compa(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::AUX_COMPA)
+    pub fn aux_compa(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::AuxCompa)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn aux_swev2(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::AUX_SWEV2)
+    pub fn aux_swev2(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::AuxSwev2)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn aux_swev1(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::AUX_SWEV1)
+    pub fn aux_swev1(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::AuxSwev1)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn aux_swev0(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::AUX_SWEV0)
+    pub fn aux_swev0(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::AuxSwev0)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn jtag(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::JTAG)
+    pub fn jtag(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Jtag)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn rtc_upd(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::RTC_UPD)
+    pub fn rtc_upd(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::RtcUpd)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn rtc_comb_dly(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::RTC_COMB_DLY)
+    pub fn rtc_comb_dly(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::RtcCombDly)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn rtc_ch2_dly(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::RTC_CH2_DLY)
+    pub fn rtc_ch2_dly(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::RtcCh2Dly)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn rtc_ch1_dly(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::RTC_CH1_DLY)
+    pub fn rtc_ch1_dly(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::RtcCh1Dly)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn rtc_ch0_dly(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::RTC_CH0_DLY)
+    pub fn rtc_ch0_dly(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::RtcCh0Dly)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn rtc_ch2(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::RTC_CH2)
+    pub fn rtc_ch2(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::RtcCh2)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn rtc_ch1(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::RTC_CH1)
+    pub fn rtc_ch1(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::RtcCh1)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn rtc_ch0(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::RTC_CH0)
+    pub fn rtc_ch0(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::RtcCh0)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn pad(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::PAD)
+    pub fn pad(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::Pad)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn batmon_combined(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::BATMON_COMBINED)
+    pub fn batmon_combined(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::BatmonCombined)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn batmon_temp_ll(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::BATMON_TEMP_LL)
+    pub fn batmon_temp_ll(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::BatmonTempLl)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn batmon_temp_ul(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::BATMON_TEMP_UL)
+    pub fn batmon_temp_ul(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::BatmonTempUl)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn batmon_batt_ll(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::BATMON_BATT_LL)
+    pub fn batmon_batt_ll(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::BatmonBattLl)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn batmon_batt_ul(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::BATMON_BATT_UL)
+    pub fn batmon_batt_ul(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::BatmonBattUl)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn aux_timer2_ev3(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::AUX_TIMER2_EV3)
+    pub fn aux_timer2_ev3(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::AuxTimer2Ev3)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn aux_timer2_ev2(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::AUX_TIMER2_EV2)
+    pub fn aux_timer2_ev2(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::AuxTimer2Ev2)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn aux_timer2_ev1(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::AUX_TIMER2_EV1)
+    pub fn aux_timer2_ev1(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::AuxTimer2Ev1)
     }
     #[doc = "0"]
     #[inline(always)]
-    pub fn aux_timer2_ev0(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::AUX_TIMER2_EV0)
+    pub fn aux_timer2_ev0(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::AuxTimer2Ev0)
     }
     #[doc = "Edge detect IO event from the DIO(s) which have enabled contribution to IOEV_RTC in \\[MCU_IOC:IOCFGx.IOEV_RTC_EN\\]"]
     #[inline(always)]
-    pub fn ioev_rtc(self) -> &'a mut W {
-        self.variant(RTC_CH1_CAPT_EV_A::IOEV_RTC)
+    pub fn ioev_rtc(self) -> &'a mut crate::W<REG> {
+        self.variant(RtcCh1CaptEv::IoevRtc)
     }
 }
 #[doc = "Field `RESERVED6` reader - 31:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED6_R = crate::FieldReader<u32, u32>;
+pub type Reserved6R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED6` writer - 31:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED6_W<'a, const O: u8> = crate::FieldWriter<'a, u32, RTCSEL_SPEC, u32, u32, 26, O>;
+pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 26, u32>;
 impl R {
     #[doc = "Bits 0:5 - 5:0\\]
 AON Event Source id# for RTCSEL event which is fed to AON_RTC. Please refer to AON_RTC:CH1CAPT"]
     #[inline(always)]
-    pub fn rtc_ch1_capt_ev(&self) -> RTC_CH1_CAPT_EV_R {
-        RTC_CH1_CAPT_EV_R::new((self.bits & 0x3f) as u8)
+    pub fn rtc_ch1_capt_ev(&self) -> RtcCh1CaptEvR {
+        RtcCh1CaptEvR::new((self.bits & 0x3f) as u8)
     }
     #[doc = "Bits 6:31 - 31:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved6(&self) -> RESERVED6_R {
-        RESERVED6_R::new((self.bits >> 6) & 0x03ff_ffff)
+    pub fn reserved6(&self) -> Reserved6R {
+        Reserved6R::new((self.bits >> 6) & 0x03ff_ffff)
     }
 }
 impl W {
@@ -531,39 +506,31 @@ impl W {
 AON Event Source id# for RTCSEL event which is fed to AON_RTC. Please refer to AON_RTC:CH1CAPT"]
     #[inline(always)]
     #[must_use]
-    pub fn rtc_ch1_capt_ev(&mut self) -> RTC_CH1_CAPT_EV_W<0> {
-        RTC_CH1_CAPT_EV_W::new(self)
+    pub fn rtc_ch1_capt_ev(&mut self) -> RtcCh1CaptEvW<RtcselSpec> {
+        RtcCh1CaptEvW::new(self, 0)
     }
     #[doc = "Bits 6:31 - 31:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved6(&mut self) -> RESERVED6_W<6> {
-        RESERVED6_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved6(&mut self) -> Reserved6W<RtcselSpec> {
+        Reserved6W::new(self, 6)
     }
 }
-#[doc = "RTC Capture Event Selector For AON_RTC This register contains a pointer to select an AON event for RTC capture. Please refer to AON_RTC:CH1CAPT\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [rtcsel](index.html) module"]
-pub struct RTCSEL_SPEC;
-impl crate::RegisterSpec for RTCSEL_SPEC {
+#[doc = "RTC Capture Event Selector For AON_RTC This register contains a pointer to select an AON event for RTC capture. Please refer to AON_RTC:CH1CAPT\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`rtcsel::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`rtcsel::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct RtcselSpec;
+impl crate::RegisterSpec for RtcselSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [rtcsel::R](R) reader structure"]
-impl crate::Readable for RTCSEL_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [rtcsel::W](W) writer structure"]
-impl crate::Writable for RTCSEL_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`rtcsel::R`](R) reader structure"]
+impl crate::Readable for RtcselSpec {}
+#[doc = "`write(|w| ..)` method takes [`rtcsel::W`](W) writer structure"]
+impl crate::Writable for RtcselSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets RTCSEL to value 0x3f"]
-impl crate::Resettable for RTCSEL_SPEC {
-    const RESET_VALUE: Self::Ux = 0x3f;
+impl crate::Resettable for RtcselSpec {
+    const RESET_VALUE: u32 = 0x3f;
 }

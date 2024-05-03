@@ -1,204 +1,180 @@
 #[doc = "Register `AUXSEL0` reader"]
-pub struct R(crate::R<AUXSEL0_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<AUXSEL0_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<AUXSEL0_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<AUXSEL0_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Auxsel0Spec>;
 #[doc = "Register `AUXSEL0` writer"]
-pub struct W(crate::W<AUXSEL0_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<AUXSEL0_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<AUXSEL0_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<AUXSEL0_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `EV` reader - 6:0\\]
-Read/write selection value Writing any other value than values defined by a ENUM may result in undefined behavior."]
-pub type EV_R = crate::FieldReader<u8, EV_A>;
+pub type W = crate::W<Auxsel0Spec>;
 #[doc = "6:0\\]
 Read/write selection value Writing any other value than values defined by a ENUM may result in undefined behavior.\n\nValue on reset: 16"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum EV_A {
+pub enum Ev {
     #[doc = "121: Always asserted"]
-    ALWAYS_ACTIVE = 121,
+    AlwaysActive = 121,
     #[doc = "19: GPT1B interrupt event, controlled by GPT1:TBMR"]
-    GPT1B = 19,
+    Gpt1b = 19,
     #[doc = "18: GPT1A interrupt event, controlled by GPT1:TAMR"]
-    GPT1A = 18,
+    Gpt1a = 18,
     #[doc = "17: GPT0B interrupt event, controlled by GPT0:TBMR"]
-    GPT0B = 17,
+    Gpt0b = 17,
     #[doc = "16: GPT0A interrupt event, controlled by GPT0:TAMR"]
-    GPT0A = 16,
+    Gpt0a = 16,
     #[doc = "15: GPT3B interrupt event, controlled by GPT3:TBMR"]
-    GPT3B = 15,
+    Gpt3b = 15,
     #[doc = "14: GPT3A interrupt event, controlled by GPT3:TAMR"]
-    GPT3A = 14,
+    Gpt3a = 14,
     #[doc = "13: GPT2B interrupt event, controlled by GPT2:TBMR"]
-    GPT2B = 13,
+    Gpt2b = 13,
     #[doc = "12: GPT2A interrupt event, controlled by GPT2:TAMR"]
-    GPT2A = 12,
+    Gpt2a = 12,
     #[doc = "0: Always inactive"]
-    NONE = 0,
+    None = 0,
 }
-impl From<EV_A> for u8 {
+impl From<Ev> for u8 {
     #[inline(always)]
-    fn from(variant: EV_A) -> Self {
+    fn from(variant: Ev) -> Self {
         variant as _
     }
 }
-impl EV_R {
+impl crate::FieldSpec for Ev {
+    type Ux = u8;
+}
+impl crate::IsEnum for Ev {}
+#[doc = "Field `EV` reader - 6:0\\]
+Read/write selection value Writing any other value than values defined by a ENUM may result in undefined behavior."]
+pub type EvR = crate::FieldReader<Ev>;
+impl EvR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<EV_A> {
+    pub const fn variant(&self) -> Option<Ev> {
         match self.bits {
-            121 => Some(EV_A::ALWAYS_ACTIVE),
-            19 => Some(EV_A::GPT1B),
-            18 => Some(EV_A::GPT1A),
-            17 => Some(EV_A::GPT0B),
-            16 => Some(EV_A::GPT0A),
-            15 => Some(EV_A::GPT3B),
-            14 => Some(EV_A::GPT3A),
-            13 => Some(EV_A::GPT2B),
-            12 => Some(EV_A::GPT2A),
-            0 => Some(EV_A::NONE),
+            121 => Some(Ev::AlwaysActive),
+            19 => Some(Ev::Gpt1b),
+            18 => Some(Ev::Gpt1a),
+            17 => Some(Ev::Gpt0b),
+            16 => Some(Ev::Gpt0a),
+            15 => Some(Ev::Gpt3b),
+            14 => Some(Ev::Gpt3a),
+            13 => Some(Ev::Gpt2b),
+            12 => Some(Ev::Gpt2a),
+            0 => Some(Ev::None),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `ALWAYS_ACTIVE`"]
+    #[doc = "Always asserted"]
     #[inline(always)]
     pub fn is_always_active(&self) -> bool {
-        *self == EV_A::ALWAYS_ACTIVE
+        *self == Ev::AlwaysActive
     }
-    #[doc = "Checks if the value of the field is `GPT1B`"]
+    #[doc = "GPT1B interrupt event, controlled by GPT1:TBMR"]
     #[inline(always)]
     pub fn is_gpt1b(&self) -> bool {
-        *self == EV_A::GPT1B
+        *self == Ev::Gpt1b
     }
-    #[doc = "Checks if the value of the field is `GPT1A`"]
+    #[doc = "GPT1A interrupt event, controlled by GPT1:TAMR"]
     #[inline(always)]
     pub fn is_gpt1a(&self) -> bool {
-        *self == EV_A::GPT1A
+        *self == Ev::Gpt1a
     }
-    #[doc = "Checks if the value of the field is `GPT0B`"]
+    #[doc = "GPT0B interrupt event, controlled by GPT0:TBMR"]
     #[inline(always)]
     pub fn is_gpt0b(&self) -> bool {
-        *self == EV_A::GPT0B
+        *self == Ev::Gpt0b
     }
-    #[doc = "Checks if the value of the field is `GPT0A`"]
+    #[doc = "GPT0A interrupt event, controlled by GPT0:TAMR"]
     #[inline(always)]
     pub fn is_gpt0a(&self) -> bool {
-        *self == EV_A::GPT0A
+        *self == Ev::Gpt0a
     }
-    #[doc = "Checks if the value of the field is `GPT3B`"]
+    #[doc = "GPT3B interrupt event, controlled by GPT3:TBMR"]
     #[inline(always)]
     pub fn is_gpt3b(&self) -> bool {
-        *self == EV_A::GPT3B
+        *self == Ev::Gpt3b
     }
-    #[doc = "Checks if the value of the field is `GPT3A`"]
+    #[doc = "GPT3A interrupt event, controlled by GPT3:TAMR"]
     #[inline(always)]
     pub fn is_gpt3a(&self) -> bool {
-        *self == EV_A::GPT3A
+        *self == Ev::Gpt3a
     }
-    #[doc = "Checks if the value of the field is `GPT2B`"]
+    #[doc = "GPT2B interrupt event, controlled by GPT2:TBMR"]
     #[inline(always)]
     pub fn is_gpt2b(&self) -> bool {
-        *self == EV_A::GPT2B
+        *self == Ev::Gpt2b
     }
-    #[doc = "Checks if the value of the field is `GPT2A`"]
+    #[doc = "GPT2A interrupt event, controlled by GPT2:TAMR"]
     #[inline(always)]
     pub fn is_gpt2a(&self) -> bool {
-        *self == EV_A::GPT2A
+        *self == Ev::Gpt2a
     }
-    #[doc = "Checks if the value of the field is `NONE`"]
+    #[doc = "Always inactive"]
     #[inline(always)]
     pub fn is_none(&self) -> bool {
-        *self == EV_A::NONE
+        *self == Ev::None
     }
 }
 #[doc = "Field `EV` writer - 6:0\\]
 Read/write selection value Writing any other value than values defined by a ENUM may result in undefined behavior."]
-pub type EV_W<'a, const O: u8> = crate::FieldWriter<'a, u32, AUXSEL0_SPEC, u8, EV_A, 7, O>;
-impl<'a, const O: u8> EV_W<'a, O> {
+pub type EvW<'a, REG> = crate::FieldWriter<'a, REG, 7, Ev>;
+impl<'a, REG> EvW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "Always asserted"]
     #[inline(always)]
-    pub fn always_active(self) -> &'a mut W {
-        self.variant(EV_A::ALWAYS_ACTIVE)
+    pub fn always_active(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AlwaysActive)
     }
     #[doc = "GPT1B interrupt event, controlled by GPT1:TBMR"]
     #[inline(always)]
-    pub fn gpt1b(self) -> &'a mut W {
-        self.variant(EV_A::GPT1B)
+    pub fn gpt1b(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt1b)
     }
     #[doc = "GPT1A interrupt event, controlled by GPT1:TAMR"]
     #[inline(always)]
-    pub fn gpt1a(self) -> &'a mut W {
-        self.variant(EV_A::GPT1A)
+    pub fn gpt1a(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt1a)
     }
     #[doc = "GPT0B interrupt event, controlled by GPT0:TBMR"]
     #[inline(always)]
-    pub fn gpt0b(self) -> &'a mut W {
-        self.variant(EV_A::GPT0B)
+    pub fn gpt0b(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt0b)
     }
     #[doc = "GPT0A interrupt event, controlled by GPT0:TAMR"]
     #[inline(always)]
-    pub fn gpt0a(self) -> &'a mut W {
-        self.variant(EV_A::GPT0A)
+    pub fn gpt0a(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt0a)
     }
     #[doc = "GPT3B interrupt event, controlled by GPT3:TBMR"]
     #[inline(always)]
-    pub fn gpt3b(self) -> &'a mut W {
-        self.variant(EV_A::GPT3B)
+    pub fn gpt3b(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt3b)
     }
     #[doc = "GPT3A interrupt event, controlled by GPT3:TAMR"]
     #[inline(always)]
-    pub fn gpt3a(self) -> &'a mut W {
-        self.variant(EV_A::GPT3A)
+    pub fn gpt3a(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt3a)
     }
     #[doc = "GPT2B interrupt event, controlled by GPT2:TBMR"]
     #[inline(always)]
-    pub fn gpt2b(self) -> &'a mut W {
-        self.variant(EV_A::GPT2B)
+    pub fn gpt2b(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt2b)
     }
     #[doc = "GPT2A interrupt event, controlled by GPT2:TAMR"]
     #[inline(always)]
-    pub fn gpt2a(self) -> &'a mut W {
-        self.variant(EV_A::GPT2A)
+    pub fn gpt2a(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Gpt2a)
     }
     #[doc = "Always inactive"]
     #[inline(always)]
-    pub fn none(self) -> &'a mut W {
-        self.variant(EV_A::NONE)
+    pub fn none(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::None)
     }
 }
 impl R {
     #[doc = "Bits 0:6 - 6:0\\]
 Read/write selection value Writing any other value than values defined by a ENUM may result in undefined behavior."]
     #[inline(always)]
-    pub fn ev(&self) -> EV_R {
-        EV_R::new((self.bits & 0x7f) as u8)
+    pub fn ev(&self) -> EvR {
+        EvR::new((self.bits & 0x7f) as u8)
     }
 }
 impl W {
@@ -206,32 +182,24 @@ impl W {
 Read/write selection value Writing any other value than values defined by a ENUM may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn ev(&mut self) -> EV_W<0> {
-        EV_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn ev(&mut self) -> EvW<Auxsel0Spec> {
+        EvW::new(self, 0)
     }
 }
-#[doc = "Output Selection for AUX Subscriber 0\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [auxsel0](index.html) module"]
-pub struct AUXSEL0_SPEC;
-impl crate::RegisterSpec for AUXSEL0_SPEC {
+#[doc = "Output Selection for AUX Subscriber 0\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`auxsel0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`auxsel0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Auxsel0Spec;
+impl crate::RegisterSpec for Auxsel0Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [auxsel0::R](R) reader structure"]
-impl crate::Readable for AUXSEL0_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [auxsel0::W](W) writer structure"]
-impl crate::Writable for AUXSEL0_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`auxsel0::R`](R) reader structure"]
+impl crate::Readable for Auxsel0Spec {}
+#[doc = "`write(|w| ..)` method takes [`auxsel0::W`](W) writer structure"]
+impl crate::Writable for Auxsel0Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets AUXSEL0 to value 0x10"]
-impl crate::Resettable for AUXSEL0_SPEC {
-    const RESET_VALUE: Self::Ux = 0x10;
+impl crate::Resettable for Auxsel0Spec {
+    const RESET_VALUE: u32 = 0x10;
 }

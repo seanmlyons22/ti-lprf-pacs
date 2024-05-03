@@ -1,63 +1,31 @@
 #[doc = "Register `CIDR3` reader"]
-pub struct R(crate::R<CIDR3_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<CIDR3_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<CIDR3_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<CIDR3_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Cidr3Spec>;
 #[doc = "Register `CIDR3` writer"]
-pub struct W(crate::W<CIDR3_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<CIDR3_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<CIDR3_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<CIDR3_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<Cidr3Spec>;
 #[doc = "Field `PRMBL_3` reader - 7:0\\]
 See CoreSight Architecture Specification"]
-pub type PRMBL_3_R = crate::FieldReader<u8, u8>;
+pub type Prmbl3R = crate::FieldReader;
 #[doc = "Field `PRMBL_3` writer - 7:0\\]
 See CoreSight Architecture Specification"]
-pub type PRMBL_3_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CIDR3_SPEC, u8, u8, 8, O>;
+pub type Prmbl3W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `RESERVED8` reader - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED8_R = crate::FieldReader<u32, u32>;
+pub type Reserved8R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED8` writer - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED8_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CIDR3_SPEC, u32, u32, 24, O>;
+pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 See CoreSight Architecture Specification"]
     #[inline(always)]
-    pub fn prmbl_3(&self) -> PRMBL_3_R {
-        PRMBL_3_R::new((self.bits & 0xff) as u8)
+    pub fn prmbl_3(&self) -> Prmbl3R {
+        Prmbl3R::new((self.bits & 0xff) as u8)
     }
     #[doc = "Bits 8:31 - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved8(&self) -> RESERVED8_R {
-        RESERVED8_R::new((self.bits >> 8) & 0x00ff_ffff)
+    pub fn reserved8(&self) -> Reserved8R {
+        Reserved8R::new((self.bits >> 8) & 0x00ff_ffff)
     }
 }
 impl W {
@@ -65,39 +33,31 @@ impl W {
 See CoreSight Architecture Specification"]
     #[inline(always)]
     #[must_use]
-    pub fn prmbl_3(&mut self) -> PRMBL_3_W<0> {
-        PRMBL_3_W::new(self)
+    pub fn prmbl_3(&mut self) -> Prmbl3W<Cidr3Spec> {
+        Prmbl3W::new(self, 0)
     }
     #[doc = "Bits 8:31 - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved8(&mut self) -> RESERVED8_W<8> {
-        RESERVED8_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved8(&mut self) -> Reserved8W<Cidr3Spec> {
+        Reserved8W::new(self, 8)
     }
 }
-#[doc = "Provides CoreSight discovery information for the FP\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cidr3](index.html) module"]
-pub struct CIDR3_SPEC;
-impl crate::RegisterSpec for CIDR3_SPEC {
+#[doc = "Provides CoreSight discovery information for the FP\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`cidr3::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`cidr3::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Cidr3Spec;
+impl crate::RegisterSpec for Cidr3Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [cidr3::R](R) reader structure"]
-impl crate::Readable for CIDR3_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [cidr3::W](W) writer structure"]
-impl crate::Writable for CIDR3_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`cidr3::R`](R) reader structure"]
+impl crate::Readable for Cidr3Spec {}
+#[doc = "`write(|w| ..)` method takes [`cidr3::W`](W) writer structure"]
+impl crate::Writable for Cidr3Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets CIDR3 to value 0"]
-impl crate::Resettable for CIDR3_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for Cidr3Spec {
+    const RESET_VALUE: u32 = 0;
 }

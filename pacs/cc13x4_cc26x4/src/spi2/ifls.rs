@@ -1,331 +1,313 @@
 #[doc = "Register `IFLS` reader"]
-pub struct R(crate::R<IFLS_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<IFLS_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<IFLS_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<IFLS_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<IflsSpec>;
 #[doc = "Register `IFLS` writer"]
-pub struct W(crate::W<IFLS_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<IFLS_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<IFLS_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<IFLS_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `TXIFLSEL` reader - 2:0\\]
-SPI Transmit Interrupt FIFO Level Select The trigger points for the transmit interrupt are as follows:"]
-pub type TXIFLSEL_R = crate::FieldReader<u8, TXIFLSEL_A>;
+pub type W = crate::W<IflsSpec>;
 #[doc = "2:0\\]
 SPI Transmit Interrupt FIFO Level Select The trigger points for the transmit interrupt are as follows:\n\nValue on reset: 2"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum TXIFLSEL_A {
+pub enum Txiflsel {
     #[doc = "7: Trigger when TX FIFO has >= 1 byte free"]
-    LEVEL_1 = 7,
+    Level1 = 7,
     #[doc = "6: Reserved"]
-    LVL_RES6 = 6,
+    LvlRes6 = 6,
     #[doc = "5: TX FIFO is empty"]
-    LVL_EMPTY = 5,
+    LvlEmpty = 5,
     #[doc = "4: Reserved"]
-    LVL_RES4 = 4,
-    #[doc = "3: TX FIFO <= 1/4 empty"]
-    LVL_1_4 = 3,
-    #[doc = "2: TX FIFO <= 1/2 empty (default)"]
-    LVL_1_2 = 2,
-    #[doc = "1: TX FIFO <= 3/4 empty"]
-    LVL_3_4 = 1,
+    LvlRes4 = 4,
+    #[doc = "3: TX FIFO &lt;= 1/4 empty"]
+    Lvl1_4 = 3,
+    #[doc = "2: TX FIFO &lt;= 1/2 empty (default)"]
+    Lvl1_2 = 2,
+    #[doc = "1: TX FIFO &lt;= 3/4 empty"]
+    Lvl3_4 = 1,
     #[doc = "0: Reserved"]
-    LVL_OFF = 0,
+    LvlOff = 0,
 }
-impl From<TXIFLSEL_A> for u8 {
+impl From<Txiflsel> for u8 {
     #[inline(always)]
-    fn from(variant: TXIFLSEL_A) -> Self {
+    fn from(variant: Txiflsel) -> Self {
         variant as _
     }
 }
-impl TXIFLSEL_R {
+impl crate::FieldSpec for Txiflsel {
+    type Ux = u8;
+}
+impl crate::IsEnum for Txiflsel {}
+#[doc = "Field `TXIFLSEL` reader - 2:0\\]
+SPI Transmit Interrupt FIFO Level Select The trigger points for the transmit interrupt are as follows:"]
+pub type TxiflselR = crate::FieldReader<Txiflsel>;
+impl TxiflselR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> TXIFLSEL_A {
+    pub const fn variant(&self) -> Txiflsel {
         match self.bits {
-            7 => TXIFLSEL_A::LEVEL_1,
-            6 => TXIFLSEL_A::LVL_RES6,
-            5 => TXIFLSEL_A::LVL_EMPTY,
-            4 => TXIFLSEL_A::LVL_RES4,
-            3 => TXIFLSEL_A::LVL_1_4,
-            2 => TXIFLSEL_A::LVL_1_2,
-            1 => TXIFLSEL_A::LVL_3_4,
-            0 => TXIFLSEL_A::LVL_OFF,
+            7 => Txiflsel::Level1,
+            6 => Txiflsel::LvlRes6,
+            5 => Txiflsel::LvlEmpty,
+            4 => Txiflsel::LvlRes4,
+            3 => Txiflsel::Lvl1_4,
+            2 => Txiflsel::Lvl1_2,
+            1 => Txiflsel::Lvl3_4,
+            0 => Txiflsel::LvlOff,
             _ => unreachable!(),
         }
     }
-    #[doc = "Checks if the value of the field is `LEVEL_1`"]
+    #[doc = "Trigger when TX FIFO has >= 1 byte free"]
     #[inline(always)]
     pub fn is_level_1(&self) -> bool {
-        *self == TXIFLSEL_A::LEVEL_1
+        *self == Txiflsel::Level1
     }
-    #[doc = "Checks if the value of the field is `LVL_RES6`"]
+    #[doc = "Reserved"]
     #[inline(always)]
     pub fn is_lvl_res6(&self) -> bool {
-        *self == TXIFLSEL_A::LVL_RES6
+        *self == Txiflsel::LvlRes6
     }
-    #[doc = "Checks if the value of the field is `LVL_EMPTY`"]
+    #[doc = "TX FIFO is empty"]
     #[inline(always)]
     pub fn is_lvl_empty(&self) -> bool {
-        *self == TXIFLSEL_A::LVL_EMPTY
+        *self == Txiflsel::LvlEmpty
     }
-    #[doc = "Checks if the value of the field is `LVL_RES4`"]
+    #[doc = "Reserved"]
     #[inline(always)]
     pub fn is_lvl_res4(&self) -> bool {
-        *self == TXIFLSEL_A::LVL_RES4
+        *self == Txiflsel::LvlRes4
     }
-    #[doc = "Checks if the value of the field is `LVL_1_4`"]
+    #[doc = "TX FIFO &lt;= 1/4 empty"]
     #[inline(always)]
     pub fn is_lvl_1_4(&self) -> bool {
-        *self == TXIFLSEL_A::LVL_1_4
+        *self == Txiflsel::Lvl1_4
     }
-    #[doc = "Checks if the value of the field is `LVL_1_2`"]
+    #[doc = "TX FIFO &lt;= 1/2 empty (default)"]
     #[inline(always)]
     pub fn is_lvl_1_2(&self) -> bool {
-        *self == TXIFLSEL_A::LVL_1_2
+        *self == Txiflsel::Lvl1_2
     }
-    #[doc = "Checks if the value of the field is `LVL_3_4`"]
+    #[doc = "TX FIFO &lt;= 3/4 empty"]
     #[inline(always)]
     pub fn is_lvl_3_4(&self) -> bool {
-        *self == TXIFLSEL_A::LVL_3_4
+        *self == Txiflsel::Lvl3_4
     }
-    #[doc = "Checks if the value of the field is `LVL_OFF`"]
+    #[doc = "Reserved"]
     #[inline(always)]
     pub fn is_lvl_off(&self) -> bool {
-        *self == TXIFLSEL_A::LVL_OFF
+        *self == Txiflsel::LvlOff
     }
 }
 #[doc = "Field `TXIFLSEL` writer - 2:0\\]
 SPI Transmit Interrupt FIFO Level Select The trigger points for the transmit interrupt are as follows:"]
-pub type TXIFLSEL_W<'a, const O: u8> =
-    crate::FieldWriterSafe<'a, u32, IFLS_SPEC, u8, TXIFLSEL_A, 3, O>;
-impl<'a, const O: u8> TXIFLSEL_W<'a, O> {
+pub type TxiflselW<'a, REG> = crate::FieldWriter<'a, REG, 3, Txiflsel, crate::Safe>;
+impl<'a, REG> TxiflselW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "Trigger when TX FIFO has >= 1 byte free"]
     #[inline(always)]
-    pub fn level_1(self) -> &'a mut W {
-        self.variant(TXIFLSEL_A::LEVEL_1)
+    pub fn level_1(self) -> &'a mut crate::W<REG> {
+        self.variant(Txiflsel::Level1)
     }
     #[doc = "Reserved"]
     #[inline(always)]
-    pub fn lvl_res6(self) -> &'a mut W {
-        self.variant(TXIFLSEL_A::LVL_RES6)
+    pub fn lvl_res6(self) -> &'a mut crate::W<REG> {
+        self.variant(Txiflsel::LvlRes6)
     }
     #[doc = "TX FIFO is empty"]
     #[inline(always)]
-    pub fn lvl_empty(self) -> &'a mut W {
-        self.variant(TXIFLSEL_A::LVL_EMPTY)
+    pub fn lvl_empty(self) -> &'a mut crate::W<REG> {
+        self.variant(Txiflsel::LvlEmpty)
     }
     #[doc = "Reserved"]
     #[inline(always)]
-    pub fn lvl_res4(self) -> &'a mut W {
-        self.variant(TXIFLSEL_A::LVL_RES4)
+    pub fn lvl_res4(self) -> &'a mut crate::W<REG> {
+        self.variant(Txiflsel::LvlRes4)
     }
-    #[doc = "TX FIFO <= 1/4 empty"]
+    #[doc = "TX FIFO &lt;= 1/4 empty"]
     #[inline(always)]
-    pub fn lvl_1_4(self) -> &'a mut W {
-        self.variant(TXIFLSEL_A::LVL_1_4)
+    pub fn lvl_1_4(self) -> &'a mut crate::W<REG> {
+        self.variant(Txiflsel::Lvl1_4)
     }
-    #[doc = "TX FIFO <= 1/2 empty (default)"]
+    #[doc = "TX FIFO &lt;= 1/2 empty (default)"]
     #[inline(always)]
-    pub fn lvl_1_2(self) -> &'a mut W {
-        self.variant(TXIFLSEL_A::LVL_1_2)
+    pub fn lvl_1_2(self) -> &'a mut crate::W<REG> {
+        self.variant(Txiflsel::Lvl1_2)
     }
-    #[doc = "TX FIFO <= 3/4 empty"]
+    #[doc = "TX FIFO &lt;= 3/4 empty"]
     #[inline(always)]
-    pub fn lvl_3_4(self) -> &'a mut W {
-        self.variant(TXIFLSEL_A::LVL_3_4)
+    pub fn lvl_3_4(self) -> &'a mut crate::W<REG> {
+        self.variant(Txiflsel::Lvl3_4)
     }
     #[doc = "Reserved"]
     #[inline(always)]
-    pub fn lvl_off(self) -> &'a mut W {
-        self.variant(TXIFLSEL_A::LVL_OFF)
+    pub fn lvl_off(self) -> &'a mut crate::W<REG> {
+        self.variant(Txiflsel::LvlOff)
     }
 }
-#[doc = "Field `RXIFLSEL` reader - 5:3\\]
-SPI Receive Interrupt FIFO Level Select The trigger points for the receive interrupt are as follows:"]
-pub type RXIFLSEL_R = crate::FieldReader<u8, RXIFLSEL_A>;
 #[doc = "5:3\\]
 SPI Receive Interrupt FIFO Level Select The trigger points for the receive interrupt are as follows:\n\nValue on reset: 2"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum RXIFLSEL_A {
+pub enum Rxiflsel {
     #[doc = "7: Trigger when RX FIFO contains >= 1 byte"]
-    LEVEL_1 = 7,
+    Level1 = 7,
     #[doc = "6: Reserved"]
-    LVL_RES6 = 6,
+    LvlRes6 = 6,
     #[doc = "5: RX FIFO is full"]
-    LVL_FULL = 5,
+    LvlFull = 5,
     #[doc = "4: Reserved"]
-    LVL_RES4 = 4,
+    LvlRes4 = 4,
     #[doc = "3: RX FIFO >= 3/4 full"]
-    LVL_3_4 = 3,
+    Lvl3_4 = 3,
     #[doc = "2: RX FIFO >= 1/2 full (default)"]
-    LVL_1_2 = 2,
+    Lvl1_2 = 2,
     #[doc = "1: RX FIFO >= 1/4 full"]
-    LVL_1_4 = 1,
+    Lvl1_4 = 1,
     #[doc = "0: Reserved"]
-    LVL_OFF = 0,
+    LvlOff = 0,
 }
-impl From<RXIFLSEL_A> for u8 {
+impl From<Rxiflsel> for u8 {
     #[inline(always)]
-    fn from(variant: RXIFLSEL_A) -> Self {
+    fn from(variant: Rxiflsel) -> Self {
         variant as _
     }
 }
-impl RXIFLSEL_R {
+impl crate::FieldSpec for Rxiflsel {
+    type Ux = u8;
+}
+impl crate::IsEnum for Rxiflsel {}
+#[doc = "Field `RXIFLSEL` reader - 5:3\\]
+SPI Receive Interrupt FIFO Level Select The trigger points for the receive interrupt are as follows:"]
+pub type RxiflselR = crate::FieldReader<Rxiflsel>;
+impl RxiflselR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> RXIFLSEL_A {
+    pub const fn variant(&self) -> Rxiflsel {
         match self.bits {
-            7 => RXIFLSEL_A::LEVEL_1,
-            6 => RXIFLSEL_A::LVL_RES6,
-            5 => RXIFLSEL_A::LVL_FULL,
-            4 => RXIFLSEL_A::LVL_RES4,
-            3 => RXIFLSEL_A::LVL_3_4,
-            2 => RXIFLSEL_A::LVL_1_2,
-            1 => RXIFLSEL_A::LVL_1_4,
-            0 => RXIFLSEL_A::LVL_OFF,
+            7 => Rxiflsel::Level1,
+            6 => Rxiflsel::LvlRes6,
+            5 => Rxiflsel::LvlFull,
+            4 => Rxiflsel::LvlRes4,
+            3 => Rxiflsel::Lvl3_4,
+            2 => Rxiflsel::Lvl1_2,
+            1 => Rxiflsel::Lvl1_4,
+            0 => Rxiflsel::LvlOff,
             _ => unreachable!(),
         }
     }
-    #[doc = "Checks if the value of the field is `LEVEL_1`"]
+    #[doc = "Trigger when RX FIFO contains >= 1 byte"]
     #[inline(always)]
     pub fn is_level_1(&self) -> bool {
-        *self == RXIFLSEL_A::LEVEL_1
+        *self == Rxiflsel::Level1
     }
-    #[doc = "Checks if the value of the field is `LVL_RES6`"]
+    #[doc = "Reserved"]
     #[inline(always)]
     pub fn is_lvl_res6(&self) -> bool {
-        *self == RXIFLSEL_A::LVL_RES6
+        *self == Rxiflsel::LvlRes6
     }
-    #[doc = "Checks if the value of the field is `LVL_FULL`"]
+    #[doc = "RX FIFO is full"]
     #[inline(always)]
     pub fn is_lvl_full(&self) -> bool {
-        *self == RXIFLSEL_A::LVL_FULL
+        *self == Rxiflsel::LvlFull
     }
-    #[doc = "Checks if the value of the field is `LVL_RES4`"]
+    #[doc = "Reserved"]
     #[inline(always)]
     pub fn is_lvl_res4(&self) -> bool {
-        *self == RXIFLSEL_A::LVL_RES4
+        *self == Rxiflsel::LvlRes4
     }
-    #[doc = "Checks if the value of the field is `LVL_3_4`"]
+    #[doc = "RX FIFO >= 3/4 full"]
     #[inline(always)]
     pub fn is_lvl_3_4(&self) -> bool {
-        *self == RXIFLSEL_A::LVL_3_4
+        *self == Rxiflsel::Lvl3_4
     }
-    #[doc = "Checks if the value of the field is `LVL_1_2`"]
+    #[doc = "RX FIFO >= 1/2 full (default)"]
     #[inline(always)]
     pub fn is_lvl_1_2(&self) -> bool {
-        *self == RXIFLSEL_A::LVL_1_2
+        *self == Rxiflsel::Lvl1_2
     }
-    #[doc = "Checks if the value of the field is `LVL_1_4`"]
+    #[doc = "RX FIFO >= 1/4 full"]
     #[inline(always)]
     pub fn is_lvl_1_4(&self) -> bool {
-        *self == RXIFLSEL_A::LVL_1_4
+        *self == Rxiflsel::Lvl1_4
     }
-    #[doc = "Checks if the value of the field is `LVL_OFF`"]
+    #[doc = "Reserved"]
     #[inline(always)]
     pub fn is_lvl_off(&self) -> bool {
-        *self == RXIFLSEL_A::LVL_OFF
+        *self == Rxiflsel::LvlOff
     }
 }
 #[doc = "Field `RXIFLSEL` writer - 5:3\\]
 SPI Receive Interrupt FIFO Level Select The trigger points for the receive interrupt are as follows:"]
-pub type RXIFLSEL_W<'a, const O: u8> =
-    crate::FieldWriterSafe<'a, u32, IFLS_SPEC, u8, RXIFLSEL_A, 3, O>;
-impl<'a, const O: u8> RXIFLSEL_W<'a, O> {
+pub type RxiflselW<'a, REG> = crate::FieldWriter<'a, REG, 3, Rxiflsel, crate::Safe>;
+impl<'a, REG> RxiflselW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "Trigger when RX FIFO contains >= 1 byte"]
     #[inline(always)]
-    pub fn level_1(self) -> &'a mut W {
-        self.variant(RXIFLSEL_A::LEVEL_1)
+    pub fn level_1(self) -> &'a mut crate::W<REG> {
+        self.variant(Rxiflsel::Level1)
     }
     #[doc = "Reserved"]
     #[inline(always)]
-    pub fn lvl_res6(self) -> &'a mut W {
-        self.variant(RXIFLSEL_A::LVL_RES6)
+    pub fn lvl_res6(self) -> &'a mut crate::W<REG> {
+        self.variant(Rxiflsel::LvlRes6)
     }
     #[doc = "RX FIFO is full"]
     #[inline(always)]
-    pub fn lvl_full(self) -> &'a mut W {
-        self.variant(RXIFLSEL_A::LVL_FULL)
+    pub fn lvl_full(self) -> &'a mut crate::W<REG> {
+        self.variant(Rxiflsel::LvlFull)
     }
     #[doc = "Reserved"]
     #[inline(always)]
-    pub fn lvl_res4(self) -> &'a mut W {
-        self.variant(RXIFLSEL_A::LVL_RES4)
+    pub fn lvl_res4(self) -> &'a mut crate::W<REG> {
+        self.variant(Rxiflsel::LvlRes4)
     }
     #[doc = "RX FIFO >= 3/4 full"]
     #[inline(always)]
-    pub fn lvl_3_4(self) -> &'a mut W {
-        self.variant(RXIFLSEL_A::LVL_3_4)
+    pub fn lvl_3_4(self) -> &'a mut crate::W<REG> {
+        self.variant(Rxiflsel::Lvl3_4)
     }
     #[doc = "RX FIFO >= 1/2 full (default)"]
     #[inline(always)]
-    pub fn lvl_1_2(self) -> &'a mut W {
-        self.variant(RXIFLSEL_A::LVL_1_2)
+    pub fn lvl_1_2(self) -> &'a mut crate::W<REG> {
+        self.variant(Rxiflsel::Lvl1_2)
     }
     #[doc = "RX FIFO >= 1/4 full"]
     #[inline(always)]
-    pub fn lvl_1_4(self) -> &'a mut W {
-        self.variant(RXIFLSEL_A::LVL_1_4)
+    pub fn lvl_1_4(self) -> &'a mut crate::W<REG> {
+        self.variant(Rxiflsel::Lvl1_4)
     }
     #[doc = "Reserved"]
     #[inline(always)]
-    pub fn lvl_off(self) -> &'a mut W {
-        self.variant(RXIFLSEL_A::LVL_OFF)
+    pub fn lvl_off(self) -> &'a mut crate::W<REG> {
+        self.variant(Rxiflsel::LvlOff)
     }
 }
 #[doc = "Field `RESERVED6` reader - 31:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED6_R = crate::FieldReader<u32, u32>;
+pub type Reserved6R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED6` writer - 31:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED6_W<'a, const O: u8> = crate::FieldWriter<'a, u32, IFLS_SPEC, u32, u32, 26, O>;
+pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 26, u32>;
 impl R {
     #[doc = "Bits 0:2 - 2:0\\]
 SPI Transmit Interrupt FIFO Level Select The trigger points for the transmit interrupt are as follows:"]
     #[inline(always)]
-    pub fn txiflsel(&self) -> TXIFLSEL_R {
-        TXIFLSEL_R::new((self.bits & 7) as u8)
+    pub fn txiflsel(&self) -> TxiflselR {
+        TxiflselR::new((self.bits & 7) as u8)
     }
     #[doc = "Bits 3:5 - 5:3\\]
 SPI Receive Interrupt FIFO Level Select The trigger points for the receive interrupt are as follows:"]
     #[inline(always)]
-    pub fn rxiflsel(&self) -> RXIFLSEL_R {
-        RXIFLSEL_R::new(((self.bits >> 3) & 7) as u8)
+    pub fn rxiflsel(&self) -> RxiflselR {
+        RxiflselR::new(((self.bits >> 3) & 7) as u8)
     }
     #[doc = "Bits 6:31 - 31:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved6(&self) -> RESERVED6_R {
-        RESERVED6_R::new((self.bits >> 6) & 0x03ff_ffff)
+    pub fn reserved6(&self) -> Reserved6R {
+        Reserved6R::new((self.bits >> 6) & 0x03ff_ffff)
     }
 }
 impl W {
@@ -333,46 +315,38 @@ impl W {
 SPI Transmit Interrupt FIFO Level Select The trigger points for the transmit interrupt are as follows:"]
     #[inline(always)]
     #[must_use]
-    pub fn txiflsel(&mut self) -> TXIFLSEL_W<0> {
-        TXIFLSEL_W::new(self)
+    pub fn txiflsel(&mut self) -> TxiflselW<IflsSpec> {
+        TxiflselW::new(self, 0)
     }
     #[doc = "Bits 3:5 - 5:3\\]
 SPI Receive Interrupt FIFO Level Select The trigger points for the receive interrupt are as follows:"]
     #[inline(always)]
     #[must_use]
-    pub fn rxiflsel(&mut self) -> RXIFLSEL_W<3> {
-        RXIFLSEL_W::new(self)
+    pub fn rxiflsel(&mut self) -> RxiflselW<IflsSpec> {
+        RxiflselW::new(self, 3)
     }
     #[doc = "Bits 6:31 - 31:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved6(&mut self) -> RESERVED6_W<6> {
-        RESERVED6_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved6(&mut self) -> Reserved6W<IflsSpec> {
+        Reserved6W::new(self, 6)
     }
 }
-#[doc = "The IFLS register is the interrupt FIFO level select register. This register can be used to define the levels at which the TX, RX FIFO interrupt flags are triggered. Out of reset, the TXIFLSEL and RXIFLSEL bits are configured so that the FIFOs trigger an interrupt at the half-way mark.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ifls](index.html) module"]
-pub struct IFLS_SPEC;
-impl crate::RegisterSpec for IFLS_SPEC {
+#[doc = "The IFLS register is the interrupt FIFO level select register. This register can be used to define the levels at which the TX, RX FIFO interrupt flags are triggered. Out of reset, the TXIFLSEL and RXIFLSEL bits are configured so that the FIFOs trigger an interrupt at the half-way mark.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ifls::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ifls::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct IflsSpec;
+impl crate::RegisterSpec for IflsSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [ifls::R](R) reader structure"]
-impl crate::Readable for IFLS_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [ifls::W](W) writer structure"]
-impl crate::Writable for IFLS_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`ifls::R`](R) reader structure"]
+impl crate::Readable for IflsSpec {}
+#[doc = "`write(|w| ..)` method takes [`ifls::W`](W) writer structure"]
+impl crate::Writable for IflsSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets IFLS to value 0x12"]
-impl crate::Resettable for IFLS_SPEC {
-    const RESET_VALUE: Self::Ux = 0x12;
+impl crate::Resettable for IflsSpec {
+    const RESET_VALUE: u32 = 0x12;
 }

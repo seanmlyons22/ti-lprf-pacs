@@ -1,87 +1,63 @@
 #[doc = "Register `UDMACH13SSEL` reader"]
-pub struct R(crate::R<UDMACH13SSEL_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<UDMACH13SSEL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<UDMACH13SSEL_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<UDMACH13SSEL_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Udmach13sselSpec>;
 #[doc = "Register `UDMACH13SSEL` writer"]
-pub struct W(crate::W<UDMACH13SSEL_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<UDMACH13SSEL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<UDMACH13SSEL_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<UDMACH13SSEL_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `EV` reader - 31:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type EV_R = crate::FieldReader<u32, EV_A>;
+pub type W = crate::W<Udmach13sselSpec>;
 #[doc = "31:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior.\n\nValue on reset: 3"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u32)]
-pub enum EV_A {
+pub enum Ev {
     #[doc = "3: AON programmable event 2. Event selected by AON_EVENT MCU event selector, AON_EVENT:EVTOMCUSEL.AON_PROG2_EV"]
-    AON_PROG2 = 3,
+    AonProg2 = 3,
 }
-impl From<EV_A> for u32 {
+impl From<Ev> for u32 {
     #[inline(always)]
-    fn from(variant: EV_A) -> Self {
+    fn from(variant: Ev) -> Self {
         variant as _
     }
 }
-impl EV_R {
+impl crate::FieldSpec for Ev {
+    type Ux = u32;
+}
+impl crate::IsEnum for Ev {}
+#[doc = "Field `EV` reader - 31:0\\]
+Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
+pub type EvR = crate::FieldReader<Ev>;
+impl EvR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<EV_A> {
+    pub const fn variant(&self) -> Option<Ev> {
         match self.bits {
-            3 => Some(EV_A::AON_PROG2),
+            3 => Some(Ev::AonProg2),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `AON_PROG2`"]
+    #[doc = "AON programmable event 2. Event selected by AON_EVENT MCU event selector, AON_EVENT:EVTOMCUSEL.AON_PROG2_EV"]
     #[inline(always)]
     pub fn is_aon_prog2(&self) -> bool {
-        *self == EV_A::AON_PROG2
+        *self == Ev::AonProg2
     }
 }
 #[doc = "Field `EV` writer - 31:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type EV_W<'a, const O: u8> = crate::FieldWriter<'a, u32, UDMACH13SSEL_SPEC, u32, EV_A, 32, O>;
-impl<'a, const O: u8> EV_W<'a, O> {
+pub type EvW<'a, REG> = crate::FieldWriter<'a, REG, 32, Ev>;
+impl<'a, REG> EvW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u32>,
+{
     #[doc = "AON programmable event 2. Event selected by AON_EVENT MCU event selector, AON_EVENT:EVTOMCUSEL.AON_PROG2_EV"]
     #[inline(always)]
-    pub fn aon_prog2(self) -> &'a mut W {
-        self.variant(EV_A::AON_PROG2)
+    pub fn aon_prog2(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AonProg2)
     }
 }
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn ev(&self) -> EV_R {
-        EV_R::new(self.bits)
+    pub fn ev(&self) -> EvR {
+        EvR::new(self.bits)
     }
 }
 impl W {
@@ -89,32 +65,24 @@ impl W {
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn ev(&mut self) -> EV_W<0> {
-        EV_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn ev(&mut self) -> EvW<Udmach13sselSpec> {
+        EvW::new(self, 0)
     }
 }
-#[doc = "Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [udmach13ssel](index.html) module"]
-pub struct UDMACH13SSEL_SPEC;
-impl crate::RegisterSpec for UDMACH13SSEL_SPEC {
+#[doc = "Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`udmach13ssel::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`udmach13ssel::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Udmach13sselSpec;
+impl crate::RegisterSpec for Udmach13sselSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [udmach13ssel::R](R) reader structure"]
-impl crate::Readable for UDMACH13SSEL_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [udmach13ssel::W](W) writer structure"]
-impl crate::Writable for UDMACH13SSEL_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`udmach13ssel::R`](R) reader structure"]
+impl crate::Readable for Udmach13sselSpec {}
+#[doc = "`write(|w| ..)` method takes [`udmach13ssel::W`](W) writer structure"]
+impl crate::Writable for Udmach13sselSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets UDMACH13SSEL to value 0x03"]
-impl crate::Resettable for UDMACH13SSEL_SPEC {
-    const RESET_VALUE: Self::Ux = 0x03;
+impl crate::Resettable for Udmach13sselSpec {
+    const RESET_VALUE: u32 = 0x03;
 }

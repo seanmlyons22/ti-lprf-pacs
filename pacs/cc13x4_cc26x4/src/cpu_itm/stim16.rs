@@ -1,75 +1,43 @@
 #[doc = "Register `STIM16` reader"]
-pub struct R(crate::R<STIM16_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<STIM16_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<STIM16_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<STIM16_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Stim16Spec>;
 #[doc = "Register `STIM16` writer"]
-pub struct W(crate::W<STIM16_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<STIM16_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<STIM16_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<STIM16_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<Stim16Spec>;
 #[doc = "Field `FIFOREADY` reader - 0:0\\]
 Indicates whether the Stimulus Port can accept data"]
-pub type FIFOREADY_R = crate::BitReader<bool>;
+pub type FiforeadyR = crate::BitReader;
 #[doc = "Field `FIFOREADY` writer - 0:0\\]
 Indicates whether the Stimulus Port can accept data"]
-pub type FIFOREADY_W<'a, const O: u8> = crate::BitWriter<'a, u32, STIM16_SPEC, bool, O>;
+pub type FiforeadyW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DISABLED` reader - 1:1\\]
 Indicates whether the Stimulus Port is enabled or disabled"]
-pub type DISABLED_R = crate::BitReader<bool>;
+pub type DisabledR = crate::BitReader;
 #[doc = "Field `DISABLED` writer - 1:1\\]
 Indicates whether the Stimulus Port is enabled or disabled"]
-pub type DISABLED_W<'a, const O: u8> = crate::BitWriter<'a, u32, STIM16_SPEC, bool, O>;
+pub type DisabledW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED2` reader - 31:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED2_R = crate::FieldReader<u32, u32>;
+pub type Reserved2R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED2` writer - 31:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED2_W<'a, const O: u8> = crate::FieldWriter<'a, u32, STIM16_SPEC, u32, u32, 30, O>;
+pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 30, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Indicates whether the Stimulus Port can accept data"]
     #[inline(always)]
-    pub fn fifoready(&self) -> FIFOREADY_R {
-        FIFOREADY_R::new((self.bits & 1) != 0)
+    pub fn fifoready(&self) -> FiforeadyR {
+        FiforeadyR::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 Indicates whether the Stimulus Port is enabled or disabled"]
     #[inline(always)]
-    pub fn disabled(&self) -> DISABLED_R {
-        DISABLED_R::new(((self.bits >> 1) & 1) != 0)
+    pub fn disabled(&self) -> DisabledR {
+        DisabledR::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bits 2:31 - 31:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved2(&self) -> RESERVED2_R {
-        RESERVED2_R::new((self.bits >> 2) & 0x3fff_ffff)
+    pub fn reserved2(&self) -> Reserved2R {
+        Reserved2R::new((self.bits >> 2) & 0x3fff_ffff)
     }
 }
 impl W {
@@ -77,46 +45,38 @@ impl W {
 Indicates whether the Stimulus Port can accept data"]
     #[inline(always)]
     #[must_use]
-    pub fn fifoready(&mut self) -> FIFOREADY_W<0> {
-        FIFOREADY_W::new(self)
+    pub fn fifoready(&mut self) -> FiforeadyW<Stim16Spec> {
+        FiforeadyW::new(self, 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 Indicates whether the Stimulus Port is enabled or disabled"]
     #[inline(always)]
     #[must_use]
-    pub fn disabled(&mut self) -> DISABLED_W<1> {
-        DISABLED_W::new(self)
+    pub fn disabled(&mut self) -> DisabledW<Stim16Spec> {
+        DisabledW::new(self, 1)
     }
     #[doc = "Bits 2:31 - 31:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved2(&mut self) -> RESERVED2_W<2> {
-        RESERVED2_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved2(&mut self) -> Reserved2W<Stim16Spec> {
+        Reserved2W::new(self, 2)
     }
 }
-#[doc = "Provides the interface for generating Instrumentation packets\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [stim16](index.html) module"]
-pub struct STIM16_SPEC;
-impl crate::RegisterSpec for STIM16_SPEC {
+#[doc = "Provides the interface for generating Instrumentation packets\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`stim16::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`stim16::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Stim16Spec;
+impl crate::RegisterSpec for Stim16Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [stim16::R](R) reader structure"]
-impl crate::Readable for STIM16_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [stim16::W](W) writer structure"]
-impl crate::Writable for STIM16_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`stim16::R`](R) reader structure"]
+impl crate::Readable for Stim16Spec {}
+#[doc = "`write(|w| ..)` method takes [`stim16::W`](W) writer structure"]
+impl crate::Writable for Stim16Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets STIM16 to value 0"]
-impl crate::Resettable for STIM16_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for Stim16Spec {
+    const RESET_VALUE: u32 = 0;
 }

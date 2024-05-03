@@ -1,423 +1,391 @@
 #[doc = "Register `DOE31_0` reader"]
-pub struct R(crate::R<DOE31_0_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<DOE31_0_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<DOE31_0_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<DOE31_0_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Doe31_0Spec>;
 #[doc = "Register `DOE31_0` writer"]
-pub struct W(crate::W<DOE31_0_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<DOE31_0_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<DOE31_0_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<DOE31_0_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<Doe31_0Spec>;
 #[doc = "Field `DIO0` reader - 0:0\\]
 Data output enable for DIO 0"]
-pub type DIO0_R = crate::BitReader<bool>;
+pub type Dio0R = crate::BitReader;
 #[doc = "Field `DIO0` writer - 0:0\\]
 Data output enable for DIO 0"]
-pub type DIO0_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio0W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO1` reader - 1:1\\]
 Data output enable for DIO 1"]
-pub type DIO1_R = crate::BitReader<bool>;
+pub type Dio1R = crate::BitReader;
 #[doc = "Field `DIO1` writer - 1:1\\]
 Data output enable for DIO 1"]
-pub type DIO1_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio1W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO2` reader - 2:2\\]
 Data output enable for DIO 2"]
-pub type DIO2_R = crate::BitReader<bool>;
+pub type Dio2R = crate::BitReader;
 #[doc = "Field `DIO2` writer - 2:2\\]
 Data output enable for DIO 2"]
-pub type DIO2_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio2W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO3` reader - 3:3\\]
 Data output enable for DIO 3"]
-pub type DIO3_R = crate::BitReader<bool>;
+pub type Dio3R = crate::BitReader;
 #[doc = "Field `DIO3` writer - 3:3\\]
 Data output enable for DIO 3"]
-pub type DIO3_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio3W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO4` reader - 4:4\\]
 Data output enable for DIO 4"]
-pub type DIO4_R = crate::BitReader<bool>;
+pub type Dio4R = crate::BitReader;
 #[doc = "Field `DIO4` writer - 4:4\\]
 Data output enable for DIO 4"]
-pub type DIO4_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio4W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO5` reader - 5:5\\]
 Data output enable for DIO 5"]
-pub type DIO5_R = crate::BitReader<bool>;
+pub type Dio5R = crate::BitReader;
 #[doc = "Field `DIO5` writer - 5:5\\]
 Data output enable for DIO 5"]
-pub type DIO5_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio5W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO6` reader - 6:6\\]
 Data output enable for DIO 6"]
-pub type DIO6_R = crate::BitReader<bool>;
+pub type Dio6R = crate::BitReader;
 #[doc = "Field `DIO6` writer - 6:6\\]
 Data output enable for DIO 6"]
-pub type DIO6_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio6W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO7` reader - 7:7\\]
 Data output enable for DIO 7"]
-pub type DIO7_R = crate::BitReader<bool>;
+pub type Dio7R = crate::BitReader;
 #[doc = "Field `DIO7` writer - 7:7\\]
 Data output enable for DIO 7"]
-pub type DIO7_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio7W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO8` reader - 8:8\\]
 Data output enable for DIO 8"]
-pub type DIO8_R = crate::BitReader<bool>;
+pub type Dio8R = crate::BitReader;
 #[doc = "Field `DIO8` writer - 8:8\\]
 Data output enable for DIO 8"]
-pub type DIO8_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio8W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO9` reader - 9:9\\]
 Data output enable for DIO 9"]
-pub type DIO9_R = crate::BitReader<bool>;
+pub type Dio9R = crate::BitReader;
 #[doc = "Field `DIO9` writer - 9:9\\]
 Data output enable for DIO 9"]
-pub type DIO9_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio9W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO10` reader - 10:10\\]
 Data output enable for DIO 10"]
-pub type DIO10_R = crate::BitReader<bool>;
+pub type Dio10R = crate::BitReader;
 #[doc = "Field `DIO10` writer - 10:10\\]
 Data output enable for DIO 10"]
-pub type DIO10_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio10W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO11` reader - 11:11\\]
 Data output enable for DIO 11"]
-pub type DIO11_R = crate::BitReader<bool>;
+pub type Dio11R = crate::BitReader;
 #[doc = "Field `DIO11` writer - 11:11\\]
 Data output enable for DIO 11"]
-pub type DIO11_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio11W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO12` reader - 12:12\\]
 Data output enable for DIO 12"]
-pub type DIO12_R = crate::BitReader<bool>;
+pub type Dio12R = crate::BitReader;
 #[doc = "Field `DIO12` writer - 12:12\\]
 Data output enable for DIO 12"]
-pub type DIO12_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio12W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO13` reader - 13:13\\]
 Data output enable for DIO 13"]
-pub type DIO13_R = crate::BitReader<bool>;
+pub type Dio13R = crate::BitReader;
 #[doc = "Field `DIO13` writer - 13:13\\]
 Data output enable for DIO 13"]
-pub type DIO13_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio13W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO14` reader - 14:14\\]
 Data output enable for DIO 14"]
-pub type DIO14_R = crate::BitReader<bool>;
+pub type Dio14R = crate::BitReader;
 #[doc = "Field `DIO14` writer - 14:14\\]
 Data output enable for DIO 14"]
-pub type DIO14_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio14W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO15` reader - 15:15\\]
 Data output enable for DIO 15"]
-pub type DIO15_R = crate::BitReader<bool>;
+pub type Dio15R = crate::BitReader;
 #[doc = "Field `DIO15` writer - 15:15\\]
 Data output enable for DIO 15"]
-pub type DIO15_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio15W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO16` reader - 16:16\\]
 Data output enable for DIO 16"]
-pub type DIO16_R = crate::BitReader<bool>;
+pub type Dio16R = crate::BitReader;
 #[doc = "Field `DIO16` writer - 16:16\\]
 Data output enable for DIO 16"]
-pub type DIO16_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio16W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO17` reader - 17:17\\]
 Data output enable for DIO 17"]
-pub type DIO17_R = crate::BitReader<bool>;
+pub type Dio17R = crate::BitReader;
 #[doc = "Field `DIO17` writer - 17:17\\]
 Data output enable for DIO 17"]
-pub type DIO17_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio17W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO18` reader - 18:18\\]
 Data output enable for DIO 18"]
-pub type DIO18_R = crate::BitReader<bool>;
+pub type Dio18R = crate::BitReader;
 #[doc = "Field `DIO18` writer - 18:18\\]
 Data output enable for DIO 18"]
-pub type DIO18_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio18W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO19` reader - 19:19\\]
 Data output enable for DIO 19"]
-pub type DIO19_R = crate::BitReader<bool>;
+pub type Dio19R = crate::BitReader;
 #[doc = "Field `DIO19` writer - 19:19\\]
 Data output enable for DIO 19"]
-pub type DIO19_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio19W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO20` reader - 20:20\\]
 Data output enable for DIO 20"]
-pub type DIO20_R = crate::BitReader<bool>;
+pub type Dio20R = crate::BitReader;
 #[doc = "Field `DIO20` writer - 20:20\\]
 Data output enable for DIO 20"]
-pub type DIO20_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio20W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO21` reader - 21:21\\]
 Data output enable for DIO 21"]
-pub type DIO21_R = crate::BitReader<bool>;
+pub type Dio21R = crate::BitReader;
 #[doc = "Field `DIO21` writer - 21:21\\]
 Data output enable for DIO 21"]
-pub type DIO21_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio21W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO22` reader - 22:22\\]
 Data output enable for DIO 22"]
-pub type DIO22_R = crate::BitReader<bool>;
+pub type Dio22R = crate::BitReader;
 #[doc = "Field `DIO22` writer - 22:22\\]
 Data output enable for DIO 22"]
-pub type DIO22_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio22W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO23` reader - 23:23\\]
 Data output enable for DIO 23"]
-pub type DIO23_R = crate::BitReader<bool>;
+pub type Dio23R = crate::BitReader;
 #[doc = "Field `DIO23` writer - 23:23\\]
 Data output enable for DIO 23"]
-pub type DIO23_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio23W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO24` reader - 24:24\\]
 Data output enable for DIO 24"]
-pub type DIO24_R = crate::BitReader<bool>;
+pub type Dio24R = crate::BitReader;
 #[doc = "Field `DIO24` writer - 24:24\\]
 Data output enable for DIO 24"]
-pub type DIO24_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio24W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO25` reader - 25:25\\]
 Data output enable for DIO 25"]
-pub type DIO25_R = crate::BitReader<bool>;
+pub type Dio25R = crate::BitReader;
 #[doc = "Field `DIO25` writer - 25:25\\]
 Data output enable for DIO 25"]
-pub type DIO25_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio25W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO26` reader - 26:26\\]
 Data output enable for DIO 26"]
-pub type DIO26_R = crate::BitReader<bool>;
+pub type Dio26R = crate::BitReader;
 #[doc = "Field `DIO26` writer - 26:26\\]
 Data output enable for DIO 26"]
-pub type DIO26_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio26W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO27` reader - 27:27\\]
 Data output enable for DIO 27"]
-pub type DIO27_R = crate::BitReader<bool>;
+pub type Dio27R = crate::BitReader;
 #[doc = "Field `DIO27` writer - 27:27\\]
 Data output enable for DIO 27"]
-pub type DIO27_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio27W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO28` reader - 28:28\\]
 Data output enable for DIO 28"]
-pub type DIO28_R = crate::BitReader<bool>;
+pub type Dio28R = crate::BitReader;
 #[doc = "Field `DIO28` writer - 28:28\\]
 Data output enable for DIO 28"]
-pub type DIO28_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio28W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO29` reader - 29:29\\]
 Data output enable for DIO 29"]
-pub type DIO29_R = crate::BitReader<bool>;
+pub type Dio29R = crate::BitReader;
 #[doc = "Field `DIO29` writer - 29:29\\]
 Data output enable for DIO 29"]
-pub type DIO29_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio29W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO30` reader - 30:30\\]
 Data output enable for DIO 30"]
-pub type DIO30_R = crate::BitReader<bool>;
+pub type Dio30R = crate::BitReader;
 #[doc = "Field `DIO30` writer - 30:30\\]
 Data output enable for DIO 30"]
-pub type DIO30_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio30W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIO31` reader - 31:31\\]
 Data output enable for DIO 31"]
-pub type DIO31_R = crate::BitReader<bool>;
+pub type Dio31R = crate::BitReader;
 #[doc = "Field `DIO31` writer - 31:31\\]
 Data output enable for DIO 31"]
-pub type DIO31_W<'a, const O: u8> = crate::BitWriter<'a, u32, DOE31_0_SPEC, bool, O>;
+pub type Dio31W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Data output enable for DIO 0"]
     #[inline(always)]
-    pub fn dio0(&self) -> DIO0_R {
-        DIO0_R::new((self.bits & 1) != 0)
+    pub fn dio0(&self) -> Dio0R {
+        Dio0R::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 Data output enable for DIO 1"]
     #[inline(always)]
-    pub fn dio1(&self) -> DIO1_R {
-        DIO1_R::new(((self.bits >> 1) & 1) != 0)
+    pub fn dio1(&self) -> Dio1R {
+        Dio1R::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bit 2 - 2:2\\]
 Data output enable for DIO 2"]
     #[inline(always)]
-    pub fn dio2(&self) -> DIO2_R {
-        DIO2_R::new(((self.bits >> 2) & 1) != 0)
+    pub fn dio2(&self) -> Dio2R {
+        Dio2R::new(((self.bits >> 2) & 1) != 0)
     }
     #[doc = "Bit 3 - 3:3\\]
 Data output enable for DIO 3"]
     #[inline(always)]
-    pub fn dio3(&self) -> DIO3_R {
-        DIO3_R::new(((self.bits >> 3) & 1) != 0)
+    pub fn dio3(&self) -> Dio3R {
+        Dio3R::new(((self.bits >> 3) & 1) != 0)
     }
     #[doc = "Bit 4 - 4:4\\]
 Data output enable for DIO 4"]
     #[inline(always)]
-    pub fn dio4(&self) -> DIO4_R {
-        DIO4_R::new(((self.bits >> 4) & 1) != 0)
+    pub fn dio4(&self) -> Dio4R {
+        Dio4R::new(((self.bits >> 4) & 1) != 0)
     }
     #[doc = "Bit 5 - 5:5\\]
 Data output enable for DIO 5"]
     #[inline(always)]
-    pub fn dio5(&self) -> DIO5_R {
-        DIO5_R::new(((self.bits >> 5) & 1) != 0)
+    pub fn dio5(&self) -> Dio5R {
+        Dio5R::new(((self.bits >> 5) & 1) != 0)
     }
     #[doc = "Bit 6 - 6:6\\]
 Data output enable for DIO 6"]
     #[inline(always)]
-    pub fn dio6(&self) -> DIO6_R {
-        DIO6_R::new(((self.bits >> 6) & 1) != 0)
+    pub fn dio6(&self) -> Dio6R {
+        Dio6R::new(((self.bits >> 6) & 1) != 0)
     }
     #[doc = "Bit 7 - 7:7\\]
 Data output enable for DIO 7"]
     #[inline(always)]
-    pub fn dio7(&self) -> DIO7_R {
-        DIO7_R::new(((self.bits >> 7) & 1) != 0)
+    pub fn dio7(&self) -> Dio7R {
+        Dio7R::new(((self.bits >> 7) & 1) != 0)
     }
     #[doc = "Bit 8 - 8:8\\]
 Data output enable for DIO 8"]
     #[inline(always)]
-    pub fn dio8(&self) -> DIO8_R {
-        DIO8_R::new(((self.bits >> 8) & 1) != 0)
+    pub fn dio8(&self) -> Dio8R {
+        Dio8R::new(((self.bits >> 8) & 1) != 0)
     }
     #[doc = "Bit 9 - 9:9\\]
 Data output enable for DIO 9"]
     #[inline(always)]
-    pub fn dio9(&self) -> DIO9_R {
-        DIO9_R::new(((self.bits >> 9) & 1) != 0)
+    pub fn dio9(&self) -> Dio9R {
+        Dio9R::new(((self.bits >> 9) & 1) != 0)
     }
     #[doc = "Bit 10 - 10:10\\]
 Data output enable for DIO 10"]
     #[inline(always)]
-    pub fn dio10(&self) -> DIO10_R {
-        DIO10_R::new(((self.bits >> 10) & 1) != 0)
+    pub fn dio10(&self) -> Dio10R {
+        Dio10R::new(((self.bits >> 10) & 1) != 0)
     }
     #[doc = "Bit 11 - 11:11\\]
 Data output enable for DIO 11"]
     #[inline(always)]
-    pub fn dio11(&self) -> DIO11_R {
-        DIO11_R::new(((self.bits >> 11) & 1) != 0)
+    pub fn dio11(&self) -> Dio11R {
+        Dio11R::new(((self.bits >> 11) & 1) != 0)
     }
     #[doc = "Bit 12 - 12:12\\]
 Data output enable for DIO 12"]
     #[inline(always)]
-    pub fn dio12(&self) -> DIO12_R {
-        DIO12_R::new(((self.bits >> 12) & 1) != 0)
+    pub fn dio12(&self) -> Dio12R {
+        Dio12R::new(((self.bits >> 12) & 1) != 0)
     }
     #[doc = "Bit 13 - 13:13\\]
 Data output enable for DIO 13"]
     #[inline(always)]
-    pub fn dio13(&self) -> DIO13_R {
-        DIO13_R::new(((self.bits >> 13) & 1) != 0)
+    pub fn dio13(&self) -> Dio13R {
+        Dio13R::new(((self.bits >> 13) & 1) != 0)
     }
     #[doc = "Bit 14 - 14:14\\]
 Data output enable for DIO 14"]
     #[inline(always)]
-    pub fn dio14(&self) -> DIO14_R {
-        DIO14_R::new(((self.bits >> 14) & 1) != 0)
+    pub fn dio14(&self) -> Dio14R {
+        Dio14R::new(((self.bits >> 14) & 1) != 0)
     }
     #[doc = "Bit 15 - 15:15\\]
 Data output enable for DIO 15"]
     #[inline(always)]
-    pub fn dio15(&self) -> DIO15_R {
-        DIO15_R::new(((self.bits >> 15) & 1) != 0)
+    pub fn dio15(&self) -> Dio15R {
+        Dio15R::new(((self.bits >> 15) & 1) != 0)
     }
     #[doc = "Bit 16 - 16:16\\]
 Data output enable for DIO 16"]
     #[inline(always)]
-    pub fn dio16(&self) -> DIO16_R {
-        DIO16_R::new(((self.bits >> 16) & 1) != 0)
+    pub fn dio16(&self) -> Dio16R {
+        Dio16R::new(((self.bits >> 16) & 1) != 0)
     }
     #[doc = "Bit 17 - 17:17\\]
 Data output enable for DIO 17"]
     #[inline(always)]
-    pub fn dio17(&self) -> DIO17_R {
-        DIO17_R::new(((self.bits >> 17) & 1) != 0)
+    pub fn dio17(&self) -> Dio17R {
+        Dio17R::new(((self.bits >> 17) & 1) != 0)
     }
     #[doc = "Bit 18 - 18:18\\]
 Data output enable for DIO 18"]
     #[inline(always)]
-    pub fn dio18(&self) -> DIO18_R {
-        DIO18_R::new(((self.bits >> 18) & 1) != 0)
+    pub fn dio18(&self) -> Dio18R {
+        Dio18R::new(((self.bits >> 18) & 1) != 0)
     }
     #[doc = "Bit 19 - 19:19\\]
 Data output enable for DIO 19"]
     #[inline(always)]
-    pub fn dio19(&self) -> DIO19_R {
-        DIO19_R::new(((self.bits >> 19) & 1) != 0)
+    pub fn dio19(&self) -> Dio19R {
+        Dio19R::new(((self.bits >> 19) & 1) != 0)
     }
     #[doc = "Bit 20 - 20:20\\]
 Data output enable for DIO 20"]
     #[inline(always)]
-    pub fn dio20(&self) -> DIO20_R {
-        DIO20_R::new(((self.bits >> 20) & 1) != 0)
+    pub fn dio20(&self) -> Dio20R {
+        Dio20R::new(((self.bits >> 20) & 1) != 0)
     }
     #[doc = "Bit 21 - 21:21\\]
 Data output enable for DIO 21"]
     #[inline(always)]
-    pub fn dio21(&self) -> DIO21_R {
-        DIO21_R::new(((self.bits >> 21) & 1) != 0)
+    pub fn dio21(&self) -> Dio21R {
+        Dio21R::new(((self.bits >> 21) & 1) != 0)
     }
     #[doc = "Bit 22 - 22:22\\]
 Data output enable for DIO 22"]
     #[inline(always)]
-    pub fn dio22(&self) -> DIO22_R {
-        DIO22_R::new(((self.bits >> 22) & 1) != 0)
+    pub fn dio22(&self) -> Dio22R {
+        Dio22R::new(((self.bits >> 22) & 1) != 0)
     }
     #[doc = "Bit 23 - 23:23\\]
 Data output enable for DIO 23"]
     #[inline(always)]
-    pub fn dio23(&self) -> DIO23_R {
-        DIO23_R::new(((self.bits >> 23) & 1) != 0)
+    pub fn dio23(&self) -> Dio23R {
+        Dio23R::new(((self.bits >> 23) & 1) != 0)
     }
     #[doc = "Bit 24 - 24:24\\]
 Data output enable for DIO 24"]
     #[inline(always)]
-    pub fn dio24(&self) -> DIO24_R {
-        DIO24_R::new(((self.bits >> 24) & 1) != 0)
+    pub fn dio24(&self) -> Dio24R {
+        Dio24R::new(((self.bits >> 24) & 1) != 0)
     }
     #[doc = "Bit 25 - 25:25\\]
 Data output enable for DIO 25"]
     #[inline(always)]
-    pub fn dio25(&self) -> DIO25_R {
-        DIO25_R::new(((self.bits >> 25) & 1) != 0)
+    pub fn dio25(&self) -> Dio25R {
+        Dio25R::new(((self.bits >> 25) & 1) != 0)
     }
     #[doc = "Bit 26 - 26:26\\]
 Data output enable for DIO 26"]
     #[inline(always)]
-    pub fn dio26(&self) -> DIO26_R {
-        DIO26_R::new(((self.bits >> 26) & 1) != 0)
+    pub fn dio26(&self) -> Dio26R {
+        Dio26R::new(((self.bits >> 26) & 1) != 0)
     }
     #[doc = "Bit 27 - 27:27\\]
 Data output enable for DIO 27"]
     #[inline(always)]
-    pub fn dio27(&self) -> DIO27_R {
-        DIO27_R::new(((self.bits >> 27) & 1) != 0)
+    pub fn dio27(&self) -> Dio27R {
+        Dio27R::new(((self.bits >> 27) & 1) != 0)
     }
     #[doc = "Bit 28 - 28:28\\]
 Data output enable for DIO 28"]
     #[inline(always)]
-    pub fn dio28(&self) -> DIO28_R {
-        DIO28_R::new(((self.bits >> 28) & 1) != 0)
+    pub fn dio28(&self) -> Dio28R {
+        Dio28R::new(((self.bits >> 28) & 1) != 0)
     }
     #[doc = "Bit 29 - 29:29\\]
 Data output enable for DIO 29"]
     #[inline(always)]
-    pub fn dio29(&self) -> DIO29_R {
-        DIO29_R::new(((self.bits >> 29) & 1) != 0)
+    pub fn dio29(&self) -> Dio29R {
+        Dio29R::new(((self.bits >> 29) & 1) != 0)
     }
     #[doc = "Bit 30 - 30:30\\]
 Data output enable for DIO 30"]
     #[inline(always)]
-    pub fn dio30(&self) -> DIO30_R {
-        DIO30_R::new(((self.bits >> 30) & 1) != 0)
+    pub fn dio30(&self) -> Dio30R {
+        Dio30R::new(((self.bits >> 30) & 1) != 0)
     }
     #[doc = "Bit 31 - 31:31\\]
 Data output enable for DIO 31"]
     #[inline(always)]
-    pub fn dio31(&self) -> DIO31_R {
-        DIO31_R::new(((self.bits >> 31) & 1) != 0)
+    pub fn dio31(&self) -> Dio31R {
+        Dio31R::new(((self.bits >> 31) & 1) != 0)
     }
 }
 impl W {
@@ -425,249 +393,241 @@ impl W {
 Data output enable for DIO 0"]
     #[inline(always)]
     #[must_use]
-    pub fn dio0(&mut self) -> DIO0_W<0> {
-        DIO0_W::new(self)
+    pub fn dio0(&mut self) -> Dio0W<Doe31_0Spec> {
+        Dio0W::new(self, 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 Data output enable for DIO 1"]
     #[inline(always)]
     #[must_use]
-    pub fn dio1(&mut self) -> DIO1_W<1> {
-        DIO1_W::new(self)
+    pub fn dio1(&mut self) -> Dio1W<Doe31_0Spec> {
+        Dio1W::new(self, 1)
     }
     #[doc = "Bit 2 - 2:2\\]
 Data output enable for DIO 2"]
     #[inline(always)]
     #[must_use]
-    pub fn dio2(&mut self) -> DIO2_W<2> {
-        DIO2_W::new(self)
+    pub fn dio2(&mut self) -> Dio2W<Doe31_0Spec> {
+        Dio2W::new(self, 2)
     }
     #[doc = "Bit 3 - 3:3\\]
 Data output enable for DIO 3"]
     #[inline(always)]
     #[must_use]
-    pub fn dio3(&mut self) -> DIO3_W<3> {
-        DIO3_W::new(self)
+    pub fn dio3(&mut self) -> Dio3W<Doe31_0Spec> {
+        Dio3W::new(self, 3)
     }
     #[doc = "Bit 4 - 4:4\\]
 Data output enable for DIO 4"]
     #[inline(always)]
     #[must_use]
-    pub fn dio4(&mut self) -> DIO4_W<4> {
-        DIO4_W::new(self)
+    pub fn dio4(&mut self) -> Dio4W<Doe31_0Spec> {
+        Dio4W::new(self, 4)
     }
     #[doc = "Bit 5 - 5:5\\]
 Data output enable for DIO 5"]
     #[inline(always)]
     #[must_use]
-    pub fn dio5(&mut self) -> DIO5_W<5> {
-        DIO5_W::new(self)
+    pub fn dio5(&mut self) -> Dio5W<Doe31_0Spec> {
+        Dio5W::new(self, 5)
     }
     #[doc = "Bit 6 - 6:6\\]
 Data output enable for DIO 6"]
     #[inline(always)]
     #[must_use]
-    pub fn dio6(&mut self) -> DIO6_W<6> {
-        DIO6_W::new(self)
+    pub fn dio6(&mut self) -> Dio6W<Doe31_0Spec> {
+        Dio6W::new(self, 6)
     }
     #[doc = "Bit 7 - 7:7\\]
 Data output enable for DIO 7"]
     #[inline(always)]
     #[must_use]
-    pub fn dio7(&mut self) -> DIO7_W<7> {
-        DIO7_W::new(self)
+    pub fn dio7(&mut self) -> Dio7W<Doe31_0Spec> {
+        Dio7W::new(self, 7)
     }
     #[doc = "Bit 8 - 8:8\\]
 Data output enable for DIO 8"]
     #[inline(always)]
     #[must_use]
-    pub fn dio8(&mut self) -> DIO8_W<8> {
-        DIO8_W::new(self)
+    pub fn dio8(&mut self) -> Dio8W<Doe31_0Spec> {
+        Dio8W::new(self, 8)
     }
     #[doc = "Bit 9 - 9:9\\]
 Data output enable for DIO 9"]
     #[inline(always)]
     #[must_use]
-    pub fn dio9(&mut self) -> DIO9_W<9> {
-        DIO9_W::new(self)
+    pub fn dio9(&mut self) -> Dio9W<Doe31_0Spec> {
+        Dio9W::new(self, 9)
     }
     #[doc = "Bit 10 - 10:10\\]
 Data output enable for DIO 10"]
     #[inline(always)]
     #[must_use]
-    pub fn dio10(&mut self) -> DIO10_W<10> {
-        DIO10_W::new(self)
+    pub fn dio10(&mut self) -> Dio10W<Doe31_0Spec> {
+        Dio10W::new(self, 10)
     }
     #[doc = "Bit 11 - 11:11\\]
 Data output enable for DIO 11"]
     #[inline(always)]
     #[must_use]
-    pub fn dio11(&mut self) -> DIO11_W<11> {
-        DIO11_W::new(self)
+    pub fn dio11(&mut self) -> Dio11W<Doe31_0Spec> {
+        Dio11W::new(self, 11)
     }
     #[doc = "Bit 12 - 12:12\\]
 Data output enable for DIO 12"]
     #[inline(always)]
     #[must_use]
-    pub fn dio12(&mut self) -> DIO12_W<12> {
-        DIO12_W::new(self)
+    pub fn dio12(&mut self) -> Dio12W<Doe31_0Spec> {
+        Dio12W::new(self, 12)
     }
     #[doc = "Bit 13 - 13:13\\]
 Data output enable for DIO 13"]
     #[inline(always)]
     #[must_use]
-    pub fn dio13(&mut self) -> DIO13_W<13> {
-        DIO13_W::new(self)
+    pub fn dio13(&mut self) -> Dio13W<Doe31_0Spec> {
+        Dio13W::new(self, 13)
     }
     #[doc = "Bit 14 - 14:14\\]
 Data output enable for DIO 14"]
     #[inline(always)]
     #[must_use]
-    pub fn dio14(&mut self) -> DIO14_W<14> {
-        DIO14_W::new(self)
+    pub fn dio14(&mut self) -> Dio14W<Doe31_0Spec> {
+        Dio14W::new(self, 14)
     }
     #[doc = "Bit 15 - 15:15\\]
 Data output enable for DIO 15"]
     #[inline(always)]
     #[must_use]
-    pub fn dio15(&mut self) -> DIO15_W<15> {
-        DIO15_W::new(self)
+    pub fn dio15(&mut self) -> Dio15W<Doe31_0Spec> {
+        Dio15W::new(self, 15)
     }
     #[doc = "Bit 16 - 16:16\\]
 Data output enable for DIO 16"]
     #[inline(always)]
     #[must_use]
-    pub fn dio16(&mut self) -> DIO16_W<16> {
-        DIO16_W::new(self)
+    pub fn dio16(&mut self) -> Dio16W<Doe31_0Spec> {
+        Dio16W::new(self, 16)
     }
     #[doc = "Bit 17 - 17:17\\]
 Data output enable for DIO 17"]
     #[inline(always)]
     #[must_use]
-    pub fn dio17(&mut self) -> DIO17_W<17> {
-        DIO17_W::new(self)
+    pub fn dio17(&mut self) -> Dio17W<Doe31_0Spec> {
+        Dio17W::new(self, 17)
     }
     #[doc = "Bit 18 - 18:18\\]
 Data output enable for DIO 18"]
     #[inline(always)]
     #[must_use]
-    pub fn dio18(&mut self) -> DIO18_W<18> {
-        DIO18_W::new(self)
+    pub fn dio18(&mut self) -> Dio18W<Doe31_0Spec> {
+        Dio18W::new(self, 18)
     }
     #[doc = "Bit 19 - 19:19\\]
 Data output enable for DIO 19"]
     #[inline(always)]
     #[must_use]
-    pub fn dio19(&mut self) -> DIO19_W<19> {
-        DIO19_W::new(self)
+    pub fn dio19(&mut self) -> Dio19W<Doe31_0Spec> {
+        Dio19W::new(self, 19)
     }
     #[doc = "Bit 20 - 20:20\\]
 Data output enable for DIO 20"]
     #[inline(always)]
     #[must_use]
-    pub fn dio20(&mut self) -> DIO20_W<20> {
-        DIO20_W::new(self)
+    pub fn dio20(&mut self) -> Dio20W<Doe31_0Spec> {
+        Dio20W::new(self, 20)
     }
     #[doc = "Bit 21 - 21:21\\]
 Data output enable for DIO 21"]
     #[inline(always)]
     #[must_use]
-    pub fn dio21(&mut self) -> DIO21_W<21> {
-        DIO21_W::new(self)
+    pub fn dio21(&mut self) -> Dio21W<Doe31_0Spec> {
+        Dio21W::new(self, 21)
     }
     #[doc = "Bit 22 - 22:22\\]
 Data output enable for DIO 22"]
     #[inline(always)]
     #[must_use]
-    pub fn dio22(&mut self) -> DIO22_W<22> {
-        DIO22_W::new(self)
+    pub fn dio22(&mut self) -> Dio22W<Doe31_0Spec> {
+        Dio22W::new(self, 22)
     }
     #[doc = "Bit 23 - 23:23\\]
 Data output enable for DIO 23"]
     #[inline(always)]
     #[must_use]
-    pub fn dio23(&mut self) -> DIO23_W<23> {
-        DIO23_W::new(self)
+    pub fn dio23(&mut self) -> Dio23W<Doe31_0Spec> {
+        Dio23W::new(self, 23)
     }
     #[doc = "Bit 24 - 24:24\\]
 Data output enable for DIO 24"]
     #[inline(always)]
     #[must_use]
-    pub fn dio24(&mut self) -> DIO24_W<24> {
-        DIO24_W::new(self)
+    pub fn dio24(&mut self) -> Dio24W<Doe31_0Spec> {
+        Dio24W::new(self, 24)
     }
     #[doc = "Bit 25 - 25:25\\]
 Data output enable for DIO 25"]
     #[inline(always)]
     #[must_use]
-    pub fn dio25(&mut self) -> DIO25_W<25> {
-        DIO25_W::new(self)
+    pub fn dio25(&mut self) -> Dio25W<Doe31_0Spec> {
+        Dio25W::new(self, 25)
     }
     #[doc = "Bit 26 - 26:26\\]
 Data output enable for DIO 26"]
     #[inline(always)]
     #[must_use]
-    pub fn dio26(&mut self) -> DIO26_W<26> {
-        DIO26_W::new(self)
+    pub fn dio26(&mut self) -> Dio26W<Doe31_0Spec> {
+        Dio26W::new(self, 26)
     }
     #[doc = "Bit 27 - 27:27\\]
 Data output enable for DIO 27"]
     #[inline(always)]
     #[must_use]
-    pub fn dio27(&mut self) -> DIO27_W<27> {
-        DIO27_W::new(self)
+    pub fn dio27(&mut self) -> Dio27W<Doe31_0Spec> {
+        Dio27W::new(self, 27)
     }
     #[doc = "Bit 28 - 28:28\\]
 Data output enable for DIO 28"]
     #[inline(always)]
     #[must_use]
-    pub fn dio28(&mut self) -> DIO28_W<28> {
-        DIO28_W::new(self)
+    pub fn dio28(&mut self) -> Dio28W<Doe31_0Spec> {
+        Dio28W::new(self, 28)
     }
     #[doc = "Bit 29 - 29:29\\]
 Data output enable for DIO 29"]
     #[inline(always)]
     #[must_use]
-    pub fn dio29(&mut self) -> DIO29_W<29> {
-        DIO29_W::new(self)
+    pub fn dio29(&mut self) -> Dio29W<Doe31_0Spec> {
+        Dio29W::new(self, 29)
     }
     #[doc = "Bit 30 - 30:30\\]
 Data output enable for DIO 30"]
     #[inline(always)]
     #[must_use]
-    pub fn dio30(&mut self) -> DIO30_W<30> {
-        DIO30_W::new(self)
+    pub fn dio30(&mut self) -> Dio30W<Doe31_0Spec> {
+        Dio30W::new(self, 30)
     }
     #[doc = "Bit 31 - 31:31\\]
 Data output enable for DIO 31"]
     #[inline(always)]
     #[must_use]
-    pub fn dio31(&mut self) -> DIO31_W<31> {
-        DIO31_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn dio31(&mut self) -> Dio31W<Doe31_0Spec> {
+        Dio31W::new(self, 31)
     }
 }
-#[doc = "Data Output Enable for DIO 0 to 31\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [doe31_0](index.html) module"]
-pub struct DOE31_0_SPEC;
-impl crate::RegisterSpec for DOE31_0_SPEC {
+#[doc = "Data Output Enable for DIO 0 to 31\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`doe31_0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`doe31_0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Doe31_0Spec;
+impl crate::RegisterSpec for Doe31_0Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [doe31_0::R](R) reader structure"]
-impl crate::Readable for DOE31_0_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [doe31_0::W](W) writer structure"]
-impl crate::Writable for DOE31_0_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`doe31_0::R`](R) reader structure"]
+impl crate::Readable for Doe31_0Spec {}
+#[doc = "`write(|w| ..)` method takes [`doe31_0::W`](W) writer structure"]
+impl crate::Writable for Doe31_0Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets DOE31_0 to value 0"]
-impl crate::Resettable for DOE31_0_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for Doe31_0Spec {
+    const RESET_VALUE: u32 = 0;
 }

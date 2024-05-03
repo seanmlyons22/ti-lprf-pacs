@@ -1,171 +1,139 @@
 #[doc = "Register `STAT2` reader"]
-pub struct R(crate::R<STAT2_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<STAT2_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<STAT2_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<STAT2_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Stat2Spec>;
 #[doc = "Register `STAT2` writer"]
-pub struct W(crate::W<STAT2_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<STAT2_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<STAT2_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<STAT2_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<Stat2Spec>;
 #[doc = "Field `XOSC_HF_RF_FREQGOOD` reader - 0:0\\]
 frequency of xosc_hf is within +/- 20 ppm and xosc_hf is good for radio operations. Used for SW to start synthesizer."]
-pub type XOSC_HF_RF_FREQGOOD_R = crate::BitReader<bool>;
+pub type XoscHfRfFreqgoodR = crate::BitReader;
 #[doc = "Field `XOSC_HF_RF_FREQGOOD` writer - 0:0\\]
 frequency of xosc_hf is within +/- 20 ppm and xosc_hf is good for radio operations. Used for SW to start synthesizer."]
-pub type XOSC_HF_RF_FREQGOOD_W<'a, const O: u8> = crate::BitWriter<'a, u32, STAT2_SPEC, bool, O>;
+pub type XoscHfRfFreqgoodW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `XOSC_HF_FREQGOOD` reader - 1:1\\]
 frequency of xosc_hf is good to use for the digital clocks"]
-pub type XOSC_HF_FREQGOOD_R = crate::BitReader<bool>;
+pub type XoscHfFreqgoodR = crate::BitReader;
 #[doc = "Field `XOSC_HF_FREQGOOD` writer - 1:1\\]
 frequency of xosc_hf is good to use for the digital clocks"]
-pub type XOSC_HF_FREQGOOD_W<'a, const O: u8> = crate::BitWriter<'a, u32, STAT2_SPEC, bool, O>;
+pub type XoscHfFreqgoodW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `XOSC_HF_AMPGOOD` reader - 2:2\\]
 amplitude of xosc_hf is within the required threshold (set by DDI). Not used for anything just for debug/status"]
-pub type XOSC_HF_AMPGOOD_R = crate::BitReader<bool>;
+pub type XoscHfAmpgoodR = crate::BitReader;
 #[doc = "Field `XOSC_HF_AMPGOOD` writer - 2:2\\]
 amplitude of xosc_hf is within the required threshold (set by DDI). Not used for anything just for debug/status"]
-pub type XOSC_HF_AMPGOOD_W<'a, const O: u8> = crate::BitWriter<'a, u32, STAT2_SPEC, bool, O>;
+pub type XoscHfAmpgoodW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `AMPCOMP_REQ` reader - 3:3\\]
 ampcomp_req"]
-pub type AMPCOMP_REQ_R = crate::BitReader<bool>;
+pub type AmpcompReqR = crate::BitReader;
 #[doc = "Field `AMPCOMP_REQ` writer - 3:3\\]
 ampcomp_req"]
-pub type AMPCOMP_REQ_W<'a, const O: u8> = crate::BitWriter<'a, u32, STAT2_SPEC, bool, O>;
+pub type AmpcompReqW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED4` reader - 11:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED4_R = crate::FieldReader<u8, u8>;
+pub type Reserved4R = crate::FieldReader;
 #[doc = "Field `RESERVED4` writer - 11:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED4_W<'a, const O: u8> = crate::FieldWriter<'a, u32, STAT2_SPEC, u8, u8, 8, O>;
+pub type Reserved4W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `RAMPSTATE` reader - 15:12\\]
 xosc_hf amplitude compensation FSM This is identical to STAT1.RAMPSTATE. See that description for encoding."]
-pub type RAMPSTATE_R = crate::FieldReader<u8, u8>;
+pub type RampstateR = crate::FieldReader;
 #[doc = "Field `RAMPSTATE` writer - 15:12\\]
 xosc_hf amplitude compensation FSM This is identical to STAT1.RAMPSTATE. See that description for encoding."]
-pub type RAMPSTATE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, STAT2_SPEC, u8, u8, 4, O>;
+pub type RampstateW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED16` reader - 22:16\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED16_R = crate::FieldReader<u8, u8>;
+pub type Reserved16R = crate::FieldReader;
 #[doc = "Field `RESERVED16` writer - 22:16\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED16_W<'a, const O: u8> = crate::FieldWriter<'a, u32, STAT2_SPEC, u8, u8, 7, O>;
+pub type Reserved16W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "Field `HPM_RAMP3_THMET` reader - 23:23\\]
 Indication of threshold is met for hpm_ramp3"]
-pub type HPM_RAMP3_THMET_R = crate::BitReader<bool>;
+pub type HpmRamp3ThmetR = crate::BitReader;
 #[doc = "Field `HPM_RAMP3_THMET` writer - 23:23\\]
 Indication of threshold is met for hpm_ramp3"]
-pub type HPM_RAMP3_THMET_W<'a, const O: u8> = crate::BitWriter<'a, u32, STAT2_SPEC, bool, O>;
+pub type HpmRamp3ThmetW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `HPM_RAMP2_THMET` reader - 24:24\\]
 Indication of threshold is met for hpm_ramp2"]
-pub type HPM_RAMP2_THMET_R = crate::BitReader<bool>;
+pub type HpmRamp2ThmetR = crate::BitReader;
 #[doc = "Field `HPM_RAMP2_THMET` writer - 24:24\\]
 Indication of threshold is met for hpm_ramp2"]
-pub type HPM_RAMP2_THMET_W<'a, const O: u8> = crate::BitWriter<'a, u32, STAT2_SPEC, bool, O>;
+pub type HpmRamp2ThmetW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `HPM_RAMP1_THMET` reader - 25:25\\]
 Indication of threshold is met for hpm_ramp1"]
-pub type HPM_RAMP1_THMET_R = crate::BitReader<bool>;
+pub type HpmRamp1ThmetR = crate::BitReader;
 #[doc = "Field `HPM_RAMP1_THMET` writer - 25:25\\]
 Indication of threshold is met for hpm_ramp1"]
-pub type HPM_RAMP1_THMET_W<'a, const O: u8> = crate::BitWriter<'a, u32, STAT2_SPEC, bool, O>;
+pub type HpmRamp1ThmetW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `ADC_DCBIAS` reader - 31:26\\]
 DC Bias read by RADC during SAR mode The value is an unsigned integer. It is used for debug only."]
-pub type ADC_DCBIAS_R = crate::FieldReader<u8, u8>;
+pub type AdcDcbiasR = crate::FieldReader;
 #[doc = "Field `ADC_DCBIAS` writer - 31:26\\]
 DC Bias read by RADC during SAR mode The value is an unsigned integer. It is used for debug only."]
-pub type ADC_DCBIAS_W<'a, const O: u8> = crate::FieldWriter<'a, u32, STAT2_SPEC, u8, u8, 6, O>;
+pub type AdcDcbiasW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 frequency of xosc_hf is within +/- 20 ppm and xosc_hf is good for radio operations. Used for SW to start synthesizer."]
     #[inline(always)]
-    pub fn xosc_hf_rf_freqgood(&self) -> XOSC_HF_RF_FREQGOOD_R {
-        XOSC_HF_RF_FREQGOOD_R::new((self.bits & 1) != 0)
+    pub fn xosc_hf_rf_freqgood(&self) -> XoscHfRfFreqgoodR {
+        XoscHfRfFreqgoodR::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 frequency of xosc_hf is good to use for the digital clocks"]
     #[inline(always)]
-    pub fn xosc_hf_freqgood(&self) -> XOSC_HF_FREQGOOD_R {
-        XOSC_HF_FREQGOOD_R::new(((self.bits >> 1) & 1) != 0)
+    pub fn xosc_hf_freqgood(&self) -> XoscHfFreqgoodR {
+        XoscHfFreqgoodR::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bit 2 - 2:2\\]
 amplitude of xosc_hf is within the required threshold (set by DDI). Not used for anything just for debug/status"]
     #[inline(always)]
-    pub fn xosc_hf_ampgood(&self) -> XOSC_HF_AMPGOOD_R {
-        XOSC_HF_AMPGOOD_R::new(((self.bits >> 2) & 1) != 0)
+    pub fn xosc_hf_ampgood(&self) -> XoscHfAmpgoodR {
+        XoscHfAmpgoodR::new(((self.bits >> 2) & 1) != 0)
     }
     #[doc = "Bit 3 - 3:3\\]
 ampcomp_req"]
     #[inline(always)]
-    pub fn ampcomp_req(&self) -> AMPCOMP_REQ_R {
-        AMPCOMP_REQ_R::new(((self.bits >> 3) & 1) != 0)
+    pub fn ampcomp_req(&self) -> AmpcompReqR {
+        AmpcompReqR::new(((self.bits >> 3) & 1) != 0)
     }
     #[doc = "Bits 4:11 - 11:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved4(&self) -> RESERVED4_R {
-        RESERVED4_R::new(((self.bits >> 4) & 0xff) as u8)
+    pub fn reserved4(&self) -> Reserved4R {
+        Reserved4R::new(((self.bits >> 4) & 0xff) as u8)
     }
     #[doc = "Bits 12:15 - 15:12\\]
 xosc_hf amplitude compensation FSM This is identical to STAT1.RAMPSTATE. See that description for encoding."]
     #[inline(always)]
-    pub fn rampstate(&self) -> RAMPSTATE_R {
-        RAMPSTATE_R::new(((self.bits >> 12) & 0x0f) as u8)
+    pub fn rampstate(&self) -> RampstateR {
+        RampstateR::new(((self.bits >> 12) & 0x0f) as u8)
     }
     #[doc = "Bits 16:22 - 22:16\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved16(&self) -> RESERVED16_R {
-        RESERVED16_R::new(((self.bits >> 16) & 0x7f) as u8)
+    pub fn reserved16(&self) -> Reserved16R {
+        Reserved16R::new(((self.bits >> 16) & 0x7f) as u8)
     }
     #[doc = "Bit 23 - 23:23\\]
 Indication of threshold is met for hpm_ramp3"]
     #[inline(always)]
-    pub fn hpm_ramp3_thmet(&self) -> HPM_RAMP3_THMET_R {
-        HPM_RAMP3_THMET_R::new(((self.bits >> 23) & 1) != 0)
+    pub fn hpm_ramp3_thmet(&self) -> HpmRamp3ThmetR {
+        HpmRamp3ThmetR::new(((self.bits >> 23) & 1) != 0)
     }
     #[doc = "Bit 24 - 24:24\\]
 Indication of threshold is met for hpm_ramp2"]
     #[inline(always)]
-    pub fn hpm_ramp2_thmet(&self) -> HPM_RAMP2_THMET_R {
-        HPM_RAMP2_THMET_R::new(((self.bits >> 24) & 1) != 0)
+    pub fn hpm_ramp2_thmet(&self) -> HpmRamp2ThmetR {
+        HpmRamp2ThmetR::new(((self.bits >> 24) & 1) != 0)
     }
     #[doc = "Bit 25 - 25:25\\]
 Indication of threshold is met for hpm_ramp1"]
     #[inline(always)]
-    pub fn hpm_ramp1_thmet(&self) -> HPM_RAMP1_THMET_R {
-        HPM_RAMP1_THMET_R::new(((self.bits >> 25) & 1) != 0)
+    pub fn hpm_ramp1_thmet(&self) -> HpmRamp1ThmetR {
+        HpmRamp1ThmetR::new(((self.bits >> 25) & 1) != 0)
     }
     #[doc = "Bits 26:31 - 31:26\\]
 DC Bias read by RADC during SAR mode The value is an unsigned integer. It is used for debug only."]
     #[inline(always)]
-    pub fn adc_dcbias(&self) -> ADC_DCBIAS_R {
-        ADC_DCBIAS_R::new(((self.bits >> 26) & 0x3f) as u8)
+    pub fn adc_dcbias(&self) -> AdcDcbiasR {
+        AdcDcbiasR::new(((self.bits >> 26) & 0x3f) as u8)
     }
 }
 impl W {
@@ -173,102 +141,94 @@ impl W {
 frequency of xosc_hf is within +/- 20 ppm and xosc_hf is good for radio operations. Used for SW to start synthesizer."]
     #[inline(always)]
     #[must_use]
-    pub fn xosc_hf_rf_freqgood(&mut self) -> XOSC_HF_RF_FREQGOOD_W<0> {
-        XOSC_HF_RF_FREQGOOD_W::new(self)
+    pub fn xosc_hf_rf_freqgood(&mut self) -> XoscHfRfFreqgoodW<Stat2Spec> {
+        XoscHfRfFreqgoodW::new(self, 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 frequency of xosc_hf is good to use for the digital clocks"]
     #[inline(always)]
     #[must_use]
-    pub fn xosc_hf_freqgood(&mut self) -> XOSC_HF_FREQGOOD_W<1> {
-        XOSC_HF_FREQGOOD_W::new(self)
+    pub fn xosc_hf_freqgood(&mut self) -> XoscHfFreqgoodW<Stat2Spec> {
+        XoscHfFreqgoodW::new(self, 1)
     }
     #[doc = "Bit 2 - 2:2\\]
 amplitude of xosc_hf is within the required threshold (set by DDI). Not used for anything just for debug/status"]
     #[inline(always)]
     #[must_use]
-    pub fn xosc_hf_ampgood(&mut self) -> XOSC_HF_AMPGOOD_W<2> {
-        XOSC_HF_AMPGOOD_W::new(self)
+    pub fn xosc_hf_ampgood(&mut self) -> XoscHfAmpgoodW<Stat2Spec> {
+        XoscHfAmpgoodW::new(self, 2)
     }
     #[doc = "Bit 3 - 3:3\\]
 ampcomp_req"]
     #[inline(always)]
     #[must_use]
-    pub fn ampcomp_req(&mut self) -> AMPCOMP_REQ_W<3> {
-        AMPCOMP_REQ_W::new(self)
+    pub fn ampcomp_req(&mut self) -> AmpcompReqW<Stat2Spec> {
+        AmpcompReqW::new(self, 3)
     }
     #[doc = "Bits 4:11 - 11:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved4(&mut self) -> RESERVED4_W<4> {
-        RESERVED4_W::new(self)
+    pub fn reserved4(&mut self) -> Reserved4W<Stat2Spec> {
+        Reserved4W::new(self, 4)
     }
     #[doc = "Bits 12:15 - 15:12\\]
 xosc_hf amplitude compensation FSM This is identical to STAT1.RAMPSTATE. See that description for encoding."]
     #[inline(always)]
     #[must_use]
-    pub fn rampstate(&mut self) -> RAMPSTATE_W<12> {
-        RAMPSTATE_W::new(self)
+    pub fn rampstate(&mut self) -> RampstateW<Stat2Spec> {
+        RampstateW::new(self, 12)
     }
     #[doc = "Bits 16:22 - 22:16\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved16(&mut self) -> RESERVED16_W<16> {
-        RESERVED16_W::new(self)
+    pub fn reserved16(&mut self) -> Reserved16W<Stat2Spec> {
+        Reserved16W::new(self, 16)
     }
     #[doc = "Bit 23 - 23:23\\]
 Indication of threshold is met for hpm_ramp3"]
     #[inline(always)]
     #[must_use]
-    pub fn hpm_ramp3_thmet(&mut self) -> HPM_RAMP3_THMET_W<23> {
-        HPM_RAMP3_THMET_W::new(self)
+    pub fn hpm_ramp3_thmet(&mut self) -> HpmRamp3ThmetW<Stat2Spec> {
+        HpmRamp3ThmetW::new(self, 23)
     }
     #[doc = "Bit 24 - 24:24\\]
 Indication of threshold is met for hpm_ramp2"]
     #[inline(always)]
     #[must_use]
-    pub fn hpm_ramp2_thmet(&mut self) -> HPM_RAMP2_THMET_W<24> {
-        HPM_RAMP2_THMET_W::new(self)
+    pub fn hpm_ramp2_thmet(&mut self) -> HpmRamp2ThmetW<Stat2Spec> {
+        HpmRamp2ThmetW::new(self, 24)
     }
     #[doc = "Bit 25 - 25:25\\]
 Indication of threshold is met for hpm_ramp1"]
     #[inline(always)]
     #[must_use]
-    pub fn hpm_ramp1_thmet(&mut self) -> HPM_RAMP1_THMET_W<25> {
-        HPM_RAMP1_THMET_W::new(self)
+    pub fn hpm_ramp1_thmet(&mut self) -> HpmRamp1ThmetW<Stat2Spec> {
+        HpmRamp1ThmetW::new(self, 25)
     }
     #[doc = "Bits 26:31 - 31:26\\]
 DC Bias read by RADC during SAR mode The value is an unsigned integer. It is used for debug only."]
     #[inline(always)]
     #[must_use]
-    pub fn adc_dcbias(&mut self) -> ADC_DCBIAS_W<26> {
-        ADC_DCBIAS_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn adc_dcbias(&mut self) -> AdcDcbiasW<Stat2Spec> {
+        AdcDcbiasW::new(self, 26)
     }
 }
-#[doc = "Status 2 This register contains status signals from AMPCOMP FSM\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [stat2](index.html) module"]
-pub struct STAT2_SPEC;
-impl crate::RegisterSpec for STAT2_SPEC {
+#[doc = "Status 2 This register contains status signals from AMPCOMP FSM\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`stat2::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`stat2::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Stat2Spec;
+impl crate::RegisterSpec for Stat2Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [stat2::R](R) reader structure"]
-impl crate::Readable for STAT2_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [stat2::W](W) writer structure"]
-impl crate::Writable for STAT2_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`stat2::R`](R) reader structure"]
+impl crate::Readable for Stat2Spec {}
+#[doc = "`write(|w| ..)` method takes [`stat2::W`](W) writer structure"]
+impl crate::Writable for Stat2Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets STAT2 to value 0"]
-impl crate::Resettable for STAT2_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for Stat2Spec {
+    const RESET_VALUE: u32 = 0;
 }

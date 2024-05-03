@@ -1,90 +1,55 @@
 #[doc = "Register `FSM_ERR_ADDR` reader"]
-pub struct R(crate::R<FSM_ERR_ADDR_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<FSM_ERR_ADDR_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<FSM_ERR_ADDR_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<FSM_ERR_ADDR_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<FsmErrAddrSpec>;
 #[doc = "Register `FSM_ERR_ADDR` writer"]
-pub struct W(crate::W<FSM_ERR_ADDR_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<FSM_ERR_ADDR_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<FSM_ERR_ADDR_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<FSM_ERR_ADDR_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<FsmErrAddrSpec>;
 #[doc = "Field `FSM_ERR_ADDR` reader - 23:0\\]
 Internal. Only to be used through TI provided API."]
-pub type FSM_ERR_ADDR_R = crate::FieldReader<u32, u32>;
+pub type FsmErrAddrR = crate::FieldReader<u32>;
 #[doc = "Field `FSM_ERR_ADDR` writer - 23:0\\]
 Internal. Only to be used through TI provided API."]
-pub type FSM_ERR_ADDR_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, FSM_ERR_ADDR_SPEC, u32, u32, 24, O>;
+pub type FsmErrAddrW<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 #[doc = "Field `RESERVED24` reader - 27:24\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED24_R = crate::FieldReader<u8, u8>;
+pub type Reserved24R = crate::FieldReader;
 #[doc = "Field `RESERVED24` writer - 27:24\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED24_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, FSM_ERR_ADDR_SPEC, u8, u8, 4, O>;
+pub type Reserved24W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `FSM_ERR_BANK` reader - 30:28\\]
 Internal. Only to be used through TI provided API."]
-pub type FSM_ERR_BANK_R = crate::FieldReader<u8, u8>;
+pub type FsmErrBankR = crate::FieldReader;
 #[doc = "Field `FSM_ERR_BANK` writer - 30:28\\]
 Internal. Only to be used through TI provided API."]
-pub type FSM_ERR_BANK_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, FSM_ERR_ADDR_SPEC, u8, u8, 3, O>;
+pub type FsmErrBankW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `RESERVED31` reader - 31:31\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED31_R = crate::BitReader<bool>;
+pub type Reserved31R = crate::BitReader;
 #[doc = "Field `RESERVED31` writer - 31:31\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED31_W<'a, const O: u8> = crate::BitWriter<'a, u32, FSM_ERR_ADDR_SPEC, bool, O>;
+pub type Reserved31W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bits 0:23 - 23:0\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn fsm_err_addr(&self) -> FSM_ERR_ADDR_R {
-        FSM_ERR_ADDR_R::new(self.bits & 0x00ff_ffff)
+    pub fn fsm_err_addr(&self) -> FsmErrAddrR {
+        FsmErrAddrR::new(self.bits & 0x00ff_ffff)
     }
     #[doc = "Bits 24:27 - 27:24\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn reserved24(&self) -> RESERVED24_R {
-        RESERVED24_R::new(((self.bits >> 24) & 0x0f) as u8)
+    pub fn reserved24(&self) -> Reserved24R {
+        Reserved24R::new(((self.bits >> 24) & 0x0f) as u8)
     }
     #[doc = "Bits 28:30 - 30:28\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn fsm_err_bank(&self) -> FSM_ERR_BANK_R {
-        FSM_ERR_BANK_R::new(((self.bits >> 28) & 7) as u8)
+    pub fn fsm_err_bank(&self) -> FsmErrBankR {
+        FsmErrBankR::new(((self.bits >> 28) & 7) as u8)
     }
     #[doc = "Bit 31 - 31:31\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn reserved31(&self) -> RESERVED31_R {
-        RESERVED31_R::new(((self.bits >> 31) & 1) != 0)
+    pub fn reserved31(&self) -> Reserved31R {
+        Reserved31R::new(((self.bits >> 31) & 1) != 0)
     }
 }
 impl W {
@@ -92,53 +57,45 @@ impl W {
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn fsm_err_addr(&mut self) -> FSM_ERR_ADDR_W<0> {
-        FSM_ERR_ADDR_W::new(self)
+    pub fn fsm_err_addr(&mut self) -> FsmErrAddrW<FsmErrAddrSpec> {
+        FsmErrAddrW::new(self, 0)
     }
     #[doc = "Bits 24:27 - 27:24\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved24(&mut self) -> RESERVED24_W<24> {
-        RESERVED24_W::new(self)
+    pub fn reserved24(&mut self) -> Reserved24W<FsmErrAddrSpec> {
+        Reserved24W::new(self, 24)
     }
     #[doc = "Bits 28:30 - 30:28\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn fsm_err_bank(&mut self) -> FSM_ERR_BANK_W<28> {
-        FSM_ERR_BANK_W::new(self)
+    pub fn fsm_err_bank(&mut self) -> FsmErrBankW<FsmErrAddrSpec> {
+        FsmErrBankW::new(self, 28)
     }
     #[doc = "Bit 31 - 31:31\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved31(&mut self) -> RESERVED31_W<31> {
-        RESERVED31_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved31(&mut self) -> Reserved31W<FsmErrAddrSpec> {
+        Reserved31W::new(self, 31)
     }
 }
-#[doc = "Internal. Only to be used through TI provided API.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fsm_err_addr](index.html) module"]
-pub struct FSM_ERR_ADDR_SPEC;
-impl crate::RegisterSpec for FSM_ERR_ADDR_SPEC {
+#[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fsm_err_addr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fsm_err_addr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct FsmErrAddrSpec;
+impl crate::RegisterSpec for FsmErrAddrSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [fsm_err_addr::R](R) reader structure"]
-impl crate::Readable for FSM_ERR_ADDR_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [fsm_err_addr::W](W) writer structure"]
-impl crate::Writable for FSM_ERR_ADDR_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`fsm_err_addr::R`](R) reader structure"]
+impl crate::Readable for FsmErrAddrSpec {}
+#[doc = "`write(|w| ..)` method takes [`fsm_err_addr::W`](W) writer structure"]
+impl crate::Writable for FsmErrAddrSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets FSM_ERR_ADDR to value 0"]
-impl crate::Resettable for FSM_ERR_ADDR_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for FsmErrAddrSpec {
+    const RESET_VALUE: u32 = 0;
 }

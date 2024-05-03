@@ -1,191 +1,167 @@
 #[doc = "Register `MUX1` reader"]
-pub struct R(crate::R<MUX1_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<MUX1_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<MUX1_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<MUX1_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Mux1Spec>;
 #[doc = "Register `MUX1` writer"]
-pub struct W(crate::W<MUX1_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<MUX1_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<MUX1_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<MUX1_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `COMPA_IN` reader - 7:0\\]
-Internal. Only to be used through TI provided API."]
-pub type COMPA_IN_R = crate::FieldReader<u8, COMPA_IN_A>;
+pub type W = crate::W<Mux1Spec>;
 #[doc = "7:0\\]
 Internal. Only to be used through TI provided API.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum COMPA_IN_A {
+pub enum CompaIn {
     #[doc = "128: Internal. Only to be used through TI provided API."]
-    AUXIO19 = 128,
+    Auxio19 = 128,
     #[doc = "64: Internal. Only to be used through TI provided API."]
-    AUXIO20 = 64,
+    Auxio20 = 64,
     #[doc = "32: Internal. Only to be used through TI provided API."]
-    AUXIO21 = 32,
+    Auxio21 = 32,
     #[doc = "16: Internal. Only to be used through TI provided API."]
-    AUXIO22 = 16,
+    Auxio22 = 16,
     #[doc = "8: Internal. Only to be used through TI provided API."]
-    AUXIO23 = 8,
+    Auxio23 = 8,
     #[doc = "4: Internal. Only to be used through TI provided API."]
-    AUXIO24 = 4,
+    Auxio24 = 4,
     #[doc = "2: Internal. Only to be used through TI provided API."]
-    AUXIO25 = 2,
+    Auxio25 = 2,
     #[doc = "1: Internal. Only to be used through TI provided API."]
-    AUXIO26 = 1,
+    Auxio26 = 1,
     #[doc = "0: Internal. Only to be used through TI provided API."]
-    NC = 0,
+    Nc = 0,
 }
-impl From<COMPA_IN_A> for u8 {
+impl From<CompaIn> for u8 {
     #[inline(always)]
-    fn from(variant: COMPA_IN_A) -> Self {
+    fn from(variant: CompaIn) -> Self {
         variant as _
     }
 }
-impl COMPA_IN_R {
+impl crate::FieldSpec for CompaIn {
+    type Ux = u8;
+}
+impl crate::IsEnum for CompaIn {}
+#[doc = "Field `COMPA_IN` reader - 7:0\\]
+Internal. Only to be used through TI provided API."]
+pub type CompaInR = crate::FieldReader<CompaIn>;
+impl CompaInR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<COMPA_IN_A> {
+    pub const fn variant(&self) -> Option<CompaIn> {
         match self.bits {
-            128 => Some(COMPA_IN_A::AUXIO19),
-            64 => Some(COMPA_IN_A::AUXIO20),
-            32 => Some(COMPA_IN_A::AUXIO21),
-            16 => Some(COMPA_IN_A::AUXIO22),
-            8 => Some(COMPA_IN_A::AUXIO23),
-            4 => Some(COMPA_IN_A::AUXIO24),
-            2 => Some(COMPA_IN_A::AUXIO25),
-            1 => Some(COMPA_IN_A::AUXIO26),
-            0 => Some(COMPA_IN_A::NC),
+            128 => Some(CompaIn::Auxio19),
+            64 => Some(CompaIn::Auxio20),
+            32 => Some(CompaIn::Auxio21),
+            16 => Some(CompaIn::Auxio22),
+            8 => Some(CompaIn::Auxio23),
+            4 => Some(CompaIn::Auxio24),
+            2 => Some(CompaIn::Auxio25),
+            1 => Some(CompaIn::Auxio26),
+            0 => Some(CompaIn::Nc),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `AUXIO19`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_auxio19(&self) -> bool {
-        *self == COMPA_IN_A::AUXIO19
+        *self == CompaIn::Auxio19
     }
-    #[doc = "Checks if the value of the field is `AUXIO20`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_auxio20(&self) -> bool {
-        *self == COMPA_IN_A::AUXIO20
+        *self == CompaIn::Auxio20
     }
-    #[doc = "Checks if the value of the field is `AUXIO21`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_auxio21(&self) -> bool {
-        *self == COMPA_IN_A::AUXIO21
+        *self == CompaIn::Auxio21
     }
-    #[doc = "Checks if the value of the field is `AUXIO22`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_auxio22(&self) -> bool {
-        *self == COMPA_IN_A::AUXIO22
+        *self == CompaIn::Auxio22
     }
-    #[doc = "Checks if the value of the field is `AUXIO23`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_auxio23(&self) -> bool {
-        *self == COMPA_IN_A::AUXIO23
+        *self == CompaIn::Auxio23
     }
-    #[doc = "Checks if the value of the field is `AUXIO24`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_auxio24(&self) -> bool {
-        *self == COMPA_IN_A::AUXIO24
+        *self == CompaIn::Auxio24
     }
-    #[doc = "Checks if the value of the field is `AUXIO25`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_auxio25(&self) -> bool {
-        *self == COMPA_IN_A::AUXIO25
+        *self == CompaIn::Auxio25
     }
-    #[doc = "Checks if the value of the field is `AUXIO26`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_auxio26(&self) -> bool {
-        *self == COMPA_IN_A::AUXIO26
+        *self == CompaIn::Auxio26
     }
-    #[doc = "Checks if the value of the field is `NC`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_nc(&self) -> bool {
-        *self == COMPA_IN_A::NC
+        *self == CompaIn::Nc
     }
 }
 #[doc = "Field `COMPA_IN` writer - 7:0\\]
 Internal. Only to be used through TI provided API."]
-pub type COMPA_IN_W<'a, const O: u8> = crate::FieldWriter<'a, u8, MUX1_SPEC, u8, COMPA_IN_A, 8, O>;
-impl<'a, const O: u8> COMPA_IN_W<'a, O> {
+pub type CompaInW<'a, REG> = crate::FieldWriter<'a, REG, 8, CompaIn>;
+impl<'a, REG> CompaInW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn auxio19(self) -> &'a mut W {
-        self.variant(COMPA_IN_A::AUXIO19)
+    pub fn auxio19(self) -> &'a mut crate::W<REG> {
+        self.variant(CompaIn::Auxio19)
     }
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn auxio20(self) -> &'a mut W {
-        self.variant(COMPA_IN_A::AUXIO20)
+    pub fn auxio20(self) -> &'a mut crate::W<REG> {
+        self.variant(CompaIn::Auxio20)
     }
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn auxio21(self) -> &'a mut W {
-        self.variant(COMPA_IN_A::AUXIO21)
+    pub fn auxio21(self) -> &'a mut crate::W<REG> {
+        self.variant(CompaIn::Auxio21)
     }
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn auxio22(self) -> &'a mut W {
-        self.variant(COMPA_IN_A::AUXIO22)
+    pub fn auxio22(self) -> &'a mut crate::W<REG> {
+        self.variant(CompaIn::Auxio22)
     }
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn auxio23(self) -> &'a mut W {
-        self.variant(COMPA_IN_A::AUXIO23)
+    pub fn auxio23(self) -> &'a mut crate::W<REG> {
+        self.variant(CompaIn::Auxio23)
     }
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn auxio24(self) -> &'a mut W {
-        self.variant(COMPA_IN_A::AUXIO24)
+    pub fn auxio24(self) -> &'a mut crate::W<REG> {
+        self.variant(CompaIn::Auxio24)
     }
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn auxio25(self) -> &'a mut W {
-        self.variant(COMPA_IN_A::AUXIO25)
+    pub fn auxio25(self) -> &'a mut crate::W<REG> {
+        self.variant(CompaIn::Auxio25)
     }
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn auxio26(self) -> &'a mut W {
-        self.variant(COMPA_IN_A::AUXIO26)
+    pub fn auxio26(self) -> &'a mut crate::W<REG> {
+        self.variant(CompaIn::Auxio26)
     }
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn nc(self) -> &'a mut W {
-        self.variant(COMPA_IN_A::NC)
+    pub fn nc(self) -> &'a mut crate::W<REG> {
+        self.variant(CompaIn::Nc)
     }
 }
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn compa_in(&self) -> COMPA_IN_R {
-        COMPA_IN_R::new(self.bits)
+    pub fn compa_in(&self) -> CompaInR {
+        CompaInR::new(self.bits)
     }
 }
 impl W {
@@ -193,32 +169,24 @@ impl W {
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn compa_in(&mut self) -> COMPA_IN_W<0> {
-        COMPA_IN_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u8) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn compa_in(&mut self) -> CompaInW<Mux1Spec> {
+        CompaInW::new(self, 0)
     }
 }
-#[doc = "Internal. Only to be used through TI provided API.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mux1](index.html) module"]
-pub struct MUX1_SPEC;
-impl crate::RegisterSpec for MUX1_SPEC {
+#[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`mux1::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`mux1::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Mux1Spec;
+impl crate::RegisterSpec for Mux1Spec {
     type Ux = u8;
 }
-#[doc = "`read()` method returns [mux1::R](R) reader structure"]
-impl crate::Readable for MUX1_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [mux1::W](W) writer structure"]
-impl crate::Writable for MUX1_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`mux1::R`](R) reader structure"]
+impl crate::Readable for Mux1Spec {}
+#[doc = "`write(|w| ..)` method takes [`mux1::W`](W) writer structure"]
+impl crate::Writable for Mux1Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u8 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u8 = 0;
 }
 #[doc = "`reset()` method sets MUX1 to value 0"]
-impl crate::Resettable for MUX1_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for Mux1Spec {
+    const RESET_VALUE: u8 = 0;
 }

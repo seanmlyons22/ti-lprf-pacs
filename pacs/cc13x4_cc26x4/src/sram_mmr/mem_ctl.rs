@@ -1,87 +1,55 @@
 #[doc = "Register `MEM_CTL` reader"]
-pub struct R(crate::R<MEM_CTL_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<MEM_CTL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<MEM_CTL_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<MEM_CTL_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<MemCtlSpec>;
 #[doc = "Register `MEM_CTL` writer"]
-pub struct W(crate::W<MEM_CTL_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<MEM_CTL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<MEM_CTL_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<MEM_CTL_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<MemCtlSpec>;
 #[doc = "Field `MEM_CLR_EN` reader - 0:0\\]
 Memory Contents Initialization enable Writing 1 to MEM_CLR_EN will start memory initialization. The contents of all byte locations will be initialized to 0x00. MEM_BUSY will be 1 until memory initialization has completed."]
-pub type MEM_CLR_EN_R = crate::BitReader<bool>;
+pub type MemClrEnR = crate::BitReader;
 #[doc = "Field `MEM_CLR_EN` writer - 0:0\\]
 Memory Contents Initialization enable Writing 1 to MEM_CLR_EN will start memory initialization. The contents of all byte locations will be initialized to 0x00. MEM_BUSY will be 1 until memory initialization has completed."]
-pub type MEM_CLR_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, MEM_CTL_SPEC, bool, O>;
+pub type MemClrEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `MEM_BUSY` reader - 1:1\\]
 Memory Busy status 0: Memory accepts transfers 1: Memory controller is busy during initialization. Read and write transfers are not performed."]
-pub type MEM_BUSY_R = crate::BitReader<bool>;
+pub type MemBusyR = crate::BitReader;
 #[doc = "Field `MEM_BUSY` writer - 1:1\\]
 Memory Busy status 0: Memory accepts transfers 1: Memory controller is busy during initialization. Read and write transfers are not performed."]
-pub type MEM_BUSY_W<'a, const O: u8> = crate::BitWriter<'a, u32, MEM_CTL_SPEC, bool, O>;
+pub type MemBusyW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED2` reader - 7:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED2_R = crate::FieldReader<u8, u8>;
+pub type Reserved2R = crate::FieldReader;
 #[doc = "Field `RESERVED2` writer - 7:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED2_W<'a, const O: u8> = crate::FieldWriter<'a, u32, MEM_CTL_SPEC, u8, u8, 6, O>;
+pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `MEM_SEL` reader - 31:8\\]
 Memory Instance Select This field is used to enable/disable initialization of each SRAM instance when triggered using MEM_CTL.MEM_CLR_EN. Each bit corresponds to the respective SRAM instance. bit\\[x\\]: 0: Initialization of instance x is disabled 1: Initialization of instance x is enabled"]
-pub type MEM_SEL_R = crate::FieldReader<u32, u32>;
+pub type MemSelR = crate::FieldReader<u32>;
 #[doc = "Field `MEM_SEL` writer - 31:8\\]
 Memory Instance Select This field is used to enable/disable initialization of each SRAM instance when triggered using MEM_CTL.MEM_CLR_EN. Each bit corresponds to the respective SRAM instance. bit\\[x\\]: 0: Initialization of instance x is disabled 1: Initialization of instance x is enabled"]
-pub type MEM_SEL_W<'a, const O: u8> = crate::FieldWriter<'a, u32, MEM_CTL_SPEC, u32, u32, 24, O>;
+pub type MemSelW<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Memory Contents Initialization enable Writing 1 to MEM_CLR_EN will start memory initialization. The contents of all byte locations will be initialized to 0x00. MEM_BUSY will be 1 until memory initialization has completed."]
     #[inline(always)]
-    pub fn mem_clr_en(&self) -> MEM_CLR_EN_R {
-        MEM_CLR_EN_R::new((self.bits & 1) != 0)
+    pub fn mem_clr_en(&self) -> MemClrEnR {
+        MemClrEnR::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 Memory Busy status 0: Memory accepts transfers 1: Memory controller is busy during initialization. Read and write transfers are not performed."]
     #[inline(always)]
-    pub fn mem_busy(&self) -> MEM_BUSY_R {
-        MEM_BUSY_R::new(((self.bits >> 1) & 1) != 0)
+    pub fn mem_busy(&self) -> MemBusyR {
+        MemBusyR::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bits 2:7 - 7:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved2(&self) -> RESERVED2_R {
-        RESERVED2_R::new(((self.bits >> 2) & 0x3f) as u8)
+    pub fn reserved2(&self) -> Reserved2R {
+        Reserved2R::new(((self.bits >> 2) & 0x3f) as u8)
     }
     #[doc = "Bits 8:31 - 31:8\\]
 Memory Instance Select This field is used to enable/disable initialization of each SRAM instance when triggered using MEM_CTL.MEM_CLR_EN. Each bit corresponds to the respective SRAM instance. bit\\[x\\]: 0: Initialization of instance x is disabled 1: Initialization of instance x is enabled"]
     #[inline(always)]
-    pub fn mem_sel(&self) -> MEM_SEL_R {
-        MEM_SEL_R::new((self.bits >> 8) & 0x00ff_ffff)
+    pub fn mem_sel(&self) -> MemSelR {
+        MemSelR::new((self.bits >> 8) & 0x00ff_ffff)
     }
 }
 impl W {
@@ -89,53 +57,45 @@ impl W {
 Memory Contents Initialization enable Writing 1 to MEM_CLR_EN will start memory initialization. The contents of all byte locations will be initialized to 0x00. MEM_BUSY will be 1 until memory initialization has completed."]
     #[inline(always)]
     #[must_use]
-    pub fn mem_clr_en(&mut self) -> MEM_CLR_EN_W<0> {
-        MEM_CLR_EN_W::new(self)
+    pub fn mem_clr_en(&mut self) -> MemClrEnW<MemCtlSpec> {
+        MemClrEnW::new(self, 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 Memory Busy status 0: Memory accepts transfers 1: Memory controller is busy during initialization. Read and write transfers are not performed."]
     #[inline(always)]
     #[must_use]
-    pub fn mem_busy(&mut self) -> MEM_BUSY_W<1> {
-        MEM_BUSY_W::new(self)
+    pub fn mem_busy(&mut self) -> MemBusyW<MemCtlSpec> {
+        MemBusyW::new(self, 1)
     }
     #[doc = "Bits 2:7 - 7:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved2(&mut self) -> RESERVED2_W<2> {
-        RESERVED2_W::new(self)
+    pub fn reserved2(&mut self) -> Reserved2W<MemCtlSpec> {
+        Reserved2W::new(self, 2)
     }
     #[doc = "Bits 8:31 - 31:8\\]
 Memory Instance Select This field is used to enable/disable initialization of each SRAM instance when triggered using MEM_CTL.MEM_CLR_EN. Each bit corresponds to the respective SRAM instance. bit\\[x\\]: 0: Initialization of instance x is disabled 1: Initialization of instance x is enabled"]
     #[inline(always)]
     #[must_use]
-    pub fn mem_sel(&mut self) -> MEM_SEL_W<8> {
-        MEM_SEL_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn mem_sel(&mut self) -> MemSelW<MemCtlSpec> {
+        MemSelW::new(self, 8)
     }
 }
-#[doc = "Memory Control Controls memory initialization\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mem_ctl](index.html) module"]
-pub struct MEM_CTL_SPEC;
-impl crate::RegisterSpec for MEM_CTL_SPEC {
+#[doc = "Memory Control Controls memory initialization\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`mem_ctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`mem_ctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct MemCtlSpec;
+impl crate::RegisterSpec for MemCtlSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [mem_ctl::R](R) reader structure"]
-impl crate::Readable for MEM_CTL_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [mem_ctl::W](W) writer structure"]
-impl crate::Writable for MEM_CTL_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`mem_ctl::R`](R) reader structure"]
+impl crate::Readable for MemCtlSpec {}
+#[doc = "`write(|w| ..)` method takes [`mem_ctl::W`](W) writer structure"]
+impl crate::Writable for MemCtlSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets MEM_CTL to value 0"]
-impl crate::Resettable for MEM_CTL_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for MemCtlSpec {
+    const RESET_VALUE: u32 = 0;
 }

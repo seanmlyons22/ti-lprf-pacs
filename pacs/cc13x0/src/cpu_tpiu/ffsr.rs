@@ -1,75 +1,43 @@
 #[doc = "Register `FFSR` reader"]
-pub struct R(crate::R<FFSR_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<FFSR_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<FFSR_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<FFSR_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<FfsrSpec>;
 #[doc = "Register `FFSR` writer"]
-pub struct W(crate::W<FFSR_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<FFSR_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<FFSR_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<FFSR_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<FfsrSpec>;
 #[doc = "Field `RESERVED0` reader - 2:0\\]
 This field always reads as zero"]
-pub type RESERVED0_R = crate::FieldReader<u8, u8>;
+pub type Reserved0R = crate::FieldReader;
 #[doc = "Field `RESERVED0` writer - 2:0\\]
 This field always reads as zero"]
-pub type RESERVED0_W<'a, const O: u8> = crate::FieldWriter<'a, u32, FFSR_SPEC, u8, u8, 3, O>;
+pub type Reserved0W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `FTNONSTOP` reader - 3:3\\]
 0: Formatter can be stopped 1: Formatter cannot be stopped"]
-pub type FTNONSTOP_R = crate::BitReader<bool>;
+pub type FtnonstopR = crate::BitReader;
 #[doc = "Field `FTNONSTOP` writer - 3:3\\]
 0: Formatter can be stopped 1: Formatter cannot be stopped"]
-pub type FTNONSTOP_W<'a, const O: u8> = crate::BitWriter<'a, u32, FFSR_SPEC, bool, O>;
+pub type FtnonstopW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED4` reader - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED4_R = crate::FieldReader<u32, u32>;
+pub type Reserved4R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED4` writer - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED4_W<'a, const O: u8> = crate::FieldWriter<'a, u32, FFSR_SPEC, u32, u32, 28, O>;
+pub type Reserved4W<'a, REG> = crate::FieldWriter<'a, REG, 28, u32>;
 impl R {
     #[doc = "Bits 0:2 - 2:0\\]
 This field always reads as zero"]
     #[inline(always)]
-    pub fn reserved0(&self) -> RESERVED0_R {
-        RESERVED0_R::new((self.bits & 7) as u8)
+    pub fn reserved0(&self) -> Reserved0R {
+        Reserved0R::new((self.bits & 7) as u8)
     }
     #[doc = "Bit 3 - 3:3\\]
 0: Formatter can be stopped 1: Formatter cannot be stopped"]
     #[inline(always)]
-    pub fn ftnonstop(&self) -> FTNONSTOP_R {
-        FTNONSTOP_R::new(((self.bits >> 3) & 1) != 0)
+    pub fn ftnonstop(&self) -> FtnonstopR {
+        FtnonstopR::new(((self.bits >> 3) & 1) != 0)
     }
     #[doc = "Bits 4:31 - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved4(&self) -> RESERVED4_R {
-        RESERVED4_R::new((self.bits >> 4) & 0x0fff_ffff)
+    pub fn reserved4(&self) -> Reserved4R {
+        Reserved4R::new((self.bits >> 4) & 0x0fff_ffff)
     }
 }
 impl W {
@@ -77,46 +45,38 @@ impl W {
 This field always reads as zero"]
     #[inline(always)]
     #[must_use]
-    pub fn reserved0(&mut self) -> RESERVED0_W<0> {
-        RESERVED0_W::new(self)
+    pub fn reserved0(&mut self) -> Reserved0W<FfsrSpec> {
+        Reserved0W::new(self, 0)
     }
     #[doc = "Bit 3 - 3:3\\]
 0: Formatter can be stopped 1: Formatter cannot be stopped"]
     #[inline(always)]
     #[must_use]
-    pub fn ftnonstop(&mut self) -> FTNONSTOP_W<3> {
-        FTNONSTOP_W::new(self)
+    pub fn ftnonstop(&mut self) -> FtnonstopW<FfsrSpec> {
+        FtnonstopW::new(self, 3)
     }
     #[doc = "Bits 4:31 - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved4(&mut self) -> RESERVED4_W<4> {
-        RESERVED4_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved4(&mut self) -> Reserved4W<FfsrSpec> {
+        Reserved4W::new(self, 4)
     }
 }
-#[doc = "Formatter and Flush Status\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ffsr](index.html) module"]
-pub struct FFSR_SPEC;
-impl crate::RegisterSpec for FFSR_SPEC {
+#[doc = "Formatter and Flush Status\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ffsr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ffsr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct FfsrSpec;
+impl crate::RegisterSpec for FfsrSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [ffsr::R](R) reader structure"]
-impl crate::Readable for FFSR_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [ffsr::W](W) writer structure"]
-impl crate::Writable for FFSR_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`ffsr::R`](R) reader structure"]
+impl crate::Readable for FfsrSpec {}
+#[doc = "`write(|w| ..)` method takes [`ffsr::W`](W) writer structure"]
+impl crate::Writable for FfsrSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets FFSR to value 0x08"]
-impl crate::Resettable for FFSR_SPEC {
-    const RESET_VALUE: Self::Ux = 0x08;
+impl crate::Resettable for FfsrSpec {
+    const RESET_VALUE: u32 = 0x08;
 }

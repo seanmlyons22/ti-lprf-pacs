@@ -1,75 +1,43 @@
 #[doc = "Register `TEMP` reader"]
-pub struct R(crate::R<TEMP_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<TEMP_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<TEMP_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<TEMP_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<TempSpec>;
 #[doc = "Register `TEMP` writer"]
-pub struct W(crate::W<TEMP_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<TEMP_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<TEMP_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<TEMP_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<TempSpec>;
 #[doc = "Field `RESERVED0` reader - 7:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED0_R = crate::FieldReader<u8, u8>;
+pub type Reserved0R = crate::FieldReader;
 #[doc = "Field `RESERVED0` writer - 7:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED0_W<'a, const O: u8> = crate::FieldWriter<'a, u32, TEMP_SPEC, u8, u8, 8, O>;
+pub type Reserved0W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `INT` reader - 16:8\\]
 Integer part (signed) of temperature value. Total value = INTEGER + FRACTIONAL 2's complement encoding 0x100: Min value 0x1D8: -40C 0x1FF: -1C 0x00: 0C 0x1B: 27C 0x55: 85C 0xFF: Max value"]
-pub type INT_R = crate::FieldReader<u16, u16>;
+pub type IntR = crate::FieldReader<u16>;
 #[doc = "Field `INT` writer - 16:8\\]
 Integer part (signed) of temperature value. Total value = INTEGER + FRACTIONAL 2's complement encoding 0x100: Min value 0x1D8: -40C 0x1FF: -1C 0x00: 0C 0x1B: 27C 0x55: 85C 0xFF: Max value"]
-pub type INT_W<'a, const O: u8> = crate::FieldWriter<'a, u32, TEMP_SPEC, u16, u16, 9, O>;
+pub type IntW<'a, REG> = crate::FieldWriter<'a, REG, 9, u16>;
 #[doc = "Field `RESERVED17` reader - 31:17\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED17_R = crate::FieldReader<u16, u16>;
+pub type Reserved17R = crate::FieldReader<u16>;
 #[doc = "Field `RESERVED17` writer - 31:17\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED17_W<'a, const O: u8> = crate::FieldWriter<'a, u32, TEMP_SPEC, u16, u16, 15, O>;
+pub type Reserved17W<'a, REG> = crate::FieldWriter<'a, REG, 15, u16>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved0(&self) -> RESERVED0_R {
-        RESERVED0_R::new((self.bits & 0xff) as u8)
+    pub fn reserved0(&self) -> Reserved0R {
+        Reserved0R::new((self.bits & 0xff) as u8)
     }
     #[doc = "Bits 8:16 - 16:8\\]
 Integer part (signed) of temperature value. Total value = INTEGER + FRACTIONAL 2's complement encoding 0x100: Min value 0x1D8: -40C 0x1FF: -1C 0x00: 0C 0x1B: 27C 0x55: 85C 0xFF: Max value"]
     #[inline(always)]
-    pub fn int(&self) -> INT_R {
-        INT_R::new(((self.bits >> 8) & 0x01ff) as u16)
+    pub fn int(&self) -> IntR {
+        IntR::new(((self.bits >> 8) & 0x01ff) as u16)
     }
     #[doc = "Bits 17:31 - 31:17\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved17(&self) -> RESERVED17_R {
-        RESERVED17_R::new(((self.bits >> 17) & 0x7fff) as u16)
+    pub fn reserved17(&self) -> Reserved17R {
+        Reserved17R::new(((self.bits >> 17) & 0x7fff) as u16)
     }
 }
 impl W {
@@ -77,46 +45,38 @@ impl W {
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved0(&mut self) -> RESERVED0_W<0> {
-        RESERVED0_W::new(self)
+    pub fn reserved0(&mut self) -> Reserved0W<TempSpec> {
+        Reserved0W::new(self, 0)
     }
     #[doc = "Bits 8:16 - 16:8\\]
 Integer part (signed) of temperature value. Total value = INTEGER + FRACTIONAL 2's complement encoding 0x100: Min value 0x1D8: -40C 0x1FF: -1C 0x00: 0C 0x1B: 27C 0x55: 85C 0xFF: Max value"]
     #[inline(always)]
     #[must_use]
-    pub fn int(&mut self) -> INT_W<8> {
-        INT_W::new(self)
+    pub fn int(&mut self) -> IntW<TempSpec> {
+        IntW::new(self, 8)
     }
     #[doc = "Bits 17:31 - 31:17\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved17(&mut self) -> RESERVED17_W<17> {
-        RESERVED17_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved17(&mut self) -> Reserved17W<TempSpec> {
+        Reserved17W::new(self, 17)
     }
 }
-#[doc = "Temperature Last Measured Temperature in Degrees Celsius This register may be read while TEMPUPD.STAT = 1.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [temp](index.html) module"]
-pub struct TEMP_SPEC;
-impl crate::RegisterSpec for TEMP_SPEC {
+#[doc = "Temperature Last Measured Temperature in Degrees Celsius This register may be read while TEMPUPD.STAT = 1.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`temp::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`temp::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct TempSpec;
+impl crate::RegisterSpec for TempSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [temp::R](R) reader structure"]
-impl crate::Readable for TEMP_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [temp::W](W) writer structure"]
-impl crate::Writable for TEMP_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`temp::R`](R) reader structure"]
+impl crate::Readable for TempSpec {}
+#[doc = "`write(|w| ..)` method takes [`temp::W`](W) writer structure"]
+impl crate::Writable for TempSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets TEMP to value 0"]
-impl crate::Resettable for TEMP_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for TempSpec {
+    const RESET_VALUE: u32 = 0;
 }

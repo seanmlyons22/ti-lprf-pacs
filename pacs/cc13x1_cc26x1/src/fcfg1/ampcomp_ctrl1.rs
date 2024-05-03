@@ -1,142 +1,103 @@
 #[doc = "Register `AMPCOMP_CTRL1` reader"]
-pub struct R(crate::R<AMPCOMP_CTRL1_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<AMPCOMP_CTRL1_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<AMPCOMP_CTRL1_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<AMPCOMP_CTRL1_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<AmpcompCtrl1Spec>;
 #[doc = "Register `AMPCOMP_CTRL1` writer"]
-pub struct W(crate::W<AMPCOMP_CTRL1_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<AMPCOMP_CTRL1_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<AMPCOMP_CTRL1_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<AMPCOMP_CTRL1_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<AmpcompCtrl1Spec>;
 #[doc = "Field `IBIASCAP_HPTOLP_OL_CNT` reader - 3:0\\]
 Internal. Only to be used through TI provided API."]
-pub type IBIASCAP_HPTOLP_OL_CNT_R = crate::FieldReader<u8, u8>;
+pub type IbiascapHptolpOlCntR = crate::FieldReader;
 #[doc = "Field `IBIASCAP_HPTOLP_OL_CNT` writer - 3:0\\]
 Internal. Only to be used through TI provided API."]
-pub type IBIASCAP_HPTOLP_OL_CNT_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, AMPCOMP_CTRL1_SPEC, u8, u8, 4, O>;
+pub type IbiascapHptolpOlCntW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `CAP_STEP` reader - 7:4\\]
 Internal. Only to be used through TI provided API."]
-pub type CAP_STEP_R = crate::FieldReader<u8, u8>;
+pub type CapStepR = crate::FieldReader;
 #[doc = "Field `CAP_STEP` writer - 7:4\\]
 Internal. Only to be used through TI provided API."]
-pub type CAP_STEP_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, AMPCOMP_CTRL1_SPEC, u8, u8, 4, O>;
+pub type CapStepW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `LPM_IBIAS_WAIT_CNT_FINAL` reader - 15:8\\]
 Internal. Only to be used through TI provided API."]
-pub type LPM_IBIAS_WAIT_CNT_FINAL_R = crate::FieldReader<u8, u8>;
+pub type LpmIbiasWaitCntFinalR = crate::FieldReader;
 #[doc = "Field `LPM_IBIAS_WAIT_CNT_FINAL` writer - 15:8\\]
 Internal. Only to be used through TI provided API."]
-pub type LPM_IBIAS_WAIT_CNT_FINAL_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, AMPCOMP_CTRL1_SPEC, u8, u8, 8, O>;
+pub type LpmIbiasWaitCntFinalW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `IBIAS_INIT` reader - 19:16\\]
 Internal. Only to be used through TI provided API."]
-pub type IBIAS_INIT_R = crate::FieldReader<u8, u8>;
+pub type IbiasInitR = crate::FieldReader;
 #[doc = "Field `IBIAS_INIT` writer - 19:16\\]
 Internal. Only to be used through TI provided API."]
-pub type IBIAS_INIT_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, AMPCOMP_CTRL1_SPEC, u8, u8, 4, O>;
+pub type IbiasInitW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `IBIAS_OFFSET` reader - 23:20\\]
 Internal. Only to be used through TI provided API."]
-pub type IBIAS_OFFSET_R = crate::FieldReader<u8, u8>;
+pub type IbiasOffsetR = crate::FieldReader;
 #[doc = "Field `IBIAS_OFFSET` writer - 23:20\\]
 Internal. Only to be used through TI provided API."]
-pub type IBIAS_OFFSET_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, AMPCOMP_CTRL1_SPEC, u8, u8, 4, O>;
+pub type IbiasOffsetW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED0` reader - 29:24\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED0_R = crate::FieldReader<u8, u8>;
+pub type Reserved0R = crate::FieldReader;
 #[doc = "Field `RESERVED0` writer - 29:24\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED0_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, AMPCOMP_CTRL1_SPEC, u8, u8, 6, O>;
+pub type Reserved0W<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `AMPCOMP_REQ_MODE` reader - 30:30\\]
 Internal. Only to be used through TI provided API."]
-pub type AMPCOMP_REQ_MODE_R = crate::BitReader<bool>;
+pub type AmpcompReqModeR = crate::BitReader;
 #[doc = "Field `AMPCOMP_REQ_MODE` writer - 30:30\\]
 Internal. Only to be used through TI provided API."]
-pub type AMPCOMP_REQ_MODE_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, AMPCOMP_CTRL1_SPEC, bool, O>;
+pub type AmpcompReqModeW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED1` reader - 31:31\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED1_R = crate::BitReader<bool>;
+pub type Reserved1R = crate::BitReader;
 #[doc = "Field `RESERVED1` writer - 31:31\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED1_W<'a, const O: u8> = crate::BitWriter<'a, u32, AMPCOMP_CTRL1_SPEC, bool, O>;
+pub type Reserved1W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bits 0:3 - 3:0\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn ibiascap_hptolp_ol_cnt(&self) -> IBIASCAP_HPTOLP_OL_CNT_R {
-        IBIASCAP_HPTOLP_OL_CNT_R::new((self.bits & 0x0f) as u8)
+    pub fn ibiascap_hptolp_ol_cnt(&self) -> IbiascapHptolpOlCntR {
+        IbiascapHptolpOlCntR::new((self.bits & 0x0f) as u8)
     }
     #[doc = "Bits 4:7 - 7:4\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn cap_step(&self) -> CAP_STEP_R {
-        CAP_STEP_R::new(((self.bits >> 4) & 0x0f) as u8)
+    pub fn cap_step(&self) -> CapStepR {
+        CapStepR::new(((self.bits >> 4) & 0x0f) as u8)
     }
     #[doc = "Bits 8:15 - 15:8\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn lpm_ibias_wait_cnt_final(&self) -> LPM_IBIAS_WAIT_CNT_FINAL_R {
-        LPM_IBIAS_WAIT_CNT_FINAL_R::new(((self.bits >> 8) & 0xff) as u8)
+    pub fn lpm_ibias_wait_cnt_final(&self) -> LpmIbiasWaitCntFinalR {
+        LpmIbiasWaitCntFinalR::new(((self.bits >> 8) & 0xff) as u8)
     }
     #[doc = "Bits 16:19 - 19:16\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn ibias_init(&self) -> IBIAS_INIT_R {
-        IBIAS_INIT_R::new(((self.bits >> 16) & 0x0f) as u8)
+    pub fn ibias_init(&self) -> IbiasInitR {
+        IbiasInitR::new(((self.bits >> 16) & 0x0f) as u8)
     }
     #[doc = "Bits 20:23 - 23:20\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn ibias_offset(&self) -> IBIAS_OFFSET_R {
-        IBIAS_OFFSET_R::new(((self.bits >> 20) & 0x0f) as u8)
+    pub fn ibias_offset(&self) -> IbiasOffsetR {
+        IbiasOffsetR::new(((self.bits >> 20) & 0x0f) as u8)
     }
     #[doc = "Bits 24:29 - 29:24\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn reserved0(&self) -> RESERVED0_R {
-        RESERVED0_R::new(((self.bits >> 24) & 0x3f) as u8)
+    pub fn reserved0(&self) -> Reserved0R {
+        Reserved0R::new(((self.bits >> 24) & 0x3f) as u8)
     }
     #[doc = "Bit 30 - 30:30\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn ampcomp_req_mode(&self) -> AMPCOMP_REQ_MODE_R {
-        AMPCOMP_REQ_MODE_R::new(((self.bits >> 30) & 1) != 0)
+    pub fn ampcomp_req_mode(&self) -> AmpcompReqModeR {
+        AmpcompReqModeR::new(((self.bits >> 30) & 1) != 0)
     }
     #[doc = "Bit 31 - 31:31\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn reserved1(&self) -> RESERVED1_R {
-        RESERVED1_R::new(((self.bits >> 31) & 1) != 0)
+    pub fn reserved1(&self) -> Reserved1R {
+        Reserved1R::new(((self.bits >> 31) & 1) != 0)
     }
 }
 impl W {
@@ -144,81 +105,73 @@ impl W {
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn ibiascap_hptolp_ol_cnt(&mut self) -> IBIASCAP_HPTOLP_OL_CNT_W<0> {
-        IBIASCAP_HPTOLP_OL_CNT_W::new(self)
+    pub fn ibiascap_hptolp_ol_cnt(&mut self) -> IbiascapHptolpOlCntW<AmpcompCtrl1Spec> {
+        IbiascapHptolpOlCntW::new(self, 0)
     }
     #[doc = "Bits 4:7 - 7:4\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn cap_step(&mut self) -> CAP_STEP_W<4> {
-        CAP_STEP_W::new(self)
+    pub fn cap_step(&mut self) -> CapStepW<AmpcompCtrl1Spec> {
+        CapStepW::new(self, 4)
     }
     #[doc = "Bits 8:15 - 15:8\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn lpm_ibias_wait_cnt_final(&mut self) -> LPM_IBIAS_WAIT_CNT_FINAL_W<8> {
-        LPM_IBIAS_WAIT_CNT_FINAL_W::new(self)
+    pub fn lpm_ibias_wait_cnt_final(&mut self) -> LpmIbiasWaitCntFinalW<AmpcompCtrl1Spec> {
+        LpmIbiasWaitCntFinalW::new(self, 8)
     }
     #[doc = "Bits 16:19 - 19:16\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn ibias_init(&mut self) -> IBIAS_INIT_W<16> {
-        IBIAS_INIT_W::new(self)
+    pub fn ibias_init(&mut self) -> IbiasInitW<AmpcompCtrl1Spec> {
+        IbiasInitW::new(self, 16)
     }
     #[doc = "Bits 20:23 - 23:20\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn ibias_offset(&mut self) -> IBIAS_OFFSET_W<20> {
-        IBIAS_OFFSET_W::new(self)
+    pub fn ibias_offset(&mut self) -> IbiasOffsetW<AmpcompCtrl1Spec> {
+        IbiasOffsetW::new(self, 20)
     }
     #[doc = "Bits 24:29 - 29:24\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved0(&mut self) -> RESERVED0_W<24> {
-        RESERVED0_W::new(self)
+    pub fn reserved0(&mut self) -> Reserved0W<AmpcompCtrl1Spec> {
+        Reserved0W::new(self, 24)
     }
     #[doc = "Bit 30 - 30:30\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn ampcomp_req_mode(&mut self) -> AMPCOMP_REQ_MODE_W<30> {
-        AMPCOMP_REQ_MODE_W::new(self)
+    pub fn ampcomp_req_mode(&mut self) -> AmpcompReqModeW<AmpcompCtrl1Spec> {
+        AmpcompReqModeW::new(self, 30)
     }
     #[doc = "Bit 31 - 31:31\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved1(&mut self) -> RESERVED1_W<31> {
-        RESERVED1_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved1(&mut self) -> Reserved1W<AmpcompCtrl1Spec> {
+        Reserved1W::new(self, 31)
     }
 }
-#[doc = "Internal. Only to be used through TI provided API.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ampcomp_ctrl1](index.html) module"]
-pub struct AMPCOMP_CTRL1_SPEC;
-impl crate::RegisterSpec for AMPCOMP_CTRL1_SPEC {
+#[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ampcomp_ctrl1::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ampcomp_ctrl1::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct AmpcompCtrl1Spec;
+impl crate::RegisterSpec for AmpcompCtrl1Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [ampcomp_ctrl1::R](R) reader structure"]
-impl crate::Readable for AMPCOMP_CTRL1_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [ampcomp_ctrl1::W](W) writer structure"]
-impl crate::Writable for AMPCOMP_CTRL1_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`ampcomp_ctrl1::R`](R) reader structure"]
+impl crate::Readable for AmpcompCtrl1Spec {}
+#[doc = "`write(|w| ..)` method takes [`ampcomp_ctrl1::W`](W) writer structure"]
+impl crate::Writable for AmpcompCtrl1Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets AMPCOMP_CTRL1 to value 0xff48_3f47"]
-impl crate::Resettable for AMPCOMP_CTRL1_SPEC {
-    const RESET_VALUE: Self::Ux = 0xff48_3f47;
+impl crate::Resettable for AmpcompCtrl1Spec {
+    const RESET_VALUE: u32 = 0xff48_3f47;
 }

@@ -1,264 +1,252 @@
 #[doc = "Register `GBLINFO1` reader"]
-pub struct R(crate::R<GBLINFO1_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<GBLINFO1_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<GBLINFO1_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<GBLINFO1_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Gblinfo1Spec>;
 #[doc = "Register `GBLINFO1` writer"]
-pub struct W(crate::W<GBLINFO1_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<GBLINFO1_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<GBLINFO1_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<GBLINFO1_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `DATAWIDTH` reader - 7:0\\]
-Data width in bits"]
-pub type DATAWIDTH_R = crate::FieldReader<u8, DATAWIDTH_A>;
+pub type W = crate::W<Gblinfo1Spec>;
 #[doc = "7:0\\]
 Data width in bits\n\nValue on reset: 128"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum DATAWIDTH_A {
+pub enum Datawidth {
     #[doc = "128: Data width is 128 bits"]
-    W128BIT = 128,
+    W128bit = 128,
     #[doc = "64: Data width is 64 bits"]
-    W64BIT = 64,
+    W64bit = 64,
 }
-impl From<DATAWIDTH_A> for u8 {
+impl From<Datawidth> for u8 {
     #[inline(always)]
-    fn from(variant: DATAWIDTH_A) -> Self {
+    fn from(variant: Datawidth) -> Self {
         variant as _
     }
 }
-impl DATAWIDTH_R {
+impl crate::FieldSpec for Datawidth {
+    type Ux = u8;
+}
+impl crate::IsEnum for Datawidth {}
+#[doc = "Field `DATAWIDTH` reader - 7:0\\]
+Data width in bits"]
+pub type DatawidthR = crate::FieldReader<Datawidth>;
+impl DatawidthR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<DATAWIDTH_A> {
+    pub const fn variant(&self) -> Option<Datawidth> {
         match self.bits {
-            128 => Some(DATAWIDTH_A::W128BIT),
-            64 => Some(DATAWIDTH_A::W64BIT),
+            128 => Some(Datawidth::W128bit),
+            64 => Some(Datawidth::W64bit),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `W128BIT`"]
+    #[doc = "Data width is 128 bits"]
     #[inline(always)]
     pub fn is_w128bit(&self) -> bool {
-        *self == DATAWIDTH_A::W128BIT
+        *self == Datawidth::W128bit
     }
-    #[doc = "Checks if the value of the field is `W64BIT`"]
+    #[doc = "Data width is 64 bits"]
     #[inline(always)]
     pub fn is_w64bit(&self) -> bool {
-        *self == DATAWIDTH_A::W64BIT
+        *self == Datawidth::W64bit
     }
 }
 #[doc = "Field `DATAWIDTH` writer - 7:0\\]
 Data width in bits"]
-pub type DATAWIDTH_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, GBLINFO1_SPEC, u8, DATAWIDTH_A, 8, O>;
-impl<'a, const O: u8> DATAWIDTH_W<'a, O> {
+pub type DatawidthW<'a, REG> = crate::FieldWriter<'a, REG, 8, Datawidth>;
+impl<'a, REG> DatawidthW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "Data width is 128 bits"]
     #[inline(always)]
-    pub fn w128bit(self) -> &'a mut W {
-        self.variant(DATAWIDTH_A::W128BIT)
+    pub fn w128bit(self) -> &'a mut crate::W<REG> {
+        self.variant(Datawidth::W128bit)
     }
     #[doc = "Data width is 64 bits"]
     #[inline(always)]
-    pub fn w64bit(self) -> &'a mut W {
-        self.variant(DATAWIDTH_A::W64BIT)
+    pub fn w64bit(self) -> &'a mut crate::W<REG> {
+        self.variant(Datawidth::W64bit)
     }
 }
-#[doc = "Field `ECCWIDTH` reader - 12:8\\]
-ECC data width in bits"]
-pub type ECCWIDTH_R = crate::FieldReader<u8, ECCWIDTH_A>;
 #[doc = "12:8\\]
 ECC data width in bits\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum ECCWIDTH_A {
+pub enum Eccwidth {
     #[doc = "16: ECC data width is 16 bits"]
-    W16BIT = 16,
+    W16bit = 16,
     #[doc = "8: ECC data width is 8 bits"]
-    W8BIT = 8,
+    W8bit = 8,
     #[doc = "0: ECC data width is 0. ECC not used."]
-    W0BIT = 0,
+    W0bit = 0,
 }
-impl From<ECCWIDTH_A> for u8 {
+impl From<Eccwidth> for u8 {
     #[inline(always)]
-    fn from(variant: ECCWIDTH_A) -> Self {
+    fn from(variant: Eccwidth) -> Self {
         variant as _
     }
 }
-impl ECCWIDTH_R {
+impl crate::FieldSpec for Eccwidth {
+    type Ux = u8;
+}
+impl crate::IsEnum for Eccwidth {}
+#[doc = "Field `ECCWIDTH` reader - 12:8\\]
+ECC data width in bits"]
+pub type EccwidthR = crate::FieldReader<Eccwidth>;
+impl EccwidthR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<ECCWIDTH_A> {
+    pub const fn variant(&self) -> Option<Eccwidth> {
         match self.bits {
-            16 => Some(ECCWIDTH_A::W16BIT),
-            8 => Some(ECCWIDTH_A::W8BIT),
-            0 => Some(ECCWIDTH_A::W0BIT),
+            16 => Some(Eccwidth::W16bit),
+            8 => Some(Eccwidth::W8bit),
+            0 => Some(Eccwidth::W0bit),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `W16BIT`"]
+    #[doc = "ECC data width is 16 bits"]
     #[inline(always)]
     pub fn is_w16bit(&self) -> bool {
-        *self == ECCWIDTH_A::W16BIT
+        *self == Eccwidth::W16bit
     }
-    #[doc = "Checks if the value of the field is `W8BIT`"]
+    #[doc = "ECC data width is 8 bits"]
     #[inline(always)]
     pub fn is_w8bit(&self) -> bool {
-        *self == ECCWIDTH_A::W8BIT
+        *self == Eccwidth::W8bit
     }
-    #[doc = "Checks if the value of the field is `W0BIT`"]
+    #[doc = "ECC data width is 0. ECC not used."]
     #[inline(always)]
     pub fn is_w0bit(&self) -> bool {
-        *self == ECCWIDTH_A::W0BIT
+        *self == Eccwidth::W0bit
     }
 }
 #[doc = "Field `ECCWIDTH` writer - 12:8\\]
 ECC data width in bits"]
-pub type ECCWIDTH_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, GBLINFO1_SPEC, u8, ECCWIDTH_A, 5, O>;
-impl<'a, const O: u8> ECCWIDTH_W<'a, O> {
+pub type EccwidthW<'a, REG> = crate::FieldWriter<'a, REG, 5, Eccwidth>;
+impl<'a, REG> EccwidthW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "ECC data width is 16 bits"]
     #[inline(always)]
-    pub fn w16bit(self) -> &'a mut W {
-        self.variant(ECCWIDTH_A::W16BIT)
+    pub fn w16bit(self) -> &'a mut crate::W<REG> {
+        self.variant(Eccwidth::W16bit)
     }
     #[doc = "ECC data width is 8 bits"]
     #[inline(always)]
-    pub fn w8bit(self) -> &'a mut W {
-        self.variant(ECCWIDTH_A::W8BIT)
+    pub fn w8bit(self) -> &'a mut crate::W<REG> {
+        self.variant(Eccwidth::W8bit)
     }
     #[doc = "ECC data width is 0. ECC not used."]
     #[inline(always)]
-    pub fn w0bit(self) -> &'a mut W {
-        self.variant(ECCWIDTH_A::W0BIT)
+    pub fn w0bit(self) -> &'a mut crate::W<REG> {
+        self.variant(Eccwidth::W0bit)
     }
 }
-#[doc = "Field `REDWIDTH` reader - 18:16\\]
-Redundant data width in bits"]
-pub type REDWIDTH_R = crate::FieldReader<u8, REDWIDTH_A>;
 #[doc = "18:16\\]
 Redundant data width in bits\n\nValue on reset: 4"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum REDWIDTH_A {
+pub enum Redwidth {
     #[doc = "4: Redundant data width is 4 bits"]
-    W4BIT = 4,
+    W4bit = 4,
     #[doc = "2: Redundant data width is 2 bits"]
-    W2BIT = 2,
+    W2bit = 2,
     #[doc = "0: Redundant data width is 0. Redundancy/Repair not present."]
-    W0BIT = 0,
+    W0bit = 0,
 }
-impl From<REDWIDTH_A> for u8 {
+impl From<Redwidth> for u8 {
     #[inline(always)]
-    fn from(variant: REDWIDTH_A) -> Self {
+    fn from(variant: Redwidth) -> Self {
         variant as _
     }
 }
-impl REDWIDTH_R {
+impl crate::FieldSpec for Redwidth {
+    type Ux = u8;
+}
+impl crate::IsEnum for Redwidth {}
+#[doc = "Field `REDWIDTH` reader - 18:16\\]
+Redundant data width in bits"]
+pub type RedwidthR = crate::FieldReader<Redwidth>;
+impl RedwidthR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<REDWIDTH_A> {
+    pub const fn variant(&self) -> Option<Redwidth> {
         match self.bits {
-            4 => Some(REDWIDTH_A::W4BIT),
-            2 => Some(REDWIDTH_A::W2BIT),
-            0 => Some(REDWIDTH_A::W0BIT),
+            4 => Some(Redwidth::W4bit),
+            2 => Some(Redwidth::W2bit),
+            0 => Some(Redwidth::W0bit),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `W4BIT`"]
+    #[doc = "Redundant data width is 4 bits"]
     #[inline(always)]
     pub fn is_w4bit(&self) -> bool {
-        *self == REDWIDTH_A::W4BIT
+        *self == Redwidth::W4bit
     }
-    #[doc = "Checks if the value of the field is `W2BIT`"]
+    #[doc = "Redundant data width is 2 bits"]
     #[inline(always)]
     pub fn is_w2bit(&self) -> bool {
-        *self == REDWIDTH_A::W2BIT
+        *self == Redwidth::W2bit
     }
-    #[doc = "Checks if the value of the field is `W0BIT`"]
+    #[doc = "Redundant data width is 0. Redundancy/Repair not present."]
     #[inline(always)]
     pub fn is_w0bit(&self) -> bool {
-        *self == REDWIDTH_A::W0BIT
+        *self == Redwidth::W0bit
     }
 }
 #[doc = "Field `REDWIDTH` writer - 18:16\\]
 Redundant data width in bits"]
-pub type REDWIDTH_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, GBLINFO1_SPEC, u8, REDWIDTH_A, 3, O>;
-impl<'a, const O: u8> REDWIDTH_W<'a, O> {
+pub type RedwidthW<'a, REG> = crate::FieldWriter<'a, REG, 3, Redwidth>;
+impl<'a, REG> RedwidthW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "Redundant data width is 4 bits"]
     #[inline(always)]
-    pub fn w4bit(self) -> &'a mut W {
-        self.variant(REDWIDTH_A::W4BIT)
+    pub fn w4bit(self) -> &'a mut crate::W<REG> {
+        self.variant(Redwidth::W4bit)
     }
     #[doc = "Redundant data width is 2 bits"]
     #[inline(always)]
-    pub fn w2bit(self) -> &'a mut W {
-        self.variant(REDWIDTH_A::W2BIT)
+    pub fn w2bit(self) -> &'a mut crate::W<REG> {
+        self.variant(Redwidth::W2bit)
     }
     #[doc = "Redundant data width is 0. Redundancy/Repair not present."]
     #[inline(always)]
-    pub fn w0bit(self) -> &'a mut W {
-        self.variant(REDWIDTH_A::W0BIT)
+    pub fn w0bit(self) -> &'a mut crate::W<REG> {
+        self.variant(Redwidth::W0bit)
     }
 }
 #[doc = "Field `RESERVED19` reader - 31:19\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED19_R = crate::FieldReader<u16, u16>;
+pub type Reserved19R = crate::FieldReader<u16>;
 #[doc = "Field `RESERVED19` writer - 31:19\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED19_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, GBLINFO1_SPEC, u16, u16, 13, O>;
+pub type Reserved19W<'a, REG> = crate::FieldWriter<'a, REG, 13, u16>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Data width in bits"]
     #[inline(always)]
-    pub fn datawidth(&self) -> DATAWIDTH_R {
-        DATAWIDTH_R::new((self.bits & 0xff) as u8)
+    pub fn datawidth(&self) -> DatawidthR {
+        DatawidthR::new((self.bits & 0xff) as u8)
     }
     #[doc = "Bits 8:12 - 12:8\\]
 ECC data width in bits"]
     #[inline(always)]
-    pub fn eccwidth(&self) -> ECCWIDTH_R {
-        ECCWIDTH_R::new(((self.bits >> 8) & 0x1f) as u8)
+    pub fn eccwidth(&self) -> EccwidthR {
+        EccwidthR::new(((self.bits >> 8) & 0x1f) as u8)
     }
     #[doc = "Bits 16:18 - 18:16\\]
 Redundant data width in bits"]
     #[inline(always)]
-    pub fn redwidth(&self) -> REDWIDTH_R {
-        REDWIDTH_R::new(((self.bits >> 16) & 7) as u8)
+    pub fn redwidth(&self) -> RedwidthR {
+        RedwidthR::new(((self.bits >> 16) & 7) as u8)
     }
     #[doc = "Bits 19:31 - 31:19\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved19(&self) -> RESERVED19_R {
-        RESERVED19_R::new(((self.bits >> 19) & 0x1fff) as u16)
+    pub fn reserved19(&self) -> Reserved19R {
+        Reserved19R::new(((self.bits >> 19) & 0x1fff) as u16)
     }
 }
 impl W {
@@ -266,53 +254,45 @@ impl W {
 Data width in bits"]
     #[inline(always)]
     #[must_use]
-    pub fn datawidth(&mut self) -> DATAWIDTH_W<0> {
-        DATAWIDTH_W::new(self)
+    pub fn datawidth(&mut self) -> DatawidthW<Gblinfo1Spec> {
+        DatawidthW::new(self, 0)
     }
     #[doc = "Bits 8:12 - 12:8\\]
 ECC data width in bits"]
     #[inline(always)]
     #[must_use]
-    pub fn eccwidth(&mut self) -> ECCWIDTH_W<8> {
-        ECCWIDTH_W::new(self)
+    pub fn eccwidth(&mut self) -> EccwidthW<Gblinfo1Spec> {
+        EccwidthW::new(self, 8)
     }
     #[doc = "Bits 16:18 - 18:16\\]
 Redundant data width in bits"]
     #[inline(always)]
     #[must_use]
-    pub fn redwidth(&mut self) -> REDWIDTH_W<16> {
-        REDWIDTH_W::new(self)
+    pub fn redwidth(&mut self) -> RedwidthW<Gblinfo1Spec> {
+        RedwidthW::new(self, 16)
     }
     #[doc = "Bits 19:31 - 31:19\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved19(&mut self) -> RESERVED19_W<19> {
-        RESERVED19_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved19(&mut self) -> Reserved19W<Gblinfo1Spec> {
+        Reserved19W::new(self, 19)
     }
 }
-#[doc = "Global Info 1 Register Read only register detailing information about data, ecc and redundant data widths in bits.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [gblinfo1](index.html) module"]
-pub struct GBLINFO1_SPEC;
-impl crate::RegisterSpec for GBLINFO1_SPEC {
+#[doc = "Global Info 1 Register Read only register detailing information about data, ecc and redundant data widths in bits.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`gblinfo1::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`gblinfo1::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Gblinfo1Spec;
+impl crate::RegisterSpec for Gblinfo1Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [gblinfo1::R](R) reader structure"]
-impl crate::Readable for GBLINFO1_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [gblinfo1::W](W) writer structure"]
-impl crate::Writable for GBLINFO1_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`gblinfo1::R`](R) reader structure"]
+impl crate::Readable for Gblinfo1Spec {}
+#[doc = "`write(|w| ..)` method takes [`gblinfo1::W`](W) writer structure"]
+impl crate::Writable for Gblinfo1Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets GBLINFO1 to value 0x0004_0080"]
-impl crate::Resettable for GBLINFO1_SPEC {
-    const RESET_VALUE: Self::Ux = 0x0004_0080;
+impl crate::Resettable for Gblinfo1Spec {
+    const RESET_VALUE: u32 = 0x0004_0080;
 }

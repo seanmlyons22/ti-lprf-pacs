@@ -1,295 +1,247 @@
 #[doc = "Register `FLASH_OTP_DATA4` reader"]
-pub struct R(crate::R<FLASH_OTP_DATA4_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<FLASH_OTP_DATA4_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<FLASH_OTP_DATA4_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<FLASH_OTP_DATA4_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<FlashOtpData4Spec>;
 #[doc = "Register `FLASH_OTP_DATA4` writer"]
-pub struct W(crate::W<FLASH_OTP_DATA4_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<FLASH_OTP_DATA4_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<FLASH_OTP_DATA4_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<FLASH_OTP_DATA4_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<FlashOtpData4Spec>;
 #[doc = "Field `VIN_AT_X_EXT_RD` reader - 2:0\\]
 Internal. Only to be used through TI provided API."]
-pub type VIN_AT_X_EXT_RD_R = crate::FieldReader<u8, u8>;
+pub type VinAtXExtRdR = crate::FieldReader;
 #[doc = "Field `VIN_AT_X_EXT_RD` writer - 2:0\\]
 Internal. Only to be used through TI provided API."]
-pub type VIN_AT_X_EXT_RD_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, FLASH_OTP_DATA4_SPEC, u8, u8, 3, O>;
+pub type VinAtXExtRdW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `RESERVED1` reader - 3:3\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED1_R = crate::BitReader<bool>;
+pub type Reserved1R = crate::BitReader;
 #[doc = "Field `RESERVED1` writer - 3:3\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED1_W<'a, const O: u8> = crate::BitWriter<'a, u32, FLASH_OTP_DATA4_SPEC, bool, O>;
+pub type Reserved1W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIS_STANDBY_EXT_RD` reader - 4:4\\]
 Internal. Only to be used through TI provided API."]
-pub type DIS_STANDBY_EXT_RD_R = crate::BitReader<bool>;
+pub type DisStandbyExtRdR = crate::BitReader;
 #[doc = "Field `DIS_STANDBY_EXT_RD` writer - 4:4\\]
 Internal. Only to be used through TI provided API."]
-pub type DIS_STANDBY_EXT_RD_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, FLASH_OTP_DATA4_SPEC, bool, O>;
+pub type DisStandbyExtRdW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `STANDBY_PW_SEL_EXT_RD` reader - 6:5\\]
 Internal. Only to be used through TI provided API."]
-pub type STANDBY_PW_SEL_EXT_RD_R = crate::FieldReader<u8, u8>;
+pub type StandbyPwSelExtRdR = crate::FieldReader;
 #[doc = "Field `STANDBY_PW_SEL_EXT_RD` writer - 6:5\\]
 Internal. Only to be used through TI provided API."]
-pub type STANDBY_PW_SEL_EXT_RD_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, FLASH_OTP_DATA4_SPEC, u8, u8, 2, O>;
+pub type StandbyPwSelExtRdW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `STANDBY_MODE_SEL_EXT_RD` reader - 7:7\\]
 Internal. Only to be used through TI provided API."]
-pub type STANDBY_MODE_SEL_EXT_RD_R = crate::BitReader<bool>;
+pub type StandbyModeSelExtRdR = crate::BitReader;
 #[doc = "Field `STANDBY_MODE_SEL_EXT_RD` writer - 7:7\\]
 Internal. Only to be used through TI provided API."]
-pub type STANDBY_MODE_SEL_EXT_RD_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, FLASH_OTP_DATA4_SPEC, bool, O>;
+pub type StandbyModeSelExtRdW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `VIN_AT_X_INT_RD` reader - 10:8\\]
 Internal. Only to be used through TI provided API."]
-pub type VIN_AT_X_INT_RD_R = crate::FieldReader<u8, u8>;
+pub type VinAtXIntRdR = crate::FieldReader;
 #[doc = "Field `VIN_AT_X_INT_RD` writer - 10:8\\]
 Internal. Only to be used through TI provided API."]
-pub type VIN_AT_X_INT_RD_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, FLASH_OTP_DATA4_SPEC, u8, u8, 3, O>;
+pub type VinAtXIntRdW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `RESERVED2` reader - 11:11\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED2_R = crate::BitReader<bool>;
+pub type Reserved2R = crate::BitReader;
 #[doc = "Field `RESERVED2` writer - 11:11\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED2_W<'a, const O: u8> = crate::BitWriter<'a, u32, FLASH_OTP_DATA4_SPEC, bool, O>;
+pub type Reserved2W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIS_STANDBY_INT_RD` reader - 12:12\\]
 Internal. Only to be used through TI provided API."]
-pub type DIS_STANDBY_INT_RD_R = crate::BitReader<bool>;
+pub type DisStandbyIntRdR = crate::BitReader;
 #[doc = "Field `DIS_STANDBY_INT_RD` writer - 12:12\\]
 Internal. Only to be used through TI provided API."]
-pub type DIS_STANDBY_INT_RD_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, FLASH_OTP_DATA4_SPEC, bool, O>;
+pub type DisStandbyIntRdW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `STANDBY_PW_SEL_INT_RD` reader - 14:13\\]
 Internal. Only to be used through TI provided API."]
-pub type STANDBY_PW_SEL_INT_RD_R = crate::FieldReader<u8, u8>;
+pub type StandbyPwSelIntRdR = crate::FieldReader;
 #[doc = "Field `STANDBY_PW_SEL_INT_RD` writer - 14:13\\]
 Internal. Only to be used through TI provided API."]
-pub type STANDBY_PW_SEL_INT_RD_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, FLASH_OTP_DATA4_SPEC, u8, u8, 2, O>;
+pub type StandbyPwSelIntRdW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `STANDBY_MODE_SEL_INT_RD` reader - 15:15\\]
 Internal. Only to be used through TI provided API."]
-pub type STANDBY_MODE_SEL_INT_RD_R = crate::BitReader<bool>;
+pub type StandbyModeSelIntRdR = crate::BitReader;
 #[doc = "Field `STANDBY_MODE_SEL_INT_RD` writer - 15:15\\]
 Internal. Only to be used through TI provided API."]
-pub type STANDBY_MODE_SEL_INT_RD_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, FLASH_OTP_DATA4_SPEC, bool, O>;
+pub type StandbyModeSelIntRdW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `VIN_AT_X_EXT_WRT` reader - 18:16\\]
 Internal. Only to be used through TI provided API."]
-pub type VIN_AT_X_EXT_WRT_R = crate::FieldReader<u8, u8>;
+pub type VinAtXExtWrtR = crate::FieldReader;
 #[doc = "Field `VIN_AT_X_EXT_WRT` writer - 18:16\\]
 Internal. Only to be used through TI provided API."]
-pub type VIN_AT_X_EXT_WRT_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, FLASH_OTP_DATA4_SPEC, u8, u8, 3, O>;
+pub type VinAtXExtWrtW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `RESERVED3` reader - 19:19\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED3_R = crate::BitReader<bool>;
+pub type Reserved3R = crate::BitReader;
 #[doc = "Field `RESERVED3` writer - 19:19\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED3_W<'a, const O: u8> = crate::BitWriter<'a, u32, FLASH_OTP_DATA4_SPEC, bool, O>;
+pub type Reserved3W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIS_STANDBY_EXT_WRT` reader - 20:20\\]
 Internal. Only to be used through TI provided API."]
-pub type DIS_STANDBY_EXT_WRT_R = crate::BitReader<bool>;
+pub type DisStandbyExtWrtR = crate::BitReader;
 #[doc = "Field `DIS_STANDBY_EXT_WRT` writer - 20:20\\]
 Internal. Only to be used through TI provided API."]
-pub type DIS_STANDBY_EXT_WRT_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, FLASH_OTP_DATA4_SPEC, bool, O>;
+pub type DisStandbyExtWrtW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `STANDBY_PW_SEL_EXT_WRT` reader - 22:21\\]
 Internal. Only to be used through TI provided API."]
-pub type STANDBY_PW_SEL_EXT_WRT_R = crate::FieldReader<u8, u8>;
+pub type StandbyPwSelExtWrtR = crate::FieldReader;
 #[doc = "Field `STANDBY_PW_SEL_EXT_WRT` writer - 22:21\\]
 Internal. Only to be used through TI provided API."]
-pub type STANDBY_PW_SEL_EXT_WRT_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, FLASH_OTP_DATA4_SPEC, u8, u8, 2, O>;
+pub type StandbyPwSelExtWrtW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `STANDBY_MODE_SEL_EXT_WRT` reader - 23:23\\]
 Internal. Only to be used through TI provided API."]
-pub type STANDBY_MODE_SEL_EXT_WRT_R = crate::BitReader<bool>;
+pub type StandbyModeSelExtWrtR = crate::BitReader;
 #[doc = "Field `STANDBY_MODE_SEL_EXT_WRT` writer - 23:23\\]
 Internal. Only to be used through TI provided API."]
-pub type STANDBY_MODE_SEL_EXT_WRT_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, FLASH_OTP_DATA4_SPEC, bool, O>;
+pub type StandbyModeSelExtWrtW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `VIN_AT_X_INT_WRT` reader - 26:24\\]
 Internal. Only to be used through TI provided API."]
-pub type VIN_AT_X_INT_WRT_R = crate::FieldReader<u8, u8>;
+pub type VinAtXIntWrtR = crate::FieldReader;
 #[doc = "Field `VIN_AT_X_INT_WRT` writer - 26:24\\]
 Internal. Only to be used through TI provided API."]
-pub type VIN_AT_X_INT_WRT_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, FLASH_OTP_DATA4_SPEC, u8, u8, 3, O>;
+pub type VinAtXIntWrtW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `RESERVED4` reader - 27:27\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED4_R = crate::BitReader<bool>;
+pub type Reserved4R = crate::BitReader;
 #[doc = "Field `RESERVED4` writer - 27:27\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED4_W<'a, const O: u8> = crate::BitWriter<'a, u32, FLASH_OTP_DATA4_SPEC, bool, O>;
+pub type Reserved4W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIS_STANDBY_INT_WRT` reader - 28:28\\]
 Internal. Only to be used through TI provided API."]
-pub type DIS_STANDBY_INT_WRT_R = crate::BitReader<bool>;
+pub type DisStandbyIntWrtR = crate::BitReader;
 #[doc = "Field `DIS_STANDBY_INT_WRT` writer - 28:28\\]
 Internal. Only to be used through TI provided API."]
-pub type DIS_STANDBY_INT_WRT_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, FLASH_OTP_DATA4_SPEC, bool, O>;
+pub type DisStandbyIntWrtW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `STANDBY_PW_SEL_INT_WRT` reader - 30:29\\]
 Internal. Only to be used through TI provided API."]
-pub type STANDBY_PW_SEL_INT_WRT_R = crate::FieldReader<u8, u8>;
+pub type StandbyPwSelIntWrtR = crate::FieldReader;
 #[doc = "Field `STANDBY_PW_SEL_INT_WRT` writer - 30:29\\]
 Internal. Only to be used through TI provided API."]
-pub type STANDBY_PW_SEL_INT_WRT_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, FLASH_OTP_DATA4_SPEC, u8, u8, 2, O>;
+pub type StandbyPwSelIntWrtW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `STANDBY_MODE_SEL_INT_WRT` reader - 31:31\\]
 Internal. Only to be used through TI provided API."]
-pub type STANDBY_MODE_SEL_INT_WRT_R = crate::BitReader<bool>;
+pub type StandbyModeSelIntWrtR = crate::BitReader;
 #[doc = "Field `STANDBY_MODE_SEL_INT_WRT` writer - 31:31\\]
 Internal. Only to be used through TI provided API."]
-pub type STANDBY_MODE_SEL_INT_WRT_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, FLASH_OTP_DATA4_SPEC, bool, O>;
+pub type StandbyModeSelIntWrtW<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bits 0:2 - 2:0\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn vin_at_x_ext_rd(&self) -> VIN_AT_X_EXT_RD_R {
-        VIN_AT_X_EXT_RD_R::new((self.bits & 7) as u8)
+    pub fn vin_at_x_ext_rd(&self) -> VinAtXExtRdR {
+        VinAtXExtRdR::new((self.bits & 7) as u8)
     }
     #[doc = "Bit 3 - 3:3\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn reserved1(&self) -> RESERVED1_R {
-        RESERVED1_R::new(((self.bits >> 3) & 1) != 0)
+    pub fn reserved1(&self) -> Reserved1R {
+        Reserved1R::new(((self.bits >> 3) & 1) != 0)
     }
     #[doc = "Bit 4 - 4:4\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn dis_standby_ext_rd(&self) -> DIS_STANDBY_EXT_RD_R {
-        DIS_STANDBY_EXT_RD_R::new(((self.bits >> 4) & 1) != 0)
+    pub fn dis_standby_ext_rd(&self) -> DisStandbyExtRdR {
+        DisStandbyExtRdR::new(((self.bits >> 4) & 1) != 0)
     }
     #[doc = "Bits 5:6 - 6:5\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn standby_pw_sel_ext_rd(&self) -> STANDBY_PW_SEL_EXT_RD_R {
-        STANDBY_PW_SEL_EXT_RD_R::new(((self.bits >> 5) & 3) as u8)
+    pub fn standby_pw_sel_ext_rd(&self) -> StandbyPwSelExtRdR {
+        StandbyPwSelExtRdR::new(((self.bits >> 5) & 3) as u8)
     }
     #[doc = "Bit 7 - 7:7\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn standby_mode_sel_ext_rd(&self) -> STANDBY_MODE_SEL_EXT_RD_R {
-        STANDBY_MODE_SEL_EXT_RD_R::new(((self.bits >> 7) & 1) != 0)
+    pub fn standby_mode_sel_ext_rd(&self) -> StandbyModeSelExtRdR {
+        StandbyModeSelExtRdR::new(((self.bits >> 7) & 1) != 0)
     }
     #[doc = "Bits 8:10 - 10:8\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn vin_at_x_int_rd(&self) -> VIN_AT_X_INT_RD_R {
-        VIN_AT_X_INT_RD_R::new(((self.bits >> 8) & 7) as u8)
+    pub fn vin_at_x_int_rd(&self) -> VinAtXIntRdR {
+        VinAtXIntRdR::new(((self.bits >> 8) & 7) as u8)
     }
     #[doc = "Bit 11 - 11:11\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn reserved2(&self) -> RESERVED2_R {
-        RESERVED2_R::new(((self.bits >> 11) & 1) != 0)
+    pub fn reserved2(&self) -> Reserved2R {
+        Reserved2R::new(((self.bits >> 11) & 1) != 0)
     }
     #[doc = "Bit 12 - 12:12\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn dis_standby_int_rd(&self) -> DIS_STANDBY_INT_RD_R {
-        DIS_STANDBY_INT_RD_R::new(((self.bits >> 12) & 1) != 0)
+    pub fn dis_standby_int_rd(&self) -> DisStandbyIntRdR {
+        DisStandbyIntRdR::new(((self.bits >> 12) & 1) != 0)
     }
     #[doc = "Bits 13:14 - 14:13\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn standby_pw_sel_int_rd(&self) -> STANDBY_PW_SEL_INT_RD_R {
-        STANDBY_PW_SEL_INT_RD_R::new(((self.bits >> 13) & 3) as u8)
+    pub fn standby_pw_sel_int_rd(&self) -> StandbyPwSelIntRdR {
+        StandbyPwSelIntRdR::new(((self.bits >> 13) & 3) as u8)
     }
     #[doc = "Bit 15 - 15:15\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn standby_mode_sel_int_rd(&self) -> STANDBY_MODE_SEL_INT_RD_R {
-        STANDBY_MODE_SEL_INT_RD_R::new(((self.bits >> 15) & 1) != 0)
+    pub fn standby_mode_sel_int_rd(&self) -> StandbyModeSelIntRdR {
+        StandbyModeSelIntRdR::new(((self.bits >> 15) & 1) != 0)
     }
     #[doc = "Bits 16:18 - 18:16\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn vin_at_x_ext_wrt(&self) -> VIN_AT_X_EXT_WRT_R {
-        VIN_AT_X_EXT_WRT_R::new(((self.bits >> 16) & 7) as u8)
+    pub fn vin_at_x_ext_wrt(&self) -> VinAtXExtWrtR {
+        VinAtXExtWrtR::new(((self.bits >> 16) & 7) as u8)
     }
     #[doc = "Bit 19 - 19:19\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn reserved3(&self) -> RESERVED3_R {
-        RESERVED3_R::new(((self.bits >> 19) & 1) != 0)
+    pub fn reserved3(&self) -> Reserved3R {
+        Reserved3R::new(((self.bits >> 19) & 1) != 0)
     }
     #[doc = "Bit 20 - 20:20\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn dis_standby_ext_wrt(&self) -> DIS_STANDBY_EXT_WRT_R {
-        DIS_STANDBY_EXT_WRT_R::new(((self.bits >> 20) & 1) != 0)
+    pub fn dis_standby_ext_wrt(&self) -> DisStandbyExtWrtR {
+        DisStandbyExtWrtR::new(((self.bits >> 20) & 1) != 0)
     }
     #[doc = "Bits 21:22 - 22:21\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn standby_pw_sel_ext_wrt(&self) -> STANDBY_PW_SEL_EXT_WRT_R {
-        STANDBY_PW_SEL_EXT_WRT_R::new(((self.bits >> 21) & 3) as u8)
+    pub fn standby_pw_sel_ext_wrt(&self) -> StandbyPwSelExtWrtR {
+        StandbyPwSelExtWrtR::new(((self.bits >> 21) & 3) as u8)
     }
     #[doc = "Bit 23 - 23:23\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn standby_mode_sel_ext_wrt(&self) -> STANDBY_MODE_SEL_EXT_WRT_R {
-        STANDBY_MODE_SEL_EXT_WRT_R::new(((self.bits >> 23) & 1) != 0)
+    pub fn standby_mode_sel_ext_wrt(&self) -> StandbyModeSelExtWrtR {
+        StandbyModeSelExtWrtR::new(((self.bits >> 23) & 1) != 0)
     }
     #[doc = "Bits 24:26 - 26:24\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn vin_at_x_int_wrt(&self) -> VIN_AT_X_INT_WRT_R {
-        VIN_AT_X_INT_WRT_R::new(((self.bits >> 24) & 7) as u8)
+    pub fn vin_at_x_int_wrt(&self) -> VinAtXIntWrtR {
+        VinAtXIntWrtR::new(((self.bits >> 24) & 7) as u8)
     }
     #[doc = "Bit 27 - 27:27\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn reserved4(&self) -> RESERVED4_R {
-        RESERVED4_R::new(((self.bits >> 27) & 1) != 0)
+    pub fn reserved4(&self) -> Reserved4R {
+        Reserved4R::new(((self.bits >> 27) & 1) != 0)
     }
     #[doc = "Bit 28 - 28:28\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn dis_standby_int_wrt(&self) -> DIS_STANDBY_INT_WRT_R {
-        DIS_STANDBY_INT_WRT_R::new(((self.bits >> 28) & 1) != 0)
+    pub fn dis_standby_int_wrt(&self) -> DisStandbyIntWrtR {
+        DisStandbyIntWrtR::new(((self.bits >> 28) & 1) != 0)
     }
     #[doc = "Bits 29:30 - 30:29\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn standby_pw_sel_int_wrt(&self) -> STANDBY_PW_SEL_INT_WRT_R {
-        STANDBY_PW_SEL_INT_WRT_R::new(((self.bits >> 29) & 3) as u8)
+    pub fn standby_pw_sel_int_wrt(&self) -> StandbyPwSelIntWrtR {
+        StandbyPwSelIntWrtR::new(((self.bits >> 29) & 3) as u8)
     }
     #[doc = "Bit 31 - 31:31\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn standby_mode_sel_int_wrt(&self) -> STANDBY_MODE_SEL_INT_WRT_R {
-        STANDBY_MODE_SEL_INT_WRT_R::new(((self.bits >> 31) & 1) != 0)
+    pub fn standby_mode_sel_int_wrt(&self) -> StandbyModeSelIntWrtR {
+        StandbyModeSelIntWrtR::new(((self.bits >> 31) & 1) != 0)
     }
 }
 impl W {
@@ -297,165 +249,157 @@ impl W {
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn vin_at_x_ext_rd(&mut self) -> VIN_AT_X_EXT_RD_W<0> {
-        VIN_AT_X_EXT_RD_W::new(self)
+    pub fn vin_at_x_ext_rd(&mut self) -> VinAtXExtRdW<FlashOtpData4Spec> {
+        VinAtXExtRdW::new(self, 0)
     }
     #[doc = "Bit 3 - 3:3\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved1(&mut self) -> RESERVED1_W<3> {
-        RESERVED1_W::new(self)
+    pub fn reserved1(&mut self) -> Reserved1W<FlashOtpData4Spec> {
+        Reserved1W::new(self, 3)
     }
     #[doc = "Bit 4 - 4:4\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn dis_standby_ext_rd(&mut self) -> DIS_STANDBY_EXT_RD_W<4> {
-        DIS_STANDBY_EXT_RD_W::new(self)
+    pub fn dis_standby_ext_rd(&mut self) -> DisStandbyExtRdW<FlashOtpData4Spec> {
+        DisStandbyExtRdW::new(self, 4)
     }
     #[doc = "Bits 5:6 - 6:5\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn standby_pw_sel_ext_rd(&mut self) -> STANDBY_PW_SEL_EXT_RD_W<5> {
-        STANDBY_PW_SEL_EXT_RD_W::new(self)
+    pub fn standby_pw_sel_ext_rd(&mut self) -> StandbyPwSelExtRdW<FlashOtpData4Spec> {
+        StandbyPwSelExtRdW::new(self, 5)
     }
     #[doc = "Bit 7 - 7:7\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn standby_mode_sel_ext_rd(&mut self) -> STANDBY_MODE_SEL_EXT_RD_W<7> {
-        STANDBY_MODE_SEL_EXT_RD_W::new(self)
+    pub fn standby_mode_sel_ext_rd(&mut self) -> StandbyModeSelExtRdW<FlashOtpData4Spec> {
+        StandbyModeSelExtRdW::new(self, 7)
     }
     #[doc = "Bits 8:10 - 10:8\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn vin_at_x_int_rd(&mut self) -> VIN_AT_X_INT_RD_W<8> {
-        VIN_AT_X_INT_RD_W::new(self)
+    pub fn vin_at_x_int_rd(&mut self) -> VinAtXIntRdW<FlashOtpData4Spec> {
+        VinAtXIntRdW::new(self, 8)
     }
     #[doc = "Bit 11 - 11:11\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved2(&mut self) -> RESERVED2_W<11> {
-        RESERVED2_W::new(self)
+    pub fn reserved2(&mut self) -> Reserved2W<FlashOtpData4Spec> {
+        Reserved2W::new(self, 11)
     }
     #[doc = "Bit 12 - 12:12\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn dis_standby_int_rd(&mut self) -> DIS_STANDBY_INT_RD_W<12> {
-        DIS_STANDBY_INT_RD_W::new(self)
+    pub fn dis_standby_int_rd(&mut self) -> DisStandbyIntRdW<FlashOtpData4Spec> {
+        DisStandbyIntRdW::new(self, 12)
     }
     #[doc = "Bits 13:14 - 14:13\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn standby_pw_sel_int_rd(&mut self) -> STANDBY_PW_SEL_INT_RD_W<13> {
-        STANDBY_PW_SEL_INT_RD_W::new(self)
+    pub fn standby_pw_sel_int_rd(&mut self) -> StandbyPwSelIntRdW<FlashOtpData4Spec> {
+        StandbyPwSelIntRdW::new(self, 13)
     }
     #[doc = "Bit 15 - 15:15\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn standby_mode_sel_int_rd(&mut self) -> STANDBY_MODE_SEL_INT_RD_W<15> {
-        STANDBY_MODE_SEL_INT_RD_W::new(self)
+    pub fn standby_mode_sel_int_rd(&mut self) -> StandbyModeSelIntRdW<FlashOtpData4Spec> {
+        StandbyModeSelIntRdW::new(self, 15)
     }
     #[doc = "Bits 16:18 - 18:16\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn vin_at_x_ext_wrt(&mut self) -> VIN_AT_X_EXT_WRT_W<16> {
-        VIN_AT_X_EXT_WRT_W::new(self)
+    pub fn vin_at_x_ext_wrt(&mut self) -> VinAtXExtWrtW<FlashOtpData4Spec> {
+        VinAtXExtWrtW::new(self, 16)
     }
     #[doc = "Bit 19 - 19:19\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved3(&mut self) -> RESERVED3_W<19> {
-        RESERVED3_W::new(self)
+    pub fn reserved3(&mut self) -> Reserved3W<FlashOtpData4Spec> {
+        Reserved3W::new(self, 19)
     }
     #[doc = "Bit 20 - 20:20\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn dis_standby_ext_wrt(&mut self) -> DIS_STANDBY_EXT_WRT_W<20> {
-        DIS_STANDBY_EXT_WRT_W::new(self)
+    pub fn dis_standby_ext_wrt(&mut self) -> DisStandbyExtWrtW<FlashOtpData4Spec> {
+        DisStandbyExtWrtW::new(self, 20)
     }
     #[doc = "Bits 21:22 - 22:21\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn standby_pw_sel_ext_wrt(&mut self) -> STANDBY_PW_SEL_EXT_WRT_W<21> {
-        STANDBY_PW_SEL_EXT_WRT_W::new(self)
+    pub fn standby_pw_sel_ext_wrt(&mut self) -> StandbyPwSelExtWrtW<FlashOtpData4Spec> {
+        StandbyPwSelExtWrtW::new(self, 21)
     }
     #[doc = "Bit 23 - 23:23\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn standby_mode_sel_ext_wrt(&mut self) -> STANDBY_MODE_SEL_EXT_WRT_W<23> {
-        STANDBY_MODE_SEL_EXT_WRT_W::new(self)
+    pub fn standby_mode_sel_ext_wrt(&mut self) -> StandbyModeSelExtWrtW<FlashOtpData4Spec> {
+        StandbyModeSelExtWrtW::new(self, 23)
     }
     #[doc = "Bits 24:26 - 26:24\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn vin_at_x_int_wrt(&mut self) -> VIN_AT_X_INT_WRT_W<24> {
-        VIN_AT_X_INT_WRT_W::new(self)
+    pub fn vin_at_x_int_wrt(&mut self) -> VinAtXIntWrtW<FlashOtpData4Spec> {
+        VinAtXIntWrtW::new(self, 24)
     }
     #[doc = "Bit 27 - 27:27\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved4(&mut self) -> RESERVED4_W<27> {
-        RESERVED4_W::new(self)
+    pub fn reserved4(&mut self) -> Reserved4W<FlashOtpData4Spec> {
+        Reserved4W::new(self, 27)
     }
     #[doc = "Bit 28 - 28:28\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn dis_standby_int_wrt(&mut self) -> DIS_STANDBY_INT_WRT_W<28> {
-        DIS_STANDBY_INT_WRT_W::new(self)
+    pub fn dis_standby_int_wrt(&mut self) -> DisStandbyIntWrtW<FlashOtpData4Spec> {
+        DisStandbyIntWrtW::new(self, 28)
     }
     #[doc = "Bits 29:30 - 30:29\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn standby_pw_sel_int_wrt(&mut self) -> STANDBY_PW_SEL_INT_WRT_W<29> {
-        STANDBY_PW_SEL_INT_WRT_W::new(self)
+    pub fn standby_pw_sel_int_wrt(&mut self) -> StandbyPwSelIntWrtW<FlashOtpData4Spec> {
+        StandbyPwSelIntWrtW::new(self, 29)
     }
     #[doc = "Bit 31 - 31:31\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn standby_mode_sel_int_wrt(&mut self) -> STANDBY_MODE_SEL_INT_WRT_W<31> {
-        STANDBY_MODE_SEL_INT_WRT_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn standby_mode_sel_int_wrt(&mut self) -> StandbyModeSelIntWrtW<FlashOtpData4Spec> {
+        StandbyModeSelIntWrtW::new(self, 31)
     }
 }
-#[doc = "Internal. Only to be used through TI provided API.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [flash_otp_data4](index.html) module"]
-pub struct FLASH_OTP_DATA4_SPEC;
-impl crate::RegisterSpec for FLASH_OTP_DATA4_SPEC {
+#[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`flash_otp_data4::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`flash_otp_data4::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct FlashOtpData4Spec;
+impl crate::RegisterSpec for FlashOtpData4Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [flash_otp_data4::R](R) reader structure"]
-impl crate::Readable for FLASH_OTP_DATA4_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [flash_otp_data4::W](W) writer structure"]
-impl crate::Writable for FLASH_OTP_DATA4_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`flash_otp_data4::R`](R) reader structure"]
+impl crate::Readable for FlashOtpData4Spec {}
+#[doc = "`write(|w| ..)` method takes [`flash_otp_data4::W`](W) writer structure"]
+impl crate::Writable for FlashOtpData4Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets FLASH_OTP_DATA4 to value 0x9898_9f9f"]
-impl crate::Resettable for FLASH_OTP_DATA4_SPEC {
-    const RESET_VALUE: Self::Ux = 0x9898_9f9f;
+impl crate::Resettable for FlashOtpData4Spec {
+    const RESET_VALUE: u32 = 0x9898_9f9f;
 }

@@ -1,87 +1,63 @@
 #[doc = "Register `CPUIRQSEL29` reader"]
-pub struct R(crate::R<CPUIRQSEL29_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<CPUIRQSEL29_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<CPUIRQSEL29_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<CPUIRQSEL29_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Cpuirqsel29Spec>;
 #[doc = "Register `CPUIRQSEL29` writer"]
-pub struct W(crate::W<CPUIRQSEL29_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<CPUIRQSEL29_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<CPUIRQSEL29_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<CPUIRQSEL29_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `EV` reader - 6:0\\]
-Read only selection value"]
-pub type EV_R = crate::FieldReader<u8, EV_A>;
+pub type W = crate::W<Cpuirqsel29Spec>;
 #[doc = "6:0\\]
 Read only selection value\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum EV_A {
+pub enum Ev {
     #[doc = "1: AON programmable event 0. Event selected by AON_EVENT MCU event selector, AON_EVENT:EVTOMCUSEL.AON_PROG0_EV"]
-    AON_PROG0 = 1,
+    AonProg0 = 1,
 }
-impl From<EV_A> for u8 {
+impl From<Ev> for u8 {
     #[inline(always)]
-    fn from(variant: EV_A) -> Self {
+    fn from(variant: Ev) -> Self {
         variant as _
     }
 }
-impl EV_R {
+impl crate::FieldSpec for Ev {
+    type Ux = u8;
+}
+impl crate::IsEnum for Ev {}
+#[doc = "Field `EV` reader - 6:0\\]
+Read only selection value"]
+pub type EvR = crate::FieldReader<Ev>;
+impl EvR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<EV_A> {
+    pub const fn variant(&self) -> Option<Ev> {
         match self.bits {
-            1 => Some(EV_A::AON_PROG0),
+            1 => Some(Ev::AonProg0),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `AON_PROG0`"]
+    #[doc = "AON programmable event 0. Event selected by AON_EVENT MCU event selector, AON_EVENT:EVTOMCUSEL.AON_PROG0_EV"]
     #[inline(always)]
     pub fn is_aon_prog0(&self) -> bool {
-        *self == EV_A::AON_PROG0
+        *self == Ev::AonProg0
     }
 }
 #[doc = "Field `EV` writer - 6:0\\]
 Read only selection value"]
-pub type EV_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CPUIRQSEL29_SPEC, u8, EV_A, 7, O>;
-impl<'a, const O: u8> EV_W<'a, O> {
+pub type EvW<'a, REG> = crate::FieldWriter<'a, REG, 7, Ev>;
+impl<'a, REG> EvW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "AON programmable event 0. Event selected by AON_EVENT MCU event selector, AON_EVENT:EVTOMCUSEL.AON_PROG0_EV"]
     #[inline(always)]
-    pub fn aon_prog0(self) -> &'a mut W {
-        self.variant(EV_A::AON_PROG0)
+    pub fn aon_prog0(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AonProg0)
     }
 }
 impl R {
     #[doc = "Bits 0:6 - 6:0\\]
 Read only selection value"]
     #[inline(always)]
-    pub fn ev(&self) -> EV_R {
-        EV_R::new((self.bits & 0x7f) as u8)
+    pub fn ev(&self) -> EvR {
+        EvR::new((self.bits & 0x7f) as u8)
     }
 }
 impl W {
@@ -89,32 +65,24 @@ impl W {
 Read only selection value"]
     #[inline(always)]
     #[must_use]
-    pub fn ev(&mut self) -> EV_W<0> {
-        EV_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn ev(&mut self) -> EvW<Cpuirqsel29Spec> {
+        EvW::new(self, 0)
     }
 }
-#[doc = "Output Selection for CPU Interrupt 29\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cpuirqsel29](index.html) module"]
-pub struct CPUIRQSEL29_SPEC;
-impl crate::RegisterSpec for CPUIRQSEL29_SPEC {
+#[doc = "Output Selection for CPU Interrupt 29\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`cpuirqsel29::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`cpuirqsel29::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Cpuirqsel29Spec;
+impl crate::RegisterSpec for Cpuirqsel29Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [cpuirqsel29::R](R) reader structure"]
-impl crate::Readable for CPUIRQSEL29_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [cpuirqsel29::W](W) writer structure"]
-impl crate::Writable for CPUIRQSEL29_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`cpuirqsel29::R`](R) reader structure"]
+impl crate::Readable for Cpuirqsel29Spec {}
+#[doc = "`write(|w| ..)` method takes [`cpuirqsel29::W`](W) writer structure"]
+impl crate::Writable for Cpuirqsel29Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets CPUIRQSEL29 to value 0x01"]
-impl crate::Resettable for CPUIRQSEL29_SPEC {
-    const RESET_VALUE: Self::Ux = 0x01;
+impl crate::Resettable for Cpuirqsel29Spec {
+    const RESET_VALUE: u32 = 0x01;
 }

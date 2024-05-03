@@ -1,91 +1,55 @@
 #[doc = "Register `CONFIG_OSC_TOP` reader"]
-pub struct R(crate::R<CONFIG_OSC_TOP_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<CONFIG_OSC_TOP_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<CONFIG_OSC_TOP_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<CONFIG_OSC_TOP_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<ConfigOscTopSpec>;
 #[doc = "Register `CONFIG_OSC_TOP` writer"]
-pub struct W(crate::W<CONFIG_OSC_TOP_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<CONFIG_OSC_TOP_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<CONFIG_OSC_TOP_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<CONFIG_OSC_TOP_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<ConfigOscTopSpec>;
 #[doc = "Field `RCOSCLF_RTUNE_TRIM` reader - 1:0\\]
 Internal. Only to be used through TI provided API."]
-pub type RCOSCLF_RTUNE_TRIM_R = crate::FieldReader<u8, u8>;
+pub type RcosclfRtuneTrimR = crate::FieldReader;
 #[doc = "Field `RCOSCLF_RTUNE_TRIM` writer - 1:0\\]
 Internal. Only to be used through TI provided API."]
-pub type RCOSCLF_RTUNE_TRIM_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, CONFIG_OSC_TOP_SPEC, u8, u8, 2, O>;
+pub type RcosclfRtuneTrimW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `RCOSCLF_CTUNE_TRIM` reader - 9:2\\]
 Internal. Only to be used through TI provided API."]
-pub type RCOSCLF_CTUNE_TRIM_R = crate::FieldReader<u8, u8>;
+pub type RcosclfCtuneTrimR = crate::FieldReader;
 #[doc = "Field `RCOSCLF_CTUNE_TRIM` writer - 9:2\\]
 Internal. Only to be used through TI provided API."]
-pub type RCOSCLF_CTUNE_TRIM_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, CONFIG_OSC_TOP_SPEC, u8, u8, 8, O>;
+pub type RcosclfCtuneTrimW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `XOSC_HF_COLUMN_Q12` reader - 25:10\\]
 Internal. Only to be used through TI provided API."]
-pub type XOSC_HF_COLUMN_Q12_R = crate::FieldReader<u16, u16>;
+pub type XoscHfColumnQ12R = crate::FieldReader<u16>;
 #[doc = "Field `XOSC_HF_COLUMN_Q12` writer - 25:10\\]
 Internal. Only to be used through TI provided API."]
-pub type XOSC_HF_COLUMN_Q12_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, CONFIG_OSC_TOP_SPEC, u16, u16, 16, O>;
+pub type XoscHfColumnQ12W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 #[doc = "Field `XOSC_HF_ROW_Q12` reader - 29:26\\]
 Internal. Only to be used through TI provided API."]
-pub type XOSC_HF_ROW_Q12_R = crate::FieldReader<u8, u8>;
+pub type XoscHfRowQ12R = crate::FieldReader;
 #[doc = "Field `XOSC_HF_ROW_Q12` writer - 29:26\\]
 Internal. Only to be used through TI provided API."]
-pub type XOSC_HF_ROW_Q12_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, CONFIG_OSC_TOP_SPEC, u8, u8, 4, O>;
+pub type XoscHfRowQ12W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 impl R {
     #[doc = "Bits 0:1 - 1:0\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn rcosclf_rtune_trim(&self) -> RCOSCLF_RTUNE_TRIM_R {
-        RCOSCLF_RTUNE_TRIM_R::new((self.bits & 3) as u8)
+    pub fn rcosclf_rtune_trim(&self) -> RcosclfRtuneTrimR {
+        RcosclfRtuneTrimR::new((self.bits & 3) as u8)
     }
     #[doc = "Bits 2:9 - 9:2\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn rcosclf_ctune_trim(&self) -> RCOSCLF_CTUNE_TRIM_R {
-        RCOSCLF_CTUNE_TRIM_R::new(((self.bits >> 2) & 0xff) as u8)
+    pub fn rcosclf_ctune_trim(&self) -> RcosclfCtuneTrimR {
+        RcosclfCtuneTrimR::new(((self.bits >> 2) & 0xff) as u8)
     }
     #[doc = "Bits 10:25 - 25:10\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn xosc_hf_column_q12(&self) -> XOSC_HF_COLUMN_Q12_R {
-        XOSC_HF_COLUMN_Q12_R::new(((self.bits >> 10) & 0xffff) as u16)
+    pub fn xosc_hf_column_q12(&self) -> XoscHfColumnQ12R {
+        XoscHfColumnQ12R::new(((self.bits >> 10) & 0xffff) as u16)
     }
     #[doc = "Bits 26:29 - 29:26\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn xosc_hf_row_q12(&self) -> XOSC_HF_ROW_Q12_R {
-        XOSC_HF_ROW_Q12_R::new(((self.bits >> 26) & 0x0f) as u8)
+    pub fn xosc_hf_row_q12(&self) -> XoscHfRowQ12R {
+        XoscHfRowQ12R::new(((self.bits >> 26) & 0x0f) as u8)
     }
 }
 impl W {
@@ -93,53 +57,45 @@ impl W {
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn rcosclf_rtune_trim(&mut self) -> RCOSCLF_RTUNE_TRIM_W<0> {
-        RCOSCLF_RTUNE_TRIM_W::new(self)
+    pub fn rcosclf_rtune_trim(&mut self) -> RcosclfRtuneTrimW<ConfigOscTopSpec> {
+        RcosclfRtuneTrimW::new(self, 0)
     }
     #[doc = "Bits 2:9 - 9:2\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn rcosclf_ctune_trim(&mut self) -> RCOSCLF_CTUNE_TRIM_W<2> {
-        RCOSCLF_CTUNE_TRIM_W::new(self)
+    pub fn rcosclf_ctune_trim(&mut self) -> RcosclfCtuneTrimW<ConfigOscTopSpec> {
+        RcosclfCtuneTrimW::new(self, 2)
     }
     #[doc = "Bits 10:25 - 25:10\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn xosc_hf_column_q12(&mut self) -> XOSC_HF_COLUMN_Q12_W<10> {
-        XOSC_HF_COLUMN_Q12_W::new(self)
+    pub fn xosc_hf_column_q12(&mut self) -> XoscHfColumnQ12W<ConfigOscTopSpec> {
+        XoscHfColumnQ12W::new(self, 10)
     }
     #[doc = "Bits 26:29 - 29:26\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn xosc_hf_row_q12(&mut self) -> XOSC_HF_ROW_Q12_W<26> {
-        XOSC_HF_ROW_Q12_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn xosc_hf_row_q12(&mut self) -> XoscHfRowQ12W<ConfigOscTopSpec> {
+        XoscHfRowQ12W::new(self, 26)
     }
 }
-#[doc = "Internal. Only to be used through TI provided API.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [config_osc_top](index.html) module"]
-pub struct CONFIG_OSC_TOP_SPEC;
-impl crate::RegisterSpec for CONFIG_OSC_TOP_SPEC {
+#[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`config_osc_top::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`config_osc_top::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct ConfigOscTopSpec;
+impl crate::RegisterSpec for ConfigOscTopSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [config_osc_top::R](R) reader structure"]
-impl crate::Readable for CONFIG_OSC_TOP_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [config_osc_top::W](W) writer structure"]
-impl crate::Writable for CONFIG_OSC_TOP_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`config_osc_top::R`](R) reader structure"]
+impl crate::Readable for ConfigOscTopSpec {}
+#[doc = "`write(|w| ..)` method takes [`config_osc_top::W`](W) writer structure"]
+impl crate::Writable for ConfigOscTopSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets CONFIG_OSC_TOP to value 0xdc07_fc00"]
-impl crate::Resettable for CONFIG_OSC_TOP_SPEC {
-    const RESET_VALUE: Self::Ux = 0xdc07_fc00;
+impl crate::Resettable for ConfigOscTopSpec {
+    const RESET_VALUE: u32 = 0xdc07_fc00;
 }

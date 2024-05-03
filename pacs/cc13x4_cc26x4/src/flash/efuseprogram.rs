@@ -1,114 +1,79 @@
 #[doc = "Register `EFUSEPROGRAM` reader"]
-pub struct R(crate::R<EFUSEPROGRAM_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<EFUSEPROGRAM_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<EFUSEPROGRAM_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<EFUSEPROGRAM_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<EfuseprogramSpec>;
 #[doc = "Register `EFUSEPROGRAM` writer"]
-pub struct W(crate::W<EFUSEPROGRAM_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<EFUSEPROGRAM_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<EFUSEPROGRAM_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<EFUSEPROGRAM_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<EfuseprogramSpec>;
 #[doc = "Field `WRITECLOCK` reader - 8:0\\]
 Internal. Only to be used through TI provided API."]
-pub type WRITECLOCK_R = crate::FieldReader<u16, u16>;
+pub type WriteclockR = crate::FieldReader<u16>;
 #[doc = "Field `WRITECLOCK` writer - 8:0\\]
 Internal. Only to be used through TI provided API."]
-pub type WRITECLOCK_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, EFUSEPROGRAM_SPEC, u16, u16, 9, O>;
+pub type WriteclockW<'a, REG> = crate::FieldWriter<'a, REG, 9, u16>;
 #[doc = "Field `ITERATIONS` reader - 12:9\\]
 Internal. Only to be used through TI provided API."]
-pub type ITERATIONS_R = crate::FieldReader<u8, u8>;
+pub type IterationsR = crate::FieldReader;
 #[doc = "Field `ITERATIONS` writer - 12:9\\]
 Internal. Only to be used through TI provided API."]
-pub type ITERATIONS_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, EFUSEPROGRAM_SPEC, u8, u8, 4, O>;
+pub type IterationsW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `VPPTOVDD` reader - 13:13\\]
 Internal. Only to be used through TI provided API."]
-pub type VPPTOVDD_R = crate::BitReader<bool>;
+pub type VpptovddR = crate::BitReader;
 #[doc = "Field `VPPTOVDD` writer - 13:13\\]
 Internal. Only to be used through TI provided API."]
-pub type VPPTOVDD_W<'a, const O: u8> = crate::BitWriter<'a, u32, EFUSEPROGRAM_SPEC, bool, O>;
+pub type VpptovddW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `CLOCKSTALL` reader - 29:14\\]
 Internal. Only to be used through TI provided API."]
-pub type CLOCKSTALL_R = crate::FieldReader<u16, u16>;
+pub type ClockstallR = crate::FieldReader<u16>;
 #[doc = "Field `CLOCKSTALL` writer - 29:14\\]
 Internal. Only to be used through TI provided API."]
-pub type CLOCKSTALL_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, EFUSEPROGRAM_SPEC, u16, u16, 16, O>;
+pub type ClockstallW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 #[doc = "Field `COMPAREDISABLE` reader - 30:30\\]
 Internal. Only to be used through TI provided API."]
-pub type COMPAREDISABLE_R = crate::BitReader<bool>;
+pub type ComparedisableR = crate::BitReader;
 #[doc = "Field `COMPAREDISABLE` writer - 30:30\\]
 Internal. Only to be used through TI provided API."]
-pub type COMPAREDISABLE_W<'a, const O: u8> = crate::BitWriter<'a, u32, EFUSEPROGRAM_SPEC, bool, O>;
+pub type ComparedisableW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED31` reader - 31:31\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED31_R = crate::BitReader<bool>;
+pub type Reserved31R = crate::BitReader;
 #[doc = "Field `RESERVED31` writer - 31:31\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED31_W<'a, const O: u8> = crate::BitWriter<'a, u32, EFUSEPROGRAM_SPEC, bool, O>;
+pub type Reserved31W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bits 0:8 - 8:0\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn writeclock(&self) -> WRITECLOCK_R {
-        WRITECLOCK_R::new((self.bits & 0x01ff) as u16)
+    pub fn writeclock(&self) -> WriteclockR {
+        WriteclockR::new((self.bits & 0x01ff) as u16)
     }
     #[doc = "Bits 9:12 - 12:9\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn iterations(&self) -> ITERATIONS_R {
-        ITERATIONS_R::new(((self.bits >> 9) & 0x0f) as u8)
+    pub fn iterations(&self) -> IterationsR {
+        IterationsR::new(((self.bits >> 9) & 0x0f) as u8)
     }
     #[doc = "Bit 13 - 13:13\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn vpptovdd(&self) -> VPPTOVDD_R {
-        VPPTOVDD_R::new(((self.bits >> 13) & 1) != 0)
+    pub fn vpptovdd(&self) -> VpptovddR {
+        VpptovddR::new(((self.bits >> 13) & 1) != 0)
     }
     #[doc = "Bits 14:29 - 29:14\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn clockstall(&self) -> CLOCKSTALL_R {
-        CLOCKSTALL_R::new(((self.bits >> 14) & 0xffff) as u16)
+    pub fn clockstall(&self) -> ClockstallR {
+        ClockstallR::new(((self.bits >> 14) & 0xffff) as u16)
     }
     #[doc = "Bit 30 - 30:30\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn comparedisable(&self) -> COMPAREDISABLE_R {
-        COMPAREDISABLE_R::new(((self.bits >> 30) & 1) != 0)
+    pub fn comparedisable(&self) -> ComparedisableR {
+        ComparedisableR::new(((self.bits >> 30) & 1) != 0)
     }
     #[doc = "Bit 31 - 31:31\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn reserved31(&self) -> RESERVED31_R {
-        RESERVED31_R::new(((self.bits >> 31) & 1) != 0)
+    pub fn reserved31(&self) -> Reserved31R {
+        Reserved31R::new(((self.bits >> 31) & 1) != 0)
     }
 }
 impl W {
@@ -116,67 +81,59 @@ impl W {
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn writeclock(&mut self) -> WRITECLOCK_W<0> {
-        WRITECLOCK_W::new(self)
+    pub fn writeclock(&mut self) -> WriteclockW<EfuseprogramSpec> {
+        WriteclockW::new(self, 0)
     }
     #[doc = "Bits 9:12 - 12:9\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn iterations(&mut self) -> ITERATIONS_W<9> {
-        ITERATIONS_W::new(self)
+    pub fn iterations(&mut self) -> IterationsW<EfuseprogramSpec> {
+        IterationsW::new(self, 9)
     }
     #[doc = "Bit 13 - 13:13\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn vpptovdd(&mut self) -> VPPTOVDD_W<13> {
-        VPPTOVDD_W::new(self)
+    pub fn vpptovdd(&mut self) -> VpptovddW<EfuseprogramSpec> {
+        VpptovddW::new(self, 13)
     }
     #[doc = "Bits 14:29 - 29:14\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn clockstall(&mut self) -> CLOCKSTALL_W<14> {
-        CLOCKSTALL_W::new(self)
+    pub fn clockstall(&mut self) -> ClockstallW<EfuseprogramSpec> {
+        ClockstallW::new(self, 14)
     }
     #[doc = "Bit 30 - 30:30\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn comparedisable(&mut self) -> COMPAREDISABLE_W<30> {
-        COMPAREDISABLE_W::new(self)
+    pub fn comparedisable(&mut self) -> ComparedisableW<EfuseprogramSpec> {
+        ComparedisableW::new(self, 30)
     }
     #[doc = "Bit 31 - 31:31\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved31(&mut self) -> RESERVED31_W<31> {
-        RESERVED31_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved31(&mut self) -> Reserved31W<EfuseprogramSpec> {
+        Reserved31W::new(self, 31)
     }
 }
-#[doc = "Internal. Only to be used through TI provided API.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [efuseprogram](index.html) module"]
-pub struct EFUSEPROGRAM_SPEC;
-impl crate::RegisterSpec for EFUSEPROGRAM_SPEC {
+#[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`efuseprogram::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`efuseprogram::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct EfuseprogramSpec;
+impl crate::RegisterSpec for EfuseprogramSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [efuseprogram::R](R) reader structure"]
-impl crate::Readable for EFUSEPROGRAM_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [efuseprogram::W](W) writer structure"]
-impl crate::Writable for EFUSEPROGRAM_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`efuseprogram::R`](R) reader structure"]
+impl crate::Readable for EfuseprogramSpec {}
+#[doc = "`write(|w| ..)` method takes [`efuseprogram::W`](W) writer structure"]
+impl crate::Writable for EfuseprogramSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets EFUSEPROGRAM to value 0"]
-impl crate::Resettable for EFUSEPROGRAM_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for EfuseprogramSpec {
+    const RESET_VALUE: u32 = 0;
 }

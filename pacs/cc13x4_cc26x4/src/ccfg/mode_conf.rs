@@ -1,349 +1,329 @@
 #[doc = "Register `MODE_CONF` reader"]
-pub struct R(crate::R<MODE_CONF_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<MODE_CONF_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<MODE_CONF_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<MODE_CONF_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<ModeConfSpec>;
 #[doc = "Register `MODE_CONF` writer"]
-pub struct W(crate::W<MODE_CONF_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<MODE_CONF_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<MODE_CONF_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<MODE_CONF_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<ModeConfSpec>;
 #[doc = "Field `VDDR_CAP` reader - 7:0\\]
 Unsigned 8-bit integer, representing the minimum decoupling capacitance (worst case) on VDDR, in units of 100nF. This should take into account capacitor tolerance and voltage dependent capacitance variation. This bit affects the recharge period calculation when going into powerdown or standby. NOTE! If using the following functions this field must be configured (used by TI RTOS): SysCtrlSetRechargeBeforePowerDown() SysCtrlAdjustRechargeAfterPowerDown()"]
-pub type VDDR_CAP_R = crate::FieldReader<u8, u8>;
+pub type VddrCapR = crate::FieldReader;
 #[doc = "Field `VDDR_CAP` writer - 7:0\\]
 Unsigned 8-bit integer, representing the minimum decoupling capacitance (worst case) on VDDR, in units of 100nF. This should take into account capacitor tolerance and voltage dependent capacitance variation. This bit affects the recharge period calculation when going into powerdown or standby. NOTE! If using the following functions this field must be configured (used by TI RTOS): SysCtrlSetRechargeBeforePowerDown() SysCtrlAdjustRechargeAfterPowerDown()"]
-pub type VDDR_CAP_W<'a, const O: u8> = crate::FieldWriter<'a, u32, MODE_CONF_SPEC, u8, u8, 8, O>;
+pub type VddrCapW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `XOSC_CAPARRAY_DELTA` reader - 15:8\\]
 Signed 8-bit value, directly modifying trimmed XOSC cap-array step value. Enabled by XOSC_CAP_MOD."]
-pub type XOSC_CAPARRAY_DELTA_R = crate::FieldReader<u8, u8>;
+pub type XoscCaparrayDeltaR = crate::FieldReader;
 #[doc = "Field `XOSC_CAPARRAY_DELTA` writer - 15:8\\]
 Signed 8-bit value, directly modifying trimmed XOSC cap-array step value. Enabled by XOSC_CAP_MOD."]
-pub type XOSC_CAPARRAY_DELTA_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, MODE_CONF_SPEC, u8, u8, 8, O>;
+pub type XoscCaparrayDeltaW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `HF_COMP` reader - 16:16\\]
 Reserved for future use. Software should not rely on the value of a reserved. Writing any other value than the reset/default value may result in undefined behavior."]
-pub type HF_COMP_R = crate::BitReader<bool>;
+pub type HfCompR = crate::BitReader;
 #[doc = "Field `HF_COMP` writer - 16:16\\]
 Reserved for future use. Software should not rely on the value of a reserved. Writing any other value than the reset/default value may result in undefined behavior."]
-pub type HF_COMP_W<'a, const O: u8> = crate::BitWriter<'a, u32, MODE_CONF_SPEC, bool, O>;
+pub type HfCompW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `XOSC_CAP_MOD` reader - 17:17\\]
 Enable modification (delta) to XOSC cap-array. Value specified in XOSC_CAPARRAY_DELTA. 0: Apply cap-array delta 1: Do not apply cap-array delta (default)"]
-pub type XOSC_CAP_MOD_R = crate::BitReader<bool>;
+pub type XoscCapModR = crate::BitReader;
 #[doc = "Field `XOSC_CAP_MOD` writer - 17:17\\]
 Enable modification (delta) to XOSC cap-array. Value specified in XOSC_CAPARRAY_DELTA. 0: Apply cap-array delta 1: Do not apply cap-array delta (default)"]
-pub type XOSC_CAP_MOD_W<'a, const O: u8> = crate::BitWriter<'a, u32, MODE_CONF_SPEC, bool, O>;
-#[doc = "Field `XOSC_FREQ` reader - 19:18\\]
-Selects which high frequency oscillator is used (required for radio usage)."]
-pub type XOSC_FREQ_R = crate::FieldReader<u8, XOSC_FREQ_A>;
+pub type XoscCapModW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "19:18\\]
 Selects which high frequency oscillator is used (required for radio usage).\n\nValue on reset: 3"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum XOSC_FREQ_A {
+pub enum XoscFreq {
     #[doc = "3: 24 MHz XOSC_HF. Not supported."]
-    _24M = 3,
+    _24m = 3,
     #[doc = "2: 48 MHz XOSC_HF"]
-    _48M = 2,
+    _48m = 2,
     #[doc = "1: Internal high precision oscillator."]
-    HPOSC = 1,
+    Hposc = 1,
     #[doc = "0: External 48 MHz TCXO. Refer to MODE_CONF_1.TCXO_MAX_START and MODE_CONF_1.TCXO_TYPE bit fields for additional configuration of TCXO."]
-    TCXO = 0,
+    Tcxo = 0,
 }
-impl From<XOSC_FREQ_A> for u8 {
+impl From<XoscFreq> for u8 {
     #[inline(always)]
-    fn from(variant: XOSC_FREQ_A) -> Self {
+    fn from(variant: XoscFreq) -> Self {
         variant as _
     }
 }
-impl XOSC_FREQ_R {
+impl crate::FieldSpec for XoscFreq {
+    type Ux = u8;
+}
+impl crate::IsEnum for XoscFreq {}
+#[doc = "Field `XOSC_FREQ` reader - 19:18\\]
+Selects which high frequency oscillator is used (required for radio usage)."]
+pub type XoscFreqR = crate::FieldReader<XoscFreq>;
+impl XoscFreqR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> XOSC_FREQ_A {
+    pub const fn variant(&self) -> XoscFreq {
         match self.bits {
-            3 => XOSC_FREQ_A::_24M,
-            2 => XOSC_FREQ_A::_48M,
-            1 => XOSC_FREQ_A::HPOSC,
-            0 => XOSC_FREQ_A::TCXO,
+            3 => XoscFreq::_24m,
+            2 => XoscFreq::_48m,
+            1 => XoscFreq::Hposc,
+            0 => XoscFreq::Tcxo,
             _ => unreachable!(),
         }
     }
-    #[doc = "Checks if the value of the field is `_24M`"]
+    #[doc = "24 MHz XOSC_HF. Not supported."]
     #[inline(always)]
     pub fn is_24m(&self) -> bool {
-        *self == XOSC_FREQ_A::_24M
+        *self == XoscFreq::_24m
     }
-    #[doc = "Checks if the value of the field is `_48M`"]
+    #[doc = "48 MHz XOSC_HF"]
     #[inline(always)]
     pub fn is_48m(&self) -> bool {
-        *self == XOSC_FREQ_A::_48M
+        *self == XoscFreq::_48m
     }
-    #[doc = "Checks if the value of the field is `HPOSC`"]
+    #[doc = "Internal high precision oscillator."]
     #[inline(always)]
     pub fn is_hposc(&self) -> bool {
-        *self == XOSC_FREQ_A::HPOSC
+        *self == XoscFreq::Hposc
     }
-    #[doc = "Checks if the value of the field is `TCXO`"]
+    #[doc = "External 48 MHz TCXO. Refer to MODE_CONF_1.TCXO_MAX_START and MODE_CONF_1.TCXO_TYPE bit fields for additional configuration of TCXO."]
     #[inline(always)]
     pub fn is_tcxo(&self) -> bool {
-        *self == XOSC_FREQ_A::TCXO
+        *self == XoscFreq::Tcxo
     }
 }
 #[doc = "Field `XOSC_FREQ` writer - 19:18\\]
 Selects which high frequency oscillator is used (required for radio usage)."]
-pub type XOSC_FREQ_W<'a, const O: u8> =
-    crate::FieldWriterSafe<'a, u32, MODE_CONF_SPEC, u8, XOSC_FREQ_A, 2, O>;
-impl<'a, const O: u8> XOSC_FREQ_W<'a, O> {
+pub type XoscFreqW<'a, REG> = crate::FieldWriter<'a, REG, 2, XoscFreq, crate::Safe>;
+impl<'a, REG> XoscFreqW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "24 MHz XOSC_HF. Not supported."]
     #[inline(always)]
-    pub fn _24m(self) -> &'a mut W {
-        self.variant(XOSC_FREQ_A::_24M)
+    pub fn _24m(self) -> &'a mut crate::W<REG> {
+        self.variant(XoscFreq::_24m)
     }
     #[doc = "48 MHz XOSC_HF"]
     #[inline(always)]
-    pub fn _48m(self) -> &'a mut W {
-        self.variant(XOSC_FREQ_A::_48M)
+    pub fn _48m(self) -> &'a mut crate::W<REG> {
+        self.variant(XoscFreq::_48m)
     }
     #[doc = "Internal high precision oscillator."]
     #[inline(always)]
-    pub fn hposc(self) -> &'a mut W {
-        self.variant(XOSC_FREQ_A::HPOSC)
+    pub fn hposc(self) -> &'a mut crate::W<REG> {
+        self.variant(XoscFreq::Hposc)
     }
     #[doc = "External 48 MHz TCXO. Refer to MODE_CONF_1.TCXO_MAX_START and MODE_CONF_1.TCXO_TYPE bit fields for additional configuration of TCXO."]
     #[inline(always)]
-    pub fn tcxo(self) -> &'a mut W {
-        self.variant(XOSC_FREQ_A::TCXO)
+    pub fn tcxo(self) -> &'a mut crate::W<REG> {
+        self.variant(XoscFreq::Tcxo)
     }
 }
 #[doc = "Field `RTC_COMP` reader - 20:20\\]
 Reserved for future use. Software should not rely on the value of a reserved. Writing any other value than the reset/default value may result in undefined behavior."]
-pub type RTC_COMP_R = crate::BitReader<bool>;
+pub type RtcCompR = crate::BitReader;
 #[doc = "Field `RTC_COMP` writer - 20:20\\]
 Reserved for future use. Software should not rely on the value of a reserved. Writing any other value than the reset/default value may result in undefined behavior."]
-pub type RTC_COMP_W<'a, const O: u8> = crate::BitWriter<'a, u32, MODE_CONF_SPEC, bool, O>;
+pub type RtcCompW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `VDDR_TRIM_SLEEP_TC` reader - 21:21\\]
 0x1: VDDR_TRIM_SLEEP_DELTA is not temperature compensated 0x0: TI's Power Manager temperature compensates VDDR_TRIM_SLEEP_DELTA every time Standby mode is entered. When temperature compensation is performed, the delta is calculated this way: Delta = max (delta, min(8, floor(62-temp)/8)) Here, delta is given by VDDR_TRIM_SLEEP_DELTA, and temp is the current temperature in degrees C."]
-pub type VDDR_TRIM_SLEEP_TC_R = crate::BitReader<bool>;
+pub type VddrTrimSleepTcR = crate::BitReader;
 #[doc = "Field `VDDR_TRIM_SLEEP_TC` writer - 21:21\\]
 0x1: VDDR_TRIM_SLEEP_DELTA is not temperature compensated 0x0: TI's Power Manager temperature compensates VDDR_TRIM_SLEEP_DELTA every time Standby mode is entered. When temperature compensation is performed, the delta is calculated this way: Delta = max (delta, min(8, floor(62-temp)/8)) Here, delta is given by VDDR_TRIM_SLEEP_DELTA, and temp is the current temperature in degrees C."]
-pub type VDDR_TRIM_SLEEP_TC_W<'a, const O: u8> = crate::BitWriter<'a, u32, MODE_CONF_SPEC, bool, O>;
-#[doc = "Field `SCLK_LF_OPTION` reader - 23:22\\]
-Select source for SCLK_LF."]
-pub type SCLK_LF_OPTION_R = crate::FieldReader<u8, SCLK_LF_OPTION_A>;
+pub type VddrTrimSleepTcW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "23:22\\]
 Select source for SCLK_LF.\n\nValue on reset: 3"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum SCLK_LF_OPTION_A {
+pub enum SclkLfOption {
     #[doc = "3: Low frequency RCOSC (default)"]
-    RCOSC_LF = 3,
+    RcoscLf = 3,
     #[doc = "2: 32.768 kHz low frequency XOSC"]
-    XOSC_LF = 2,
+    XoscLf = 2,
     #[doc = "1: External low frequency clock on DIO defined by EXT_LF_CLK.DIO. The RTC tick speed AON_RTC:SUBSECINC is updated to EXT_LF_CLK.RTC_INCREMENT (done in the SetupTrimDevice() driverlib boot function). External clock must always be running when the chip is in standby for VDDR recharge timing."]
-    EXTERNAL_LF = 1,
+    ExternalLf = 1,
     #[doc = "0: 31.25 kHz clock derived from 48 MHz XOSC or HPOSC. The RTC tick speed AON_RTC:SUBSECINC is updated to 0x8637BD, corresponding to a 31.25 kHz clock (done in the SetupTrimDevice() driverlib boot function). The device must be blocked from entering Standby mode when using this clock source."]
-    XOSC_HF_DLF = 0,
+    XoscHfDlf = 0,
 }
-impl From<SCLK_LF_OPTION_A> for u8 {
+impl From<SclkLfOption> for u8 {
     #[inline(always)]
-    fn from(variant: SCLK_LF_OPTION_A) -> Self {
+    fn from(variant: SclkLfOption) -> Self {
         variant as _
     }
 }
-impl SCLK_LF_OPTION_R {
+impl crate::FieldSpec for SclkLfOption {
+    type Ux = u8;
+}
+impl crate::IsEnum for SclkLfOption {}
+#[doc = "Field `SCLK_LF_OPTION` reader - 23:22\\]
+Select source for SCLK_LF."]
+pub type SclkLfOptionR = crate::FieldReader<SclkLfOption>;
+impl SclkLfOptionR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> SCLK_LF_OPTION_A {
+    pub const fn variant(&self) -> SclkLfOption {
         match self.bits {
-            3 => SCLK_LF_OPTION_A::RCOSC_LF,
-            2 => SCLK_LF_OPTION_A::XOSC_LF,
-            1 => SCLK_LF_OPTION_A::EXTERNAL_LF,
-            0 => SCLK_LF_OPTION_A::XOSC_HF_DLF,
+            3 => SclkLfOption::RcoscLf,
+            2 => SclkLfOption::XoscLf,
+            1 => SclkLfOption::ExternalLf,
+            0 => SclkLfOption::XoscHfDlf,
             _ => unreachable!(),
         }
     }
-    #[doc = "Checks if the value of the field is `RCOSC_LF`"]
+    #[doc = "Low frequency RCOSC (default)"]
     #[inline(always)]
     pub fn is_rcosc_lf(&self) -> bool {
-        *self == SCLK_LF_OPTION_A::RCOSC_LF
+        *self == SclkLfOption::RcoscLf
     }
-    #[doc = "Checks if the value of the field is `XOSC_LF`"]
+    #[doc = "32.768 kHz low frequency XOSC"]
     #[inline(always)]
     pub fn is_xosc_lf(&self) -> bool {
-        *self == SCLK_LF_OPTION_A::XOSC_LF
+        *self == SclkLfOption::XoscLf
     }
-    #[doc = "Checks if the value of the field is `EXTERNAL_LF`"]
+    #[doc = "External low frequency clock on DIO defined by EXT_LF_CLK.DIO. The RTC tick speed AON_RTC:SUBSECINC is updated to EXT_LF_CLK.RTC_INCREMENT (done in the SetupTrimDevice() driverlib boot function). External clock must always be running when the chip is in standby for VDDR recharge timing."]
     #[inline(always)]
     pub fn is_external_lf(&self) -> bool {
-        *self == SCLK_LF_OPTION_A::EXTERNAL_LF
+        *self == SclkLfOption::ExternalLf
     }
-    #[doc = "Checks if the value of the field is `XOSC_HF_DLF`"]
+    #[doc = "31.25 kHz clock derived from 48 MHz XOSC or HPOSC. The RTC tick speed AON_RTC:SUBSECINC is updated to 0x8637BD, corresponding to a 31.25 kHz clock (done in the SetupTrimDevice() driverlib boot function). The device must be blocked from entering Standby mode when using this clock source."]
     #[inline(always)]
     pub fn is_xosc_hf_dlf(&self) -> bool {
-        *self == SCLK_LF_OPTION_A::XOSC_HF_DLF
+        *self == SclkLfOption::XoscHfDlf
     }
 }
 #[doc = "Field `SCLK_LF_OPTION` writer - 23:22\\]
 Select source for SCLK_LF."]
-pub type SCLK_LF_OPTION_W<'a, const O: u8> =
-    crate::FieldWriterSafe<'a, u32, MODE_CONF_SPEC, u8, SCLK_LF_OPTION_A, 2, O>;
-impl<'a, const O: u8> SCLK_LF_OPTION_W<'a, O> {
+pub type SclkLfOptionW<'a, REG> = crate::FieldWriter<'a, REG, 2, SclkLfOption, crate::Safe>;
+impl<'a, REG> SclkLfOptionW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "Low frequency RCOSC (default)"]
     #[inline(always)]
-    pub fn rcosc_lf(self) -> &'a mut W {
-        self.variant(SCLK_LF_OPTION_A::RCOSC_LF)
+    pub fn rcosc_lf(self) -> &'a mut crate::W<REG> {
+        self.variant(SclkLfOption::RcoscLf)
     }
     #[doc = "32.768 kHz low frequency XOSC"]
     #[inline(always)]
-    pub fn xosc_lf(self) -> &'a mut W {
-        self.variant(SCLK_LF_OPTION_A::XOSC_LF)
+    pub fn xosc_lf(self) -> &'a mut crate::W<REG> {
+        self.variant(SclkLfOption::XoscLf)
     }
     #[doc = "External low frequency clock on DIO defined by EXT_LF_CLK.DIO. The RTC tick speed AON_RTC:SUBSECINC is updated to EXT_LF_CLK.RTC_INCREMENT (done in the SetupTrimDevice() driverlib boot function). External clock must always be running when the chip is in standby for VDDR recharge timing."]
     #[inline(always)]
-    pub fn external_lf(self) -> &'a mut W {
-        self.variant(SCLK_LF_OPTION_A::EXTERNAL_LF)
+    pub fn external_lf(self) -> &'a mut crate::W<REG> {
+        self.variant(SclkLfOption::ExternalLf)
     }
     #[doc = "31.25 kHz clock derived from 48 MHz XOSC or HPOSC. The RTC tick speed AON_RTC:SUBSECINC is updated to 0x8637BD, corresponding to a 31.25 kHz clock (done in the SetupTrimDevice() driverlib boot function). The device must be blocked from entering Standby mode when using this clock source."]
     #[inline(always)]
-    pub fn xosc_hf_dlf(self) -> &'a mut W {
-        self.variant(SCLK_LF_OPTION_A::XOSC_HF_DLF)
+    pub fn xosc_hf_dlf(self) -> &'a mut crate::W<REG> {
+        self.variant(SclkLfOption::XoscHfDlf)
     }
 }
 #[doc = "Field `VDDS_BOD_LEVEL` reader - 24:24\\]
 VDDS BOD level. 0: VDDS BOD level is 2.0V (necessary for external load mode, or for maximum PA output power on CC13x4x10). 1: VDDS BOD level is 1.8V (or 1.65V for external regulator mode) (default)."]
-pub type VDDS_BOD_LEVEL_R = crate::BitReader<bool>;
+pub type VddsBodLevelR = crate::BitReader;
 #[doc = "Field `VDDS_BOD_LEVEL` writer - 24:24\\]
 VDDS BOD level. 0: VDDS BOD level is 2.0V (necessary for external load mode, or for maximum PA output power on CC13x4x10). 1: VDDS BOD level is 1.8V (or 1.65V for external regulator mode) (default)."]
-pub type VDDS_BOD_LEVEL_W<'a, const O: u8> = crate::BitWriter<'a, u32, MODE_CONF_SPEC, bool, O>;
+pub type VddsBodLevelW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `VDDR_EXT_LOAD` reader - 25:25\\]
 For TI internal use only."]
-pub type VDDR_EXT_LOAD_R = crate::BitReader<bool>;
+pub type VddrExtLoadR = crate::BitReader;
 #[doc = "Field `VDDR_EXT_LOAD` writer - 25:25\\]
 For TI internal use only."]
-pub type VDDR_EXT_LOAD_W<'a, const O: u8> = crate::BitWriter<'a, u32, MODE_CONF_SPEC, bool, O>;
+pub type VddrExtLoadW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DCDC_ACTIVE` reader - 26:26\\]
 DC/DC in active mode. 0: Use the DC/DC during active mode. 1: Do not use the DC/DC during active mode (default). NOTE! The DriverLib function SysCtrl_DCDC_VoltageConditionalControl() must be called regularly to apply this field."]
-pub type DCDC_ACTIVE_R = crate::BitReader<bool>;
+pub type DcdcActiveR = crate::BitReader;
 #[doc = "Field `DCDC_ACTIVE` writer - 26:26\\]
 DC/DC in active mode. 0: Use the DC/DC during active mode. 1: Do not use the DC/DC during active mode (default). NOTE! The DriverLib function SysCtrl_DCDC_VoltageConditionalControl() must be called regularly to apply this field."]
-pub type DCDC_ACTIVE_W<'a, const O: u8> = crate::BitWriter<'a, u32, MODE_CONF_SPEC, bool, O>;
+pub type DcdcActiveW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DCDC_RECHARGE` reader - 27:27\\]
 DC/DC during recharge in powerdown. 0: Use the DC/DC during recharge in powerdown. 1: Do not use the DC/DC during recharge in powerdown (default). NOTE! The DriverLib function SysCtrl_DCDC_VoltageConditionalControl() must be called regularly to apply this field."]
-pub type DCDC_RECHARGE_R = crate::BitReader<bool>;
+pub type DcdcRechargeR = crate::BitReader;
 #[doc = "Field `DCDC_RECHARGE` writer - 27:27\\]
 DC/DC during recharge in powerdown. 0: Use the DC/DC during recharge in powerdown. 1: Do not use the DC/DC during recharge in powerdown (default). NOTE! The DriverLib function SysCtrl_DCDC_VoltageConditionalControl() must be called regularly to apply this field."]
-pub type DCDC_RECHARGE_W<'a, const O: u8> = crate::BitWriter<'a, u32, MODE_CONF_SPEC, bool, O>;
+pub type DcdcRechargeW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `VDDR_TRIM_SLEEP_DELTA` reader - 31:28\\]
 Signed delta value to apply to the VDDR_TRIM_SLEEP target, minus one. See FCFG1:VOLT_TRIM.VDDR_TRIM_SLEEP_H. 0x8 (-8) : Delta = -7 ... 0xF (-1) : Delta = 0 0x0 (0) : Delta = +1 ... 0x7 (7) : Delta = +8"]
-pub type VDDR_TRIM_SLEEP_DELTA_R = crate::FieldReader<u8, u8>;
+pub type VddrTrimSleepDeltaR = crate::FieldReader;
 #[doc = "Field `VDDR_TRIM_SLEEP_DELTA` writer - 31:28\\]
 Signed delta value to apply to the VDDR_TRIM_SLEEP target, minus one. See FCFG1:VOLT_TRIM.VDDR_TRIM_SLEEP_H. 0x8 (-8) : Delta = -7 ... 0xF (-1) : Delta = 0 0x0 (0) : Delta = +1 ... 0x7 (7) : Delta = +8"]
-pub type VDDR_TRIM_SLEEP_DELTA_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, MODE_CONF_SPEC, u8, u8, 4, O>;
+pub type VddrTrimSleepDeltaW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Unsigned 8-bit integer, representing the minimum decoupling capacitance (worst case) on VDDR, in units of 100nF. This should take into account capacitor tolerance and voltage dependent capacitance variation. This bit affects the recharge period calculation when going into powerdown or standby. NOTE! If using the following functions this field must be configured (used by TI RTOS): SysCtrlSetRechargeBeforePowerDown() SysCtrlAdjustRechargeAfterPowerDown()"]
     #[inline(always)]
-    pub fn vddr_cap(&self) -> VDDR_CAP_R {
-        VDDR_CAP_R::new((self.bits & 0xff) as u8)
+    pub fn vddr_cap(&self) -> VddrCapR {
+        VddrCapR::new((self.bits & 0xff) as u8)
     }
     #[doc = "Bits 8:15 - 15:8\\]
 Signed 8-bit value, directly modifying trimmed XOSC cap-array step value. Enabled by XOSC_CAP_MOD."]
     #[inline(always)]
-    pub fn xosc_caparray_delta(&self) -> XOSC_CAPARRAY_DELTA_R {
-        XOSC_CAPARRAY_DELTA_R::new(((self.bits >> 8) & 0xff) as u8)
+    pub fn xosc_caparray_delta(&self) -> XoscCaparrayDeltaR {
+        XoscCaparrayDeltaR::new(((self.bits >> 8) & 0xff) as u8)
     }
     #[doc = "Bit 16 - 16:16\\]
 Reserved for future use. Software should not rely on the value of a reserved. Writing any other value than the reset/default value may result in undefined behavior."]
     #[inline(always)]
-    pub fn hf_comp(&self) -> HF_COMP_R {
-        HF_COMP_R::new(((self.bits >> 16) & 1) != 0)
+    pub fn hf_comp(&self) -> HfCompR {
+        HfCompR::new(((self.bits >> 16) & 1) != 0)
     }
     #[doc = "Bit 17 - 17:17\\]
 Enable modification (delta) to XOSC cap-array. Value specified in XOSC_CAPARRAY_DELTA. 0: Apply cap-array delta 1: Do not apply cap-array delta (default)"]
     #[inline(always)]
-    pub fn xosc_cap_mod(&self) -> XOSC_CAP_MOD_R {
-        XOSC_CAP_MOD_R::new(((self.bits >> 17) & 1) != 0)
+    pub fn xosc_cap_mod(&self) -> XoscCapModR {
+        XoscCapModR::new(((self.bits >> 17) & 1) != 0)
     }
     #[doc = "Bits 18:19 - 19:18\\]
 Selects which high frequency oscillator is used (required for radio usage)."]
     #[inline(always)]
-    pub fn xosc_freq(&self) -> XOSC_FREQ_R {
-        XOSC_FREQ_R::new(((self.bits >> 18) & 3) as u8)
+    pub fn xosc_freq(&self) -> XoscFreqR {
+        XoscFreqR::new(((self.bits >> 18) & 3) as u8)
     }
     #[doc = "Bit 20 - 20:20\\]
 Reserved for future use. Software should not rely on the value of a reserved. Writing any other value than the reset/default value may result in undefined behavior."]
     #[inline(always)]
-    pub fn rtc_comp(&self) -> RTC_COMP_R {
-        RTC_COMP_R::new(((self.bits >> 20) & 1) != 0)
+    pub fn rtc_comp(&self) -> RtcCompR {
+        RtcCompR::new(((self.bits >> 20) & 1) != 0)
     }
     #[doc = "Bit 21 - 21:21\\]
 0x1: VDDR_TRIM_SLEEP_DELTA is not temperature compensated 0x0: TI's Power Manager temperature compensates VDDR_TRIM_SLEEP_DELTA every time Standby mode is entered. When temperature compensation is performed, the delta is calculated this way: Delta = max (delta, min(8, floor(62-temp)/8)) Here, delta is given by VDDR_TRIM_SLEEP_DELTA, and temp is the current temperature in degrees C."]
     #[inline(always)]
-    pub fn vddr_trim_sleep_tc(&self) -> VDDR_TRIM_SLEEP_TC_R {
-        VDDR_TRIM_SLEEP_TC_R::new(((self.bits >> 21) & 1) != 0)
+    pub fn vddr_trim_sleep_tc(&self) -> VddrTrimSleepTcR {
+        VddrTrimSleepTcR::new(((self.bits >> 21) & 1) != 0)
     }
     #[doc = "Bits 22:23 - 23:22\\]
 Select source for SCLK_LF."]
     #[inline(always)]
-    pub fn sclk_lf_option(&self) -> SCLK_LF_OPTION_R {
-        SCLK_LF_OPTION_R::new(((self.bits >> 22) & 3) as u8)
+    pub fn sclk_lf_option(&self) -> SclkLfOptionR {
+        SclkLfOptionR::new(((self.bits >> 22) & 3) as u8)
     }
     #[doc = "Bit 24 - 24:24\\]
 VDDS BOD level. 0: VDDS BOD level is 2.0V (necessary for external load mode, or for maximum PA output power on CC13x4x10). 1: VDDS BOD level is 1.8V (or 1.65V for external regulator mode) (default)."]
     #[inline(always)]
-    pub fn vdds_bod_level(&self) -> VDDS_BOD_LEVEL_R {
-        VDDS_BOD_LEVEL_R::new(((self.bits >> 24) & 1) != 0)
+    pub fn vdds_bod_level(&self) -> VddsBodLevelR {
+        VddsBodLevelR::new(((self.bits >> 24) & 1) != 0)
     }
     #[doc = "Bit 25 - 25:25\\]
 For TI internal use only."]
     #[inline(always)]
-    pub fn vddr_ext_load(&self) -> VDDR_EXT_LOAD_R {
-        VDDR_EXT_LOAD_R::new(((self.bits >> 25) & 1) != 0)
+    pub fn vddr_ext_load(&self) -> VddrExtLoadR {
+        VddrExtLoadR::new(((self.bits >> 25) & 1) != 0)
     }
     #[doc = "Bit 26 - 26:26\\]
 DC/DC in active mode. 0: Use the DC/DC during active mode. 1: Do not use the DC/DC during active mode (default). NOTE! The DriverLib function SysCtrl_DCDC_VoltageConditionalControl() must be called regularly to apply this field."]
     #[inline(always)]
-    pub fn dcdc_active(&self) -> DCDC_ACTIVE_R {
-        DCDC_ACTIVE_R::new(((self.bits >> 26) & 1) != 0)
+    pub fn dcdc_active(&self) -> DcdcActiveR {
+        DcdcActiveR::new(((self.bits >> 26) & 1) != 0)
     }
     #[doc = "Bit 27 - 27:27\\]
 DC/DC during recharge in powerdown. 0: Use the DC/DC during recharge in powerdown. 1: Do not use the DC/DC during recharge in powerdown (default). NOTE! The DriverLib function SysCtrl_DCDC_VoltageConditionalControl() must be called regularly to apply this field."]
     #[inline(always)]
-    pub fn dcdc_recharge(&self) -> DCDC_RECHARGE_R {
-        DCDC_RECHARGE_R::new(((self.bits >> 27) & 1) != 0)
+    pub fn dcdc_recharge(&self) -> DcdcRechargeR {
+        DcdcRechargeR::new(((self.bits >> 27) & 1) != 0)
     }
     #[doc = "Bits 28:31 - 31:28\\]
 Signed delta value to apply to the VDDR_TRIM_SLEEP target, minus one. See FCFG1:VOLT_TRIM.VDDR_TRIM_SLEEP_H. 0x8 (-8) : Delta = -7 ... 0xF (-1) : Delta = 0 0x0 (0) : Delta = +1 ... 0x7 (7) : Delta = +8"]
     #[inline(always)]
-    pub fn vddr_trim_sleep_delta(&self) -> VDDR_TRIM_SLEEP_DELTA_R {
-        VDDR_TRIM_SLEEP_DELTA_R::new(((self.bits >> 28) & 0x0f) as u8)
+    pub fn vddr_trim_sleep_delta(&self) -> VddrTrimSleepDeltaR {
+        VddrTrimSleepDeltaR::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
 impl W {
@@ -351,116 +331,108 @@ impl W {
 Unsigned 8-bit integer, representing the minimum decoupling capacitance (worst case) on VDDR, in units of 100nF. This should take into account capacitor tolerance and voltage dependent capacitance variation. This bit affects the recharge period calculation when going into powerdown or standby. NOTE! If using the following functions this field must be configured (used by TI RTOS): SysCtrlSetRechargeBeforePowerDown() SysCtrlAdjustRechargeAfterPowerDown()"]
     #[inline(always)]
     #[must_use]
-    pub fn vddr_cap(&mut self) -> VDDR_CAP_W<0> {
-        VDDR_CAP_W::new(self)
+    pub fn vddr_cap(&mut self) -> VddrCapW<ModeConfSpec> {
+        VddrCapW::new(self, 0)
     }
     #[doc = "Bits 8:15 - 15:8\\]
 Signed 8-bit value, directly modifying trimmed XOSC cap-array step value. Enabled by XOSC_CAP_MOD."]
     #[inline(always)]
     #[must_use]
-    pub fn xosc_caparray_delta(&mut self) -> XOSC_CAPARRAY_DELTA_W<8> {
-        XOSC_CAPARRAY_DELTA_W::new(self)
+    pub fn xosc_caparray_delta(&mut self) -> XoscCaparrayDeltaW<ModeConfSpec> {
+        XoscCaparrayDeltaW::new(self, 8)
     }
     #[doc = "Bit 16 - 16:16\\]
 Reserved for future use. Software should not rely on the value of a reserved. Writing any other value than the reset/default value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn hf_comp(&mut self) -> HF_COMP_W<16> {
-        HF_COMP_W::new(self)
+    pub fn hf_comp(&mut self) -> HfCompW<ModeConfSpec> {
+        HfCompW::new(self, 16)
     }
     #[doc = "Bit 17 - 17:17\\]
 Enable modification (delta) to XOSC cap-array. Value specified in XOSC_CAPARRAY_DELTA. 0: Apply cap-array delta 1: Do not apply cap-array delta (default)"]
     #[inline(always)]
     #[must_use]
-    pub fn xosc_cap_mod(&mut self) -> XOSC_CAP_MOD_W<17> {
-        XOSC_CAP_MOD_W::new(self)
+    pub fn xosc_cap_mod(&mut self) -> XoscCapModW<ModeConfSpec> {
+        XoscCapModW::new(self, 17)
     }
     #[doc = "Bits 18:19 - 19:18\\]
 Selects which high frequency oscillator is used (required for radio usage)."]
     #[inline(always)]
     #[must_use]
-    pub fn xosc_freq(&mut self) -> XOSC_FREQ_W<18> {
-        XOSC_FREQ_W::new(self)
+    pub fn xosc_freq(&mut self) -> XoscFreqW<ModeConfSpec> {
+        XoscFreqW::new(self, 18)
     }
     #[doc = "Bit 20 - 20:20\\]
 Reserved for future use. Software should not rely on the value of a reserved. Writing any other value than the reset/default value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn rtc_comp(&mut self) -> RTC_COMP_W<20> {
-        RTC_COMP_W::new(self)
+    pub fn rtc_comp(&mut self) -> RtcCompW<ModeConfSpec> {
+        RtcCompW::new(self, 20)
     }
     #[doc = "Bit 21 - 21:21\\]
 0x1: VDDR_TRIM_SLEEP_DELTA is not temperature compensated 0x0: TI's Power Manager temperature compensates VDDR_TRIM_SLEEP_DELTA every time Standby mode is entered. When temperature compensation is performed, the delta is calculated this way: Delta = max (delta, min(8, floor(62-temp)/8)) Here, delta is given by VDDR_TRIM_SLEEP_DELTA, and temp is the current temperature in degrees C."]
     #[inline(always)]
     #[must_use]
-    pub fn vddr_trim_sleep_tc(&mut self) -> VDDR_TRIM_SLEEP_TC_W<21> {
-        VDDR_TRIM_SLEEP_TC_W::new(self)
+    pub fn vddr_trim_sleep_tc(&mut self) -> VddrTrimSleepTcW<ModeConfSpec> {
+        VddrTrimSleepTcW::new(self, 21)
     }
     #[doc = "Bits 22:23 - 23:22\\]
 Select source for SCLK_LF."]
     #[inline(always)]
     #[must_use]
-    pub fn sclk_lf_option(&mut self) -> SCLK_LF_OPTION_W<22> {
-        SCLK_LF_OPTION_W::new(self)
+    pub fn sclk_lf_option(&mut self) -> SclkLfOptionW<ModeConfSpec> {
+        SclkLfOptionW::new(self, 22)
     }
     #[doc = "Bit 24 - 24:24\\]
 VDDS BOD level. 0: VDDS BOD level is 2.0V (necessary for external load mode, or for maximum PA output power on CC13x4x10). 1: VDDS BOD level is 1.8V (or 1.65V for external regulator mode) (default)."]
     #[inline(always)]
     #[must_use]
-    pub fn vdds_bod_level(&mut self) -> VDDS_BOD_LEVEL_W<24> {
-        VDDS_BOD_LEVEL_W::new(self)
+    pub fn vdds_bod_level(&mut self) -> VddsBodLevelW<ModeConfSpec> {
+        VddsBodLevelW::new(self, 24)
     }
     #[doc = "Bit 25 - 25:25\\]
 For TI internal use only."]
     #[inline(always)]
     #[must_use]
-    pub fn vddr_ext_load(&mut self) -> VDDR_EXT_LOAD_W<25> {
-        VDDR_EXT_LOAD_W::new(self)
+    pub fn vddr_ext_load(&mut self) -> VddrExtLoadW<ModeConfSpec> {
+        VddrExtLoadW::new(self, 25)
     }
     #[doc = "Bit 26 - 26:26\\]
 DC/DC in active mode. 0: Use the DC/DC during active mode. 1: Do not use the DC/DC during active mode (default). NOTE! The DriverLib function SysCtrl_DCDC_VoltageConditionalControl() must be called regularly to apply this field."]
     #[inline(always)]
     #[must_use]
-    pub fn dcdc_active(&mut self) -> DCDC_ACTIVE_W<26> {
-        DCDC_ACTIVE_W::new(self)
+    pub fn dcdc_active(&mut self) -> DcdcActiveW<ModeConfSpec> {
+        DcdcActiveW::new(self, 26)
     }
     #[doc = "Bit 27 - 27:27\\]
 DC/DC during recharge in powerdown. 0: Use the DC/DC during recharge in powerdown. 1: Do not use the DC/DC during recharge in powerdown (default). NOTE! The DriverLib function SysCtrl_DCDC_VoltageConditionalControl() must be called regularly to apply this field."]
     #[inline(always)]
     #[must_use]
-    pub fn dcdc_recharge(&mut self) -> DCDC_RECHARGE_W<27> {
-        DCDC_RECHARGE_W::new(self)
+    pub fn dcdc_recharge(&mut self) -> DcdcRechargeW<ModeConfSpec> {
+        DcdcRechargeW::new(self, 27)
     }
     #[doc = "Bits 28:31 - 31:28\\]
 Signed delta value to apply to the VDDR_TRIM_SLEEP target, minus one. See FCFG1:VOLT_TRIM.VDDR_TRIM_SLEEP_H. 0x8 (-8) : Delta = -7 ... 0xF (-1) : Delta = 0 0x0 (0) : Delta = +1 ... 0x7 (7) : Delta = +8"]
     #[inline(always)]
     #[must_use]
-    pub fn vddr_trim_sleep_delta(&mut self) -> VDDR_TRIM_SLEEP_DELTA_W<28> {
-        VDDR_TRIM_SLEEP_DELTA_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn vddr_trim_sleep_delta(&mut self) -> VddrTrimSleepDeltaW<ModeConfSpec> {
+        VddrTrimSleepDeltaW::new(self, 28)
     }
 }
-#[doc = "Mode Configuration 0\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mode_conf](index.html) module"]
-pub struct MODE_CONF_SPEC;
-impl crate::RegisterSpec for MODE_CONF_SPEC {
+#[doc = "Mode Configuration 0\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`mode_conf::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`mode_conf::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct ModeConfSpec;
+impl crate::RegisterSpec for ModeConfSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [mode_conf::R](R) reader structure"]
-impl crate::Readable for MODE_CONF_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [mode_conf::W](W) writer structure"]
-impl crate::Writable for MODE_CONF_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`mode_conf::R`](R) reader structure"]
+impl crate::Readable for ModeConfSpec {}
+#[doc = "`write(|w| ..)` method takes [`mode_conf::W`](W) writer structure"]
+impl crate::Writable for ModeConfSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets MODE_CONF to value 0xffff_ffff"]
-impl crate::Resettable for MODE_CONF_SPEC {
-    const RESET_VALUE: Self::Ux = 0xffff_ffff;
+impl crate::Resettable for ModeConfSpec {
+    const RESET_VALUE: u32 = 0xffff_ffff;
 }

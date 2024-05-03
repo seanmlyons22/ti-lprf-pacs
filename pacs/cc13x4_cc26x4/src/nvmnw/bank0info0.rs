@@ -1,114 +1,88 @@
 #[doc = "Register `BANK0INFO0` reader"]
-pub struct R(crate::R<BANK0INFO0_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<BANK0INFO0_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<BANK0INFO0_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<BANK0INFO0_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Bank0info0Spec>;
 #[doc = "Register `BANK0INFO0` writer"]
-pub struct W(crate::W<BANK0INFO0_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<BANK0INFO0_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<BANK0INFO0_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<BANK0INFO0_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `MAINSIZE` reader - 11:0\\]
-Main region size in sectors Minimum:0x8 (8) Maximum:0x200 (512)"]
-pub type MAINSIZE_R = crate::FieldReader<u16, MAINSIZE_A>;
+pub type W = crate::W<Bank0info0Spec>;
 #[doc = "11:0\\]
 Main region size in sectors Minimum:0x8 (8) Maximum:0x200 (512)\n\nValue on reset: 256"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u16)]
-pub enum MAINSIZE_A {
+pub enum Mainsize {
     #[doc = "512: Maximum value of MAINSIZE"]
-    MAXSECTORS = 512,
+    Maxsectors = 512,
     #[doc = "8: Minimum value of MAINSIZE"]
-    MINSECTORS = 8,
+    Minsectors = 8,
 }
-impl From<MAINSIZE_A> for u16 {
+impl From<Mainsize> for u16 {
     #[inline(always)]
-    fn from(variant: MAINSIZE_A) -> Self {
+    fn from(variant: Mainsize) -> Self {
         variant as _
     }
 }
-impl MAINSIZE_R {
+impl crate::FieldSpec for Mainsize {
+    type Ux = u16;
+}
+impl crate::IsEnum for Mainsize {}
+#[doc = "Field `MAINSIZE` reader - 11:0\\]
+Main region size in sectors Minimum:0x8 (8) Maximum:0x200 (512)"]
+pub type MainsizeR = crate::FieldReader<Mainsize>;
+impl MainsizeR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<MAINSIZE_A> {
+    pub const fn variant(&self) -> Option<Mainsize> {
         match self.bits {
-            512 => Some(MAINSIZE_A::MAXSECTORS),
-            8 => Some(MAINSIZE_A::MINSECTORS),
+            512 => Some(Mainsize::Maxsectors),
+            8 => Some(Mainsize::Minsectors),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `MAXSECTORS`"]
+    #[doc = "Maximum value of MAINSIZE"]
     #[inline(always)]
     pub fn is_maxsectors(&self) -> bool {
-        *self == MAINSIZE_A::MAXSECTORS
+        *self == Mainsize::Maxsectors
     }
-    #[doc = "Checks if the value of the field is `MINSECTORS`"]
+    #[doc = "Minimum value of MAINSIZE"]
     #[inline(always)]
     pub fn is_minsectors(&self) -> bool {
-        *self == MAINSIZE_A::MINSECTORS
+        *self == Mainsize::Minsectors
     }
 }
 #[doc = "Field `MAINSIZE` writer - 11:0\\]
 Main region size in sectors Minimum:0x8 (8) Maximum:0x200 (512)"]
-pub type MAINSIZE_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, BANK0INFO0_SPEC, u16, MAINSIZE_A, 12, O>;
-impl<'a, const O: u8> MAINSIZE_W<'a, O> {
+pub type MainsizeW<'a, REG> = crate::FieldWriter<'a, REG, 12, Mainsize>;
+impl<'a, REG> MainsizeW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u16>,
+{
     #[doc = "Maximum value of MAINSIZE"]
     #[inline(always)]
-    pub fn maxsectors(self) -> &'a mut W {
-        self.variant(MAINSIZE_A::MAXSECTORS)
+    pub fn maxsectors(self) -> &'a mut crate::W<REG> {
+        self.variant(Mainsize::Maxsectors)
     }
     #[doc = "Minimum value of MAINSIZE"]
     #[inline(always)]
-    pub fn minsectors(self) -> &'a mut W {
-        self.variant(MAINSIZE_A::MINSECTORS)
+    pub fn minsectors(self) -> &'a mut crate::W<REG> {
+        self.variant(Mainsize::Minsectors)
     }
 }
 #[doc = "Field `RESERVED12` reader - 31:12\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED12_R = crate::FieldReader<u32, u32>;
+pub type Reserved12R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED12` writer - 31:12\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED12_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, BANK0INFO0_SPEC, u32, u32, 20, O>;
+pub type Reserved12W<'a, REG> = crate::FieldWriter<'a, REG, 20, u32>;
 impl R {
     #[doc = "Bits 0:11 - 11:0\\]
 Main region size in sectors Minimum:0x8 (8) Maximum:0x200 (512)"]
     #[inline(always)]
-    pub fn mainsize(&self) -> MAINSIZE_R {
-        MAINSIZE_R::new((self.bits & 0x0fff) as u16)
+    pub fn mainsize(&self) -> MainsizeR {
+        MainsizeR::new((self.bits & 0x0fff) as u16)
     }
     #[doc = "Bits 12:31 - 31:12\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved12(&self) -> RESERVED12_R {
-        RESERVED12_R::new((self.bits >> 12) & 0x000f_ffff)
+    pub fn reserved12(&self) -> Reserved12R {
+        Reserved12R::new((self.bits >> 12) & 0x000f_ffff)
     }
 }
 impl W {
@@ -116,39 +90,31 @@ impl W {
 Main region size in sectors Minimum:0x8 (8) Maximum:0x200 (512)"]
     #[inline(always)]
     #[must_use]
-    pub fn mainsize(&mut self) -> MAINSIZE_W<0> {
-        MAINSIZE_W::new(self)
+    pub fn mainsize(&mut self) -> MainsizeW<Bank0info0Spec> {
+        MainsizeW::new(self, 0)
     }
     #[doc = "Bits 12:31 - 31:12\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved12(&mut self) -> RESERVED12_W<12> {
-        RESERVED12_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved12(&mut self) -> Reserved12W<Bank0info0Spec> {
+        Reserved12W::new(self, 12)
     }
 }
-#[doc = "Bank Info 0 Register for bank 0. Read only register detailing information about Main region size in the bank.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [bank0info0](index.html) module"]
-pub struct BANK0INFO0_SPEC;
-impl crate::RegisterSpec for BANK0INFO0_SPEC {
+#[doc = "Bank Info 0 Register for bank 0. Read only register detailing information about Main region size in the bank.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`bank0info0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`bank0info0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Bank0info0Spec;
+impl crate::RegisterSpec for Bank0info0Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [bank0info0::R](R) reader structure"]
-impl crate::Readable for BANK0INFO0_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [bank0info0::W](W) writer structure"]
-impl crate::Writable for BANK0INFO0_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`bank0info0::R`](R) reader structure"]
+impl crate::Readable for Bank0info0Spec {}
+#[doc = "`write(|w| ..)` method takes [`bank0info0::W`](W) writer structure"]
+impl crate::Writable for Bank0info0Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets BANK0INFO0 to value 0x0100"]
-impl crate::Resettable for BANK0INFO0_SPEC {
-    const RESET_VALUE: Self::Ux = 0x0100;
+impl crate::Resettable for Bank0info0Spec {
+    const RESET_VALUE: u32 = 0x0100;
 }

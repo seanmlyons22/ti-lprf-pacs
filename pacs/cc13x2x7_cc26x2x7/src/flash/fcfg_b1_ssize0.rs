@@ -1,91 +1,55 @@
 #[doc = "Register `FCFG_B1_SSIZE0` reader"]
-pub struct R(crate::R<FCFG_B1_SSIZE0_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<FCFG_B1_SSIZE0_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<FCFG_B1_SSIZE0_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<FCFG_B1_SSIZE0_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<FcfgB1Ssize0Spec>;
 #[doc = "Register `FCFG_B1_SSIZE0` writer"]
-pub struct W(crate::W<FCFG_B1_SSIZE0_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<FCFG_B1_SSIZE0_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<FCFG_B1_SSIZE0_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<FCFG_B1_SSIZE0_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<FcfgB1Ssize0Spec>;
 #[doc = "Field `B0_SECT_SIZE` reader - 3:0\\]
 Internal. Only to be used through TI provided API."]
-pub type B0_SECT_SIZE_R = crate::FieldReader<u8, u8>;
+pub type B0SectSizeR = crate::FieldReader;
 #[doc = "Field `B0_SECT_SIZE` writer - 3:0\\]
 Internal. Only to be used through TI provided API."]
-pub type B0_SECT_SIZE_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, FCFG_B1_SSIZE0_SPEC, u8, u8, 4, O>;
+pub type B0SectSizeW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED4` reader - 15:4\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED4_R = crate::FieldReader<u16, u16>;
+pub type Reserved4R = crate::FieldReader<u16>;
 #[doc = "Field `RESERVED4` writer - 15:4\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED4_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, FCFG_B1_SSIZE0_SPEC, u16, u16, 12, O>;
+pub type Reserved4W<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
 #[doc = "Field `B0_NUM_SECTORS` reader - 27:16\\]
 Internal. Only to be used through TI provided API."]
-pub type B0_NUM_SECTORS_R = crate::FieldReader<u16, u16>;
+pub type B0NumSectorsR = crate::FieldReader<u16>;
 #[doc = "Field `B0_NUM_SECTORS` writer - 27:16\\]
 Internal. Only to be used through TI provided API."]
-pub type B0_NUM_SECTORS_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, FCFG_B1_SSIZE0_SPEC, u16, u16, 12, O>;
+pub type B0NumSectorsW<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
 #[doc = "Field `RESERVED28` reader - 31:28\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED28_R = crate::FieldReader<u8, u8>;
+pub type Reserved28R = crate::FieldReader;
 #[doc = "Field `RESERVED28` writer - 31:28\\]
 Internal. Only to be used through TI provided API."]
-pub type RESERVED28_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, FCFG_B1_SSIZE0_SPEC, u8, u8, 4, O>;
+pub type Reserved28W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 impl R {
     #[doc = "Bits 0:3 - 3:0\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn b0_sect_size(&self) -> B0_SECT_SIZE_R {
-        B0_SECT_SIZE_R::new((self.bits & 0x0f) as u8)
+    pub fn b0_sect_size(&self) -> B0SectSizeR {
+        B0SectSizeR::new((self.bits & 0x0f) as u8)
     }
     #[doc = "Bits 4:15 - 15:4\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn reserved4(&self) -> RESERVED4_R {
-        RESERVED4_R::new(((self.bits >> 4) & 0x0fff) as u16)
+    pub fn reserved4(&self) -> Reserved4R {
+        Reserved4R::new(((self.bits >> 4) & 0x0fff) as u16)
     }
     #[doc = "Bits 16:27 - 27:16\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn b0_num_sectors(&self) -> B0_NUM_SECTORS_R {
-        B0_NUM_SECTORS_R::new(((self.bits >> 16) & 0x0fff) as u16)
+    pub fn b0_num_sectors(&self) -> B0NumSectorsR {
+        B0NumSectorsR::new(((self.bits >> 16) & 0x0fff) as u16)
     }
     #[doc = "Bits 28:31 - 31:28\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn reserved28(&self) -> RESERVED28_R {
-        RESERVED28_R::new(((self.bits >> 28) & 0x0f) as u8)
+    pub fn reserved28(&self) -> Reserved28R {
+        Reserved28R::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
 impl W {
@@ -93,53 +57,45 @@ impl W {
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn b0_sect_size(&mut self) -> B0_SECT_SIZE_W<0> {
-        B0_SECT_SIZE_W::new(self)
+    pub fn b0_sect_size(&mut self) -> B0SectSizeW<FcfgB1Ssize0Spec> {
+        B0SectSizeW::new(self, 0)
     }
     #[doc = "Bits 4:15 - 15:4\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved4(&mut self) -> RESERVED4_W<4> {
-        RESERVED4_W::new(self)
+    pub fn reserved4(&mut self) -> Reserved4W<FcfgB1Ssize0Spec> {
+        Reserved4W::new(self, 4)
     }
     #[doc = "Bits 16:27 - 27:16\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn b0_num_sectors(&mut self) -> B0_NUM_SECTORS_W<16> {
-        B0_NUM_SECTORS_W::new(self)
+    pub fn b0_num_sectors(&mut self) -> B0NumSectorsW<FcfgB1Ssize0Spec> {
+        B0NumSectorsW::new(self, 16)
     }
     #[doc = "Bits 28:31 - 31:28\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved28(&mut self) -> RESERVED28_W<28> {
-        RESERVED28_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved28(&mut self) -> Reserved28W<FcfgB1Ssize0Spec> {
+        Reserved28W::new(self, 28)
     }
 }
-#[doc = "Internal. Only to be used through TI provided API.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [fcfg_b1_ssize0](index.html) module"]
-pub struct FCFG_B1_SSIZE0_SPEC;
-impl crate::RegisterSpec for FCFG_B1_SSIZE0_SPEC {
+#[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fcfg_b1_ssize0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fcfg_b1_ssize0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct FcfgB1Ssize0Spec;
+impl crate::RegisterSpec for FcfgB1Ssize0Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [fcfg_b1_ssize0::R](R) reader structure"]
-impl crate::Readable for FCFG_B1_SSIZE0_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [fcfg_b1_ssize0::W](W) writer structure"]
-impl crate::Writable for FCFG_B1_SSIZE0_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`fcfg_b1_ssize0::R`](R) reader structure"]
+impl crate::Readable for FcfgB1Ssize0Spec {}
+#[doc = "`write(|w| ..)` method takes [`fcfg_b1_ssize0::W`](W) writer structure"]
+impl crate::Writable for FcfgB1Ssize0Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets FCFG_B1_SSIZE0 to value 0x002c_0008"]
-impl crate::Resettable for FCFG_B1_SSIZE0_SPEC {
-    const RESET_VALUE: Self::Ux = 0x002c_0008;
+impl crate::Resettable for FcfgB1Ssize0Spec {
+    const RESET_VALUE: u32 = 0x002c_0008;
 }

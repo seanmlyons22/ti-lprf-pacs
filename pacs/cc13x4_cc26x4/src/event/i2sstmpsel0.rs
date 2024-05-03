@@ -1,100 +1,76 @@
 #[doc = "Register `I2SSTMPSEL0` reader"]
-pub struct R(crate::R<I2SSTMPSEL0_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<I2SSTMPSEL0_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<I2SSTMPSEL0_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<I2SSTMPSEL0_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<I2sstmpsel0Spec>;
 #[doc = "Register `I2SSTMPSEL0` writer"]
-pub struct W(crate::W<I2SSTMPSEL0_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<I2SSTMPSEL0_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<I2SSTMPSEL0_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<I2SSTMPSEL0_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `EV` reader - 7:0\\]
-Read/write selection value Writing any other value than values defined by a ENUM may result in undefined behavior."]
-pub type EV_R = crate::FieldReader<u8, EV_A>;
+pub type W = crate::W<I2sstmpsel0Spec>;
 #[doc = "7:0\\]
 Read/write selection value Writing any other value than values defined by a ENUM may result in undefined behavior.\n\nValue on reset: 95"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum EV_A {
+pub enum Ev {
     #[doc = "121: Always asserted"]
-    ALWAYS_ACTIVE = 121,
+    AlwaysActive = 121,
     #[doc = "0: Always inactive"]
-    NONE = 0,
+    None = 0,
 }
-impl From<EV_A> for u8 {
+impl From<Ev> for u8 {
     #[inline(always)]
-    fn from(variant: EV_A) -> Self {
+    fn from(variant: Ev) -> Self {
         variant as _
     }
 }
-impl EV_R {
+impl crate::FieldSpec for Ev {
+    type Ux = u8;
+}
+impl crate::IsEnum for Ev {}
+#[doc = "Field `EV` reader - 7:0\\]
+Read/write selection value Writing any other value than values defined by a ENUM may result in undefined behavior."]
+pub type EvR = crate::FieldReader<Ev>;
+impl EvR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<EV_A> {
+    pub const fn variant(&self) -> Option<Ev> {
         match self.bits {
-            121 => Some(EV_A::ALWAYS_ACTIVE),
-            0 => Some(EV_A::NONE),
+            121 => Some(Ev::AlwaysActive),
+            0 => Some(Ev::None),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `ALWAYS_ACTIVE`"]
+    #[doc = "Always asserted"]
     #[inline(always)]
     pub fn is_always_active(&self) -> bool {
-        *self == EV_A::ALWAYS_ACTIVE
+        *self == Ev::AlwaysActive
     }
-    #[doc = "Checks if the value of the field is `NONE`"]
+    #[doc = "Always inactive"]
     #[inline(always)]
     pub fn is_none(&self) -> bool {
-        *self == EV_A::NONE
+        *self == Ev::None
     }
 }
 #[doc = "Field `EV` writer - 7:0\\]
 Read/write selection value Writing any other value than values defined by a ENUM may result in undefined behavior."]
-pub type EV_W<'a, const O: u8> = crate::FieldWriter<'a, u32, I2SSTMPSEL0_SPEC, u8, EV_A, 8, O>;
-impl<'a, const O: u8> EV_W<'a, O> {
+pub type EvW<'a, REG> = crate::FieldWriter<'a, REG, 8, Ev>;
+impl<'a, REG> EvW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "Always asserted"]
     #[inline(always)]
-    pub fn always_active(self) -> &'a mut W {
-        self.variant(EV_A::ALWAYS_ACTIVE)
+    pub fn always_active(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::AlwaysActive)
     }
     #[doc = "Always inactive"]
     #[inline(always)]
-    pub fn none(self) -> &'a mut W {
-        self.variant(EV_A::NONE)
+    pub fn none(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::None)
     }
 }
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Read/write selection value Writing any other value than values defined by a ENUM may result in undefined behavior."]
     #[inline(always)]
-    pub fn ev(&self) -> EV_R {
-        EV_R::new((self.bits & 0xff) as u8)
+    pub fn ev(&self) -> EvR {
+        EvR::new((self.bits & 0xff) as u8)
     }
 }
 impl W {
@@ -102,32 +78,24 @@ impl W {
 Read/write selection value Writing any other value than values defined by a ENUM may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn ev(&mut self) -> EV_W<0> {
-        EV_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn ev(&mut self) -> EvW<I2sstmpsel0Spec> {
+        EvW::new(self, 0)
     }
 }
-#[doc = "Output Selection for I2S Subscriber 0\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [i2sstmpsel0](index.html) module"]
-pub struct I2SSTMPSEL0_SPEC;
-impl crate::RegisterSpec for I2SSTMPSEL0_SPEC {
+#[doc = "Output Selection for I2S Subscriber 0\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`i2sstmpsel0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`i2sstmpsel0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct I2sstmpsel0Spec;
+impl crate::RegisterSpec for I2sstmpsel0Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [i2sstmpsel0::R](R) reader structure"]
-impl crate::Readable for I2SSTMPSEL0_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [i2sstmpsel0::W](W) writer structure"]
-impl crate::Writable for I2SSTMPSEL0_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`i2sstmpsel0::R`](R) reader structure"]
+impl crate::Readable for I2sstmpsel0Spec {}
+#[doc = "`write(|w| ..)` method takes [`i2sstmpsel0::W`](W) writer structure"]
+impl crate::Writable for I2sstmpsel0Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets I2SSTMPSEL0 to value 0x5f"]
-impl crate::Resettable for I2SSTMPSEL0_SPEC {
-    const RESET_VALUE: Self::Ux = 0x5f;
+impl crate::Resettable for I2sstmpsel0Spec {
+    const RESET_VALUE: u32 = 0x5f;
 }

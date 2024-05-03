@@ -1,253 +1,211 @@
 #[doc = "Register `COMBEVTOMCUMASK` reader"]
-pub struct R(crate::R<COMBEVTOMCUMASK_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<COMBEVTOMCUMASK_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<COMBEVTOMCUMASK_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<COMBEVTOMCUMASK_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<CombevtomcumaskSpec>;
 #[doc = "Register `COMBEVTOMCUMASK` writer"]
-pub struct W(crate::W<COMBEVTOMCUMASK_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<COMBEVTOMCUMASK_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<COMBEVTOMCUMASK_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<COMBEVTOMCUMASK_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<CombevtomcumaskSpec>;
 #[doc = "Field `AUX_WU_EV` reader - 0:0\\]
 EVTOMCUFLAGS.AUX_WU_EV contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type AUX_WU_EV_R = crate::BitReader<bool>;
+pub type AuxWuEvR = crate::BitReader;
 #[doc = "Field `AUX_WU_EV` writer - 0:0\\]
 EVTOMCUFLAGS.AUX_WU_EV contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type AUX_WU_EV_W<'a, const O: u8> = crate::BitWriter<'a, u32, COMBEVTOMCUMASK_SPEC, bool, O>;
+pub type AuxWuEvW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `AUX_COMPA` reader - 1:1\\]
 EVTOMCUFLAGS.AUX_COMPA contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type AUX_COMPA_R = crate::BitReader<bool>;
+pub type AuxCompaR = crate::BitReader;
 #[doc = "Field `AUX_COMPA` writer - 1:1\\]
 EVTOMCUFLAGS.AUX_COMPA contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type AUX_COMPA_W<'a, const O: u8> = crate::BitWriter<'a, u32, COMBEVTOMCUMASK_SPEC, bool, O>;
+pub type AuxCompaW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `AUX_COMPB` reader - 2:2\\]
 EVTOMCUFLAGS.AUX_COMPB contribution to the AUX_COMB event. 0: Exclude 1: Include."]
-pub type AUX_COMPB_R = crate::BitReader<bool>;
+pub type AuxCompbR = crate::BitReader;
 #[doc = "Field `AUX_COMPB` writer - 2:2\\]
 EVTOMCUFLAGS.AUX_COMPB contribution to the AUX_COMB event. 0: Exclude 1: Include."]
-pub type AUX_COMPB_W<'a, const O: u8> = crate::BitWriter<'a, u32, COMBEVTOMCUMASK_SPEC, bool, O>;
+pub type AuxCompbW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `AUX_TDC_DONE` reader - 3:3\\]
 EVTOMCUFLAGS.AUX_TDC_DONE contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type AUX_TDC_DONE_R = crate::BitReader<bool>;
+pub type AuxTdcDoneR = crate::BitReader;
 #[doc = "Field `AUX_TDC_DONE` writer - 3:3\\]
 EVTOMCUFLAGS.AUX_TDC_DONE contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type AUX_TDC_DONE_W<'a, const O: u8> = crate::BitWriter<'a, u32, COMBEVTOMCUMASK_SPEC, bool, O>;
+pub type AuxTdcDoneW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `AUX_TIMER0_EV` reader - 4:4\\]
 EVTOMCUFLAGS.AUX_TIMER0_EV contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type AUX_TIMER0_EV_R = crate::BitReader<bool>;
+pub type AuxTimer0EvR = crate::BitReader;
 #[doc = "Field `AUX_TIMER0_EV` writer - 4:4\\]
 EVTOMCUFLAGS.AUX_TIMER0_EV contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type AUX_TIMER0_EV_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, COMBEVTOMCUMASK_SPEC, bool, O>;
+pub type AuxTimer0EvW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `AUX_TIMER1_EV` reader - 5:5\\]
 EVTOMCUFLAGS.AUX_TIMER1_EV contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type AUX_TIMER1_EV_R = crate::BitReader<bool>;
+pub type AuxTimer1EvR = crate::BitReader;
 #[doc = "Field `AUX_TIMER1_EV` writer - 5:5\\]
 EVTOMCUFLAGS.AUX_TIMER1_EV contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type AUX_TIMER1_EV_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, COMBEVTOMCUMASK_SPEC, bool, O>;
+pub type AuxTimer1EvW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `AUX_SMPH_AUTOTAKE_DONE` reader - 6:6\\]
 EVTOMCUFLAGS.AUX_SMPH_AUTOTAKE_DONE contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type AUX_SMPH_AUTOTAKE_DONE_R = crate::BitReader<bool>;
+pub type AuxSmphAutotakeDoneR = crate::BitReader;
 #[doc = "Field `AUX_SMPH_AUTOTAKE_DONE` writer - 6:6\\]
 EVTOMCUFLAGS.AUX_SMPH_AUTOTAKE_DONE contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type AUX_SMPH_AUTOTAKE_DONE_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, COMBEVTOMCUMASK_SPEC, bool, O>;
+pub type AuxSmphAutotakeDoneW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `AUX_ADC_DONE` reader - 7:7\\]
 EVTOMCUFLAGS.AUX_ADC_DONE contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type AUX_ADC_DONE_R = crate::BitReader<bool>;
+pub type AuxAdcDoneR = crate::BitReader;
 #[doc = "Field `AUX_ADC_DONE` writer - 7:7\\]
 EVTOMCUFLAGS.AUX_ADC_DONE contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type AUX_ADC_DONE_W<'a, const O: u8> = crate::BitWriter<'a, u32, COMBEVTOMCUMASK_SPEC, bool, O>;
+pub type AuxAdcDoneW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `AUX_ADC_FIFO_ALMOST_FULL` reader - 8:8\\]
 EVTOMCUFLAGS.AUX_ADC_FIFO_ALMOST_FULL contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type AUX_ADC_FIFO_ALMOST_FULL_R = crate::BitReader<bool>;
+pub type AuxAdcFifoAlmostFullR = crate::BitReader;
 #[doc = "Field `AUX_ADC_FIFO_ALMOST_FULL` writer - 8:8\\]
 EVTOMCUFLAGS.AUX_ADC_FIFO_ALMOST_FULL contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type AUX_ADC_FIFO_ALMOST_FULL_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, COMBEVTOMCUMASK_SPEC, bool, O>;
+pub type AuxAdcFifoAlmostFullW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `MCU_OBSMUX0` reader - 9:9\\]
 EVTOMCUFLAGS.MCU_OBSMUX0 contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type MCU_OBSMUX0_R = crate::BitReader<bool>;
+pub type McuObsmux0R = crate::BitReader;
 #[doc = "Field `MCU_OBSMUX0` writer - 9:9\\]
 EVTOMCUFLAGS.MCU_OBSMUX0 contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type MCU_OBSMUX0_W<'a, const O: u8> = crate::BitWriter<'a, u32, COMBEVTOMCUMASK_SPEC, bool, O>;
+pub type McuObsmux0W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `AUX_ADC_IRQ` reader - 10:10\\]
 EVTOMCUFLAGS.AUX_ADC_IRQ contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type AUX_ADC_IRQ_R = crate::BitReader<bool>;
+pub type AuxAdcIrqR = crate::BitReader;
 #[doc = "Field `AUX_ADC_IRQ` writer - 10:10\\]
 EVTOMCUFLAGS.AUX_ADC_IRQ contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type AUX_ADC_IRQ_W<'a, const O: u8> = crate::BitWriter<'a, u32, COMBEVTOMCUMASK_SPEC, bool, O>;
+pub type AuxAdcIrqW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `AUX_TIMER2_EV0` reader - 11:11\\]
 EVTOMCUFLAGS.AUX_TIMER2_EV0 contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type AUX_TIMER2_EV0_R = crate::BitReader<bool>;
+pub type AuxTimer2Ev0R = crate::BitReader;
 #[doc = "Field `AUX_TIMER2_EV0` writer - 11:11\\]
 EVTOMCUFLAGS.AUX_TIMER2_EV0 contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type AUX_TIMER2_EV0_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, COMBEVTOMCUMASK_SPEC, bool, O>;
+pub type AuxTimer2Ev0W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `AUX_TIMER2_EV1` reader - 12:12\\]
 EVTOMCUFLAGS.AUX_TIMER2_EV1 contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type AUX_TIMER2_EV1_R = crate::BitReader<bool>;
+pub type AuxTimer2Ev1R = crate::BitReader;
 #[doc = "Field `AUX_TIMER2_EV1` writer - 12:12\\]
 EVTOMCUFLAGS.AUX_TIMER2_EV1 contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type AUX_TIMER2_EV1_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, COMBEVTOMCUMASK_SPEC, bool, O>;
+pub type AuxTimer2Ev1W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `AUX_TIMER2_EV2` reader - 13:13\\]
 EVTOMCUFLAGS.AUX_TIMER2_EV2 contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type AUX_TIMER2_EV2_R = crate::BitReader<bool>;
+pub type AuxTimer2Ev2R = crate::BitReader;
 #[doc = "Field `AUX_TIMER2_EV2` writer - 13:13\\]
 EVTOMCUFLAGS.AUX_TIMER2_EV2 contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type AUX_TIMER2_EV2_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, COMBEVTOMCUMASK_SPEC, bool, O>;
+pub type AuxTimer2Ev2W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `AUX_TIMER2_EV3` reader - 14:14\\]
 EVTOMCUFLAGS.AUX_TIMER2_EV3 contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type AUX_TIMER2_EV3_R = crate::BitReader<bool>;
+pub type AuxTimer2Ev3R = crate::BitReader;
 #[doc = "Field `AUX_TIMER2_EV3` writer - 14:14\\]
 EVTOMCUFLAGS.AUX_TIMER2_EV3 contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type AUX_TIMER2_EV3_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, COMBEVTOMCUMASK_SPEC, bool, O>;
+pub type AuxTimer2Ev3W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `AUX_TIMER2_PULSE` reader - 15:15\\]
 EVTOMCUFLAGS.AUX_TIMER2_PULSE contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type AUX_TIMER2_PULSE_R = crate::BitReader<bool>;
+pub type AuxTimer2PulseR = crate::BitReader;
 #[doc = "Field `AUX_TIMER2_PULSE` writer - 15:15\\]
 EVTOMCUFLAGS.AUX_TIMER2_PULSE contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
-pub type AUX_TIMER2_PULSE_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, COMBEVTOMCUMASK_SPEC, bool, O>;
+pub type AuxTimer2PulseW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED16` reader - 31:16\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED16_R = crate::FieldReader<u16, u16>;
+pub type Reserved16R = crate::FieldReader<u16>;
 #[doc = "Field `RESERVED16` writer - 31:16\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED16_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, COMBEVTOMCUMASK_SPEC, u16, u16, 16, O>;
+pub type Reserved16W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 EVTOMCUFLAGS.AUX_WU_EV contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
-    pub fn aux_wu_ev(&self) -> AUX_WU_EV_R {
-        AUX_WU_EV_R::new((self.bits & 1) != 0)
+    pub fn aux_wu_ev(&self) -> AuxWuEvR {
+        AuxWuEvR::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 EVTOMCUFLAGS.AUX_COMPA contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
-    pub fn aux_compa(&self) -> AUX_COMPA_R {
-        AUX_COMPA_R::new(((self.bits >> 1) & 1) != 0)
+    pub fn aux_compa(&self) -> AuxCompaR {
+        AuxCompaR::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bit 2 - 2:2\\]
 EVTOMCUFLAGS.AUX_COMPB contribution to the AUX_COMB event. 0: Exclude 1: Include."]
     #[inline(always)]
-    pub fn aux_compb(&self) -> AUX_COMPB_R {
-        AUX_COMPB_R::new(((self.bits >> 2) & 1) != 0)
+    pub fn aux_compb(&self) -> AuxCompbR {
+        AuxCompbR::new(((self.bits >> 2) & 1) != 0)
     }
     #[doc = "Bit 3 - 3:3\\]
 EVTOMCUFLAGS.AUX_TDC_DONE contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
-    pub fn aux_tdc_done(&self) -> AUX_TDC_DONE_R {
-        AUX_TDC_DONE_R::new(((self.bits >> 3) & 1) != 0)
+    pub fn aux_tdc_done(&self) -> AuxTdcDoneR {
+        AuxTdcDoneR::new(((self.bits >> 3) & 1) != 0)
     }
     #[doc = "Bit 4 - 4:4\\]
 EVTOMCUFLAGS.AUX_TIMER0_EV contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
-    pub fn aux_timer0_ev(&self) -> AUX_TIMER0_EV_R {
-        AUX_TIMER0_EV_R::new(((self.bits >> 4) & 1) != 0)
+    pub fn aux_timer0_ev(&self) -> AuxTimer0EvR {
+        AuxTimer0EvR::new(((self.bits >> 4) & 1) != 0)
     }
     #[doc = "Bit 5 - 5:5\\]
 EVTOMCUFLAGS.AUX_TIMER1_EV contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
-    pub fn aux_timer1_ev(&self) -> AUX_TIMER1_EV_R {
-        AUX_TIMER1_EV_R::new(((self.bits >> 5) & 1) != 0)
+    pub fn aux_timer1_ev(&self) -> AuxTimer1EvR {
+        AuxTimer1EvR::new(((self.bits >> 5) & 1) != 0)
     }
     #[doc = "Bit 6 - 6:6\\]
 EVTOMCUFLAGS.AUX_SMPH_AUTOTAKE_DONE contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
-    pub fn aux_smph_autotake_done(&self) -> AUX_SMPH_AUTOTAKE_DONE_R {
-        AUX_SMPH_AUTOTAKE_DONE_R::new(((self.bits >> 6) & 1) != 0)
+    pub fn aux_smph_autotake_done(&self) -> AuxSmphAutotakeDoneR {
+        AuxSmphAutotakeDoneR::new(((self.bits >> 6) & 1) != 0)
     }
     #[doc = "Bit 7 - 7:7\\]
 EVTOMCUFLAGS.AUX_ADC_DONE contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
-    pub fn aux_adc_done(&self) -> AUX_ADC_DONE_R {
-        AUX_ADC_DONE_R::new(((self.bits >> 7) & 1) != 0)
+    pub fn aux_adc_done(&self) -> AuxAdcDoneR {
+        AuxAdcDoneR::new(((self.bits >> 7) & 1) != 0)
     }
     #[doc = "Bit 8 - 8:8\\]
 EVTOMCUFLAGS.AUX_ADC_FIFO_ALMOST_FULL contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
-    pub fn aux_adc_fifo_almost_full(&self) -> AUX_ADC_FIFO_ALMOST_FULL_R {
-        AUX_ADC_FIFO_ALMOST_FULL_R::new(((self.bits >> 8) & 1) != 0)
+    pub fn aux_adc_fifo_almost_full(&self) -> AuxAdcFifoAlmostFullR {
+        AuxAdcFifoAlmostFullR::new(((self.bits >> 8) & 1) != 0)
     }
     #[doc = "Bit 9 - 9:9\\]
 EVTOMCUFLAGS.MCU_OBSMUX0 contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
-    pub fn mcu_obsmux0(&self) -> MCU_OBSMUX0_R {
-        MCU_OBSMUX0_R::new(((self.bits >> 9) & 1) != 0)
+    pub fn mcu_obsmux0(&self) -> McuObsmux0R {
+        McuObsmux0R::new(((self.bits >> 9) & 1) != 0)
     }
     #[doc = "Bit 10 - 10:10\\]
 EVTOMCUFLAGS.AUX_ADC_IRQ contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
-    pub fn aux_adc_irq(&self) -> AUX_ADC_IRQ_R {
-        AUX_ADC_IRQ_R::new(((self.bits >> 10) & 1) != 0)
+    pub fn aux_adc_irq(&self) -> AuxAdcIrqR {
+        AuxAdcIrqR::new(((self.bits >> 10) & 1) != 0)
     }
     #[doc = "Bit 11 - 11:11\\]
 EVTOMCUFLAGS.AUX_TIMER2_EV0 contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
-    pub fn aux_timer2_ev0(&self) -> AUX_TIMER2_EV0_R {
-        AUX_TIMER2_EV0_R::new(((self.bits >> 11) & 1) != 0)
+    pub fn aux_timer2_ev0(&self) -> AuxTimer2Ev0R {
+        AuxTimer2Ev0R::new(((self.bits >> 11) & 1) != 0)
     }
     #[doc = "Bit 12 - 12:12\\]
 EVTOMCUFLAGS.AUX_TIMER2_EV1 contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
-    pub fn aux_timer2_ev1(&self) -> AUX_TIMER2_EV1_R {
-        AUX_TIMER2_EV1_R::new(((self.bits >> 12) & 1) != 0)
+    pub fn aux_timer2_ev1(&self) -> AuxTimer2Ev1R {
+        AuxTimer2Ev1R::new(((self.bits >> 12) & 1) != 0)
     }
     #[doc = "Bit 13 - 13:13\\]
 EVTOMCUFLAGS.AUX_TIMER2_EV2 contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
-    pub fn aux_timer2_ev2(&self) -> AUX_TIMER2_EV2_R {
-        AUX_TIMER2_EV2_R::new(((self.bits >> 13) & 1) != 0)
+    pub fn aux_timer2_ev2(&self) -> AuxTimer2Ev2R {
+        AuxTimer2Ev2R::new(((self.bits >> 13) & 1) != 0)
     }
     #[doc = "Bit 14 - 14:14\\]
 EVTOMCUFLAGS.AUX_TIMER2_EV3 contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
-    pub fn aux_timer2_ev3(&self) -> AUX_TIMER2_EV3_R {
-        AUX_TIMER2_EV3_R::new(((self.bits >> 14) & 1) != 0)
+    pub fn aux_timer2_ev3(&self) -> AuxTimer2Ev3R {
+        AuxTimer2Ev3R::new(((self.bits >> 14) & 1) != 0)
     }
     #[doc = "Bit 15 - 15:15\\]
 EVTOMCUFLAGS.AUX_TIMER2_PULSE contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
-    pub fn aux_timer2_pulse(&self) -> AUX_TIMER2_PULSE_R {
-        AUX_TIMER2_PULSE_R::new(((self.bits >> 15) & 1) != 0)
+    pub fn aux_timer2_pulse(&self) -> AuxTimer2PulseR {
+        AuxTimer2PulseR::new(((self.bits >> 15) & 1) != 0)
     }
     #[doc = "Bits 16:31 - 31:16\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved16(&self) -> RESERVED16_R {
-        RESERVED16_R::new(((self.bits >> 16) & 0xffff) as u16)
+    pub fn reserved16(&self) -> Reserved16R {
+        Reserved16R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
 impl W {
@@ -255,144 +213,136 @@ impl W {
 EVTOMCUFLAGS.AUX_WU_EV contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
     #[must_use]
-    pub fn aux_wu_ev(&mut self) -> AUX_WU_EV_W<0> {
-        AUX_WU_EV_W::new(self)
+    pub fn aux_wu_ev(&mut self) -> AuxWuEvW<CombevtomcumaskSpec> {
+        AuxWuEvW::new(self, 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 EVTOMCUFLAGS.AUX_COMPA contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
     #[must_use]
-    pub fn aux_compa(&mut self) -> AUX_COMPA_W<1> {
-        AUX_COMPA_W::new(self)
+    pub fn aux_compa(&mut self) -> AuxCompaW<CombevtomcumaskSpec> {
+        AuxCompaW::new(self, 1)
     }
     #[doc = "Bit 2 - 2:2\\]
 EVTOMCUFLAGS.AUX_COMPB contribution to the AUX_COMB event. 0: Exclude 1: Include."]
     #[inline(always)]
     #[must_use]
-    pub fn aux_compb(&mut self) -> AUX_COMPB_W<2> {
-        AUX_COMPB_W::new(self)
+    pub fn aux_compb(&mut self) -> AuxCompbW<CombevtomcumaskSpec> {
+        AuxCompbW::new(self, 2)
     }
     #[doc = "Bit 3 - 3:3\\]
 EVTOMCUFLAGS.AUX_TDC_DONE contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
     #[must_use]
-    pub fn aux_tdc_done(&mut self) -> AUX_TDC_DONE_W<3> {
-        AUX_TDC_DONE_W::new(self)
+    pub fn aux_tdc_done(&mut self) -> AuxTdcDoneW<CombevtomcumaskSpec> {
+        AuxTdcDoneW::new(self, 3)
     }
     #[doc = "Bit 4 - 4:4\\]
 EVTOMCUFLAGS.AUX_TIMER0_EV contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
     #[must_use]
-    pub fn aux_timer0_ev(&mut self) -> AUX_TIMER0_EV_W<4> {
-        AUX_TIMER0_EV_W::new(self)
+    pub fn aux_timer0_ev(&mut self) -> AuxTimer0EvW<CombevtomcumaskSpec> {
+        AuxTimer0EvW::new(self, 4)
     }
     #[doc = "Bit 5 - 5:5\\]
 EVTOMCUFLAGS.AUX_TIMER1_EV contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
     #[must_use]
-    pub fn aux_timer1_ev(&mut self) -> AUX_TIMER1_EV_W<5> {
-        AUX_TIMER1_EV_W::new(self)
+    pub fn aux_timer1_ev(&mut self) -> AuxTimer1EvW<CombevtomcumaskSpec> {
+        AuxTimer1EvW::new(self, 5)
     }
     #[doc = "Bit 6 - 6:6\\]
 EVTOMCUFLAGS.AUX_SMPH_AUTOTAKE_DONE contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
     #[must_use]
-    pub fn aux_smph_autotake_done(&mut self) -> AUX_SMPH_AUTOTAKE_DONE_W<6> {
-        AUX_SMPH_AUTOTAKE_DONE_W::new(self)
+    pub fn aux_smph_autotake_done(&mut self) -> AuxSmphAutotakeDoneW<CombevtomcumaskSpec> {
+        AuxSmphAutotakeDoneW::new(self, 6)
     }
     #[doc = "Bit 7 - 7:7\\]
 EVTOMCUFLAGS.AUX_ADC_DONE contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
     #[must_use]
-    pub fn aux_adc_done(&mut self) -> AUX_ADC_DONE_W<7> {
-        AUX_ADC_DONE_W::new(self)
+    pub fn aux_adc_done(&mut self) -> AuxAdcDoneW<CombevtomcumaskSpec> {
+        AuxAdcDoneW::new(self, 7)
     }
     #[doc = "Bit 8 - 8:8\\]
 EVTOMCUFLAGS.AUX_ADC_FIFO_ALMOST_FULL contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
     #[must_use]
-    pub fn aux_adc_fifo_almost_full(&mut self) -> AUX_ADC_FIFO_ALMOST_FULL_W<8> {
-        AUX_ADC_FIFO_ALMOST_FULL_W::new(self)
+    pub fn aux_adc_fifo_almost_full(&mut self) -> AuxAdcFifoAlmostFullW<CombevtomcumaskSpec> {
+        AuxAdcFifoAlmostFullW::new(self, 8)
     }
     #[doc = "Bit 9 - 9:9\\]
 EVTOMCUFLAGS.MCU_OBSMUX0 contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
     #[must_use]
-    pub fn mcu_obsmux0(&mut self) -> MCU_OBSMUX0_W<9> {
-        MCU_OBSMUX0_W::new(self)
+    pub fn mcu_obsmux0(&mut self) -> McuObsmux0W<CombevtomcumaskSpec> {
+        McuObsmux0W::new(self, 9)
     }
     #[doc = "Bit 10 - 10:10\\]
 EVTOMCUFLAGS.AUX_ADC_IRQ contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
     #[must_use]
-    pub fn aux_adc_irq(&mut self) -> AUX_ADC_IRQ_W<10> {
-        AUX_ADC_IRQ_W::new(self)
+    pub fn aux_adc_irq(&mut self) -> AuxAdcIrqW<CombevtomcumaskSpec> {
+        AuxAdcIrqW::new(self, 10)
     }
     #[doc = "Bit 11 - 11:11\\]
 EVTOMCUFLAGS.AUX_TIMER2_EV0 contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
     #[must_use]
-    pub fn aux_timer2_ev0(&mut self) -> AUX_TIMER2_EV0_W<11> {
-        AUX_TIMER2_EV0_W::new(self)
+    pub fn aux_timer2_ev0(&mut self) -> AuxTimer2Ev0W<CombevtomcumaskSpec> {
+        AuxTimer2Ev0W::new(self, 11)
     }
     #[doc = "Bit 12 - 12:12\\]
 EVTOMCUFLAGS.AUX_TIMER2_EV1 contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
     #[must_use]
-    pub fn aux_timer2_ev1(&mut self) -> AUX_TIMER2_EV1_W<12> {
-        AUX_TIMER2_EV1_W::new(self)
+    pub fn aux_timer2_ev1(&mut self) -> AuxTimer2Ev1W<CombevtomcumaskSpec> {
+        AuxTimer2Ev1W::new(self, 12)
     }
     #[doc = "Bit 13 - 13:13\\]
 EVTOMCUFLAGS.AUX_TIMER2_EV2 contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
     #[must_use]
-    pub fn aux_timer2_ev2(&mut self) -> AUX_TIMER2_EV2_W<13> {
-        AUX_TIMER2_EV2_W::new(self)
+    pub fn aux_timer2_ev2(&mut self) -> AuxTimer2Ev2W<CombevtomcumaskSpec> {
+        AuxTimer2Ev2W::new(self, 13)
     }
     #[doc = "Bit 14 - 14:14\\]
 EVTOMCUFLAGS.AUX_TIMER2_EV3 contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
     #[must_use]
-    pub fn aux_timer2_ev3(&mut self) -> AUX_TIMER2_EV3_W<14> {
-        AUX_TIMER2_EV3_W::new(self)
+    pub fn aux_timer2_ev3(&mut self) -> AuxTimer2Ev3W<CombevtomcumaskSpec> {
+        AuxTimer2Ev3W::new(self, 14)
     }
     #[doc = "Bit 15 - 15:15\\]
 EVTOMCUFLAGS.AUX_TIMER2_PULSE contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
     #[inline(always)]
     #[must_use]
-    pub fn aux_timer2_pulse(&mut self) -> AUX_TIMER2_PULSE_W<15> {
-        AUX_TIMER2_PULSE_W::new(self)
+    pub fn aux_timer2_pulse(&mut self) -> AuxTimer2PulseW<CombevtomcumaskSpec> {
+        AuxTimer2PulseW::new(self, 15)
     }
     #[doc = "Bits 16:31 - 31:16\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved16(&mut self) -> RESERVED16_W<16> {
-        RESERVED16_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved16(&mut self) -> Reserved16W<CombevtomcumaskSpec> {
+        Reserved16W::new(self, 16)
     }
 }
-#[doc = "Combined Event To MCU Mask Select event flags in EVTOMCUFLAGS that contribute to the AUX_COMB event to EVENT and system CPU. The AUX_COMB event is high as long as one or more of the included event flags are set.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [combevtomcumask](index.html) module"]
-pub struct COMBEVTOMCUMASK_SPEC;
-impl crate::RegisterSpec for COMBEVTOMCUMASK_SPEC {
+#[doc = "Combined Event To MCU Mask Select event flags in EVTOMCUFLAGS that contribute to the AUX_COMB event to EVENT and system CPU. The AUX_COMB event is high as long as one or more of the included event flags are set.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`combevtomcumask::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`combevtomcumask::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct CombevtomcumaskSpec;
+impl crate::RegisterSpec for CombevtomcumaskSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [combevtomcumask::R](R) reader structure"]
-impl crate::Readable for COMBEVTOMCUMASK_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [combevtomcumask::W](W) writer structure"]
-impl crate::Writable for COMBEVTOMCUMASK_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`combevtomcumask::R`](R) reader structure"]
+impl crate::Readable for CombevtomcumaskSpec {}
+#[doc = "`write(|w| ..)` method takes [`combevtomcumask::W`](W) writer structure"]
+impl crate::Writable for CombevtomcumaskSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets COMBEVTOMCUMASK to value 0"]
-impl crate::Resettable for COMBEVTOMCUMASK_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for CombevtomcumaskSpec {
+    const RESET_VALUE: u32 = 0;
 }

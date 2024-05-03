@@ -1,87 +1,63 @@
 #[doc = "Register `UDMACH23BSEL` reader"]
-pub struct R(crate::R<UDMACH23BSEL_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<UDMACH23BSEL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<UDMACH23BSEL_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<UDMACH23BSEL_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Udmach23bselSpec>;
 #[doc = "Register `UDMACH23BSEL` writer"]
-pub struct W(crate::W<UDMACH23BSEL_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<UDMACH23BSEL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<UDMACH23BSEL_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<UDMACH23BSEL_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `EV` reader - 7:0\\]
-Read only selection value"]
-pub type EV_R = crate::FieldReader<u8, EV_A>;
+pub type W = crate::W<Udmach23bselSpec>;
 #[doc = "7:0\\]
 Read only selection value\n\nValue on reset: 102"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum EV_A {
+pub enum Ev {
     #[doc = "102: Software event 2, triggered by SWEV.SWEV2"]
-    SWEV2 = 102,
+    Swev2 = 102,
 }
-impl From<EV_A> for u8 {
+impl From<Ev> for u8 {
     #[inline(always)]
-    fn from(variant: EV_A) -> Self {
+    fn from(variant: Ev) -> Self {
         variant as _
     }
 }
-impl EV_R {
+impl crate::FieldSpec for Ev {
+    type Ux = u8;
+}
+impl crate::IsEnum for Ev {}
+#[doc = "Field `EV` reader - 7:0\\]
+Read only selection value"]
+pub type EvR = crate::FieldReader<Ev>;
+impl EvR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<EV_A> {
+    pub const fn variant(&self) -> Option<Ev> {
         match self.bits {
-            102 => Some(EV_A::SWEV2),
+            102 => Some(Ev::Swev2),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `SWEV2`"]
+    #[doc = "Software event 2, triggered by SWEV.SWEV2"]
     #[inline(always)]
     pub fn is_swev2(&self) -> bool {
-        *self == EV_A::SWEV2
+        *self == Ev::Swev2
     }
 }
 #[doc = "Field `EV` writer - 7:0\\]
 Read only selection value"]
-pub type EV_W<'a, const O: u8> = crate::FieldWriter<'a, u32, UDMACH23BSEL_SPEC, u8, EV_A, 8, O>;
-impl<'a, const O: u8> EV_W<'a, O> {
+pub type EvW<'a, REG> = crate::FieldWriter<'a, REG, 8, Ev>;
+impl<'a, REG> EvW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "Software event 2, triggered by SWEV.SWEV2"]
     #[inline(always)]
-    pub fn swev2(self) -> &'a mut W {
-        self.variant(EV_A::SWEV2)
+    pub fn swev2(self) -> &'a mut crate::W<REG> {
+        self.variant(Ev::Swev2)
     }
 }
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Read only selection value"]
     #[inline(always)]
-    pub fn ev(&self) -> EV_R {
-        EV_R::new((self.bits & 0xff) as u8)
+    pub fn ev(&self) -> EvR {
+        EvR::new((self.bits & 0xff) as u8)
     }
 }
 impl W {
@@ -89,32 +65,24 @@ impl W {
 Read only selection value"]
     #[inline(always)]
     #[must_use]
-    pub fn ev(&mut self) -> EV_W<0> {
-        EV_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn ev(&mut self) -> EvW<Udmach23bselSpec> {
+        EvW::new(self, 0)
     }
 }
-#[doc = "Output Selection for DMA Channel 23 REQ\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [udmach23bsel](index.html) module"]
-pub struct UDMACH23BSEL_SPEC;
-impl crate::RegisterSpec for UDMACH23BSEL_SPEC {
+#[doc = "Output Selection for DMA Channel 23 REQ\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`udmach23bsel::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`udmach23bsel::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Udmach23bselSpec;
+impl crate::RegisterSpec for Udmach23bselSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [udmach23bsel::R](R) reader structure"]
-impl crate::Readable for UDMACH23BSEL_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [udmach23bsel::W](W) writer structure"]
-impl crate::Writable for UDMACH23BSEL_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`udmach23bsel::R`](R) reader structure"]
+impl crate::Readable for Udmach23bselSpec {}
+#[doc = "`write(|w| ..)` method takes [`udmach23bsel::W`](W) writer structure"]
+impl crate::Writable for Udmach23bselSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets UDMACH23BSEL to value 0x66"]
-impl crate::Resettable for UDMACH23BSEL_SPEC {
-    const RESET_VALUE: Self::Ux = 0x66;
+impl crate::Resettable for Udmach23bselSpec {
+    const RESET_VALUE: u32 = 0x66;
 }

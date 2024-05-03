@@ -1,76 +1,43 @@
 #[doc = "Register `DMACH0CTL` reader"]
-pub struct R(crate::R<DMACH0CTL_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<DMACH0CTL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<DMACH0CTL_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<DMACH0CTL_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Dmach0ctlSpec>;
 #[doc = "Register `DMACH0CTL` writer"]
-pub struct W(crate::W<DMACH0CTL_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<DMACH0CTL_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<DMACH0CTL_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<DMACH0CTL_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<Dmach0ctlSpec>;
 #[doc = "Field `EN` reader - 0:0\\]
 Channel enable 0: Disabled 1: Enable Note: Disabling an active channel interrupts the DMA operation. The ongoing block transfer completes, but no new transfers are requested."]
-pub type EN_R = crate::BitReader<bool>;
+pub type EnR = crate::BitReader;
 #[doc = "Field `EN` writer - 0:0\\]
 Channel enable 0: Disabled 1: Enable Note: Disabling an active channel interrupts the DMA operation. The ongoing block transfer completes, but no new transfers are requested."]
-pub type EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, DMACH0CTL_SPEC, bool, O>;
+pub type EnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `PRIO` reader - 1:1\\]
 Channel priority 0: Low 1: High If both channels have the same priority, access of the channels to the external port is arbitrated using the round robin scheme. If one channel has a high priority and another one low, the channel with the high priority is served first, in case of simultaneous access requests."]
-pub type PRIO_R = crate::BitReader<bool>;
+pub type PrioR = crate::BitReader;
 #[doc = "Field `PRIO` writer - 1:1\\]
 Channel priority 0: Low 1: High If both channels have the same priority, access of the channels to the external port is arbitrated using the round robin scheme. If one channel has a high priority and another one low, the channel with the high priority is served first, in case of simultaneous access requests."]
-pub type PRIO_W<'a, const O: u8> = crate::BitWriter<'a, u32, DMACH0CTL_SPEC, bool, O>;
+pub type PrioW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED2` reader - 31:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED2_R = crate::FieldReader<u32, u32>;
+pub type Reserved2R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED2` writer - 31:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED2_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, DMACH0CTL_SPEC, u32, u32, 30, O>;
+pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 30, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Channel enable 0: Disabled 1: Enable Note: Disabling an active channel interrupts the DMA operation. The ongoing block transfer completes, but no new transfers are requested."]
     #[inline(always)]
-    pub fn en(&self) -> EN_R {
-        EN_R::new((self.bits & 1) != 0)
+    pub fn en(&self) -> EnR {
+        EnR::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 Channel priority 0: Low 1: High If both channels have the same priority, access of the channels to the external port is arbitrated using the round robin scheme. If one channel has a high priority and another one low, the channel with the high priority is served first, in case of simultaneous access requests."]
     #[inline(always)]
-    pub fn prio(&self) -> PRIO_R {
-        PRIO_R::new(((self.bits >> 1) & 1) != 0)
+    pub fn prio(&self) -> PrioR {
+        PrioR::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bits 2:31 - 31:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved2(&self) -> RESERVED2_R {
-        RESERVED2_R::new((self.bits >> 2) & 0x3fff_ffff)
+    pub fn reserved2(&self) -> Reserved2R {
+        Reserved2R::new((self.bits >> 2) & 0x3fff_ffff)
     }
 }
 impl W {
@@ -78,46 +45,38 @@ impl W {
 Channel enable 0: Disabled 1: Enable Note: Disabling an active channel interrupts the DMA operation. The ongoing block transfer completes, but no new transfers are requested."]
     #[inline(always)]
     #[must_use]
-    pub fn en(&mut self) -> EN_W<0> {
-        EN_W::new(self)
+    pub fn en(&mut self) -> EnW<Dmach0ctlSpec> {
+        EnW::new(self, 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 Channel priority 0: Low 1: High If both channels have the same priority, access of the channels to the external port is arbitrated using the round robin scheme. If one channel has a high priority and another one low, the channel with the high priority is served first, in case of simultaneous access requests."]
     #[inline(always)]
     #[must_use]
-    pub fn prio(&mut self) -> PRIO_W<1> {
-        PRIO_W::new(self)
+    pub fn prio(&mut self) -> PrioW<Dmach0ctlSpec> {
+        PrioW::new(self, 1)
     }
     #[doc = "Bits 2:31 - 31:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved2(&mut self) -> RESERVED2_W<2> {
-        RESERVED2_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved2(&mut self) -> Reserved2W<Dmach0ctlSpec> {
+        Reserved2W::new(self, 2)
     }
 }
-#[doc = "Channel 0 Control This register is used for channel enabling and priority selection. When a channel is disabled, it becomes inactive only when all ongoing requests are finished.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dmach0ctl](index.html) module"]
-pub struct DMACH0CTL_SPEC;
-impl crate::RegisterSpec for DMACH0CTL_SPEC {
+#[doc = "Channel 0 Control This register is used for channel enabling and priority selection. When a channel is disabled, it becomes inactive only when all ongoing requests are finished.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`dmach0ctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`dmach0ctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Dmach0ctlSpec;
+impl crate::RegisterSpec for Dmach0ctlSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [dmach0ctl::R](R) reader structure"]
-impl crate::Readable for DMACH0CTL_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [dmach0ctl::W](W) writer structure"]
-impl crate::Writable for DMACH0CTL_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`dmach0ctl::R`](R) reader structure"]
+impl crate::Readable for Dmach0ctlSpec {}
+#[doc = "`write(|w| ..)` method takes [`dmach0ctl::W`](W) writer structure"]
+impl crate::Writable for Dmach0ctlSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets DMACH0CTL to value 0"]
-impl crate::Resettable for DMACH0CTL_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for Dmach0ctlSpec {
+    const RESET_VALUE: u32 = 0;
 }

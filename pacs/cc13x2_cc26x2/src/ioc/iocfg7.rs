@@ -1,1265 +1,1279 @@
 #[doc = "Register `IOCFG7` reader"]
-pub struct R(crate::R<IOCFG7_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<IOCFG7_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<IOCFG7_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<IOCFG7_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Iocfg7Spec>;
 #[doc = "Register `IOCFG7` writer"]
-pub struct W(crate::W<IOCFG7_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<IOCFG7_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<IOCFG7_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<IOCFG7_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `PORT_ID` reader - 5:0\\]
-Selects usage for DIO7 Note: This field should not be written other than the times when PORT_ID value is specifically required to change."]
-pub type PORT_ID_R = crate::FieldReader<u8, PORT_ID_A>;
+pub type W = crate::W<Iocfg7Spec>;
 #[doc = "5:0\\]
 Selects usage for DIO7 Note: This field should not be written other than the times when PORT_ID value is specifically required to change.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum PORT_ID_A {
+pub enum PortId {
     #[doc = "56: RF Core SMI Command Link In"]
-    RFC_SMI_CL_IN = 56,
+    RfcSmiClIn = 56,
     #[doc = "55: RF Core SMI Command Link Out"]
-    RFC_SMI_CL_OUT = 55,
+    RfcSmiClOut = 55,
     #[doc = "54: RF Core SMI Data Link In"]
-    RFC_SMI_DL_IN = 54,
+    RfcSmiDlIn = 54,
     #[doc = "53: RF Core SMI Data Link Out"]
-    RFC_SMI_DL_OUT = 53,
+    RfcSmiDlOut = 53,
     #[doc = "52: RF Core Data In 1"]
-    RFC_GPI1 = 52,
+    RfcGpi1 = 52,
     #[doc = "51: RF Core Data In 0"]
-    RFC_GPI0 = 51,
+    RfcGpi0 = 51,
     #[doc = "50: RF Core Data Out 3"]
-    RFC_GPO3 = 50,
+    RfcGpo3 = 50,
     #[doc = "49: RF Core Data Out 2"]
-    RFC_GPO2 = 49,
+    RfcGpo2 = 49,
     #[doc = "48: RF Core Data Out 1"]
-    RFC_GPO1 = 48,
+    RfcGpo1 = 48,
     #[doc = "47: RF Core Data Out 0"]
-    RFC_GPO0 = 47,
+    RfcGpo0 = 47,
     #[doc = "46: RF Core Trace"]
-    RFC_TRC = 46,
+    RfcTrc = 46,
     #[doc = "41: I2S MCLK"]
-    I2S_MCLK = 41,
+    I2sMclk = 41,
     #[doc = "40: I2S BCLK"]
-    I2S_BCLK = 40,
+    I2sBclk = 40,
     #[doc = "39: I2S WCLK"]
-    I2S_WCLK = 39,
+    I2sWclk = 39,
     #[doc = "38: I2S Data 1"]
-    I2S_AD1 = 38,
+    I2sAd1 = 38,
     #[doc = "37: I2S Data 0"]
-    I2S_AD0 = 37,
+    I2sAd0 = 37,
     #[doc = "36: SSI1 CLK"]
-    SSI1_CLK = 36,
+    Ssi1Clk = 36,
     #[doc = "35: SSI1 FSS"]
-    SSI1_FSS = 35,
+    Ssi1Fss = 35,
     #[doc = "34: SSI1 TX"]
-    SSI1_TX = 34,
+    Ssi1Tx = 34,
     #[doc = "33: SSI1 RX"]
-    SSI1_RX = 33,
+    Ssi1Rx = 33,
     #[doc = "32: CPU SWV"]
-    CPU_SWV = 32,
+    CpuSwv = 32,
     #[doc = "30: PORT EVENT 7 Can be used as a general purpose IO event by selecting it through registers in the EVENT module, for example EVENT:GPT0ACAPTSEL.EV, EVENT:UDMACH14BSEL.EV, and so on"]
-    PORT_EVENT7 = 30,
+    PortEvent7 = 30,
     #[doc = "29: PORT EVENT 6 Can be used as a general purpose IO event by selecting it through registers in the EVENT module, for example EVENT:GPT0ACAPTSEL.EV, EVENT:UDMACH14BSEL.EV, and so on"]
-    PORT_EVENT6 = 29,
+    PortEvent6 = 29,
     #[doc = "28: PORT EVENT 5 Can be used as a general purpose IO event by selecting it through registers in the EVENT module, for example EVENT:GPT0ACAPTSEL.EV, EVENT:UDMACH14BSEL.EV, and so on"]
-    PORT_EVENT5 = 28,
+    PortEvent5 = 28,
     #[doc = "27: PORT EVENT 4 Can be used as a general purpose IO event by selecting it through registers in the EVENT module, for example EVENT:GPT0ACAPTSEL.EV, EVENT:UDMACH14BSEL.EV, and so on"]
-    PORT_EVENT4 = 27,
+    PortEvent4 = 27,
     #[doc = "26: PORT EVENT 3 Can be used as a general purpose IO event by selecting it through registers in the EVENT module, for example EVENT:GPT0ACAPTSEL.EV, EVENT:UDMACH14BSEL.EV, and so on"]
-    PORT_EVENT3 = 26,
+    PortEvent3 = 26,
     #[doc = "25: PORT EVENT 2 Can be used as a general purpose IO event by selecting it through registers in the EVENT module, for example EVENT:GPT0ACAPTSEL.EV, EVENT:UDMACH14BSEL.EV, and so on"]
-    PORT_EVENT2 = 25,
+    PortEvent2 = 25,
     #[doc = "24: PORT EVENT 1 Can be used as a general purpose IO event by selecting it through registers in the EVENT module, for example EVENT:GPT0ACAPTSEL.EV, EVENT:UDMACH14BSEL.EV, and so on"]
-    PORT_EVENT1 = 24,
+    PortEvent1 = 24,
     #[doc = "23: PORT EVENT 0 Can be used as a general purpose IO event by selecting it through registers in the EVENT module, for example EVENT:GPT0ACAPTSEL.EV, EVENT:UDMACH14BSEL.EV, and so on"]
-    PORT_EVENT0 = 23,
+    PortEvent0 = 23,
     #[doc = "22: UART1 RTS"]
-    UART1_RTS = 22,
+    Uart1Rts = 22,
     #[doc = "21: UART1 CTS"]
-    UART1_CTS = 21,
+    Uart1Cts = 21,
     #[doc = "20: UART1 TX"]
-    UART1_TX = 20,
+    Uart1Tx = 20,
     #[doc = "19: UART1 RX"]
-    UART1_RX = 19,
+    Uart1Rx = 19,
     #[doc = "18: UART0 RTS"]
-    UART0_RTS = 18,
+    Uart0Rts = 18,
     #[doc = "17: UART0 CTS"]
-    UART0_CTS = 17,
+    Uart0Cts = 17,
     #[doc = "16: UART0 TX"]
-    UART0_TX = 16,
+    Uart0Tx = 16,
     #[doc = "15: UART0 RX"]
-    UART0_RX = 15,
+    Uart0Rx = 15,
     #[doc = "14: I2C Clock"]
-    I2C_MSSCL = 14,
+    I2cMsscl = 14,
     #[doc = "13: I2C Data"]
-    I2C_MSSDA = 13,
+    I2cMssda = 13,
     #[doc = "12: SSI0 CLK"]
-    SSI0_CLK = 12,
+    Ssi0Clk = 12,
     #[doc = "11: SSI0 FSS"]
-    SSI0_FSS = 11,
+    Ssi0Fss = 11,
     #[doc = "10: SSI0 TX"]
-    SSI0_TX = 10,
+    Ssi0Tx = 10,
     #[doc = "9: SSI0 RX"]
-    SSI0_RX = 9,
+    Ssi0Rx = 9,
     #[doc = "8: AUX IO"]
-    AUX_IO = 8,
+    AuxIo = 8,
     #[doc = "7: AON 32 KHz clock (SCLK_LF)"]
-    AON_CLK32K = 7,
+    AonClk32k = 7,
     #[doc = "0: General Purpose IO"]
-    GPIO = 0,
+    Gpio = 0,
 }
-impl From<PORT_ID_A> for u8 {
+impl From<PortId> for u8 {
     #[inline(always)]
-    fn from(variant: PORT_ID_A) -> Self {
+    fn from(variant: PortId) -> Self {
         variant as _
     }
 }
-impl PORT_ID_R {
+impl crate::FieldSpec for PortId {
+    type Ux = u8;
+}
+impl crate::IsEnum for PortId {}
+#[doc = "Field `PORT_ID` reader - 5:0\\]
+Selects usage for DIO7 Note: This field should not be written other than the times when PORT_ID value is specifically required to change."]
+pub type PortIdR = crate::FieldReader<PortId>;
+impl PortIdR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<PORT_ID_A> {
+    pub const fn variant(&self) -> Option<PortId> {
         match self.bits {
-            56 => Some(PORT_ID_A::RFC_SMI_CL_IN),
-            55 => Some(PORT_ID_A::RFC_SMI_CL_OUT),
-            54 => Some(PORT_ID_A::RFC_SMI_DL_IN),
-            53 => Some(PORT_ID_A::RFC_SMI_DL_OUT),
-            52 => Some(PORT_ID_A::RFC_GPI1),
-            51 => Some(PORT_ID_A::RFC_GPI0),
-            50 => Some(PORT_ID_A::RFC_GPO3),
-            49 => Some(PORT_ID_A::RFC_GPO2),
-            48 => Some(PORT_ID_A::RFC_GPO1),
-            47 => Some(PORT_ID_A::RFC_GPO0),
-            46 => Some(PORT_ID_A::RFC_TRC),
-            41 => Some(PORT_ID_A::I2S_MCLK),
-            40 => Some(PORT_ID_A::I2S_BCLK),
-            39 => Some(PORT_ID_A::I2S_WCLK),
-            38 => Some(PORT_ID_A::I2S_AD1),
-            37 => Some(PORT_ID_A::I2S_AD0),
-            36 => Some(PORT_ID_A::SSI1_CLK),
-            35 => Some(PORT_ID_A::SSI1_FSS),
-            34 => Some(PORT_ID_A::SSI1_TX),
-            33 => Some(PORT_ID_A::SSI1_RX),
-            32 => Some(PORT_ID_A::CPU_SWV),
-            30 => Some(PORT_ID_A::PORT_EVENT7),
-            29 => Some(PORT_ID_A::PORT_EVENT6),
-            28 => Some(PORT_ID_A::PORT_EVENT5),
-            27 => Some(PORT_ID_A::PORT_EVENT4),
-            26 => Some(PORT_ID_A::PORT_EVENT3),
-            25 => Some(PORT_ID_A::PORT_EVENT2),
-            24 => Some(PORT_ID_A::PORT_EVENT1),
-            23 => Some(PORT_ID_A::PORT_EVENT0),
-            22 => Some(PORT_ID_A::UART1_RTS),
-            21 => Some(PORT_ID_A::UART1_CTS),
-            20 => Some(PORT_ID_A::UART1_TX),
-            19 => Some(PORT_ID_A::UART1_RX),
-            18 => Some(PORT_ID_A::UART0_RTS),
-            17 => Some(PORT_ID_A::UART0_CTS),
-            16 => Some(PORT_ID_A::UART0_TX),
-            15 => Some(PORT_ID_A::UART0_RX),
-            14 => Some(PORT_ID_A::I2C_MSSCL),
-            13 => Some(PORT_ID_A::I2C_MSSDA),
-            12 => Some(PORT_ID_A::SSI0_CLK),
-            11 => Some(PORT_ID_A::SSI0_FSS),
-            10 => Some(PORT_ID_A::SSI0_TX),
-            9 => Some(PORT_ID_A::SSI0_RX),
-            8 => Some(PORT_ID_A::AUX_IO),
-            7 => Some(PORT_ID_A::AON_CLK32K),
-            0 => Some(PORT_ID_A::GPIO),
+            56 => Some(PortId::RfcSmiClIn),
+            55 => Some(PortId::RfcSmiClOut),
+            54 => Some(PortId::RfcSmiDlIn),
+            53 => Some(PortId::RfcSmiDlOut),
+            52 => Some(PortId::RfcGpi1),
+            51 => Some(PortId::RfcGpi0),
+            50 => Some(PortId::RfcGpo3),
+            49 => Some(PortId::RfcGpo2),
+            48 => Some(PortId::RfcGpo1),
+            47 => Some(PortId::RfcGpo0),
+            46 => Some(PortId::RfcTrc),
+            41 => Some(PortId::I2sMclk),
+            40 => Some(PortId::I2sBclk),
+            39 => Some(PortId::I2sWclk),
+            38 => Some(PortId::I2sAd1),
+            37 => Some(PortId::I2sAd0),
+            36 => Some(PortId::Ssi1Clk),
+            35 => Some(PortId::Ssi1Fss),
+            34 => Some(PortId::Ssi1Tx),
+            33 => Some(PortId::Ssi1Rx),
+            32 => Some(PortId::CpuSwv),
+            30 => Some(PortId::PortEvent7),
+            29 => Some(PortId::PortEvent6),
+            28 => Some(PortId::PortEvent5),
+            27 => Some(PortId::PortEvent4),
+            26 => Some(PortId::PortEvent3),
+            25 => Some(PortId::PortEvent2),
+            24 => Some(PortId::PortEvent1),
+            23 => Some(PortId::PortEvent0),
+            22 => Some(PortId::Uart1Rts),
+            21 => Some(PortId::Uart1Cts),
+            20 => Some(PortId::Uart1Tx),
+            19 => Some(PortId::Uart1Rx),
+            18 => Some(PortId::Uart0Rts),
+            17 => Some(PortId::Uart0Cts),
+            16 => Some(PortId::Uart0Tx),
+            15 => Some(PortId::Uart0Rx),
+            14 => Some(PortId::I2cMsscl),
+            13 => Some(PortId::I2cMssda),
+            12 => Some(PortId::Ssi0Clk),
+            11 => Some(PortId::Ssi0Fss),
+            10 => Some(PortId::Ssi0Tx),
+            9 => Some(PortId::Ssi0Rx),
+            8 => Some(PortId::AuxIo),
+            7 => Some(PortId::AonClk32k),
+            0 => Some(PortId::Gpio),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `RFC_SMI_CL_IN`"]
+    #[doc = "RF Core SMI Command Link In"]
     #[inline(always)]
     pub fn is_rfc_smi_cl_in(&self) -> bool {
-        *self == PORT_ID_A::RFC_SMI_CL_IN
+        *self == PortId::RfcSmiClIn
     }
-    #[doc = "Checks if the value of the field is `RFC_SMI_CL_OUT`"]
+    #[doc = "RF Core SMI Command Link Out"]
     #[inline(always)]
     pub fn is_rfc_smi_cl_out(&self) -> bool {
-        *self == PORT_ID_A::RFC_SMI_CL_OUT
+        *self == PortId::RfcSmiClOut
     }
-    #[doc = "Checks if the value of the field is `RFC_SMI_DL_IN`"]
+    #[doc = "RF Core SMI Data Link In"]
     #[inline(always)]
     pub fn is_rfc_smi_dl_in(&self) -> bool {
-        *self == PORT_ID_A::RFC_SMI_DL_IN
+        *self == PortId::RfcSmiDlIn
     }
-    #[doc = "Checks if the value of the field is `RFC_SMI_DL_OUT`"]
+    #[doc = "RF Core SMI Data Link Out"]
     #[inline(always)]
     pub fn is_rfc_smi_dl_out(&self) -> bool {
-        *self == PORT_ID_A::RFC_SMI_DL_OUT
+        *self == PortId::RfcSmiDlOut
     }
-    #[doc = "Checks if the value of the field is `RFC_GPI1`"]
+    #[doc = "RF Core Data In 1"]
     #[inline(always)]
     pub fn is_rfc_gpi1(&self) -> bool {
-        *self == PORT_ID_A::RFC_GPI1
+        *self == PortId::RfcGpi1
     }
-    #[doc = "Checks if the value of the field is `RFC_GPI0`"]
+    #[doc = "RF Core Data In 0"]
     #[inline(always)]
     pub fn is_rfc_gpi0(&self) -> bool {
-        *self == PORT_ID_A::RFC_GPI0
+        *self == PortId::RfcGpi0
     }
-    #[doc = "Checks if the value of the field is `RFC_GPO3`"]
+    #[doc = "RF Core Data Out 3"]
     #[inline(always)]
     pub fn is_rfc_gpo3(&self) -> bool {
-        *self == PORT_ID_A::RFC_GPO3
+        *self == PortId::RfcGpo3
     }
-    #[doc = "Checks if the value of the field is `RFC_GPO2`"]
+    #[doc = "RF Core Data Out 2"]
     #[inline(always)]
     pub fn is_rfc_gpo2(&self) -> bool {
-        *self == PORT_ID_A::RFC_GPO2
+        *self == PortId::RfcGpo2
     }
-    #[doc = "Checks if the value of the field is `RFC_GPO1`"]
+    #[doc = "RF Core Data Out 1"]
     #[inline(always)]
     pub fn is_rfc_gpo1(&self) -> bool {
-        *self == PORT_ID_A::RFC_GPO1
+        *self == PortId::RfcGpo1
     }
-    #[doc = "Checks if the value of the field is `RFC_GPO0`"]
+    #[doc = "RF Core Data Out 0"]
     #[inline(always)]
     pub fn is_rfc_gpo0(&self) -> bool {
-        *self == PORT_ID_A::RFC_GPO0
+        *self == PortId::RfcGpo0
     }
-    #[doc = "Checks if the value of the field is `RFC_TRC`"]
+    #[doc = "RF Core Trace"]
     #[inline(always)]
     pub fn is_rfc_trc(&self) -> bool {
-        *self == PORT_ID_A::RFC_TRC
+        *self == PortId::RfcTrc
     }
-    #[doc = "Checks if the value of the field is `I2S_MCLK`"]
+    #[doc = "I2S MCLK"]
     #[inline(always)]
     pub fn is_i2s_mclk(&self) -> bool {
-        *self == PORT_ID_A::I2S_MCLK
+        *self == PortId::I2sMclk
     }
-    #[doc = "Checks if the value of the field is `I2S_BCLK`"]
+    #[doc = "I2S BCLK"]
     #[inline(always)]
     pub fn is_i2s_bclk(&self) -> bool {
-        *self == PORT_ID_A::I2S_BCLK
+        *self == PortId::I2sBclk
     }
-    #[doc = "Checks if the value of the field is `I2S_WCLK`"]
+    #[doc = "I2S WCLK"]
     #[inline(always)]
     pub fn is_i2s_wclk(&self) -> bool {
-        *self == PORT_ID_A::I2S_WCLK
+        *self == PortId::I2sWclk
     }
-    #[doc = "Checks if the value of the field is `I2S_AD1`"]
+    #[doc = "I2S Data 1"]
     #[inline(always)]
     pub fn is_i2s_ad1(&self) -> bool {
-        *self == PORT_ID_A::I2S_AD1
+        *self == PortId::I2sAd1
     }
-    #[doc = "Checks if the value of the field is `I2S_AD0`"]
+    #[doc = "I2S Data 0"]
     #[inline(always)]
     pub fn is_i2s_ad0(&self) -> bool {
-        *self == PORT_ID_A::I2S_AD0
+        *self == PortId::I2sAd0
     }
-    #[doc = "Checks if the value of the field is `SSI1_CLK`"]
+    #[doc = "SSI1 CLK"]
     #[inline(always)]
     pub fn is_ssi1_clk(&self) -> bool {
-        *self == PORT_ID_A::SSI1_CLK
+        *self == PortId::Ssi1Clk
     }
-    #[doc = "Checks if the value of the field is `SSI1_FSS`"]
+    #[doc = "SSI1 FSS"]
     #[inline(always)]
     pub fn is_ssi1_fss(&self) -> bool {
-        *self == PORT_ID_A::SSI1_FSS
+        *self == PortId::Ssi1Fss
     }
-    #[doc = "Checks if the value of the field is `SSI1_TX`"]
+    #[doc = "SSI1 TX"]
     #[inline(always)]
     pub fn is_ssi1_tx(&self) -> bool {
-        *self == PORT_ID_A::SSI1_TX
+        *self == PortId::Ssi1Tx
     }
-    #[doc = "Checks if the value of the field is `SSI1_RX`"]
+    #[doc = "SSI1 RX"]
     #[inline(always)]
     pub fn is_ssi1_rx(&self) -> bool {
-        *self == PORT_ID_A::SSI1_RX
+        *self == PortId::Ssi1Rx
     }
-    #[doc = "Checks if the value of the field is `CPU_SWV`"]
+    #[doc = "CPU SWV"]
     #[inline(always)]
     pub fn is_cpu_swv(&self) -> bool {
-        *self == PORT_ID_A::CPU_SWV
+        *self == PortId::CpuSwv
     }
-    #[doc = "Checks if the value of the field is `PORT_EVENT7`"]
+    #[doc = "PORT EVENT 7 Can be used as a general purpose IO event by selecting it through registers in the EVENT module, for example EVENT:GPT0ACAPTSEL.EV, EVENT:UDMACH14BSEL.EV, and so on"]
     #[inline(always)]
     pub fn is_port_event7(&self) -> bool {
-        *self == PORT_ID_A::PORT_EVENT7
+        *self == PortId::PortEvent7
     }
-    #[doc = "Checks if the value of the field is `PORT_EVENT6`"]
+    #[doc = "PORT EVENT 6 Can be used as a general purpose IO event by selecting it through registers in the EVENT module, for example EVENT:GPT0ACAPTSEL.EV, EVENT:UDMACH14BSEL.EV, and so on"]
     #[inline(always)]
     pub fn is_port_event6(&self) -> bool {
-        *self == PORT_ID_A::PORT_EVENT6
+        *self == PortId::PortEvent6
     }
-    #[doc = "Checks if the value of the field is `PORT_EVENT5`"]
+    #[doc = "PORT EVENT 5 Can be used as a general purpose IO event by selecting it through registers in the EVENT module, for example EVENT:GPT0ACAPTSEL.EV, EVENT:UDMACH14BSEL.EV, and so on"]
     #[inline(always)]
     pub fn is_port_event5(&self) -> bool {
-        *self == PORT_ID_A::PORT_EVENT5
+        *self == PortId::PortEvent5
     }
-    #[doc = "Checks if the value of the field is `PORT_EVENT4`"]
+    #[doc = "PORT EVENT 4 Can be used as a general purpose IO event by selecting it through registers in the EVENT module, for example EVENT:GPT0ACAPTSEL.EV, EVENT:UDMACH14BSEL.EV, and so on"]
     #[inline(always)]
     pub fn is_port_event4(&self) -> bool {
-        *self == PORT_ID_A::PORT_EVENT4
+        *self == PortId::PortEvent4
     }
-    #[doc = "Checks if the value of the field is `PORT_EVENT3`"]
+    #[doc = "PORT EVENT 3 Can be used as a general purpose IO event by selecting it through registers in the EVENT module, for example EVENT:GPT0ACAPTSEL.EV, EVENT:UDMACH14BSEL.EV, and so on"]
     #[inline(always)]
     pub fn is_port_event3(&self) -> bool {
-        *self == PORT_ID_A::PORT_EVENT3
+        *self == PortId::PortEvent3
     }
-    #[doc = "Checks if the value of the field is `PORT_EVENT2`"]
+    #[doc = "PORT EVENT 2 Can be used as a general purpose IO event by selecting it through registers in the EVENT module, for example EVENT:GPT0ACAPTSEL.EV, EVENT:UDMACH14BSEL.EV, and so on"]
     #[inline(always)]
     pub fn is_port_event2(&self) -> bool {
-        *self == PORT_ID_A::PORT_EVENT2
+        *self == PortId::PortEvent2
     }
-    #[doc = "Checks if the value of the field is `PORT_EVENT1`"]
+    #[doc = "PORT EVENT 1 Can be used as a general purpose IO event by selecting it through registers in the EVENT module, for example EVENT:GPT0ACAPTSEL.EV, EVENT:UDMACH14BSEL.EV, and so on"]
     #[inline(always)]
     pub fn is_port_event1(&self) -> bool {
-        *self == PORT_ID_A::PORT_EVENT1
+        *self == PortId::PortEvent1
     }
-    #[doc = "Checks if the value of the field is `PORT_EVENT0`"]
+    #[doc = "PORT EVENT 0 Can be used as a general purpose IO event by selecting it through registers in the EVENT module, for example EVENT:GPT0ACAPTSEL.EV, EVENT:UDMACH14BSEL.EV, and so on"]
     #[inline(always)]
     pub fn is_port_event0(&self) -> bool {
-        *self == PORT_ID_A::PORT_EVENT0
+        *self == PortId::PortEvent0
     }
-    #[doc = "Checks if the value of the field is `UART1_RTS`"]
+    #[doc = "UART1 RTS"]
     #[inline(always)]
     pub fn is_uart1_rts(&self) -> bool {
-        *self == PORT_ID_A::UART1_RTS
+        *self == PortId::Uart1Rts
     }
-    #[doc = "Checks if the value of the field is `UART1_CTS`"]
+    #[doc = "UART1 CTS"]
     #[inline(always)]
     pub fn is_uart1_cts(&self) -> bool {
-        *self == PORT_ID_A::UART1_CTS
+        *self == PortId::Uart1Cts
     }
-    #[doc = "Checks if the value of the field is `UART1_TX`"]
+    #[doc = "UART1 TX"]
     #[inline(always)]
     pub fn is_uart1_tx(&self) -> bool {
-        *self == PORT_ID_A::UART1_TX
+        *self == PortId::Uart1Tx
     }
-    #[doc = "Checks if the value of the field is `UART1_RX`"]
+    #[doc = "UART1 RX"]
     #[inline(always)]
     pub fn is_uart1_rx(&self) -> bool {
-        *self == PORT_ID_A::UART1_RX
+        *self == PortId::Uart1Rx
     }
-    #[doc = "Checks if the value of the field is `UART0_RTS`"]
+    #[doc = "UART0 RTS"]
     #[inline(always)]
     pub fn is_uart0_rts(&self) -> bool {
-        *self == PORT_ID_A::UART0_RTS
+        *self == PortId::Uart0Rts
     }
-    #[doc = "Checks if the value of the field is `UART0_CTS`"]
+    #[doc = "UART0 CTS"]
     #[inline(always)]
     pub fn is_uart0_cts(&self) -> bool {
-        *self == PORT_ID_A::UART0_CTS
+        *self == PortId::Uart0Cts
     }
-    #[doc = "Checks if the value of the field is `UART0_TX`"]
+    #[doc = "UART0 TX"]
     #[inline(always)]
     pub fn is_uart0_tx(&self) -> bool {
-        *self == PORT_ID_A::UART0_TX
+        *self == PortId::Uart0Tx
     }
-    #[doc = "Checks if the value of the field is `UART0_RX`"]
+    #[doc = "UART0 RX"]
     #[inline(always)]
     pub fn is_uart0_rx(&self) -> bool {
-        *self == PORT_ID_A::UART0_RX
+        *self == PortId::Uart0Rx
     }
-    #[doc = "Checks if the value of the field is `I2C_MSSCL`"]
+    #[doc = "I2C Clock"]
     #[inline(always)]
     pub fn is_i2c_msscl(&self) -> bool {
-        *self == PORT_ID_A::I2C_MSSCL
+        *self == PortId::I2cMsscl
     }
-    #[doc = "Checks if the value of the field is `I2C_MSSDA`"]
+    #[doc = "I2C Data"]
     #[inline(always)]
     pub fn is_i2c_mssda(&self) -> bool {
-        *self == PORT_ID_A::I2C_MSSDA
+        *self == PortId::I2cMssda
     }
-    #[doc = "Checks if the value of the field is `SSI0_CLK`"]
+    #[doc = "SSI0 CLK"]
     #[inline(always)]
     pub fn is_ssi0_clk(&self) -> bool {
-        *self == PORT_ID_A::SSI0_CLK
+        *self == PortId::Ssi0Clk
     }
-    #[doc = "Checks if the value of the field is `SSI0_FSS`"]
+    #[doc = "SSI0 FSS"]
     #[inline(always)]
     pub fn is_ssi0_fss(&self) -> bool {
-        *self == PORT_ID_A::SSI0_FSS
+        *self == PortId::Ssi0Fss
     }
-    #[doc = "Checks if the value of the field is `SSI0_TX`"]
+    #[doc = "SSI0 TX"]
     #[inline(always)]
     pub fn is_ssi0_tx(&self) -> bool {
-        *self == PORT_ID_A::SSI0_TX
+        *self == PortId::Ssi0Tx
     }
-    #[doc = "Checks if the value of the field is `SSI0_RX`"]
+    #[doc = "SSI0 RX"]
     #[inline(always)]
     pub fn is_ssi0_rx(&self) -> bool {
-        *self == PORT_ID_A::SSI0_RX
+        *self == PortId::Ssi0Rx
     }
-    #[doc = "Checks if the value of the field is `AUX_IO`"]
+    #[doc = "AUX IO"]
     #[inline(always)]
     pub fn is_aux_io(&self) -> bool {
-        *self == PORT_ID_A::AUX_IO
+        *self == PortId::AuxIo
     }
-    #[doc = "Checks if the value of the field is `AON_CLK32K`"]
+    #[doc = "AON 32 KHz clock (SCLK_LF)"]
     #[inline(always)]
     pub fn is_aon_clk32k(&self) -> bool {
-        *self == PORT_ID_A::AON_CLK32K
+        *self == PortId::AonClk32k
     }
-    #[doc = "Checks if the value of the field is `GPIO`"]
+    #[doc = "General Purpose IO"]
     #[inline(always)]
     pub fn is_gpio(&self) -> bool {
-        *self == PORT_ID_A::GPIO
+        *self == PortId::Gpio
     }
 }
 #[doc = "Field `PORT_ID` writer - 5:0\\]
 Selects usage for DIO7 Note: This field should not be written other than the times when PORT_ID value is specifically required to change."]
-pub type PORT_ID_W<'a, const O: u8> = crate::FieldWriter<'a, u32, IOCFG7_SPEC, u8, PORT_ID_A, 6, O>;
-impl<'a, const O: u8> PORT_ID_W<'a, O> {
+pub type PortIdW<'a, REG> = crate::FieldWriter<'a, REG, 6, PortId>;
+impl<'a, REG> PortIdW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "RF Core SMI Command Link In"]
     #[inline(always)]
-    pub fn rfc_smi_cl_in(self) -> &'a mut W {
-        self.variant(PORT_ID_A::RFC_SMI_CL_IN)
+    pub fn rfc_smi_cl_in(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::RfcSmiClIn)
     }
     #[doc = "RF Core SMI Command Link Out"]
     #[inline(always)]
-    pub fn rfc_smi_cl_out(self) -> &'a mut W {
-        self.variant(PORT_ID_A::RFC_SMI_CL_OUT)
+    pub fn rfc_smi_cl_out(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::RfcSmiClOut)
     }
     #[doc = "RF Core SMI Data Link In"]
     #[inline(always)]
-    pub fn rfc_smi_dl_in(self) -> &'a mut W {
-        self.variant(PORT_ID_A::RFC_SMI_DL_IN)
+    pub fn rfc_smi_dl_in(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::RfcSmiDlIn)
     }
     #[doc = "RF Core SMI Data Link Out"]
     #[inline(always)]
-    pub fn rfc_smi_dl_out(self) -> &'a mut W {
-        self.variant(PORT_ID_A::RFC_SMI_DL_OUT)
+    pub fn rfc_smi_dl_out(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::RfcSmiDlOut)
     }
     #[doc = "RF Core Data In 1"]
     #[inline(always)]
-    pub fn rfc_gpi1(self) -> &'a mut W {
-        self.variant(PORT_ID_A::RFC_GPI1)
+    pub fn rfc_gpi1(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::RfcGpi1)
     }
     #[doc = "RF Core Data In 0"]
     #[inline(always)]
-    pub fn rfc_gpi0(self) -> &'a mut W {
-        self.variant(PORT_ID_A::RFC_GPI0)
+    pub fn rfc_gpi0(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::RfcGpi0)
     }
     #[doc = "RF Core Data Out 3"]
     #[inline(always)]
-    pub fn rfc_gpo3(self) -> &'a mut W {
-        self.variant(PORT_ID_A::RFC_GPO3)
+    pub fn rfc_gpo3(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::RfcGpo3)
     }
     #[doc = "RF Core Data Out 2"]
     #[inline(always)]
-    pub fn rfc_gpo2(self) -> &'a mut W {
-        self.variant(PORT_ID_A::RFC_GPO2)
+    pub fn rfc_gpo2(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::RfcGpo2)
     }
     #[doc = "RF Core Data Out 1"]
     #[inline(always)]
-    pub fn rfc_gpo1(self) -> &'a mut W {
-        self.variant(PORT_ID_A::RFC_GPO1)
+    pub fn rfc_gpo1(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::RfcGpo1)
     }
     #[doc = "RF Core Data Out 0"]
     #[inline(always)]
-    pub fn rfc_gpo0(self) -> &'a mut W {
-        self.variant(PORT_ID_A::RFC_GPO0)
+    pub fn rfc_gpo0(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::RfcGpo0)
     }
     #[doc = "RF Core Trace"]
     #[inline(always)]
-    pub fn rfc_trc(self) -> &'a mut W {
-        self.variant(PORT_ID_A::RFC_TRC)
+    pub fn rfc_trc(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::RfcTrc)
     }
     #[doc = "I2S MCLK"]
     #[inline(always)]
-    pub fn i2s_mclk(self) -> &'a mut W {
-        self.variant(PORT_ID_A::I2S_MCLK)
+    pub fn i2s_mclk(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::I2sMclk)
     }
     #[doc = "I2S BCLK"]
     #[inline(always)]
-    pub fn i2s_bclk(self) -> &'a mut W {
-        self.variant(PORT_ID_A::I2S_BCLK)
+    pub fn i2s_bclk(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::I2sBclk)
     }
     #[doc = "I2S WCLK"]
     #[inline(always)]
-    pub fn i2s_wclk(self) -> &'a mut W {
-        self.variant(PORT_ID_A::I2S_WCLK)
+    pub fn i2s_wclk(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::I2sWclk)
     }
     #[doc = "I2S Data 1"]
     #[inline(always)]
-    pub fn i2s_ad1(self) -> &'a mut W {
-        self.variant(PORT_ID_A::I2S_AD1)
+    pub fn i2s_ad1(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::I2sAd1)
     }
     #[doc = "I2S Data 0"]
     #[inline(always)]
-    pub fn i2s_ad0(self) -> &'a mut W {
-        self.variant(PORT_ID_A::I2S_AD0)
+    pub fn i2s_ad0(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::I2sAd0)
     }
     #[doc = "SSI1 CLK"]
     #[inline(always)]
-    pub fn ssi1_clk(self) -> &'a mut W {
-        self.variant(PORT_ID_A::SSI1_CLK)
+    pub fn ssi1_clk(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::Ssi1Clk)
     }
     #[doc = "SSI1 FSS"]
     #[inline(always)]
-    pub fn ssi1_fss(self) -> &'a mut W {
-        self.variant(PORT_ID_A::SSI1_FSS)
+    pub fn ssi1_fss(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::Ssi1Fss)
     }
     #[doc = "SSI1 TX"]
     #[inline(always)]
-    pub fn ssi1_tx(self) -> &'a mut W {
-        self.variant(PORT_ID_A::SSI1_TX)
+    pub fn ssi1_tx(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::Ssi1Tx)
     }
     #[doc = "SSI1 RX"]
     #[inline(always)]
-    pub fn ssi1_rx(self) -> &'a mut W {
-        self.variant(PORT_ID_A::SSI1_RX)
+    pub fn ssi1_rx(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::Ssi1Rx)
     }
     #[doc = "CPU SWV"]
     #[inline(always)]
-    pub fn cpu_swv(self) -> &'a mut W {
-        self.variant(PORT_ID_A::CPU_SWV)
+    pub fn cpu_swv(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::CpuSwv)
     }
     #[doc = "PORT EVENT 7 Can be used as a general purpose IO event by selecting it through registers in the EVENT module, for example EVENT:GPT0ACAPTSEL.EV, EVENT:UDMACH14BSEL.EV, and so on"]
     #[inline(always)]
-    pub fn port_event7(self) -> &'a mut W {
-        self.variant(PORT_ID_A::PORT_EVENT7)
+    pub fn port_event7(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::PortEvent7)
     }
     #[doc = "PORT EVENT 6 Can be used as a general purpose IO event by selecting it through registers in the EVENT module, for example EVENT:GPT0ACAPTSEL.EV, EVENT:UDMACH14BSEL.EV, and so on"]
     #[inline(always)]
-    pub fn port_event6(self) -> &'a mut W {
-        self.variant(PORT_ID_A::PORT_EVENT6)
+    pub fn port_event6(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::PortEvent6)
     }
     #[doc = "PORT EVENT 5 Can be used as a general purpose IO event by selecting it through registers in the EVENT module, for example EVENT:GPT0ACAPTSEL.EV, EVENT:UDMACH14BSEL.EV, and so on"]
     #[inline(always)]
-    pub fn port_event5(self) -> &'a mut W {
-        self.variant(PORT_ID_A::PORT_EVENT5)
+    pub fn port_event5(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::PortEvent5)
     }
     #[doc = "PORT EVENT 4 Can be used as a general purpose IO event by selecting it through registers in the EVENT module, for example EVENT:GPT0ACAPTSEL.EV, EVENT:UDMACH14BSEL.EV, and so on"]
     #[inline(always)]
-    pub fn port_event4(self) -> &'a mut W {
-        self.variant(PORT_ID_A::PORT_EVENT4)
+    pub fn port_event4(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::PortEvent4)
     }
     #[doc = "PORT EVENT 3 Can be used as a general purpose IO event by selecting it through registers in the EVENT module, for example EVENT:GPT0ACAPTSEL.EV, EVENT:UDMACH14BSEL.EV, and so on"]
     #[inline(always)]
-    pub fn port_event3(self) -> &'a mut W {
-        self.variant(PORT_ID_A::PORT_EVENT3)
+    pub fn port_event3(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::PortEvent3)
     }
     #[doc = "PORT EVENT 2 Can be used as a general purpose IO event by selecting it through registers in the EVENT module, for example EVENT:GPT0ACAPTSEL.EV, EVENT:UDMACH14BSEL.EV, and so on"]
     #[inline(always)]
-    pub fn port_event2(self) -> &'a mut W {
-        self.variant(PORT_ID_A::PORT_EVENT2)
+    pub fn port_event2(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::PortEvent2)
     }
     #[doc = "PORT EVENT 1 Can be used as a general purpose IO event by selecting it through registers in the EVENT module, for example EVENT:GPT0ACAPTSEL.EV, EVENT:UDMACH14BSEL.EV, and so on"]
     #[inline(always)]
-    pub fn port_event1(self) -> &'a mut W {
-        self.variant(PORT_ID_A::PORT_EVENT1)
+    pub fn port_event1(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::PortEvent1)
     }
     #[doc = "PORT EVENT 0 Can be used as a general purpose IO event by selecting it through registers in the EVENT module, for example EVENT:GPT0ACAPTSEL.EV, EVENT:UDMACH14BSEL.EV, and so on"]
     #[inline(always)]
-    pub fn port_event0(self) -> &'a mut W {
-        self.variant(PORT_ID_A::PORT_EVENT0)
+    pub fn port_event0(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::PortEvent0)
     }
     #[doc = "UART1 RTS"]
     #[inline(always)]
-    pub fn uart1_rts(self) -> &'a mut W {
-        self.variant(PORT_ID_A::UART1_RTS)
+    pub fn uart1_rts(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::Uart1Rts)
     }
     #[doc = "UART1 CTS"]
     #[inline(always)]
-    pub fn uart1_cts(self) -> &'a mut W {
-        self.variant(PORT_ID_A::UART1_CTS)
+    pub fn uart1_cts(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::Uart1Cts)
     }
     #[doc = "UART1 TX"]
     #[inline(always)]
-    pub fn uart1_tx(self) -> &'a mut W {
-        self.variant(PORT_ID_A::UART1_TX)
+    pub fn uart1_tx(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::Uart1Tx)
     }
     #[doc = "UART1 RX"]
     #[inline(always)]
-    pub fn uart1_rx(self) -> &'a mut W {
-        self.variant(PORT_ID_A::UART1_RX)
+    pub fn uart1_rx(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::Uart1Rx)
     }
     #[doc = "UART0 RTS"]
     #[inline(always)]
-    pub fn uart0_rts(self) -> &'a mut W {
-        self.variant(PORT_ID_A::UART0_RTS)
+    pub fn uart0_rts(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::Uart0Rts)
     }
     #[doc = "UART0 CTS"]
     #[inline(always)]
-    pub fn uart0_cts(self) -> &'a mut W {
-        self.variant(PORT_ID_A::UART0_CTS)
+    pub fn uart0_cts(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::Uart0Cts)
     }
     #[doc = "UART0 TX"]
     #[inline(always)]
-    pub fn uart0_tx(self) -> &'a mut W {
-        self.variant(PORT_ID_A::UART0_TX)
+    pub fn uart0_tx(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::Uart0Tx)
     }
     #[doc = "UART0 RX"]
     #[inline(always)]
-    pub fn uart0_rx(self) -> &'a mut W {
-        self.variant(PORT_ID_A::UART0_RX)
+    pub fn uart0_rx(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::Uart0Rx)
     }
     #[doc = "I2C Clock"]
     #[inline(always)]
-    pub fn i2c_msscl(self) -> &'a mut W {
-        self.variant(PORT_ID_A::I2C_MSSCL)
+    pub fn i2c_msscl(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::I2cMsscl)
     }
     #[doc = "I2C Data"]
     #[inline(always)]
-    pub fn i2c_mssda(self) -> &'a mut W {
-        self.variant(PORT_ID_A::I2C_MSSDA)
+    pub fn i2c_mssda(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::I2cMssda)
     }
     #[doc = "SSI0 CLK"]
     #[inline(always)]
-    pub fn ssi0_clk(self) -> &'a mut W {
-        self.variant(PORT_ID_A::SSI0_CLK)
+    pub fn ssi0_clk(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::Ssi0Clk)
     }
     #[doc = "SSI0 FSS"]
     #[inline(always)]
-    pub fn ssi0_fss(self) -> &'a mut W {
-        self.variant(PORT_ID_A::SSI0_FSS)
+    pub fn ssi0_fss(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::Ssi0Fss)
     }
     #[doc = "SSI0 TX"]
     #[inline(always)]
-    pub fn ssi0_tx(self) -> &'a mut W {
-        self.variant(PORT_ID_A::SSI0_TX)
+    pub fn ssi0_tx(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::Ssi0Tx)
     }
     #[doc = "SSI0 RX"]
     #[inline(always)]
-    pub fn ssi0_rx(self) -> &'a mut W {
-        self.variant(PORT_ID_A::SSI0_RX)
+    pub fn ssi0_rx(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::Ssi0Rx)
     }
     #[doc = "AUX IO"]
     #[inline(always)]
-    pub fn aux_io(self) -> &'a mut W {
-        self.variant(PORT_ID_A::AUX_IO)
+    pub fn aux_io(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::AuxIo)
     }
     #[doc = "AON 32 KHz clock (SCLK_LF)"]
     #[inline(always)]
-    pub fn aon_clk32k(self) -> &'a mut W {
-        self.variant(PORT_ID_A::AON_CLK32K)
+    pub fn aon_clk32k(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::AonClk32k)
     }
     #[doc = "General Purpose IO"]
     #[inline(always)]
-    pub fn gpio(self) -> &'a mut W {
-        self.variant(PORT_ID_A::GPIO)
+    pub fn gpio(self) -> &'a mut crate::W<REG> {
+        self.variant(PortId::Gpio)
     }
 }
 #[doc = "Field `IOEV_MCU_WU_EN` reader - 6:6\\]
 Event asserted by this IO when edge detection is enabled 0: Input edge detection does not assert MCU_WU event 1: Input edge detection asserts MCU_WU event"]
-pub type IOEV_MCU_WU_EN_R = crate::BitReader<bool>;
+pub type IoevMcuWuEnR = crate::BitReader;
 #[doc = "Field `IOEV_MCU_WU_EN` writer - 6:6\\]
 Event asserted by this IO when edge detection is enabled 0: Input edge detection does not assert MCU_WU event 1: Input edge detection asserts MCU_WU event"]
-pub type IOEV_MCU_WU_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, IOCFG7_SPEC, bool, O>;
+pub type IoevMcuWuEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `IOEV_RTC_EN` reader - 7:7\\]
 Event asserted by this IO when edge detection is enabled 0: Input edge detection does not assert RTC event 1: Input edge detection asserts RTC event"]
-pub type IOEV_RTC_EN_R = crate::BitReader<bool>;
+pub type IoevRtcEnR = crate::BitReader;
 #[doc = "Field `IOEV_RTC_EN` writer - 7:7\\]
 Event asserted by this IO when edge detection is enabled 0: Input edge detection does not assert RTC event 1: Input edge detection asserts RTC event"]
-pub type IOEV_RTC_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, IOCFG7_SPEC, bool, O>;
-#[doc = "Field `IOSTR` reader - 9:8\\]
-Select source for drive strength control of this IO. This setting controls the drive strength of the Low-Current (LC) mode. Higher drive strength can be selected in IOCURR"]
-pub type IOSTR_R = crate::FieldReader<u8, IOSTR_A>;
+pub type IoevRtcEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "9:8\\]
 Select source for drive strength control of this IO. This setting controls the drive strength of the Low-Current (LC) mode. Higher drive strength can be selected in IOCURR\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum IOSTR_A {
+pub enum Iostr {
     #[doc = "3: Maximum drive strength, controlled by AON_IOC:IOSTRMAX (min 2 mA @1.8V with default values)"]
-    MAX = 3,
+    Max = 3,
     #[doc = "2: Medium drive strength, controlled by AON_IOC:IOSTRMED (min 2 mA @2.5V with default values)"]
-    MED = 2,
+    Med = 2,
     #[doc = "1: Minimum drive strength, controlled by AON_IOC:IOSTRMIN (min 2 mA @3.3V with default values)"]
-    MIN = 1,
+    Min = 1,
     #[doc = "0: Automatic drive strength, controlled by AON BATMON based on battery voltage. (min 2 mA @VDDS)"]
-    AUTO = 0,
+    Auto = 0,
 }
-impl From<IOSTR_A> for u8 {
+impl From<Iostr> for u8 {
     #[inline(always)]
-    fn from(variant: IOSTR_A) -> Self {
+    fn from(variant: Iostr) -> Self {
         variant as _
     }
 }
-impl IOSTR_R {
+impl crate::FieldSpec for Iostr {
+    type Ux = u8;
+}
+impl crate::IsEnum for Iostr {}
+#[doc = "Field `IOSTR` reader - 9:8\\]
+Select source for drive strength control of this IO. This setting controls the drive strength of the Low-Current (LC) mode. Higher drive strength can be selected in IOCURR"]
+pub type IostrR = crate::FieldReader<Iostr>;
+impl IostrR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> IOSTR_A {
+    pub const fn variant(&self) -> Iostr {
         match self.bits {
-            3 => IOSTR_A::MAX,
-            2 => IOSTR_A::MED,
-            1 => IOSTR_A::MIN,
-            0 => IOSTR_A::AUTO,
+            3 => Iostr::Max,
+            2 => Iostr::Med,
+            1 => Iostr::Min,
+            0 => Iostr::Auto,
             _ => unreachable!(),
         }
     }
-    #[doc = "Checks if the value of the field is `MAX`"]
+    #[doc = "Maximum drive strength, controlled by AON_IOC:IOSTRMAX (min 2 mA @1.8V with default values)"]
     #[inline(always)]
     pub fn is_max(&self) -> bool {
-        *self == IOSTR_A::MAX
+        *self == Iostr::Max
     }
-    #[doc = "Checks if the value of the field is `MED`"]
+    #[doc = "Medium drive strength, controlled by AON_IOC:IOSTRMED (min 2 mA @2.5V with default values)"]
     #[inline(always)]
     pub fn is_med(&self) -> bool {
-        *self == IOSTR_A::MED
+        *self == Iostr::Med
     }
-    #[doc = "Checks if the value of the field is `MIN`"]
+    #[doc = "Minimum drive strength, controlled by AON_IOC:IOSTRMIN (min 2 mA @3.3V with default values)"]
     #[inline(always)]
     pub fn is_min(&self) -> bool {
-        *self == IOSTR_A::MIN
+        *self == Iostr::Min
     }
-    #[doc = "Checks if the value of the field is `AUTO`"]
+    #[doc = "Automatic drive strength, controlled by AON BATMON based on battery voltage. (min 2 mA @VDDS)"]
     #[inline(always)]
     pub fn is_auto(&self) -> bool {
-        *self == IOSTR_A::AUTO
+        *self == Iostr::Auto
     }
 }
 #[doc = "Field `IOSTR` writer - 9:8\\]
 Select source for drive strength control of this IO. This setting controls the drive strength of the Low-Current (LC) mode. Higher drive strength can be selected in IOCURR"]
-pub type IOSTR_W<'a, const O: u8> = crate::FieldWriterSafe<'a, u32, IOCFG7_SPEC, u8, IOSTR_A, 2, O>;
-impl<'a, const O: u8> IOSTR_W<'a, O> {
+pub type IostrW<'a, REG> = crate::FieldWriter<'a, REG, 2, Iostr, crate::Safe>;
+impl<'a, REG> IostrW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "Maximum drive strength, controlled by AON_IOC:IOSTRMAX (min 2 mA @1.8V with default values)"]
     #[inline(always)]
-    pub fn max(self) -> &'a mut W {
-        self.variant(IOSTR_A::MAX)
+    pub fn max(self) -> &'a mut crate::W<REG> {
+        self.variant(Iostr::Max)
     }
     #[doc = "Medium drive strength, controlled by AON_IOC:IOSTRMED (min 2 mA @2.5V with default values)"]
     #[inline(always)]
-    pub fn med(self) -> &'a mut W {
-        self.variant(IOSTR_A::MED)
+    pub fn med(self) -> &'a mut crate::W<REG> {
+        self.variant(Iostr::Med)
     }
     #[doc = "Minimum drive strength, controlled by AON_IOC:IOSTRMIN (min 2 mA @3.3V with default values)"]
     #[inline(always)]
-    pub fn min(self) -> &'a mut W {
-        self.variant(IOSTR_A::MIN)
+    pub fn min(self) -> &'a mut crate::W<REG> {
+        self.variant(Iostr::Min)
     }
     #[doc = "Automatic drive strength, controlled by AON BATMON based on battery voltage. (min 2 mA @VDDS)"]
     #[inline(always)]
-    pub fn auto(self) -> &'a mut W {
-        self.variant(IOSTR_A::AUTO)
+    pub fn auto(self) -> &'a mut crate::W<REG> {
+        self.variant(Iostr::Auto)
     }
 }
-#[doc = "Field `IOCURR` reader - 11:10\\]
-Selects IO current mode of this IO."]
-pub type IOCURR_R = crate::FieldReader<u8, IOCURR_A>;
 #[doc = "11:10\\]
 Selects IO current mode of this IO.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum IOCURR_A {
+pub enum Iocurr {
     #[doc = "2: Extended-Current (EC) mode: Min 8 mA for double drive strength IOs (min 4 mA for normal IOs) when IOSTR is set to AUTO"]
-    _4_8MA = 2,
+    _4_8ma = 2,
     #[doc = "1: High-Current (HC) mode: Min 4 mA when IOSTR is set to AUTO"]
-    _4MA = 1,
+    _4ma = 1,
     #[doc = "0: Low-Current (LC) mode: Min 2 mA when IOSTR is set to AUTO"]
-    _2MA = 0,
+    _2ma = 0,
 }
-impl From<IOCURR_A> for u8 {
+impl From<Iocurr> for u8 {
     #[inline(always)]
-    fn from(variant: IOCURR_A) -> Self {
+    fn from(variant: Iocurr) -> Self {
         variant as _
     }
 }
-impl IOCURR_R {
+impl crate::FieldSpec for Iocurr {
+    type Ux = u8;
+}
+impl crate::IsEnum for Iocurr {}
+#[doc = "Field `IOCURR` reader - 11:10\\]
+Selects IO current mode of this IO."]
+pub type IocurrR = crate::FieldReader<Iocurr>;
+impl IocurrR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<IOCURR_A> {
+    pub const fn variant(&self) -> Option<Iocurr> {
         match self.bits {
-            2 => Some(IOCURR_A::_4_8MA),
-            1 => Some(IOCURR_A::_4MA),
-            0 => Some(IOCURR_A::_2MA),
+            2 => Some(Iocurr::_4_8ma),
+            1 => Some(Iocurr::_4ma),
+            0 => Some(Iocurr::_2ma),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `_4_8MA`"]
+    #[doc = "Extended-Current (EC) mode: Min 8 mA for double drive strength IOs (min 4 mA for normal IOs) when IOSTR is set to AUTO"]
     #[inline(always)]
     pub fn is_4_8ma(&self) -> bool {
-        *self == IOCURR_A::_4_8MA
+        *self == Iocurr::_4_8ma
     }
-    #[doc = "Checks if the value of the field is `_4MA`"]
+    #[doc = "High-Current (HC) mode: Min 4 mA when IOSTR is set to AUTO"]
     #[inline(always)]
     pub fn is_4ma(&self) -> bool {
-        *self == IOCURR_A::_4MA
+        *self == Iocurr::_4ma
     }
-    #[doc = "Checks if the value of the field is `_2MA`"]
+    #[doc = "Low-Current (LC) mode: Min 2 mA when IOSTR is set to AUTO"]
     #[inline(always)]
     pub fn is_2ma(&self) -> bool {
-        *self == IOCURR_A::_2MA
+        *self == Iocurr::_2ma
     }
 }
 #[doc = "Field `IOCURR` writer - 11:10\\]
 Selects IO current mode of this IO."]
-pub type IOCURR_W<'a, const O: u8> = crate::FieldWriter<'a, u32, IOCFG7_SPEC, u8, IOCURR_A, 2, O>;
-impl<'a, const O: u8> IOCURR_W<'a, O> {
+pub type IocurrW<'a, REG> = crate::FieldWriter<'a, REG, 2, Iocurr>;
+impl<'a, REG> IocurrW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "Extended-Current (EC) mode: Min 8 mA for double drive strength IOs (min 4 mA for normal IOs) when IOSTR is set to AUTO"]
     #[inline(always)]
-    pub fn _4_8ma(self) -> &'a mut W {
-        self.variant(IOCURR_A::_4_8MA)
+    pub fn _4_8ma(self) -> &'a mut crate::W<REG> {
+        self.variant(Iocurr::_4_8ma)
     }
     #[doc = "High-Current (HC) mode: Min 4 mA when IOSTR is set to AUTO"]
     #[inline(always)]
-    pub fn _4ma(self) -> &'a mut W {
-        self.variant(IOCURR_A::_4MA)
+    pub fn _4ma(self) -> &'a mut crate::W<REG> {
+        self.variant(Iocurr::_4ma)
     }
     #[doc = "Low-Current (LC) mode: Min 2 mA when IOSTR is set to AUTO"]
     #[inline(always)]
-    pub fn _2ma(self) -> &'a mut W {
-        self.variant(IOCURR_A::_2MA)
+    pub fn _2ma(self) -> &'a mut crate::W<REG> {
+        self.variant(Iocurr::_2ma)
     }
 }
 #[doc = "Field `SLEW_RED` reader - 12:12\\]
 0: Normal slew rate 1: Enables reduced slew rate in output driver."]
-pub type SLEW_RED_R = crate::BitReader<bool>;
+pub type SlewRedR = crate::BitReader;
 #[doc = "Field `SLEW_RED` writer - 12:12\\]
 0: Normal slew rate 1: Enables reduced slew rate in output driver."]
-pub type SLEW_RED_W<'a, const O: u8> = crate::BitWriter<'a, u32, IOCFG7_SPEC, bool, O>;
-#[doc = "Field `PULL_CTL` reader - 14:13\\]
-Pull control"]
-pub type PULL_CTL_R = crate::FieldReader<u8, PULL_CTL_A>;
+pub type SlewRedW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "14:13\\]
 Pull control\n\nValue on reset: 3"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum PULL_CTL_A {
+pub enum PullCtl {
     #[doc = "3: No pull"]
-    DIS = 3,
+    Dis = 3,
     #[doc = "2: Pull up"]
-    UP = 2,
+    Up = 2,
     #[doc = "1: Pull down"]
-    DWN = 1,
+    Dwn = 1,
 }
-impl From<PULL_CTL_A> for u8 {
+impl From<PullCtl> for u8 {
     #[inline(always)]
-    fn from(variant: PULL_CTL_A) -> Self {
+    fn from(variant: PullCtl) -> Self {
         variant as _
     }
 }
-impl PULL_CTL_R {
+impl crate::FieldSpec for PullCtl {
+    type Ux = u8;
+}
+impl crate::IsEnum for PullCtl {}
+#[doc = "Field `PULL_CTL` reader - 14:13\\]
+Pull control"]
+pub type PullCtlR = crate::FieldReader<PullCtl>;
+impl PullCtlR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<PULL_CTL_A> {
+    pub const fn variant(&self) -> Option<PullCtl> {
         match self.bits {
-            3 => Some(PULL_CTL_A::DIS),
-            2 => Some(PULL_CTL_A::UP),
-            1 => Some(PULL_CTL_A::DWN),
+            3 => Some(PullCtl::Dis),
+            2 => Some(PullCtl::Up),
+            1 => Some(PullCtl::Dwn),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `DIS`"]
+    #[doc = "No pull"]
     #[inline(always)]
     pub fn is_dis(&self) -> bool {
-        *self == PULL_CTL_A::DIS
+        *self == PullCtl::Dis
     }
-    #[doc = "Checks if the value of the field is `UP`"]
+    #[doc = "Pull up"]
     #[inline(always)]
     pub fn is_up(&self) -> bool {
-        *self == PULL_CTL_A::UP
+        *self == PullCtl::Up
     }
-    #[doc = "Checks if the value of the field is `DWN`"]
+    #[doc = "Pull down"]
     #[inline(always)]
     pub fn is_dwn(&self) -> bool {
-        *self == PULL_CTL_A::DWN
+        *self == PullCtl::Dwn
     }
 }
 #[doc = "Field `PULL_CTL` writer - 14:13\\]
 Pull control"]
-pub type PULL_CTL_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u32, IOCFG7_SPEC, u8, PULL_CTL_A, 2, O>;
-impl<'a, const O: u8> PULL_CTL_W<'a, O> {
+pub type PullCtlW<'a, REG> = crate::FieldWriter<'a, REG, 2, PullCtl>;
+impl<'a, REG> PullCtlW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "No pull"]
     #[inline(always)]
-    pub fn dis(self) -> &'a mut W {
-        self.variant(PULL_CTL_A::DIS)
+    pub fn dis(self) -> &'a mut crate::W<REG> {
+        self.variant(PullCtl::Dis)
     }
     #[doc = "Pull up"]
     #[inline(always)]
-    pub fn up(self) -> &'a mut W {
-        self.variant(PULL_CTL_A::UP)
+    pub fn up(self) -> &'a mut crate::W<REG> {
+        self.variant(PullCtl::Up)
     }
     #[doc = "Pull down"]
     #[inline(always)]
-    pub fn dwn(self) -> &'a mut W {
-        self.variant(PULL_CTL_A::DWN)
+    pub fn dwn(self) -> &'a mut crate::W<REG> {
+        self.variant(PullCtl::Dwn)
     }
 }
 #[doc = "Field `RESERVED15` reader - 15:15\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED15_R = crate::BitReader<bool>;
+pub type Reserved15R = crate::BitReader;
 #[doc = "Field `RESERVED15` writer - 15:15\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED15_W<'a, const O: u8> = crate::BitWriter<'a, u32, IOCFG7_SPEC, bool, O>;
-#[doc = "Field `EDGE_DET` reader - 17:16\\]
-Enable generation of edge detection events on this IO"]
-pub type EDGE_DET_R = crate::FieldReader<u8, EDGE_DET_A>;
+pub type Reserved15W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "17:16\\]
 Enable generation of edge detection events on this IO\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum EDGE_DET_A {
+pub enum EdgeDet {
     #[doc = "3: Positive and negative edge detection"]
-    BOTH = 3,
+    Both = 3,
     #[doc = "2: Positive edge detection"]
-    POS = 2,
+    Pos = 2,
     #[doc = "1: Negative edge detection"]
-    NEG = 1,
+    Neg = 1,
     #[doc = "0: No edge detection"]
-    NONE = 0,
+    None = 0,
 }
-impl From<EDGE_DET_A> for u8 {
+impl From<EdgeDet> for u8 {
     #[inline(always)]
-    fn from(variant: EDGE_DET_A) -> Self {
+    fn from(variant: EdgeDet) -> Self {
         variant as _
     }
 }
-impl EDGE_DET_R {
+impl crate::FieldSpec for EdgeDet {
+    type Ux = u8;
+}
+impl crate::IsEnum for EdgeDet {}
+#[doc = "Field `EDGE_DET` reader - 17:16\\]
+Enable generation of edge detection events on this IO"]
+pub type EdgeDetR = crate::FieldReader<EdgeDet>;
+impl EdgeDetR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> EDGE_DET_A {
+    pub const fn variant(&self) -> EdgeDet {
         match self.bits {
-            3 => EDGE_DET_A::BOTH,
-            2 => EDGE_DET_A::POS,
-            1 => EDGE_DET_A::NEG,
-            0 => EDGE_DET_A::NONE,
+            3 => EdgeDet::Both,
+            2 => EdgeDet::Pos,
+            1 => EdgeDet::Neg,
+            0 => EdgeDet::None,
             _ => unreachable!(),
         }
     }
-    #[doc = "Checks if the value of the field is `BOTH`"]
+    #[doc = "Positive and negative edge detection"]
     #[inline(always)]
     pub fn is_both(&self) -> bool {
-        *self == EDGE_DET_A::BOTH
+        *self == EdgeDet::Both
     }
-    #[doc = "Checks if the value of the field is `POS`"]
+    #[doc = "Positive edge detection"]
     #[inline(always)]
     pub fn is_pos(&self) -> bool {
-        *self == EDGE_DET_A::POS
+        *self == EdgeDet::Pos
     }
-    #[doc = "Checks if the value of the field is `NEG`"]
+    #[doc = "Negative edge detection"]
     #[inline(always)]
     pub fn is_neg(&self) -> bool {
-        *self == EDGE_DET_A::NEG
+        *self == EdgeDet::Neg
     }
-    #[doc = "Checks if the value of the field is `NONE`"]
+    #[doc = "No edge detection"]
     #[inline(always)]
     pub fn is_none(&self) -> bool {
-        *self == EDGE_DET_A::NONE
+        *self == EdgeDet::None
     }
 }
 #[doc = "Field `EDGE_DET` writer - 17:16\\]
 Enable generation of edge detection events on this IO"]
-pub type EDGE_DET_W<'a, const O: u8> =
-    crate::FieldWriterSafe<'a, u32, IOCFG7_SPEC, u8, EDGE_DET_A, 2, O>;
-impl<'a, const O: u8> EDGE_DET_W<'a, O> {
+pub type EdgeDetW<'a, REG> = crate::FieldWriter<'a, REG, 2, EdgeDet, crate::Safe>;
+impl<'a, REG> EdgeDetW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "Positive and negative edge detection"]
     #[inline(always)]
-    pub fn both(self) -> &'a mut W {
-        self.variant(EDGE_DET_A::BOTH)
+    pub fn both(self) -> &'a mut crate::W<REG> {
+        self.variant(EdgeDet::Both)
     }
     #[doc = "Positive edge detection"]
     #[inline(always)]
-    pub fn pos(self) -> &'a mut W {
-        self.variant(EDGE_DET_A::POS)
+    pub fn pos(self) -> &'a mut crate::W<REG> {
+        self.variant(EdgeDet::Pos)
     }
     #[doc = "Negative edge detection"]
     #[inline(always)]
-    pub fn neg(self) -> &'a mut W {
-        self.variant(EDGE_DET_A::NEG)
+    pub fn neg(self) -> &'a mut crate::W<REG> {
+        self.variant(EdgeDet::Neg)
     }
     #[doc = "No edge detection"]
     #[inline(always)]
-    pub fn none(self) -> &'a mut W {
-        self.variant(EDGE_DET_A::NONE)
+    pub fn none(self) -> &'a mut crate::W<REG> {
+        self.variant(EdgeDet::None)
     }
 }
 #[doc = "Field `EDGE_IRQ_EN` reader - 18:18\\]
 0: No interrupt generation 1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)"]
-pub type EDGE_IRQ_EN_R = crate::BitReader<bool>;
+pub type EdgeIrqEnR = crate::BitReader;
 #[doc = "Field `EDGE_IRQ_EN` writer - 18:18\\]
 0: No interrupt generation 1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)"]
-pub type EDGE_IRQ_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, IOCFG7_SPEC, bool, O>;
+pub type EdgeIrqEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED19` reader - 20:19\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED19_R = crate::FieldReader<u8, u8>;
+pub type Reserved19R = crate::FieldReader;
 #[doc = "Field `RESERVED19` writer - 20:19\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED19_W<'a, const O: u8> = crate::FieldWriter<'a, u32, IOCFG7_SPEC, u8, u8, 2, O>;
+pub type Reserved19W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `IOEV_AON_PROG0_EN` reader - 21:21\\]
 Event asserted by this IO when edge detection is enabled 0: Input edge detection does not assert AON_PROG0 event 1: Input edge detection asserts AON_PROG0 event"]
-pub type IOEV_AON_PROG0_EN_R = crate::BitReader<bool>;
+pub type IoevAonProg0EnR = crate::BitReader;
 #[doc = "Field `IOEV_AON_PROG0_EN` writer - 21:21\\]
 Event asserted by this IO when edge detection is enabled 0: Input edge detection does not assert AON_PROG0 event 1: Input edge detection asserts AON_PROG0 event"]
-pub type IOEV_AON_PROG0_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, IOCFG7_SPEC, bool, O>;
+pub type IoevAonProg0EnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `IOEV_AON_PROG1_EN` reader - 22:22\\]
 Event asserted by this IO when edge detection is enabled 0: Input edge detection does not assert AON_PROG1 event 1: Input edge detection asserts AON_PROG1 event"]
-pub type IOEV_AON_PROG1_EN_R = crate::BitReader<bool>;
+pub type IoevAonProg1EnR = crate::BitReader;
 #[doc = "Field `IOEV_AON_PROG1_EN` writer - 22:22\\]
 Event asserted by this IO when edge detection is enabled 0: Input edge detection does not assert AON_PROG1 event 1: Input edge detection asserts AON_PROG1 event"]
-pub type IOEV_AON_PROG1_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, IOCFG7_SPEC, bool, O>;
+pub type IoevAonProg1EnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `IOEV_AON_PROG2_EN` reader - 23:23\\]
 Event asserted by this IO when edge detection is enabled 0: Input edge detection does not assert AON_PROG2 event 1: Input edge detection asserts AON_PROG2 event"]
-pub type IOEV_AON_PROG2_EN_R = crate::BitReader<bool>;
+pub type IoevAonProg2EnR = crate::BitReader;
 #[doc = "Field `IOEV_AON_PROG2_EN` writer - 23:23\\]
 Event asserted by this IO when edge detection is enabled 0: Input edge detection does not assert AON_PROG2 event 1: Input edge detection asserts AON_PROG2 event"]
-pub type IOEV_AON_PROG2_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, IOCFG7_SPEC, bool, O>;
-#[doc = "Field `IOMODE` reader - 26:24\\]
-IO Mode Not applicable for IO configured for AON periph. signals and AUX PORT_ID 0x01-0x08 AUX has its own open_source/drain configuration. 0x2: Reserved. Undefined behavior. 0x3: Reserved. Undefined behavior."]
-pub type IOMODE_R = crate::FieldReader<u8, IOMODE_A>;
+pub type IoevAonProg2EnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "26:24\\]
 IO Mode Not applicable for IO configured for AON periph. signals and AUX PORT_ID 0x01-0x08 AUX has its own open_source/drain configuration. 0x2: Reserved. Undefined behavior. 0x3: Reserved. Undefined behavior.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum IOMODE_A {
+pub enum Iomode {
     #[doc = "7: Open Source Inverted input / output"]
-    OPENSRC_INV = 7,
+    OpensrcInv = 7,
     #[doc = "6: Open Source Normal input / output"]
-    OPENSRC = 6,
+    Opensrc = 6,
     #[doc = "5: Open Drain Inverted input / output"]
-    OPENDR_INV = 5,
+    OpendrInv = 5,
     #[doc = "4: Open Drain, Normal input / output"]
-    OPENDR = 4,
+    Opendr = 4,
     #[doc = "1: Inverted input / ouput"]
-    INV = 1,
+    Inv = 1,
     #[doc = "0: Normal input / output"]
-    NORMAL = 0,
+    Normal = 0,
 }
-impl From<IOMODE_A> for u8 {
+impl From<Iomode> for u8 {
     #[inline(always)]
-    fn from(variant: IOMODE_A) -> Self {
+    fn from(variant: Iomode) -> Self {
         variant as _
     }
 }
-impl IOMODE_R {
+impl crate::FieldSpec for Iomode {
+    type Ux = u8;
+}
+impl crate::IsEnum for Iomode {}
+#[doc = "Field `IOMODE` reader - 26:24\\]
+IO Mode Not applicable for IO configured for AON periph. signals and AUX PORT_ID 0x01-0x08 AUX has its own open_source/drain configuration. 0x2: Reserved. Undefined behavior. 0x3: Reserved. Undefined behavior."]
+pub type IomodeR = crate::FieldReader<Iomode>;
+impl IomodeR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<IOMODE_A> {
+    pub const fn variant(&self) -> Option<Iomode> {
         match self.bits {
-            7 => Some(IOMODE_A::OPENSRC_INV),
-            6 => Some(IOMODE_A::OPENSRC),
-            5 => Some(IOMODE_A::OPENDR_INV),
-            4 => Some(IOMODE_A::OPENDR),
-            1 => Some(IOMODE_A::INV),
-            0 => Some(IOMODE_A::NORMAL),
+            7 => Some(Iomode::OpensrcInv),
+            6 => Some(Iomode::Opensrc),
+            5 => Some(Iomode::OpendrInv),
+            4 => Some(Iomode::Opendr),
+            1 => Some(Iomode::Inv),
+            0 => Some(Iomode::Normal),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `OPENSRC_INV`"]
+    #[doc = "Open Source Inverted input / output"]
     #[inline(always)]
     pub fn is_opensrc_inv(&self) -> bool {
-        *self == IOMODE_A::OPENSRC_INV
+        *self == Iomode::OpensrcInv
     }
-    #[doc = "Checks if the value of the field is `OPENSRC`"]
+    #[doc = "Open Source Normal input / output"]
     #[inline(always)]
     pub fn is_opensrc(&self) -> bool {
-        *self == IOMODE_A::OPENSRC
+        *self == Iomode::Opensrc
     }
-    #[doc = "Checks if the value of the field is `OPENDR_INV`"]
+    #[doc = "Open Drain Inverted input / output"]
     #[inline(always)]
     pub fn is_opendr_inv(&self) -> bool {
-        *self == IOMODE_A::OPENDR_INV
+        *self == Iomode::OpendrInv
     }
-    #[doc = "Checks if the value of the field is `OPENDR`"]
+    #[doc = "Open Drain, Normal input / output"]
     #[inline(always)]
     pub fn is_opendr(&self) -> bool {
-        *self == IOMODE_A::OPENDR
+        *self == Iomode::Opendr
     }
-    #[doc = "Checks if the value of the field is `INV`"]
+    #[doc = "Inverted input / ouput"]
     #[inline(always)]
     pub fn is_inv(&self) -> bool {
-        *self == IOMODE_A::INV
+        *self == Iomode::Inv
     }
-    #[doc = "Checks if the value of the field is `NORMAL`"]
+    #[doc = "Normal input / output"]
     #[inline(always)]
     pub fn is_normal(&self) -> bool {
-        *self == IOMODE_A::NORMAL
+        *self == Iomode::Normal
     }
 }
 #[doc = "Field `IOMODE` writer - 26:24\\]
 IO Mode Not applicable for IO configured for AON periph. signals and AUX PORT_ID 0x01-0x08 AUX has its own open_source/drain configuration. 0x2: Reserved. Undefined behavior. 0x3: Reserved. Undefined behavior."]
-pub type IOMODE_W<'a, const O: u8> = crate::FieldWriter<'a, u32, IOCFG7_SPEC, u8, IOMODE_A, 3, O>;
-impl<'a, const O: u8> IOMODE_W<'a, O> {
+pub type IomodeW<'a, REG> = crate::FieldWriter<'a, REG, 3, Iomode>;
+impl<'a, REG> IomodeW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "Open Source Inverted input / output"]
     #[inline(always)]
-    pub fn opensrc_inv(self) -> &'a mut W {
-        self.variant(IOMODE_A::OPENSRC_INV)
+    pub fn opensrc_inv(self) -> &'a mut crate::W<REG> {
+        self.variant(Iomode::OpensrcInv)
     }
     #[doc = "Open Source Normal input / output"]
     #[inline(always)]
-    pub fn opensrc(self) -> &'a mut W {
-        self.variant(IOMODE_A::OPENSRC)
+    pub fn opensrc(self) -> &'a mut crate::W<REG> {
+        self.variant(Iomode::Opensrc)
     }
     #[doc = "Open Drain Inverted input / output"]
     #[inline(always)]
-    pub fn opendr_inv(self) -> &'a mut W {
-        self.variant(IOMODE_A::OPENDR_INV)
+    pub fn opendr_inv(self) -> &'a mut crate::W<REG> {
+        self.variant(Iomode::OpendrInv)
     }
     #[doc = "Open Drain, Normal input / output"]
     #[inline(always)]
-    pub fn opendr(self) -> &'a mut W {
-        self.variant(IOMODE_A::OPENDR)
+    pub fn opendr(self) -> &'a mut crate::W<REG> {
+        self.variant(Iomode::Opendr)
     }
     #[doc = "Inverted input / ouput"]
     #[inline(always)]
-    pub fn inv(self) -> &'a mut W {
-        self.variant(IOMODE_A::INV)
+    pub fn inv(self) -> &'a mut crate::W<REG> {
+        self.variant(Iomode::Inv)
     }
     #[doc = "Normal input / output"]
     #[inline(always)]
-    pub fn normal(self) -> &'a mut W {
-        self.variant(IOMODE_A::NORMAL)
+    pub fn normal(self) -> &'a mut crate::W<REG> {
+        self.variant(Iomode::Normal)
     }
 }
 #[doc = "Field `WU_CFG` reader - 28:27\\]
 If DIO is configured GPIO or non-AON peripheral signals, PORT_ID 0x00 or >0x08: 00: No wake-up 01: No wake-up 10: Wakes up from shutdown if this pad is going low. 11: Wakes up from shutdown if this pad is going high. If IO is configured for AON peripheral signals or AUX PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 00, 01: Wakeup disabled 10, 11: Wakeup enabled Polarity is controlled from AON registers. Note:When the MSB is set, the IOC will deactivate the output enable for the DIO."]
-pub type WU_CFG_R = crate::FieldReader<u8, u8>;
+pub type WuCfgR = crate::FieldReader;
 #[doc = "Field `WU_CFG` writer - 28:27\\]
 If DIO is configured GPIO or non-AON peripheral signals, PORT_ID 0x00 or >0x08: 00: No wake-up 01: No wake-up 10: Wakes up from shutdown if this pad is going low. 11: Wakes up from shutdown if this pad is going high. If IO is configured for AON peripheral signals or AUX PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 00, 01: Wakeup disabled 10, 11: Wakeup enabled Polarity is controlled from AON registers. Note:When the MSB is set, the IOC will deactivate the output enable for the DIO."]
-pub type WU_CFG_W<'a, const O: u8> = crate::FieldWriter<'a, u32, IOCFG7_SPEC, u8, u8, 2, O>;
+pub type WuCfgW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `IE` reader - 29:29\\]
 0: Input disabled 1: Input enabled Note: If IO is configured for AUX PORT_ID = 0x08, the enable will be ignored."]
-pub type IE_R = crate::BitReader<bool>;
+pub type IeR = crate::BitReader;
 #[doc = "Field `IE` writer - 29:29\\]
 0: Input disabled 1: Input enabled Note: If IO is configured for AUX PORT_ID = 0x08, the enable will be ignored."]
-pub type IE_W<'a, const O: u8> = crate::BitWriter<'a, u32, IOCFG7_SPEC, bool, O>;
+pub type IeW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `HYST_EN` reader - 30:30\\]
 0: Input hysteresis disable 1: Input hysteresis enable"]
-pub type HYST_EN_R = crate::BitReader<bool>;
+pub type HystEnR = crate::BitReader;
 #[doc = "Field `HYST_EN` writer - 30:30\\]
 0: Input hysteresis disable 1: Input hysteresis enable"]
-pub type HYST_EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, IOCFG7_SPEC, bool, O>;
+pub type HystEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED31` reader - 31:31\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED31_R = crate::BitReader<bool>;
+pub type Reserved31R = crate::BitReader;
 #[doc = "Field `RESERVED31` writer - 31:31\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED31_W<'a, const O: u8> = crate::BitWriter<'a, u32, IOCFG7_SPEC, bool, O>;
+pub type Reserved31W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bits 0:5 - 5:0\\]
 Selects usage for DIO7 Note: This field should not be written other than the times when PORT_ID value is specifically required to change."]
     #[inline(always)]
-    pub fn port_id(&self) -> PORT_ID_R {
-        PORT_ID_R::new((self.bits & 0x3f) as u8)
+    pub fn port_id(&self) -> PortIdR {
+        PortIdR::new((self.bits & 0x3f) as u8)
     }
     #[doc = "Bit 6 - 6:6\\]
 Event asserted by this IO when edge detection is enabled 0: Input edge detection does not assert MCU_WU event 1: Input edge detection asserts MCU_WU event"]
     #[inline(always)]
-    pub fn ioev_mcu_wu_en(&self) -> IOEV_MCU_WU_EN_R {
-        IOEV_MCU_WU_EN_R::new(((self.bits >> 6) & 1) != 0)
+    pub fn ioev_mcu_wu_en(&self) -> IoevMcuWuEnR {
+        IoevMcuWuEnR::new(((self.bits >> 6) & 1) != 0)
     }
     #[doc = "Bit 7 - 7:7\\]
 Event asserted by this IO when edge detection is enabled 0: Input edge detection does not assert RTC event 1: Input edge detection asserts RTC event"]
     #[inline(always)]
-    pub fn ioev_rtc_en(&self) -> IOEV_RTC_EN_R {
-        IOEV_RTC_EN_R::new(((self.bits >> 7) & 1) != 0)
+    pub fn ioev_rtc_en(&self) -> IoevRtcEnR {
+        IoevRtcEnR::new(((self.bits >> 7) & 1) != 0)
     }
     #[doc = "Bits 8:9 - 9:8\\]
 Select source for drive strength control of this IO. This setting controls the drive strength of the Low-Current (LC) mode. Higher drive strength can be selected in IOCURR"]
     #[inline(always)]
-    pub fn iostr(&self) -> IOSTR_R {
-        IOSTR_R::new(((self.bits >> 8) & 3) as u8)
+    pub fn iostr(&self) -> IostrR {
+        IostrR::new(((self.bits >> 8) & 3) as u8)
     }
     #[doc = "Bits 10:11 - 11:10\\]
 Selects IO current mode of this IO."]
     #[inline(always)]
-    pub fn iocurr(&self) -> IOCURR_R {
-        IOCURR_R::new(((self.bits >> 10) & 3) as u8)
+    pub fn iocurr(&self) -> IocurrR {
+        IocurrR::new(((self.bits >> 10) & 3) as u8)
     }
     #[doc = "Bit 12 - 12:12\\]
 0: Normal slew rate 1: Enables reduced slew rate in output driver."]
     #[inline(always)]
-    pub fn slew_red(&self) -> SLEW_RED_R {
-        SLEW_RED_R::new(((self.bits >> 12) & 1) != 0)
+    pub fn slew_red(&self) -> SlewRedR {
+        SlewRedR::new(((self.bits >> 12) & 1) != 0)
     }
     #[doc = "Bits 13:14 - 14:13\\]
 Pull control"]
     #[inline(always)]
-    pub fn pull_ctl(&self) -> PULL_CTL_R {
-        PULL_CTL_R::new(((self.bits >> 13) & 3) as u8)
+    pub fn pull_ctl(&self) -> PullCtlR {
+        PullCtlR::new(((self.bits >> 13) & 3) as u8)
     }
     #[doc = "Bit 15 - 15:15\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved15(&self) -> RESERVED15_R {
-        RESERVED15_R::new(((self.bits >> 15) & 1) != 0)
+    pub fn reserved15(&self) -> Reserved15R {
+        Reserved15R::new(((self.bits >> 15) & 1) != 0)
     }
     #[doc = "Bits 16:17 - 17:16\\]
 Enable generation of edge detection events on this IO"]
     #[inline(always)]
-    pub fn edge_det(&self) -> EDGE_DET_R {
-        EDGE_DET_R::new(((self.bits >> 16) & 3) as u8)
+    pub fn edge_det(&self) -> EdgeDetR {
+        EdgeDetR::new(((self.bits >> 16) & 3) as u8)
     }
     #[doc = "Bit 18 - 18:18\\]
 0: No interrupt generation 1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)"]
     #[inline(always)]
-    pub fn edge_irq_en(&self) -> EDGE_IRQ_EN_R {
-        EDGE_IRQ_EN_R::new(((self.bits >> 18) & 1) != 0)
+    pub fn edge_irq_en(&self) -> EdgeIrqEnR {
+        EdgeIrqEnR::new(((self.bits >> 18) & 1) != 0)
     }
     #[doc = "Bits 19:20 - 20:19\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved19(&self) -> RESERVED19_R {
-        RESERVED19_R::new(((self.bits >> 19) & 3) as u8)
+    pub fn reserved19(&self) -> Reserved19R {
+        Reserved19R::new(((self.bits >> 19) & 3) as u8)
     }
     #[doc = "Bit 21 - 21:21\\]
 Event asserted by this IO when edge detection is enabled 0: Input edge detection does not assert AON_PROG0 event 1: Input edge detection asserts AON_PROG0 event"]
     #[inline(always)]
-    pub fn ioev_aon_prog0_en(&self) -> IOEV_AON_PROG0_EN_R {
-        IOEV_AON_PROG0_EN_R::new(((self.bits >> 21) & 1) != 0)
+    pub fn ioev_aon_prog0_en(&self) -> IoevAonProg0EnR {
+        IoevAonProg0EnR::new(((self.bits >> 21) & 1) != 0)
     }
     #[doc = "Bit 22 - 22:22\\]
 Event asserted by this IO when edge detection is enabled 0: Input edge detection does not assert AON_PROG1 event 1: Input edge detection asserts AON_PROG1 event"]
     #[inline(always)]
-    pub fn ioev_aon_prog1_en(&self) -> IOEV_AON_PROG1_EN_R {
-        IOEV_AON_PROG1_EN_R::new(((self.bits >> 22) & 1) != 0)
+    pub fn ioev_aon_prog1_en(&self) -> IoevAonProg1EnR {
+        IoevAonProg1EnR::new(((self.bits >> 22) & 1) != 0)
     }
     #[doc = "Bit 23 - 23:23\\]
 Event asserted by this IO when edge detection is enabled 0: Input edge detection does not assert AON_PROG2 event 1: Input edge detection asserts AON_PROG2 event"]
     #[inline(always)]
-    pub fn ioev_aon_prog2_en(&self) -> IOEV_AON_PROG2_EN_R {
-        IOEV_AON_PROG2_EN_R::new(((self.bits >> 23) & 1) != 0)
+    pub fn ioev_aon_prog2_en(&self) -> IoevAonProg2EnR {
+        IoevAonProg2EnR::new(((self.bits >> 23) & 1) != 0)
     }
     #[doc = "Bits 24:26 - 26:24\\]
 IO Mode Not applicable for IO configured for AON periph. signals and AUX PORT_ID 0x01-0x08 AUX has its own open_source/drain configuration. 0x2: Reserved. Undefined behavior. 0x3: Reserved. Undefined behavior."]
     #[inline(always)]
-    pub fn iomode(&self) -> IOMODE_R {
-        IOMODE_R::new(((self.bits >> 24) & 7) as u8)
+    pub fn iomode(&self) -> IomodeR {
+        IomodeR::new(((self.bits >> 24) & 7) as u8)
     }
     #[doc = "Bits 27:28 - 28:27\\]
 If DIO is configured GPIO or non-AON peripheral signals, PORT_ID 0x00 or >0x08: 00: No wake-up 01: No wake-up 10: Wakes up from shutdown if this pad is going low. 11: Wakes up from shutdown if this pad is going high. If IO is configured for AON peripheral signals or AUX PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 00, 01: Wakeup disabled 10, 11: Wakeup enabled Polarity is controlled from AON registers. Note:When the MSB is set, the IOC will deactivate the output enable for the DIO."]
     #[inline(always)]
-    pub fn wu_cfg(&self) -> WU_CFG_R {
-        WU_CFG_R::new(((self.bits >> 27) & 3) as u8)
+    pub fn wu_cfg(&self) -> WuCfgR {
+        WuCfgR::new(((self.bits >> 27) & 3) as u8)
     }
     #[doc = "Bit 29 - 29:29\\]
 0: Input disabled 1: Input enabled Note: If IO is configured for AUX PORT_ID = 0x08, the enable will be ignored."]
     #[inline(always)]
-    pub fn ie(&self) -> IE_R {
-        IE_R::new(((self.bits >> 29) & 1) != 0)
+    pub fn ie(&self) -> IeR {
+        IeR::new(((self.bits >> 29) & 1) != 0)
     }
     #[doc = "Bit 30 - 30:30\\]
 0: Input hysteresis disable 1: Input hysteresis enable"]
     #[inline(always)]
-    pub fn hyst_en(&self) -> HYST_EN_R {
-        HYST_EN_R::new(((self.bits >> 30) & 1) != 0)
+    pub fn hyst_en(&self) -> HystEnR {
+        HystEnR::new(((self.bits >> 30) & 1) != 0)
     }
     #[doc = "Bit 31 - 31:31\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved31(&self) -> RESERVED31_R {
-        RESERVED31_R::new(((self.bits >> 31) & 1) != 0)
+    pub fn reserved31(&self) -> Reserved31R {
+        Reserved31R::new(((self.bits >> 31) & 1) != 0)
     }
 }
 impl W {
@@ -1267,158 +1281,150 @@ impl W {
 Selects usage for DIO7 Note: This field should not be written other than the times when PORT_ID value is specifically required to change."]
     #[inline(always)]
     #[must_use]
-    pub fn port_id(&mut self) -> PORT_ID_W<0> {
-        PORT_ID_W::new(self)
+    pub fn port_id(&mut self) -> PortIdW<Iocfg7Spec> {
+        PortIdW::new(self, 0)
     }
     #[doc = "Bit 6 - 6:6\\]
 Event asserted by this IO when edge detection is enabled 0: Input edge detection does not assert MCU_WU event 1: Input edge detection asserts MCU_WU event"]
     #[inline(always)]
     #[must_use]
-    pub fn ioev_mcu_wu_en(&mut self) -> IOEV_MCU_WU_EN_W<6> {
-        IOEV_MCU_WU_EN_W::new(self)
+    pub fn ioev_mcu_wu_en(&mut self) -> IoevMcuWuEnW<Iocfg7Spec> {
+        IoevMcuWuEnW::new(self, 6)
     }
     #[doc = "Bit 7 - 7:7\\]
 Event asserted by this IO when edge detection is enabled 0: Input edge detection does not assert RTC event 1: Input edge detection asserts RTC event"]
     #[inline(always)]
     #[must_use]
-    pub fn ioev_rtc_en(&mut self) -> IOEV_RTC_EN_W<7> {
-        IOEV_RTC_EN_W::new(self)
+    pub fn ioev_rtc_en(&mut self) -> IoevRtcEnW<Iocfg7Spec> {
+        IoevRtcEnW::new(self, 7)
     }
     #[doc = "Bits 8:9 - 9:8\\]
 Select source for drive strength control of this IO. This setting controls the drive strength of the Low-Current (LC) mode. Higher drive strength can be selected in IOCURR"]
     #[inline(always)]
     #[must_use]
-    pub fn iostr(&mut self) -> IOSTR_W<8> {
-        IOSTR_W::new(self)
+    pub fn iostr(&mut self) -> IostrW<Iocfg7Spec> {
+        IostrW::new(self, 8)
     }
     #[doc = "Bits 10:11 - 11:10\\]
 Selects IO current mode of this IO."]
     #[inline(always)]
     #[must_use]
-    pub fn iocurr(&mut self) -> IOCURR_W<10> {
-        IOCURR_W::new(self)
+    pub fn iocurr(&mut self) -> IocurrW<Iocfg7Spec> {
+        IocurrW::new(self, 10)
     }
     #[doc = "Bit 12 - 12:12\\]
 0: Normal slew rate 1: Enables reduced slew rate in output driver."]
     #[inline(always)]
     #[must_use]
-    pub fn slew_red(&mut self) -> SLEW_RED_W<12> {
-        SLEW_RED_W::new(self)
+    pub fn slew_red(&mut self) -> SlewRedW<Iocfg7Spec> {
+        SlewRedW::new(self, 12)
     }
     #[doc = "Bits 13:14 - 14:13\\]
 Pull control"]
     #[inline(always)]
     #[must_use]
-    pub fn pull_ctl(&mut self) -> PULL_CTL_W<13> {
-        PULL_CTL_W::new(self)
+    pub fn pull_ctl(&mut self) -> PullCtlW<Iocfg7Spec> {
+        PullCtlW::new(self, 13)
     }
     #[doc = "Bit 15 - 15:15\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved15(&mut self) -> RESERVED15_W<15> {
-        RESERVED15_W::new(self)
+    pub fn reserved15(&mut self) -> Reserved15W<Iocfg7Spec> {
+        Reserved15W::new(self, 15)
     }
     #[doc = "Bits 16:17 - 17:16\\]
 Enable generation of edge detection events on this IO"]
     #[inline(always)]
     #[must_use]
-    pub fn edge_det(&mut self) -> EDGE_DET_W<16> {
-        EDGE_DET_W::new(self)
+    pub fn edge_det(&mut self) -> EdgeDetW<Iocfg7Spec> {
+        EdgeDetW::new(self, 16)
     }
     #[doc = "Bit 18 - 18:18\\]
 0: No interrupt generation 1: Enable interrupt generation for this IO (Only effective if EDGE_DET is enabled)"]
     #[inline(always)]
     #[must_use]
-    pub fn edge_irq_en(&mut self) -> EDGE_IRQ_EN_W<18> {
-        EDGE_IRQ_EN_W::new(self)
+    pub fn edge_irq_en(&mut self) -> EdgeIrqEnW<Iocfg7Spec> {
+        EdgeIrqEnW::new(self, 18)
     }
     #[doc = "Bits 19:20 - 20:19\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved19(&mut self) -> RESERVED19_W<19> {
-        RESERVED19_W::new(self)
+    pub fn reserved19(&mut self) -> Reserved19W<Iocfg7Spec> {
+        Reserved19W::new(self, 19)
     }
     #[doc = "Bit 21 - 21:21\\]
 Event asserted by this IO when edge detection is enabled 0: Input edge detection does not assert AON_PROG0 event 1: Input edge detection asserts AON_PROG0 event"]
     #[inline(always)]
     #[must_use]
-    pub fn ioev_aon_prog0_en(&mut self) -> IOEV_AON_PROG0_EN_W<21> {
-        IOEV_AON_PROG0_EN_W::new(self)
+    pub fn ioev_aon_prog0_en(&mut self) -> IoevAonProg0EnW<Iocfg7Spec> {
+        IoevAonProg0EnW::new(self, 21)
     }
     #[doc = "Bit 22 - 22:22\\]
 Event asserted by this IO when edge detection is enabled 0: Input edge detection does not assert AON_PROG1 event 1: Input edge detection asserts AON_PROG1 event"]
     #[inline(always)]
     #[must_use]
-    pub fn ioev_aon_prog1_en(&mut self) -> IOEV_AON_PROG1_EN_W<22> {
-        IOEV_AON_PROG1_EN_W::new(self)
+    pub fn ioev_aon_prog1_en(&mut self) -> IoevAonProg1EnW<Iocfg7Spec> {
+        IoevAonProg1EnW::new(self, 22)
     }
     #[doc = "Bit 23 - 23:23\\]
 Event asserted by this IO when edge detection is enabled 0: Input edge detection does not assert AON_PROG2 event 1: Input edge detection asserts AON_PROG2 event"]
     #[inline(always)]
     #[must_use]
-    pub fn ioev_aon_prog2_en(&mut self) -> IOEV_AON_PROG2_EN_W<23> {
-        IOEV_AON_PROG2_EN_W::new(self)
+    pub fn ioev_aon_prog2_en(&mut self) -> IoevAonProg2EnW<Iocfg7Spec> {
+        IoevAonProg2EnW::new(self, 23)
     }
     #[doc = "Bits 24:26 - 26:24\\]
 IO Mode Not applicable for IO configured for AON periph. signals and AUX PORT_ID 0x01-0x08 AUX has its own open_source/drain configuration. 0x2: Reserved. Undefined behavior. 0x3: Reserved. Undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn iomode(&mut self) -> IOMODE_W<24> {
-        IOMODE_W::new(self)
+    pub fn iomode(&mut self) -> IomodeW<Iocfg7Spec> {
+        IomodeW::new(self, 24)
     }
     #[doc = "Bits 27:28 - 28:27\\]
 If DIO is configured GPIO or non-AON peripheral signals, PORT_ID 0x00 or >0x08: 00: No wake-up 01: No wake-up 10: Wakes up from shutdown if this pad is going low. 11: Wakes up from shutdown if this pad is going high. If IO is configured for AON peripheral signals or AUX PORT_ID 0x01-0x08, this register only sets wakeup enable or not. 00, 01: Wakeup disabled 10, 11: Wakeup enabled Polarity is controlled from AON registers. Note:When the MSB is set, the IOC will deactivate the output enable for the DIO."]
     #[inline(always)]
     #[must_use]
-    pub fn wu_cfg(&mut self) -> WU_CFG_W<27> {
-        WU_CFG_W::new(self)
+    pub fn wu_cfg(&mut self) -> WuCfgW<Iocfg7Spec> {
+        WuCfgW::new(self, 27)
     }
     #[doc = "Bit 29 - 29:29\\]
 0: Input disabled 1: Input enabled Note: If IO is configured for AUX PORT_ID = 0x08, the enable will be ignored."]
     #[inline(always)]
     #[must_use]
-    pub fn ie(&mut self) -> IE_W<29> {
-        IE_W::new(self)
+    pub fn ie(&mut self) -> IeW<Iocfg7Spec> {
+        IeW::new(self, 29)
     }
     #[doc = "Bit 30 - 30:30\\]
 0: Input hysteresis disable 1: Input hysteresis enable"]
     #[inline(always)]
     #[must_use]
-    pub fn hyst_en(&mut self) -> HYST_EN_W<30> {
-        HYST_EN_W::new(self)
+    pub fn hyst_en(&mut self) -> HystEnW<Iocfg7Spec> {
+        HystEnW::new(self, 30)
     }
     #[doc = "Bit 31 - 31:31\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved31(&mut self) -> RESERVED31_W<31> {
-        RESERVED31_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved31(&mut self) -> Reserved31W<Iocfg7Spec> {
+        Reserved31W::new(self, 31)
     }
 }
-#[doc = "Configuration of DIO7\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [iocfg7](index.html) module"]
-pub struct IOCFG7_SPEC;
-impl crate::RegisterSpec for IOCFG7_SPEC {
+#[doc = "Configuration of DIO7\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`iocfg7::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`iocfg7::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Iocfg7Spec;
+impl crate::RegisterSpec for Iocfg7Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [iocfg7::R](R) reader structure"]
-impl crate::Readable for IOCFG7_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [iocfg7::W](W) writer structure"]
-impl crate::Writable for IOCFG7_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`iocfg7::R`](R) reader structure"]
+impl crate::Readable for Iocfg7Spec {}
+#[doc = "`write(|w| ..)` method takes [`iocfg7::W`](W) writer structure"]
+impl crate::Writable for Iocfg7Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets IOCFG7 to value 0x6000"]
-impl crate::Resettable for IOCFG7_SPEC {
-    const RESET_VALUE: Self::Ux = 0x6000;
+impl crate::Resettable for Iocfg7Spec {
+    const RESET_VALUE: u32 = 0x6000;
 }

@@ -1,763 +1,756 @@
 #[doc = "Register `CTL0` reader"]
-pub struct R(crate::R<CTL0_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<CTL0_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<CTL0_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<CTL0_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Ctl0Spec>;
 #[doc = "Register `CTL0` writer"]
-pub struct W(crate::W<CTL0_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<CTL0_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<CTL0_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<CTL0_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `DSS` reader - 4:0\\]
-Data Size Select. Note: Master mode: Values 0 - 2 are reserved and shall not be used. This will map to 4 bit mode. A value of 3h corresponds to 4-bit data (and so on). Slave mode: DSS should be no less than 6 which means the minimum frame length is 7 bits."]
-pub type DSS_R = crate::FieldReader<u8, DSS_A>;
+pub type W = crate::W<Ctl0Spec>;
 #[doc = "4:0\\]
 Data Size Select. Note: Master mode: Values 0 - 2 are reserved and shall not be used. This will map to 4 bit mode. A value of 3h corresponds to 4-bit data (and so on). Slave mode: DSS should be no less than 6 which means the minimum frame length is 7 bits.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum DSS_A {
+pub enum Dss {
     #[doc = "31: Data Size Select bits: 32"]
-    DSS_32 = 31,
+    Dss32 = 31,
     #[doc = "30: Data Size Select bits: 31"]
-    DSS_31 = 30,
+    Dss31 = 30,
     #[doc = "29: Data Size Select bits: 30"]
-    DSS_30 = 29,
+    Dss30 = 29,
     #[doc = "28: Data Size Select bits: 29"]
-    DSS_29 = 28,
+    Dss29 = 28,
     #[doc = "27: Data Size Select bits: 28"]
-    DSS_28 = 27,
+    Dss28 = 27,
     #[doc = "26: Data Size Select bits: 27"]
-    DSS_27 = 26,
+    Dss27 = 26,
     #[doc = "25: Data Size Select bits: 26"]
-    DSS_26 = 25,
+    Dss26 = 25,
     #[doc = "24: Data Size Select bits: 25"]
-    DSS_25 = 24,
+    Dss25 = 24,
     #[doc = "23: Data Size Select bits: 24"]
-    DSS_24 = 23,
+    Dss24 = 23,
     #[doc = "22: Data Size Select bits: 23"]
-    DSS_23 = 22,
+    Dss23 = 22,
     #[doc = "21: Data Size Select bits: 22"]
-    DSS_22 = 21,
+    Dss22 = 21,
     #[doc = "20: Data Size Select bits: 21"]
-    DSS_21 = 20,
+    Dss21 = 20,
     #[doc = "19: Data Size Select bits: 20"]
-    DSS_20 = 19,
+    Dss20 = 19,
     #[doc = "18: Data Size Select bits: 19"]
-    DSS_19 = 18,
+    Dss19 = 18,
     #[doc = "17: Data Size Select bits: 18"]
-    DSS_18 = 17,
+    Dss18 = 17,
     #[doc = "16: Data Size Select bits: 17"]
-    DSS_17 = 16,
+    Dss17 = 16,
     #[doc = "15: Data Size Select bits: 16"]
-    DSS_16 = 15,
+    Dss16 = 15,
     #[doc = "14: Data Size Select bits: 15"]
-    DSS_15 = 14,
+    Dss15 = 14,
     #[doc = "13: Data Size Select bits: 14"]
-    DSS_14 = 13,
+    Dss14 = 13,
     #[doc = "12: Data Size Select bits: 13"]
-    DSS_13 = 12,
+    Dss13 = 12,
     #[doc = "11: Data Size Select bits: 12"]
-    DSS_12 = 11,
+    Dss12 = 11,
     #[doc = "10: Data Size Select bits: 11"]
-    DSS_11 = 10,
+    Dss11 = 10,
     #[doc = "9: Data Size Select bits: 10"]
-    DSS_10 = 9,
+    Dss10 = 9,
     #[doc = "8: Data Size Select bits: 9"]
-    DSS_9 = 8,
+    Dss9 = 8,
     #[doc = "7: Data Size Select bits: 8"]
-    DSS_8 = 7,
+    Dss8 = 7,
     #[doc = "6: Data Size Select bits: 7"]
-    DSS_7 = 6,
+    Dss7 = 6,
     #[doc = "5: Data Size Select bits: 6"]
-    DSS_6 = 5,
+    Dss6 = 5,
     #[doc = "4: Data Size Select bits: 5"]
-    DSS_5 = 4,
+    Dss5 = 4,
     #[doc = "3: Data Size Select bits: 4"]
-    DSS_4 = 3,
+    Dss4 = 3,
 }
-impl From<DSS_A> for u8 {
+impl From<Dss> for u8 {
     #[inline(always)]
-    fn from(variant: DSS_A) -> Self {
+    fn from(variant: Dss) -> Self {
         variant as _
     }
 }
-impl DSS_R {
+impl crate::FieldSpec for Dss {
+    type Ux = u8;
+}
+impl crate::IsEnum for Dss {}
+#[doc = "Field `DSS` reader - 4:0\\]
+Data Size Select. Note: Master mode: Values 0 - 2 are reserved and shall not be used. This will map to 4 bit mode. A value of 3h corresponds to 4-bit data (and so on). Slave mode: DSS should be no less than 6 which means the minimum frame length is 7 bits."]
+pub type DssR = crate::FieldReader<Dss>;
+impl DssR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<DSS_A> {
+    pub const fn variant(&self) -> Option<Dss> {
         match self.bits {
-            31 => Some(DSS_A::DSS_32),
-            30 => Some(DSS_A::DSS_31),
-            29 => Some(DSS_A::DSS_30),
-            28 => Some(DSS_A::DSS_29),
-            27 => Some(DSS_A::DSS_28),
-            26 => Some(DSS_A::DSS_27),
-            25 => Some(DSS_A::DSS_26),
-            24 => Some(DSS_A::DSS_25),
-            23 => Some(DSS_A::DSS_24),
-            22 => Some(DSS_A::DSS_23),
-            21 => Some(DSS_A::DSS_22),
-            20 => Some(DSS_A::DSS_21),
-            19 => Some(DSS_A::DSS_20),
-            18 => Some(DSS_A::DSS_19),
-            17 => Some(DSS_A::DSS_18),
-            16 => Some(DSS_A::DSS_17),
-            15 => Some(DSS_A::DSS_16),
-            14 => Some(DSS_A::DSS_15),
-            13 => Some(DSS_A::DSS_14),
-            12 => Some(DSS_A::DSS_13),
-            11 => Some(DSS_A::DSS_12),
-            10 => Some(DSS_A::DSS_11),
-            9 => Some(DSS_A::DSS_10),
-            8 => Some(DSS_A::DSS_9),
-            7 => Some(DSS_A::DSS_8),
-            6 => Some(DSS_A::DSS_7),
-            5 => Some(DSS_A::DSS_6),
-            4 => Some(DSS_A::DSS_5),
-            3 => Some(DSS_A::DSS_4),
+            31 => Some(Dss::Dss32),
+            30 => Some(Dss::Dss31),
+            29 => Some(Dss::Dss30),
+            28 => Some(Dss::Dss29),
+            27 => Some(Dss::Dss28),
+            26 => Some(Dss::Dss27),
+            25 => Some(Dss::Dss26),
+            24 => Some(Dss::Dss25),
+            23 => Some(Dss::Dss24),
+            22 => Some(Dss::Dss23),
+            21 => Some(Dss::Dss22),
+            20 => Some(Dss::Dss21),
+            19 => Some(Dss::Dss20),
+            18 => Some(Dss::Dss19),
+            17 => Some(Dss::Dss18),
+            16 => Some(Dss::Dss17),
+            15 => Some(Dss::Dss16),
+            14 => Some(Dss::Dss15),
+            13 => Some(Dss::Dss14),
+            12 => Some(Dss::Dss13),
+            11 => Some(Dss::Dss12),
+            10 => Some(Dss::Dss11),
+            9 => Some(Dss::Dss10),
+            8 => Some(Dss::Dss9),
+            7 => Some(Dss::Dss8),
+            6 => Some(Dss::Dss7),
+            5 => Some(Dss::Dss6),
+            4 => Some(Dss::Dss5),
+            3 => Some(Dss::Dss4),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `DSS_32`"]
+    #[doc = "Data Size Select bits: 32"]
     #[inline(always)]
     pub fn is_dss_32(&self) -> bool {
-        *self == DSS_A::DSS_32
+        *self == Dss::Dss32
     }
-    #[doc = "Checks if the value of the field is `DSS_31`"]
+    #[doc = "Data Size Select bits: 31"]
     #[inline(always)]
     pub fn is_dss_31(&self) -> bool {
-        *self == DSS_A::DSS_31
+        *self == Dss::Dss31
     }
-    #[doc = "Checks if the value of the field is `DSS_30`"]
+    #[doc = "Data Size Select bits: 30"]
     #[inline(always)]
     pub fn is_dss_30(&self) -> bool {
-        *self == DSS_A::DSS_30
+        *self == Dss::Dss30
     }
-    #[doc = "Checks if the value of the field is `DSS_29`"]
+    #[doc = "Data Size Select bits: 29"]
     #[inline(always)]
     pub fn is_dss_29(&self) -> bool {
-        *self == DSS_A::DSS_29
+        *self == Dss::Dss29
     }
-    #[doc = "Checks if the value of the field is `DSS_28`"]
+    #[doc = "Data Size Select bits: 28"]
     #[inline(always)]
     pub fn is_dss_28(&self) -> bool {
-        *self == DSS_A::DSS_28
+        *self == Dss::Dss28
     }
-    #[doc = "Checks if the value of the field is `DSS_27`"]
+    #[doc = "Data Size Select bits: 27"]
     #[inline(always)]
     pub fn is_dss_27(&self) -> bool {
-        *self == DSS_A::DSS_27
+        *self == Dss::Dss27
     }
-    #[doc = "Checks if the value of the field is `DSS_26`"]
+    #[doc = "Data Size Select bits: 26"]
     #[inline(always)]
     pub fn is_dss_26(&self) -> bool {
-        *self == DSS_A::DSS_26
+        *self == Dss::Dss26
     }
-    #[doc = "Checks if the value of the field is `DSS_25`"]
+    #[doc = "Data Size Select bits: 25"]
     #[inline(always)]
     pub fn is_dss_25(&self) -> bool {
-        *self == DSS_A::DSS_25
+        *self == Dss::Dss25
     }
-    #[doc = "Checks if the value of the field is `DSS_24`"]
+    #[doc = "Data Size Select bits: 24"]
     #[inline(always)]
     pub fn is_dss_24(&self) -> bool {
-        *self == DSS_A::DSS_24
+        *self == Dss::Dss24
     }
-    #[doc = "Checks if the value of the field is `DSS_23`"]
+    #[doc = "Data Size Select bits: 23"]
     #[inline(always)]
     pub fn is_dss_23(&self) -> bool {
-        *self == DSS_A::DSS_23
+        *self == Dss::Dss23
     }
-    #[doc = "Checks if the value of the field is `DSS_22`"]
+    #[doc = "Data Size Select bits: 22"]
     #[inline(always)]
     pub fn is_dss_22(&self) -> bool {
-        *self == DSS_A::DSS_22
+        *self == Dss::Dss22
     }
-    #[doc = "Checks if the value of the field is `DSS_21`"]
+    #[doc = "Data Size Select bits: 21"]
     #[inline(always)]
     pub fn is_dss_21(&self) -> bool {
-        *self == DSS_A::DSS_21
+        *self == Dss::Dss21
     }
-    #[doc = "Checks if the value of the field is `DSS_20`"]
+    #[doc = "Data Size Select bits: 20"]
     #[inline(always)]
     pub fn is_dss_20(&self) -> bool {
-        *self == DSS_A::DSS_20
+        *self == Dss::Dss20
     }
-    #[doc = "Checks if the value of the field is `DSS_19`"]
+    #[doc = "Data Size Select bits: 19"]
     #[inline(always)]
     pub fn is_dss_19(&self) -> bool {
-        *self == DSS_A::DSS_19
+        *self == Dss::Dss19
     }
-    #[doc = "Checks if the value of the field is `DSS_18`"]
+    #[doc = "Data Size Select bits: 18"]
     #[inline(always)]
     pub fn is_dss_18(&self) -> bool {
-        *self == DSS_A::DSS_18
+        *self == Dss::Dss18
     }
-    #[doc = "Checks if the value of the field is `DSS_17`"]
+    #[doc = "Data Size Select bits: 17"]
     #[inline(always)]
     pub fn is_dss_17(&self) -> bool {
-        *self == DSS_A::DSS_17
+        *self == Dss::Dss17
     }
-    #[doc = "Checks if the value of the field is `DSS_16`"]
+    #[doc = "Data Size Select bits: 16"]
     #[inline(always)]
     pub fn is_dss_16(&self) -> bool {
-        *self == DSS_A::DSS_16
+        *self == Dss::Dss16
     }
-    #[doc = "Checks if the value of the field is `DSS_15`"]
+    #[doc = "Data Size Select bits: 15"]
     #[inline(always)]
     pub fn is_dss_15(&self) -> bool {
-        *self == DSS_A::DSS_15
+        *self == Dss::Dss15
     }
-    #[doc = "Checks if the value of the field is `DSS_14`"]
+    #[doc = "Data Size Select bits: 14"]
     #[inline(always)]
     pub fn is_dss_14(&self) -> bool {
-        *self == DSS_A::DSS_14
+        *self == Dss::Dss14
     }
-    #[doc = "Checks if the value of the field is `DSS_13`"]
+    #[doc = "Data Size Select bits: 13"]
     #[inline(always)]
     pub fn is_dss_13(&self) -> bool {
-        *self == DSS_A::DSS_13
+        *self == Dss::Dss13
     }
-    #[doc = "Checks if the value of the field is `DSS_12`"]
+    #[doc = "Data Size Select bits: 12"]
     #[inline(always)]
     pub fn is_dss_12(&self) -> bool {
-        *self == DSS_A::DSS_12
+        *self == Dss::Dss12
     }
-    #[doc = "Checks if the value of the field is `DSS_11`"]
+    #[doc = "Data Size Select bits: 11"]
     #[inline(always)]
     pub fn is_dss_11(&self) -> bool {
-        *self == DSS_A::DSS_11
+        *self == Dss::Dss11
     }
-    #[doc = "Checks if the value of the field is `DSS_10`"]
+    #[doc = "Data Size Select bits: 10"]
     #[inline(always)]
     pub fn is_dss_10(&self) -> bool {
-        *self == DSS_A::DSS_10
+        *self == Dss::Dss10
     }
-    #[doc = "Checks if the value of the field is `DSS_9`"]
+    #[doc = "Data Size Select bits: 9"]
     #[inline(always)]
     pub fn is_dss_9(&self) -> bool {
-        *self == DSS_A::DSS_9
+        *self == Dss::Dss9
     }
-    #[doc = "Checks if the value of the field is `DSS_8`"]
+    #[doc = "Data Size Select bits: 8"]
     #[inline(always)]
     pub fn is_dss_8(&self) -> bool {
-        *self == DSS_A::DSS_8
+        *self == Dss::Dss8
     }
-    #[doc = "Checks if the value of the field is `DSS_7`"]
+    #[doc = "Data Size Select bits: 7"]
     #[inline(always)]
     pub fn is_dss_7(&self) -> bool {
-        *self == DSS_A::DSS_7
+        *self == Dss::Dss7
     }
-    #[doc = "Checks if the value of the field is `DSS_6`"]
+    #[doc = "Data Size Select bits: 6"]
     #[inline(always)]
     pub fn is_dss_6(&self) -> bool {
-        *self == DSS_A::DSS_6
+        *self == Dss::Dss6
     }
-    #[doc = "Checks if the value of the field is `DSS_5`"]
+    #[doc = "Data Size Select bits: 5"]
     #[inline(always)]
     pub fn is_dss_5(&self) -> bool {
-        *self == DSS_A::DSS_5
+        *self == Dss::Dss5
     }
-    #[doc = "Checks if the value of the field is `DSS_4`"]
+    #[doc = "Data Size Select bits: 4"]
     #[inline(always)]
     pub fn is_dss_4(&self) -> bool {
-        *self == DSS_A::DSS_4
+        *self == Dss::Dss4
     }
 }
 #[doc = "Field `DSS` writer - 4:0\\]
 Data Size Select. Note: Master mode: Values 0 - 2 are reserved and shall not be used. This will map to 4 bit mode. A value of 3h corresponds to 4-bit data (and so on). Slave mode: DSS should be no less than 6 which means the minimum frame length is 7 bits."]
-pub type DSS_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CTL0_SPEC, u8, DSS_A, 5, O>;
-impl<'a, const O: u8> DSS_W<'a, O> {
+pub type DssW<'a, REG> = crate::FieldWriter<'a, REG, 5, Dss>;
+impl<'a, REG> DssW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "Data Size Select bits: 32"]
     #[inline(always)]
-    pub fn dss_32(self) -> &'a mut W {
-        self.variant(DSS_A::DSS_32)
+    pub fn dss_32(self) -> &'a mut crate::W<REG> {
+        self.variant(Dss::Dss32)
     }
     #[doc = "Data Size Select bits: 31"]
     #[inline(always)]
-    pub fn dss_31(self) -> &'a mut W {
-        self.variant(DSS_A::DSS_31)
+    pub fn dss_31(self) -> &'a mut crate::W<REG> {
+        self.variant(Dss::Dss31)
     }
     #[doc = "Data Size Select bits: 30"]
     #[inline(always)]
-    pub fn dss_30(self) -> &'a mut W {
-        self.variant(DSS_A::DSS_30)
+    pub fn dss_30(self) -> &'a mut crate::W<REG> {
+        self.variant(Dss::Dss30)
     }
     #[doc = "Data Size Select bits: 29"]
     #[inline(always)]
-    pub fn dss_29(self) -> &'a mut W {
-        self.variant(DSS_A::DSS_29)
+    pub fn dss_29(self) -> &'a mut crate::W<REG> {
+        self.variant(Dss::Dss29)
     }
     #[doc = "Data Size Select bits: 28"]
     #[inline(always)]
-    pub fn dss_28(self) -> &'a mut W {
-        self.variant(DSS_A::DSS_28)
+    pub fn dss_28(self) -> &'a mut crate::W<REG> {
+        self.variant(Dss::Dss28)
     }
     #[doc = "Data Size Select bits: 27"]
     #[inline(always)]
-    pub fn dss_27(self) -> &'a mut W {
-        self.variant(DSS_A::DSS_27)
+    pub fn dss_27(self) -> &'a mut crate::W<REG> {
+        self.variant(Dss::Dss27)
     }
     #[doc = "Data Size Select bits: 26"]
     #[inline(always)]
-    pub fn dss_26(self) -> &'a mut W {
-        self.variant(DSS_A::DSS_26)
+    pub fn dss_26(self) -> &'a mut crate::W<REG> {
+        self.variant(Dss::Dss26)
     }
     #[doc = "Data Size Select bits: 25"]
     #[inline(always)]
-    pub fn dss_25(self) -> &'a mut W {
-        self.variant(DSS_A::DSS_25)
+    pub fn dss_25(self) -> &'a mut crate::W<REG> {
+        self.variant(Dss::Dss25)
     }
     #[doc = "Data Size Select bits: 24"]
     #[inline(always)]
-    pub fn dss_24(self) -> &'a mut W {
-        self.variant(DSS_A::DSS_24)
+    pub fn dss_24(self) -> &'a mut crate::W<REG> {
+        self.variant(Dss::Dss24)
     }
     #[doc = "Data Size Select bits: 23"]
     #[inline(always)]
-    pub fn dss_23(self) -> &'a mut W {
-        self.variant(DSS_A::DSS_23)
+    pub fn dss_23(self) -> &'a mut crate::W<REG> {
+        self.variant(Dss::Dss23)
     }
     #[doc = "Data Size Select bits: 22"]
     #[inline(always)]
-    pub fn dss_22(self) -> &'a mut W {
-        self.variant(DSS_A::DSS_22)
+    pub fn dss_22(self) -> &'a mut crate::W<REG> {
+        self.variant(Dss::Dss22)
     }
     #[doc = "Data Size Select bits: 21"]
     #[inline(always)]
-    pub fn dss_21(self) -> &'a mut W {
-        self.variant(DSS_A::DSS_21)
+    pub fn dss_21(self) -> &'a mut crate::W<REG> {
+        self.variant(Dss::Dss21)
     }
     #[doc = "Data Size Select bits: 20"]
     #[inline(always)]
-    pub fn dss_20(self) -> &'a mut W {
-        self.variant(DSS_A::DSS_20)
+    pub fn dss_20(self) -> &'a mut crate::W<REG> {
+        self.variant(Dss::Dss20)
     }
     #[doc = "Data Size Select bits: 19"]
     #[inline(always)]
-    pub fn dss_19(self) -> &'a mut W {
-        self.variant(DSS_A::DSS_19)
+    pub fn dss_19(self) -> &'a mut crate::W<REG> {
+        self.variant(Dss::Dss19)
     }
     #[doc = "Data Size Select bits: 18"]
     #[inline(always)]
-    pub fn dss_18(self) -> &'a mut W {
-        self.variant(DSS_A::DSS_18)
+    pub fn dss_18(self) -> &'a mut crate::W<REG> {
+        self.variant(Dss::Dss18)
     }
     #[doc = "Data Size Select bits: 17"]
     #[inline(always)]
-    pub fn dss_17(self) -> &'a mut W {
-        self.variant(DSS_A::DSS_17)
+    pub fn dss_17(self) -> &'a mut crate::W<REG> {
+        self.variant(Dss::Dss17)
     }
     #[doc = "Data Size Select bits: 16"]
     #[inline(always)]
-    pub fn dss_16(self) -> &'a mut W {
-        self.variant(DSS_A::DSS_16)
+    pub fn dss_16(self) -> &'a mut crate::W<REG> {
+        self.variant(Dss::Dss16)
     }
     #[doc = "Data Size Select bits: 15"]
     #[inline(always)]
-    pub fn dss_15(self) -> &'a mut W {
-        self.variant(DSS_A::DSS_15)
+    pub fn dss_15(self) -> &'a mut crate::W<REG> {
+        self.variant(Dss::Dss15)
     }
     #[doc = "Data Size Select bits: 14"]
     #[inline(always)]
-    pub fn dss_14(self) -> &'a mut W {
-        self.variant(DSS_A::DSS_14)
+    pub fn dss_14(self) -> &'a mut crate::W<REG> {
+        self.variant(Dss::Dss14)
     }
     #[doc = "Data Size Select bits: 13"]
     #[inline(always)]
-    pub fn dss_13(self) -> &'a mut W {
-        self.variant(DSS_A::DSS_13)
+    pub fn dss_13(self) -> &'a mut crate::W<REG> {
+        self.variant(Dss::Dss13)
     }
     #[doc = "Data Size Select bits: 12"]
     #[inline(always)]
-    pub fn dss_12(self) -> &'a mut W {
-        self.variant(DSS_A::DSS_12)
+    pub fn dss_12(self) -> &'a mut crate::W<REG> {
+        self.variant(Dss::Dss12)
     }
     #[doc = "Data Size Select bits: 11"]
     #[inline(always)]
-    pub fn dss_11(self) -> &'a mut W {
-        self.variant(DSS_A::DSS_11)
+    pub fn dss_11(self) -> &'a mut crate::W<REG> {
+        self.variant(Dss::Dss11)
     }
     #[doc = "Data Size Select bits: 10"]
     #[inline(always)]
-    pub fn dss_10(self) -> &'a mut W {
-        self.variant(DSS_A::DSS_10)
+    pub fn dss_10(self) -> &'a mut crate::W<REG> {
+        self.variant(Dss::Dss10)
     }
     #[doc = "Data Size Select bits: 9"]
     #[inline(always)]
-    pub fn dss_9(self) -> &'a mut W {
-        self.variant(DSS_A::DSS_9)
+    pub fn dss_9(self) -> &'a mut crate::W<REG> {
+        self.variant(Dss::Dss9)
     }
     #[doc = "Data Size Select bits: 8"]
     #[inline(always)]
-    pub fn dss_8(self) -> &'a mut W {
-        self.variant(DSS_A::DSS_8)
+    pub fn dss_8(self) -> &'a mut crate::W<REG> {
+        self.variant(Dss::Dss8)
     }
     #[doc = "Data Size Select bits: 7"]
     #[inline(always)]
-    pub fn dss_7(self) -> &'a mut W {
-        self.variant(DSS_A::DSS_7)
+    pub fn dss_7(self) -> &'a mut crate::W<REG> {
+        self.variant(Dss::Dss7)
     }
     #[doc = "Data Size Select bits: 6"]
     #[inline(always)]
-    pub fn dss_6(self) -> &'a mut W {
-        self.variant(DSS_A::DSS_6)
+    pub fn dss_6(self) -> &'a mut crate::W<REG> {
+        self.variant(Dss::Dss6)
     }
     #[doc = "Data Size Select bits: 5"]
     #[inline(always)]
-    pub fn dss_5(self) -> &'a mut W {
-        self.variant(DSS_A::DSS_5)
+    pub fn dss_5(self) -> &'a mut crate::W<REG> {
+        self.variant(Dss::Dss5)
     }
     #[doc = "Data Size Select bits: 4"]
     #[inline(always)]
-    pub fn dss_4(self) -> &'a mut W {
-        self.variant(DSS_A::DSS_4)
+    pub fn dss_4(self) -> &'a mut crate::W<REG> {
+        self.variant(Dss::Dss4)
     }
 }
-#[doc = "Field `FRF` reader - 6:5\\]
-Frame format Select"]
-pub type FRF_R = crate::FieldReader<u8, FRF_A>;
 #[doc = "6:5\\]
 Frame format Select\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum FRF_A {
+pub enum Frf {
     #[doc = "3: National MICROWIRE frame format"]
-    MIRCOWIRE = 3,
+    Mircowire = 3,
     #[doc = "2: TI synchronous serial frame format"]
-    TI_SYNC = 2,
+    TiSync = 2,
     #[doc = "1: Motorola SPI frame format (4 wire mode)"]
-    MOTOROLA_4WIRE = 1,
+    Motorola4wire = 1,
     #[doc = "0: Motorola SPI frame format (3 wire mode)"]
-    MOTOROLA_3WIRE = 0,
+    Motorola3wire = 0,
 }
-impl From<FRF_A> for u8 {
+impl From<Frf> for u8 {
     #[inline(always)]
-    fn from(variant: FRF_A) -> Self {
+    fn from(variant: Frf) -> Self {
         variant as _
     }
 }
-impl FRF_R {
+impl crate::FieldSpec for Frf {
+    type Ux = u8;
+}
+impl crate::IsEnum for Frf {}
+#[doc = "Field `FRF` reader - 6:5\\]
+Frame format Select"]
+pub type FrfR = crate::FieldReader<Frf>;
+impl FrfR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> FRF_A {
+    pub const fn variant(&self) -> Frf {
         match self.bits {
-            3 => FRF_A::MIRCOWIRE,
-            2 => FRF_A::TI_SYNC,
-            1 => FRF_A::MOTOROLA_4WIRE,
-            0 => FRF_A::MOTOROLA_3WIRE,
+            3 => Frf::Mircowire,
+            2 => Frf::TiSync,
+            1 => Frf::Motorola4wire,
+            0 => Frf::Motorola3wire,
             _ => unreachable!(),
         }
     }
-    #[doc = "Checks if the value of the field is `MIRCOWIRE`"]
+    #[doc = "National MICROWIRE frame format"]
     #[inline(always)]
     pub fn is_mircowire(&self) -> bool {
-        *self == FRF_A::MIRCOWIRE
+        *self == Frf::Mircowire
     }
-    #[doc = "Checks if the value of the field is `TI_SYNC`"]
+    #[doc = "TI synchronous serial frame format"]
     #[inline(always)]
     pub fn is_ti_sync(&self) -> bool {
-        *self == FRF_A::TI_SYNC
+        *self == Frf::TiSync
     }
-    #[doc = "Checks if the value of the field is `MOTOROLA_4WIRE`"]
+    #[doc = "Motorola SPI frame format (4 wire mode)"]
     #[inline(always)]
     pub fn is_motorola_4wire(&self) -> bool {
-        *self == FRF_A::MOTOROLA_4WIRE
+        *self == Frf::Motorola4wire
     }
-    #[doc = "Checks if the value of the field is `MOTOROLA_3WIRE`"]
+    #[doc = "Motorola SPI frame format (3 wire mode)"]
     #[inline(always)]
     pub fn is_motorola_3wire(&self) -> bool {
-        *self == FRF_A::MOTOROLA_3WIRE
+        *self == Frf::Motorola3wire
     }
 }
 #[doc = "Field `FRF` writer - 6:5\\]
 Frame format Select"]
-pub type FRF_W<'a, const O: u8> = crate::FieldWriterSafe<'a, u32, CTL0_SPEC, u8, FRF_A, 2, O>;
-impl<'a, const O: u8> FRF_W<'a, O> {
+pub type FrfW<'a, REG> = crate::FieldWriter<'a, REG, 2, Frf, crate::Safe>;
+impl<'a, REG> FrfW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "National MICROWIRE frame format"]
     #[inline(always)]
-    pub fn mircowire(self) -> &'a mut W {
-        self.variant(FRF_A::MIRCOWIRE)
+    pub fn mircowire(self) -> &'a mut crate::W<REG> {
+        self.variant(Frf::Mircowire)
     }
     #[doc = "TI synchronous serial frame format"]
     #[inline(always)]
-    pub fn ti_sync(self) -> &'a mut W {
-        self.variant(FRF_A::TI_SYNC)
+    pub fn ti_sync(self) -> &'a mut crate::W<REG> {
+        self.variant(Frf::TiSync)
     }
     #[doc = "Motorola SPI frame format (4 wire mode)"]
     #[inline(always)]
-    pub fn motorola_4wire(self) -> &'a mut W {
-        self.variant(FRF_A::MOTOROLA_4WIRE)
+    pub fn motorola_4wire(self) -> &'a mut crate::W<REG> {
+        self.variant(Frf::Motorola4wire)
     }
     #[doc = "Motorola SPI frame format (3 wire mode)"]
     #[inline(always)]
-    pub fn motorola_3wire(self) -> &'a mut W {
-        self.variant(FRF_A::MOTOROLA_3WIRE)
+    pub fn motorola_3wire(self) -> &'a mut crate::W<REG> {
+        self.variant(Frf::Motorola3wire)
     }
 }
 #[doc = "Field `RESERVED7` reader - 7:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED7_R = crate::BitReader<bool>;
+pub type Reserved7R = crate::BitReader;
 #[doc = "Field `RESERVED7` writer - 7:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED7_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTL0_SPEC, bool, O>;
-#[doc = "Field `SPO` reader - 8:8\\]
-CLKOUT polarity (Motorola SPI frame format only)"]
-pub type SPO_R = crate::BitReader<SPO_A>;
+pub type Reserved7W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "8:8\\]
 CLKOUT polarity (Motorola SPI frame format only)\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum SPO_A {
+pub enum Spo {
     #[doc = "1: SPI produces a steady state HIGH value on the CLKOUT when data is not being transferred."]
-    HIGH = 1,
+    High = 1,
     #[doc = "0: SPI produces a steady state LOW value on the CLKOUT when data is not being transferred."]
-    LOW = 0,
+    Low = 0,
 }
-impl From<SPO_A> for bool {
+impl From<Spo> for bool {
     #[inline(always)]
-    fn from(variant: SPO_A) -> Self {
+    fn from(variant: Spo) -> Self {
         variant as u8 != 0
     }
 }
-impl SPO_R {
+#[doc = "Field `SPO` reader - 8:8\\]
+CLKOUT polarity (Motorola SPI frame format only)"]
+pub type SpoR = crate::BitReader<Spo>;
+impl SpoR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> SPO_A {
+    pub const fn variant(&self) -> Spo {
         match self.bits {
-            true => SPO_A::HIGH,
-            false => SPO_A::LOW,
+            true => Spo::High,
+            false => Spo::Low,
         }
     }
-    #[doc = "Checks if the value of the field is `HIGH`"]
+    #[doc = "SPI produces a steady state HIGH value on the CLKOUT when data is not being transferred."]
     #[inline(always)]
     pub fn is_high(&self) -> bool {
-        *self == SPO_A::HIGH
+        *self == Spo::High
     }
-    #[doc = "Checks if the value of the field is `LOW`"]
+    #[doc = "SPI produces a steady state LOW value on the CLKOUT when data is not being transferred."]
     #[inline(always)]
     pub fn is_low(&self) -> bool {
-        *self == SPO_A::LOW
+        *self == Spo::Low
     }
 }
 #[doc = "Field `SPO` writer - 8:8\\]
 CLKOUT polarity (Motorola SPI frame format only)"]
-pub type SPO_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTL0_SPEC, SPO_A, O>;
-impl<'a, const O: u8> SPO_W<'a, O> {
+pub type SpoW<'a, REG> = crate::BitWriter<'a, REG, Spo>;
+impl<'a, REG> SpoW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "SPI produces a steady state HIGH value on the CLKOUT when data is not being transferred."]
     #[inline(always)]
-    pub fn high(self) -> &'a mut W {
-        self.variant(SPO_A::HIGH)
+    pub fn high(self) -> &'a mut crate::W<REG> {
+        self.variant(Spo::High)
     }
     #[doc = "SPI produces a steady state LOW value on the CLKOUT when data is not being transferred."]
     #[inline(always)]
-    pub fn low(self) -> &'a mut W {
-        self.variant(SPO_A::LOW)
+    pub fn low(self) -> &'a mut crate::W<REG> {
+        self.variant(Spo::Low)
+    }
+}
+#[doc = "9:9\\]
+CLKOUT phase (Motorola SPI frame format only) This bit selects the clock edge that captures data and enables it to change state. It has the most impact on the first bit transmitted by either permitting or not permitting a clock transition before the first data capture edge.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Sph {
+    #[doc = "1: Data is captured on the second clock edge transition."]
+    Second = 1,
+    #[doc = "0: Data is captured on the first clock edge transition."]
+    First = 0,
+}
+impl From<Sph> for bool {
+    #[inline(always)]
+    fn from(variant: Sph) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `SPH` reader - 9:9\\]
 CLKOUT phase (Motorola SPI frame format only) This bit selects the clock edge that captures data and enables it to change state. It has the most impact on the first bit transmitted by either permitting or not permitting a clock transition before the first data capture edge."]
-pub type SPH_R = crate::BitReader<SPH_A>;
-#[doc = "9:9\\]
-CLKOUT phase (Motorola SPI frame format only) This bit selects the clock edge that captures data and enables it to change state. It has the most impact on the first bit transmitted by either permitting or not permitting a clock transition before the first data capture edge.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum SPH_A {
-    #[doc = "1: Data is captured on the second clock edge transition."]
-    SECOND = 1,
-    #[doc = "0: Data is captured on the first clock edge transition."]
-    FIRST = 0,
-}
-impl From<SPH_A> for bool {
-    #[inline(always)]
-    fn from(variant: SPH_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl SPH_R {
+pub type SphR = crate::BitReader<Sph>;
+impl SphR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> SPH_A {
+    pub const fn variant(&self) -> Sph {
         match self.bits {
-            true => SPH_A::SECOND,
-            false => SPH_A::FIRST,
+            true => Sph::Second,
+            false => Sph::First,
         }
     }
-    #[doc = "Checks if the value of the field is `SECOND`"]
+    #[doc = "Data is captured on the second clock edge transition."]
     #[inline(always)]
     pub fn is_second(&self) -> bool {
-        *self == SPH_A::SECOND
+        *self == Sph::Second
     }
-    #[doc = "Checks if the value of the field is `FIRST`"]
+    #[doc = "Data is captured on the first clock edge transition."]
     #[inline(always)]
     pub fn is_first(&self) -> bool {
-        *self == SPH_A::FIRST
+        *self == Sph::First
     }
 }
 #[doc = "Field `SPH` writer - 9:9\\]
 CLKOUT phase (Motorola SPI frame format only) This bit selects the clock edge that captures data and enables it to change state. It has the most impact on the first bit transmitted by either permitting or not permitting a clock transition before the first data capture edge."]
-pub type SPH_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTL0_SPEC, SPH_A, O>;
-impl<'a, const O: u8> SPH_W<'a, O> {
+pub type SphW<'a, REG> = crate::BitWriter<'a, REG, Sph>;
+impl<'a, REG> SphW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Data is captured on the second clock edge transition."]
     #[inline(always)]
-    pub fn second(self) -> &'a mut W {
-        self.variant(SPH_A::SECOND)
+    pub fn second(self) -> &'a mut crate::W<REG> {
+        self.variant(Sph::Second)
     }
     #[doc = "Data is captured on the first clock edge transition."]
     #[inline(always)]
-    pub fn first(self) -> &'a mut W {
-        self.variant(SPH_A::FIRST)
+    pub fn first(self) -> &'a mut crate::W<REG> {
+        self.variant(Sph::First)
     }
 }
 #[doc = "Field `RESERVED10` reader - 11:10\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED10_R = crate::FieldReader<u8, u8>;
+pub type Reserved10R = crate::FieldReader;
 #[doc = "Field `RESERVED10` writer - 11:10\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED10_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CTL0_SPEC, u8, u8, 2, O>;
+pub type Reserved10W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `RESERVED12` reader - 13:12\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED12_R = crate::FieldReader<u8, u8>;
+pub type Reserved12R = crate::FieldReader;
 #[doc = "Field `RESERVED12` writer - 13:12\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED12_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CTL0_SPEC, u8, u8, 2, O>;
-#[doc = "Field `CSCLR` reader - 14:14\\]
-Clear shift register counter when CS gets inactive. This bit is relevant only in the slave mode, CTL1.MS = 0."]
-pub type CSCLR_R = crate::BitReader<CSCLR_A>;
+pub type Reserved12W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "14:14\\]
 Clear shift register counter when CS gets inactive. This bit is relevant only in the slave mode, CTL1.MS = 0.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum CSCLR_A {
+pub enum Csclr {
     #[doc = "1: Enable automatic clear of shift register when CS gets inactive."]
-    ENABLE = 1,
+    Enable = 1,
     #[doc = "0: Disable automatic clear of shift register when CS gets inactive."]
-    DISABLE = 0,
+    Disable = 0,
 }
-impl From<CSCLR_A> for bool {
+impl From<Csclr> for bool {
     #[inline(always)]
-    fn from(variant: CSCLR_A) -> Self {
+    fn from(variant: Csclr) -> Self {
         variant as u8 != 0
     }
 }
-impl CSCLR_R {
+#[doc = "Field `CSCLR` reader - 14:14\\]
+Clear shift register counter when CS gets inactive. This bit is relevant only in the slave mode, CTL1.MS = 0."]
+pub type CsclrR = crate::BitReader<Csclr>;
+impl CsclrR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> CSCLR_A {
+    pub const fn variant(&self) -> Csclr {
         match self.bits {
-            true => CSCLR_A::ENABLE,
-            false => CSCLR_A::DISABLE,
+            true => Csclr::Enable,
+            false => Csclr::Disable,
         }
     }
-    #[doc = "Checks if the value of the field is `ENABLE`"]
+    #[doc = "Enable automatic clear of shift register when CS gets inactive."]
     #[inline(always)]
     pub fn is_enable(&self) -> bool {
-        *self == CSCLR_A::ENABLE
+        *self == Csclr::Enable
     }
-    #[doc = "Checks if the value of the field is `DISABLE`"]
+    #[doc = "Disable automatic clear of shift register when CS gets inactive."]
     #[inline(always)]
     pub fn is_disable(&self) -> bool {
-        *self == CSCLR_A::DISABLE
+        *self == Csclr::Disable
     }
 }
 #[doc = "Field `CSCLR` writer - 14:14\\]
 Clear shift register counter when CS gets inactive. This bit is relevant only in the slave mode, CTL1.MS = 0."]
-pub type CSCLR_W<'a, const O: u8> = crate::BitWriter<'a, u32, CTL0_SPEC, CSCLR_A, O>;
-impl<'a, const O: u8> CSCLR_W<'a, O> {
+pub type CsclrW<'a, REG> = crate::BitWriter<'a, REG, Csclr>;
+impl<'a, REG> CsclrW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Enable automatic clear of shift register when CS gets inactive."]
     #[inline(always)]
-    pub fn enable(self) -> &'a mut W {
-        self.variant(CSCLR_A::ENABLE)
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(Csclr::Enable)
     }
     #[doc = "Disable automatic clear of shift register when CS gets inactive."]
     #[inline(always)]
-    pub fn disable(self) -> &'a mut W {
-        self.variant(CSCLR_A::DISABLE)
+    pub fn disable(self) -> &'a mut crate::W<REG> {
+        self.variant(Csclr::Disable)
     }
 }
 #[doc = "Field `RESERVED15` reader - 31:15\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED15_R = crate::FieldReader<u32, u32>;
+pub type Reserved15R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED15` writer - 31:15\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type RESERVED15_W<'a, const O: u8> = crate::FieldWriter<'a, u32, CTL0_SPEC, u32, u32, 17, O>;
+pub type Reserved15W<'a, REG> = crate::FieldWriter<'a, REG, 17, u32>;
 impl R {
     #[doc = "Bits 0:4 - 4:0\\]
 Data Size Select. Note: Master mode: Values 0 - 2 are reserved and shall not be used. This will map to 4 bit mode. A value of 3h corresponds to 4-bit data (and so on). Slave mode: DSS should be no less than 6 which means the minimum frame length is 7 bits."]
     #[inline(always)]
-    pub fn dss(&self) -> DSS_R {
-        DSS_R::new((self.bits & 0x1f) as u8)
+    pub fn dss(&self) -> DssR {
+        DssR::new((self.bits & 0x1f) as u8)
     }
     #[doc = "Bits 5:6 - 6:5\\]
 Frame format Select"]
     #[inline(always)]
-    pub fn frf(&self) -> FRF_R {
-        FRF_R::new(((self.bits >> 5) & 3) as u8)
+    pub fn frf(&self) -> FrfR {
+        FrfR::new(((self.bits >> 5) & 3) as u8)
     }
     #[doc = "Bit 7 - 7:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved7(&self) -> RESERVED7_R {
-        RESERVED7_R::new(((self.bits >> 7) & 1) != 0)
+    pub fn reserved7(&self) -> Reserved7R {
+        Reserved7R::new(((self.bits >> 7) & 1) != 0)
     }
     #[doc = "Bit 8 - 8:8\\]
 CLKOUT polarity (Motorola SPI frame format only)"]
     #[inline(always)]
-    pub fn spo(&self) -> SPO_R {
-        SPO_R::new(((self.bits >> 8) & 1) != 0)
+    pub fn spo(&self) -> SpoR {
+        SpoR::new(((self.bits >> 8) & 1) != 0)
     }
     #[doc = "Bit 9 - 9:9\\]
 CLKOUT phase (Motorola SPI frame format only) This bit selects the clock edge that captures data and enables it to change state. It has the most impact on the first bit transmitted by either permitting or not permitting a clock transition before the first data capture edge."]
     #[inline(always)]
-    pub fn sph(&self) -> SPH_R {
-        SPH_R::new(((self.bits >> 9) & 1) != 0)
+    pub fn sph(&self) -> SphR {
+        SphR::new(((self.bits >> 9) & 1) != 0)
     }
     #[doc = "Bits 10:11 - 11:10\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved10(&self) -> RESERVED10_R {
-        RESERVED10_R::new(((self.bits >> 10) & 3) as u8)
+    pub fn reserved10(&self) -> Reserved10R {
+        Reserved10R::new(((self.bits >> 10) & 3) as u8)
     }
     #[doc = "Bits 12:13 - 13:12\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved12(&self) -> RESERVED12_R {
-        RESERVED12_R::new(((self.bits >> 12) & 3) as u8)
+    pub fn reserved12(&self) -> Reserved12R {
+        Reserved12R::new(((self.bits >> 12) & 3) as u8)
     }
     #[doc = "Bit 14 - 14:14\\]
 Clear shift register counter when CS gets inactive. This bit is relevant only in the slave mode, CTL1.MS = 0."]
     #[inline(always)]
-    pub fn csclr(&self) -> CSCLR_R {
-        CSCLR_R::new(((self.bits >> 14) & 1) != 0)
+    pub fn csclr(&self) -> CsclrR {
+        CsclrR::new(((self.bits >> 14) & 1) != 0)
     }
     #[doc = "Bits 15:31 - 31:15\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
-    pub fn reserved15(&self) -> RESERVED15_R {
-        RESERVED15_R::new((self.bits >> 15) & 0x0001_ffff)
+    pub fn reserved15(&self) -> Reserved15R {
+        Reserved15R::new((self.bits >> 15) & 0x0001_ffff)
     }
 }
 impl W {
@@ -765,88 +758,80 @@ impl W {
 Data Size Select. Note: Master mode: Values 0 - 2 are reserved and shall not be used. This will map to 4 bit mode. A value of 3h corresponds to 4-bit data (and so on). Slave mode: DSS should be no less than 6 which means the minimum frame length is 7 bits."]
     #[inline(always)]
     #[must_use]
-    pub fn dss(&mut self) -> DSS_W<0> {
-        DSS_W::new(self)
+    pub fn dss(&mut self) -> DssW<Ctl0Spec> {
+        DssW::new(self, 0)
     }
     #[doc = "Bits 5:6 - 6:5\\]
 Frame format Select"]
     #[inline(always)]
     #[must_use]
-    pub fn frf(&mut self) -> FRF_W<5> {
-        FRF_W::new(self)
+    pub fn frf(&mut self) -> FrfW<Ctl0Spec> {
+        FrfW::new(self, 5)
     }
     #[doc = "Bit 7 - 7:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved7(&mut self) -> RESERVED7_W<7> {
-        RESERVED7_W::new(self)
+    pub fn reserved7(&mut self) -> Reserved7W<Ctl0Spec> {
+        Reserved7W::new(self, 7)
     }
     #[doc = "Bit 8 - 8:8\\]
 CLKOUT polarity (Motorola SPI frame format only)"]
     #[inline(always)]
     #[must_use]
-    pub fn spo(&mut self) -> SPO_W<8> {
-        SPO_W::new(self)
+    pub fn spo(&mut self) -> SpoW<Ctl0Spec> {
+        SpoW::new(self, 8)
     }
     #[doc = "Bit 9 - 9:9\\]
 CLKOUT phase (Motorola SPI frame format only) This bit selects the clock edge that captures data and enables it to change state. It has the most impact on the first bit transmitted by either permitting or not permitting a clock transition before the first data capture edge."]
     #[inline(always)]
     #[must_use]
-    pub fn sph(&mut self) -> SPH_W<9> {
-        SPH_W::new(self)
+    pub fn sph(&mut self) -> SphW<Ctl0Spec> {
+        SphW::new(self, 9)
     }
     #[doc = "Bits 10:11 - 11:10\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved10(&mut self) -> RESERVED10_W<10> {
-        RESERVED10_W::new(self)
+    pub fn reserved10(&mut self) -> Reserved10W<Ctl0Spec> {
+        Reserved10W::new(self, 10)
     }
     #[doc = "Bits 12:13 - 13:12\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved12(&mut self) -> RESERVED12_W<12> {
-        RESERVED12_W::new(self)
+    pub fn reserved12(&mut self) -> Reserved12W<Ctl0Spec> {
+        Reserved12W::new(self, 12)
     }
     #[doc = "Bit 14 - 14:14\\]
 Clear shift register counter when CS gets inactive. This bit is relevant only in the slave mode, CTL1.MS = 0."]
     #[inline(always)]
     #[must_use]
-    pub fn csclr(&mut self) -> CSCLR_W<14> {
-        CSCLR_W::new(self)
+    pub fn csclr(&mut self) -> CsclrW<Ctl0Spec> {
+        CsclrW::new(self, 14)
     }
     #[doc = "Bits 15:31 - 31:15\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     #[must_use]
-    pub fn reserved15(&mut self) -> RESERVED15_W<15> {
-        RESERVED15_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn reserved15(&mut self) -> Reserved15W<Ctl0Spec> {
+        Reserved15W::new(self, 15)
     }
 }
-#[doc = "SPI Control Register 0\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ctl0](index.html) module"]
-pub struct CTL0_SPEC;
-impl crate::RegisterSpec for CTL0_SPEC {
+#[doc = "SPI Control Register 0\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ctl0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ctl0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Ctl0Spec;
+impl crate::RegisterSpec for Ctl0Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [ctl0::R](R) reader structure"]
-impl crate::Readable for CTL0_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [ctl0::W](W) writer structure"]
-impl crate::Writable for CTL0_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`ctl0::R`](R) reader structure"]
+impl crate::Readable for Ctl0Spec {}
+#[doc = "`write(|w| ..)` method takes [`ctl0::W`](W) writer structure"]
+impl crate::Writable for Ctl0Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets CTL0 to value 0"]
-impl crate::Resettable for CTL0_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for Ctl0Spec {
+    const RESET_VALUE: u32 = 0;
 }

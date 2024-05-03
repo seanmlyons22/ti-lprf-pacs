@@ -1,99 +1,69 @@
 #[doc = "Register `TRACECLKMUX` reader"]
-pub struct R(crate::R<TRACECLKMUX_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<TRACECLKMUX_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<TRACECLKMUX_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<TRACECLKMUX_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<TraceclkmuxSpec>;
 #[doc = "Register `TRACECLKMUX` writer"]
-pub struct W(crate::W<TRACECLKMUX_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<TRACECLKMUX_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
+pub type W = crate::W<TraceclkmuxSpec>;
+#[doc = "0:0\\]
+Internal. Only to be used through TI provided API.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum TraceclkNSwv {
+    #[doc = "1: Internal. Only to be used through TI provided API."]
+    Traceclk = 1,
+    #[doc = "0: Internal. Only to be used through TI provided API."]
+    Swv = 0,
 }
-impl core::ops::DerefMut for W {
+impl From<TraceclkNSwv> for bool {
     #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<TRACECLKMUX_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<TRACECLKMUX_SPEC>) -> Self {
-        W(writer)
+    fn from(variant: TraceclkNSwv) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `TRACECLK_N_SWV` reader - 0:0\\]
 Internal. Only to be used through TI provided API."]
-pub type TRACECLK_N_SWV_R = crate::BitReader<TRACECLK_N_SWV_A>;
-#[doc = "0:0\\]
-Internal. Only to be used through TI provided API.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum TRACECLK_N_SWV_A {
-    #[doc = "1: Internal. Only to be used through TI provided API."]
-    TRACECLK = 1,
-    #[doc = "0: Internal. Only to be used through TI provided API."]
-    SWV = 0,
-}
-impl From<TRACECLK_N_SWV_A> for bool {
-    #[inline(always)]
-    fn from(variant: TRACECLK_N_SWV_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl TRACECLK_N_SWV_R {
+pub type TraceclkNSwvR = crate::BitReader<TraceclkNSwv>;
+impl TraceclkNSwvR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> TRACECLK_N_SWV_A {
+    pub const fn variant(&self) -> TraceclkNSwv {
         match self.bits {
-            true => TRACECLK_N_SWV_A::TRACECLK,
-            false => TRACECLK_N_SWV_A::SWV,
+            true => TraceclkNSwv::Traceclk,
+            false => TraceclkNSwv::Swv,
         }
     }
-    #[doc = "Checks if the value of the field is `TRACECLK`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_traceclk(&self) -> bool {
-        *self == TRACECLK_N_SWV_A::TRACECLK
+        *self == TraceclkNSwv::Traceclk
     }
-    #[doc = "Checks if the value of the field is `SWV`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_swv(&self) -> bool {
-        *self == TRACECLK_N_SWV_A::SWV
+        *self == TraceclkNSwv::Swv
     }
 }
 #[doc = "Field `TRACECLK_N_SWV` writer - 0:0\\]
 Internal. Only to be used through TI provided API."]
-pub type TRACECLK_N_SWV_W<'a, const O: u8> =
-    crate::BitWriter<'a, u32, TRACECLKMUX_SPEC, TRACECLK_N_SWV_A, O>;
-impl<'a, const O: u8> TRACECLK_N_SWV_W<'a, O> {
+pub type TraceclkNSwvW<'a, REG> = crate::BitWriter<'a, REG, TraceclkNSwv>;
+impl<'a, REG> TraceclkNSwvW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn traceclk(self) -> &'a mut W {
-        self.variant(TRACECLK_N_SWV_A::TRACECLK)
+    pub fn traceclk(self) -> &'a mut crate::W<REG> {
+        self.variant(TraceclkNSwv::Traceclk)
     }
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn swv(self) -> &'a mut W {
-        self.variant(TRACECLK_N_SWV_A::SWV)
+    pub fn swv(self) -> &'a mut crate::W<REG> {
+        self.variant(TraceclkNSwv::Swv)
     }
 }
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn traceclk_n_swv(&self) -> TRACECLK_N_SWV_R {
-        TRACECLK_N_SWV_R::new((self.bits & 1) != 0)
+    pub fn traceclk_n_swv(&self) -> TraceclkNSwvR {
+        TraceclkNSwvR::new((self.bits & 1) != 0)
     }
 }
 impl W {
@@ -101,32 +71,24 @@ impl W {
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn traceclk_n_swv(&mut self) -> TRACECLK_N_SWV_W<0> {
-        TRACECLK_N_SWV_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn traceclk_n_swv(&mut self) -> TraceclkNSwvW<TraceclkmuxSpec> {
+        TraceclkNSwvW::new(self, 0)
     }
 }
-#[doc = "Internal. Only to be used through TI provided API.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [traceclkmux](index.html) module"]
-pub struct TRACECLKMUX_SPEC;
-impl crate::RegisterSpec for TRACECLKMUX_SPEC {
+#[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`traceclkmux::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`traceclkmux::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct TraceclkmuxSpec;
+impl crate::RegisterSpec for TraceclkmuxSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [traceclkmux::R](R) reader structure"]
-impl crate::Readable for TRACECLKMUX_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [traceclkmux::W](W) writer structure"]
-impl crate::Writable for TRACECLKMUX_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`traceclkmux::R`](R) reader structure"]
+impl crate::Readable for TraceclkmuxSpec {}
+#[doc = "`write(|w| ..)` method takes [`traceclkmux::W`](W) writer structure"]
+impl crate::Writable for TraceclkmuxSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets TRACECLKMUX to value 0"]
-impl crate::Resettable for TRACECLKMUX_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for TraceclkmuxSpec {
+    const RESET_VALUE: u32 = 0;
 }

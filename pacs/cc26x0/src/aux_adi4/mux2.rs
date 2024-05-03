@@ -1,241 +1,223 @@
 #[doc = "Register `MUX2` reader"]
-pub struct R(crate::R<MUX2_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<MUX2_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<MUX2_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<MUX2_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<Mux2Spec>;
 #[doc = "Register `MUX2` writer"]
-pub struct W(crate::W<MUX2_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<MUX2_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<MUX2_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<MUX2_SPEC>) -> Self {
-        W(writer)
-    }
-}
-#[doc = "Field `COMPB_REF` reader - 2:0\\]
-Internal. Only to be used through TI provided API."]
-pub type COMPB_REF_R = crate::FieldReader<u8, COMPB_REF_A>;
+pub type W = crate::W<Mux2Spec>;
 #[doc = "2:0\\]
 Internal. Only to be used through TI provided API.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum COMPB_REF_A {
+pub enum CompbRef {
     #[doc = "4: Internal. Only to be used through TI provided API."]
-    VDDS = 4,
+    Vdds = 4,
     #[doc = "2: Internal. Only to be used through TI provided API."]
-    VSS = 2,
+    Vss = 2,
     #[doc = "1: Internal. Only to be used through TI provided API."]
-    DCOUPL = 1,
+    Dcoupl = 1,
     #[doc = "0: Internal. Only to be used through TI provided API."]
-    NC = 0,
+    Nc = 0,
 }
-impl From<COMPB_REF_A> for u8 {
+impl From<CompbRef> for u8 {
     #[inline(always)]
-    fn from(variant: COMPB_REF_A) -> Self {
+    fn from(variant: CompbRef) -> Self {
         variant as _
     }
 }
-impl COMPB_REF_R {
+impl crate::FieldSpec for CompbRef {
+    type Ux = u8;
+}
+impl crate::IsEnum for CompbRef {}
+#[doc = "Field `COMPB_REF` reader - 2:0\\]
+Internal. Only to be used through TI provided API."]
+pub type CompbRefR = crate::FieldReader<CompbRef>;
+impl CompbRefR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<COMPB_REF_A> {
+    pub const fn variant(&self) -> Option<CompbRef> {
         match self.bits {
-            4 => Some(COMPB_REF_A::VDDS),
-            2 => Some(COMPB_REF_A::VSS),
-            1 => Some(COMPB_REF_A::DCOUPL),
-            0 => Some(COMPB_REF_A::NC),
+            4 => Some(CompbRef::Vdds),
+            2 => Some(CompbRef::Vss),
+            1 => Some(CompbRef::Dcoupl),
+            0 => Some(CompbRef::Nc),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `VDDS`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_vdds(&self) -> bool {
-        *self == COMPB_REF_A::VDDS
+        *self == CompbRef::Vdds
     }
-    #[doc = "Checks if the value of the field is `VSS`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_vss(&self) -> bool {
-        *self == COMPB_REF_A::VSS
+        *self == CompbRef::Vss
     }
-    #[doc = "Checks if the value of the field is `DCOUPL`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_dcoupl(&self) -> bool {
-        *self == COMPB_REF_A::DCOUPL
+        *self == CompbRef::Dcoupl
     }
-    #[doc = "Checks if the value of the field is `NC`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_nc(&self) -> bool {
-        *self == COMPB_REF_A::NC
+        *self == CompbRef::Nc
     }
 }
 #[doc = "Field `COMPB_REF` writer - 2:0\\]
 Internal. Only to be used through TI provided API."]
-pub type COMPB_REF_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u8, MUX2_SPEC, u8, COMPB_REF_A, 3, O>;
-impl<'a, const O: u8> COMPB_REF_W<'a, O> {
+pub type CompbRefW<'a, REG> = crate::FieldWriter<'a, REG, 3, CompbRef>;
+impl<'a, REG> CompbRefW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn vdds(self) -> &'a mut W {
-        self.variant(COMPB_REF_A::VDDS)
+    pub fn vdds(self) -> &'a mut crate::W<REG> {
+        self.variant(CompbRef::Vdds)
     }
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn vss(self) -> &'a mut W {
-        self.variant(COMPB_REF_A::VSS)
+    pub fn vss(self) -> &'a mut crate::W<REG> {
+        self.variant(CompbRef::Vss)
     }
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn dcoupl(self) -> &'a mut W {
-        self.variant(COMPB_REF_A::DCOUPL)
+    pub fn dcoupl(self) -> &'a mut crate::W<REG> {
+        self.variant(CompbRef::Dcoupl)
     }
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn nc(self) -> &'a mut W {
-        self.variant(COMPB_REF_A::NC)
+    pub fn nc(self) -> &'a mut crate::W<REG> {
+        self.variant(CompbRef::Nc)
     }
 }
-#[doc = "Field `ADCCOMPB_IN` reader - 7:3\\]
-Internal. Only to be used through TI provided API."]
-pub type ADCCOMPB_IN_R = crate::FieldReader<u8, ADCCOMPB_IN_A>;
 #[doc = "7:3\\]
 Internal. Only to be used through TI provided API.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum ADCCOMPB_IN_A {
+pub enum AdccompbIn {
     #[doc = "16: Internal. Only to be used through TI provided API."]
-    VDDS = 16,
+    Vdds = 16,
     #[doc = "8: Internal. Only to be used through TI provided API."]
-    VSS = 8,
+    Vss = 8,
     #[doc = "4: Internal. Only to be used through TI provided API."]
-    DCOUPL = 4,
+    Dcoupl = 4,
     #[doc = "2: Internal. Only to be used through TI provided API."]
-    ATEST1 = 2,
+    Atest1 = 2,
     #[doc = "1: Internal. Only to be used through TI provided API."]
-    ATEST0 = 1,
+    Atest0 = 1,
     #[doc = "0: Internal. Only to be used through TI provided API."]
-    NC = 0,
+    Nc = 0,
 }
-impl From<ADCCOMPB_IN_A> for u8 {
+impl From<AdccompbIn> for u8 {
     #[inline(always)]
-    fn from(variant: ADCCOMPB_IN_A) -> Self {
+    fn from(variant: AdccompbIn) -> Self {
         variant as _
     }
 }
-impl ADCCOMPB_IN_R {
+impl crate::FieldSpec for AdccompbIn {
+    type Ux = u8;
+}
+impl crate::IsEnum for AdccompbIn {}
+#[doc = "Field `ADCCOMPB_IN` reader - 7:3\\]
+Internal. Only to be used through TI provided API."]
+pub type AdccompbInR = crate::FieldReader<AdccompbIn>;
+impl AdccompbInR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> Option<ADCCOMPB_IN_A> {
+    pub const fn variant(&self) -> Option<AdccompbIn> {
         match self.bits {
-            16 => Some(ADCCOMPB_IN_A::VDDS),
-            8 => Some(ADCCOMPB_IN_A::VSS),
-            4 => Some(ADCCOMPB_IN_A::DCOUPL),
-            2 => Some(ADCCOMPB_IN_A::ATEST1),
-            1 => Some(ADCCOMPB_IN_A::ATEST0),
-            0 => Some(ADCCOMPB_IN_A::NC),
+            16 => Some(AdccompbIn::Vdds),
+            8 => Some(AdccompbIn::Vss),
+            4 => Some(AdccompbIn::Dcoupl),
+            2 => Some(AdccompbIn::Atest1),
+            1 => Some(AdccompbIn::Atest0),
+            0 => Some(AdccompbIn::Nc),
             _ => None,
         }
     }
-    #[doc = "Checks if the value of the field is `VDDS`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_vdds(&self) -> bool {
-        *self == ADCCOMPB_IN_A::VDDS
+        *self == AdccompbIn::Vdds
     }
-    #[doc = "Checks if the value of the field is `VSS`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_vss(&self) -> bool {
-        *self == ADCCOMPB_IN_A::VSS
+        *self == AdccompbIn::Vss
     }
-    #[doc = "Checks if the value of the field is `DCOUPL`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_dcoupl(&self) -> bool {
-        *self == ADCCOMPB_IN_A::DCOUPL
+        *self == AdccompbIn::Dcoupl
     }
-    #[doc = "Checks if the value of the field is `ATEST1`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_atest1(&self) -> bool {
-        *self == ADCCOMPB_IN_A::ATEST1
+        *self == AdccompbIn::Atest1
     }
-    #[doc = "Checks if the value of the field is `ATEST0`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_atest0(&self) -> bool {
-        *self == ADCCOMPB_IN_A::ATEST0
+        *self == AdccompbIn::Atest0
     }
-    #[doc = "Checks if the value of the field is `NC`"]
+    #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn is_nc(&self) -> bool {
-        *self == ADCCOMPB_IN_A::NC
+        *self == AdccompbIn::Nc
     }
 }
 #[doc = "Field `ADCCOMPB_IN` writer - 7:3\\]
 Internal. Only to be used through TI provided API."]
-pub type ADCCOMPB_IN_W<'a, const O: u8> =
-    crate::FieldWriter<'a, u8, MUX2_SPEC, u8, ADCCOMPB_IN_A, 5, O>;
-impl<'a, const O: u8> ADCCOMPB_IN_W<'a, O> {
+pub type AdccompbInW<'a, REG> = crate::FieldWriter<'a, REG, 5, AdccompbIn>;
+impl<'a, REG> AdccompbInW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn vdds(self) -> &'a mut W {
-        self.variant(ADCCOMPB_IN_A::VDDS)
+    pub fn vdds(self) -> &'a mut crate::W<REG> {
+        self.variant(AdccompbIn::Vdds)
     }
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn vss(self) -> &'a mut W {
-        self.variant(ADCCOMPB_IN_A::VSS)
+    pub fn vss(self) -> &'a mut crate::W<REG> {
+        self.variant(AdccompbIn::Vss)
     }
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn dcoupl(self) -> &'a mut W {
-        self.variant(ADCCOMPB_IN_A::DCOUPL)
+    pub fn dcoupl(self) -> &'a mut crate::W<REG> {
+        self.variant(AdccompbIn::Dcoupl)
     }
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn atest1(self) -> &'a mut W {
-        self.variant(ADCCOMPB_IN_A::ATEST1)
+    pub fn atest1(self) -> &'a mut crate::W<REG> {
+        self.variant(AdccompbIn::Atest1)
     }
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn atest0(self) -> &'a mut W {
-        self.variant(ADCCOMPB_IN_A::ATEST0)
+    pub fn atest0(self) -> &'a mut crate::W<REG> {
+        self.variant(AdccompbIn::Atest0)
     }
     #[doc = "Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn nc(self) -> &'a mut W {
-        self.variant(ADCCOMPB_IN_A::NC)
+    pub fn nc(self) -> &'a mut crate::W<REG> {
+        self.variant(AdccompbIn::Nc)
     }
 }
 impl R {
     #[doc = "Bits 0:2 - 2:0\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn compb_ref(&self) -> COMPB_REF_R {
-        COMPB_REF_R::new(self.bits & 7)
+    pub fn compb_ref(&self) -> CompbRefR {
+        CompbRefR::new(self.bits & 7)
     }
     #[doc = "Bits 3:7 - 7:3\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
-    pub fn adccompb_in(&self) -> ADCCOMPB_IN_R {
-        ADCCOMPB_IN_R::new((self.bits >> 3) & 0x1f)
+    pub fn adccompb_in(&self) -> AdccompbInR {
+        AdccompbInR::new((self.bits >> 3) & 0x1f)
     }
 }
 impl W {
@@ -243,39 +225,31 @@ impl W {
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn compb_ref(&mut self) -> COMPB_REF_W<0> {
-        COMPB_REF_W::new(self)
+    pub fn compb_ref(&mut self) -> CompbRefW<Mux2Spec> {
+        CompbRefW::new(self, 0)
     }
     #[doc = "Bits 3:7 - 7:3\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
-    pub fn adccompb_in(&mut self) -> ADCCOMPB_IN_W<3> {
-        ADCCOMPB_IN_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u8) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn adccompb_in(&mut self) -> AdccompbInW<Mux2Spec> {
+        AdccompbInW::new(self, 3)
     }
 }
-#[doc = "Internal. Only to be used through TI provided API.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [mux2](index.html) module"]
-pub struct MUX2_SPEC;
-impl crate::RegisterSpec for MUX2_SPEC {
+#[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`mux2::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`mux2::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Mux2Spec;
+impl crate::RegisterSpec for Mux2Spec {
     type Ux = u8;
 }
-#[doc = "`read()` method returns [mux2::R](R) reader structure"]
-impl crate::Readable for MUX2_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [mux2::W](W) writer structure"]
-impl crate::Writable for MUX2_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`mux2::R`](R) reader structure"]
+impl crate::Readable for Mux2Spec {}
+#[doc = "`write(|w| ..)` method takes [`mux2::W`](W) writer structure"]
+impl crate::Writable for Mux2Spec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u8 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u8 = 0;
 }
 #[doc = "`reset()` method sets MUX2 to value 0"]
-impl crate::Resettable for MUX2_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for Mux2Spec {
+    const RESET_VALUE: u8 = 0;
 }

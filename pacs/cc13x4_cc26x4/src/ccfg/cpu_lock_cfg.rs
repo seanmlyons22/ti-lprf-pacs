@@ -1,99 +1,67 @@
 #[doc = "Register `CPU_LOCK_CFG` reader"]
-pub struct R(crate::R<CPU_LOCK_CFG_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<CPU_LOCK_CFG_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<CPU_LOCK_CFG_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<CPU_LOCK_CFG_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<CpuLockCfgSpec>;
 #[doc = "Register `CPU_LOCK_CFG` writer"]
-pub struct W(crate::W<CPU_LOCK_CFG_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<CPU_LOCK_CFG_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl core::ops::DerefMut for W {
-    #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<CPU_LOCK_CFG_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<CPU_LOCK_CFG_SPEC>) -> Self {
-        W(writer)
-    }
-}
+pub type W = crate::W<CpuLockCfgSpec>;
 #[doc = "Field `LOCKSMPU_N` reader - 0:0\\]
 Value will be inverted and written to PRCM:CPULOCK.LOCKSMPU by ROM boot FW"]
-pub type LOCKSMPU_N_R = crate::BitReader<bool>;
+pub type LocksmpuNR = crate::BitReader;
 #[doc = "Field `LOCKSMPU_N` writer - 0:0\\]
 Value will be inverted and written to PRCM:CPULOCK.LOCKSMPU by ROM boot FW"]
-pub type LOCKSMPU_N_W<'a, const O: u8> = crate::BitWriter<'a, u32, CPU_LOCK_CFG_SPEC, bool, O>;
+pub type LocksmpuNW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `LOCKNSMPU_N` reader - 1:1\\]
 Value will be inverted and written to PRCM:CPULOCK.LOCKNSMPU by ROM boot FW"]
-pub type LOCKNSMPU_N_R = crate::BitReader<bool>;
+pub type LocknsmpuNR = crate::BitReader;
 #[doc = "Field `LOCKNSMPU_N` writer - 1:1\\]
 Value will be inverted and written to PRCM:CPULOCK.LOCKNSMPU by ROM boot FW"]
-pub type LOCKNSMPU_N_W<'a, const O: u8> = crate::BitWriter<'a, u32, CPU_LOCK_CFG_SPEC, bool, O>;
+pub type LocknsmpuNW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `LOCKSAU_N` reader - 2:2\\]
 Value will be inverted and written to PRCM:CPULOCK.LOCKSAU by ROM boot FW"]
-pub type LOCKSAU_N_R = crate::BitReader<bool>;
+pub type LocksauNR = crate::BitReader;
 #[doc = "Field `LOCKSAU_N` writer - 2:2\\]
 Value will be inverted and written to PRCM:CPULOCK.LOCKSAU by ROM boot FW"]
-pub type LOCKSAU_N_W<'a, const O: u8> = crate::BitWriter<'a, u32, CPU_LOCK_CFG_SPEC, bool, O>;
+pub type LocksauNW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `LOCKSVTAIRCR_N` reader - 3:3\\]
 Value will be inverted and written to PRCM:CPULOCK.LOCKSVTAIRCR by ROM boot FW"]
-pub type LOCKSVTAIRCR_N_R = crate::BitReader<bool>;
+pub type LocksvtaircrNR = crate::BitReader;
 #[doc = "Field `LOCKSVTAIRCR_N` writer - 3:3\\]
 Value will be inverted and written to PRCM:CPULOCK.LOCKSVTAIRCR by ROM boot FW"]
-pub type LOCKSVTAIRCR_N_W<'a, const O: u8> = crate::BitWriter<'a, u32, CPU_LOCK_CFG_SPEC, bool, O>;
+pub type LocksvtaircrNW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `LOCKNSVTOR_N` reader - 4:4\\]
 Value will be inverted and written to PRCM:CPULOCK.LOCKNSVTOR by ROM boot FW"]
-pub type LOCKNSVTOR_N_R = crate::BitReader<bool>;
+pub type LocknsvtorNR = crate::BitReader;
 #[doc = "Field `LOCKNSVTOR_N` writer - 4:4\\]
 Value will be inverted and written to PRCM:CPULOCK.LOCKNSVTOR by ROM boot FW"]
-pub type LOCKNSVTOR_N_W<'a, const O: u8> = crate::BitWriter<'a, u32, CPU_LOCK_CFG_SPEC, bool, O>;
+pub type LocknsvtorNW<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Value will be inverted and written to PRCM:CPULOCK.LOCKSMPU by ROM boot FW"]
     #[inline(always)]
-    pub fn locksmpu_n(&self) -> LOCKSMPU_N_R {
-        LOCKSMPU_N_R::new((self.bits & 1) != 0)
+    pub fn locksmpu_n(&self) -> LocksmpuNR {
+        LocksmpuNR::new((self.bits & 1) != 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 Value will be inverted and written to PRCM:CPULOCK.LOCKNSMPU by ROM boot FW"]
     #[inline(always)]
-    pub fn locknsmpu_n(&self) -> LOCKNSMPU_N_R {
-        LOCKNSMPU_N_R::new(((self.bits >> 1) & 1) != 0)
+    pub fn locknsmpu_n(&self) -> LocknsmpuNR {
+        LocknsmpuNR::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bit 2 - 2:2\\]
 Value will be inverted and written to PRCM:CPULOCK.LOCKSAU by ROM boot FW"]
     #[inline(always)]
-    pub fn locksau_n(&self) -> LOCKSAU_N_R {
-        LOCKSAU_N_R::new(((self.bits >> 2) & 1) != 0)
+    pub fn locksau_n(&self) -> LocksauNR {
+        LocksauNR::new(((self.bits >> 2) & 1) != 0)
     }
     #[doc = "Bit 3 - 3:3\\]
 Value will be inverted and written to PRCM:CPULOCK.LOCKSVTAIRCR by ROM boot FW"]
     #[inline(always)]
-    pub fn locksvtaircr_n(&self) -> LOCKSVTAIRCR_N_R {
-        LOCKSVTAIRCR_N_R::new(((self.bits >> 3) & 1) != 0)
+    pub fn locksvtaircr_n(&self) -> LocksvtaircrNR {
+        LocksvtaircrNR::new(((self.bits >> 3) & 1) != 0)
     }
     #[doc = "Bit 4 - 4:4\\]
 Value will be inverted and written to PRCM:CPULOCK.LOCKNSVTOR by ROM boot FW"]
     #[inline(always)]
-    pub fn locknsvtor_n(&self) -> LOCKNSVTOR_N_R {
-        LOCKNSVTOR_N_R::new(((self.bits >> 4) & 1) != 0)
+    pub fn locknsvtor_n(&self) -> LocknsvtorNR {
+        LocknsvtorNR::new(((self.bits >> 4) & 1) != 0)
     }
 }
 impl W {
@@ -101,60 +69,52 @@ impl W {
 Value will be inverted and written to PRCM:CPULOCK.LOCKSMPU by ROM boot FW"]
     #[inline(always)]
     #[must_use]
-    pub fn locksmpu_n(&mut self) -> LOCKSMPU_N_W<0> {
-        LOCKSMPU_N_W::new(self)
+    pub fn locksmpu_n(&mut self) -> LocksmpuNW<CpuLockCfgSpec> {
+        LocksmpuNW::new(self, 0)
     }
     #[doc = "Bit 1 - 1:1\\]
 Value will be inverted and written to PRCM:CPULOCK.LOCKNSMPU by ROM boot FW"]
     #[inline(always)]
     #[must_use]
-    pub fn locknsmpu_n(&mut self) -> LOCKNSMPU_N_W<1> {
-        LOCKNSMPU_N_W::new(self)
+    pub fn locknsmpu_n(&mut self) -> LocknsmpuNW<CpuLockCfgSpec> {
+        LocknsmpuNW::new(self, 1)
     }
     #[doc = "Bit 2 - 2:2\\]
 Value will be inverted and written to PRCM:CPULOCK.LOCKSAU by ROM boot FW"]
     #[inline(always)]
     #[must_use]
-    pub fn locksau_n(&mut self) -> LOCKSAU_N_W<2> {
-        LOCKSAU_N_W::new(self)
+    pub fn locksau_n(&mut self) -> LocksauNW<CpuLockCfgSpec> {
+        LocksauNW::new(self, 2)
     }
     #[doc = "Bit 3 - 3:3\\]
 Value will be inverted and written to PRCM:CPULOCK.LOCKSVTAIRCR by ROM boot FW"]
     #[inline(always)]
     #[must_use]
-    pub fn locksvtaircr_n(&mut self) -> LOCKSVTAIRCR_N_W<3> {
-        LOCKSVTAIRCR_N_W::new(self)
+    pub fn locksvtaircr_n(&mut self) -> LocksvtaircrNW<CpuLockCfgSpec> {
+        LocksvtaircrNW::new(self, 3)
     }
     #[doc = "Bit 4 - 4:4\\]
 Value will be inverted and written to PRCM:CPULOCK.LOCKNSVTOR by ROM boot FW"]
     #[inline(always)]
     #[must_use]
-    pub fn locknsvtor_n(&mut self) -> LOCKNSVTOR_N_W<4> {
-        LOCKNSVTOR_N_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn locknsvtor_n(&mut self) -> LocknsvtorNW<CpuLockCfgSpec> {
+        LocknsvtorNW::new(self, 4)
     }
 }
-#[doc = "Configuration register for MCU CPU lock options\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [cpu_lock_cfg](index.html) module"]
-pub struct CPU_LOCK_CFG_SPEC;
-impl crate::RegisterSpec for CPU_LOCK_CFG_SPEC {
+#[doc = "Configuration register for MCU CPU lock options\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`cpu_lock_cfg::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`cpu_lock_cfg::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct CpuLockCfgSpec;
+impl crate::RegisterSpec for CpuLockCfgSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [cpu_lock_cfg::R](R) reader structure"]
-impl crate::Readable for CPU_LOCK_CFG_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [cpu_lock_cfg::W](W) writer structure"]
-impl crate::Writable for CPU_LOCK_CFG_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`cpu_lock_cfg::R`](R) reader structure"]
+impl crate::Readable for CpuLockCfgSpec {}
+#[doc = "`write(|w| ..)` method takes [`cpu_lock_cfg::W`](W) writer structure"]
+impl crate::Writable for CpuLockCfgSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets CPU_LOCK_CFG to value 0xffff_ffff"]
-impl crate::Resettable for CPU_LOCK_CFG_SPEC {
-    const RESET_VALUE: Self::Ux = 0xffff_ffff;
+impl crate::Resettable for CpuLockCfgSpec {
+    const RESET_VALUE: u32 = 0xffff_ffff;
 }

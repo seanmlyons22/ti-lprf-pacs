@@ -1,98 +1,69 @@
 #[doc = "Register `AUXIOLATCH` reader"]
-pub struct R(crate::R<AUXIOLATCH_SPEC>);
-impl core::ops::Deref for R {
-    type Target = crate::R<AUXIOLATCH_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-impl From<crate::R<AUXIOLATCH_SPEC>> for R {
-    #[inline(always)]
-    fn from(reader: crate::R<AUXIOLATCH_SPEC>) -> Self {
-        R(reader)
-    }
-}
+pub type R = crate::R<AuxiolatchSpec>;
 #[doc = "Register `AUXIOLATCH` writer"]
-pub struct W(crate::W<AUXIOLATCH_SPEC>);
-impl core::ops::Deref for W {
-    type Target = crate::W<AUXIOLATCH_SPEC>;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
+pub type W = crate::W<AuxiolatchSpec>;
+#[doc = "0:0\\]
+Opens (1) or closes (0) the AUX_AIODIO0/AUX_AIODIO1 signal latching. At startup, set EN = TRANSP before configuring AUX_AIODIO0/AUX_AIODIO1 and subsequently selecting AUX mode in the AON_IOC. When powering off the AUX domain (using PWROFFREQ.REQ), set EN = STATIC in advance preserve the current state (mode and output value) of the I/O pins.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum En {
+    #[doc = "1: Latches are transparent ( open )"]
+    Transp = 1,
+    #[doc = "0: Latches are static ( closed )"]
+    Static = 0,
 }
-impl core::ops::DerefMut for W {
+impl From<En> for bool {
     #[inline(always)]
-    fn deref_mut(&mut self) -> &mut Self::Target {
-        &mut self.0
-    }
-}
-impl From<crate::W<AUXIOLATCH_SPEC>> for W {
-    #[inline(always)]
-    fn from(writer: crate::W<AUXIOLATCH_SPEC>) -> Self {
-        W(writer)
+    fn from(variant: En) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Field `EN` reader - 0:0\\]
 Opens (1) or closes (0) the AUX_AIODIO0/AUX_AIODIO1 signal latching. At startup, set EN = TRANSP before configuring AUX_AIODIO0/AUX_AIODIO1 and subsequently selecting AUX mode in the AON_IOC. When powering off the AUX domain (using PWROFFREQ.REQ), set EN = STATIC in advance preserve the current state (mode and output value) of the I/O pins."]
-pub type EN_R = crate::BitReader<EN_A>;
-#[doc = "0:0\\]
-Opens (1) or closes (0) the AUX_AIODIO0/AUX_AIODIO1 signal latching. At startup, set EN = TRANSP before configuring AUX_AIODIO0/AUX_AIODIO1 and subsequently selecting AUX mode in the AON_IOC. When powering off the AUX domain (using PWROFFREQ.REQ), set EN = STATIC in advance preserve the current state (mode and output value) of the I/O pins.\n\nValue on reset: 0"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum EN_A {
-    #[doc = "1: Latches are transparent ( open )"]
-    TRANSP = 1,
-    #[doc = "0: Latches are static ( closed )"]
-    STATIC = 0,
-}
-impl From<EN_A> for bool {
-    #[inline(always)]
-    fn from(variant: EN_A) -> Self {
-        variant as u8 != 0
-    }
-}
-impl EN_R {
+pub type EnR = crate::BitReader<En>;
+impl EnR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub fn variant(&self) -> EN_A {
+    pub const fn variant(&self) -> En {
         match self.bits {
-            true => EN_A::TRANSP,
-            false => EN_A::STATIC,
+            true => En::Transp,
+            false => En::Static,
         }
     }
-    #[doc = "Checks if the value of the field is `TRANSP`"]
+    #[doc = "Latches are transparent ( open )"]
     #[inline(always)]
     pub fn is_transp(&self) -> bool {
-        *self == EN_A::TRANSP
+        *self == En::Transp
     }
-    #[doc = "Checks if the value of the field is `STATIC`"]
+    #[doc = "Latches are static ( closed )"]
     #[inline(always)]
     pub fn is_static(&self) -> bool {
-        *self == EN_A::STATIC
+        *self == En::Static
     }
 }
 #[doc = "Field `EN` writer - 0:0\\]
 Opens (1) or closes (0) the AUX_AIODIO0/AUX_AIODIO1 signal latching. At startup, set EN = TRANSP before configuring AUX_AIODIO0/AUX_AIODIO1 and subsequently selecting AUX mode in the AON_IOC. When powering off the AUX domain (using PWROFFREQ.REQ), set EN = STATIC in advance preserve the current state (mode and output value) of the I/O pins."]
-pub type EN_W<'a, const O: u8> = crate::BitWriter<'a, u32, AUXIOLATCH_SPEC, EN_A, O>;
-impl<'a, const O: u8> EN_W<'a, O> {
+pub type EnW<'a, REG> = crate::BitWriter<'a, REG, En>;
+impl<'a, REG> EnW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
     #[doc = "Latches are transparent ( open )"]
     #[inline(always)]
-    pub fn transp(self) -> &'a mut W {
-        self.variant(EN_A::TRANSP)
+    pub fn transp(self) -> &'a mut crate::W<REG> {
+        self.variant(En::Transp)
     }
     #[doc = "Latches are static ( closed )"]
     #[inline(always)]
-    pub fn static_(self) -> &'a mut W {
-        self.variant(EN_A::STATIC)
+    pub fn static_(self) -> &'a mut crate::W<REG> {
+        self.variant(En::Static)
     }
 }
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Opens (1) or closes (0) the AUX_AIODIO0/AUX_AIODIO1 signal latching. At startup, set EN = TRANSP before configuring AUX_AIODIO0/AUX_AIODIO1 and subsequently selecting AUX mode in the AON_IOC. When powering off the AUX domain (using PWROFFREQ.REQ), set EN = STATIC in advance preserve the current state (mode and output value) of the I/O pins."]
     #[inline(always)]
-    pub fn en(&self) -> EN_R {
-        EN_R::new((self.bits & 1) != 0)
+    pub fn en(&self) -> EnR {
+        EnR::new((self.bits & 1) != 0)
     }
 }
 impl W {
@@ -100,32 +71,24 @@ impl W {
 Opens (1) or closes (0) the AUX_AIODIO0/AUX_AIODIO1 signal latching. At startup, set EN = TRANSP before configuring AUX_AIODIO0/AUX_AIODIO1 and subsequently selecting AUX mode in the AON_IOC. When powering off the AUX domain (using PWROFFREQ.REQ), set EN = STATIC in advance preserve the current state (mode and output value) of the I/O pins."]
     #[inline(always)]
     #[must_use]
-    pub fn en(&mut self) -> EN_W<0> {
-        EN_W::new(self)
-    }
-    #[doc = "Writes raw bits to the register."]
-    #[inline(always)]
-    pub unsafe fn bits(&mut self, bits: u32) -> &mut Self {
-        self.0.bits(bits);
-        self
+    pub fn en(&mut self) -> EnW<AuxiolatchSpec> {
+        EnW::new(self, 0)
     }
 }
-#[doc = "AUX Input Output Latch Controls latching of signals between AUX_AIODIO0/AUX_AIODIO1 and AON_IOC.\n\nThis register you can [`read`](crate::generic::Reg::read), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [auxiolatch](index.html) module"]
-pub struct AUXIOLATCH_SPEC;
-impl crate::RegisterSpec for AUXIOLATCH_SPEC {
+#[doc = "AUX Input Output Latch Controls latching of signals between AUX_AIODIO0/AUX_AIODIO1 and AON_IOC.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`auxiolatch::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`auxiolatch::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct AuxiolatchSpec;
+impl crate::RegisterSpec for AuxiolatchSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [auxiolatch::R](R) reader structure"]
-impl crate::Readable for AUXIOLATCH_SPEC {
-    type Reader = R;
-}
-#[doc = "`write(|w| ..)` method takes [auxiolatch::W](W) writer structure"]
-impl crate::Writable for AUXIOLATCH_SPEC {
-    type Writer = W;
-    const ZERO_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
-    const ONE_TO_MODIFY_FIELDS_BITMAP: Self::Ux = 0;
+#[doc = "`read()` method returns [`auxiolatch::R`](R) reader structure"]
+impl crate::Readable for AuxiolatchSpec {}
+#[doc = "`write(|w| ..)` method takes [`auxiolatch::W`](W) writer structure"]
+impl crate::Writable for AuxiolatchSpec {
+    type Safety = crate::Unsafe;
+    const ZERO_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0;
 }
 #[doc = "`reset()` method sets AUXIOLATCH to value 0"]
-impl crate::Resettable for AUXIOLATCH_SPEC {
-    const RESET_VALUE: Self::Ux = 0;
+impl crate::Resettable for AuxiolatchSpec {
+    const RESET_VALUE: u32 = 0;
 }
