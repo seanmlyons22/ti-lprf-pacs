@@ -162,6 +162,12 @@ def app():
     input_path = Path(args.input)
     devs = [(path.name, path.stem) for path in list(input_path.glob("*.xml"))]
 
+    # Ensure that something was found
+    if not devs:
+        print("No device families found in the input folder, remember to point to devices folder.")
+        return
+
+    print("Generating PACs for TI LPRF devices")
     for dev in devs:
         # This could be more readable, NB! its tied to the list comprehension above
         device_name = dev[1]

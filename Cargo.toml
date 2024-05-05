@@ -2,7 +2,8 @@
 
 members = [
     "pacs/*",
-    "tests/*"
+    "tests/*",
+    "xtask"
 ]
 
 [workspace.package]
@@ -21,8 +22,3 @@ cortex-m = "0.7.7"
 cortex-m-rt = "0.7.4"
 vcell = "0.1.2"
 
-# These are not used since the PACs are not yet generated in Rust.
-[workspace.dev-dependencies]
-tixml2svd = "0.1.4"
-svd2rust = "0.33.1"
-form = "0.12.1"

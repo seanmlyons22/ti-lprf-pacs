@@ -45,30 +45,43 @@ This should give an output similar to below:
 .
 ├── Cargo.lock
 ├── Cargo.toml
-├── README.md
+├── CONTRIBUTING.md
 ├── input
-│   ├── Modules
-│   └── devices
+│   ├── devices
+│   └── Modules
+├── LICENSE.txt
 ├── pacs
-│   ├── cc13x0
-│   ├── cc13x1_cc26x1
-│   ├── cc13x2_cc26x2
-│   ├── cc13x2x7_cc26x2x7
-│   ├── cc13x4_cc26x4
-│   ├── cc2640r2
-│   └── cc26x0
+│   ├── cc13x0
+│   ├── cc13x1_cc26x1
+│   ├── cc13x2_cc26x2
+│   ├── cc13x2x7_cc26x2x7
+│   ├── cc13x4_cc26x4
+│   ├── cc2640r2
+│   └── cc26x0
+├── README.md
 ├── svds
-│   ├── cc13x0.svd
-│   ├── cc13x1_cc26x1.svd
-│   ├── cc13x2_cc26x2.svd
-│   ├── cc13x2x7_cc26x2x7.svd
-│   ├── cc13x4_cc26x4.svd
-│   ├── cc2640r2.svd
-│   └── cc26x0.svd
-└── tools
-    └── generate_pacs.py
+│   ├── cc13x0.svd
+│   ├── cc13x1_cc26x1.svd
+│   ├── cc13x2_cc26x2.svd
+│   ├── cc13x2x7_cc26x2x7.svd
+│   ├── cc13x4_cc26x4.svd
+│   ├── cc2640r2.svd
+│   └── cc26x0.svd
+├── target
+│   ├── CACHEDIR.TAG
+│   ├── debug
+│   ├── dist
+│   ├── release
+│   └── thumbv7em-none-eabihf
+├── tests
+│   └── cc13x2-cc26x2
+├── tools
+│   └── generate_pacs.py
+└── xtask
+    ├── Cargo.toml
+    └── src
 
-14 directories, 11 files
+23 directories, 15 files
 ```
 
 The creation of pacs from the input XML files is automated using
@@ -116,9 +129,7 @@ without any `.` or other delimiter so 12.2.0 becomes 1220.
    `device_family` with the device family name.
    - For a hint, use the C file created by TI. It can be found in
      `<TI_SDK>/source/ti/devices/<device_family>/inc/hw_ints.h`.
-1. Run `python3 tools/generate_pacs.py -osvds svds/ -opacs pacs/ input/devices`
-   from the root of this repo.
-   - If on Windows `python3` may be called `python`
+1. Run `cargo xtask generate`
 1. Update `device.x` based on the vector table you created in the last step
 
 [svd2rust]: https://github.com/rust-embedded/svd2rust
