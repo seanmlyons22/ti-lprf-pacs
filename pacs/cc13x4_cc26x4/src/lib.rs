@@ -3636,3 +3636,5 @@ impl Peripherals {
         }
     }
 }
+#[doc = "Customer Configuration Area (CCFG)"]
+pub mod ccfg;
