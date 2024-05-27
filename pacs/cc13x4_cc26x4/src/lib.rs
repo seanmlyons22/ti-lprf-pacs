@@ -2070,52 +2070,6 @@ impl core::fmt::Debug for AuxAiodio3 {
 #[doc = "AUX Analog Digital Input Output Controller (AUX_AIODIO) controls the general purpose input output pins of the AUX domain. These pins are referenced as AUXIO and can: - be connected to analog AUX modules, such as comparators and ADC. - be used by AUX_SCE. - connect to AUX_SPIM SCLK, MISO and MOSI signals. - connect to the asynchronous AUX event bus. Enabled digital inputs are synchronized at SCE clock rate. Note that the IO mapping in the AUX domain is different from the IO mapping in the MCU domain. This means that AUXIO\\[n\\]
 does not map to DIO\\[n\\]. AUXIO-DIO remapping is handled by Sensor Controller Studio."]
 pub mod aux_aiodio3;
-#[doc = "Customer configuration area (CCFG)"]
-pub struct Ccfg {
-    _marker: PhantomData<*const ()>,
-}
-unsafe impl Send for Ccfg {}
-impl Ccfg {
-    #[doc = r"Pointer to the register block"]
-    pub const PTR: *const ccfg::RegisterBlock = 0x5000_0000 as *const _;
-    #[doc = r"Return the pointer to the register block"]
-    #[inline(always)]
-    pub const fn ptr() -> *const ccfg::RegisterBlock {
-        Self::PTR
-    }
-    #[doc = r" Steal an instance of this peripheral"]
-    #[doc = r""]
-    #[doc = r" # Safety"]
-    #[doc = r""]
-    #[doc = r" Ensure that the new instance of the peripheral cannot be used in a way"]
-    #[doc = r" that may race with any existing instances, for example by only"]
-    #[doc = r" accessing read-only or write-only registers, or by consuming the"]
-    #[doc = r" original peripheral and using critical sections to coordinate"]
-    #[doc = r" access between multiple new instances."]
-    #[doc = r""]
-    #[doc = r" Additionally, other software such as HALs may rely on only one"]
-    #[doc = r" peripheral instance existing to ensure memory safety; ensure"]
-    #[doc = r" no stolen instances are passed to such software."]
-    pub unsafe fn steal() -> Self {
-        Self {
-            _marker: PhantomData,
-        }
-    }
-}
-impl Deref for Ccfg {
-    type Target = ccfg::RegisterBlock;
-    #[inline(always)]
-    fn deref(&self) -> &Self::Target {
-        unsafe { &*Self::PTR }
-    }
-}
-impl core::fmt::Debug for Ccfg {
-    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("Ccfg").finish()
-    }
-}
-#[doc = "Customer configuration area (CCFG)"]
-pub mod ccfg;
 #[doc = "Factory configuration area (FCFG1)"]
 pub struct Fcfg1 {
     _marker: PhantomData<*const ()>,
@@ -3401,8 +3355,6 @@ pub struct Peripherals {
     pub aux_aiodio2: AuxAiodio2,
     #[doc = "AUX_AIODIO3"]
     pub aux_aiodio3: AuxAiodio3,
-    #[doc = "CCFG"]
-    pub ccfg: Ccfg,
     #[doc = "FCFG1"]
     pub fcfg1: Fcfg1,
     #[doc = "CRYPTO"]
@@ -3601,9 +3553,6 @@ impl Peripherals {
                 _marker: PhantomData,
             },
             aux_aiodio3: AuxAiodio3 {
-                _marker: PhantomData,
-            },
-            ccfg: Ccfg {
                 _marker: PhantomData,
             },
             fcfg1: Fcfg1 {
