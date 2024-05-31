@@ -21,7 +21,6 @@
 /// Note that the `Default` trait cannot be used because the CCFG must be
 /// constant initialized.
 /// ```
-/// use cc13x2_cc26x2::ccfg::Ccfg;
 ///
 ///
 /// #[used]
@@ -36,7 +35,7 @@
 /// SECTIONS
 /// {
 ///     .ccfg :
-///     {Unsigned integer, defining the minimum DCDC voltage
+///     {
 ///         KEEP(*(.ccfg));
 ///     } > FLASH_CCFG
 /// }
@@ -126,7 +125,7 @@ impl Ccfg {
                 CCFG_DEFAULT_MODE_CONF_1_ALT_DCDC_IPEAK,
                 CCFG_DEFAULT_MODE_CONF_1_ALT_IBIAS_INIT,
                 CCFG_DEFAULT_MODE_CONF_1_ALT_IBIAS_OFFSET,
-                CCFG_DEFAULT_MODE_CONF_1_ALT_IBIAS_MAX_START,
+                CCFG_DEFAULT_MODE_CONF_1_ALT_XOSC_MAX_START,
             ),
             size_and_dis_flags: size_and_dis_flags(true, true, false, true),
             mode_conf: mode_conf(
@@ -219,7 +218,7 @@ pub enum CCFG_BL_CONFIG_ENABLE {
     DISABLED = 0x00,
 }
 
-pub enum CCFG_BL_CONFIG_BACKDOOR_ENABLE{
+pub enum CCFG_BL_CONFIG_BACKDOOR_ENABLE {
     /// backdoor is enabled
     ENABLED = 0xC5,
     /// backdoor is disabled
@@ -244,7 +243,7 @@ pub const CCFG_DEFAULT_MODE_CONF_1_ALT_DCDC_DITHER_EN: bool = false;
 pub const CCFG_DEFAULT_MODE_CONF_1_ALT_DCDC_IPEAK: u8 = 0x0;
 pub const CCFG_DEFAULT_MODE_CONF_1_ALT_IBIAS_INIT: u8 = 0x0;
 pub const CCFG_DEFAULT_MODE_CONF_1_ALT_IBIAS_OFFSET: u8 = 0x0;
-pub const CCFG_DEFAULT_MODE_CONF_1_ALT_IBIAS_MAX_START: u8 = 0x10;
+pub const CCFG_DEFAULT_MODE_CONF_1_ALT_XOSC_MAX_START: u8 = 0x10;
 pub const CCFG_DEFAULT_MODE_CONF_VDDR_TRIM_SLEEP_DELTA: u8 = 0xF;
 pub const CCFG_DEFAULT_MODE_CONF_DCDC_RECHARGE_DISABLE: bool = false;
 pub const CCFG_DEFAULT_MODE_CONF_VDDS_BOD_LEVEL: CCFG_MODE_CONF_VDDS_BOD_LEVEL =
