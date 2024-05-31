@@ -19,6 +19,6 @@ readme = "README.md"
 [workspace.dependencies]
 critical-section = "1.0"
 cortex-m = "0.7.7"
-cortex-m-rt = "0.7.4"
+cortex-m-rt = "0.7.3"
 vcell = "0.1.2"
 
