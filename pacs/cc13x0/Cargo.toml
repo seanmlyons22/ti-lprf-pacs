@@ -1,5 +1,7 @@
 [package]
 name = "cc13x0_pac"
+description = "Peripheral Access Crate for TI's cc13x0 microcontroller"
+documentation = "https://docs.rs/cc13x0-pac"
 version.workspace = true
 edition.workspace = true
 keywords.workspace = true
