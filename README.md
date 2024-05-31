@@ -27,7 +27,6 @@ The PACs are listed below:
 | `cc13x2x7_cc26x2x7` | CC1312R7, CC1352P7, CC2652P7, CC2652R7                                                 | https://github.com/TexasInstruments/cc13xx_cc26xx_sdk                              | `thumbv7em-none-eabihf`      |
 | `cc13x4_cc26x4`     | CC1314R, CC1354R, CC1354P, CC2674R, CC2674P                                            | https://github.com/TexasInstruments/cc13xx_cc26xx_sdk                              | `thumbv8m.main-none-eabihf`  |
 | `cc2640r2`          | CC2640R2                                                                               | https://www.ti.com/tool/download/SIMPLELINK-CC2640R2-SDK                           | `thumbv7m-none-eabi`         |
-| `cc26x0`            | CC2640, CC2650                                                                         | http://downloads.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/tirtos/index.html | `thumbv7m-none-eabi`         |
 
 ## How it works
 
@@ -56,8 +55,7 @@ This should give an output similar to below:
 │   ├── cc13x2_cc26x2
 │   ├── cc13x2x7_cc26x2x7
 │   ├── cc13x4_cc26x4
-│   ├── cc2640r2
-│   └── cc26x0
+│   └── cc2640r2
 ├── README.md
 ├── svds
 │   ├── cc13x0.svd
@@ -65,23 +63,19 @@ This should give an output similar to below:
 │   ├── cc13x2_cc26x2.svd
 │   ├── cc13x2x7_cc26x2x7.svd
 │   ├── cc13x4_cc26x4.svd
-│   ├── cc2640r2.svd
-│   └── cc26x0.svd
-├── target
-│   ├── CACHEDIR.TAG
-│   ├── debug
-│   ├── dist
-│   ├── release
-│   └── thumbv7em-none-eabihf
+│   └── cc2640r2.svd
 ├── tests
-│   └── cc13x2-cc26x2
+│   ├── cc13x0
+│   ├── cc13x2-cc26x2
+│   ├── cc13x4-cc26x4
+│   └── cc2640r2
 ├── tools
 │   └── generate_pacs.py
 └── xtask
     ├── Cargo.toml
     └── src
 
-23 directories, 15 files
+27 directories, 15 files
 ```
 
 The creation of pacs from the input XML files is automated using
