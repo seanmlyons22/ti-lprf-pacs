@@ -1,5 +1,7 @@
 [package]
 name = "cc2640r2_pac"
+description = "Peripheral Access Crate for TI's cc2640r2 microcontroller family"
+documentation = "https://docs.rs/cc2640r2_pac"
 version.workspace = true
 edition.workspace = true
 keywords.workspace = true
