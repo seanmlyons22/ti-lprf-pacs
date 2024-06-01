@@ -12,7 +12,7 @@ All these crates are automatically generated using [svd2rust] and [tixml2svd].
 Every device family within the LPRF chip series has its own PAC.
 A device family is how TI groups similar devices that share the same peripherals.
 In this naming scheme `x` is a wildcard. i.e. a CC2652 and CC1312 both belong
-to the cc13x2_cc26x2 family.
+to the cc13x2_26x2 family.
 
 To prevent lots of repetition in the crates, there is one PAC per device family,
 not per device.
@@ -23,10 +23,13 @@ The PACs are listed below:
 |---------------------|----------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|------------------------------|
 | `cc13x0`            | CC1310, CC1350                                                                         | https://www.ti.com/tool/download/SIMPLELINK-CC13X0-SDK                             | `thumbv7m-none-eabi`         |
 | `cc13x1_cc26x1`     | CC1311P3, CC1311R3, CC2651P3, CC2651R3, CC2651R3SIPA                                   | https://github.com/TexasInstruments/cc13xx_cc26xx_sdk                              | `thumbv7em-none-eabi`        |
-| `cc13x2_cc26x2`     | CC2642R, CC2652R, CC2652RB, CC1312R, CC1352R, CC1352P, CC2652P, CC2652PSIP, CC2652RSIP | https://github.com/TexasInstruments/cc13xx_cc26xx_sdk                              | `thumbv7em-none-eabihf`      |
+| `cc13x2_26x2`       | CC2642R, CC2652R, CC2652RB, CC1312R, CC1352R, CC1352P, CC2652P, CC2652PSIP, CC2652RSIP | https://github.com/TexasInstruments/cc13xx_cc26xx_sdk                              | `thumbv7em-none-eabihf`      |
 | `cc13x2x7_cc26x2x7` | CC1312R7, CC1352P7, CC2652P7, CC2652R7                                                 | https://github.com/TexasInstruments/cc13xx_cc26xx_sdk                              | `thumbv7em-none-eabihf`      |
 | `cc13x4_cc26x4`     | CC1314R, CC1354R, CC1354P, CC2674R, CC2674P                                            | https://github.com/TexasInstruments/cc13xx_cc26xx_sdk                              | `thumbv8m.main-none-eabihf`  |
 | `cc2640r2`          | CC2640R2                                                                               | https://www.ti.com/tool/download/SIMPLELINK-CC2640R2-SDK                           | `thumbv7m-none-eabi`         |
+
+**Warning**: The `cc13x2_26x2` PAC crate is named differently (note the missing cc before 26x2) due to the fact that
+other (non maintained) cc13x2_cc26x2 crates exist.
 
 ## How it works
 
@@ -52,7 +55,7 @@ This should give an output similar to below:
 ├── pacs
 │   ├── cc13x0
 │   ├── cc13x1_cc26x1
-│   ├── cc13x2_cc26x2
+│   ├── cc13x2_26x2
 │   ├── cc13x2x7_cc26x2x7
 │   ├── cc13x4_cc26x4
 │   └── cc2640r2
@@ -60,7 +63,7 @@ This should give an output similar to below:
 ├── svds
 │   ├── cc13x0.svd
 │   ├── cc13x1_cc26x1.svd
-│   ├── cc13x2_cc26x2.svd
+│   ├── cc13x2_26x2.svd
 │   ├── cc13x2x7_cc26x2x7.svd
 │   ├── cc13x4_cc26x4.svd
 │   └── cc2640r2.svd

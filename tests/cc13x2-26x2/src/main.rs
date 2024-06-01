@@ -1,8 +1,8 @@
 #![no_std]
 #![no_main]
 
-use cc13x2_cc26x2::ccfg::Ccfg;
-use cc13x2_cc26x2_pac as cc13x2_cc26x2;
+use cc13x2_26x2::ccfg::Ccfg;
+use cc13x2_26x2_pac as cc13x2_26x2;
 use cortex_m_rt::entry;
 // pick a panicking behavior
 use panic_halt as _; // you can put a breakpoint on `rust_begin_unwind` to catch panics
@@ -20,7 +20,7 @@ pub static CCFG: Ccfg = Ccfg::new();
 fn main() -> ! {
     rtt_init_print!();
     rprintln!("Init");
-    let p = cc13x2_cc26x2::Peripherals::take().unwrap();
+    let p = cc13x2_26x2::Peripherals::take().unwrap();
 
     // Setup PRCM, power the perpipheral and serial domains
     p.prcm.pdctl0periph().write(|w| w.on().set_bit());

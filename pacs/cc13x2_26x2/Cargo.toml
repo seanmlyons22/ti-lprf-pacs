@@ -1,7 +1,7 @@
 [package]
-name = "cc13x2_cc26x2_pac"
+name = "cc13x2_26x2_pac"
 description = "Peripheral Access Crate for TI's cc13x2/cc26x2 microcontroller family"
-documentation = "https://docs.rs/cc13x2_cc26x2_pac"
+documentation = "https://docs.rs/cc13x2_26x2_pac"
 version.workspace = true
 edition.workspace = true
 keywords.workspace = true
