@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="CPU_ROM_TABLE" HW_revision="" XML_version="1.0" description="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="EntrySCS" width="32" description="Points to the System Control Space (SCS) at 0xE000E000. This includes core debug control registers." id="EntrySCS" offset="0x0">
+      <bitfield range="" begin="31" width="20" end="12" rwaccess="RO" description="Base address of the highest 4KB block for the component, relative to the ROM address." id="AddressOffset" resetval="0xfff0f">
+      </bitfield>
+      <bitfield range="" begin="11" width="10" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Base address of the highest 4KB block for the component, relative to the ROM address." id="Format" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="This bit indicates whether an entry is present at this location in the ROM table.
+0x0:Rom table entry is not present and must be skipped.
+0x1:Rom table entry is present." id="EntryPresent" resetval="0x1">
+      </bitfield>
+   </register>
+   <register acronym="EntryDWT" width="32" description="Points to the DW unit at 0xE0001000." id="EntryDWT" offset="0x4">
+      <bitfield range="" begin="31" width="20" end="12" rwaccess="RO" description="Base address of the highest 4KB block for the component, relative to the ROM address." id="AddressOffset" resetval="0xfff02">
+      </bitfield>
+      <bitfield range="" begin="11" width="10" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Base address of the highest 4KB block for the component, relative to the ROM address." id="Format" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="This bit indicates whether an entry is present at this location in the ROM table.
+0x0:Rom table entry is not present and must be skipped.
+0x1:Rom table entry is present." id="EntryPresent" resetval="0x1">
+      </bitfield>
+   </register>
+   <register acronym="EntryBPU" width="32" description="Points to the BPU at 0xE0002000." id="EntryBPU" offset="0x8">
+      <bitfield range="" begin="31" width="20" end="12" rwaccess="RO" description="Base address of the highest 4KB block for the component, relative to the ROM address." id="AddressOffset" resetval="0xfff03">
+      </bitfield>
+      <bitfield range="" begin="11" width="10" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Base address of the highest 4KB block for the component, relative to the ROM address." id="Format" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="This bit indicates whether an entry is present at this location in the ROM table.
+0x0:Rom table entry is not present and must be skipped.
+0x1:Rom table entry is present." id="EntryPresent" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="EntryEnd" width="32" description="Marks of end of table." id="EntryEnd" offset="0xc">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Blank ROM Table entry indicating the end of the ROM Table content." id="END" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="MEMTYPE" width="32" description="Identifies the type of memory present on the bus that connects the DAP to the ROM Table." id="MEMTYPE" offset="0xfcc">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="System memory present. Indicates whether system memory is present on the bus that connects to the ROM table.
+0x0:System memory not present on bus. this is a dedicated debug bus.
+0x1:System memory is present on bus." id="SYSMEM" resetval="0x1">
+      </bitfield>
+   </register>
+   <register acronym="PIDR4" width="32" description="Part of the set of Peripheral Identification registers. Contains part of the designer identity and the memory footprint indicator." id="PIDR4" offset="0xfd0">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="This is a 4-bit value that indicates the total contiguous size of the memory window used by this component in powers of 2 from the standard 4KB. If a component only requires the standard 4KB then this should read as 0x0, 4KB only, for 8KB set to 0x1, 16KB == 0x2, 32KB == 0x3, and so on." id="SIZE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Number of JEDEC continuation codes. Indicates the designer of the component (along with the identity code)" id="DES_2" resetval="0x4">
+      </bitfield>
+   </register>
+   <register acronym="PIDR5" width="32" description="Reserved" id="PIDR5" offset="0xfd4">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR6" width="32" description="Reserved" id="PIDR6" offset="0xfd8">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR7" width="32" description="Reserved" id="PIDR7" offset="0xfdc">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR0" width="32" description="Part of the set of Peripheral Identification registers. Contains part of the designer specific part number." id="PIDR0" offset="0xfe0">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="Bits [7:0] of the component&#39;s part number. This is selected by the designer of the component." id="PART_0" resetval="0xc0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR1" width="32" description="Part of the set of Peripheral Identification registers. Contains part of the designer specific part number and part of the designer identity." id="PIDR1" offset="0xfe4">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="Bits [3:0] of the JEDEC identity code indicating the designer of the component (along with the continuation code)" id="DES_0" resetval="0xb">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Bits [11:8] of the component&#39;s part number. This is selected by the designer of the component." id="PART_1" resetval="0x4">
+      </bitfield>
+   </register>
+   <register acronym="PIDR2" width="32" description="Part of the set of Peripheral Identification registers. Contains part of the designer identity and the product revision." id="PIDR2" offset="0xfe8">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="The Revision field is an incremental value starting at 0x0 for the first design of this component. This only increases by 1 for both major and minor revisions and is simply used as a look-up to establish the exact major/minor revision." id="REVISION" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RO" description="Always set. Indicates that a JEDEC assigned value is used" id="JEDEC" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RO" description="Bits [6:4] of the JEDEC identity code indicating the designer of the component (along with the continuation code)" id="DES_1" resetval="0x3">
+      </bitfield>
+   </register>
+   <register acronym="PIDR3" width="32" description="Part of the set of Peripheral Identification registers. Contains the RevAnd and Customer Modified fields." id="PIDR3" offset="0xfec">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="This field indicates minor errata fixes specific to this design, for example metal fixes after implementation. In most cases this field is zero. It is recommended that component designers ensure this field can be changed by a metal fix if required, for example by driving it from registers that reset to zero." id="REVAND" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Where the component is reusable IP, this value indicates if the customer has modified the behavior of the component. In most cases this field is zero." id="CMOD" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CIDR0" width="32" description="A component identification register, that indicates that the identification registers are present." id="CIDR0" offset="0xff0">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="Contains bits [7:0] of the component identification" id="PRMBL_0" resetval="0xd">
+      </bitfield>
+   </register>
+   <register acronym="CIDR1" width="32" description="A component identification register, that indicates that the identification registers are present. This register also indicates the component class." id="CIDR1" offset="0xff4">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="Class of the component. E.g. ROM table, CoreSight component etc. Constitutes bits [15:12] of the component identification." id="CLASS" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Contains bits [11:8] of the component identification" id="PRMBL_1" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CIDR2" width="32" description="A component identification register, that indicates that the identification registers are present." id="CIDR2" offset="0xff8">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="Contains bits [23:16] of the component identification" id="PRMBL_2" resetval="0x5">
+      </bitfield>
+   </register>
+   <register acronym="CIDR3" width="32" description="A component identification register, that indicates that the identification registers are present." id="CIDR3" offset="0xffc">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="Contains bits [31:24] of the component identification" id="PRMBL_3" resetval="0xb1">
+      </bitfield>
+   </register>
+</module>

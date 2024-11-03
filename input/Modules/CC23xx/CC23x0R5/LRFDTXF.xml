@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="LRFDTXF" HW_revision="" XML_version="1.0" description="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="TXD" width="32" description="TX FIFO data. When written the register data is pushed to the TX FIFO. When read, data is popped from the TX FIFO" id="TXD" offset="0x0">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="TX FIFO data. When written the register data is pushed to the TX FIFO. When read, data is popped from the TX FIFO. When writing or reading this register the access size will determine how many bytes are pushed to or popped from the FIFO. It is possible to push or pop 1,2 or 4 bytes depending on the access being done." id="DATA" resetval="0x0">
+      </bitfield>
+   </register>
+</module>

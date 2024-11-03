@@ -1,0 +1,28 @@
+[package]
+name = "cc23x0r5_pac"
+description.workspace = true
+version.workspace = true
+keywords.workspace = true
+license.workspace = true
+license-file.workspace = true
+repository.workspace = true
+edition.workspace = true
+readme.workspace = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+cortex-m.workspace = true
+vcell.workspace = true
+bitfield-struct.workspace = true
+
+[dependencies.cortex-m-rt]
+optional = true
+workspace = true
+
+[dependencies.critical-section]
+optional = true
+workspace = true
+
+[features]
+rt = ["cortex-m-rt/device"]

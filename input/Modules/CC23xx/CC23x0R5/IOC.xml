@@ -1,0 +1,1856 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="IOC" HW_revision="" XML_version="1.0" description="ULL IOC
+" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="DESC" width="32" description="Description Register. This register provides IP module ID, revision information, instance index and standard MMR registers offset." id="DESC" offset="0x0">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RW" description="Module identifier used to uniquely identify this IP." id="MODID" resetval="0xd440">
+      </bitfield>
+      <bitfield range="" begin="15" width="4" end="12" rwaccess="RW" description="Standard IP MMR block offset. Standard IP MMRs are the set of from aggregated IRQ registers till DTB.
+
+0: Standard IP MMRs do not exist
+
+0x1-0xF: Standard IP MMRs begin at offset of (64*STDIPOFF from the base IP address)" id="STDIPOFF" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="11" width="4" end="8" rwaccess="RW" description="IP Instance ID number. If multiple instances of IP exist in the device, this field can identify the instance number (0-15)." id="INSTIDX" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RW" description="Major revision of IP (0-15)." id="MAJREV" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Minor revision of IP (0-15)." id="MINREV" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DESCEX" width="32" description="Extended Description Register. This register provides configuration details of the IP to software drivers and end users." id="DESCEX" offset="0x4">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="4" end="12" rwaccess="RW" description="Number of DTB IOs supported. Total DTB IOs supported is NUMDTBIO value +1." id="NUMDTBIO" resetval="0xf">
+         <bitenum id="MAXIMUM" value="15" token="Highest possible value" description="Highest possible value"/>
+         <bitenum id="MINIMUM" value="0" token="Smallest value" description="Smallest value"/>
+      </bitfield>
+      <bitfield range="" begin="11" width="5" end="7" rwaccess="RW" description="Number of HD IOs supported. Total HD IOs supported is NUMHDIO value +1." id="NUMHDIO" resetval="0x5">
+         <bitenum id="MAXIMUM" value="31" token="Highest possible value" description="Highest possible value"/>
+         <bitenum id="MINIMUM" value="0" token="Smallest value" description="Smallest value"/>
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="High drive IO supported by IOC." id="HDIO" resetval="0x1">
+         <bitenum id="PRESENT" value="1" token="HD IO supported by IOC" description="HD IO supported by IOC"/>
+         <bitenum id="ABSENT" value="0" token="HD IO not supported by IOC" description="HD IO not supported by IOC"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="6" end="0" rwaccess="RW" description="Number of DIOs supported. Total DIOs supported is NUMDIO value +1." id="NUMDIO" resetval="0x19">
+         <bitenum id="MAXIMUM" value="63" token="Highest possible value" description="Highest possible value"/>
+         <bitenum id="MINIMUM" value="0" token="Smallest value" description="Smallest value"/>
+      </bitfield>
+   </register>
+   <register acronym="DTB" width="32" description="Digital Test Bus. This register is used to bring out some internal signals of the peripheral on digital test bus (DTB)." id="DTB" offset="0x64">
+      <bitfield range="" begin="31" width="29" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Digital test bus selection mux control.
+
+Non-zero select values output a 16 bit selected group of signals per value." id="SEL" resetval="0x0">
+         <bitenum id="DIS" value="0" token="DTB output from peripheral is 0x0" description="DTB output from peripheral is 0x0"/>
+      </bitfield>
+   </register>
+   <register acronym="IOC0" width="32" description="Configuration of DIO0" id="IOC0" offset="0x100">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="This field controls input hysteresis" id="HYSTEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input hysteresis enabled" description="Input hysteresis enabled"/>
+         <bitenum id="DIS" value="0" token="Input hysteresis disabled" description="Input hysteresis disabled"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Input enable" id="INPEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input enabled" description="Input enabled"/>
+         <bitenum id="DIS" value="0" token="Input disabled" description="Input disabled"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="2" end="27" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED27" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode. Setting this to value 0x6 or 0x7 will default to normal IO behavior." id="IOMODE" resetval="0x0">
+         <bitenum id="OPENS_INV" value="5" token="Open Source, inverted IO" description="Open Source, inverted IO"/>
+         <bitenum id="OPENS" value="4" token="Open Source, normal IO" description="Open Source, normal IO"/>
+         <bitenum id="OPEND_INV" value="3" token="Open Drain, inverted IO" description="Open Drain, inverted IO"/>
+         <bitenum id="OPEND" value="2" token="Open Drain, normal IO" description="Open Drain, normal IO"/>
+         <bitenum id="INVERTED" value="1" token="Inverted IO" description="Inverted IO"/>
+         <bitenum id="NORMAL" value="0" token="Normal IO" description="Normal IO"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="2" end="20" rwaccess="RW" description="Wakeup configuration from shutdown" id="WUCFGSD" resetval="0x0">
+         <bitenum id="WAKE_HIGH" value="3" token="Wakeup triggered when pad level is high" description="Wakeup triggered when pad level is high"/>
+         <bitenum id="WAKE_LOW" value="2" token="Wakeup triggered when pad level is low" description="Wakeup triggered when pad level is low"/>
+         <bitenum id="DIS_1" value="1" token="Wakeup disabled" description="Wakeup disabled"/>
+         <bitenum id="DIS_0" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Wakeup enable from standby" id="WUENSB" resetval="0x0">
+         <bitenum id="EN" value="1" token="wakeup enabled (effective only if EDGEDET is enabled)" description="wakeup enabled (effective only if EDGEDET is enabled)"/>
+         <bitenum id="DIS" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Edge detect configuration" id="EDGEDET" resetval="0x0">
+         <bitenum id="EDGE_BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
+         <bitenum id="EDGE_POS" value="2" token="Positive edge detection" description="Positive edge detection"/>
+         <bitenum id="EDGE_NEG" value="1" token="Negative edge detection" description="Negative edge detection"/>
+         <bitenum id="EDGE_DIS" value="0" token="No edge detection" description="No edge detection"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Pull control. Setting this to value 0x3 disables pull." id="PULLCTL" resetval="0x0">
+         <bitenum id="PULL_UP" value="2" token="Pull up enabled" description="Pull up enabled"/>
+         <bitenum id="PULL_DOWN" value="1" token="Pull down enabled" description="Pull down enabled"/>
+         <bitenum id="PULL_DIS" value="0" token="No pull" description="No pull"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="10" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Port configuration." id="PORTCFG" resetval="0x0">
+         <bitenum id="DTB" value="7" token="Digital Test Bus function" description="Digital Test Bus function"/>
+         <bitenum id="ANA" value="6" token="Analog function" description="Analog function"/>
+         <bitenum id="PFUNC5" value="5" token="Digital peripheral function-5" description="Digital peripheral function-5"/>
+         <bitenum id="PFUNC4" value="4" token="Digital peripheral function-4" description="Digital peripheral function-4"/>
+         <bitenum id="PFUNC3" value="3" token="Digital peripheral function-3" description="Digital peripheral function-3"/>
+         <bitenum id="PFUNC2" value="2" token="Digital peripheral function-2" description="Digital peripheral function-2"/>
+         <bitenum id="PFUNC1" value="1" token="Digital peripheral function-1 " description="Digital peripheral function-1 "/>
+         <bitenum id="BASE" value="0" token="Base function" description="Base function"/>
+      </bitfield>
+   </register>
+   <register acronym="IOC1" width="32" description="Configuration of DIO1" id="IOC1" offset="0x104">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="This field controls input hysteresis" id="HYSTEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input hysteresis enabled" description="Input hysteresis enabled"/>
+         <bitenum id="DIS" value="0" token="Input hysteresis disabled" description="Input hysteresis disabled"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Input enable" id="INPEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input enabled" description="Input enabled"/>
+         <bitenum id="DIS" value="0" token="Input disabled" description="Input disabled"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="2" end="27" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED27" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode. Setting this to value 0x6 or 0x7 will default to normal IO behavior." id="IOMODE" resetval="0x0">
+         <bitenum id="OPENS_INV" value="5" token="Open Source, inverted IO" description="Open Source, inverted IO"/>
+         <bitenum id="OPENS" value="4" token="Open Source, normal IO" description="Open Source, normal IO"/>
+         <bitenum id="OPEND_INV" value="3" token="Open Drain, inverted IO" description="Open Drain, inverted IO"/>
+         <bitenum id="OPEND" value="2" token="Open Drain, normal IO" description="Open Drain, normal IO"/>
+         <bitenum id="INVERTED" value="1" token="Inverted IO" description="Inverted IO"/>
+         <bitenum id="NORMAL" value="0" token="Normal IO" description="Normal IO"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="2" end="20" rwaccess="RW" description="Wakeup configuration from shutdown" id="WUCFGSD" resetval="0x0">
+         <bitenum id="WAKE_HIGH" value="3" token="Wakeup triggered when pad level is high" description="Wakeup triggered when pad level is high"/>
+         <bitenum id="WAKE_LOW" value="2" token="Wakeup triggered when pad level is low" description="Wakeup triggered when pad level is low"/>
+         <bitenum id="DIS_1" value="1" token="Wakeup disabled" description="Wakeup disabled"/>
+         <bitenum id="DIS_0" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Wakeup enable from standby" id="WUENSB" resetval="0x0">
+         <bitenum id="EN" value="1" token="wakeup enabled (effective only if EDGEDET is enabled)" description="wakeup enabled (effective only if EDGEDET is enabled)"/>
+         <bitenum id="DIS" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Edge detect configuration" id="EDGEDET" resetval="0x0">
+         <bitenum id="EDGE_BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
+         <bitenum id="EDGE_POS" value="2" token="Positive edge detection" description="Positive edge detection"/>
+         <bitenum id="EDGE_NEG" value="1" token="Negative edge detection" description="Negative edge detection"/>
+         <bitenum id="EDGE_DIS" value="0" token="No edge detection" description="No edge detection"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Pull control. Setting this to value 0x3 disables pull." id="PULLCTL" resetval="0x0">
+         <bitenum id="PULL_UP" value="2" token="Pull up enabled" description="Pull up enabled"/>
+         <bitenum id="PULL_DOWN" value="1" token="Pull down enabled" description="Pull down enabled"/>
+         <bitenum id="PULL_DIS" value="0" token="No pull" description="No pull"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="10" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Port configuration." id="PORTCFG" resetval="0x0">
+         <bitenum id="DTB" value="7" token="Digital Test Bus function" description="Digital Test Bus function"/>
+         <bitenum id="ANA" value="6" token="Analog function" description="Analog function"/>
+         <bitenum id="PFUNC5" value="5" token="Digital peripheral function-5" description="Digital peripheral function-5"/>
+         <bitenum id="PFUNC4" value="4" token="Digital peripheral function-4" description="Digital peripheral function-4"/>
+         <bitenum id="PFUNC3" value="3" token="Digital peripheral function-3" description="Digital peripheral function-3"/>
+         <bitenum id="PFUNC2" value="2" token="Digital peripheral function-2" description="Digital peripheral function-2"/>
+         <bitenum id="PFUNC1" value="1" token="Digital peripheral function-1 " description="Digital peripheral function-1 "/>
+         <bitenum id="BASE" value="0" token="Base function" description="Base function"/>
+      </bitfield>
+   </register>
+   <register acronym="IOC2" width="32" description="Configuration of DIO2" id="IOC2" offset="0x108">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="This field controls input hysteresis" id="HYSTEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input hysteresis enabled" description="Input hysteresis enabled"/>
+         <bitenum id="DIS" value="0" token="Input hysteresis disabled" description="Input hysteresis disabled"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Input enable" id="INPEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input enabled" description="Input enabled"/>
+         <bitenum id="DIS" value="0" token="Input disabled" description="Input disabled"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="2" end="27" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED27" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode. Setting this to value 0x6 or 0x7 will default to normal IO behavior." id="IOMODE" resetval="0x0">
+         <bitenum id="OPENS_INV" value="5" token="Open Source, inverted IO" description="Open Source, inverted IO"/>
+         <bitenum id="OPENS" value="4" token="Open Source, normal IO" description="Open Source, normal IO"/>
+         <bitenum id="OPEND_INV" value="3" token="Open Drain, inverted IO" description="Open Drain, inverted IO"/>
+         <bitenum id="OPEND" value="2" token="Open Drain, normal IO" description="Open Drain, normal IO"/>
+         <bitenum id="INVERTED" value="1" token="Inverted IO" description="Inverted IO"/>
+         <bitenum id="NORMAL" value="0" token="Normal IO" description="Normal IO"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="2" end="20" rwaccess="RW" description="Wakeup configuration from shutdown" id="WUCFGSD" resetval="0x0">
+         <bitenum id="WAKE_HIGH" value="3" token="Wakeup triggered when pad level is high" description="Wakeup triggered when pad level is high"/>
+         <bitenum id="WAKE_LOW" value="2" token="Wakeup triggered when pad level is low" description="Wakeup triggered when pad level is low"/>
+         <bitenum id="DIS_1" value="1" token="Wakeup disabled" description="Wakeup disabled"/>
+         <bitenum id="DIS_0" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Wakeup enable from standby" id="WUENSB" resetval="0x0">
+         <bitenum id="EN" value="1" token="wakeup enabled (effective only if EDGEDET is enabled)" description="wakeup enabled (effective only if EDGEDET is enabled)"/>
+         <bitenum id="DIS" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Edge detect configuration" id="EDGEDET" resetval="0x0">
+         <bitenum id="EDGE_BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
+         <bitenum id="EDGE_POS" value="2" token="Positive edge detection" description="Positive edge detection"/>
+         <bitenum id="EDGE_NEG" value="1" token="Negative edge detection" description="Negative edge detection"/>
+         <bitenum id="EDGE_DIS" value="0" token="No edge detection" description="No edge detection"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Pull control. Setting this to value 0x3 disables pull." id="PULLCTL" resetval="0x0">
+         <bitenum id="PULL_UP" value="2" token="Pull up enabled" description="Pull up enabled"/>
+         <bitenum id="PULL_DOWN" value="1" token="Pull down enabled" description="Pull down enabled"/>
+         <bitenum id="PULL_DIS" value="0" token="No pull" description="No pull"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="10" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Port configuration." id="PORTCFG" resetval="0x0">
+         <bitenum id="DTB" value="7" token="Digital Test Bus function" description="Digital Test Bus function"/>
+         <bitenum id="ANA" value="6" token="Analog function" description="Analog function"/>
+         <bitenum id="PFUNC5" value="5" token="Digital peripheral function-5" description="Digital peripheral function-5"/>
+         <bitenum id="PFUNC4" value="4" token="Digital peripheral function-4" description="Digital peripheral function-4"/>
+         <bitenum id="PFUNC3" value="3" token="Digital peripheral function-3" description="Digital peripheral function-3"/>
+         <bitenum id="PFUNC2" value="2" token="Digital peripheral function-2" description="Digital peripheral function-2"/>
+         <bitenum id="PFUNC1" value="1" token="Digital peripheral function-1 " description="Digital peripheral function-1 "/>
+         <bitenum id="BASE" value="0" token="Base function" description="Base function"/>
+      </bitfield>
+   </register>
+   <register acronym="IOC3" width="32" description="Configuration of DIO3" id="IOC3" offset="0x10c">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="This field controls input hysteresis" id="HYSTEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input hysteresis enabled" description="Input hysteresis enabled"/>
+         <bitenum id="DIS" value="0" token="Input hysteresis disabled" description="Input hysteresis disabled"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Input enable" id="INPEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input enabled" description="Input enabled"/>
+         <bitenum id="DIS" value="0" token="Input disabled" description="Input disabled"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="2" end="27" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED27" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode. Setting this to value 0x6 or 0x7 will default to normal IO behavior." id="IOMODE" resetval="0x0">
+         <bitenum id="OPENS_INV" value="5" token="Open Source, inverted IO" description="Open Source, inverted IO"/>
+         <bitenum id="OPENS" value="4" token="Open Source, normal IO" description="Open Source, normal IO"/>
+         <bitenum id="OPEND_INV" value="3" token="Open Drain, inverted IO" description="Open Drain, inverted IO"/>
+         <bitenum id="OPEND" value="2" token="Open Drain, normal IO" description="Open Drain, normal IO"/>
+         <bitenum id="INVERTED" value="1" token="Inverted IO" description="Inverted IO"/>
+         <bitenum id="NORMAL" value="0" token="Normal IO" description="Normal IO"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="2" end="20" rwaccess="RW" description="Wakeup configuration from shutdown" id="WUCFGSD" resetval="0x0">
+         <bitenum id="WAKE_HIGH" value="3" token="Wakeup triggered when pad level is high" description="Wakeup triggered when pad level is high"/>
+         <bitenum id="WAKE_LOW" value="2" token="Wakeup triggered when pad level is low" description="Wakeup triggered when pad level is low"/>
+         <bitenum id="DIS_1" value="1" token="Wakeup disabled" description="Wakeup disabled"/>
+         <bitenum id="DIS_0" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Wakeup enable from standby" id="WUENSB" resetval="0x0">
+         <bitenum id="EN" value="1" token="wakeup enabled (effective only if EDGEDET is enabled)" description="wakeup enabled (effective only if EDGEDET is enabled)"/>
+         <bitenum id="DIS" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Edge detect configuration" id="EDGEDET" resetval="0x0">
+         <bitenum id="EDGE_BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
+         <bitenum id="EDGE_POS" value="2" token="Positive edge detection" description="Positive edge detection"/>
+         <bitenum id="EDGE_NEG" value="1" token="Negative edge detection" description="Negative edge detection"/>
+         <bitenum id="EDGE_DIS" value="0" token="No edge detection" description="No edge detection"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Pull control. Setting this to value 0x3 disables pull." id="PULLCTL" resetval="0x0">
+         <bitenum id="PULL_UP" value="2" token="Pull up enabled" description="Pull up enabled"/>
+         <bitenum id="PULL_DOWN" value="1" token="Pull down enabled" description="Pull down enabled"/>
+         <bitenum id="PULL_DIS" value="0" token="No pull" description="No pull"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="10" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Port configuration." id="PORTCFG" resetval="0x0">
+         <bitenum id="DTB" value="7" token="Digital Test Bus function" description="Digital Test Bus function"/>
+         <bitenum id="ANA" value="6" token="Analog function" description="Analog function"/>
+         <bitenum id="PFUNC5" value="5" token="Digital peripheral function-5" description="Digital peripheral function-5"/>
+         <bitenum id="PFUNC4" value="4" token="Digital peripheral function-4" description="Digital peripheral function-4"/>
+         <bitenum id="PFUNC3" value="3" token="Digital peripheral function-3" description="Digital peripheral function-3"/>
+         <bitenum id="PFUNC2" value="2" token="Digital peripheral function-2" description="Digital peripheral function-2"/>
+         <bitenum id="PFUNC1" value="1" token="Digital peripheral function-1 " description="Digital peripheral function-1 "/>
+         <bitenum id="BASE" value="0" token="Base function" description="Base function"/>
+      </bitfield>
+   </register>
+   <register acronym="IOC4" width="32" description="Configuration of DIO4" id="IOC4" offset="0x110">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="This field controls input hysteresis" id="HYSTEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input hysteresis enabled" description="Input hysteresis enabled"/>
+         <bitenum id="DIS" value="0" token="Input hysteresis disabled" description="Input hysteresis disabled"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Input enable" id="INPEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input enabled" description="Input enabled"/>
+         <bitenum id="DIS" value="0" token="Input disabled" description="Input disabled"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="2" end="27" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED27" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode. Setting this to value 0x6 or 0x7 will default to normal IO behavior." id="IOMODE" resetval="0x0">
+         <bitenum id="OPENS_INV" value="5" token="Open Source, inverted IO" description="Open Source, inverted IO"/>
+         <bitenum id="OPENS" value="4" token="Open Source, normal IO" description="Open Source, normal IO"/>
+         <bitenum id="OPEND_INV" value="3" token="Open Drain, inverted IO" description="Open Drain, inverted IO"/>
+         <bitenum id="OPEND" value="2" token="Open Drain, normal IO" description="Open Drain, normal IO"/>
+         <bitenum id="INVERTED" value="1" token="Inverted IO" description="Inverted IO"/>
+         <bitenum id="NORMAL" value="0" token="Normal IO" description="Normal IO"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="2" end="20" rwaccess="RW" description="Wakeup configuration from shutdown" id="WUCFGSD" resetval="0x0">
+         <bitenum id="WAKE_HIGH" value="3" token="Wakeup triggered when pad level is high" description="Wakeup triggered when pad level is high"/>
+         <bitenum id="WAKE_LOW" value="2" token="Wakeup triggered when pad level is low" description="Wakeup triggered when pad level is low"/>
+         <bitenum id="DIS_1" value="1" token="Wakeup disabled" description="Wakeup disabled"/>
+         <bitenum id="DIS_0" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Wakeup enable from standby" id="WUENSB" resetval="0x0">
+         <bitenum id="EN" value="1" token="wakeup enabled (effective only if EDGEDET is enabled)" description="wakeup enabled (effective only if EDGEDET is enabled)"/>
+         <bitenum id="DIS" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Edge detect configuration" id="EDGEDET" resetval="0x0">
+         <bitenum id="EDGE_BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
+         <bitenum id="EDGE_POS" value="2" token="Positive edge detection" description="Positive edge detection"/>
+         <bitenum id="EDGE_NEG" value="1" token="Negative edge detection" description="Negative edge detection"/>
+         <bitenum id="EDGE_DIS" value="0" token="No edge detection" description="No edge detection"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Pull control. Setting this to value 0x3 disables pull." id="PULLCTL" resetval="0x0">
+         <bitenum id="PULL_UP" value="2" token="Pull up enabled" description="Pull up enabled"/>
+         <bitenum id="PULL_DOWN" value="1" token="Pull down enabled" description="Pull down enabled"/>
+         <bitenum id="PULL_DIS" value="0" token="No pull" description="No pull"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="10" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Port configuration." id="PORTCFG" resetval="0x0">
+         <bitenum id="DTB" value="7" token="Digital Test Bus function" description="Digital Test Bus function"/>
+         <bitenum id="ANA" value="6" token="Analog function" description="Analog function"/>
+         <bitenum id="PFUNC5" value="5" token="Digital peripheral function-5" description="Digital peripheral function-5"/>
+         <bitenum id="PFUNC4" value="4" token="Digital peripheral function-4" description="Digital peripheral function-4"/>
+         <bitenum id="PFUNC3" value="3" token="Digital peripheral function-3" description="Digital peripheral function-3"/>
+         <bitenum id="PFUNC2" value="2" token="Digital peripheral function-2" description="Digital peripheral function-2"/>
+         <bitenum id="PFUNC1" value="1" token="Digital peripheral function-1 " description="Digital peripheral function-1 "/>
+         <bitenum id="BASE" value="0" token="Base function" description="Base function"/>
+      </bitfield>
+   </register>
+   <register acronym="IOC5" width="32" description="Configuration of DIO5" id="IOC5" offset="0x114">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="This field controls input hysteresis" id="HYSTEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input hysteresis enabled" description="Input hysteresis enabled"/>
+         <bitenum id="DIS" value="0" token="Input hysteresis disabled" description="Input hysteresis disabled"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Input enable" id="INPEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input enabled" description="Input enabled"/>
+         <bitenum id="DIS" value="0" token="Input disabled" description="Input disabled"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="2" end="27" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED27" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode. Setting this to value 0x6 or 0x7 will default to normal IO behavior." id="IOMODE" resetval="0x0">
+         <bitenum id="OPENS_INV" value="5" token="Open Source, inverted IO" description="Open Source, inverted IO"/>
+         <bitenum id="OPENS" value="4" token="Open Source, normal IO" description="Open Source, normal IO"/>
+         <bitenum id="OPEND_INV" value="3" token="Open Drain, inverted IO" description="Open Drain, inverted IO"/>
+         <bitenum id="OPEND" value="2" token="Open Drain, normal IO" description="Open Drain, normal IO"/>
+         <bitenum id="INVERTED" value="1" token="Inverted IO" description="Inverted IO"/>
+         <bitenum id="NORMAL" value="0" token="Normal IO" description="Normal IO"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="2" end="20" rwaccess="RW" description="Wakeup configuration from shutdown" id="WUCFGSD" resetval="0x0">
+         <bitenum id="WAKE_HIGH" value="3" token="Wakeup triggered when pad level is high" description="Wakeup triggered when pad level is high"/>
+         <bitenum id="WAKE_LOW" value="2" token="Wakeup triggered when pad level is low" description="Wakeup triggered when pad level is low"/>
+         <bitenum id="DIS_1" value="1" token="Wakeup disabled" description="Wakeup disabled"/>
+         <bitenum id="DIS_0" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Wakeup enable from standby" id="WUENSB" resetval="0x0">
+         <bitenum id="EN" value="1" token="wakeup enabled (effective only if EDGEDET is enabled)" description="wakeup enabled (effective only if EDGEDET is enabled)"/>
+         <bitenum id="DIS" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Edge detect configuration" id="EDGEDET" resetval="0x0">
+         <bitenum id="EDGE_BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
+         <bitenum id="EDGE_POS" value="2" token="Positive edge detection" description="Positive edge detection"/>
+         <bitenum id="EDGE_NEG" value="1" token="Negative edge detection" description="Negative edge detection"/>
+         <bitenum id="EDGE_DIS" value="0" token="No edge detection" description="No edge detection"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Pull control. Setting this to value 0x3 disables pull." id="PULLCTL" resetval="0x0">
+         <bitenum id="PULL_UP" value="2" token="Pull up enabled" description="Pull up enabled"/>
+         <bitenum id="PULL_DOWN" value="1" token="Pull down enabled" description="Pull down enabled"/>
+         <bitenum id="PULL_DIS" value="0" token="No pull" description="No pull"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="10" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Port configuration." id="PORTCFG" resetval="0x0">
+         <bitenum id="DTB" value="7" token="Digital Test Bus function" description="Digital Test Bus function"/>
+         <bitenum id="ANA" value="6" token="Analog function" description="Analog function"/>
+         <bitenum id="PFUNC5" value="5" token="Digital peripheral function-5" description="Digital peripheral function-5"/>
+         <bitenum id="PFUNC4" value="4" token="Digital peripheral function-4" description="Digital peripheral function-4"/>
+         <bitenum id="PFUNC3" value="3" token="Digital peripheral function-3" description="Digital peripheral function-3"/>
+         <bitenum id="PFUNC2" value="2" token="Digital peripheral function-2" description="Digital peripheral function-2"/>
+         <bitenum id="PFUNC1" value="1" token="Digital peripheral function-1 " description="Digital peripheral function-1 "/>
+         <bitenum id="BASE" value="0" token="Base function" description="Base function"/>
+      </bitfield>
+   </register>
+   <register acronym="IOC6" width="32" description="Configuration of DIO6" id="IOC6" offset="0x118">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="This field controls input hysteresis" id="HYSTEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input hysteresis enabled" description="Input hysteresis enabled"/>
+         <bitenum id="DIS" value="0" token="Input hysteresis disabled" description="Input hysteresis disabled"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Input enable" id="INPEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input enabled" description="Input enabled"/>
+         <bitenum id="DIS" value="0" token="Input disabled" description="Input disabled"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="2" end="27" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED27" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode. Setting this to value 0x6 or 0x7 will default to normal IO behavior." id="IOMODE" resetval="0x0">
+         <bitenum id="OPENS_INV" value="5" token="Open Source, inverted IO" description="Open Source, inverted IO"/>
+         <bitenum id="OPENS" value="4" token="Open Source, normal IO" description="Open Source, normal IO"/>
+         <bitenum id="OPEND_INV" value="3" token="Open Drain, inverted IO" description="Open Drain, inverted IO"/>
+         <bitenum id="OPEND" value="2" token="Open Drain, normal IO" description="Open Drain, normal IO"/>
+         <bitenum id="INVERTED" value="1" token="Inverted IO" description="Inverted IO"/>
+         <bitenum id="NORMAL" value="0" token="Normal IO" description="Normal IO"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="2" end="20" rwaccess="RW" description="Wakeup configuration from shutdown" id="WUCFGSD" resetval="0x0">
+         <bitenum id="WAKE_HIGH" value="3" token="Wakeup triggered when pad level is high" description="Wakeup triggered when pad level is high"/>
+         <bitenum id="WAKE_LOW" value="2" token="Wakeup triggered when pad level is low" description="Wakeup triggered when pad level is low"/>
+         <bitenum id="DIS_1" value="1" token="Wakeup disabled" description="Wakeup disabled"/>
+         <bitenum id="DIS_0" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Wakeup enable from standby" id="WUENSB" resetval="0x0">
+         <bitenum id="EN" value="1" token="wakeup enabled (effective only if EDGEDET is enabled)" description="wakeup enabled (effective only if EDGEDET is enabled)"/>
+         <bitenum id="DIS" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Edge detect configuration" id="EDGEDET" resetval="0x0">
+         <bitenum id="EDGE_BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
+         <bitenum id="EDGE_POS" value="2" token="Positive edge detection" description="Positive edge detection"/>
+         <bitenum id="EDGE_NEG" value="1" token="Negative edge detection" description="Negative edge detection"/>
+         <bitenum id="EDGE_DIS" value="0" token="No edge detection" description="No edge detection"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Pull control. Setting this to value 0x3 disables pull." id="PULLCTL" resetval="0x0">
+         <bitenum id="PULL_UP" value="2" token="Pull up enabled" description="Pull up enabled"/>
+         <bitenum id="PULL_DOWN" value="1" token="Pull down enabled" description="Pull down enabled"/>
+         <bitenum id="PULL_DIS" value="0" token="No pull" description="No pull"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="10" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Port configuration." id="PORTCFG" resetval="0x0">
+         <bitenum id="DTB" value="7" token="Digital Test Bus function" description="Digital Test Bus function"/>
+         <bitenum id="ANA" value="6" token="Analog function" description="Analog function"/>
+         <bitenum id="PFUNC5" value="5" token="Digital peripheral function-5" description="Digital peripheral function-5"/>
+         <bitenum id="PFUNC4" value="4" token="Digital peripheral function-4" description="Digital peripheral function-4"/>
+         <bitenum id="PFUNC3" value="3" token="Digital peripheral function-3" description="Digital peripheral function-3"/>
+         <bitenum id="PFUNC2" value="2" token="Digital peripheral function-2" description="Digital peripheral function-2"/>
+         <bitenum id="PFUNC1" value="1" token="Digital peripheral function-1 " description="Digital peripheral function-1 "/>
+         <bitenum id="BASE" value="0" token="Base function" description="Base function"/>
+      </bitfield>
+   </register>
+   <register acronym="IOC7" width="32" description="Configuration of DIO7" id="IOC7" offset="0x11c">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="This field controls input hysteresis" id="HYSTEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input hysteresis enabled" description="Input hysteresis enabled"/>
+         <bitenum id="DIS" value="0" token="Input hysteresis disabled" description="Input hysteresis disabled"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Input enable" id="INPEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input enabled" description="Input enabled"/>
+         <bitenum id="DIS" value="0" token="Input disabled" description="Input disabled"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="2" end="27" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED27" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode. Setting this to value 0x6 or 0x7 will default to normal IO behavior." id="IOMODE" resetval="0x0">
+         <bitenum id="OPENS_INV" value="5" token="Open Source, inverted IO" description="Open Source, inverted IO"/>
+         <bitenum id="OPENS" value="4" token="Open Source, normal IO" description="Open Source, normal IO"/>
+         <bitenum id="OPEND_INV" value="3" token="Open Drain, inverted IO" description="Open Drain, inverted IO"/>
+         <bitenum id="OPEND" value="2" token="Open Drain, normal IO" description="Open Drain, normal IO"/>
+         <bitenum id="INVERTED" value="1" token="Inverted IO" description="Inverted IO"/>
+         <bitenum id="NORMAL" value="0" token="Normal IO" description="Normal IO"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="2" end="20" rwaccess="RW" description="Wakeup configuration from shutdown" id="WUCFGSD" resetval="0x0">
+         <bitenum id="WAKE_HIGH" value="3" token="Wakeup triggered when pad level is high" description="Wakeup triggered when pad level is high"/>
+         <bitenum id="WAKE_LOW" value="2" token="Wakeup triggered when pad level is low" description="Wakeup triggered when pad level is low"/>
+         <bitenum id="DIS_1" value="1" token="Wakeup disabled" description="Wakeup disabled"/>
+         <bitenum id="DIS_0" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Wakeup enable from standby" id="WUENSB" resetval="0x0">
+         <bitenum id="EN" value="1" token="wakeup enabled (effective only if EDGEDET is enabled)" description="wakeup enabled (effective only if EDGEDET is enabled)"/>
+         <bitenum id="DIS" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Edge detect configuration" id="EDGEDET" resetval="0x0">
+         <bitenum id="EDGE_BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
+         <bitenum id="EDGE_POS" value="2" token="Positive edge detection" description="Positive edge detection"/>
+         <bitenum id="EDGE_NEG" value="1" token="Negative edge detection" description="Negative edge detection"/>
+         <bitenum id="EDGE_DIS" value="0" token="No edge detection" description="No edge detection"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Pull control. Setting this to value 0x3 disables pull." id="PULLCTL" resetval="0x0">
+         <bitenum id="PULL_UP" value="2" token="Pull up enabled" description="Pull up enabled"/>
+         <bitenum id="PULL_DOWN" value="1" token="Pull down enabled" description="Pull down enabled"/>
+         <bitenum id="PULL_DIS" value="0" token="No pull" description="No pull"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="10" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Port configuration." id="PORTCFG" resetval="0x0">
+         <bitenum id="DTB" value="7" token="Digital Test Bus function" description="Digital Test Bus function"/>
+         <bitenum id="ANA" value="6" token="Analog function" description="Analog function"/>
+         <bitenum id="PFUNC5" value="5" token="Digital peripheral function-5" description="Digital peripheral function-5"/>
+         <bitenum id="PFUNC4" value="4" token="Digital peripheral function-4" description="Digital peripheral function-4"/>
+         <bitenum id="PFUNC3" value="3" token="Digital peripheral function-3" description="Digital peripheral function-3"/>
+         <bitenum id="PFUNC2" value="2" token="Digital peripheral function-2" description="Digital peripheral function-2"/>
+         <bitenum id="PFUNC1" value="1" token="Digital peripheral function-1 " description="Digital peripheral function-1 "/>
+         <bitenum id="BASE" value="0" token="Base function" description="Base function"/>
+      </bitfield>
+   </register>
+   <register acronym="IOC8" width="32" description="Configuration of DIO8" id="IOC8" offset="0x120">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="This field controls input hysteresis" id="HYSTEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input hysteresis enabled" description="Input hysteresis enabled"/>
+         <bitenum id="DIS" value="0" token="Input hysteresis disabled" description="Input hysteresis disabled"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Input enable" id="INPEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input enabled" description="Input enabled"/>
+         <bitenum id="DIS" value="0" token="Input disabled" description="Input disabled"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="2" end="27" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED27" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode. Setting this to value 0x6 or 0x7 will default to normal IO behavior." id="IOMODE" resetval="0x0">
+         <bitenum id="OPENS_INV" value="5" token="Open Source, inverted IO" description="Open Source, inverted IO"/>
+         <bitenum id="OPENS" value="4" token="Open Source, normal IO" description="Open Source, normal IO"/>
+         <bitenum id="OPEND_INV" value="3" token="Open Drain, inverted IO" description="Open Drain, inverted IO"/>
+         <bitenum id="OPEND" value="2" token="Open Drain, normal IO" description="Open Drain, normal IO"/>
+         <bitenum id="INVERTED" value="1" token="Inverted IO" description="Inverted IO"/>
+         <bitenum id="NORMAL" value="0" token="Normal IO" description="Normal IO"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="2" end="20" rwaccess="RW" description="Wakeup configuration from shutdown" id="WUCFGSD" resetval="0x0">
+         <bitenum id="WAKE_HIGH" value="3" token="Wakeup triggered when pad level is high" description="Wakeup triggered when pad level is high"/>
+         <bitenum id="WAKE_LOW" value="2" token="Wakeup triggered when pad level is low" description="Wakeup triggered when pad level is low"/>
+         <bitenum id="DIS_1" value="1" token="Wakeup disabled" description="Wakeup disabled"/>
+         <bitenum id="DIS_0" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Wakeup enable from standby" id="WUENSB" resetval="0x0">
+         <bitenum id="EN" value="1" token="wakeup enabled (effective only if EDGEDET is enabled)" description="wakeup enabled (effective only if EDGEDET is enabled)"/>
+         <bitenum id="DIS" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Edge detect configuration" id="EDGEDET" resetval="0x0">
+         <bitenum id="EDGE_BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
+         <bitenum id="EDGE_POS" value="2" token="Positive edge detection" description="Positive edge detection"/>
+         <bitenum id="EDGE_NEG" value="1" token="Negative edge detection" description="Negative edge detection"/>
+         <bitenum id="EDGE_DIS" value="0" token="No edge detection" description="No edge detection"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Pull control. Setting this to value 0x3 disables pull." id="PULLCTL" resetval="0x0">
+         <bitenum id="PULL_UP" value="2" token="Pull up enabled" description="Pull up enabled"/>
+         <bitenum id="PULL_DOWN" value="1" token="Pull down enabled" description="Pull down enabled"/>
+         <bitenum id="PULL_DIS" value="0" token="No pull" description="No pull"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="10" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Port configuration." id="PORTCFG" resetval="0x0">
+         <bitenum id="DTB" value="7" token="Digital Test Bus function" description="Digital Test Bus function"/>
+         <bitenum id="ANA" value="6" token="Analog function" description="Analog function"/>
+         <bitenum id="PFUNC5" value="5" token="Digital peripheral function-5" description="Digital peripheral function-5"/>
+         <bitenum id="PFUNC4" value="4" token="Digital peripheral function-4" description="Digital peripheral function-4"/>
+         <bitenum id="PFUNC3" value="3" token="Digital peripheral function-3" description="Digital peripheral function-3"/>
+         <bitenum id="PFUNC2" value="2" token="Digital peripheral function-2" description="Digital peripheral function-2"/>
+         <bitenum id="PFUNC1" value="1" token="Digital peripheral function-1 " description="Digital peripheral function-1 "/>
+         <bitenum id="BASE" value="0" token="Base function" description="Base function"/>
+      </bitfield>
+   </register>
+   <register acronym="IOC9" width="32" description="Configuration of DIO9" id="IOC9" offset="0x124">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="This field controls input hysteresis" id="HYSTEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input hysteresis enabled" description="Input hysteresis enabled"/>
+         <bitenum id="DIS" value="0" token="Input hysteresis disabled" description="Input hysteresis disabled"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Input enable" id="INPEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input enabled" description="Input enabled"/>
+         <bitenum id="DIS" value="0" token="Input disabled" description="Input disabled"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="2" end="27" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED27" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode. Setting this to value 0x6 or 0x7 will default to normal IO behavior." id="IOMODE" resetval="0x0">
+         <bitenum id="OPENS_INV" value="5" token="Open Source, inverted IO" description="Open Source, inverted IO"/>
+         <bitenum id="OPENS" value="4" token="Open Source, normal IO" description="Open Source, normal IO"/>
+         <bitenum id="OPEND_INV" value="3" token="Open Drain, inverted IO" description="Open Drain, inverted IO"/>
+         <bitenum id="OPEND" value="2" token="Open Drain, normal IO" description="Open Drain, normal IO"/>
+         <bitenum id="INVERTED" value="1" token="Inverted IO" description="Inverted IO"/>
+         <bitenum id="NORMAL" value="0" token="Normal IO" description="Normal IO"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="2" end="20" rwaccess="RW" description="Wakeup configuration from shutdown" id="WUCFGSD" resetval="0x0">
+         <bitenum id="WAKE_HIGH" value="3" token="Wakeup triggered when pad level is high" description="Wakeup triggered when pad level is high"/>
+         <bitenum id="WAKE_LOW" value="2" token="Wakeup triggered when pad level is low" description="Wakeup triggered when pad level is low"/>
+         <bitenum id="DIS_1" value="1" token="Wakeup disabled" description="Wakeup disabled"/>
+         <bitenum id="DIS_0" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Wakeup enable from standby" id="WUENSB" resetval="0x0">
+         <bitenum id="EN" value="1" token="wakeup enabled (effective only if EDGEDET is enabled)" description="wakeup enabled (effective only if EDGEDET is enabled)"/>
+         <bitenum id="DIS" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Edge detect configuration" id="EDGEDET" resetval="0x0">
+         <bitenum id="EDGE_BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
+         <bitenum id="EDGE_POS" value="2" token="Positive edge detection" description="Positive edge detection"/>
+         <bitenum id="EDGE_NEG" value="1" token="Negative edge detection" description="Negative edge detection"/>
+         <bitenum id="EDGE_DIS" value="0" token="No edge detection" description="No edge detection"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Pull control. Setting this to value 0x3 disables pull." id="PULLCTL" resetval="0x0">
+         <bitenum id="PULL_UP" value="2" token="Pull up enabled" description="Pull up enabled"/>
+         <bitenum id="PULL_DOWN" value="1" token="Pull down enabled" description="Pull down enabled"/>
+         <bitenum id="PULL_DIS" value="0" token="No pull" description="No pull"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="10" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Port configuration." id="PORTCFG" resetval="0x0">
+         <bitenum id="DTB" value="7" token="Digital Test Bus function" description="Digital Test Bus function"/>
+         <bitenum id="ANA" value="6" token="Analog function" description="Analog function"/>
+         <bitenum id="PFUNC5" value="5" token="Digital peripheral function-5" description="Digital peripheral function-5"/>
+         <bitenum id="PFUNC4" value="4" token="Digital peripheral function-4" description="Digital peripheral function-4"/>
+         <bitenum id="PFUNC3" value="3" token="Digital peripheral function-3" description="Digital peripheral function-3"/>
+         <bitenum id="PFUNC2" value="2" token="Digital peripheral function-2" description="Digital peripheral function-2"/>
+         <bitenum id="PFUNC1" value="1" token="Digital peripheral function-1 " description="Digital peripheral function-1 "/>
+         <bitenum id="BASE" value="0" token="Base function" description="Base function"/>
+      </bitfield>
+   </register>
+   <register acronym="IOC10" width="32" description="Configuration of DIO10" id="IOC10" offset="0x128">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="This field controls input hysteresis" id="HYSTEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input hysteresis enabled" description="Input hysteresis enabled"/>
+         <bitenum id="DIS" value="0" token="Input hysteresis disabled" description="Input hysteresis disabled"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Input enable" id="INPEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input enabled" description="Input enabled"/>
+         <bitenum id="DIS" value="0" token="Input disabled" description="Input disabled"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="2" end="27" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED27" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode. Setting this to value 0x6 or 0x7 will default to normal IO behavior." id="IOMODE" resetval="0x0">
+         <bitenum id="OPENS_INV" value="5" token="Open Source, inverted IO" description="Open Source, inverted IO"/>
+         <bitenum id="OPENS" value="4" token="Open Source, normal IO" description="Open Source, normal IO"/>
+         <bitenum id="OPEND_INV" value="3" token="Open Drain, inverted IO" description="Open Drain, inverted IO"/>
+         <bitenum id="OPEND" value="2" token="Open Drain, normal IO" description="Open Drain, normal IO"/>
+         <bitenum id="INVERTED" value="1" token="Inverted IO" description="Inverted IO"/>
+         <bitenum id="NORMAL" value="0" token="Normal IO" description="Normal IO"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="2" end="20" rwaccess="RW" description="Wakeup configuration from shutdown" id="WUCFGSD" resetval="0x0">
+         <bitenum id="WAKE_HIGH" value="3" token="Wakeup triggered when pad level is high" description="Wakeup triggered when pad level is high"/>
+         <bitenum id="WAKE_LOW" value="2" token="Wakeup triggered when pad level is low" description="Wakeup triggered when pad level is low"/>
+         <bitenum id="DIS_1" value="1" token="Wakeup disabled" description="Wakeup disabled"/>
+         <bitenum id="DIS_0" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Wakeup enable from standby" id="WUENSB" resetval="0x0">
+         <bitenum id="EN" value="1" token="wakeup enabled (effective only if EDGEDET is enabled)" description="wakeup enabled (effective only if EDGEDET is enabled)"/>
+         <bitenum id="DIS" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Edge detect configuration" id="EDGEDET" resetval="0x0">
+         <bitenum id="EDGE_BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
+         <bitenum id="EDGE_POS" value="2" token="Positive edge detection" description="Positive edge detection"/>
+         <bitenum id="EDGE_NEG" value="1" token="Negative edge detection" description="Negative edge detection"/>
+         <bitenum id="EDGE_DIS" value="0" token="No edge detection" description="No edge detection"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Pull control. Setting this to value 0x3 disables pull." id="PULLCTL" resetval="0x0">
+         <bitenum id="PULL_UP" value="2" token="Pull up enabled" description="Pull up enabled"/>
+         <bitenum id="PULL_DOWN" value="1" token="Pull down enabled" description="Pull down enabled"/>
+         <bitenum id="PULL_DIS" value="0" token="No pull" description="No pull"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="10" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Port configuration." id="PORTCFG" resetval="0x0">
+         <bitenum id="DTB" value="7" token="Digital Test Bus function" description="Digital Test Bus function"/>
+         <bitenum id="ANA" value="6" token="Analog function" description="Analog function"/>
+         <bitenum id="PFUNC5" value="5" token="Digital peripheral function-5" description="Digital peripheral function-5"/>
+         <bitenum id="PFUNC4" value="4" token="Digital peripheral function-4" description="Digital peripheral function-4"/>
+         <bitenum id="PFUNC3" value="3" token="Digital peripheral function-3" description="Digital peripheral function-3"/>
+         <bitenum id="PFUNC2" value="2" token="Digital peripheral function-2" description="Digital peripheral function-2"/>
+         <bitenum id="PFUNC1" value="1" token="Digital peripheral function-1 " description="Digital peripheral function-1 "/>
+         <bitenum id="BASE" value="0" token="Base function" description="Base function"/>
+      </bitfield>
+   </register>
+   <register acronym="IOC11" width="32" description="Configuration of DIO11" id="IOC11" offset="0x12c">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="This field controls input hysteresis" id="HYSTEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input hysteresis enabled" description="Input hysteresis enabled"/>
+         <bitenum id="DIS" value="0" token="Input hysteresis disabled" description="Input hysteresis disabled"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Input enable" id="INPEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input enabled" description="Input enabled"/>
+         <bitenum id="DIS" value="0" token="Input disabled" description="Input disabled"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="2" end="27" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED27" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode. Setting this to value 0x6 or 0x7 will default to normal IO behavior." id="IOMODE" resetval="0x0">
+         <bitenum id="OPENS_INV" value="5" token="Open Source, inverted IO" description="Open Source, inverted IO"/>
+         <bitenum id="OPENS" value="4" token="Open Source, normal IO" description="Open Source, normal IO"/>
+         <bitenum id="OPEND_INV" value="3" token="Open Drain, inverted IO" description="Open Drain, inverted IO"/>
+         <bitenum id="OPEND" value="2" token="Open Drain, normal IO" description="Open Drain, normal IO"/>
+         <bitenum id="INVERTED" value="1" token="Inverted IO" description="Inverted IO"/>
+         <bitenum id="NORMAL" value="0" token="Normal IO" description="Normal IO"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="2" end="20" rwaccess="RW" description="Wakeup configuration from shutdown" id="WUCFGSD" resetval="0x0">
+         <bitenum id="WAKE_HIGH" value="3" token="Wakeup triggered when pad level is high" description="Wakeup triggered when pad level is high"/>
+         <bitenum id="WAKE_LOW" value="2" token="Wakeup triggered when pad level is low" description="Wakeup triggered when pad level is low"/>
+         <bitenum id="DIS_1" value="1" token="Wakeup disabled" description="Wakeup disabled"/>
+         <bitenum id="DIS_0" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Wakeup enable from standby" id="WUENSB" resetval="0x0">
+         <bitenum id="EN" value="1" token="wakeup enabled (effective only if EDGEDET is enabled)" description="wakeup enabled (effective only if EDGEDET is enabled)"/>
+         <bitenum id="DIS" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Edge detect configuration" id="EDGEDET" resetval="0x0">
+         <bitenum id="EDGE_BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
+         <bitenum id="EDGE_POS" value="2" token="Positive edge detection" description="Positive edge detection"/>
+         <bitenum id="EDGE_NEG" value="1" token="Negative edge detection" description="Negative edge detection"/>
+         <bitenum id="EDGE_DIS" value="0" token="No edge detection" description="No edge detection"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Pull control. Setting this to value 0x3 disables pull." id="PULLCTL" resetval="0x0">
+         <bitenum id="PULL_UP" value="2" token="Pull up enabled" description="Pull up enabled"/>
+         <bitenum id="PULL_DOWN" value="1" token="Pull down enabled" description="Pull down enabled"/>
+         <bitenum id="PULL_DIS" value="0" token="No pull" description="No pull"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="10" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Port configuration." id="PORTCFG" resetval="0x0">
+         <bitenum id="DTB" value="7" token="Digital Test Bus function" description="Digital Test Bus function"/>
+         <bitenum id="ANA" value="6" token="Analog function" description="Analog function"/>
+         <bitenum id="PFUNC5" value="5" token="Digital peripheral function-5" description="Digital peripheral function-5"/>
+         <bitenum id="PFUNC4" value="4" token="Digital peripheral function-4" description="Digital peripheral function-4"/>
+         <bitenum id="PFUNC3" value="3" token="Digital peripheral function-3" description="Digital peripheral function-3"/>
+         <bitenum id="PFUNC2" value="2" token="Digital peripheral function-2" description="Digital peripheral function-2"/>
+         <bitenum id="PFUNC1" value="1" token="Digital peripheral function-1 " description="Digital peripheral function-1 "/>
+         <bitenum id="BASE" value="0" token="Base function" description="Base function"/>
+      </bitfield>
+   </register>
+   <register acronym="IOC12" width="32" description="Configuration of DIO12" id="IOC12" offset="0x130">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="This field controls input hysteresis" id="HYSTEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input hysteresis enabled" description="Input hysteresis enabled"/>
+         <bitenum id="DIS" value="0" token="Input hysteresis disabled" description="Input hysteresis disabled"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Input enable" id="INPEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input enabled" description="Input enabled"/>
+         <bitenum id="DIS" value="0" token="Input disabled" description="Input disabled"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="2" end="27" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED27" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode. Setting this to value 0x6 or 0x7 will default to normal IO behavior." id="IOMODE" resetval="0x0">
+         <bitenum id="OPENS_INV" value="5" token="Open Source, inverted IO" description="Open Source, inverted IO"/>
+         <bitenum id="OPENS" value="4" token="Open Source, normal IO" description="Open Source, normal IO"/>
+         <bitenum id="OPEND_INV" value="3" token="Open Drain, inverted IO" description="Open Drain, inverted IO"/>
+         <bitenum id="OPEND" value="2" token="Open Drain, normal IO" description="Open Drain, normal IO"/>
+         <bitenum id="INVERTED" value="1" token="Inverted IO" description="Inverted IO"/>
+         <bitenum id="NORMAL" value="0" token="Normal IO" description="Normal IO"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="2" end="20" rwaccess="RW" description="Wakeup configuration from shutdown" id="WUCFGSD" resetval="0x0">
+         <bitenum id="WAKE_HIGH" value="3" token="Wakeup triggered when pad level is high" description="Wakeup triggered when pad level is high"/>
+         <bitenum id="WAKE_LOW" value="2" token="Wakeup triggered when pad level is low" description="Wakeup triggered when pad level is low"/>
+         <bitenum id="DIS_1" value="1" token="Wakeup disabled" description="Wakeup disabled"/>
+         <bitenum id="DIS_0" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Wakeup enable from standby" id="WUENSB" resetval="0x0">
+         <bitenum id="EN" value="1" token="wakeup enabled (effective only if EDGEDET is enabled)" description="wakeup enabled (effective only if EDGEDET is enabled)"/>
+         <bitenum id="DIS" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Edge detect configuration" id="EDGEDET" resetval="0x0">
+         <bitenum id="EDGE_BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
+         <bitenum id="EDGE_POS" value="2" token="Positive edge detection" description="Positive edge detection"/>
+         <bitenum id="EDGE_NEG" value="1" token="Negative edge detection" description="Negative edge detection"/>
+         <bitenum id="EDGE_DIS" value="0" token="No edge detection" description="No edge detection"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Pull control. Setting this to value 0x3 disables pull." id="PULLCTL" resetval="0x0">
+         <bitenum id="PULL_UP" value="2" token="Pull up enabled" description="Pull up enabled"/>
+         <bitenum id="PULL_DOWN" value="1" token="Pull down enabled" description="Pull down enabled"/>
+         <bitenum id="PULL_DIS" value="0" token="No pull" description="No pull"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Slew rate configuration" id="SLEWRED" resetval="0x0">
+         <bitenum id="REDUCED" value="1" token="Reduced slew rate" description="Reduced slew rate"/>
+         <bitenum id="NORMAL" value="0" token="Normal slew rate" description="Normal slew rate"/>
+      </bitfield>
+      <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Output current configuration. Writing value 0x3 defaults to 2mA current setting." id="IOCURR" resetval="0x0">
+         <bitenum id="CUR_8MA" value="2" token="8mA" description="8mA"/>
+         <bitenum id="CUR_4MA" value="1" token="4mA" description="4mA"/>
+         <bitenum id="CUR_2MA" value="0" token="2mA" description="2mA"/>
+      </bitfield>
+      <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Drive strength configuration" id="IOSTR" resetval="0x0">
+         <bitenum id="MAX" value="3" token="Maximum drive strength" description="Maximum drive strength"/>
+         <bitenum id="MEDIUM" value="2" token="Medium drive strength" description="Medium drive strength"/>
+         <bitenum id="MIN" value="1" token="Minimum drive stregnth" description="Minimum drive stregnth"/>
+         <bitenum id="AUTO" value="0" token="Automatic drive strength adjustment" description="Automatic drive strength adjustment"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="5" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Port configuration." id="PORTCFG" resetval="0x0">
+         <bitenum id="DTB" value="7" token="Digital Test Bus function" description="Digital Test Bus function"/>
+         <bitenum id="ANA" value="6" token="Analog function" description="Analog function"/>
+         <bitenum id="PFUNC5" value="5" token="Digital peripheral function-5" description="Digital peripheral function-5"/>
+         <bitenum id="PFUNC4" value="4" token="Digital peripheral function-4" description="Digital peripheral function-4"/>
+         <bitenum id="PFUNC3" value="3" token="Digital peripheral function-3" description="Digital peripheral function-3"/>
+         <bitenum id="PFUNC2" value="2" token="Digital peripheral function-2" description="Digital peripheral function-2"/>
+         <bitenum id="PFUNC1" value="1" token="Digital peripheral function-1 " description="Digital peripheral function-1 "/>
+         <bitenum id="BASE" value="0" token="Base function" description="Base function"/>
+      </bitfield>
+   </register>
+   <register acronym="IOC13" width="32" description="Configuration of DIO13" id="IOC13" offset="0x134">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="This field controls input hysteresis" id="HYSTEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input hysteresis enabled" description="Input hysteresis enabled"/>
+         <bitenum id="DIS" value="0" token="Input hysteresis disabled" description="Input hysteresis disabled"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Input enable" id="INPEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input enabled" description="Input enabled"/>
+         <bitenum id="DIS" value="0" token="Input disabled" description="Input disabled"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="2" end="27" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED27" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode. Setting this to value 0x6 or 0x7 will default to normal IO behavior." id="IOMODE" resetval="0x0">
+         <bitenum id="OPENS_INV" value="5" token="Open Source, inverted IO" description="Open Source, inverted IO"/>
+         <bitenum id="OPENS" value="4" token="Open Source, normal IO" description="Open Source, normal IO"/>
+         <bitenum id="OPEND_INV" value="3" token="Open Drain, inverted IO" description="Open Drain, inverted IO"/>
+         <bitenum id="OPEND" value="2" token="Open Drain, normal IO" description="Open Drain, normal IO"/>
+         <bitenum id="INVERTED" value="1" token="Inverted IO" description="Inverted IO"/>
+         <bitenum id="NORMAL" value="0" token="Normal IO" description="Normal IO"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="2" end="20" rwaccess="RW" description="Wakeup configuration from shutdown" id="WUCFGSD" resetval="0x0">
+         <bitenum id="WAKE_HIGH" value="3" token="Wakeup triggered when pad level is high" description="Wakeup triggered when pad level is high"/>
+         <bitenum id="WAKE_LOW" value="2" token="Wakeup triggered when pad level is low" description="Wakeup triggered when pad level is low"/>
+         <bitenum id="DIS_1" value="1" token="Wakeup disabled" description="Wakeup disabled"/>
+         <bitenum id="DIS_0" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Wakeup enable from standby" id="WUENSB" resetval="0x0">
+         <bitenum id="EN" value="1" token="wakeup enabled (effective only if EDGEDET is enabled)" description="wakeup enabled (effective only if EDGEDET is enabled)"/>
+         <bitenum id="DIS" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Edge detect configuration" id="EDGEDET" resetval="0x0">
+         <bitenum id="EDGE_BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
+         <bitenum id="EDGE_POS" value="2" token="Positive edge detection" description="Positive edge detection"/>
+         <bitenum id="EDGE_NEG" value="1" token="Negative edge detection" description="Negative edge detection"/>
+         <bitenum id="EDGE_DIS" value="0" token="No edge detection" description="No edge detection"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Pull control. Setting this to value 0x3 disables pull." id="PULLCTL" resetval="0x0">
+         <bitenum id="PULL_UP" value="2" token="Pull up enabled" description="Pull up enabled"/>
+         <bitenum id="PULL_DOWN" value="1" token="Pull down enabled" description="Pull down enabled"/>
+         <bitenum id="PULL_DIS" value="0" token="No pull" description="No pull"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="10" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Port configuration." id="PORTCFG" resetval="0x0">
+         <bitenum id="DTB" value="7" token="Digital Test Bus function" description="Digital Test Bus function"/>
+         <bitenum id="ANA" value="6" token="Analog function" description="Analog function"/>
+         <bitenum id="PFUNC5" value="5" token="Digital peripheral function-5" description="Digital peripheral function-5"/>
+         <bitenum id="PFUNC4" value="4" token="Digital peripheral function-4" description="Digital peripheral function-4"/>
+         <bitenum id="PFUNC3" value="3" token="Digital peripheral function-3" description="Digital peripheral function-3"/>
+         <bitenum id="PFUNC2" value="2" token="Digital peripheral function-2" description="Digital peripheral function-2"/>
+         <bitenum id="PFUNC1" value="1" token="Digital peripheral function-1 " description="Digital peripheral function-1 "/>
+         <bitenum id="BASE" value="0" token="Base function" description="Base function"/>
+      </bitfield>
+   </register>
+   <register acronym="IOC14" width="32" description="Configuration of DIO14" id="IOC14" offset="0x138">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="This field controls input hysteresis" id="HYSTEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input hysteresis enabled" description="Input hysteresis enabled"/>
+         <bitenum id="DIS" value="0" token="Input hysteresis disabled" description="Input hysteresis disabled"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Input enable" id="INPEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input enabled" description="Input enabled"/>
+         <bitenum id="DIS" value="0" token="Input disabled" description="Input disabled"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="2" end="27" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED27" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode. Setting this to value 0x6 or 0x7 will default to normal IO behavior." id="IOMODE" resetval="0x0">
+         <bitenum id="OPENS_INV" value="5" token="Open Source, inverted IO" description="Open Source, inverted IO"/>
+         <bitenum id="OPENS" value="4" token="Open Source, normal IO" description="Open Source, normal IO"/>
+         <bitenum id="OPEND_INV" value="3" token="Open Drain, inverted IO" description="Open Drain, inverted IO"/>
+         <bitenum id="OPEND" value="2" token="Open Drain, normal IO" description="Open Drain, normal IO"/>
+         <bitenum id="INVERTED" value="1" token="Inverted IO" description="Inverted IO"/>
+         <bitenum id="NORMAL" value="0" token="Normal IO" description="Normal IO"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="2" end="20" rwaccess="RW" description="Wakeup configuration from shutdown" id="WUCFGSD" resetval="0x0">
+         <bitenum id="WAKE_HIGH" value="3" token="Wakeup triggered when pad level is high" description="Wakeup triggered when pad level is high"/>
+         <bitenum id="WAKE_LOW" value="2" token="Wakeup triggered when pad level is low" description="Wakeup triggered when pad level is low"/>
+         <bitenum id="DIS_1" value="1" token="Wakeup disabled" description="Wakeup disabled"/>
+         <bitenum id="DIS_0" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Wakeup enable from standby" id="WUENSB" resetval="0x0">
+         <bitenum id="EN" value="1" token="wakeup enabled (effective only if EDGEDET is enabled)" description="wakeup enabled (effective only if EDGEDET is enabled)"/>
+         <bitenum id="DIS" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Edge detect configuration" id="EDGEDET" resetval="0x0">
+         <bitenum id="EDGE_BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
+         <bitenum id="EDGE_POS" value="2" token="Positive edge detection" description="Positive edge detection"/>
+         <bitenum id="EDGE_NEG" value="1" token="Negative edge detection" description="Negative edge detection"/>
+         <bitenum id="EDGE_DIS" value="0" token="No edge detection" description="No edge detection"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Pull control. Setting this to value 0x3 disables pull." id="PULLCTL" resetval="0x0">
+         <bitenum id="PULL_UP" value="2" token="Pull up enabled" description="Pull up enabled"/>
+         <bitenum id="PULL_DOWN" value="1" token="Pull down enabled" description="Pull down enabled"/>
+         <bitenum id="PULL_DIS" value="0" token="No pull" description="No pull"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="10" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Port configuration." id="PORTCFG" resetval="0x0">
+         <bitenum id="DTB" value="7" token="Digital Test Bus function" description="Digital Test Bus function"/>
+         <bitenum id="ANA" value="6" token="Analog function" description="Analog function"/>
+         <bitenum id="PFUNC5" value="5" token="Digital peripheral function-5" description="Digital peripheral function-5"/>
+         <bitenum id="PFUNC4" value="4" token="Digital peripheral function-4" description="Digital peripheral function-4"/>
+         <bitenum id="PFUNC3" value="3" token="Digital peripheral function-3" description="Digital peripheral function-3"/>
+         <bitenum id="PFUNC2" value="2" token="Digital peripheral function-2" description="Digital peripheral function-2"/>
+         <bitenum id="PFUNC1" value="1" token="Digital peripheral function-1 " description="Digital peripheral function-1 "/>
+         <bitenum id="BASE" value="0" token="Base function" description="Base function"/>
+      </bitfield>
+   </register>
+   <register acronym="IOC15" width="32" description="Configuration of DIO15" id="IOC15" offset="0x13c">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="This field controls input hysteresis" id="HYSTEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input hysteresis enabled" description="Input hysteresis enabled"/>
+         <bitenum id="DIS" value="0" token="Input hysteresis disabled" description="Input hysteresis disabled"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Input enable" id="INPEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input enabled" description="Input enabled"/>
+         <bitenum id="DIS" value="0" token="Input disabled" description="Input disabled"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="2" end="27" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED27" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode. Setting this to value 0x6 or 0x7 will default to normal IO behavior." id="IOMODE" resetval="0x0">
+         <bitenum id="OPENS_INV" value="5" token="Open Source, inverted IO" description="Open Source, inverted IO"/>
+         <bitenum id="OPENS" value="4" token="Open Source, normal IO" description="Open Source, normal IO"/>
+         <bitenum id="OPEND_INV" value="3" token="Open Drain, inverted IO" description="Open Drain, inverted IO"/>
+         <bitenum id="OPEND" value="2" token="Open Drain, normal IO" description="Open Drain, normal IO"/>
+         <bitenum id="INVERTED" value="1" token="Inverted IO" description="Inverted IO"/>
+         <bitenum id="NORMAL" value="0" token="Normal IO" description="Normal IO"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="2" end="20" rwaccess="RW" description="Wakeup configuration from shutdown" id="WUCFGSD" resetval="0x0">
+         <bitenum id="WAKE_HIGH" value="3" token="Wakeup triggered when pad level is high" description="Wakeup triggered when pad level is high"/>
+         <bitenum id="WAKE_LOW" value="2" token="Wakeup triggered when pad level is low" description="Wakeup triggered when pad level is low"/>
+         <bitenum id="DIS_1" value="1" token="Wakeup disabled" description="Wakeup disabled"/>
+         <bitenum id="DIS_0" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Wakeup enable from standby" id="WUENSB" resetval="0x0">
+         <bitenum id="EN" value="1" token="wakeup enabled (effective only if EDGEDET is enabled)" description="wakeup enabled (effective only if EDGEDET is enabled)"/>
+         <bitenum id="DIS" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Edge detect configuration" id="EDGEDET" resetval="0x0">
+         <bitenum id="EDGE_BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
+         <bitenum id="EDGE_POS" value="2" token="Positive edge detection" description="Positive edge detection"/>
+         <bitenum id="EDGE_NEG" value="1" token="Negative edge detection" description="Negative edge detection"/>
+         <bitenum id="EDGE_DIS" value="0" token="No edge detection" description="No edge detection"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Pull control. Setting this to value 0x3 disables pull." id="PULLCTL" resetval="0x0">
+         <bitenum id="PULL_UP" value="2" token="Pull up enabled" description="Pull up enabled"/>
+         <bitenum id="PULL_DOWN" value="1" token="Pull down enabled" description="Pull down enabled"/>
+         <bitenum id="PULL_DIS" value="0" token="No pull" description="No pull"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="10" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Port configuration." id="PORTCFG" resetval="0x0">
+         <bitenum id="DTB" value="7" token="Digital Test Bus function" description="Digital Test Bus function"/>
+         <bitenum id="ANA" value="6" token="Analog function" description="Analog function"/>
+         <bitenum id="PFUNC5" value="5" token="Digital peripheral function-5" description="Digital peripheral function-5"/>
+         <bitenum id="PFUNC4" value="4" token="Digital peripheral function-4" description="Digital peripheral function-4"/>
+         <bitenum id="PFUNC3" value="3" token="Digital peripheral function-3" description="Digital peripheral function-3"/>
+         <bitenum id="PFUNC2" value="2" token="Digital peripheral function-2" description="Digital peripheral function-2"/>
+         <bitenum id="PFUNC1" value="1" token="Digital peripheral function-1 " description="Digital peripheral function-1 "/>
+         <bitenum id="BASE" value="0" token="Base function" description="Base function"/>
+      </bitfield>
+   </register>
+   <register acronym="IOC16" width="32" description="Configuration of DIO16" id="IOC16" offset="0x140">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="This field controls input hysteresis" id="HYSTEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input hysteresis enabled" description="Input hysteresis enabled"/>
+         <bitenum id="DIS" value="0" token="Input hysteresis disabled" description="Input hysteresis disabled"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Input enable" id="INPEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input enabled" description="Input enabled"/>
+         <bitenum id="DIS" value="0" token="Input disabled" description="Input disabled"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="2" end="27" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED27" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode. Setting this to value 0x6 or 0x7 will default to normal IO behavior." id="IOMODE" resetval="0x0">
+         <bitenum id="OPENS_INV" value="5" token="Open Source, inverted IO" description="Open Source, inverted IO"/>
+         <bitenum id="OPENS" value="4" token="Open Source, normal IO" description="Open Source, normal IO"/>
+         <bitenum id="OPEND_INV" value="3" token="Open Drain, inverted IO" description="Open Drain, inverted IO"/>
+         <bitenum id="OPEND" value="2" token="Open Drain, normal IO" description="Open Drain, normal IO"/>
+         <bitenum id="INVERTED" value="1" token="Inverted IO" description="Inverted IO"/>
+         <bitenum id="NORMAL" value="0" token="Normal IO" description="Normal IO"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="2" end="20" rwaccess="RW" description="Wakeup configuration from shutdown" id="WUCFGSD" resetval="0x0">
+         <bitenum id="WAKE_HIGH" value="3" token="Wakeup triggered when pad level is high" description="Wakeup triggered when pad level is high"/>
+         <bitenum id="WAKE_LOW" value="2" token="Wakeup triggered when pad level is low" description="Wakeup triggered when pad level is low"/>
+         <bitenum id="DIS_1" value="1" token="Wakeup disabled" description="Wakeup disabled"/>
+         <bitenum id="DIS_0" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Wakeup enable from standby" id="WUENSB" resetval="0x0">
+         <bitenum id="EN" value="1" token="wakeup enabled (effective only if EDGEDET is enabled)" description="wakeup enabled (effective only if EDGEDET is enabled)"/>
+         <bitenum id="DIS" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Edge detect configuration" id="EDGEDET" resetval="0x0">
+         <bitenum id="EDGE_BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
+         <bitenum id="EDGE_POS" value="2" token="Positive edge detection" description="Positive edge detection"/>
+         <bitenum id="EDGE_NEG" value="1" token="Negative edge detection" description="Negative edge detection"/>
+         <bitenum id="EDGE_DIS" value="0" token="No edge detection" description="No edge detection"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Pull control. Setting this to value 0x3 disables pull." id="PULLCTL" resetval="0x2">
+         <bitenum id="PULL_UP" value="2" token="Pull up enabled" description="Pull up enabled"/>
+         <bitenum id="PULL_DOWN" value="1" token="Pull down enabled" description="Pull down enabled"/>
+         <bitenum id="PULL_DIS" value="0" token="No pull" description="No pull"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Slew rate configuration" id="SLEWRED" resetval="0x0">
+         <bitenum id="REDUCED" value="1" token="Reduced slew rate" description="Reduced slew rate"/>
+         <bitenum id="NORMAL" value="0" token="Normal slew rate" description="Normal slew rate"/>
+      </bitfield>
+      <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Output current configuration. Writing value 0x3 defaults to 2mA current setting." id="IOCURR" resetval="0x0">
+         <bitenum id="CUR_8MA" value="2" token="8mA" description="8mA"/>
+         <bitenum id="CUR_4MA" value="1" token="4mA" description="4mA"/>
+         <bitenum id="CUR_2MA" value="0" token="2mA" description="2mA"/>
+      </bitfield>
+      <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Drive strength configuration" id="IOSTR" resetval="0x0">
+         <bitenum id="MAX" value="3" token="Maximum drive strength" description="Maximum drive strength"/>
+         <bitenum id="MEDIUM" value="2" token="Medium drive strength" description="Medium drive strength"/>
+         <bitenum id="MIN" value="1" token="Minimum drive stregnth" description="Minimum drive stregnth"/>
+         <bitenum id="AUTO" value="0" token="Automatic drive strength adjustment" description="Automatic drive strength adjustment"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="5" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Port configuration." id="PORTCFG" resetval="0x0">
+         <bitenum id="DTB" value="7" token="Digital Test Bus function" description="Digital Test Bus function"/>
+         <bitenum id="ANA" value="6" token="Analog function" description="Analog function"/>
+         <bitenum id="PFUNC5" value="5" token="Digital peripheral function-5" description="Digital peripheral function-5"/>
+         <bitenum id="PFUNC4" value="4" token="Digital peripheral function-4" description="Digital peripheral function-4"/>
+         <bitenum id="PFUNC3" value="3" token="Digital peripheral function-3" description="Digital peripheral function-3"/>
+         <bitenum id="PFUNC2" value="2" token="Digital peripheral function-2" description="Digital peripheral function-2"/>
+         <bitenum id="PFUNC1" value="1" token="Digital peripheral function-1 " description="Digital peripheral function-1 "/>
+         <bitenum id="BASE" value="0" token="Base function" description="Base function"/>
+      </bitfield>
+   </register>
+   <register acronym="IOC17" width="32" description="Configuration of DIO17" id="IOC17" offset="0x144">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="This field controls input hysteresis" id="HYSTEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input hysteresis enabled" description="Input hysteresis enabled"/>
+         <bitenum id="DIS" value="0" token="Input hysteresis disabled" description="Input hysteresis disabled"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Input enable" id="INPEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input enabled" description="Input enabled"/>
+         <bitenum id="DIS" value="0" token="Input disabled" description="Input disabled"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="2" end="27" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED27" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode. Setting this to value 0x6 or 0x7 will default to normal IO behavior." id="IOMODE" resetval="0x0">
+         <bitenum id="OPENS_INV" value="5" token="Open Source, inverted IO" description="Open Source, inverted IO"/>
+         <bitenum id="OPENS" value="4" token="Open Source, normal IO" description="Open Source, normal IO"/>
+         <bitenum id="OPEND_INV" value="3" token="Open Drain, inverted IO" description="Open Drain, inverted IO"/>
+         <bitenum id="OPEND" value="2" token="Open Drain, normal IO" description="Open Drain, normal IO"/>
+         <bitenum id="INVERTED" value="1" token="Inverted IO" description="Inverted IO"/>
+         <bitenum id="NORMAL" value="0" token="Normal IO" description="Normal IO"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="2" end="20" rwaccess="RW" description="Wakeup configuration from shutdown" id="WUCFGSD" resetval="0x0">
+         <bitenum id="WAKE_HIGH" value="3" token="Wakeup triggered when pad level is high" description="Wakeup triggered when pad level is high"/>
+         <bitenum id="WAKE_LOW" value="2" token="Wakeup triggered when pad level is low" description="Wakeup triggered when pad level is low"/>
+         <bitenum id="DIS_1" value="1" token="Wakeup disabled" description="Wakeup disabled"/>
+         <bitenum id="DIS_0" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Wakeup enable from standby" id="WUENSB" resetval="0x0">
+         <bitenum id="EN" value="1" token="wakeup enabled (effective only if EDGEDET is enabled)" description="wakeup enabled (effective only if EDGEDET is enabled)"/>
+         <bitenum id="DIS" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Edge detect configuration" id="EDGEDET" resetval="0x0">
+         <bitenum id="EDGE_BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
+         <bitenum id="EDGE_POS" value="2" token="Positive edge detection" description="Positive edge detection"/>
+         <bitenum id="EDGE_NEG" value="1" token="Negative edge detection" description="Negative edge detection"/>
+         <bitenum id="EDGE_DIS" value="0" token="No edge detection" description="No edge detection"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Pull control. Setting this to value 0x3 disables pull." id="PULLCTL" resetval="0x1">
+         <bitenum id="PULL_UP" value="2" token="Pull up enabled" description="Pull up enabled"/>
+         <bitenum id="PULL_DOWN" value="1" token="Pull down enabled" description="Pull down enabled"/>
+         <bitenum id="PULL_DIS" value="0" token="No pull" description="No pull"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Slew rate configuration" id="SLEWRED" resetval="0x0">
+         <bitenum id="REDUCED" value="1" token="Reduced slew rate" description="Reduced slew rate"/>
+         <bitenum id="NORMAL" value="0" token="Normal slew rate" description="Normal slew rate"/>
+      </bitfield>
+      <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Output current configuration. Writing value 0x3 defaults to 2mA current setting." id="IOCURR" resetval="0x0">
+         <bitenum id="CUR_8MA" value="2" token="8mA" description="8mA"/>
+         <bitenum id="CUR_4MA" value="1" token="4mA" description="4mA"/>
+         <bitenum id="CUR_2MA" value="0" token="2mA" description="2mA"/>
+      </bitfield>
+      <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Drive strength configuration" id="IOSTR" resetval="0x0">
+         <bitenum id="MAX" value="3" token="Maximum drive strength" description="Maximum drive strength"/>
+         <bitenum id="MEDIUM" value="2" token="Medium drive strength" description="Medium drive strength"/>
+         <bitenum id="MIN" value="1" token="Minimum drive stregnth" description="Minimum drive stregnth"/>
+         <bitenum id="AUTO" value="0" token="Automatic drive strength adjustment" description="Automatic drive strength adjustment"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="5" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Port configuration." id="PORTCFG" resetval="0x0">
+         <bitenum id="DTB" value="7" token="Digital Test Bus function" description="Digital Test Bus function"/>
+         <bitenum id="ANA" value="6" token="Analog function" description="Analog function"/>
+         <bitenum id="PFUNC5" value="5" token="Digital peripheral function-5" description="Digital peripheral function-5"/>
+         <bitenum id="PFUNC4" value="4" token="Digital peripheral function-4" description="Digital peripheral function-4"/>
+         <bitenum id="PFUNC3" value="3" token="Digital peripheral function-3" description="Digital peripheral function-3"/>
+         <bitenum id="PFUNC2" value="2" token="Digital peripheral function-2" description="Digital peripheral function-2"/>
+         <bitenum id="PFUNC1" value="1" token="Digital peripheral function-1 " description="Digital peripheral function-1 "/>
+         <bitenum id="BASE" value="0" token="Base function" description="Base function"/>
+      </bitfield>
+   </register>
+   <register acronym="IOC18" width="32" description="Configuration of DIO18" id="IOC18" offset="0x148">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="This field controls input hysteresis" id="HYSTEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input hysteresis enabled" description="Input hysteresis enabled"/>
+         <bitenum id="DIS" value="0" token="Input hysteresis disabled" description="Input hysteresis disabled"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Input enable" id="INPEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input enabled" description="Input enabled"/>
+         <bitenum id="DIS" value="0" token="Input disabled" description="Input disabled"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="2" end="27" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED27" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode. Setting this to value 0x6 or 0x7 will default to normal IO behavior." id="IOMODE" resetval="0x0">
+         <bitenum id="OPENS_INV" value="5" token="Open Source, inverted IO" description="Open Source, inverted IO"/>
+         <bitenum id="OPENS" value="4" token="Open Source, normal IO" description="Open Source, normal IO"/>
+         <bitenum id="OPEND_INV" value="3" token="Open Drain, inverted IO" description="Open Drain, inverted IO"/>
+         <bitenum id="OPEND" value="2" token="Open Drain, normal IO" description="Open Drain, normal IO"/>
+         <bitenum id="INVERTED" value="1" token="Inverted IO" description="Inverted IO"/>
+         <bitenum id="NORMAL" value="0" token="Normal IO" description="Normal IO"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="2" end="20" rwaccess="RW" description="Wakeup configuration from shutdown" id="WUCFGSD" resetval="0x0">
+         <bitenum id="WAKE_HIGH" value="3" token="Wakeup triggered when pad level is high" description="Wakeup triggered when pad level is high"/>
+         <bitenum id="WAKE_LOW" value="2" token="Wakeup triggered when pad level is low" description="Wakeup triggered when pad level is low"/>
+         <bitenum id="DIS_1" value="1" token="Wakeup disabled" description="Wakeup disabled"/>
+         <bitenum id="DIS_0" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Wakeup enable from standby" id="WUENSB" resetval="0x0">
+         <bitenum id="EN" value="1" token="wakeup enabled (effective only if EDGEDET is enabled)" description="wakeup enabled (effective only if EDGEDET is enabled)"/>
+         <bitenum id="DIS" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Edge detect configuration" id="EDGEDET" resetval="0x0">
+         <bitenum id="EDGE_BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
+         <bitenum id="EDGE_POS" value="2" token="Positive edge detection" description="Positive edge detection"/>
+         <bitenum id="EDGE_NEG" value="1" token="Negative edge detection" description="Negative edge detection"/>
+         <bitenum id="EDGE_DIS" value="0" token="No edge detection" description="No edge detection"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Pull control. Setting this to value 0x3 disables pull." id="PULLCTL" resetval="0x0">
+         <bitenum id="PULL_UP" value="2" token="Pull up enabled" description="Pull up enabled"/>
+         <bitenum id="PULL_DOWN" value="1" token="Pull down enabled" description="Pull down enabled"/>
+         <bitenum id="PULL_DIS" value="0" token="No pull" description="No pull"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Slew rate configuration" id="SLEWRED" resetval="0x0">
+         <bitenum id="REDUCED" value="1" token="Reduced slew rate" description="Reduced slew rate"/>
+         <bitenum id="NORMAL" value="0" token="Normal slew rate" description="Normal slew rate"/>
+      </bitfield>
+      <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Output current configuration. Writing value 0x3 defaults to 2mA current setting." id="IOCURR" resetval="0x0">
+         <bitenum id="CUR_8MA" value="2" token="8mA" description="8mA"/>
+         <bitenum id="CUR_4MA" value="1" token="4mA" description="4mA"/>
+         <bitenum id="CUR_2MA" value="0" token="2mA" description="2mA"/>
+      </bitfield>
+      <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Drive strength configuration" id="IOSTR" resetval="0x0">
+         <bitenum id="MAX" value="3" token="Maximum drive strength" description="Maximum drive strength"/>
+         <bitenum id="MEDIUM" value="2" token="Medium drive strength" description="Medium drive strength"/>
+         <bitenum id="MIN" value="1" token="Minimum drive stregnth" description="Minimum drive stregnth"/>
+         <bitenum id="AUTO" value="0" token="Automatic drive strength adjustment" description="Automatic drive strength adjustment"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="5" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Port configuration." id="PORTCFG" resetval="0x0">
+         <bitenum id="DTB" value="7" token="Digital Test Bus function" description="Digital Test Bus function"/>
+         <bitenum id="ANA" value="6" token="Analog function" description="Analog function"/>
+         <bitenum id="PFUNC5" value="5" token="Digital peripheral function-5" description="Digital peripheral function-5"/>
+         <bitenum id="PFUNC4" value="4" token="Digital peripheral function-4" description="Digital peripheral function-4"/>
+         <bitenum id="PFUNC3" value="3" token="Digital peripheral function-3" description="Digital peripheral function-3"/>
+         <bitenum id="PFUNC2" value="2" token="Digital peripheral function-2" description="Digital peripheral function-2"/>
+         <bitenum id="PFUNC1" value="1" token="Digital peripheral function-1 " description="Digital peripheral function-1 "/>
+         <bitenum id="BASE" value="0" token="Base function" description="Base function"/>
+      </bitfield>
+   </register>
+   <register acronym="IOC19" width="32" description="Configuration of DIO19" id="IOC19" offset="0x14c">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="This field controls input hysteresis" id="HYSTEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input hysteresis enabled" description="Input hysteresis enabled"/>
+         <bitenum id="DIS" value="0" token="Input hysteresis disabled" description="Input hysteresis disabled"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Input enable" id="INPEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input enabled" description="Input enabled"/>
+         <bitenum id="DIS" value="0" token="Input disabled" description="Input disabled"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="2" end="27" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED27" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode. Setting this to value 0x6 or 0x7 will default to normal IO behavior." id="IOMODE" resetval="0x0">
+         <bitenum id="OPENS_INV" value="5" token="Open Source, inverted IO" description="Open Source, inverted IO"/>
+         <bitenum id="OPENS" value="4" token="Open Source, normal IO" description="Open Source, normal IO"/>
+         <bitenum id="OPEND_INV" value="3" token="Open Drain, inverted IO" description="Open Drain, inverted IO"/>
+         <bitenum id="OPEND" value="2" token="Open Drain, normal IO" description="Open Drain, normal IO"/>
+         <bitenum id="INVERTED" value="1" token="Inverted IO" description="Inverted IO"/>
+         <bitenum id="NORMAL" value="0" token="Normal IO" description="Normal IO"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="2" end="20" rwaccess="RW" description="Wakeup configuration from shutdown" id="WUCFGSD" resetval="0x0">
+         <bitenum id="WAKE_HIGH" value="3" token="Wakeup triggered when pad level is high" description="Wakeup triggered when pad level is high"/>
+         <bitenum id="WAKE_LOW" value="2" token="Wakeup triggered when pad level is low" description="Wakeup triggered when pad level is low"/>
+         <bitenum id="DIS_1" value="1" token="Wakeup disabled" description="Wakeup disabled"/>
+         <bitenum id="DIS_0" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Wakeup enable from standby" id="WUENSB" resetval="0x0">
+         <bitenum id="EN" value="1" token="wakeup enabled (effective only if EDGEDET is enabled)" description="wakeup enabled (effective only if EDGEDET is enabled)"/>
+         <bitenum id="DIS" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Edge detect configuration" id="EDGEDET" resetval="0x0">
+         <bitenum id="EDGE_BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
+         <bitenum id="EDGE_POS" value="2" token="Positive edge detection" description="Positive edge detection"/>
+         <bitenum id="EDGE_NEG" value="1" token="Negative edge detection" description="Negative edge detection"/>
+         <bitenum id="EDGE_DIS" value="0" token="No edge detection" description="No edge detection"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Pull control. Setting this to value 0x3 disables pull." id="PULLCTL" resetval="0x0">
+         <bitenum id="PULL_UP" value="2" token="Pull up enabled" description="Pull up enabled"/>
+         <bitenum id="PULL_DOWN" value="1" token="Pull down enabled" description="Pull down enabled"/>
+         <bitenum id="PULL_DIS" value="0" token="No pull" description="No pull"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Slew rate configuration" id="SLEWRED" resetval="0x0">
+         <bitenum id="REDUCED" value="1" token="Reduced slew rate" description="Reduced slew rate"/>
+         <bitenum id="NORMAL" value="0" token="Normal slew rate" description="Normal slew rate"/>
+      </bitfield>
+      <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Output current configuration. Writing value 0x3 defaults to 2mA current setting." id="IOCURR" resetval="0x0">
+         <bitenum id="CUR_8MA" value="2" token="8mA" description="8mA"/>
+         <bitenum id="CUR_4MA" value="1" token="4mA" description="4mA"/>
+         <bitenum id="CUR_2MA" value="0" token="2mA" description="2mA"/>
+      </bitfield>
+      <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Drive strength configuration" id="IOSTR" resetval="0x0">
+         <bitenum id="MAX" value="3" token="Maximum drive strength" description="Maximum drive strength"/>
+         <bitenum id="MEDIUM" value="2" token="Medium drive strength" description="Medium drive strength"/>
+         <bitenum id="MIN" value="1" token="Minimum drive stregnth" description="Minimum drive stregnth"/>
+         <bitenum id="AUTO" value="0" token="Automatic drive strength adjustment" description="Automatic drive strength adjustment"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="5" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Port configuration." id="PORTCFG" resetval="0x0">
+         <bitenum id="DTB" value="7" token="Digital Test Bus function" description="Digital Test Bus function"/>
+         <bitenum id="ANA" value="6" token="Analog function" description="Analog function"/>
+         <bitenum id="PFUNC5" value="5" token="Digital peripheral function-5" description="Digital peripheral function-5"/>
+         <bitenum id="PFUNC4" value="4" token="Digital peripheral function-4" description="Digital peripheral function-4"/>
+         <bitenum id="PFUNC3" value="3" token="Digital peripheral function-3" description="Digital peripheral function-3"/>
+         <bitenum id="PFUNC2" value="2" token="Digital peripheral function-2" description="Digital peripheral function-2"/>
+         <bitenum id="PFUNC1" value="1" token="Digital peripheral function-1 " description="Digital peripheral function-1 "/>
+         <bitenum id="BASE" value="0" token="Base function" description="Base function"/>
+      </bitfield>
+   </register>
+   <register acronym="IOC20" width="32" description="Configuration of DIO20" id="IOC20" offset="0x150">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="This field controls input hysteresis" id="HYSTEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input hysteresis enabled" description="Input hysteresis enabled"/>
+         <bitenum id="DIS" value="0" token="Input hysteresis disabled" description="Input hysteresis disabled"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Input enable" id="INPEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input enabled" description="Input enabled"/>
+         <bitenum id="DIS" value="0" token="Input disabled" description="Input disabled"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="2" end="27" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED27" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode. Setting this to value 0x6 or 0x7 will default to normal IO behavior." id="IOMODE" resetval="0x0">
+         <bitenum id="OPENS_INV" value="5" token="Open Source, inverted IO" description="Open Source, inverted IO"/>
+         <bitenum id="OPENS" value="4" token="Open Source, normal IO" description="Open Source, normal IO"/>
+         <bitenum id="OPEND_INV" value="3" token="Open Drain, inverted IO" description="Open Drain, inverted IO"/>
+         <bitenum id="OPEND" value="2" token="Open Drain, normal IO" description="Open Drain, normal IO"/>
+         <bitenum id="INVERTED" value="1" token="Inverted IO" description="Inverted IO"/>
+         <bitenum id="NORMAL" value="0" token="Normal IO" description="Normal IO"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="2" end="20" rwaccess="RW" description="Wakeup configuration from shutdown" id="WUCFGSD" resetval="0x0">
+         <bitenum id="WAKE_HIGH" value="3" token="Wakeup triggered when pad level is high" description="Wakeup triggered when pad level is high"/>
+         <bitenum id="WAKE_LOW" value="2" token="Wakeup triggered when pad level is low" description="Wakeup triggered when pad level is low"/>
+         <bitenum id="DIS_1" value="1" token="Wakeup disabled" description="Wakeup disabled"/>
+         <bitenum id="DIS_0" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Wakeup enable from standby" id="WUENSB" resetval="0x0">
+         <bitenum id="EN" value="1" token="wakeup enabled (effective only if EDGEDET is enabled)" description="wakeup enabled (effective only if EDGEDET is enabled)"/>
+         <bitenum id="DIS" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Edge detect configuration" id="EDGEDET" resetval="0x0">
+         <bitenum id="EDGE_BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
+         <bitenum id="EDGE_POS" value="2" token="Positive edge detection" description="Positive edge detection"/>
+         <bitenum id="EDGE_NEG" value="1" token="Negative edge detection" description="Negative edge detection"/>
+         <bitenum id="EDGE_DIS" value="0" token="No edge detection" description="No edge detection"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Pull control. Setting this to value 0x3 disables pull." id="PULLCTL" resetval="0x0">
+         <bitenum id="PULL_UP" value="2" token="Pull up enabled" description="Pull up enabled"/>
+         <bitenum id="PULL_DOWN" value="1" token="Pull down enabled" description="Pull down enabled"/>
+         <bitenum id="PULL_DIS" value="0" token="No pull" description="No pull"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="10" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Port configuration." id="PORTCFG" resetval="0x0">
+         <bitenum id="DTB" value="7" token="Digital Test Bus function" description="Digital Test Bus function"/>
+         <bitenum id="ANA" value="6" token="Analog function" description="Analog function"/>
+         <bitenum id="PFUNC5" value="5" token="Digital peripheral function-5" description="Digital peripheral function-5"/>
+         <bitenum id="PFUNC4" value="4" token="Digital peripheral function-4" description="Digital peripheral function-4"/>
+         <bitenum id="PFUNC3" value="3" token="Digital peripheral function-3" description="Digital peripheral function-3"/>
+         <bitenum id="PFUNC2" value="2" token="Digital peripheral function-2" description="Digital peripheral function-2"/>
+         <bitenum id="PFUNC1" value="1" token="Digital peripheral function-1 " description="Digital peripheral function-1 "/>
+         <bitenum id="BASE" value="0" token="Base function" description="Base function"/>
+      </bitfield>
+   </register>
+   <register acronym="IOC21" width="32" description="Configuration of DIO21" id="IOC21" offset="0x154">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="This field controls input hysteresis" id="HYSTEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input hysteresis enabled" description="Input hysteresis enabled"/>
+         <bitenum id="DIS" value="0" token="Input hysteresis disabled" description="Input hysteresis disabled"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Input enable" id="INPEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input enabled" description="Input enabled"/>
+         <bitenum id="DIS" value="0" token="Input disabled" description="Input disabled"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="2" end="27" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED27" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode. Setting this to value 0x6 or 0x7 will default to normal IO behavior." id="IOMODE" resetval="0x0">
+         <bitenum id="OPENS_INV" value="5" token="Open Source, inverted IO" description="Open Source, inverted IO"/>
+         <bitenum id="OPENS" value="4" token="Open Source, normal IO" description="Open Source, normal IO"/>
+         <bitenum id="OPEND_INV" value="3" token="Open Drain, inverted IO" description="Open Drain, inverted IO"/>
+         <bitenum id="OPEND" value="2" token="Open Drain, normal IO" description="Open Drain, normal IO"/>
+         <bitenum id="INVERTED" value="1" token="Inverted IO" description="Inverted IO"/>
+         <bitenum id="NORMAL" value="0" token="Normal IO" description="Normal IO"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="2" end="20" rwaccess="RW" description="Wakeup configuration from shutdown" id="WUCFGSD" resetval="0x0">
+         <bitenum id="WAKE_HIGH" value="3" token="Wakeup triggered when pad level is high" description="Wakeup triggered when pad level is high"/>
+         <bitenum id="WAKE_LOW" value="2" token="Wakeup triggered when pad level is low" description="Wakeup triggered when pad level is low"/>
+         <bitenum id="DIS_1" value="1" token="Wakeup disabled" description="Wakeup disabled"/>
+         <bitenum id="DIS_0" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Wakeup enable from standby" id="WUENSB" resetval="0x0">
+         <bitenum id="EN" value="1" token="wakeup enabled (effective only if EDGEDET is enabled)" description="wakeup enabled (effective only if EDGEDET is enabled)"/>
+         <bitenum id="DIS" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Edge detect configuration" id="EDGEDET" resetval="0x0">
+         <bitenum id="EDGE_BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
+         <bitenum id="EDGE_POS" value="2" token="Positive edge detection" description="Positive edge detection"/>
+         <bitenum id="EDGE_NEG" value="1" token="Negative edge detection" description="Negative edge detection"/>
+         <bitenum id="EDGE_DIS" value="0" token="No edge detection" description="No edge detection"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Pull control. Setting this to value 0x3 disables pull." id="PULLCTL" resetval="0x0">
+         <bitenum id="PULL_UP" value="2" token="Pull up enabled" description="Pull up enabled"/>
+         <bitenum id="PULL_DOWN" value="1" token="Pull down enabled" description="Pull down enabled"/>
+         <bitenum id="PULL_DIS" value="0" token="No pull" description="No pull"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="10" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Port configuration." id="PORTCFG" resetval="0x0">
+         <bitenum id="DTB" value="7" token="Digital Test Bus function" description="Digital Test Bus function"/>
+         <bitenum id="ANA" value="6" token="Analog function" description="Analog function"/>
+         <bitenum id="PFUNC5" value="5" token="Digital peripheral function-5" description="Digital peripheral function-5"/>
+         <bitenum id="PFUNC4" value="4" token="Digital peripheral function-4" description="Digital peripheral function-4"/>
+         <bitenum id="PFUNC3" value="3" token="Digital peripheral function-3" description="Digital peripheral function-3"/>
+         <bitenum id="PFUNC2" value="2" token="Digital peripheral function-2" description="Digital peripheral function-2"/>
+         <bitenum id="PFUNC1" value="1" token="Digital peripheral function-1 " description="Digital peripheral function-1 "/>
+         <bitenum id="BASE" value="0" token="Base function" description="Base function"/>
+      </bitfield>
+   </register>
+   <register acronym="IOC22" width="32" description="Configuration of DIO22" id="IOC22" offset="0x158">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="This field controls input hysteresis" id="HYSTEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input hysteresis enabled" description="Input hysteresis enabled"/>
+         <bitenum id="DIS" value="0" token="Input hysteresis disabled" description="Input hysteresis disabled"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Input enable" id="INPEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input enabled" description="Input enabled"/>
+         <bitenum id="DIS" value="0" token="Input disabled" description="Input disabled"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="2" end="27" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED27" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode. Setting this to value 0x6 or 0x7 will default to normal IO behavior." id="IOMODE" resetval="0x0">
+         <bitenum id="OPENS_INV" value="5" token="Open Source, inverted IO" description="Open Source, inverted IO"/>
+         <bitenum id="OPENS" value="4" token="Open Source, normal IO" description="Open Source, normal IO"/>
+         <bitenum id="OPEND_INV" value="3" token="Open Drain, inverted IO" description="Open Drain, inverted IO"/>
+         <bitenum id="OPEND" value="2" token="Open Drain, normal IO" description="Open Drain, normal IO"/>
+         <bitenum id="INVERTED" value="1" token="Inverted IO" description="Inverted IO"/>
+         <bitenum id="NORMAL" value="0" token="Normal IO" description="Normal IO"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="2" end="20" rwaccess="RW" description="Wakeup configuration from shutdown" id="WUCFGSD" resetval="0x0">
+         <bitenum id="WAKE_HIGH" value="3" token="Wakeup triggered when pad level is high" description="Wakeup triggered when pad level is high"/>
+         <bitenum id="WAKE_LOW" value="2" token="Wakeup triggered when pad level is low" description="Wakeup triggered when pad level is low"/>
+         <bitenum id="DIS_1" value="1" token="Wakeup disabled" description="Wakeup disabled"/>
+         <bitenum id="DIS_0" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Wakeup enable from standby" id="WUENSB" resetval="0x0">
+         <bitenum id="EN" value="1" token="wakeup enabled (effective only if EDGEDET is enabled)" description="wakeup enabled (effective only if EDGEDET is enabled)"/>
+         <bitenum id="DIS" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Edge detect configuration" id="EDGEDET" resetval="0x0">
+         <bitenum id="EDGE_BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
+         <bitenum id="EDGE_POS" value="2" token="Positive edge detection" description="Positive edge detection"/>
+         <bitenum id="EDGE_NEG" value="1" token="Negative edge detection" description="Negative edge detection"/>
+         <bitenum id="EDGE_DIS" value="0" token="No edge detection" description="No edge detection"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Pull control. Setting this to value 0x3 disables pull." id="PULLCTL" resetval="0x0">
+         <bitenum id="PULL_UP" value="2" token="Pull up enabled" description="Pull up enabled"/>
+         <bitenum id="PULL_DOWN" value="1" token="Pull down enabled" description="Pull down enabled"/>
+         <bitenum id="PULL_DIS" value="0" token="No pull" description="No pull"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="10" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Port configuration." id="PORTCFG" resetval="0x0">
+         <bitenum id="DTB" value="7" token="Digital Test Bus function" description="Digital Test Bus function"/>
+         <bitenum id="ANA" value="6" token="Analog function" description="Analog function"/>
+         <bitenum id="PFUNC5" value="5" token="Digital peripheral function-5" description="Digital peripheral function-5"/>
+         <bitenum id="PFUNC4" value="4" token="Digital peripheral function-4" description="Digital peripheral function-4"/>
+         <bitenum id="PFUNC3" value="3" token="Digital peripheral function-3" description="Digital peripheral function-3"/>
+         <bitenum id="PFUNC2" value="2" token="Digital peripheral function-2" description="Digital peripheral function-2"/>
+         <bitenum id="PFUNC1" value="1" token="Digital peripheral function-1 " description="Digital peripheral function-1 "/>
+         <bitenum id="BASE" value="0" token="Base function" description="Base function"/>
+      </bitfield>
+   </register>
+   <register acronym="IOC23" width="32" description="Configuration of DIO23" id="IOC23" offset="0x15c">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="This field controls input hysteresis" id="HYSTEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input hysteresis enabled" description="Input hysteresis enabled"/>
+         <bitenum id="DIS" value="0" token="Input hysteresis disabled" description="Input hysteresis disabled"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Input enable" id="INPEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input enabled" description="Input enabled"/>
+         <bitenum id="DIS" value="0" token="Input disabled" description="Input disabled"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="2" end="27" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED27" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode. Setting this to value 0x6 or 0x7 will default to normal IO behavior." id="IOMODE" resetval="0x0">
+         <bitenum id="OPENS_INV" value="5" token="Open Source, inverted IO" description="Open Source, inverted IO"/>
+         <bitenum id="OPENS" value="4" token="Open Source, normal IO" description="Open Source, normal IO"/>
+         <bitenum id="OPEND_INV" value="3" token="Open Drain, inverted IO" description="Open Drain, inverted IO"/>
+         <bitenum id="OPEND" value="2" token="Open Drain, normal IO" description="Open Drain, normal IO"/>
+         <bitenum id="INVERTED" value="1" token="Inverted IO" description="Inverted IO"/>
+         <bitenum id="NORMAL" value="0" token="Normal IO" description="Normal IO"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="2" end="20" rwaccess="RW" description="Wakeup configuration from shutdown" id="WUCFGSD" resetval="0x0">
+         <bitenum id="WAKE_HIGH" value="3" token="Wakeup triggered when pad level is high" description="Wakeup triggered when pad level is high"/>
+         <bitenum id="WAKE_LOW" value="2" token="Wakeup triggered when pad level is low" description="Wakeup triggered when pad level is low"/>
+         <bitenum id="DIS_1" value="1" token="Wakeup disabled" description="Wakeup disabled"/>
+         <bitenum id="DIS_0" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Wakeup enable from standby" id="WUENSB" resetval="0x0">
+         <bitenum id="EN" value="1" token="wakeup enabled (effective only if EDGEDET is enabled)" description="wakeup enabled (effective only if EDGEDET is enabled)"/>
+         <bitenum id="DIS" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Edge detect configuration" id="EDGEDET" resetval="0x0">
+         <bitenum id="EDGE_BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
+         <bitenum id="EDGE_POS" value="2" token="Positive edge detection" description="Positive edge detection"/>
+         <bitenum id="EDGE_NEG" value="1" token="Negative edge detection" description="Negative edge detection"/>
+         <bitenum id="EDGE_DIS" value="0" token="No edge detection" description="No edge detection"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Pull control. Setting this to value 0x3 disables pull." id="PULLCTL" resetval="0x0">
+         <bitenum id="PULL_UP" value="2" token="Pull up enabled" description="Pull up enabled"/>
+         <bitenum id="PULL_DOWN" value="1" token="Pull down enabled" description="Pull down enabled"/>
+         <bitenum id="PULL_DIS" value="0" token="No pull" description="No pull"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="10" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Port configuration." id="PORTCFG" resetval="0x0">
+         <bitenum id="DTB" value="7" token="Digital Test Bus function" description="Digital Test Bus function"/>
+         <bitenum id="ANA" value="6" token="Analog function" description="Analog function"/>
+         <bitenum id="PFUNC5" value="5" token="Digital peripheral function-5" description="Digital peripheral function-5"/>
+         <bitenum id="PFUNC4" value="4" token="Digital peripheral function-4" description="Digital peripheral function-4"/>
+         <bitenum id="PFUNC3" value="3" token="Digital peripheral function-3" description="Digital peripheral function-3"/>
+         <bitenum id="PFUNC2" value="2" token="Digital peripheral function-2" description="Digital peripheral function-2"/>
+         <bitenum id="PFUNC1" value="1" token="Digital peripheral function-1 " description="Digital peripheral function-1 "/>
+         <bitenum id="BASE" value="0" token="Base function" description="Base function"/>
+      </bitfield>
+   </register>
+   <register acronym="IOC24" width="32" description="This field controls input hysteresis" id="IOC24" offset="0x160">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="Input hysteresis enable" id="HYSTEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input hysteresis enabled" description="Input hysteresis enabled"/>
+         <bitenum id="DIS" value="0" token="Input hysteresis disabled" description="Input hysteresis disabled"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Input enable" id="INPEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input enabled" description="Input enabled"/>
+         <bitenum id="DIS" value="0" token="Input disabled" description="Input disabled"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="2" end="27" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED27" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode. Setting this to value 0x6 or 0x7 will default to normal IO behavior." id="IOMODE" resetval="0x0">
+         <bitenum id="OPENS_INV" value="5" token="Open Source, inverted IO" description="Open Source, inverted IO"/>
+         <bitenum id="OPENS" value="4" token="Open Source, normal IO" description="Open Source, normal IO"/>
+         <bitenum id="OPEND_INV" value="3" token="Open Drain, inverted IO" description="Open Drain, inverted IO"/>
+         <bitenum id="OPEND" value="2" token="Open Drain, normal IO" description="Open Drain, normal IO"/>
+         <bitenum id="INVERTED" value="1" token="Inverted IO" description="Inverted IO"/>
+         <bitenum id="NORMAL" value="0" token="Normal IO" description="Normal IO"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="2" end="20" rwaccess="RW" description="Wakeup configuration from shutdown" id="WUCFGSD" resetval="0x0">
+         <bitenum id="WAKE_HIGH" value="3" token="Wakeup triggered when pad level is high" description="Wakeup triggered when pad level is high"/>
+         <bitenum id="WAKE_LOW" value="2" token="Wakeup triggered when pad level is low" description="Wakeup triggered when pad level is low"/>
+         <bitenum id="DIS_1" value="1" token="Wakeup disabled" description="Wakeup disabled"/>
+         <bitenum id="DIS_0" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Wakeup enable from standby" id="WUENSB" resetval="0x0">
+         <bitenum id="EN" value="1" token="wakeup enabled (effective only if EDGEDET is enabled)" description="wakeup enabled (effective only if EDGEDET is enabled)"/>
+         <bitenum id="DIS" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Edge detect configuration" id="EDGEDET" resetval="0x0">
+         <bitenum id="EDGE_BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
+         <bitenum id="EDGE_POS" value="2" token="Positive edge detection" description="Positive edge detection"/>
+         <bitenum id="EDGE_NEG" value="1" token="Negative edge detection" description="Negative edge detection"/>
+         <bitenum id="EDGE_DIS" value="0" token="No edge detection" description="No edge detection"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Pull control. Setting this to value 0x3 disables pull." id="PULLCTL" resetval="0x0">
+         <bitenum id="PULL_UP" value="2" token="Pull up enabled" description="Pull up enabled"/>
+         <bitenum id="PULL_DOWN" value="1" token="Pull down enabled" description="Pull down enabled"/>
+         <bitenum id="PULL_DIS" value="0" token="No pull" description="No pull"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Slew rate configuration" id="SLEWRED" resetval="0x0">
+         <bitenum id="REDUCED" value="1" token="Reduced slew rate" description="Reduced slew rate"/>
+         <bitenum id="NORMAL" value="0" token="Normal slew rate" description="Normal slew rate"/>
+      </bitfield>
+      <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="Output current configuration. Writing value 0x3 defaults to 2mA current setting." id="IOCURR" resetval="0x0">
+         <bitenum id="CUR_8MA" value="2" token="8mA" description="8mA"/>
+         <bitenum id="CUR_4MA" value="1" token="4mA" description="4mA"/>
+         <bitenum id="CUR_2MA" value="0" token="2mA" description="2mA"/>
+      </bitfield>
+      <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="Drive strength configuration" id="IOSTR" resetval="0x0">
+         <bitenum id="MAX" value="3" token="Maximum drive strength" description="Maximum drive strength"/>
+         <bitenum id="MEDIUM" value="2" token="Medium drive strength" description="Medium drive strength"/>
+         <bitenum id="MIN" value="1" token="Minimum drive stregnth" description="Minimum drive stregnth"/>
+         <bitenum id="AUTO" value="0" token="Automatic drive strength adjustment" description="Automatic drive strength adjustment"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="5" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Port configuration." id="PORTCFG" resetval="0x0">
+         <bitenum id="DTB" value="7" token="Digital Test Bus function" description="Digital Test Bus function"/>
+         <bitenum id="ANA" value="6" token="Analog function" description="Analog function"/>
+         <bitenum id="PFUNC5" value="5" token="Digital peripheral function-5" description="Digital peripheral function-5"/>
+         <bitenum id="PFUNC4" value="4" token="Digital peripheral function-4" description="Digital peripheral function-4"/>
+         <bitenum id="PFUNC3" value="3" token="Digital peripheral function-3" description="Digital peripheral function-3"/>
+         <bitenum id="PFUNC2" value="2" token="Digital peripheral function-2" description="Digital peripheral function-2"/>
+         <bitenum id="PFUNC1" value="1" token="Digital peripheral function-1 " description="Digital peripheral function-1 "/>
+         <bitenum id="BASE" value="0" token="Base function" description="Base function"/>
+      </bitfield>
+   </register>
+   <register acronym="IOC25" width="32" description="Configuration of DIO25" id="IOC25" offset="0x164">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="This field controls input hysteresis" id="HYSTEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input hysteresis enabled" description="Input hysteresis enabled"/>
+         <bitenum id="DIS" value="0" token="Input hysteresis disabled" description="Input hysteresis disabled"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RW" description="Input enable" id="INPEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Input enabled" description="Input enabled"/>
+         <bitenum id="DIS" value="0" token="Input disabled" description="Input disabled"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="2" end="27" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED27" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="26" width="3" end="24" rwaccess="RW" description="IO Mode. Setting this to value 0x6 or 0x7 will default to normal IO behavior." id="IOMODE" resetval="0x0">
+         <bitenum id="OPENS_INV" value="5" token="Open Source, inverted IO" description="Open Source, inverted IO"/>
+         <bitenum id="OPENS" value="4" token="Open Source, normal IO" description="Open Source, normal IO"/>
+         <bitenum id="OPEND_INV" value="3" token="Open Drain, inverted IO" description="Open Drain, inverted IO"/>
+         <bitenum id="OPEND" value="2" token="Open Drain, normal IO" description="Open Drain, normal IO"/>
+         <bitenum id="INVERTED" value="1" token="Inverted IO" description="Inverted IO"/>
+         <bitenum id="NORMAL" value="0" token="Normal IO" description="Normal IO"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="2" end="20" rwaccess="RW" description="Wakeup configuration from shutdown" id="WUCFGSD" resetval="0x0">
+         <bitenum id="WAKE_HIGH" value="3" token="Wakeup triggered when pad level is high" description="Wakeup triggered when pad level is high"/>
+         <bitenum id="WAKE_LOW" value="2" token="Wakeup triggered when pad level is low" description="Wakeup triggered when pad level is low"/>
+         <bitenum id="DIS_1" value="1" token="Wakeup disabled" description="Wakeup disabled"/>
+         <bitenum id="DIS_0" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RW" description="Wakeup enable from standby" id="WUENSB" resetval="0x0">
+         <bitenum id="EN" value="1" token="wakeup enabled (effective only if EDGEDET is enabled)" description="wakeup enabled (effective only if EDGEDET is enabled)"/>
+         <bitenum id="DIS" value="0" token="Wakeup disabled" description="Wakeup disabled"/>
+      </bitfield>
+      <bitfield range="" begin="17" width="2" end="16" rwaccess="RW" description="Edge detect configuration" id="EDGEDET" resetval="0x0">
+         <bitenum id="EDGE_BOTH" value="3" token="Positive and negative edge detection" description="Positive and negative edge detection"/>
+         <bitenum id="EDGE_POS" value="2" token="Positive edge detection" description="Positive edge detection"/>
+         <bitenum id="EDGE_NEG" value="1" token="Negative edge detection" description="Negative edge detection"/>
+         <bitenum id="EDGE_DIS" value="0" token="No edge detection" description="No edge detection"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Pull control. Setting this to value 0x3 disables pull." id="PULLCTL" resetval="0x0">
+         <bitenum id="PULL_UP" value="2" token="Pull up enabled" description="Pull up enabled"/>
+         <bitenum id="PULL_DOWN" value="1" token="Pull down enabled" description="Pull down enabled"/>
+         <bitenum id="PULL_DIS" value="0" token="No pull" description="No pull"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="10" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Port configuration." id="PORTCFG" resetval="0x0">
+         <bitenum id="DTB" value="7" token="Digital Test Bus function" description="Digital Test Bus function"/>
+         <bitenum id="ANA" value="6" token="Analog function" description="Analog function"/>
+         <bitenum id="PFUNC5" value="5" token="Digital peripheral function-5" description="Digital peripheral function-5"/>
+         <bitenum id="PFUNC4" value="4" token="Digital peripheral function-4" description="Digital peripheral function-4"/>
+         <bitenum id="PFUNC3" value="3" token="Digital peripheral function-3" description="Digital peripheral function-3"/>
+         <bitenum id="PFUNC2" value="2" token="Digital peripheral function-2" description="Digital peripheral function-2"/>
+         <bitenum id="PFUNC1" value="1" token="Digital peripheral function-1 " description="Digital peripheral function-1 "/>
+         <bitenum id="BASE" value="0" token="Base function" description="Base function"/>
+      </bitfield>
+   </register>
+   <register acronym="DTBCFG" width="32" description="DTB configuration" id="DTBCFG" offset="0xc00">
+      <bitfield range="" begin="31" width="8" end="24" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED24" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="1" end="23" rwaccess="RW" description="This bit is used to divide DTB[0] output by 8." id="DTB0DIV" resetval="0x0">
+         <bitenum id="EN" value="1" token="Divide DTB[0] output by 8" description="Divide DTB[0] output by 8"/>
+         <bitenum id="DIS" value="0" token="No divide" description="No divide"/>
+      </bitfield>
+      <bitfield range="" begin="22" width="4" end="19" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="18" width="3" end="16" rwaccess="RW" description="Selects which 3 DTB lines out of total 16 are routed to DTB pins 15 to 13." id="PADSEL" resetval="0x0">
+         <bitenum id="DTB2TO0" value="5" token="DTB[2:0] selected" description="DTB[2:0] selected"/>
+         <bitenum id="DTB5TO3" value="4" token="DTB[5:3] selected" description="DTB[5:3] selected"/>
+         <bitenum id="DTB8TO6" value="3" token="DTB[8:6] selected" description="DTB[8:6] selected"/>
+         <bitenum id="DTB11TO9" value="2" token="DTB[11:9] selected" description="DTB[11:9] selected"/>
+         <bitenum id="DTB14TO12" value="1" token="DTB[14:12] selected" description="DTB[14:12] selected"/>
+         <bitenum id="DTB15TO13" value="0" token="DTB[15:13] selected" description="DTB[15:13] selected"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="3" end="13" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED13" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="12" width="5" end="8" rwaccess="RW" description="ULL DTB Mux selection" id="ULLSEL" resetval="0x0">
+         <bitenum id="MAXIMUM" value="31" token="Maximum value" description="Maximum value"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value" description="Minimum value"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="3" end="5" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED5" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="5" end="0" rwaccess="RW" description="SVT DTB Mux selection" id="SVTSEL" resetval="0x0">
+         <bitenum id="MAXIMUM" value="31" token="Maximum value" description="Maximum value"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value" description="Minimum value"/>
+      </bitfield>
+   </register>
+   <register acronym="DTBOE" width="32" description="DTB output enable" id="DTBOE" offset="0xc04">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="Enables DTB output 15" id="EN15" resetval="0x0">
+         <bitenum id="EN" value="1" token="DTB output enabled" description="DTB output enabled"/>
+         <bitenum id="DIS" value="0" token="DTB output disabled" description="DTB output disabled"/>
+      </bitfield>
+      <bitfield range="" begin="14" width="1" end="14" rwaccess="RW" description="Enables DTB output 14" id="EN14" resetval="0x0">
+         <bitenum id="EN" value="1" token="DTB output enabled" description="DTB output enabled"/>
+         <bitenum id="DIS" value="0" token="DTB output disabled" description="DTB output disabled"/>
+      </bitfield>
+      <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="Enables DTB output 13" id="EN13" resetval="0x0">
+         <bitenum id="EN" value="1" token="DTB output enabled" description="DTB output enabled"/>
+         <bitenum id="DIS" value="0" token="DTB output disabled" description="DTB output disabled"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Enables DTB output 12" id="EN12" resetval="0x0">
+         <bitenum id="EN" value="1" token="DTB output enabled" description="DTB output enabled"/>
+         <bitenum id="DIS" value="0" token="DTB output disabled" description="DTB output disabled"/>
+      </bitfield>
+      <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="Enables DTB output 11" id="EN11" resetval="0x0">
+         <bitenum id="EN" value="1" token="DTB output enabled" description="DTB output enabled"/>
+         <bitenum id="DIS" value="0" token="DTB output disabled" description="DTB output disabled"/>
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Enables DTB output 10" id="EN10" resetval="0x0">
+         <bitenum id="EN" value="1" token="DTB output enabled" description="DTB output enabled"/>
+         <bitenum id="DIS" value="0" token="DTB output disabled" description="DTB output disabled"/>
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Enables DTB output 9" id="EN9" resetval="0x0">
+         <bitenum id="EN" value="1" token="DTB output enabled" description="DTB output enabled"/>
+         <bitenum id="DIS" value="0" token="DTB output disabled" description="DTB output disabled"/>
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Enables DTB output 8" id="EN8" resetval="0x0">
+         <bitenum id="EN" value="1" token="DTB output enabled" description="DTB output enabled"/>
+         <bitenum id="DIS" value="0" token="DTB output disabled" description="DTB output disabled"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Enables DTB output 7" id="EN7" resetval="0x0">
+         <bitenum id="EN" value="1" token="DTB output enabled" description="DTB output enabled"/>
+         <bitenum id="DIS" value="0" token="DTB output disabled" description="DTB output disabled"/>
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Enables DTB output 6" id="EN6" resetval="0x0">
+         <bitenum id="EN" value="1" token="DTB output enabled" description="DTB output enabled"/>
+         <bitenum id="DIS" value="0" token="DTB output disabled" description="DTB output disabled"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Enables DTB output 5" id="EN5" resetval="0x0">
+         <bitenum id="EN" value="1" token="DTB output enabled" description="DTB output enabled"/>
+         <bitenum id="DIS" value="0" token="DTB output disabled" description="DTB output disabled"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Enables DTB output 4" id="EN4" resetval="0x0">
+         <bitenum id="EN" value="1" token="DTB output enabled" description="DTB output enabled"/>
+         <bitenum id="DIS" value="0" token="DTB output disabled" description="DTB output disabled"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Enables DTB output 3" id="EN3" resetval="0x0">
+         <bitenum id="EN" value="1" token="DTB output enabled" description="DTB output enabled"/>
+         <bitenum id="DIS" value="0" token="DTB output disabled" description="DTB output disabled"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Enables DTB output 2" id="EN2" resetval="0x0">
+         <bitenum id="EN" value="1" token="DTB output enabled" description="DTB output enabled"/>
+         <bitenum id="DIS" value="0" token="DTB output disabled" description="DTB output disabled"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Enables DTB output 1" id="EN1" resetval="0x0">
+         <bitenum id="EN" value="1" token="DTB output enabled" description="DTB output enabled"/>
+         <bitenum id="DIS" value="0" token="DTB output disabled" description="DTB output disabled"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Enables DTB output 0" id="EN0" resetval="0x0">
+         <bitenum id="EN" value="1" token="DTB output enabled" description="DTB output enabled"/>
+         <bitenum id="DIS" value="0" token="DTB output disabled" description="DTB output disabled"/>
+      </bitfield>
+   </register>
+   <register acronym="EVTCFG" width="32" description="Event configuration. This register is used to select DIO for IOC to publish event on AON event fabric. It also contains enable bit that is used to mask the event and event flag bit." id="EVTCFG" offset="0xc08">
+      <bitfield range="" begin="31" width="23" end="9" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED9" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Event flag. It is set when edge is detected on selected DIO.
+Note: The edge detector flop is cleared for the selected DIO when EVTIFG is cleared by software." id="EVTIFG" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="CLR" value="0" token="Clear" description="Clear"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Enables IOC to publish event on AON event fabric when EVTIFG is set. " id="EVTEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Enable" description="Enable"/>
+         <bitenum id="DIS" value="0" token="Disable" description="Disable"/>
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="6" end="0" rwaccess="RW" description="This is used to select DIO for event generation. For example, DIOSEL = 0x0 selects DIO0 and DIOSEL = 0x8 selects DIO8." id="DIOSEL" resetval="0x0">
+         <bitenum id="MAXIMUM" value="63" token="Maximum value" description="Maximum value"/>
+         <bitenum id="MINIMUM" value="0" token="Minimum value" description="Minimum value"/>
+      </bitfield>
+   </register>
+   <register acronym="TEST" width="32" description="Test register." id="TEST" offset="0xc0c">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="This is used to drive SWDIO (Serial Wire DIO) output data and output enable from debug sub-system onto DIO12 (Test Data Output) pad." id="SEL" resetval="0x0">
+         <bitenum id="HIGH" value="1" token="Output data and output enable driven based on debug sub-system inputs" description="Output data and output enable driven based on debug sub-system inputs"/>
+         <bitenum id="LOW" value="0" token="Output data and output enable managed by IOC" description="Output data and output enable managed by IOC"/>
+      </bitfield>
+   </register>
+   <register acronym="DTBSTAT" width="32" description="DTB status register." id="DTBSTAT" offset="0xc10">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RO" description="This bit field captures the final 16-bit value of DTB signals provided from IOC to DTB device pins." id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+</module>

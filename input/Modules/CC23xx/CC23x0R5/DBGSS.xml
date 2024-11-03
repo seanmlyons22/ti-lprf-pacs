@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="DBGSS" HW_revision="" XML_version="1.0" description="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="DESC" width="32" description="Description Register. This register provides IP module ID, revision information, instance index and standard MMR registers offset." id="DESC" offset="0x0">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RW" description="Module identifier used to uniquely identify this IP." id="MODULEID" resetval="0xb24d">
+         <bitenum id="MAX" value="65535" token="Maximum possible value" description="Maximum possible value"/>
+         <bitenum id="MIN" value="0" token="Minimum Value" description="Minimum Value"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="4" end="12" rwaccess="RW" description="Standard IP MMR block offset. Standard IP MMRs are the set of from aggregated IRQ registers till DTB.
+
+0: Standard IP MMRs do not exist
+
+0x1-0xF: Standard IP MMRs begin at offset of (64*STDIPOFF from the base IP address)
+
+0: STDIP MMRs do not exist
+0x1-0xF: These MMRs begin at offset 64*STDIPOFF from IP base address" id="STDIPOFF" resetval="0x1">
+         <bitenum id="MAX" value="15" token="Maximum possible value" description="Maximum possible value"/>
+         <bitenum id="MIN" value="0" token="Minimum Value" description="Minimum Value"/>
+      </bitfield>
+      <bitfield range="" begin="11" width="4" end="8" rwaccess="RW" description="IP Instance ID number. If multiple instances of IP exist in the device, this field can identify the instance number (0-15)." id="INSTIDX" resetval="0x0">
+         <bitenum id="MAX" value="15" token="Maximum possible value" description="Maximum possible value"/>
+         <bitenum id="MIN" value="0" token="Minimum Value" description="Minimum Value"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RW" description="Major revision of IP (0-15)." id="MAJREV" resetval="0x1">
+         <bitenum id="MAX" value="15" token="Maximum possible value" description="Maximum possible value"/>
+         <bitenum id="MIN" value="0" token="Minimum Value" description="Minimum Value"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Minor revision of IP (0-15)." id="MINREV" resetval="0x0">
+         <bitenum id="MAX" value="15" token="Maximum possible value" description="Maximum possible value"/>
+         <bitenum id="MIN" value="0" token="Minimum Value" description="Minimum Value"/>
+      </bitfield>
+   </register>
+   <register acronym="IMASK" width="32" description="Interrupt mask. This register selects interrupt sources which are allowed to pass from RIS to MIS when the corresponding bit-fields are set to 1." id="IMASK" offset="0x44">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="PWRDWNIFG interrupt mask" id="PWRDWNIFG" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt will request an interrupt service routine and corresponding bit in MIS will be set" description="Interrupt will request an interrupt service routine and corresponding bit in MIS will be set"/>
+         <bitenum id="CLR" value="0" token="Interrupt is masked out" description="Interrupt is masked out"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="PWRUPIFG interrupt mask" id="PWRUPIFG" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt will request an interrupt service routine and corresponding bit in MIS will be set" description="Interrupt will request an interrupt service routine and corresponding bit in MIS will be set"/>
+         <bitenum id="CLR" value="0" token="Interrupt is masked out" description="Interrupt is masked out"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="RXIFG interrupt mask" id="RXIFG" resetval="0x0">
+         <bitenum id="SET" value="1" token="Interrupt will request an interrupt service routine and corresponding bit in MIS will be set" description="Interrupt will request an interrupt service routine and corresponding bit in MIS will be set"/>
+         <bitenum id="CLR" value="0" token="Interrupt is masked out" description="Interrupt is masked out"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="TXIFG interrupt mask" id="TXIFG" resetval="0x0">
+         <bitenum id="EN" value="1" token="Enable Interrupt Mask" description="Enable Interrupt Mask"/>
+         <bitenum id="DIS" value="0" token="Disable Interrupt Mask" description="Disable Interrupt Mask"/>
+      </bitfield>
+   </register>
+   <register acronym="RIS" width="32" description="Raw interrupt status. This register reflects the state of all pending interrupts, regardless of masking. This register allows the user to implement a poll scheme. A flag set in this register can be cleared by writing 1 to the corresponding ICLR register bit.
+" id="RIS" offset="0x4c">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Raw interrupt status for PWRDWNIFG" id="PWRDWNIFG" resetval="0x0">
+         <bitenum id="SET" value="1" token="PWRDWNIFG occurred" description="PWRDWNIFG occurred"/>
+         <bitenum id="CLR" value="0" token="PWRDWNIFG did not occur" description="PWRDWNIFG did not occur"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Raw interrupt status for PWRUPIFG" id="PWRUPIFG" resetval="0x0">
+         <bitenum id="SET" value="1" token="PWRUPIFG occurred" description="PWRUPIFG occurred"/>
+         <bitenum id="CLR" value="0" token="PWRUPIFG did not occur" description="PWRUPIFG did not occur"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Raw interrupt status for RXIFG" id="RXIFG" resetval="0x0">
+         <bitenum id="SET" value="1" token="RXIFG occurred" description="RXIFG occurred"/>
+         <bitenum id="CLR" value="0" token="RXIFG did not occur" description="RXIFG did not occur"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Raw interrupt status for TXIFG" id="TXIFG" resetval="0x0">
+         <bitenum id="SET" value="1" token="TXIFG occurred" description="TXIFG occurred"/>
+         <bitenum id="CLR" value="0" token="TXIFG did not occur" description="TXIFG did not occur"/>
+      </bitfield>
+   </register>
+   <register acronym="MIS" width="32" description="Masked interrupt status. This register is simply a bitwise AND of the contents of IMASK and RIS.*] registers. A flag set in this register can be cleared by writing 1 to the corresponding ICLR register bit." id="MIS" offset="0x54">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Masked interrupt status for PWRDWNIFG" id="PWRDWNIFG" resetval="0x0">
+         <bitenum id="SET" value="1" token="PWRDWNIFG requests an interrupt service routine" description="PWRDWNIFG requests an interrupt service routine"/>
+         <bitenum id="CLR" value="0" token="PWRDWNIFG did not request an interrupt service routine" description="PWRDWNIFG did not request an interrupt service routine"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Masked interrupt status for PWRUPIFG" id="PWRUPIFG" resetval="0x0">
+         <bitenum id="SET" value="1" token="PWRUPIFG requests an interrupt service routine" description="PWRUPIFG requests an interrupt service routine"/>
+         <bitenum id="CLR" value="0" token="PWRUPIFG did not request an interrupt service routine" description="PWRUPIFG did not request an interrupt service routine"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Masked interrupt status for RXIFG" id="RXIFG" resetval="0x0">
+         <bitenum id="SET" value="1" token="RXIFG requests an interrupt service routine" description="RXIFG requests an interrupt service routine"/>
+         <bitenum id="CLR" value="0" token="RXIFG did not request an interrupt service routine" description="RXIFG did not request an interrupt service routine"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Masked interrupt status for TXIFG" id="TXIFG" resetval="0x0">
+         <bitenum id="SET" value="1" token="TXIFG requests an interrupt service routine" description="TXIFG requests an interrupt service routine"/>
+         <bitenum id="CLR" value="0" token="TXIFG did not request an interrupt service routine" description="TXIFG did not request an interrupt service routine"/>
+      </bitfield>
+   </register>
+   <register acronym="ISET" width="32" description="Interrupt set register. This register can used by software for diagnostics and safety checking purposes. Writing a 1 to a bit in this register will set the event and the corresponding RIS bit also gets set. If the corresponding IMASK bit is set, then the corresponding MIS register bit also gets set." id="ISET" offset="0x5c">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Sets PWRDWNIFG in RIS register" id="PWRDWNIFG" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set interrupt" description="Set interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing a 0 has no effect" description="Writing a 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Sets PWRUPIFG in RIS register" id="PWRUPIFG" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set interrupt" description="Set interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing a 0 has no effect" description="Writing a 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Sets RXIFG in RIS register" id="RXIFG" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set interrupt" description="Set interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing a 0 has no effect" description="Writing a 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Sets TXIFG in RIS register" id="TXIFG" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set interrupt" description="Set interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing a 0 has no effect" description="Writing a 0 has no effect"/>
+      </bitfield>
+   </register>
+   <register acronym="ICLR" width="32" description="Interrupt clear register. This register allows software to clear interrupts. Writing a 1 to a bit in this register will clear the event and the corresponding RIS bit also gets cleared. If the corresponding IMASK bit is set, then the corresponding MIS register bit also gets cleared." id="ICLR" offset="0x64">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Clears PWRDWNIFG interrupt" id="PWRDWNIFG" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear interrupt" description="Clear interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing a 0 has no effect" description="Writing a 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Clears PWRUPIFG interrupt" id="PWRUPIFG" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear interrupt" description="Clear interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing a 0 has no effect" description="Writing a 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Clears RXIFG interrupt" id="RXIFG" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear interrupt" description="Clear interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing a 0 has no effect" description="Writing a 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Clears TXIFG interrupt" id="TXIFG" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear interrupt" description="Clear interrupt"/>
+         <bitenum id="NOEFF" value="0" token="Writing a 0 has no effect" description="Writing a 0 has no effect"/>
+      </bitfield>
+   </register>
+   <register acronym="IMSET" width="32" description="Interrupt mask set register. Writing a 1 to a bit in this register will set the corresponding IMASK bit.
+	" id="IMSET" offset="0x6c">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Set PWRDWNIFG interrupt mask" id="PWRDWNIFG" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set interrupt mask
+" description="Set interrupt mask
+"/>
+         <bitenum id="NOEFF" value="0" token="Writing a 0 has no effect" description="Writing a 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Set PWRUPIFG interrupt mask" id="PWRUPIFG" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set interrupt mask
+" description="Set interrupt mask
+"/>
+         <bitenum id="NOEFF" value="0" token="Writing a 0 has no effect" description="Writing a 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Set RXIFG interrupt mask" id="RXIFG" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set interrupt mask" description="Set interrupt mask"/>
+         <bitenum id="NOEFF" value="0" token="Writing a 0 has no effect" description="Writing a 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Set TXIFG interrupt mask" id="TXIFG" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set interrupt mask
+" description="Set interrupt mask
+"/>
+         <bitenum id="NOEFF" value="0" token="Writing a 0 has no effect" description="Writing a 0 has no effect"/>
+      </bitfield>
+   </register>
+   <register acronym="IMCLR" width="32" description="Interrupt mask clear register. Writing a 1 to a bit in this register will clear the corresponding IMASK bit." id="IMCLR" offset="0x74">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Clears PWRDWNIFG interrupt mask" id="PWRDWNIFG" resetval="0x0">
+         <bitenum id="CLR" value="1" token="IMASK bit corresponding to PWRDWNIFG is cleared" description="IMASK bit corresponding to PWRDWNIFG is cleared"/>
+         <bitenum id="NO_EFFECT" value="0" token="Writing a 0 has no effect" description="Writing a 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Clears PWRUPIFG interrupt mask" id="PWRUPIFG" resetval="0x0">
+         <bitenum id="CLR" value="1" token="IMASK bit corresponding to PWRUPIFG is cleared" description="IMASK bit corresponding to PWRUPIFG is cleared"/>
+         <bitenum id="NO_EFFECT" value="0" token="Writing a 0 has no effect" description="Writing a 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Clears RXIFG interrupt mask" id="RXIFG" resetval="0x0">
+         <bitenum id="CLR" value="1" token="IMASK bit corresponding to RXIFG is cleared" description="IMASK bit corresponding to RXIFG is cleared"/>
+         <bitenum id="NO_EFFECT" value="0" token="Writing a 0 has no effect" description="Writing a 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Clears TXIFG interrupt mask" id="TXIFG" resetval="0x0">
+         <bitenum id="CLR" value="1" token="IMASK bit corresponding to TXIFG is cleared" description="IMASK bit corresponding to TXIFG is cleared"/>
+         <bitenum id="NO_EFFECT" value="0" token="Writing a 0 has no effect" description="Writing a 0 has no effect"/>
+      </bitfield>
+   </register>
+   <register acronym="TXD" width="32" description="Transmit data register. This register is used for sending SACI command parameter data from the host to the device.
+The host (SWD interface) can write this register. This updates the value of TXD, and sets TXCTL.TXDSTA = FULL
+The host should only write TXD while TXCTL.TXDSTA = EMPTY.
+If the host incorrectly writes TXD while TXCTL.TXDSTA = FULL, this will just update the value of TXD.
+The host (SWD interface) can read the TXD register. This does not affect TXCTL.TXDSTA.
+The device (boot code) can only read the TXD register. This sets TXCTL.TXDSTA = EMPTY.
+The device should only read TXD while TXCTL.TXDSTA = FULL.
+If the device incorrectly reads TXD while TXCTL.TXDSTA = EMPTY, this will just return the value of TXD.
+If the host writes TXD on the same clock cycle as the device reads TXD:
+The device reads the old TXD value.
+TXD is updated with the new value, and TXCTL.TXDSTA is set to FULL." id="TXD" offset="0x100">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="SACI command/parameter word. Valid value when TXCTL.TXDSTA=1. TXCTL.TXDSTA gets automatically cleared upon read." id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TXCTL" width="32" description="Transmit control register. This register contains status of the TXD register (full/empty), and also software defined flags that are used by the SACI protocol.
+The host (SWD interface) can write the FLAGS field of the TXCTL register.
+The host (SWD interface) can read the TXCTL register.
+The device (boot code) can only read the TXCTL register." id="TXCTL" offset="0x104">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="7" end="1" rwaccess="RO" description="Software defined flags that are used by the SACI protocol (host to device)." id="FLAGS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the host has written a word to the TXD register, which can be read by the device:
+TXDSTA is automatically set upon write to [SWD_TAP::SECAP.TXD.*]  and automatically cleared upon read from TXD" id="TXDSTA" resetval="0x0">
+         <bitenum id="FULL" value="1" token="The TXD register contains a new SACI parameter word from the host, which can be read by the device." description="The TXD register contains a new SACI parameter word from the host, which can be read by the device."/>
+         <bitenum id="EMPTY" value="0" token=" The TXD register does not contain a new SACI parameter word from the host, and should not be read by the device." description=" The TXD register does not contain a new SACI parameter word from the host, and should not be read by the device."/>
+      </bitfield>
+   </register>
+   <register acronym="RXD" width="32" description="Receive data register. This register is used to send SACI command response data from the device to the host.
+The device (boot code) can write the RXD register. This updates the value of RXD, and sets RXCTL.RXDSTA = FULL.
+The device should only write RXD while RXCTL.RXDSTA = EMPTY.
+If the device incorrectly writes RXD while RXCTL.RXDSTA = FULL, this will just update the value of RXD.
+The device (boot code) can read the RXD register in order to flush it. This sets RXCTL.RXDSTA = EMPTY.
+The host (SWD interface) can only read the RXD register. This sets RXCTL.RXDSTA = EMPTY.
+The host should only read RXD while RXCTL.RXDSTA = FULL.
+If the host incorrectly reads RXD while RXCTL.RXDSTA = EMPTY, this will just return the value of RXD.
+If the device writes RXD on the same clock cycle as the host reads RXD:
+The host reads the old RXD value.
+RXD is updated with the new value, and RXCTL.RXDSTA is set to FULL." id="RXD" offset="0x108">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="SACI command response word. RXCTL.RXDSTA automatically set upon write. RXCTL.RXDSTA automatically cleared upon read (flush operation)." id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="RXCTL" width="32" description="Receive control register. This register contains status of the RXD register (full/empty), and also software defined flags that are used by the SACI protocol.
+The device (boot code) can write the FLAGS field of the RXCTL register.
+The device (boot code) can read the RXCTL register.
+The host (SWD interface) can only read the RXCTL register" id="RXCTL" offset="0x10c">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="7" end="1" rwaccess="RW" description="Software defined flags that are used by the SACI protocol (device to host)." id="FLAGS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates whether the device has written a word to the RXD register, which can be read by the host:
+RXDSTA is automatically set upon write to RXD and automatically cleared upon read from [SWD_TAP::SECAP.RXD.*] or  RXD." id="RXDSTA" resetval="0x0">
+         <bitenum id="FULL" value="1" token="The RXD register contains a new SACI response word from the device, which can be read by the host." description="The RXD register contains a new SACI response word from the device, which can be read by the host."/>
+         <bitenum id="EMPTY" value="0" token="The RXD register does not contain a new SACI response word from the device, and should not be read by the host." description="The RXD register does not contain a new SACI response word from the device, and should not be read by the host."/>
+      </bitfield>
+   </register>
+   <register acronym="TXDPEEK" width="32" description="Transmit data peek register . This register is a read-only version of the TXD register that can be read by host and device without any side-effects.
+This register is used to peek at the values in TXD without affecting the FULL/EMPTY flag." id="TXDPEEK" offset="0x110">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Transmit Data Peek Register. SACI command parameter word. TXCTL.TXDSTA not affected by read of TXDPEEK" id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="RXDPEEK" width="32" description="Receive data peek register. The RXDPEEK register is a read-only version of the RXD register that can be read by host and device without any side-effects
+This register is used to peek at the values in Receive Data Register without affecting the FULL/EMPTY flag." id="RXDPEEK" offset="0x114">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Receive Data Peek Register. SACI command response word. RXCTL.RXDSTA not affected by read of RXDPEEK" id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="SPECIAL_AUTH" width="32" description="This register indicates the status of different AP firewalls and fakestandby enable." id="SPECIAL_AUTH" offset="0x200">
+      <bitfield range="" begin="31" width="25" end="7" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED7" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RO" description="Indicates status of DBGDIS." id="DBGDIS" resetval="0x0">
+         <bitenum id="DIS" value="1" token="Disables debugging capability" description="Disables debugging capability"/>
+         <bitenum id="EN" value="0" token="Enables debugging capability. " description="Enables debugging capability. "/>
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RO" description="Indicates status of AHBAPEN" id="AHBAPEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Enable AHB-AP" description="Enable AHB-AP"/>
+         <bitenum id="DIS" value="0" token="Disable AHB-AP" description="Disable AHB-AP"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RO" description="Indicates status of CFGAPEN" id="CFGAPEN" resetval="0x1">
+         <bitenum id="EN" value="1" token="Enable CFG-AP" description="Enable CFG-AP"/>
+         <bitenum id="DIS" value="0" token="Disable CFG-AP" description="Disable CFG-AP"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RO" description="Indicates status of DFTAPEN" id="DFTAPEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Enable DFT-TAP" description="Enable DFT-TAP"/>
+         <bitenum id="DIS" value="0" token="Disable DFT-TAP" description="Disable DFT-TAP"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Indicates status of FAKESTBYEN" id="FAKESTBYEN" resetval="0x1">
+         <bitenum id="EN" value="1" token=" FAKESTBYEN is Enabled" description=" FAKESTBYEN is Enabled"/>
+         <bitenum id="DIS" value="0" token=" FAKESTBYEN is Disabled" description=" FAKESTBYEN is Disabled"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Indicates status of SECAP" id="SECAPEN" resetval="0x1">
+         <bitenum id="EN" value="1" token="Enable SEC-AP" description="Enable SEC-AP"/>
+         <bitenum id="DIS" value="0" token="Disable SEC-AP" description="Disable SEC-AP"/>
+      </bitfield>
+   </register>
+   <register acronym="SPECIAL_AUTH_SET" width="32" description="This register is used for setting bits in SPECIAL_AUTH register. 
+This register is configured and locked during device boot." id="SPECIAL_AUTH_SET" offset="0x204">
+      <bitfield range="" begin="31" width="8" end="24" rwaccess="WO" description="This field must be configured with 0xA5 in order to access this register." id="KEY" resetval="0x0">
+         <bitenum id="_to_unlock_w_" value="165" token="This field must be written with 0xA5 to be able to set any of the enable bits" description="This field must be written with 0xA5 to be able to set any of the enable bits"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="17" end="7" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED7" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="WO" description="This bit sets DBGDIS in SPECIAL_AUTH register." id="DBGDIS" resetval="0x0">
+         <bitenum id="SET" value="1" token="SET DBGDIS" description="SET DBGDIS"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="WO" description="This bit sets AHBAPEN in SPECIAL_AUTH register." id="AHBAPEN" resetval="0x0">
+         <bitenum id="SET" value="1" token="SET AHB-AP" description="SET AHB-AP"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="WO" description="This bit sets CFGAPEN in SPECIAL_AUTH register." id="CFGAPEN" resetval="0x1">
+         <bitenum id="SET" value="1" token="Set  CFGAPEN" description="Set  CFGAPEN"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="WO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="WO" description="This bit sets DFTAPEN in SPECIAL_AUTH register." id="DFTAPEN" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set DFTTAPEN" description="Set DFTTAPEN"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="This bit sets FAKESTBYEN in SPECIAL_AUTH register.
+" id="FAKESTBYEN" resetval="0x1">
+         <bitenum id="SET" value="1" token="Set FAKESTBYEN" description="Set FAKESTBYEN"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="This bit sets SECAPEN bit in SPECIAL_AUTH register." id="SECAPEN" resetval="0x1">
+         <bitenum id="SET" value="1" token="Set SECAPEN" description="Set SECAPEN"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+   </register>
+   <register acronym="SPECIAL_AUTH_CLR" width="32" description="This register is used for clearing bits in SPECIAL_AUTH register. 
+This register is configured and locked during device boot." id="SPECIAL_AUTH_CLR" offset="0x208">
+      <bitfield range="" begin="31" width="8" end="24" rwaccess="WO" description="This field must be configured with 0x22 in order to access this register." id="KEY" resetval="0x0">
+         <bitenum id="_to_unlock_w_" value="34" token="This field must be written with 0x22 to be able to clear any of the enable bits" description="This field must be written with 0x22 to be able to clear any of the enable bits"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="17" end="7" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED7" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="WO" description="This bit clears DBGDIS in SPECIAL_AUTH register." id="DBGDIS" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear DBGDIS" description="Clear DBGDIS"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="WO" description="This bit clears AHBAPEN in SPECIAL_AUTH register." id="AHBAPEN" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear AHBAPEN" description="Clear AHBAPEN"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="WO" description="This bit clears CFGAPEN in SPECIAL_AUTH register." id="CFGAPEN" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear CFGAPEN" description="Clear CFGAPEN"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="WO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="WO" description="This bit clears DFTTAPEN in SPECIAL_AUTH register." id="DFTAPEN" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear DFTTAPEN" description="Clear DFTTAPEN"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="This bit clears FAKESTBYEN in SPECIAL_AUTH register." id="FAKESTBYEN" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clears FAKESTBYEN" description="Clears FAKESTBYEN"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="This bit clears SECAPEN in SPECIAL_AUTH register." id="SECAPEN" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear SECAPEN" description="Clear SECAPEN"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+   </register>
+   <register acronym="APP_AUTH" width="32" description="This register indicates the debug privileges of ARM Cortex CPU.
+" id="APP_AUTH" offset="0x210">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Controls non-invasive debug enable." id="NIDEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Non-invasive debug enabled" description="Non-invasive debug enabled"/>
+         <bitenum id="DIS" value="0" token="Non-invasive debug disabled" description="Non-invasive debug disabled"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Controls invasive debug enable.
+
+" id="DBGEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="Invasive debug enabled" description="Invasive debug enabled"/>
+         <bitenum id="DIS" value="0" token="Invasive debug disabled" description="Invasive debug disabled"/>
+      </bitfield>
+   </register>
+   <register acronym="APP_AUTH_SET" width="32" description="This register is used for setting bits in APP_AUTH register. 
+This register is configured and locked during device boot." id="APP_AUTH_SET" offset="0x214">
+      <bitfield range="" begin="31" width="8" end="24" rwaccess="WO" description="This field must be configured with 0x39 in order to access this register." id="KEY" resetval="0x0">
+         <bitenum id="_to_unlock_w_" value="57" token="Write this value 0x39 to unlock writing to the APP_AUTH_SET register" description="Write this value 0x39 to unlock writing to the APP_AUTH_SET register"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="22" end="2" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="Sets NIDEN bit in [APP_AUTH ]register.
+" id="NIDEN" resetval="0x0">
+         <bitenum id="SET" value="1" token="Sets NIDEN" description="Sets NIDEN"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="Sets DBGEN bit in APP_AUTH register.
+" id="DBGEN" resetval="0x0">
+         <bitenum id="SET" value="1" token="Sets DBGEN" description="Sets DBGEN"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+   </register>
+   <register acronym="APP_AUTH_CLR" width="32" description="This register is used for clearing bits in APP_AUTH register. 
+This register is configured and locked during device boot." id="APP_AUTH_CLR" offset="0x218">
+      <bitfield range="" begin="31" width="8" end="24" rwaccess="WO" description="This field must be configured with 0x7D in order to access this register." id="KEY" resetval="0x0">
+         <bitenum id="_to_unlock_w_" value="125" token="Write this value 0x7D to unlock writing to the APP_AUTH_CLR register" description="Write this value 0x7D to unlock writing to the APP_AUTH_CLR register"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="22" end="2" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="Clears NIDEN bit in APP_AUTH register.
+" id="NIDEN" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clears NIDEN" description="Clears NIDEN"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="Clears DBGEN bit in APP_AUTH register.
+" id="DBGEN" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clears DBGEN" description="Clears DBGEN"/>
+         <bitenum id="NOEFF" value="0" token="Writing 0 has no effect" description="Writing 0 has no effect"/>
+      </bitfield>
+   </register>
+   <register acronym="DBGCTL" width="32" description="Debug control register. This register is used for controlling debug connection and read out debug status." id="DBGCTL" offset="0x21c">
+      <bitfield range="" begin="31" width="26" end="6" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="This bit is used to enable connection between SWD pads and IceMelter" id="SWDCEN" resetval="0x1">
+         <bitenum id="EN" value="1" token="Connection enabled" description="Connection enabled"/>
+         <bitenum id="DIS" value="0" token="Connection disabled" description="Connection disabled"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RO" description="This bit field specifies the status of dbgpwrupack from pmctl.
+" id="DBGPWRUPACK" resetval="0x0">
+         <bitenum id="EN" value="1" token="dbgpwrupreq is acknowledged." description="dbgpwrupreq is acknowledged."/>
+         <bitenum id="DIS" value="0" token="dbgpwrupreq is not acknowledged" description="dbgpwrupreq is not acknowledged"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RO" description="This bit field specify the status of syspwrupack from pmctl.  
+
+" id="SYSPWRUPACK" resetval="0x0">
+         <bitenum id="EN" value="1" token="syspwrupreq is acknowledged" description="syspwrupreq is acknowledged"/>
+         <bitenum id="DIS" value="0" token="syspwrupreq is not acknowledged" description="syspwrupreq is not acknowledged"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RO" description="This bit field specifies the status of JTAG MODE for TEST TAP.
+" id="JTAGSEL" resetval="0x0">
+         <bitenum id="EN" value="1" token="TEST TAP enabled" description="TEST TAP enabled"/>
+         <bitenum id="DIS" value="0" token="TEST TAP disabled" description="TEST TAP disabled"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="This bit field specifies the status of  SWD MODE  for connection." id="SWDSEL" resetval="0x0">
+         <bitenum id="EN" value="1" token="debug connection enabled." description="debug connection enabled."/>
+         <bitenum id="DIS" value="0" token="debug connection disabled." description="debug connection disabled."/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="This bit is used for connecting to IO pads to SWCLK/IO on SW-DP through a software request and establish SWD connection without icemelter trigger for debug purpose." id="SWDOVR" resetval="0x0">
+         <bitenum id="DBGENA" value="1" token="Force 1 or debug enable mode in which SWD connection is established bypassing ICEMelter sequence" description="Force 1 or debug enable mode in which SWD connection is established bypassing ICEMelter sequence"/>
+         <bitenum id="TRNSPRT" value="0" token="Transparent mode in which SWD connection is established via ICEMelter Sequence." description="Transparent mode in which SWD connection is established via ICEMelter Sequence."/>
+      </bitfield>
+   </register>
+</module>

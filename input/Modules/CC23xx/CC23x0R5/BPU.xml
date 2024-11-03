@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="BPU" HW_revision="" XML_version="1.0" description="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="BP_CTRL" width="32" description="Use the Breakpoint Control Register to enable the Breakpoint block" id="BP_CTRL" offset="0x0">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="Number of comparators." id="NUM_CODE" resetval="0x4">
+      </bitfield>
+      <bitfield range="" begin="3" width="2" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="Key field. To write to the Breakpoint Control Register, you must write a 1 to this write-only bit. This bit reads as zero." id="KEY" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Breakpoint unit enable bit. DBGRESETn clears the ENABLE bit." id="ENABLE" resetval="0x0">
+         <bitenum id="BKPT_EN" value="1" token="Breakpoint unit enabled" description="Breakpoint unit enabled"/>
+         <bitenum id="BKPT_DIS" value="0" token="Breakpoint unit disabled" description="Breakpoint unit disabled"/>
+      </bitfield>
+   </register>
+   <register acronym="BP_COMP0" width="32" description="Use the Breakpoint Comparator Registers to store the values to compare with the instruction address." id="BP_COMP0" offset="0x8">
+      <bitfield range="" begin="31" width="2" end="30" rwaccess="RW" description="This selects what happens when the COMP address is matched" id="BP_MATCH" resetval="0x0">
+         <bitenum id="BKPT_COMP_BOTH" value="3" token="set breakpoint on both lower and upper halfwords" description="set breakpoint on both lower and upper halfwords"/>
+         <bitenum id="BKPT_COMP_HI" value="2" token="set breakpoint on upper halfword, lower is unaffected" description="set breakpoint on upper halfword, lower is unaffected"/>
+         <bitenum id="BKPT_COMP_LOW" value="1" token="set breakpoint on lower halfword, upper is unaffected" description="set breakpoint on lower halfword, upper is unaffected"/>
+         <bitenum id="BKPT_COMP_NONE" value="0" token="no breakpoint generated" description="no breakpoint generated"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED29" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="28" width="27" end="2" rwaccess="RW" description="Comparison address, UNKNOWN on reset." id="COMP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Compare enable for Breakpoint Comparator Register 0. The ENABLE bit of BP_CTRL must also be set to enable comparisons. DBGRESETn clears the ENABLE bit." id="ENABLE" resetval="0x0">
+         <bitenum id="BKPT_COMP_DIS" value="1" token="Breakpoint Comparator Register 0 compare enabled" description="Breakpoint Comparator Register 0 compare enabled"/>
+         <bitenum id="BKPT_COMP_EN" value="0" token="Breakpoint Comparator Register 0 compare disabled" description="Breakpoint Comparator Register 0 compare disabled"/>
+      </bitfield>
+   </register>
+   <register acronym="BP_COMP1" width="32" description="Use the Breakpoint Comparator Registers to store the values to compare with the instruction address." id="BP_COMP1" offset="0xc">
+      <bitfield range="" begin="31" width="2" end="30" rwaccess="RW" description="This selects what happens when the COMP address is matched" id="BP_MATCH" resetval="0x0">
+         <bitenum id="BKPT_COMP_BOTH" value="3" token="Set breakpoint on both lower and upper halfwords" description="Set breakpoint on both lower and upper halfwords"/>
+         <bitenum id="BKPT_COMP_HI" value="2" token="Set breakpoint on upper halfword, lower is unaffected" description="Set breakpoint on upper halfword, lower is unaffected"/>
+         <bitenum id="BKPT_COMP_LOW" value="1" token="Set breakpoint on lower halfword, upper is unaffected" description="Set breakpoint on lower halfword, upper is unaffected"/>
+         <bitenum id="BKPT_COMP_NONE" value="0" token="No breakpoint generated" description="No breakpoint generated"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED29" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="28" width="27" end="2" rwaccess="RW" description="Comparison address. Although it is architecturally Unpredictable whether breakpoint matches on the address of the second halfword of a 32-bit instruction to generates a debug event, in this processor it is predictable and a debug event is generated." id="COMP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Comparison address, UNKNOWN on reset." id="ENABLE" resetval="0x0">
+         <bitenum id="BKPT_COMP_DIS" value="1" token="Breakpoint Comparator Register 1 compare enabled" description="Breakpoint Comparator Register 1 compare enabled"/>
+         <bitenum id="BKPT_COMP_EN" value="0" token="Breakpoint Comparator Register 1 compare disabled" description="Breakpoint Comparator Register 1 compare disabled"/>
+      </bitfield>
+   </register>
+   <register acronym="BP_COMP2" width="32" description="Use the Breakpoint Comparator Registers to store the values to compare with the PC address." id="BP_COMP2" offset="0x10">
+      <bitfield range="" begin="31" width="2" end="30" rwaccess="RW" description="This selects what happens when the COMP address is matched" id="BP_MATCH" resetval="0x0">
+         <bitenum id="BKPT_COMP_BOTH" value="3" token="Set breakpoint on both lower and upper halfwords" description="Set breakpoint on both lower and upper halfwords"/>
+         <bitenum id="BKPT_COMP_HI" value="2" token="Set breakpoint on upper halfword, lower is unaffected" description="Set breakpoint on upper halfword, lower is unaffected"/>
+         <bitenum id="BKPT_COMP_LOW" value="1" token="Set breakpoint on lower halfword, upper is unaffected" description="Set breakpoint on lower halfword, upper is unaffected"/>
+         <bitenum id="BKPT_COMP_NONE" value="0" token="No breakpoint matching" description="No breakpoint matching"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED29" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="28" width="27" end="2" rwaccess="RW" description="Comparison address, UNKNOWN on reset." id="COMP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Compare enable for Breakpoint Comparator Register 2. The ENABLE bit of BP_CTRL must also be set to enable comparisons. DBGRESETn clears the ENABLE bit." id="ENABLE" resetval="0x0">
+         <bitenum id="BKPT_COMP_DIS" value="1" token="Breakpoint Comparator Register 2 compare enabled" description="Breakpoint Comparator Register 2 compare enabled"/>
+         <bitenum id="BKPT_COMP_EN" value="0" token="Breakpoint Comparator Register 2 compare disabled" description="Breakpoint Comparator Register 2 compare disabled"/>
+      </bitfield>
+   </register>
+   <register acronym="BP_COMP3" width="32" description="Use the Breakpoint Comparator Registers to store the values to compare with the instruction address." id="BP_COMP3" offset="0x14">
+      <bitfield range="" begin="31" width="2" end="30" rwaccess="RW" description="This selects what happens when the COMP address is matched" id="BP_MATCH" resetval="0x0">
+         <bitenum id="BKPT_COMP_BOTH" value="3" token="Set breakpoint on both lower and upper halfwords" description="Set breakpoint on both lower and upper halfwords"/>
+         <bitenum id="BKPT_COMP_HI" value="2" token="Set breakpoint on upper halfword, lower is unaffected" description="Set breakpoint on upper halfword, lower is unaffected"/>
+         <bitenum id="BKPT_COMP_LOW" value="1" token="Set breakpoint on lower halfword, upper is unaffected" description="Set breakpoint on lower halfword, upper is unaffected"/>
+         <bitenum id="BKPT_COMP_NONE" value="0" token="No breakpoint generated" description="No breakpoint generated"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED29" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="28" width="27" end="2" rwaccess="RW" description="Comparison address, UNKNOWN on reset." id="COMP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Compare enable for Breakpoint Comparator Register 3. The ENABLE bit of BP_CTRL must also be set to enable comparisons. DBGRESETn clears the ENABLE bit." id="ENABLE" resetval="0x0">
+         <bitenum id="BKPT_COMP_DIS" value="1" token="Breakpoint Comparator Register 3 compare enabled" description="Breakpoint Comparator Register 3 compare enabled"/>
+         <bitenum id="BKPT_COMP_EN" value="0" token="Breakpoint Comparator Register 3 compare disabled" description="Breakpoint Comparator Register 3 compare disabled"/>
+      </bitfield>
+   </register>
+   <register acronym="PIDR4" width="32" description="Part of the set of Peripheral Identification registers. Contains part of the designer identity and the memory footprint indicator." id="PIDR4" offset="0xfd0">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="This is a 4-bit value that indicates the total contiguous size of the memory window used by this component in powers of 2 from the standard 4KB. If a component only requires the standard 4KB then this should read as 0x0, 4KB only, for 8KB set to 0x1, 16KB == 0x2, 32KB == 0x3, and so on." id="SIZE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Number of JEDEC continuation codes. Indicates the designer of the component (along with the identity code)" id="DES_2" resetval="0x4">
+      </bitfield>
+   </register>
+   <register acronym="PIDR5" width="32" description="Reserved" id="PIDR5" offset="0xfd4">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR6" width="32" description="Reserved" id="PIDR6" offset="0xfd8">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR7" width="32" description="Reserved" id="PIDR7" offset="0xfdc">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR0" width="32" description="Part of the set of Peripheral Identification registers. Contains part of the designer specific part number." id="PIDR0" offset="0xfe0">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="Bits [7:0] of the component&#39;s part number. This is selected by the designer of the component." id="PART_0" resetval="0xb">
+      </bitfield>
+   </register>
+   <register acronym="PIDR1" width="32" description="Part of the set of Peripheral Identification registers. Contains part of the designer specific part number and part of the designer identity." id="PIDR1" offset="0xfe4">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="Bits [3:0] of the JEDEC identity code indicating the designer of the component (along with the continuation code)" id="DES_0" resetval="0xb">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Bits [11:8] of the component&#39;s part number. This is selected by the designer of the component." id="PART_1" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PIDR2" width="32" description="Part of the set of Peripheral Identification registers. Contains part of the designer identity and the product revision." id="PIDR2" offset="0xfe8">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="The Revision field is an incremental value starting at 0x0 for the first design of this component. This only increases by 1 for both major and minor revisions and is simply used as a look-up to establish the exact major/minor revision." id="REVISION" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RO" description="Always set. Indicates that a JEDEC assigned value is used" id="JEDEC" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RO" description="Bits [6:4] of the JEDEC identity code indicating the designer of the component (along with the continuation code)" id="DES_1" resetval="0x3">
+      </bitfield>
+   </register>
+   <register acronym="PIDR3" width="32" description="Part of the set of Peripheral Identification registers. Contains the RevAnd and Customer Modified fields." id="PIDR3" offset="0xfec">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="This field indicates minor errata fixes specific to this design, for example metal fixes after implementation. In most cases this field is zero. It is recommended that component designers ensure this field can be changed by a metal fix if required, for example by driving it from registers that reset to zero." id="REVAND" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Where the component is reusable IP, this value indicates if the customer has modified the behavior of the component. In most cases this field is zero." id="CMOD" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CIDR0" width="32" description="A component identification register, that indicates that the identification registers are present." id="CIDR0" offset="0xff0">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="Contains bits [7:0] of the component identification" id="PRMBL_0" resetval="0xd">
+      </bitfield>
+   </register>
+   <register acronym="CIDR1" width="32" description="A component identification register, that indicates that the identification registers are present. This register also indicates the component class." id="CIDR1" offset="0xff4">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="Class of the component. E.g. ROM table, CoreSight component etc. Constitutes bits [15:12] of the component identification." id="CLASS" resetval="0xe">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Contains bits [11:8] of the component identification" id="PRMBL_1" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CIDR2" width="32" description="A component identification register, that indicates that the identification registers are present." id="CIDR2" offset="0xff8">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="Contains bits [23:16] of the component identification" id="PRMBL_2" resetval="0x5">
+      </bitfield>
+   </register>
+   <register acronym="CIDR3" width="32" description="A component identification register, that indicates that the identification registers are present." id="CIDR3" offset="0xffc">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="Contains bits [31:24] of the component identification" id="PRMBL_3" resetval="0xb1">
+      </bitfield>
+   </register>
+</module>

@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="CLKCTL" HW_revision="" XML_version="1.0" description="This component is the clock controller. Here SW can turn on and off IP clocks and read IP and system clock status.
+ 
+" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="DESC" width="32" description="Description Register. 
+This register provides IP module ID, revision information, instance index and standard MMR registers offset." id="DESC" offset="0x0">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Module identifier used to uniquely identify this IP." id="MODID" resetval="0x2548">
+      </bitfield>
+      <bitfield range="" begin="15" width="4" end="12" rwaccess="RO" description="Standard IP MMR block offset. Standard IP MMRs are the set of from aggregated IRQ registers till DTB.
+
+0: Standard IP MMRs do not exist
+0x1-0xF: Standard IP MMRs begin at offset of (64*STDIPOFF from the base IP address)" id="STDIPOFF" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="4" end="8" rwaccess="RO" description="IP Instance ID number. If multiple instances of IP exist in the device, this field can identify the instance number (0-15)." id="INSTIDX" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="Major revision of IP 0-15" id="MAJREV" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Minor revision of IP 0-15." id="MINREV" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DESCEX0" width="32" description="Extended Description Register 0. 
+This register shows SVT IP availability, HW features and memory size configuration." id="DESCEX0" offset="0x4">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RO" description="IP status on device" id="LGPT3" resetval="0x1">
+         <bitenum id="IP_AVAIL" value="1" token="IP is available" description="IP is available"/>
+         <bitenum id="IP_UNAVAIL" value="0" token="IP is unavailable" description="IP is unavailable"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RO" description="IP status on device" id="LGPT2" resetval="0x1">
+         <bitenum id="IP_AVAIL" value="1" token="IP is available" description="IP is available"/>
+         <bitenum id="IP_UNAVAIL" value="0" token="IP is unavailable" description="IP is unavailable"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="1" end="28" rwaccess="RO" description="IP status on device" id="LGPT1" resetval="0x1">
+         <bitenum id="IP_AVAIL" value="1" token="IP is available" description="IP is available"/>
+         <bitenum id="IP_UNAVAIL" value="0" token="IP is unavailable" description="IP is unavailable"/>
+      </bitfield>
+      <bitfield range="" begin="27" width="1" end="27" rwaccess="RO" description="IP status on device" id="LGPT0" resetval="0x1">
+         <bitenum id="IP_AVAIL" value="1" token="IP is available" description="IP is available"/>
+         <bitenum id="IP_UNAVAIL" value="0" token="IP is unavailable" description="IP is unavailable"/>
+      </bitfield>
+      <bitfield range="" begin="26" width="9" end="18" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED18" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="1" end="17" rwaccess="RO" description="IP status on device" id="DMA" resetval="0x1">
+         <bitenum id="IP_AVAIL" value="1" token="IP is available" description="IP is available"/>
+         <bitenum id="IP_UNAVAIL" value="0" token="IP is unavailable" description="IP is unavailable"/>
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="RO" description="IP status on device" id="LAES" resetval="0x1">
+         <bitenum id="IP_AVAIL" value="1" token="IP is available" description="IP is available"/>
+         <bitenum id="IP_UNAVAIL" value="0" token="IP is unavailable" description="IP is unavailable"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="1" end="14" rwaccess="RO" description="IP status on device" id="ADC0" resetval="0x1">
+         <bitenum id="IP_AVAIL" value="1" token="IP is available" description="IP is available"/>
+         <bitenum id="IP_UNAVAIL" value="0" token="IP is unavailable" description="IP is unavailable"/>
+      </bitfield>
+      <bitfield range="" begin="13" width="3" end="11" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="RO" description="IP status on device" id="SPI0" resetval="0x1">
+         <bitenum id="IP_AVAIL" value="1" token="IP is available" description="IP is available"/>
+         <bitenum id="IP_UNAVAIL" value="0" token="IP is unavailable" description="IP is unavailable"/>
+      </bitfield>
+      <bitfield range="" begin="9" width="3" end="7" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED7" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RO" description="IP status on device" id="I2C0" resetval="0x1">
+         <bitenum id="IP_AVAIL" value="1" token="IP is available" description="IP is available"/>
+         <bitenum id="IP_UNAVAIL" value="0" token="IP is unavailable" description="IP is unavailable"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="3" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RO" description="IP status on device" id="UART0" resetval="0x1">
+         <bitenum id="IP_AVAIL" value="1" token="IP is available" description="IP is available"/>
+         <bitenum id="IP_UNAVAIL" value="0" token="IP is unavailable" description="IP is unavailable"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="IP status on device" id="LRFD" resetval="0x1">
+         <bitenum id="IP_AVAIL" value="1" token="IP is available" description="IP is available"/>
+         <bitenum id="IP_UNAVAIL" value="0" token="IP is unavailable" description="IP is unavailable"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="IP status on device" id="GPIO" resetval="0x1">
+         <bitenum id="IP_AVAIL" value="1" token="IP is available" description="IP is available"/>
+         <bitenum id="IP_UNAVAIL" value="0" token="IP is unavailable" description="IP is unavailable"/>
+      </bitfield>
+   </register>
+   <register acronym="DESCEX1" width="32" description="Extended Description Register 1. 
+This register shows SVT IP availability, HW features and memory size configuration." id="DESCEX1" offset="0x8">
+      <bitfield range="" begin="31" width="2" end="30" rwaccess="RO" description="System flash availability" id="FLASHSZ" resetval="0x3">
+         <bitenum id="SZ3" value="3" token="Flash size set to level 3 (Max size)" description="Flash size set to level 3 (Max size)"/>
+         <bitenum id="SZ2" value="2" token="Flash size set to level 2" description="Flash size set to level 2"/>
+         <bitenum id="SZ1" value="1" token="Flash size set to level 1" description="Flash size set to level 1"/>
+         <bitenum id="SZ0" value="0" token="Flash size set to level 0 (Min size)" description="Flash size set to level 0 (Min size)"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="2" end="28" rwaccess="RO" description="System SRAM availability" id="SRAMSZ" resetval="0x3">
+         <bitenum id="SZ3" value="3" token="SRAM size set to level 3 (Max size)" description="SRAM size set to level 3 (Max size)"/>
+         <bitenum id="SZ2" value="2" token="SRAM size set to level 2" description="SRAM size set to level 2"/>
+         <bitenum id="SZ1" value="1" token="SRAM size set to level 1" description="SRAM size set to level 1"/>
+         <bitenum id="SZ0" value="0" token="SRAM size set to level 0 (Min size)" description="SRAM size set to level 0 (Min size)"/>
+      </bitfield>
+      <bitfield range="" begin="27" width="12" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="8" end="8" rwaccess="RO" description="System radio feature availability" id="ROPT" resetval="0xff">
+         <bitenum id="MAX" value="255" token="All features available" description="All features available"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CLKCFG0" width="32" description="Clock Configuration Register 0.
+This register shows the IP clock configuration for the system.
+The configuration is updated through CLKENSET0 and CLKENCLR0." id="CLKCFG0" offset="0xc">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RO" description="IP clock configuration" id="LGPT3" resetval="0x0">
+         <bitenum id="CLK_EN" value="1" token="Clock is enabled" description="Clock is enabled"/>
+         <bitenum id="CLK_DIS" value="0" token="Clock is disabled" description="Clock is disabled"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="RO" description="IP clock configuration" id="LGPT2" resetval="0x0">
+         <bitenum id="CLK_EN" value="1" token="Clock is enabled" description="Clock is enabled"/>
+         <bitenum id="CLK_DIS" value="0" token="Clock is disabled" description="Clock is disabled"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="1" end="28" rwaccess="RO" description="IP clock configuration" id="LGPT1" resetval="0x0">
+         <bitenum id="CLK_EN" value="1" token="Clock is enabled" description="Clock is enabled"/>
+         <bitenum id="CLK_DIS" value="0" token="Clock is disabled" description="Clock is disabled"/>
+      </bitfield>
+      <bitfield range="" begin="27" width="1" end="27" rwaccess="RO" description="IP clock configuration" id="LGPT0" resetval="0x0">
+         <bitenum id="CLK_EN" value="1" token="Clock is enabled" description="Clock is enabled"/>
+         <bitenum id="CLK_DIS" value="0" token="Clock is disabled" description="Clock is disabled"/>
+      </bitfield>
+      <bitfield range="" begin="26" width="9" end="18" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED18" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="1" end="17" rwaccess="RO" description="IP clock configuration" id="DMA" resetval="0x0">
+         <bitenum id="CLK_EN" value="1" token="Clock is enabled" description="Clock is enabled"/>
+         <bitenum id="CLK_DIS" value="0" token="Clock is disabled" description="Clock is disabled"/>
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="RO" description="IP clock configuration" id="LAES" resetval="0x0">
+         <bitenum id="CLK_EN" value="1" token="Clock is enabled" description="Clock is enabled"/>
+         <bitenum id="CLK_DIS" value="0" token="Clock is disabled" description="Clock is disabled"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="1" end="14" rwaccess="RO" description="IP clock configuration" id="ADC0" resetval="0x0">
+         <bitenum id="CLK_EN" value="1" token="Clock is enabled" description="Clock is enabled"/>
+         <bitenum id="CLK_DIS" value="0" token="Clock is disabled" description="Clock is disabled"/>
+      </bitfield>
+      <bitfield range="" begin="13" width="3" end="11" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="RO" description="IP clock configuration" id="SPI0" resetval="0x0">
+         <bitenum id="CLK_EN" value="1" token="Clock is enabled" description="Clock is enabled"/>
+         <bitenum id="CLK_DIS" value="0" token="Clock is disabled" description="Clock is disabled"/>
+      </bitfield>
+      <bitfield range="" begin="9" width="3" end="7" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED7" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RO" description="IP clock configuration" id="I2C0" resetval="0x0">
+         <bitenum id="CLK_EN" value="1" token="Clock is enabled" description="Clock is enabled"/>
+         <bitenum id="CLK_DIS" value="0" token="Clock is disabled" description="Clock is disabled"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="3" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RO" description="IP clock configuration" id="UART0" resetval="0x0">
+         <bitenum id="CLK_EN" value="1" token="Clock is enabled" description="Clock is enabled"/>
+         <bitenum id="CLK_DIS" value="0" token="Clock is disabled" description="Clock is disabled"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="IP clock configuration" id="LRFD" resetval="0x0">
+         <bitenum id="CLK_EN" value="1" token="Clock is enabled" description="Clock is enabled"/>
+         <bitenum id="CLK_DIS" value="0" token="Clock is disabled" description="Clock is disabled"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="IP clock configuration
+" id="GPIO" resetval="0x1">
+         <bitenum id="CLK_EN" value="1" token="Clock is enabled" description="Clock is enabled"/>
+         <bitenum id="CLK_DIS" value="0" token="Clock is disabled" description="Clock is disabled"/>
+      </bitfield>
+   </register>
+   <register acronym="CLKCFG1" width="32" description="Clock Configuration Register 1.
+This register shows the IP clock configuration for the system.
+The configuration is updated through CLKENSET1 and CLKENCLR1." id="CLKCFG1" offset="0x10">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CLKENSET0" width="32" description="Clock Enable Set Register 0.
+This register enables IP clocks in the system. 
+Used to set the corresponding fields in CLKCFG0 to 1." id="CLKENSET0" offset="0x14">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="WO" description="Configure IP clock enable" id="LGPT3" resetval="0x0">
+         <bitenum id="CLK_SET" value="1" token="Set IP clock enable" description="Set IP clock enable"/>
+         <bitenum id="CLK_UNCHGD" value="0" token="IP clock enable is unchanged" description="IP clock enable is unchanged"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="WO" description="Configure IP clock enable" id="LGPT2" resetval="0x0">
+         <bitenum id="CLK_SET" value="1" token="Set IP clock enable" description="Set IP clock enable"/>
+         <bitenum id="CLK_UNCHGD" value="0" token="IP clock enable is unchanged" description="IP clock enable is unchanged"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="1" end="28" rwaccess="WO" description="Configure IP clock enable" id="LGPT1" resetval="0x0">
+         <bitenum id="CLK_SET" value="1" token="Set IP clock enable" description="Set IP clock enable"/>
+         <bitenum id="CLK_UNCHGD" value="0" token="IP clock enable is unchanged" description="IP clock enable is unchanged"/>
+      </bitfield>
+      <bitfield range="" begin="27" width="1" end="27" rwaccess="WO" description="Configure IP clock enable" id="LGPT0" resetval="0x0">
+         <bitenum id="CLK_SET" value="1" token="Set IP clock enable" description="Set IP clock enable"/>
+         <bitenum id="CLK_UNCHGD" value="0" token="IP clock enable is unchanged" description="IP clock enable is unchanged"/>
+      </bitfield>
+      <bitfield range="" begin="26" width="9" end="18" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED18" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="1" end="17" rwaccess="WO" description="Configure IP clock enable" id="DMA" resetval="0x0">
+         <bitenum id="CLK_SET" value="1" token="Set IP clock enable" description="Set IP clock enable"/>
+         <bitenum id="CLK_UNCHGD" value="0" token="IP clock enable is unchanged" description="IP clock enable is unchanged"/>
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="WO" description="Configure IP clock enable" id="LAES" resetval="0x0">
+         <bitenum id="CLK_SET" value="1" token="Set IP clock enable" description="Set IP clock enable"/>
+         <bitenum id="CLK_UNCHGD" value="0" token="IP clock enable is unchanged" description="IP clock enable is unchanged"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="1" end="14" rwaccess="WO" description="Configure IP clock enable" id="ADC0" resetval="0x0">
+         <bitenum id="CLK_SET" value="1" token="Set IP clock enable" description="Set IP clock enable"/>
+         <bitenum id="CLK_UNCHGD" value="0" token="IP clock enable is unchanged" description="IP clock enable is unchanged"/>
+      </bitfield>
+      <bitfield range="" begin="13" width="3" end="11" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="WO" description="Configure IP clock enable" id="SPI0" resetval="0x0">
+         <bitenum id="CLK_SET" value="1" token="Set IP clock enable" description="Set IP clock enable"/>
+         <bitenum id="CLK_UNCHGD" value="0" token="IP clock enable is unchanged" description="IP clock enable is unchanged"/>
+      </bitfield>
+      <bitfield range="" begin="9" width="3" end="7" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED7" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="WO" description="Configure IP clock enable" id="I2C0" resetval="0x0">
+         <bitenum id="CLK_SET" value="1" token="Set IP clock enable" description="Set IP clock enable"/>
+         <bitenum id="CLK_UNCHGD" value="0" token="IP clock enable is unchanged" description="IP clock enable is unchanged"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="3" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="WO" description="Configure IP clock enable" id="UART0" resetval="0x0">
+         <bitenum id="CLK_SET" value="1" token="Set IP clock enable" description="Set IP clock enable"/>
+         <bitenum id="CLK_UNCHGD" value="0" token="IP clock enable is unchanged" description="IP clock enable is unchanged"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="Configure IP clock enable" id="LRFD" resetval="0x0">
+         <bitenum id="CLK_SET" value="1" token="Set IP clock enable" description="Set IP clock enable"/>
+         <bitenum id="CLK_UNCHGD" value="0" token="IP clock enable is unchanged" description="IP clock enable is unchanged"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="Configure IP clock enable" id="GPIO" resetval="0x0">
+         <bitenum id="CLK_SET" value="1" token="Set IP clock enable" description="Set IP clock enable"/>
+         <bitenum id="CLK_UNCHGD" value="0" token="IP clock enable is unchanged" description="IP clock enable is unchanged"/>
+      </bitfield>
+   </register>
+   <register acronym="CLKENSET1" width="32" description="Clock Enable Set Register 1.
+This register enables IP clocks in the system. 
+Used to set the corresponding fields in CLKCFG1 to 1." id="CLKENSET1" offset="0x18">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CLKENCLR0" width="32" description="Clock Enable Clear Register 0.
+This register disables IP clocks in the system. 
+Used to clear the corresponding fields in CLKCFG0 to 0." id="CLKENCLR0" offset="0x20">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="WO" description="Configure IP clock enable" id="LGPT3" resetval="0x0">
+         <bitenum id="CLK_CLR" value="1" token="Clear IP clock enable" description="Clear IP clock enable"/>
+         <bitenum id="CLK_UNCHGD" value="0" token="IP clock enable is unchanged" description="IP clock enable is unchanged"/>
+      </bitfield>
+      <bitfield range="" begin="29" width="1" end="29" rwaccess="WO" description="Configure IP clock enable" id="LGPT2" resetval="0x0">
+         <bitenum id="CLK_CLR" value="1" token="Clear IP clock enable" description="Clear IP clock enable"/>
+         <bitenum id="CLK_UNCHGD" value="0" token="IP clock enable is unchanged" description="IP clock enable is unchanged"/>
+      </bitfield>
+      <bitfield range="" begin="28" width="1" end="28" rwaccess="WO" description="Configure IP clock enable" id="LGPT1" resetval="0x0">
+         <bitenum id="CLK_CLR" value="1" token="Clear IP clock enable" description="Clear IP clock enable"/>
+         <bitenum id="CLK_UNCHGD" value="0" token="IP clock enable is unchanged" description="IP clock enable is unchanged"/>
+      </bitfield>
+      <bitfield range="" begin="27" width="1" end="27" rwaccess="WO" description="Configure IP clock enable" id="LGPT0" resetval="0x0">
+         <bitenum id="CLK_CLR" value="1" token="Clear IP clock enable" description="Clear IP clock enable"/>
+         <bitenum id="CLK_UNCHGD" value="0" token="IP clock enable is unchanged" description="IP clock enable is unchanged"/>
+      </bitfield>
+      <bitfield range="" begin="26" width="9" end="18" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED18" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="1" end="17" rwaccess="WO" description="Configure IP clock enable" id="DMA" resetval="0x0">
+         <bitenum id="CLK_CLR" value="1" token="Clear IP clock enable" description="Clear IP clock enable"/>
+         <bitenum id="CLK_UNCHGD" value="0" token="IP clock enable is unchanged" description="IP clock enable is unchanged"/>
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="WO" description="Configure IP clock enable" id="LAES" resetval="0x0">
+         <bitenum id="CLK_CLR" value="1" token="Clear IP clock enable" description="Clear IP clock enable"/>
+         <bitenum id="CLK_UNCHGD" value="0" token="IP clock enable is unchanged" description="IP clock enable is unchanged"/>
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="1" end="14" rwaccess="WO" description="Configure IP clock enable" id="ADC0" resetval="0x0">
+         <bitenum id="CLK_CLR" value="1" token="Clear IP clock enable" description="Clear IP clock enable"/>
+         <bitenum id="CLK_UNCHGD" value="0" token="IP clock enable is unchanged" description="IP clock enable is unchanged"/>
+      </bitfield>
+      <bitfield range="" begin="13" width="3" end="11" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="WO" description="Configure IP clock enable" id="SPI0" resetval="0x0">
+         <bitenum id="CLK_CLR" value="1" token="Clear IP clock enable" description="Clear IP clock enable"/>
+         <bitenum id="CLK_UNCHGD" value="0" token="IP clock enable is unchanged" description="IP clock enable is unchanged"/>
+      </bitfield>
+      <bitfield range="" begin="9" width="3" end="7" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED7" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="WO" description="Configure IP clock enable" id="I2C0" resetval="0x0">
+         <bitenum id="CLK_CLR" value="1" token="Clear IP clock enable" description="Clear IP clock enable"/>
+         <bitenum id="CLK_UNCHGD" value="0" token="IP clock enable is unchanged" description="IP clock enable is unchanged"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="3" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="WO" description="Configure IP clock enable" id="UART0" resetval="0x0">
+         <bitenum id="CLK_CLR" value="1" token="Clear IP clock enable" description="Clear IP clock enable"/>
+         <bitenum id="CLK_UNCHGD" value="0" token="IP clock enable is unchanged" description="IP clock enable is unchanged"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="Configure IP clock enable" id="LRFD" resetval="0x0">
+         <bitenum id="CLK_CLR" value="1" token="Clear IP clock enable" description="Clear IP clock enable"/>
+         <bitenum id="CLK_UNCHGD" value="0" token="IP clock enable is unchanged" description="IP clock enable is unchanged"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="Configure IP clock enable" id="GPIO" resetval="0x0">
+         <bitenum id="CLK_CLR" value="1" token="Clear IP clock enable" description="Clear IP clock enable"/>
+         <bitenum id="CLK_UNCHGD" value="0" token="IP clock enable is unchanged" description="IP clock enable is unchanged"/>
+      </bitfield>
+   </register>
+   <register acronym="CLKENCLR1" width="32" description="Clock Enable Clear Register 1.
+This register disables IP clocks in the system. 
+Used to clear the corresponding fields in CLKCFG1 to 0." id="CLKENCLR1" offset="0x24">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="STBYPTR" width="32" description="Internal. Only to be used through TI provided API." id="STBYPTR" offset="0x3c">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="VAL" resetval="0x0">
+         <bitenum id="MIN" value="0" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+      </bitfield>
+   </register>
+   <register acronym="IDLECFG" width="32" description="Internal. Only to be used through TI provided API." id="IDLECFG" offset="0x48">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Internal. Only to be used through TI provided API." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Internal. Only to be used through TI provided API." id="MODE" resetval="0x0">
+         <bitenum id="LDO_OFF" value="1" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+         <bitenum id="LDO_ON" value="0" token="Internal. Only to be used through TI provided API." description="Internal. Only to be used through TI provided API."/>
+      </bitfield>
+   </register>
+</module>

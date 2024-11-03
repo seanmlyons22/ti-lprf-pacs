@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="EVTULL" HW_revision="" XML_version="1.0" description="This is top module of ULL Event Fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="DESC" width="32" description="Description Register. This register provides IP module ID, revision information, instance index and standard MMR registers offset.
+" id="DESC" offset="0x0">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Module identifier used to uniquely identify this IP." id="MODID" resetval="0x3045">
+      </bitfield>
+      <bitfield range="" begin="15" width="4" end="12" rwaccess="RO" description="Standard IP MMR block offset. Standard IP MMRs are the set of from aggregated IRQ registers till DTB.
+0: Standard IP MMRs do not exist
+0x1-0xF: Standard IP MMRs begin at offset of (64*STDIPOFF from the base IP address)" id="STDIPOFF" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="11" width="4" end="8" rwaccess="RO" description="IP Instance ID number. If multiple instances of IP exist in the device, this field can identify the instance number (0-15)." id="INSTIDX" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="Major revision of IP (0-15)." id="MAJREV" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Minor revision of IP (0-15)." id="MINREV" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DESCEX" width="32" description="Extended Description Register. This register provides configuration details of the IP to software drivers and end users.
+" id="DESCEX" offset="0x4">
+      <bitfield range="" begin="31" width="10" end="22" rwaccess="RO" description="Nember of DMA input  channels" id="IDMA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="5" end="17" rwaccess="RO" description="Number of DMA output channels" id="NDMA" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="RO" description="Power Domain.
+0 : SVT
+ 1 : ULL" id="PD" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="15" width="8" end="8" rwaccess="RO" description="Number of Subscribers" id="NSUB" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RO" description="Number of Publishers" id="NPUB" resetval="0x6">
+      </bitfield>
+   </register>
+   <register acronym="DTB" width="32" description="Digital test bus control register. This register can be used to bring out IP internal signals to the pads for observation. 16 signals can be observed per select value.
+" id="DTB" offset="0x64">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior" id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Digital test bus selection mux control.
+Non-zero select values output a 16 bit selected group of signals per value." id="SEL" resetval="0x0">
+         <bitenum id="DIS" value="0" token="All 16 observation signals are set to zero." description="All 16 observation signals are set to zero."/>
+      </bitfield>
+   </register>
+   <register acronym="NMISEL" width="32" description="Output Selection for CPU NMI Interrupt
+" id="NMISEL" offset="0x400">
+      <bitfield range="" begin="31" width="26" end="6" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior" id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="6" end="0" rwaccess="RW" description="Read/write selection value.
+Writing any other value than values defined by a ENUM may result in undefined behavior." id="PUBID" resetval="0x0">
+         <bitenum id="AON_IOC_COMB" value="7" token="IOC synchronous combined event, controlled by IOC:EVTCFG" description="IOC synchronous combined event, controlled by IOC:EVTCFG"/>
+         <bitenum id="AON_LPMCMP_IRQ" value="6" token="AON LPCMP interrupt, controlled by SYS0:LPCMPCFG" description="AON LPCMP interrupt, controlled by SYS0:LPCMPCFG"/>
+         <bitenum id="AON_DBG_COMB" value="5" token="DebugSS combined interrupt, interrupt flags can be found here DBGSS:MIS" description="DebugSS combined interrupt, interrupt flags can be found here DBGSS:MIS"/>
+         <bitenum id="AON_RTC_COMB" value="4" token="AON_RTC event, controlled by the RTC:IMASK setting" description="AON_RTC event, controlled by the RTC:IMASK setting"/>
+         <bitenum id="AON_CKM_COMB" value="3" token="CKMD combined interrupt request, interrupt flags can be found here CKMD:MIS" description="CKMD combined interrupt request, interrupt flags can be found here CKMD:MIS"/>
+         <bitenum id="AON_PMU_COMB" value="2" token="PMU combined interrupt request for BATMON, interrupt flags can be found here PMUD:EVENT" description="PMU combined interrupt request for BATMON, interrupt flags can be found here PMUD:EVENT"/>
+         <bitenum id="NONE" value="0" token="Always inactive" description="Always inactive"/>
+      </bitfield>
+   </register>
+   <register acronym="RTCCPTSEL" width="32" description="Output Selection for CPU Interrupt RTCCPT
+" id="RTCCPTSEL" offset="0x404">
+      <bitfield range="" begin="31" width="26" end="6" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior" id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="6" end="0" rwaccess="RW" description="Read/write selection value.
+Writing any other value than values defined by a ENUM may result in undefined behavior." id="PUBID" resetval="0x0">
+         <bitenum id="AON_IOC_COMB" value="7" token="IOC synchronous combined event, controlled by IOC:EVTCFG" description="IOC synchronous combined event, controlled by IOC:EVTCFG"/>
+         <bitenum id="AON_LPMCMP_IRQ" value="6" token="AON LPCMP interrupt, controlled by SYS0:LPCMPCFG" description="AON LPCMP interrupt, controlled by SYS0:LPCMPCFG"/>
+         <bitenum id="AON_DBG_COMB" value="5" token="DebugSS combined interrupt, interrupt flags can be found here DBGSS:MIS" description="DebugSS combined interrupt, interrupt flags can be found here DBGSS:MIS"/>
+         <bitenum id="AON_RTC_COMB" value="4" token="AON_RTC event, controlled by the RTC:IMASK setting" description="AON_RTC event, controlled by the RTC:IMASK setting"/>
+         <bitenum id="AON_CKM_COMB" value="3" token="CKMD combined interrupt request, interrupt flags can be found here CKMD:MIS" description="CKMD combined interrupt request, interrupt flags can be found here CKMD:MIS"/>
+         <bitenum id="AON_PMU_COMB" value="2" token="PMU combined interrupt request for BATMON, interrupt flags can be found here PMUD:EVENT" description="PMU combined interrupt request for BATMON, interrupt flags can be found here PMUD:EVENT"/>
+         <bitenum id="NONE" value="0" token="Always inactive" description="Always inactive"/>
+      </bitfield>
+   </register>
+   <register acronym="WKUPMASK" width="32" description="WAKEUP Mask
+" id="WKUPMASK" offset="0x800">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior" id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Wake-up mask for AON_IOC_COMB.
+0 - Wakeup Disabled
+1 - Wakeup Enabled" id="AON_IOC_COMB" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Wake-up mask for AON_LPMCMP_IRQ.
+0 - Wakeup Disabled
+1 - Wakeup Enabled" id="AON_LPMCMP_IRQ" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Wake-up mask for AON_DBG_COMB.
+0 - Wakeup Disabled
+1 - Wakeup Enabled" id="AON_DBG_COMB" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Wake-up mask for AON_RTC_COMB.
+0 - Wakeup Disabled
+1 - Wakeup Enabled" id="AON_RTC_COMB" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Wake-up mask for AON_CKM_COMB.
+0 - Wakeup Disabled
+1 - Wakeup Enabled" id="AON_CKM_COMB" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Wake-up mask for AON_PMU_COMB.
+0 - Wakeup Disabled
+1 - Wakeup Enabled" id="AON_PMU_COMB" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="2" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior" id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+</module>

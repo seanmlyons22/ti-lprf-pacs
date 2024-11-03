@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="NVIC" HW_revision="" XML_version="1.0" description="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="ISER" width="32" description="Use the Interrupt Set-Enable Register to enable interrupts and determine which interrupts are currently enabled." id="ISER" offset="0x100">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Writing 0 to a SETENA bit has no effect, writing 1 to a bit enables the corresponding interrupt. Reading the bit returns its current enable state. Reset clears the SETENA fields." id="SETENA" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="ICER" width="32" description="Use the Interrupt Clear-Enable Registers to disable interrupts and determine which interrupts are currently enabled." id="ICER" offset="0x180">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Writing 0 to a CLRENA bit has no effect, writing 1 to a bit disables the corresponding interrupt. Reading the bit returns its current enable state. Reset clears the CLRENA field." id="CLRENA" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="ISPR" width="32" description="Use the Interrupt Set-Pending Register to force interrupts into the pending state and determine which interrupts are currently pending" id="ISPR" offset="0x200">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Interrupt set-pending bits for a: Write: 1 = pend interrupt 0 = no effect; Read: 1 = interrupt is pending 0 = interrupt is not pending." id="SETPEND" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="ICPR" width="32" description="Use the Interrupt Clear-Pending Register to clear pending interrupts and determine which interrupts are currently pending." id="ICPR" offset="0x280">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Interrupt clear-pending bits: Write: 1 = clear interrupt pending bit, 0 = no effect; Read: 1 = interrupt is pending 0 = interrupt is not pending." id="CLRPEND" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="IPR0" width="32" description="Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest." id="IPR0" offset="0x400">
+      <bitfield range="" begin="31" width="2" end="30" rwaccess="RW" description="Priority of interrupt 3" id="IP_3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="6" end="24" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED24" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RW" description="Priority of interrupt 2" id="IP_2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="6" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="2" end="14" rwaccess="RW" description="Priority of interrupt 1" id="IP_1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="6" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Priority of interrupt 0" id="IP_0" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="6" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="IPR1" width="32" description="Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest." id="IPR1" offset="0x404">
+      <bitfield range="" begin="31" width="2" end="30" rwaccess="RW" description="Priority of interrupt 7" id="IP_7" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="6" end="24" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED24" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RW" description="Priority of interrupt 6" id="IP_6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="6" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="2" end="14" rwaccess="RW" description="Priority of interrupt 5" id="IP_5" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="6" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Priority of interrupt 4" id="IP_4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="6" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="IPR2" width="32" description="Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest." id="IPR2" offset="0x408">
+      <bitfield range="" begin="31" width="2" end="30" rwaccess="RW" description="Priority of interrupt 11" id="IP_11" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="6" end="24" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED24" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RW" description="Priority of interrupt 10" id="IP_10" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="6" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="2" end="14" rwaccess="RW" description="Priority of interrupt 9" id="IP_9" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="6" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Priority of interrupt 8" id="IP_8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="6" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="IPR3" width="32" description="Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest." id="IPR3" offset="0x40c">
+      <bitfield range="" begin="31" width="2" end="30" rwaccess="RW" description="Priority of interrupt 15" id="IP_15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="6" end="24" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED24" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RW" description="Priority of interrupt 14" id="IP_14" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="6" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="2" end="14" rwaccess="RW" description="Priority of interrupt 13" id="IP_13" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="6" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Priority of interrupt 12" id="IP_12" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="6" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="IPR4" width="32" description="Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest." id="IPR4" offset="0x410">
+      <bitfield range="" begin="31" width="2" end="30" rwaccess="RW" description="Priority of interrupt 19" id="IP_19" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="6" end="24" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED24" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RW" description="Priority of interrupt 18" id="IP_18" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="6" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="2" end="14" rwaccess="RW" description="Priority of interrupt 17" id="IP_17" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="6" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Priority of interrupt 16" id="IP_16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="6" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="IPR5" width="32" description="Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest." id="IPR5" offset="0x414">
+      <bitfield range="" begin="31" width="2" end="30" rwaccess="RW" description="Priority of interrupt 23" id="IP_23" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="6" end="24" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED24" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RW" description="Priority of interrupt 22" id="IP_22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="6" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="2" end="14" rwaccess="RW" description="Priority of interrupt 21" id="IP_21" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="6" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Priority of interrupt 20" id="IP_20" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="6" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="IPR6" width="32" description="Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest." id="IPR6" offset="0x418">
+      <bitfield range="" begin="31" width="2" end="30" rwaccess="RW" description="Priority of interrupt 27" id="IP_27" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="6" end="24" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED24" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RW" description="Priority of interrupt 26" id="IP_26" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="6" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="2" end="14" rwaccess="RW" description="Priority of interrupt 25" id="IP_25" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="6" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Priority of interrupt 24" id="IP_24" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="6" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="IPR7" width="32" description="Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest." id="IPR7" offset="0x41c">
+      <bitfield range="" begin="31" width="2" end="30" rwaccess="RW" description="Priority of interrupt 31" id="IP_31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="6" end="24" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED24" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RW" description="Priority of interrupt 30" id="IP_30" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="6" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="2" end="14" rwaccess="RW" description="Priority of interrupt 29" id="IP_29" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="6" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Priority of interrupt 28" id="IP_28" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="6" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+</module>

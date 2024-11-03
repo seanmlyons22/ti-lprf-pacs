@@ -1,0 +1,1146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="CKMD" HW_revision="" XML_version="1.0" description="Clock Controller
+
+" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="DESC" width="32" description="Description Register.
+
+This register provides IP module ID, revision information, instance index and standard MMR registers offset." id="DESC" offset="0x0">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Module identifier used to uniquely identify this IP." id="MODID" resetval="0x9b4b">
+      </bitfield>
+      <bitfield range="" begin="15" width="4" end="12" rwaccess="RO" description="Standard IP MMR block offset. Standard IP MMRs are the set of from aggregated IRQ registers till DTB.
+0: Standard IP MMRs do not exist
+0x1-0xF: Standard IP MMRs begin at offset of (64*STDIPOFF from the base IP address)
+
+NOTE: This IP does not have DTB as part of the Standard IP MMRs. It uses DTBCTL instead." id="STDIPOFF" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="11" width="4" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="Major revision of IP (0-15)." id="MAJREV" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Minor revision of IP (0-15).
+" id="MINREV" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="IMASK" width="32" description="Interrupt mask.
+
+This register selects interrupt sources which are allowed to pass from RIS to MIS when the corresponding bit-fields are set to 1." id="IMASK" offset="0x44">
+      <bitfield range="" begin="31" width="14" end="18" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED18" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="1" end="17" rwaccess="RW" description="32kHz TICK to RTC and WDT.
+
+Either derived from selected LFCLK or generated from CLKULL in absence of LFCLK." id="LFTICK" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="RW" description="LFINC filter gearing restart.
+
+Indicates that the LFINC filter restarted gearing. Subsequent LFINC estimates may have higher variation." id="LFGEARRSTRT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RW" description="HFXT Amplitude compensation - settled
+
+Indicates that the amplitude compensation FSM has reached the SETTLED or TCXOMODE state,
+and the controls configured in HFXTTARG or HFXTDYN are reached.
+" id="AMPSETTLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="1" end="14" rwaccess="RW" description="HFXT Amplitude compensation - controls at target
+
+Indicates that the control values configured in HFXTTARG or HFXTDYN are reached.
+Applies to Q1CAP, Q2CAP and IREF." id="AMPCTRLATTARG" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="1" end="13" rwaccess="RW" description="Pre-LF clock edge detect.
+
+Indicates that a positive edge occured on the selected pre-LF clock LFCLKSEL.PRE.
+Can be used by software to confirm that a LF clock source is running and within the expected frequency,
+before selecting it as the main LF clock source." id="PRELFEDGE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="LF clock is lost.
+
+Indicates that no LF clock edge occured for ~49us (~1.6 times nominal period).
+The system will automatically fall-back to generating LFTICK based on CLKULL,
+to avoid timing corruption.
+Note that this signal is NOT related to the analog LF clock-loss detector which can reset the device during STANDBY." id="LFCLKLOSS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="1" end="11" rwaccess="RW" description="LF clock period out-of-range.
+
+Indicates that a LF clock period was measured to be out-of-range,
+according to LFQUALCTL.MAXERR." id="LFCLKOOR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="LF clock good.
+
+Indicates that the LF clock is good, according to the configuration in LFQUALCTL." id="LFCLKGOOD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="LFINC updated.
+
+Indicates that a new LFINC measurement value is available in LFCLKSTAT.LFINC." id="LFINCUPD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="TDC done event.
+
+Indicates that the TDC measurement is done." id="TDCDONE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="HFXT-ADC PEAK measurement update event.
+
+Indicates that the HFXT-ADC PEAK measurement is done." id="ADCPEAKUPD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="HFXT-ADC BIAS measurement update event.
+
+Indicates that the HFXT-ADC BIAS measurement is done." id="ADCBIASUPD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="HFXT-ADC comparison update event.
+
+Indicates that the HFXT-ADC comparison is done." id="ADCCOMPUPD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Out-of-range indication from the tracking loop.
+
+Indicates that the selected reference clock frequency of the tracking loop is out-of-range." id="TRACKREFOOR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Clock loss indication from the tracking loop.
+
+Indicates that the selected reference clock of the tracking loop is lost." id="TRACKREFLOSS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="HFXT amplitude good indication." id="HFXTAMPGOOD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="HFXT fault indication.
+
+Indicates that HFXT did not start correctly, or its frequency is too low.
+HFXT will not recover from this fault and has to be restarted.
+This is only a one-time check at HFXT startup." id="HFXTFAULT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="HFXT good indication.
+
+Indicates that HFXT started correctly. The frequency is not necessarily good enough for radio operation.
+This is only a one-time check at HFXT startup." id="HFXTGOOD" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="RIS" width="32" description="Raw interrupt status.
+
+This register reflects the state of all pending interrupts, regardless of masking. This register allows the user to implement a poll scheme. A flag set in this register can be cleared by writing 1 to the corresponding ICLR register bit." id="RIS" offset="0x48">
+      <bitfield range="" begin="31" width="14" end="18" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED18" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="1" end="17" rwaccess="RO" description="32kHz TICK to RTC and WDT.
+
+Either derived from selected LFCLK or generated from CLKULL in absence of LFCLK." id="LFTICK" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="RO" description="LFINC filter gearing restart.
+
+Indicates that the LFINC filter restarted gearing. Subsequent LFINC estimates may have higher variation." id="LFGEARRSTRT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="HFXT Amplitude compensation - settled
+
+Indicates that the amplitude compensation FSM has reached the SETTLED or TCXOMODE state,
+and the controls configured in HFXTTARG or HFXTDYN are reached.
+" id="AMPSETTLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="1" end="14" rwaccess="RO" description="HFXT Amplitude compensation - controls at target
+
+Indicates that the control values configured in HFXTTARG or HFXTDYN are reached.
+Applies to Q1CAP, Q2CAP and IREF." id="AMPCTRLATTARG" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="1" end="13" rwaccess="RO" description="Pre-LF clock edge detect.
+
+Indicates that a positive edge occured on the selected pre-LF clock LFCLKSEL.PRE.
+Can be used by software to confirm that a LF clock source is running and within the expected frequency,
+before selecting it as the main LF clock source." id="PRELFEDGE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="RO" description="LF clock is lost.
+
+Indicates that no LF clock edge occured for ~49us (~1.6 times nominal period).
+The system will automatically fall-back to generating LFTICK based on CLKULL,
+to avoid timing corruption.
+Note that this signal is NOT related to the analog LF clock-loss detector which can reset the device during STANDBY." id="LFCLKLOSS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="1" end="11" rwaccess="RO" description="LF clock period out-of-range.
+
+Indicates that a LF clock period was measured to be out-of-range,
+according to LFQUALCTL.MAXERR." id="LFCLKOOR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="RO" description="LF clock good.
+
+Indicates that the LF clock is good, according to the configuration in LFQUALCTL." id="LFCLKGOOD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RO" description="LFINC updated.
+
+Indicates that a new LFINC measurement value is available in LFCLKSTAT.LFINC." id="LFINCUPD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RO" description="TDC done event.
+
+Indicates that the TDC measurement is done." id="TDCDONE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RO" description="HFXT-ADC PEAK measurement update event.
+
+Indicates that the HFXT-ADC PEAK measurement is done." id="ADCPEAKUPD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RO" description="HFXT-ADC BIAS measurement update event.
+
+Indicates that the HFXT-ADC BIAS measurement is done." id="ADCBIASUPD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RO" description="HFXT-ADC comparison update event.
+
+Indicates that the HFXT-ADC comparison is done." id="ADCCOMPUPD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RO" description="Out-of-range indication from the tracking loop.
+
+Indicates that the selected reference clock frequency of the tracking loop is out-of-range." id="TRACKREFOOR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RO" description="Clock loss indication from the tracking loop.
+
+Indicates that the selected reference clock of the tracking loop is lost." id="TRACKREFLOSS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RO" description="HFXT amplitude good indication." id="HFXTAMPGOOD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="HFXT fault indication.
+
+Indicates that HFXT did not start correctly, or its frequency is too low.
+HFXT will not recover from this fault and has to be restarted.
+This is only a one-time check at HFXT startup." id="HFXTFAULT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="HFXT good indication.
+
+Indicates that HFXT started correctly. The frequency is not necessarily good enough for radio operation.
+This is only a one-time check at HFXT startup." id="HFXTGOOD" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="MIS" width="32" description="Masked interrupt status.
+
+This register is simply a bitwise AND of the contents of IMASK and RIS.*] registers. A flag set in this register can be cleared by writing 1 to the corresponding ICLR register bit." id="MIS" offset="0x4c">
+      <bitfield range="" begin="31" width="14" end="18" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED18" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="1" end="17" rwaccess="RO" description="32kHz TICK to RTC and WDT.
+
+Either derived from selected LFCLK or generated from CLKULL in absence of LFCLK." id="LFTICK" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="RO" description="LFINC filter gearing restart.
+
+Indicates that the LFINC filter restarted gearing. Subsequent LFINC estimates may have higher variation." id="LFGEARRSTRT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="HFXT Amplitude compensation - settled
+
+Indicates that the amplitude compensation FSM has reached the SETTLED or TCXOMODE state,
+and the controls configured in HFXTTARG or HFXTDYN are reached.
+" id="AMPSETTLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="1" end="14" rwaccess="RO" description="HFXT Amplitude compensation - controls at target
+
+Indicates that the control values configured in HFXTTARG or HFXTDYN are reached.
+Applies to Q1CAP, Q2CAP and IREF." id="AMPCTRLATTARG" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="1" end="13" rwaccess="RO" description="Pre-LF clock edge detect.
+
+Indicates that a positive edge occured on the selected pre-LF clock LFCLKSEL.PRE.
+Can be used by software to confirm that a LF clock source is running and within the expected frequency,
+before selecting it as the main LF clock source." id="PRELFEDGE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="RO" description="LF clock is lost.
+
+Indicates that no LF clock edge occured for ~49us (~1.6 times nominal period).
+The system will automatically fall-back to generating LFTICK based on CLKULL,
+to avoid timing corruption.
+Note that this signal is NOT related to the analog LF clock-loss detector which can reset the device during STANDBY." id="LFCLKLOSS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="1" end="11" rwaccess="RO" description="LF clock period out-of-range.
+
+Indicates that a LF clock period was measured to be out-of-range,
+according to LFQUALCTL.MAXERR." id="LFCLKOOR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="RO" description="LF clock good.
+
+Indicates that the LF clock is good, according to the configuration in LFQUALCTL." id="LFCLKGOOD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RO" description="LFINC updated.
+
+Indicates that a new LFINC measurement value is available in LFCLKSTAT.LFINC." id="LFINCUPD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RO" description="TDC done event.
+
+Indicates that the TDC measurement is done." id="TDCDONE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RO" description="HFXT-ADC PEAK measurement update event.
+
+Indicates that the HFXT-ADC PEAK measurement is done." id="ADCPEAKUPD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RO" description="HFXT-ADC BIAS measurement update event.
+
+Indicates that the HFXT-ADC BIAS measurement is done." id="ADCBIASUPD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RO" description="HFXT-ADC comparison update event.
+
+Indicates that the HFXT-ADC comparison is done." id="ADCCOMPUPD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RO" description="Out-of-range indication from the tracking loop.
+
+Indicates that the selected reference clock frequency of the tracking loop is out-of-range." id="TRACKREFOOR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RO" description="Clock loss indication from the tracking loop.
+
+Indicates that the selected reference clock of the tracking loop is lost." id="TRACKREFLOSS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RO" description="HFXT amplitude good indication." id="HFXTAMPGOOD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="HFXT fault indication.
+
+Indicates that HFXT did not start correctly, or its frequency is too low.
+HFXT will not recover from this fault and has to be restarted.
+This is only a one-time check at HFXT startup." id="HFXTFAULT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="HFXT good indication.
+
+Indicates that HFXT started correctly. The frequency is not necessarily good enough for radio operation.
+This is only a one-time check at HFXT startup." id="HFXTGOOD" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="ISET" width="32" description="Interrupt set register.
+
+This register can used by software for diagnostics and safety checking purposes. Writing a 1 to a bit in this register will set the event and the corresponding RIS bit also gets set. If the corresponding IMASK bit is set, then the corresponding MIS register bit also gets set." id="ISET" offset="0x50">
+      <bitfield range="" begin="31" width="14" end="18" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED18" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="1" end="17" rwaccess="WO" description="32kHz TICK to RTC and WDT.
+
+Either derived from selected LFCLK or generated from CLKULL in absence of LFCLK." id="LFTICK" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="WO" description="LFINC filter gearing restart.
+
+Indicates that the LFINC filter restarted gearing. Subsequent LFINC estimates may have higher variation." id="LFGEARRSTRT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="WO" description="HFXT Amplitude compensation - settled
+
+Indicates that the amplitude compensation FSM has reached the SETTLED or TCXOMODE state,
+and the controls configured in HFXTTARG or HFXTDYN are reached.
+" id="AMPSETTLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="1" end="14" rwaccess="WO" description="HFXT Amplitude compensation - controls at target
+
+Indicates that the control values configured in HFXTTARG.Q1CAP, HFXTTARG.Q2CAP and HFXTTARG.IREF or HFXTDYN.Q1CAP, HFXTDYN.Q2CAP and HFXTDYN.IREF are reached." id="AMPCTRLATTARG" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="1" end="13" rwaccess="WO" description="Pre-LF clock edge detect.
+
+Indicates that a positive edge occured on the selected pre-LF clock LFCLKSEL.PRE.
+Can be used by software to confirm that a LF clock source is running and within the expected frequency,
+before selecting it as the main LF clock source." id="PRELFEDGE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="WO" description="LF clock is lost.
+
+Indicates that no LF clock edge occured for ~49us (~1.6 times nominal period).
+The system will automatically fall-back to generating LFTICK based on CLKULL,
+to avoid timing corruption.
+Note that this signal is NOT related to the analog LF clock-loss detector which can reset the device during STANDBY." id="LFCLKLOSS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="1" end="11" rwaccess="WO" description="LF clock period out-of-range.
+
+Indicates that a LF clock period was measured to be out-of-range,
+according to LFQUALCTL.MAXERR." id="LFCLKOOR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="WO" description="LF clock good.
+
+Indicates that the LF clock is good, according to the configuration in LFQUALCTL." id="LFCLKGOOD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="WO" description="LFINC updated.
+
+Indicates that a new LFINC measurement value is available in LFCLKSTAT.LFINC." id="LFINCUPD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="WO" description="TDC done event.
+
+Indicates that the TDC measurement is done." id="TDCDONE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="WO" description="HFXT-ADC PEAK measurement update event.
+
+Indicates that the HFXT-ADC PEAK measurement is done." id="ADCPEAKUPD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="WO" description="HFXT-ADC BIAS measurement update event.
+
+Indicates that the HFXT-ADC BIAS measurement is done." id="ADCBIASUPD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="WO" description="HFXT-ADC comparison update event.
+
+Indicates that the HFXT-ADC comparison is done." id="ADCCOMPUPD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="WO" description="Out-of-range indication from the tracking loop.
+
+Indicates that the selected reference clock frequency of the tracking loop is out-of-range." id="TRACKREFOOR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="WO" description="Clock loss indication from the tracking loop.
+
+Indicates that the selected reference clock of the tracking loop is lost." id="TRACKREFLOSS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="WO" description="HFXT amplitude good indication." id="HFXTAMPGOOD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="HFXT fault indication.
+
+Indicates that HFXT did not start correctly, or its frequency is too low.
+HFXT will not recover from this fault and has to be restarted.
+This is only a one-time check at HFXT startup." id="HFXTFAULT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="HFXT good indication.
+
+Indicates that HFXT started correctly. The frequency is not necessarily good enough for radio operation.
+This is only a one-time check at HFXT startup." id="HFXTGOOD" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="ICLR" width="32" description="Interrupt clear register.
+
+This register allows software to clear interrupts. Writing a 1 to a bit in this register will clear the event and the corresponding RIS bit also gets cleared. If the corresponding IMASK bit is set, then the corresponding MIS register bit also gets cleared." id="ICLR" offset="0x54">
+      <bitfield range="" begin="31" width="14" end="18" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED18" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="1" end="17" rwaccess="WO" description="32kHz TICK to RTC and WDT.
+
+Either derived from selected LFCLK or generated from CLKULL in absence of LFCLK." id="LFTICK" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="WO" description="LFINC filter gearing restart.
+
+Indicates that the LFINC filter restarted gearing. Subsequent LFINC estimates may have higher variation." id="LFGEARRSTRT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="WO" description="HFXT Amplitude compensation - settled
+
+Indicates that the amplitude compensation FSM has reached the SETTLED or TCXOMODE state,
+and the controls configured in HFXTTARG or HFXTDYN are reached.
+" id="AMPSETTLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="1" end="14" rwaccess="WO" description="HFXT Amplitude compensation - controls at target
+
+Indicates that the control values configured in HFXTTARG or HFXTDYN are reached.
+Applies to Q1CAP, Q2CAP and IREF." id="AMPCTRLATTARG" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="1" end="13" rwaccess="WO" description="Pre-LF clock edge detect.
+
+Indicates that a positive edge occured on the selected pre-LF clock LFCLKSEL.PRE.
+Can be used by software to confirm that a LF clock source is running and within the expected frequency,
+before selecting it as the main LF clock source." id="PRELFEDGE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="WO" description="LF clock is lost.
+
+Indicates that no LF clock edge occured for ~49us (~1.6 times nominal period).
+The system will automatically fall-back to generating LFTICK based on CLKULL,
+to avoid timing corruption.
+Note that this signal is NOT related to the analog LF clock-loss detector which can reset the device during STANDBY." id="LFCLKLOSS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="1" end="11" rwaccess="WO" description="LF clock period out-of-range.
+
+Indicates that a LF clock period was measured to be out-of-range,
+according to LFQUALCTL.MAXERR." id="LFCLKOOR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="WO" description="LF clock good.
+
+Indicates that the LF clock is good, according to the configuration in LFQUALCTL." id="LFCLKGOOD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="WO" description="LFINC updated.
+
+Indicates that a new LFINC measurement value is available in LFCLKSTAT.LFINC." id="LFINCUPD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="WO" description="TDC done event.
+
+Indicates that the TDC measurement is done." id="TDCDONE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="WO" description="HFXT-ADC PEAK measurement update event.
+
+Indicates that the HFXT-ADC PEAK measurement is done." id="ADCPEAKUPD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="WO" description="HFXT-ADC BIAS measurement update event.
+
+Indicates that the HFXT-ADC BIAS measurement is done." id="ADCBIASUPD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="WO" description="HFXT-ADC comparison update event.
+
+Indicates that the HFXT-ADC comparison is done." id="ADCCOMPUPD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="WO" description="Out-of-range indication from the tracking loop.
+
+Indicates that the selected reference clock frequency of the tracking loop is out-of-range." id="TRACKREFOOR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="WO" description="Clock loss indication from the tracking loop.
+
+Indicates that the selected reference clock of the tracking loop is lost." id="TRACKREFLOSS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="WO" description="HFXT amplitude good indication." id="HFXTAMPGOOD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="HFXT fault indication.
+
+Indicates that HFXT did not start correctly, or its frequency is too low.
+HFXT will not recover from this fault and has to be restarted.
+This is only a one-time check at HFXT startup." id="HFXTFAULT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="HFXT good indication.
+
+Indicates that HFXT started correctly. The frequency is not necessarily good enough for radio operation.
+This is only a one-time check at HFXT startup." id="HFXTGOOD" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="IMSET" width="32" description="Interrupt mask set register.
+
+Writing a 1 to a bit in this register will set the corresponding IMASK bit." id="IMSET" offset="0x58">
+      <bitfield range="" begin="31" width="14" end="18" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED18" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="1" end="17" rwaccess="WO" description="32kHz TICK to RTC and WDT.
+
+Either derived from selected LFCLK or generated from CLKULL in absence of LFCLK." id="LFTICK" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="WO" description="LFINC filter gearing restart.
+
+Indicates that the LFINC filter restarted gearing. Subsequent LFINC estimates may have higher variation." id="LFGEARRSTRT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="WO" description="HFXT Amplitude compensation - settled
+
+Indicates that the amplitude compensation FSM has reached the SETTLED or TCXOMODE state,
+and the controls configured in HFXTTARG or HFXTDYN are reached.
+" id="AMPSETTLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="1" end="14" rwaccess="WO" description="HFXT Amplitude compensation - controls at target
+
+Indicates that the control values configured in HFXTTARG or HFXTDYN are reached.
+Applies to Q1CAP, Q2CAP and IREF." id="AMPCTRLATTARG" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="1" end="13" rwaccess="WO" description="Pre-LF clock edge detect.
+
+Indicates that a positive edge occured on the selected pre-LF clock LFCLKSEL.PRE.
+Can be used by software to confirm that a LF clock source is running and within the expected frequency,
+before selecting it as the main LF clock source." id="PRELFEDGE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="WO" description="LF clock is lost.
+
+Indicates that no LF clock edge occured for ~49us (~1.6 times nominal period).
+The system will automatically fall-back to generating LFTICK based on CLKULL,
+to avoid timing corruption.
+Note that this signal is NOT related to the analog LF clock-loss detector which can reset the device during STANDBY." id="LFCLKLOSS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="1" end="11" rwaccess="WO" description="LF clock period out-of-range.
+
+Indicates that a LF clock period was measured to be out-of-range,
+according to LFQUALCTL.MAXERR." id="LFCLKOOR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="WO" description="LF clock good.
+
+Indicates that the LF clock is good, according to the configuration in LFQUALCTL." id="LFCLKGOOD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="WO" description="LFINC updated.
+
+Indicates that a new LFINC measurement value is available in LFCLKSTAT.LFINC." id="LFINCUPD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="WO" description="TDC done event.
+
+Indicates that the TDC measurement is done." id="TDCDONE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="WO" description="HFXT-ADC PEAK measurement update event.
+
+Indicates that the HFXT-ADC PEAK measurement is done." id="ADCPEAKUPD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="WO" description="HFXT-ADC BIAS measurement update event.
+
+Indicates that the HFXT-ADC BIAS measurement is done." id="ADCBIASUPD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="WO" description="HFXT-ADC comparison update event.
+
+Indicates that the HFXT-ADC comparison is done." id="ADCCOMPUPD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="WO" description="Out-of-range indication from the tracking loop.
+
+Indicates that the selected reference clock frequency of the tracking loop is out-of-range." id="TRACKREFOOR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="WO" description="Clock loss indication from the tracking loop.
+
+Indicates that the selected reference clock of the tracking loop is lost." id="TRACKREFLOSS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="WO" description="HFXT amplitude good indication." id="HFXTAMPGOOD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="HFXT fault indication.
+
+Indicates that HFXT did not start correctly, or its frequency is too low.
+HFXT will not recover from this fault and has to be restarted.
+This is only a one-time check at HFXT startup." id="HFXTFAULT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="HFXT good indication.
+
+Indicates that HFXT started correctly. The frequency is not necessarily good enough for radio operation.
+This is only a one-time check at HFXT startup." id="HFXTGOOD" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="IMCLR" width="32" description="Interrupt mask clear register.
+
+Writing a 1 to a bit in this register will clear the corresponding IMASK bit." id="IMCLR" offset="0x5c">
+      <bitfield range="" begin="31" width="14" end="18" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED18" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="1" end="17" rwaccess="WO" description="32kHz TICK to RTC and WDT.
+
+Either derived from selected LFCLK or generated from CLKULL in absence of LFCLK." id="LFTICK" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="16" width="1" end="16" rwaccess="WO" description="LFINC filter gearing restart.
+
+Indicates that the LFINC filter restarted gearing. Subsequent LFINC estimates may have higher variation." id="LFGEARRSTRT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="WO" description="HFXT Amplitude compensation - settled
+
+Indicates that the amplitude compensation FSM has reached the SETTLED or TCXOMODE state,
+and the controls configured in HFXTTARG or HFXTDYN are reached.
+" id="AMPSETTLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="1" end="14" rwaccess="WO" description="HFXT Amplitude compensation - controls at target
+
+Indicates that the control values configured in HFXTTARG or HFXTDYN are reached.
+Applies to Q1CAP, Q2CAP and IREF." id="AMPCTRLATTARG" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="1" end="13" rwaccess="WO" description="Pre-LF clock edge detect.
+
+Indicates that a positive edge occured on the selected pre-LF clock LFCLKSEL.PRE.
+Can be used by software to confirm that a LF clock source is running and within the expected frequency,
+before selecting it as the main LF clock source." id="PRELFEDGE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="WO" description="LF clock is lost.
+
+Indicates that no LF clock edge occured for ~49us (~1.6 times nominal period).
+The system will automatically fall-back to generating LFTICK based on CLKULL,
+to avoid timing corruption.
+Note that this signal is NOT related to the analog LF clock-loss detector which can reset the device during STANDBY." id="LFCLKLOSS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="1" end="11" rwaccess="WO" description="LF clock period out-of-range.
+
+Indicates that a LF clock period was measured to be out-of-range,
+according to LFQUALCTL.MAXERR." id="LFCLKOOR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="WO" description="LF clock good.
+
+Indicates that the LF clock is good, according to the configuration in LFQUALCTL." id="LFCLKGOOD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="WO" description="LFINC updated.
+
+Indicates that a new LFINC measurement value is available in LFCLKSTAT.LFINC." id="LFINCUPD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="WO" description="TDC done event.
+
+Indicates that the TDC measurement is done." id="TDCDONE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="WO" description="HFXT-ADC PEAK measurement update event.
+
+Indicates that the HFXT-ADC PEAK measurement is done." id="ADCPEAKUPD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="WO" description="HFXT-ADC BIAS measurement update event.
+
+Indicates that the HFXT-ADC BIAS measurement is done." id="ADCBIASUPD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="WO" description="HFXT-ADC comparison update event.
+
+Indicates that the HFXT-ADC comparison is done." id="ADCCOMPUPD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="WO" description="Out-of-range indication from the tracking loop.
+
+Indicates that the selected reference clock frequency of the tracking loop is out-of-range." id="TRACKREFOOR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="WO" description="Clock loss indication from the tracking loop.
+
+Indicates that the selected reference clock of the tracking loop is lost." id="TRACKREFLOSS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="WO" description="HFXT amplitude good indication." id="HFXTAMPGOOD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="HFXT fault indication.
+
+Indicates that HFXT did not start correctly, or its frequency is too low.
+HFXT will not recover from this fault and has to be restarted.
+This is only a one-time check at HFXT startup." id="HFXTFAULT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="HFXT good indication.
+
+Indicates that HFXT started correctly. The frequency is not necessarily good enough for radio operation.
+This is only a one-time check at HFXT startup." id="HFXTGOOD" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="HFXTCTL" width="32" description="High frequency crystal control" id="HFXTCTL" offset="0x84">
+      <bitfield range="" begin="31" width="12" end="20" rwaccess="RW" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED20" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="19" width="12" end="8" rwaccess="RW" description="Skip potentially unstable clock cycles after enabling HFXT.
+Number of cycles skipped is 8*QUALDLY." id="QUALDLY" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Temperature compensated crystal oscillator mode.
+
+Set this bit if a TXCO is connected." id="TCXOMODE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Type of temperature compensated crystal used.
+
+Only has effect if TCXOMODE is set." id="TCXOTYPE" resetval="0x0">
+         <bitenum id="CMOS" value="1" token="Use with CMOS TCXO" description="Use with CMOS TCXO"/>
+         <bitenum id="CLIPPEDSINE" value="0" token="Use with clipped-sine TCXO" description="Use with clipped-sine TCXO"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="3" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Automatic HFXT enable.
+
+If this bit is set, EN will automatically be set at wakeup or before (using pre-wake mechanism in PMCTL)." id="AUTOEN" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="High performance clock buffer enable.
+
+This bit controls the clock output for the RF PLL.
+It is required for radio operation." id="HPBUFEN" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="HFXT enable.
+
+Setting this bit will enable HFXT. It will automatically be cleared upon STANDBY entry.
+If AUTOEN is set, this bit will be set automatically on wakeup or before (pre-wake mechanism in PMCTL)." id="EN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="LFOSCCTL" width="32" description="Low frequency oscillator control" id="LFOSCCTL" offset="0x8c">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="LFOSC enable" id="EN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="LFXTCTL" width="32" description="Low frequency crystal control" id="LFXTCTL" offset="0x90">
+      <bitfield range="" begin="31" width="17" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="2" end="13" rwaccess="RW" description="Leakage compensation control" id="LEAKCOMP" resetval="0x0">
+         <bitenum id="OFF" value="3" token="No leakage compensation" description="No leakage compensation"/>
+         <bitenum id="HALF" value="1" token="Half leakage compensation" description="Half leakage compensation"/>
+         <bitenum id="FULL" value="0" token="Full leakage compensation" description="Full leakage compensation"/>
+      </bitfield>
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="RW" description="Control the BIAS current of the input amp in LP buffer" id="BUFBIAS" resetval="0x0">
+         <bitenum id="MAX" value="1" token="Maximum bias current: 50nA" description="Maximum bias current: 50nA"/>
+         <bitenum id="MIN" value="0" token="Minimum bias current: 25nA" description="Minimum bias current: 25nA"/>
+      </bitfield>
+      <bitfield range="" begin="11" width="4" end="8" rwaccess="RW" description="Adjust current mirror ratio into oscillator core. This value is depending on crystal and is set by FW. This field uses a 2&#39;s complement encoding." id="AMPBIAS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="Boost oscillator amplitude
+
+This value depends on the crystal and needs to be configured by Firmware." id="BIASBOOST" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Regulation loop bias resistor value
+
+This value depends on the crystal and needs to be configured by Firmware." id="REGBIAS" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED3" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Control the buffer used. In normal operation, low-power buffer is used in all device modes. The high-performance buffer is only used for test purposes.
+" id="HPBUFEN" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Amplitude regulation loop enable" id="AMPREGEN" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="LFXT enable" id="EN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="LFQUALCTL" width="32" description="Low frequency clock qualification control" id="LFQUALCTL" offset="0x94">
+      <bitfield range="" begin="31" width="18" end="14" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED14" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="6" end="8" rwaccess="RW" description="Maximum LFCLK period error.
+
+Value given in microseconds, 3 integer bits + 3 fractional bits." id="MAXERR" resetval="0x20">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Number of consecutive times the LFCLK period error has to be 
+smaller than MAXERR to be considered &#34;good&#34;.
+Setting this value to 0 will bypass clock qualification,
+and the &#34;good&#34; indicator will always be 1." id="CONSEC" resetval="0x64">
+      </bitfield>
+   </register>
+   <register acronym="LFINCCTL" width="32" description="Low frequency time increment control" id="LFINCCTL" offset="0x98">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Controls if the LFINC filter prevents STANBY entry until settled.
+" id="PREVENTSTBY" resetval="0x1">
+         <bitenum id="ON" value="1" token="Enable. Prevent STANDBY entry." description="Enable. Prevent STANDBY entry."/>
+         <bitenum id="OFF" value="0" token="Disable. Do not prevent STANDBY entry." description="Disable. Do not prevent STANDBY entry."/>
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED30" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="22" end="8" rwaccess="RW" description="Integral part of the LFINC filter.
+
+This value is updated by Hardware to reflect the current state of the filter.
+It can also be written to change the current state." id="INT" resetval="0x1e8480">
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RW" description="Controls the final gear of the LFINC filter." id="STOPGEAR" resetval="0x0">
+         <bitenum id="HIGH" value="1" token="Highest final gear. Best dynamic frequency tracking, but higher variation in filter value." description="Highest final gear. Best dynamic frequency tracking, but higher variation in filter value."/>
+         <bitenum id="LOW" value="0" token="Lowest final gear. Best settling, but less dynamic frequency tracking." description="Lowest final gear. Best settling, but less dynamic frequency tracking."/>
+      </bitfield>
+      <bitfield range="" begin="6" width="2" end="5" rwaccess="RW" description="Controls the threshold for gearing restart of the LFINC filter.
+
+Only effective if GEARRSTRT is not ONETHR or TWOTHR." id="ERRTHR" resetval="0x0">
+         <bitenum id="SMALL" value="3" token="Restart gearing on small error. Potentially more false restarts, faster response on small frequency shifts." description="Restart gearing on small error. Potentially more false restarts, faster response on small frequency shifts."/>
+         <bitenum id="MIDSMALL" value="2" token="Middle value towards SMALL." description="Middle value towards SMALL."/>
+         <bitenum id="MIDLARGE" value="1" token="Middle value towards LARGE." description="Middle value towards LARGE."/>
+         <bitenum id="LARGE" value="0" token="Restart gearing on large error. Fewer false restarts, slower response on small frequency shifts." description="Restart gearing on large error. Fewer false restarts, slower response on small frequency shifts."/>
+      </bitfield>
+      <bitfield range="" begin="4" width="2" end="3" rwaccess="RW" description="Controls gearing restart of the LFINC filter." id="GEARRSTRT" resetval="0x2">
+         <bitenum id="TWOTHR" value="2" token="Restart gearing when the error accumulator crosses the threshold twice in a row." description="Restart gearing when the error accumulator crosses the threshold twice in a row."/>
+         <bitenum id="ONETHR" value="1" token="Restart gearing when the error accumulator crosses the threshold once." description="Restart gearing when the error accumulator crosses the threshold once."/>
+         <bitenum id="NEVER" value="0" token="Never restart gearing. Very stable filter value, but very slow response on frequency changes." description="Never restart gearing. Very stable filter value, but very slow response on frequency changes."/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Use a higher gear after re-enabling / wakeup.
+
+The filter will require 16-24 LFCLK periods to settle (depending on STOPGEAR), but may respond faster to frequency changes during STANDBY." id="SOFTRSTRT" resetval="0x1">
+         <bitenum id="ON" value="1" token="Use soft gearing restarts" description="Use soft gearing restarts"/>
+         <bitenum id="OFF" value="0" token="Don&#39;t use soft gearing restarts" description="Don&#39;t use soft gearing restarts"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="2" end="0" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="LFINCOVR" width="32" description="Low frequency time increment override control" id="LFINCOVR" offset="0x9c">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Override LF increment
+
+Use the value provided in LFINC instead of the value calculated by Hardware." id="OVERRIDE" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="9" end="22" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED22" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="21" width="22" end="0" rwaccess="RW" description="LF increment value
+
+This value is used when OVERRIDE is set to 1.
+Otherwise the value is calculated automatically." id="LFINC" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="HFTRACKCTL" width="32" description="High frequency tracking loop control" id="HFTRACKCTL" offset="0xa4">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Enable tracking loop." id="EN" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RW" description="Bypass Delta-Sigma-Modulation of fine trim." id="DSMBYP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="2" end="28" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED28" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="27" width="2" end="26" rwaccess="RW" description="Select the reference clock for the tracking loop.
+Change only while the tracking loop is disabled." id="REFCLK" resetval="0x0">
+         <bitenum id="GPI" value="2" token="Select GPI as reference clock." description="Select GPI as reference clock."/>
+         <bitenum id="LRF" value="1" token="Select LRF reference clock." description="Select LRF reference clock."/>
+         <bitenum id="HFXT" value="0" token="Select HFXT as reference clock." description="Select HFXT as reference clock."/>
+      </bitfield>
+      <bitfield range="" begin="25" width="26" end="0" rwaccess="RW" description="Reference clock ratio.
+
+RATIO = 24MHz / (2*reference-frequency) * 2^24
+Commonly used reference clock frequencies are provided as enumerations.
+" id="RATIO" resetval="0x400000">
+         <bitenum id="REF4M" value="50331648" token="Use for 4MHz reference clock" description="Use for 4MHz reference clock"/>
+         <bitenum id="REF8M" value="25165824" token="Use for 8MHz reference clock" description="Use for 8MHz reference clock"/>
+         <bitenum id="REF48M" value="4194304" token="Use for 48MHz reference clock" description="Use for 48MHz reference clock"/>
+      </bitfield>
+   </register>
+   <register acronym="NABIASCTL" width="32" description="Nanoamp-bias control" id="NABIASCTL" offset="0xac">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Enable nanoamp-bias" id="EN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="LFMONCTL" width="32" description="Low-frequency clock-monitor control" id="LFMONCTL" offset="0xb0">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Enable LFMONITOR.
+Enable only after a LF clock source has been selected, enabled and is stable.
+If LFMONITOR detects a clock loss, the system will be reset." id="EN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="LFCLKSEL" width="32" description="Low frequency clock selection" id="LFCLKSEL" offset="0xc0">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="2" end="2" rwaccess="RW" description="Select low frequency clock source for the PRELFCLK interrupt.
+
+Can be used by Software to confirm that the clock is running and it&#39;s frequency is good, before selecting it in MAIN." id="PRE" resetval="0x0">
+         <bitenum id="EXTLF" value="3" token="External LF clock through GPI." description="External LF clock through GPI."/>
+         <bitenum id="LFXT" value="2" token="Low frequency crystal oscillator" description="Low frequency crystal oscillator"/>
+         <bitenum id="LFOSC" value="1" token="Low frequency on-chip oscillator" description="Low frequency on-chip oscillator"/>
+         <bitenum id="NONE" value="0" token="No clock. Output will be tied low." description="No clock. Output will be tied low."/>
+      </bitfield>
+      <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Select the main low frequency clock source.
+
+If running, this clock will be used to generate LFTICK and as CLKULL during STANDBY.
+If not running, LFTICK will be generated from HFOSC and STANDBY entry will be prevented." id="MAIN" resetval="0x0">
+         <bitenum id="EXTLF" value="3" token="External LF clock through GPI." description="External LF clock through GPI."/>
+         <bitenum id="LFXT" value="2" token="Low frequency crystal oscillator" description="Low frequency crystal oscillator"/>
+         <bitenum id="LFOSC" value="1" token="Low frequency on-chip oscillator" description="Low frequency on-chip oscillator"/>
+         <bitenum id="FAKE" value="0" token="No LF clock selected. LFTICK will be generated from HFOSC, STANDBY entry will be prevented." description="No LF clock selected. LFTICK will be generated from HFOSC, STANDBY entry will be prevented."/>
+      </bitfield>
+   </register>
+   <register acronym="ADCCLKSEL" width="32" description="ADC clock selection" id="ADCCLKSEL" offset="0xc8">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Select ADC clock source
+
+Change only while ADC is disabled." id="SRC" resetval="0x0">
+         <bitenum id="HFXT" value="1" token="48MHz HFXT" description="48MHz HFXT"/>
+         <bitenum id="CLKSVT" value="0" token="48MHz CLKSVT" description="48MHz CLKSVT"/>
+      </bitfield>
+   </register>
+   <register acronym="LFCLKSTAT" width="32" description="Low-frequency clock status" id="LFCLKSTAT" offset="0xe0">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Low frequency clock good
+
+Note: This is only a coarse frequency check based on LFQUALCTL. The clock may not be accurate enough for timing purposes." id="GOOD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="5" end="26" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED26" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="25" width="1" end="25" rwaccess="RO" description="LFINC filter is running and settled." id="FLTSETTLED" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="24" width="1" end="24" rwaccess="RO" description="Source of LFTICK." id="LFTICKSRC" resetval="0x0">
+         <bitenum id="FAKE" value="1" token="LFTICK generated from CLKULL (LFCLK not available)" description="LFTICK generated from CLKULL (LFCLK not available)"/>
+         <bitenum id="LFCLK" value="0" token="LFTICK generated from the selected LFCLK" description="LFTICK generated from the selected LFCLK"/>
+      </bitfield>
+      <bitfield range="" begin="23" width="2" end="22" rwaccess="RO" description="Source of LFINC used by the RTC.
+
+This value depends on LFINCOVR.OVERRIDE, LF clock availability, HF tracking loop status and the device state (ACTIVE/STANDBY)." id="LFINCSRC" resetval="0x0">
+         <bitenum id="FAKE" value="3" token="Using FAKE LFTICKs with corresponding LFINC value." description="Using FAKE LFTICKs with corresponding LFINC value."/>
+         <bitenum id="OVERRIDE" value="2" token="Using override value from LFINCOVR.LFINC" description="Using override value from LFINCOVR.LFINC"/>
+         <bitenum id="AVG" value="1" token="Using filtered / average value.
+This value is updated by hardware and can be read and updated in LFINCCTL.INT." description="Using filtered / average value.
+This value is updated by hardware and can be read and updated in LFINCCTL.INT."/>
+         <bitenum id="MEAS" value="0" token="Using measured value.
+This value is updated by hardware and can be read from LFINC." description="Using measured value.
+This value is updated by hardware and can be read from LFINC."/>
+      </bitfield>
+      <bitfield range="" begin="21" width="22" end="0" rwaccess="RO" description="Measured value of LFINC.
+
+Given in microseconds with 16 fractional bits.
+This value is calculated by Hardware.
+It is the LFCLK period according to CLKULL cycles." id="LFINC" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="HFXTSTAT" width="32" description="HFXT status information" id="HFXTSTAT" offset="0xe4">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED31" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="15" end="16" rwaccess="RO" description="HFXT startup time
+
+Can be used by software to plan starting HFXT ahead in time.
+Measured whenever HFXT is enabled in CLKULL periods (24MHz), from HFXTCTL.EN until the clock is good for radio operation (amplitude compensation is settled)." id="STARTUPTIME" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="14" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="HFXT clock fault
+
+Indicates a lower than expected HFXT frequency.
+HFXT will not recover from this fault, disabling and re-enabling HFXT is required." id="FAULT" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="HFXT clock available.
+
+The frequency is not necessarily good enough for radio operation." id="GOOD" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TRACKSTAT" width="32" description="HFOSC tracking loop status information" id="TRACKSTAT" offset="0xec">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RO" description="Current HFOSC tracking error valid
+
+This bit is one if the tracking loop is running and the error value is valid." id="LOOPERRVLD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED30" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="14" end="16" rwaccess="RO" description="Current HFOSC tracking error" id="LOOPERR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="3" end="13" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED13" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="12" width="13" end="0" rwaccess="RO" description="Current HFOSC Fine-trim value
+
+This field uses the internal fractional representation (sign, 4 integer bits, 8 fractional bits).
+The actual trim value applied to the oscillator is delta-sigma modulated 5 bits non-signed
+(inverted sign bit + integer bits).
+
+" id="FINETRIM" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="AMPSTAT" width="32" description="HFXT Amplitude Compensation Status" id="AMPSTAT" offset="0xf0">
+      <bitfield range="" begin="31" width="3" end="29" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED29" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="28" width="4" end="25" rwaccess="RO" description="Current AMPCOMP FSM state." id="STATE" resetval="0x0">
+         <bitenum id="SETTLED" value="15" token="Settled state" description="Settled state"/>
+         <bitenum id="UPDATEUP" value="14" token="Amplitude up correction" description="Amplitude up correction"/>
+         <bitenum id="TXCOMODE" value="12" token="TCXO settled state" description="TCXO settled state"/>
+         <bitenum id="SHUTDN0" value="10" token="First shutdown state" description="First shutdown state"/>
+         <bitenum id="INJWAIT" value="7" token="Post injection settle wait" description="Post injection settle wait"/>
+         <bitenum id="UPDATEDN" value="6" token="Amplitude down correction" description="Amplitude down correction"/>
+         <bitenum id="RAMP0" value="5" token="Initial amplitude ramping with HFXTINIT values" description="Initial amplitude ramping with HFXTINIT values"/>
+         <bitenum id="RAMP1" value="4" token="Transition to HFXTTARG values" description="Transition to HFXTTARG values"/>
+         <bitenum id="INJECT" value="3" token="Injecting HFOSC for fast startup" description="Injecting HFOSC for fast startup"/>
+         <bitenum id="SHUTDN1" value="2" token="Second shutdown state" description="Second shutdown state"/>
+         <bitenum id="LDOSTART" value="1" token="Starting LDO" description="Starting LDO"/>
+         <bitenum id="IDLE" value="0" token="FSM in idle state" description="FSM in idle state"/>
+      </bitfield>
+      <bitfield range="" begin="24" width="7" end="18" rwaccess="RO" description="Current IDAC control value." id="IDAC" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="4" end="14" rwaccess="RO" description="Current IREF control value." id="IREF" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="13" width="6" end="8" rwaccess="RO" description="Current Q2CAP control value." id="Q2CAP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="6" end="2" rwaccess="RO" description="Current Q1CAP control value." id="Q1CAP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="HFXT control values match target values.
+
+This applies to IREF, Q1CAP, Q2CAP values." id="CTRLATTARGET" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="HFXT amplitude good" id="AMPGOOD" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DTBCTL" width="32" description="Digital test bus mux control" id="DTBCTL" offset="0x108">
+      <bitfield range="" begin="31" width="9" end="23" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED23" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="22" width="5" end="18" rwaccess="RW" description="Select data to output on DTB[15:11]" id="DSEL2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="5" end="13" rwaccess="RW" description="Select data to output on DTB[10:6]" id="DSEL1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="12" width="5" end="8" rwaccess="RW" description="Select data to output on DTB[5:1]" id="DSEL0" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RW" description="Select clock to output on DTB[0]" id="CLKSEL" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="3" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Enable DTB output" id="EN" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="HFXTINIT" width="32" description="Initial values for HFXT ramping" id="HFXTINIT" offset="0x118">
+      <bitfield range="" begin="31" width="2" end="30" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED30" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="7" end="23" rwaccess="RW" description="Amplitude threshold during HFXT ramping" id="AMPTHR" resetval="0x28">
+      </bitfield>
+      <bitfield range="" begin="22" width="7" end="16" rwaccess="RW" description="Initial HFXT IDAC current" id="IDAC" resetval="0x7f">
+      </bitfield>
+      <bitfield range="" begin="15" width="4" end="12" rwaccess="RW" description="Initial HFXT IREF current" id="IREF" resetval="0x8">
+      </bitfield>
+      <bitfield range="" begin="11" width="6" end="6" rwaccess="RW" description="Initial HFXT Q2 cap trim" id="Q2CAP" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="6" end="0" rwaccess="RW" description="Initial HFXT Q1 cap trim" id="Q1CAP" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="HFXTTARG" width="32" description="Target values for HFXT ramping" id="HFXTTARG" offset="0x11c">
+      <bitfield range="" begin="31" width="2" end="30" rwaccess="RW" description="ADC hysteresis used during IDAC updates.
+
+Every AMPCFG1.INTERVAL, IDAC will be regulated
+- up as long as ADC $lt; AMPTHR
+- down as long as ADC $gt; AMPTHR+AMPHYST" id="AMPHYST" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="29" width="7" end="23" rwaccess="RW" description="Minimum HFXT amplitude" id="AMPTHR" resetval="0x28">
+      </bitfield>
+      <bitfield range="" begin="22" width="7" end="16" rwaccess="RW" description="Minimum IDAC current" id="IDAC" resetval="0x46">
+      </bitfield>
+      <bitfield range="" begin="15" width="4" end="12" rwaccess="RW" description="Target HFXT IREF current" id="IREF" resetval="0x4">
+      </bitfield>
+      <bitfield range="" begin="11" width="6" end="6" rwaccess="RW" description="Target HFXT Q2 cap trim" id="Q2CAP" resetval="0x2d">
+      </bitfield>
+      <bitfield range="" begin="5" width="6" end="0" rwaccess="RW" description="Target HFXT Q1 cap trim" id="Q1CAP" resetval="0x2d">
+      </bitfield>
+   </register>
+   <register acronym="HFXTDYN" width="32" description="Alternative target values for HFXT configuration
+
+Software can change these values to dynamically transition the HFXT configuration while HFXT is running.
+Set SEL to select the alternative set of target values." id="HFXTDYN" offset="0x120">
+      <bitfield range="" begin="31" width="1" end="31" rwaccess="RW" description="Select the dynamic configuration.
+
+Amplitude ramping will always happen using the values in HFXTINIT, and HFXTTARG.
+Afterwards, this bit can be used to select between HFXTTARG and HFXTDYN.
+Hardware will ensure a smooth transition of analog control signals." id="SEL" resetval="0x0">
+         <bitenum id="DYNAMIC" value="1" token="Select configuration in HFXTDYN." description="Select configuration in HFXTDYN."/>
+         <bitenum id="TARGET" value="0" token="Select configuration in HFXTTARG." description="Select configuration in HFXTTARG."/>
+      </bitfield>
+      <bitfield range="" begin="30" width="1" end="30" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED30" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="29" width="7" end="23" rwaccess="RW" description="Minimum HFXT amplitude" id="AMPTHR" resetval="0x28">
+      </bitfield>
+      <bitfield range="" begin="22" width="7" end="16" rwaccess="RW" description="Minimum IDAC current" id="IDAC" resetval="0x46">
+      </bitfield>
+      <bitfield range="" begin="15" width="4" end="12" rwaccess="RW" description="Target HFXT IREF current" id="IREF" resetval="0x4">
+      </bitfield>
+      <bitfield range="" begin="11" width="6" end="6" rwaccess="RW" description="Target HFXT Q2 cap trim" id="Q2CAP" resetval="0x2d">
+      </bitfield>
+      <bitfield range="" begin="5" width="6" end="0" rwaccess="RW" description="Target HFXT Q1 cap trim" id="Q1CAP" resetval="0x2d">
+      </bitfield>
+   </register>
+   <register acronym="AMPCFG0" width="32" description="Amplitude Compensation Configuration 0" id="AMPCFG0" offset="0x124">
+      <bitfield range="" begin="31" width="4" end="28" rwaccess="RW" description="Q2CAP change delay.
+
+Number of clock cycles to wait before changing Q2CAP by one step.
+Clock frequency defined in FSMRATE." id="Q2DLY" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="27" width="4" end="24" rwaccess="RW" description="Q1CAP change delay.
+
+Number of clock cycles to wait before changing Q1CAP by one step.
+Clock frequency defined in FSMRATE." id="Q1DLY" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="23" width="4" end="20" rwaccess="RW" description="ADC and PEAKDET startup time.
+
+Number of clock cycles to wait after enabling the PEAKDET and ADC before the first measurement.
+Clock frequency defined in FSMRATE." id="ADCDLY" resetval="0x3">
+      </bitfield>
+      <bitfield range="" begin="19" width="5" end="15" rwaccess="RW" description="LDO startup time.
+
+Number of clock cycles to bypass the LDO resistors for faster startup.
+Clock frequency defined in FSMRATE." id="LDOSTART" resetval="0x9">
+      </bitfield>
+      <bitfield range="" begin="14" width="5" end="10" rwaccess="RW" description="Inject HFOSC for faster HFXT startup.
+
+This value specifies the number of clock cycles to wait after injection is done.
+The clock speed is defined in FSMRATE." id="INJWAIT" resetval="0x2">
+      </bitfield>
+      <bitfield range="" begin="9" width="5" end="5" rwaccess="RW" description="Inject HFOSC for faster HFXT startup.
+
+This value specifies the number of clock cycles the injection is enabled.
+The clock speed is defined in FSMRATE.
+Set to 0 to disable injection." id="INJTIME" resetval="0x4">
+      </bitfield>
+      <bitfield range="" begin="4" width="5" end="0" rwaccess="RW" description="Update rate for the AMPCOMP update rate.
+Also affects the clock rate for the Amplitude ADC.
+
+The update rate is 6MHz / (FSMRATE+1)." id="FSMRATE" resetval="0x2">
+         <bitenum id="_250K" value="23" token="250 kHz" description="250 kHz"/>
+         <bitenum id="_500K" value="11" token="500 kHz" description="500 kHz"/>
+         <bitenum id="_1M" value="5" token="1 MHz" description="1 MHz"/>
+         <bitenum id="_2M" value="2" token="2 MHz" description="2 MHz"/>
+         <bitenum id="_3M" value="1" token="3 MHz" description="3 MHz"/>
+         <bitenum id="_6M" value="0" token="6 MHz" description="6 MHz"/>
+      </bitfield>
+   </register>
+   <register acronym="AMPCFG1" width="32" description="Amplitude Compensation Configuration 1" id="AMPCFG1" offset="0x128">
+      <bitfield range="" begin="31" width="4" end="28" rwaccess="RW" description="IDAC change delay.
+
+Time to wait before changing IDAC by one step.
+This time needs to be long enough for the crystal to settle.
+The number of clock cycles to wait is IDACDLY$lt;$lt;4 + 15.
+Clock frequency defined in AMPCFG0.FSMRATE." id="IDACDLY" resetval="0x2">
+      </bitfield>
+      <bitfield range="" begin="27" width="4" end="24" rwaccess="RW" description="IREF change delay.
+
+Number of clock cycles to wait before changing IREF by one step.
+Clock frequency defined in AMPCFG0.FSMRATE." id="IREFDLY" resetval="0x6">
+      </bitfield>
+      <bitfield range="" begin="23" width="12" end="12" rwaccess="RW" description="Lifetime of the amplitude ADC bias value.
+This value specifies the number of adjustment intervals,
+until the ADC bias value has to be measured again.
+Set to 0 to disable automatic bias measurements." id="BIASLT" resetval="0xff">
+      </bitfield>
+      <bitfield range="" begin="11" width="12" end="0" rwaccess="RW" description="Interval for amplitude adjustments.
+Set to 0 to disable periodic adjustments.
+
+This value specifies the number of clock cycles between adjustments.
+The clock speed is defined in AMPCFG0.FSMRATE." id="INTERVAL" resetval="0xff">
+      </bitfield>
+   </register>
+   <register acronym="LOOPCFG" width="32" description="Configuration Register for the Tracking Loop" id="LOOPCFG" offset="0x12c">
+      <bitfield range="" begin="31" width="6" end="26" rwaccess="RW" description="Initial value for the resistor fine trim" id="FINETRIM_INIT" resetval="0x18">
+      </bitfield>
+      <bitfield range="" begin="25" width="5" end="21" rwaccess="RW" description="Number of error-updates using BOOST values, before using KI/KP" id="BOOST_TARGET" resetval="0x2">
+      </bitfield>
+      <bitfield range="" begin="20" width="3" end="18" rwaccess="RW" description="Proportional loop coefficient during BOOST" id="KP_BOOST" resetval="0x7">
+      </bitfield>
+      <bitfield range="" begin="17" width="3" end="15" rwaccess="RW" description="Integral loop coefficient during BOOST" id="KI_BOOST" resetval="0x4">
+      </bitfield>
+      <bitfield range="" begin="14" width="5" end="10" rwaccess="RW" description="Number of updates before HFOSC is considered &#34;settled&#34;" id="SETTLED_TARGET" resetval="0xc">
+      </bitfield>
+      <bitfield range="" begin="9" width="4" end="6" rwaccess="RW" description="Out-of-range threshold" id="OOR_LIMIT" resetval="0xe">
+      </bitfield>
+      <bitfield range="" begin="5" width="3" end="3" rwaccess="RW" description="Proportional loop coefficient" id="KP" resetval="0x6">
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Integral loop coefficient" id="KI" resetval="0x3">
+      </bitfield>
+   </register>
+   <register acronym="WDTCNT" width="32" description="WDT counter value register" id="WDTCNT" offset="0x300">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="Counter value.
+
+A write to this field immediately starts (or restarts) the counter. It will count down from the written value.
+If the counter reaches 0, a reset will be generated.
+A write value of 0 immediately generates a reset.
+
+This field is only writable if not locked. See WDTLOCK register.
+Writing this field will automatically activate the lock.
+
+A read returns the current value of the counter." id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="WDTTEST" width="32" description="WDT test mode register" id="WDTTEST" offset="0x304">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="WDT stall enable
+
+This field is only writable if not locked. See WDTLOCK register." id="STALLEN" resetval="0x0">
+         <bitenum id="EN" value="1" token="ENABLE
+
+WDT stops counting while the CPU is stopped by a debugger." description="ENABLE
+
+WDT stops counting while the CPU is stopped by a debugger."/>
+         <bitenum id="DIS" value="0" token="DISABLE
+
+WDT continues counting while the CPU is stopped by a debugger." description="DISABLE
+
+WDT continues counting while the CPU is stopped by a debugger."/>
+      </bitfield>
+   </register>
+   <register acronym="WDTLOCK" width="32" description="WDT lock register" id="WDTLOCK" offset="0x308">
+      <bitfield range="" begin="31" width="32" end="0" rwaccess="RW" description="A write with value 0x1ACCE551 unlocks the watchdog registers for write access.
+A write with any other value locks the watchdog registers for write access.
+Writing the WDTCNT register will also lock the watchdog registers.
+
+A read of this field returns the state of the lock (0=unlocked, 1=locked)." id="STAT" resetval="0x1">
+      </bitfield>
+   </register>
+</module>

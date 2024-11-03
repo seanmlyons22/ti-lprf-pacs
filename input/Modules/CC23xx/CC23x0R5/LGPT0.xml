@@ -1,0 +1,1851 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module id="LGPT0" HW_revision="" XML_version="1.0" description="This component is a general purpose timer. 
+The timer offers
+- generation of waveforms and events.
+- capture of signal period and duty cycle. 
+- generation of IR signals.
+- decoding of quadrature encoded signals.
+- motor control features.
+
+It consists of a
+- 16-bit counter.
+- 8-bit prescaler
+- 3 capture compare channels.
+- 3 event outputs.
+- 3 capture inputs.
+
+Each channel subscribes to the synchronous event bus. They can control one or more event outputs in both capture and compare modes. PRECFG.TICKSRC selects tick source for the timer. 
+
+" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="setup_parser.xsd">
+   <register acronym="DESC" width="32" description="Description Register. This register provides IP module ID, revision information, instance index and standard MMR registers offset." id="DESC" offset="0x0">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Module identifier used to uniquely identify this IP.
+" id="MODID" resetval="0xde49">
+      </bitfield>
+      <bitfield range="" begin="15" width="4" end="12" rwaccess="RO" description="Standard IP MMR block offset. Standard IP MMRs are the set of from aggregated IRQ registers till DTB.
+
+0: Standard IP MMRs do not exist
+
+0x1-0xF: Standard IP MMRs begin at offset of (64*STDIPOFF from the base IP address)" id="STDIPOFF" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="11" width="4" end="8" rwaccess="RO" description="IP Instance ID number. If multiple instances of IP exist in the device, this field can identify the instance number." id="INSTIDX" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="Major revision of IP." id="MAJREV" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Minor revision of IP." id="MINREV" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="DESCEX" width="32" description="Description Extended
+
+This register describes the parameters of the LGPT." id="DESCEX" offset="0x4">
+      <bitfield range="" begin="31" width="12" end="20" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED20" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="19" width="1" end="19" rwaccess="RO" description="Has IR logic." id="HIR" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="18" width="1" end="18" rwaccess="RO" description="Has Dead-Band, Fault, and Park logic." id="HDBF" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="17" width="4" end="14" rwaccess="RO" description="Prescale width. The prescaler can maximum be configured to 2^PREW-1." id="PREW" resetval="0x8">
+      </bitfield>
+      <bitfield range="" begin="13" width="1" end="13" rwaccess="RO" description="Has Quadrature Decoder." id="HQDEC" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="12" width="1" end="12" rwaccess="RO" description="Has channel input filter." id="HCIF" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="11" width="4" end="8" rwaccess="RO" description="Channel input filter size. The prevailing state filter can maximum be configured to 2^CIFS-1." id="CIFS" resetval="0x8">
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RO" description="Has uDMA output and logic." id="HDMA" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RO" description="Has interrupt output and logic." id="HINT" resetval="0x1">
+      </bitfield>
+      <bitfield range="" begin="5" width="2" end="4" rwaccess="RO" description="Counter bit-width.
+The maximum counter value is equal to 2^CNTRW-1.
+" id="CNTRW" resetval="0x0">
+         <bitenum id="RESERVED" value="3" token="RESERVED" description="RESERVED"/>
+         <bitenum id="CNTR32" value="2" token="32-bit counter." description="32-bit counter."/>
+         <bitenum id="CNTR24" value="1" token="24-bit counter." description="24-bit counter."/>
+         <bitenum id="CNTR16" value="0" token="16-bit counter." description="16-bit counter."/>
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RO" description="Number of channels." id="NCH" resetval="0x3">
+      </bitfield>
+   </register>
+   <register acronym="STARTCFG" width="32" description="Start Configuration
+
+This register is only for when CTL.MODE is configured to one of the SYNC modes.
+This register defines when this LGPT starts." id="STARTCFG" offset="0x8">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="LGPT start
+" id="LGPT0" resetval="0x0">
+         <bitenum id="EV_SYNC" value="0" token="LGPT starts when synchronized event input is high. Configured here EVTSVT.LGPTSYNCSEL." description="LGPT starts when synchronized event input is high. Configured here EVTSVT.LGPTSYNCSEL."/>
+      </bitfield>
+   </register>
+   <register acronym="CTL" width="32" description="Timer Control" id="CTL" offset="0xc">
+      <bitfield range="" begin="31" width="21" end="11" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="WO" description="Channel 2 reset." id="C2RST" resetval="0x0">
+         <bitenum id="RST" value="1" token="Reset C2CC, PC2CC, and C2CFG." description="Reset C2CC, PC2CC, and C2CFG."/>
+         <bitenum id="NOEFF" value="0" token="No effect." description="No effect."/>
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="WO" description="Channel 1 reset." id="C1RST" resetval="0x0">
+         <bitenum id="RST" value="1" token="Reset C1CC, PC1CC, and C1CFG." description="Reset C1CC, PC1CC, and C1CFG."/>
+         <bitenum id="NOEFF" value="0" token="No effect." description="No effect."/>
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="WO" description="Channel 0 reset." id="C0RST" resetval="0x0">
+         <bitenum id="RST" value="1" token="Reset C0CC, PC0CC, and C0CFG." description="Reset C0CC, PC0CC, and C0CFG."/>
+         <bitenum id="NOEFF" value="0" token="No effect." description="No effect."/>
+      </bitfield>
+      <bitfield range="" begin="7" width="2" end="6" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Interrupt Phase.
+This bit field controls when the RIS.TGT and RIS.ZERO interrupts are set." id="INTP" resetval="0x0">
+         <bitenum id="LATE" value="1" token="RIS.TGT and RIS.ZERO are set one timer clock cycle after CNTR = TARGET/ZERO." description="RIS.TGT and RIS.ZERO are set one timer clock cycle after CNTR = TARGET/ZERO."/>
+         <bitenum id="EARLY" value="0" token="RIS.TGT and RIS.ZERO are set one system clock cycle after CNTR = TARGET/ZERO." description="RIS.TGT and RIS.ZERO are set one system clock cycle after CNTR = TARGET/ZERO."/>
+      </bitfield>
+      <bitfield range="" begin="4" width="2" end="3" rwaccess="RW" description="Compare direction.
+
+This bit field controls the direction the counter must have in order to set the RIS compare interrupts." id="CMPDIR" resetval="0x0">
+         <bitenum id="RESERVED" value="3" token="RESERVED" description="RESERVED"/>
+         <bitenum id="DOWN" value="2" token="Compare RIS fields are only set on down count." description="Compare RIS fields are only set on down count."/>
+         <bitenum id="UP" value="1" token="Compare RIS fields are only set on up count." description="Compare RIS fields are only set on up count."/>
+         <bitenum id="BOTH" value="0" token="Compare RIS fields are set on up count and down count." description="Compare RIS fields are set on up count and down count."/>
+      </bitfield>
+      <bitfield range="" begin="2" width="3" end="0" rwaccess="RW" description="Timer mode control
+
+The CNTR restarts from 0 when MODE is written to UP_ONCE, UP_PER, UPDWN_PER, QDEC, SYNC_UP_ONCE, SYNC_UP_PER or SYNC_UPDWN_PER.
+
+When writing MODE all internally queued updates to the channels and TGT is cleared.
+
+When configuring the timer, MODE should be the last thing to configure. If changing timer configuration after MODE has been set is necessary, instructions, if any, given in the configuration registers should be followed. See for example C0CFG.
+" id="MODE" resetval="0x0">
+         <bitenum id="SYNC_UPDWN_PER" value="7" token="Start counting up and down periodically synchronous to another LGPT,  selected within STARTCFG. The timer is started by setting CTL.MODE = UPDWN_PER automatically. 
+It then operates as a normal timer in CTL.MODE = UPDWN_PER, counting from 0 to target value and back to 0, repeatedly.
+
+Period =  (target value * 2) * timer clock period" description="Start counting up and down periodically synchronous to another LGPT,  selected within STARTCFG. The timer is started by setting CTL.MODE = UPDWN_PER automatically. 
+It then operates as a normal timer in CTL.MODE = UPDWN_PER, counting from 0 to target value and back to 0, repeatedly.
+
+Period =  (target value * 2) * timer clock period"/>
+         <bitenum id="SYNC_UP_PER" value="6" token="Start counting up periodically synchronous to another LGPT,  selected within STARTCFG. The timer is started by setting CTL.MODE = UP_PER automatically. 
+It then operates as a normal timer in CTL.MODE = UP_PER, incrementing from 0 to target value, repeatedly.
+
+Period =  (target value * 2) * timer clock period
+" description="Start counting up periodically synchronous to another LGPT,  selected within STARTCFG. The timer is started by setting CTL.MODE = UP_PER automatically. 
+It then operates as a normal timer in CTL.MODE = UP_PER, incrementing from 0 to target value, repeatedly.
+
+Period =  (target value * 2) * timer clock period
+"/>
+         <bitenum id="SYNC_UP_ONCE" value="5" token="Start counting up once synchronous to another LGPT, selected within STARTCFG. The timer is started by setting CTL.MODE = UP_ONCE automatically. 
+It then functions as a normal timer in CTL.MODE = UP_ONCE, incrementing from 0 to target value,  then stops and sets MODE to DIS.
+" description="Start counting up once synchronous to another LGPT, selected within STARTCFG. The timer is started by setting CTL.MODE = UP_ONCE automatically. 
+It then functions as a normal timer in CTL.MODE = UP_ONCE, incrementing from 0 to target value,  then stops and sets MODE to DIS.
+"/>
+         <bitenum id="QDEC" value="4" token="The timer functions as a quadrature decoder. IOC input 0, IOC input 1 and IOC input 2 are used respectivly as PHA, PHB and IDX inputs. IDX can be turned off by setting C2CFG.EDGE = NONE.
+The timer clock frequency sets the sample rate of the QDEC logic. This frequency can be configured in PRECFG." description="The timer functions as a quadrature decoder. IOC input 0, IOC input 1 and IOC input 2 are used respectivly as PHA, PHB and IDX inputs. IDX can be turned off by setting C2CFG.EDGE = NONE.
+The timer clock frequency sets the sample rate of the QDEC logic. This frequency can be configured in PRECFG."/>
+         <bitenum id="UPDWN_PER" value="3" token="Count up and down periodically. The timer counts from 0 to target value and back to 0, repeatedly.
+
+Period =  (target value * 2) * timer clock period" description="Count up and down periodically. The timer counts from 0 to target value and back to 0, repeatedly.
+
+Period =  (target value * 2) * timer clock period"/>
+         <bitenum id="UP_PER" value="2" token="Count up periodically. The timer increments from 0 to target value, repeatedly.
+
+Period = (target value + 1) * timer clock period" description="Count up periodically. The timer increments from 0 to target value, repeatedly.
+
+Period = (target value + 1) * timer clock period"/>
+         <bitenum id="UP_ONCE" value="1" token="Count up once. The timer increments from 0 to target value,  then stops and sets MODE to DIS." description="Count up once. The timer increments from 0 to target value,  then stops and sets MODE to DIS."/>
+         <bitenum id="DIS" value="0" token="Disable timer. Updates to counter, channels, and events stop." description="Disable timer. Updates to counter, channels, and events stop."/>
+      </bitfield>
+   </register>
+   <register acronym="OUTCTL" width="32" description="Output Control
+
+Set and clear individual outputs manually. Manual update of an output takes priority over automatic channel updates to the same output. It is not possible to set and clear an output at the same time, such requests will be neglected.
+
+An output can be automatically cleared, set, toggled, or pulsed by each channel, listed in decreasing order of priority. The action with highest priority happens when multiple channels want to update an output at the same time.
+
+All outputs are connected to the event fabric and the IO controller. The outputs going to the IO controller have an aditional complementary output, this output is the inverted IO output. Both the IO and the IO complementary outputs are passed through an IO Controller, see IOCTL.
+" id="OUTCTL" offset="0x10">
+      <bitfield range="" begin="31" width="26" end="6" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED6" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="WO" description="Set output 2.
+
+Write 1 to set output 2." id="SETOUT2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="WO" description="Clear output 2.
+
+Write 1 to clear output 2." id="CLROUT2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="WO" description="Set output 1.
+
+Write 1 to set output 1." id="SETOUT1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="WO" description="Clear output 1.
+
+Write 1 to clear output 1." id="CLROUT1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="Set output 0.
+
+Write 1 to set output 0." id="SETOUT0" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="Clear output 0.
+
+Write 1 to clear output 0." id="CLROUT0" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CNTR" width="32" description="Counter
+The counter of this timer. After CTL.MODE is set the counter updates at the rate specified in PRECFG." id="CNTR" offset="0x14">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Current counter value.
+If CTL.MODE = QDEC this can be used to set the initial counter value during QDEC. " id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PRECFG" width="32" description="Clock Prescaler Configuration
+
+This register is used to set the timer clock period. The prescaler is a counter which counts down from the value TICKDIV. When the prescaler counter reaches zero, CNTR is updated. The field TICKDIV effectively divides the prescaler tick source. The timer clock frequency can be calculated as TICKSRC/(TICKDIV+1)." id="PRECFG" offset="0x18">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="8" end="8" rwaccess="RW" description="Tick division.
+
+TICKDIV determines the timer clock frequency for the counter, and timer output updates. The timer clock frequency is the clock selected by TICKSRC divided by (TICKDIV + 1). This inverse is the timer clock period.
+
+0x00: Divide by 1.
+0x01: Divide by 2.
+... 
+0xFF: Divide by 256." id="TICKDIV" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="6" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Prescaler tick source.
+
+TICKSRC determines the source which decrements the prescaler." id="TICKSRC" resetval="0x0">
+         <bitenum id="BOTH_TICK" value="3" token="Prescaler is updated at both edges of TICKEN." description="Prescaler is updated at both edges of TICKEN."/>
+         <bitenum id="FALL_TICK" value="2" token="Prescaler is updated at the falling edge of TICKEN." description="Prescaler is updated at the falling edge of TICKEN."/>
+         <bitenum id="RISE_TICK" value="1" token="Prescaler is updated at the rising edge of TICKEN." description="Prescaler is updated at the rising edge of TICKEN."/>
+         <bitenum id="CLK" value="0" token="Prescaler is updated at the system clock." description="Prescaler is updated at the system clock."/>
+      </bitfield>
+   </register>
+   <register acronym="PREEVENT" width="32" description="Prescaler Event
+
+This register is used to output a logic high signal before the zero crossing of the prescaler counter. The output is routed to the IOC." id="PREEVENT" offset="0x1c">
+      <bitfield range="" begin="31" width="24" end="8" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED8" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="8" end="0" rwaccess="RW" description="Sets the HIGH time of the prescaler event output. 
+
+Event goes high when the prescaler counter equals VAL. Event goes low when prescaler counter is 0.
+
+Note:
+- Can be used to precharge or turn an external component on for a short time before sampling, like in QDEC.
+- If there is a requirement to create such events that have very short periods compared to timer clock period, use two timers. One timer acts as prescaler and event generator for another timer." id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="CHFILT" width="32" description="Channel Input Filter
+
+This register is used to configure the filter on the channel inputs. The configuration is for all inputs.
+The filter is enabled when a channel is in capture mode.
+
+The input to the filter is passed to the edge detection logic if LOAD + 1 consecutive input samples are equal. The filter functions as a down counter, counting down every input sample.
+If two consecutive samples are unequal, the filter counter restarts from LOAD.
+If the filter counter reaches zero, the input signal is valid and passed to the edge detection logic.
+
+The channel filter should only be configured while the CTL.MODE = DIS. Configuring the filter while the timer is running can result in unexpected behavior." id="CHFILT" offset="0x20">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="8" end="8" rwaccess="RW" description="The input of the channel filter is passed to the edge detection logic after LOAD + 1 consecutive equal samples." id="LOAD" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="6" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="Channel filter mode" id="MODE" resetval="0x0">
+         <bitenum id="TIMERCLK" value="3" token="Filter is clocked by timer clock." description="Filter is clocked by timer clock."/>
+         <bitenum id="TICKSRC" value="2" token="Filter is clocked by PRECFG.TICKSRC." description="Filter is clocked by PRECFG.TICKSRC."/>
+         <bitenum id="CLK" value="1" token="Filter is clocked by system clock." description="Filter is clocked by system clock."/>
+         <bitenum id="BYPASS" value="0" token="Filter is bypassed. No Filter is used." description="Filter is bypassed. No Filter is used."/>
+      </bitfield>
+   </register>
+   <register acronym="QDECSTAT" width="32" description="Quadrature Decoder Status
+
+This register can be used during QDEC mode to check the status of the quadrature decoder." id="QDECSTAT" offset="0x34">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Double transition" id="DBLTRANS" resetval="0x0">
+         <bitenum id="DBL" value="1" token="Double transition on phase inputs." description="Double transition on phase inputs."/>
+         <bitenum id="NONE" value="0" token="Single or no transition on phase inputs." description="Single or no transition on phase inputs."/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Direction of count during QDEC mode." id="QDIR" resetval="0x0">
+         <bitenum id="DOWN" value="1" token="Down (PHB leads PHA)" description="Down (PHB leads PHA)"/>
+         <bitenum id="UP" value="0" token="Up (PHA leads PHB)" description="Up (PHA leads PHB)"/>
+      </bitfield>
+   </register>
+   <register acronym="IRGEN" width="32" description="IR Generation
+
+Use this register to generate IR codes. When CTL = 1, an AND gate is enabled between IO output 0 in LGPT0 and IC output 0 in LGPT1. The output of the gate overrides IO output 0 in LGPT0. See OUTCTL for explanation of outputs. 
+
+To generate IR codes let LGPT0 generate the carrier wave on output 0. Set this output as tick input of LGPT1, with PRECFG.TICKSRC = FALL_TICK. 
+Generate wanted IR codes by adjusting LGPT1 PTGT and PC0CC. " id="IRGEN" offset="0x38">
+      <bitfield range="" begin="31" width="31" end="1" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED1" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Control
+" id="CTL" resetval="0x0">
+         <bitenum id="EN" value="1" token="Enable." description="Enable."/>
+         <bitenum id="DIS" value="0" token="Disable." description="Disable."/>
+      </bitfield>
+   </register>
+   <register acronym="DMA" width="32" description="Direct Memory Accsess
+
+This register is used to enable DMA requests from the timer and set the register addresses which the DMA will access (read/write).
+Choose DMA request source by setting the REQ field. The setting of the corresponding interrupt in the RIS registers also sets the DMA request. 
+Upon a DMA request defined by REQ an internal address pointer is set to RWADDR*4. Every access to DMARW will increment the internal pointer by 4 such that the next DMA access will be to the next register.
+The internal pointer will stop after RWCNTR increments. Further access will be ignored." id="DMA" offset="0x3c">
+      <bitfield range="" begin="31" width="12" end="20" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED20" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="19" width="4" end="16" rwaccess="RW" description="The read/write counter. RWCNTR+1 is the number of times the DMA can access (read/write) the DMARW register. For each DMA access to DMARW an internal counter is incremented, writing to the next address field. RWADDR + 4*RWCNTR is the final register address which can be accessed by the DMA." id="RWCNTR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="1" end="15" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED15" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="14" width="7" end="8" rwaccess="RW" description="The base address which the DMA access when reading/writing DMARW.  The base address is set by taking the 9 LSB of the physical address and divide by 4.
+For example, if you wanted the RWADDR to point to the PTGT register you should set RWADDR = 0x0FC/4." id="RWADDR" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="7" width="4" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="" id="REQ" resetval="0x0">
+         <bitenum id="C11CC" value="15" token="Setting of RIS.C11CC generates a DMA request." description="Setting of RIS.C11CC generates a DMA request."/>
+         <bitenum id="C10CC" value="14" token="Setting of RIS.C10CC generates a DMA request." description="Setting of RIS.C10CC generates a DMA request."/>
+         <bitenum id="C9CC" value="13" token="Setting of RIS.C9CC generates a DMA request." description="Setting of RIS.C9CC generates a DMA request."/>
+         <bitenum id="C8CC" value="12" token="Setting of RIS.C8CC generates a DMA request." description="Setting of RIS.C8CC generates a DMA request."/>
+         <bitenum id="C7CC" value="11" token="Setting of RIS.C7CC generates a DMA request." description="Setting of RIS.C7CC generates a DMA request."/>
+         <bitenum id="C6CC" value="10" token="Setting of RIS.C6CC generates a DMA request." description="Setting of RIS.C6CC generates a DMA request."/>
+         <bitenum id="C5CC" value="9" token="Setting of RIS.C5CC generates a DMA request." description="Setting of RIS.C5CC generates a DMA request."/>
+         <bitenum id="C4CC" value="8" token="Setting of RIS.C4CC generates a DMA request." description="Setting of RIS.C4CC generates a DMA request."/>
+         <bitenum id="C3CC" value="7" token="Setting of RIS.C3CC generates a DMA request." description="Setting of RIS.C3CC generates a DMA request."/>
+         <bitenum id="C2CC" value="6" token="Setting of RIS.C2CC generates a DMA request." description="Setting of RIS.C2CC generates a DMA request."/>
+         <bitenum id="C1CC" value="5" token="Setting of RIS.C1CC generates a DMA request." description="Setting of RIS.C1CC generates a DMA request."/>
+         <bitenum id="C0CC" value="4" token="Setting of RIS.C0CC generates a DMA request." description="Setting of RIS.C0CC generates a DMA request."/>
+         <bitenum id="FAULT" value="3" token="Setting of RIS.FAULT generates a DMA request." description="Setting of RIS.FAULT generates a DMA request."/>
+         <bitenum id="ZERO" value="2" token="Setting of RIS.ZERO generates a DMA request." description="Setting of RIS.ZERO generates a DMA request."/>
+         <bitenum id="TGT" value="1" token="Setting of RIS.TGT generates a DMA request.
+" description="Setting of RIS.TGT generates a DMA request.
+"/>
+         <bitenum id="DIS" value="0" token="Disabled" description="Disabled"/>
+      </bitfield>
+   </register>
+   <register acronym="DMARW" width="32" description="Direct Memory Access
+
+This register is used by the DMA to access (read/write) register inside this LGPT module.
+Each access to this register will increment the internal DMA address counter. See DMA for description." id="DMARW" offset="0x40">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="DMA read write value.
+
+The value that is read/written from/to the registers." id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="ADCTRG" width="32" description="ADC Trigger
+
+This register is used to enable ADC trigger from the timer. 
+Choose ADC trigger source by setting the SRC field. The setting of the corresponding interrupt in the RIS registers also sets the ADC trigger. " id="ADCTRG" offset="0x44">
+      <bitfield range="" begin="31" width="28" end="4" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED4" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="" id="SRC" resetval="0x0">
+         <bitenum id="C11CC" value="15" token="Setting of RIS.C11CC generates an ADC trigger." description="Setting of RIS.C11CC generates an ADC trigger."/>
+         <bitenum id="C10CC" value="14" token="Setting of RIS.C10CC generates an ADC trigger." description="Setting of RIS.C10CC generates an ADC trigger."/>
+         <bitenum id="C9CC" value="13" token="Setting of RIS.C9CC generates an ADC trigger." description="Setting of RIS.C9CC generates an ADC trigger."/>
+         <bitenum id="C8CC" value="12" token="Setting of RIS.C8CC generates an ADC trigger." description="Setting of RIS.C8CC generates an ADC trigger."/>
+         <bitenum id="C7CC" value="11" token="Setting of RIS.C7CC generates an ADC trigger." description="Setting of RIS.C7CC generates an ADC trigger."/>
+         <bitenum id="C6CC" value="10" token="Setting of RIS.C6CC generates an ADC trigger." description="Setting of RIS.C6CC generates an ADC trigger."/>
+         <bitenum id="C5CC" value="9" token="Setting of RIS.C5CC generates an ADC trigger." description="Setting of RIS.C5CC generates an ADC trigger."/>
+         <bitenum id="C4CC" value="8" token="Setting of RIS.C4CC generates an ADC trigger." description="Setting of RIS.C4CC generates an ADC trigger."/>
+         <bitenum id="C3CC" value="7" token="Setting of RIS.C3CC generates an ADC trigger." description="Setting of RIS.C3CC generates an ADC trigger."/>
+         <bitenum id="C2CC" value="6" token="Setting of RIS.C2CC generates an ADC trigger." description="Setting of RIS.C2CC generates an ADC trigger."/>
+         <bitenum id="C1CC" value="5" token="Setting of RIS.C1CC generates an ADC trigger." description="Setting of RIS.C1CC generates an ADC trigger."/>
+         <bitenum id="C0CC" value="4" token="Setting of RIS.C0CC generates an ADC trigger." description="Setting of RIS.C0CC generates an ADC trigger."/>
+         <bitenum id="FAULT" value="3" token="Setting of RIS.FAULT generates an ADC trigger." description="Setting of RIS.FAULT generates an ADC trigger."/>
+         <bitenum id="ZERO" value="2" token="Setting of RIS.ZERO generates an ADC trigger." description="Setting of RIS.ZERO generates an ADC trigger."/>
+         <bitenum id="TGT" value="1" token="Setting of RIS.TGT generates an ADC trigger.
+" description="Setting of RIS.TGT generates an ADC trigger.
+"/>
+         <bitenum id="DIS" value="0" token="Disabled" description="Disabled"/>
+      </bitfield>
+   </register>
+   <register acronym="IOCTL" width="32" description="IO Controller
+
+This register controls the IO outputs." id="IOCTL" offset="0x48">
+      <bitfield range="" begin="31" width="20" end="12" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED12" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="11" width="2" end="10" rwaccess="RW" description="IO complementary output 2 control
+
+This bit field controls IO complementary output 2. " id="COUT2" resetval="0x0">
+         <bitenum id="INV" value="3" token="Inverted value. The IO complementary output is inverted." description="Inverted value. The IO complementary output is inverted."/>
+         <bitenum id="HIGH" value="2" token="Driven high. The IO complementary output is driven high." description="Driven high. The IO complementary output is driven high."/>
+         <bitenum id="LOW" value="1" token="Driven low. The IO complementary output is driven low." description="Driven low. The IO complementary output is driven low."/>
+         <bitenum id="NRM" value="0" token="Normal output. The IO complementary output is not changed." description="Normal output. The IO complementary output is not changed."/>
+      </bitfield>
+      <bitfield range="" begin="9" width="2" end="8" rwaccess="RW" description="IO output 2 control
+
+This bit field controls IO output 2. " id="OUT2" resetval="0x0">
+         <bitenum id="INV" value="3" token="Inverted value. The IO output is inverted." description="Inverted value. The IO output is inverted."/>
+         <bitenum id="HIGH" value="2" token="Driven high. The IO output is driven high." description="Driven high. The IO output is driven high."/>
+         <bitenum id="LOW" value="1" token="Driven low. The IO output is driven low." description="Driven low. The IO output is driven low."/>
+         <bitenum id="NRM" value="0" token="Normal output. The IO output is not changed." description="Normal output. The IO output is not changed."/>
+      </bitfield>
+      <bitfield range="" begin="7" width="2" end="6" rwaccess="RW" description="IO complementary output 1 control
+
+This bit field controls IO complementary output 1. " id="COUT1" resetval="0x0">
+         <bitenum id="INV" value="3" token="Inverted value. The IO complementary output is inverted." description="Inverted value. The IO complementary output is inverted."/>
+         <bitenum id="HIGH" value="2" token="Driven high. The IO complementary output is driven high." description="Driven high. The IO complementary output is driven high."/>
+         <bitenum id="LOW" value="1" token="Driven low. The IO complementary output is driven low." description="Driven low. The IO complementary output is driven low."/>
+         <bitenum id="NRM" value="0" token="Normal output. The IO complementary output is not changed." description="Normal output. The IO complementary output is not changed."/>
+      </bitfield>
+      <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="IO output 1 control
+
+This bit field controls IO output 1. " id="OUT1" resetval="0x0">
+         <bitenum id="INV" value="3" token="Inverted value. The IO output is inverted." description="Inverted value. The IO output is inverted."/>
+         <bitenum id="HIGH" value="2" token="Driven high. The IO output is driven high." description="Driven high. The IO output is driven high."/>
+         <bitenum id="LOW" value="1" token="Driven low. The IO output is driven low." description="Driven low. The IO output is driven low."/>
+         <bitenum id="NRM" value="0" token="Normal output. The IO output is not changed." description="Normal output. The IO output is not changed."/>
+      </bitfield>
+      <bitfield range="" begin="3" width="2" end="2" rwaccess="RW" description="IO complementary output 0 control
+
+This bit field controls IO complementary output 0. " id="COUT0" resetval="0x0">
+         <bitenum id="INV" value="3" token="Inverted value. The IO complementary output is inverted." description="Inverted value. The IO complementary output is inverted."/>
+         <bitenum id="HIGH" value="2" token="Driven high. The IO complementary output is driven high." description="Driven high. The IO complementary output is driven high."/>
+         <bitenum id="LOW" value="1" token="Driven low. The IO complementary output is driven low." description="Driven low. The IO complementary output is driven low."/>
+         <bitenum id="NRM" value="0" token="Normal output. The IO complementary output is not changed." description="Normal output. The IO complementary output is not changed."/>
+      </bitfield>
+      <bitfield range="" begin="1" width="2" end="0" rwaccess="RW" description="IO output 0 control
+
+This bit field controls IO output 0. " id="OUT0" resetval="0x0">
+         <bitenum id="INV" value="3" token="Inverted value. The IO output is inverted." description="Inverted value. The IO output is inverted."/>
+         <bitenum id="HIGH" value="2" token="Driven high. The IO output is driven high." description="Driven high. The IO output is driven high."/>
+         <bitenum id="LOW" value="1" token="Driven low. The IO output is driven low." description="Driven low. The IO output is driven low."/>
+         <bitenum id="NRM" value="0" token="Normal output. The IO output is not changed." description="Normal output. The IO output is not changed."/>
+      </bitfield>
+   </register>
+   <register acronym="IMASK" width="32" description="Interrupt mask. This register selects interrupt sources which are allowed to pass from RIS to MIS when the corresponding bit-fields are set to 1." id="IMASK" offset="0x68">
+      <bitfield range="" begin="31" width="21" end="11" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Enable RIS.C2CC interrupt." id="C2CC" resetval="0x0">
+         <bitenum id="EN" value="1" token="Enable" description="Enable"/>
+         <bitenum id="DIS" value="0" token="Disable" description="Disable"/>
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Enable RIS.C1CC interrupt." id="C1CC" resetval="0x0">
+         <bitenum id="EN" value="1" token="Enable" description="Enable"/>
+         <bitenum id="DIS" value="0" token="Disable" description="Disable"/>
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Enable RIS.C0CC interrupt." id="C0CC" resetval="0x0">
+         <bitenum id="EN" value="1" token="Enable" description="Enable"/>
+         <bitenum id="DIS" value="0" token="Disable" description="Disable"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED7" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Enable RIS.FAULT interrupt." id="FAULT" resetval="0x0">
+         <bitenum id="EN" value="1" token="Enable" description="Enable"/>
+         <bitenum id="DIS" value="0" token="Disable" description="Disable"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RW" description="Enable RIS.IDX interrupt." id="IDX" resetval="0x0">
+         <bitenum id="EN" value="1" token="Enable" description="Enable"/>
+         <bitenum id="DIS" value="0" token="Disable" description="Disable"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RW" description="Enable RIS.DIRCHNG interrupt." id="DIRCHNG" resetval="0x0">
+         <bitenum id="EN" value="1" token="Enable" description="Enable"/>
+         <bitenum id="DIS" value="0" token="Disable" description="Disable"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RW" description="Enable RIS.CNTRCHNG interrupt." id="CNTRCHNG" resetval="0x0">
+         <bitenum id="EN" value="1" token="Enable" description="Enable"/>
+         <bitenum id="DIS" value="0" token="Disable" description="Disable"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RW" description="Enable RIS.DBLTRANS interrupt." id="DBLTRANS" resetval="0x0">
+         <bitenum id="EN" value="1" token="Enable" description="Enable"/>
+         <bitenum id="DIS" value="0" token="Disable" description="Disable"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Enable RIS.ZERO interrupt." id="ZERO" resetval="0x0">
+         <bitenum id="EN" value="1" token="Enable" description="Enable"/>
+         <bitenum id="DIS" value="0" token="Disable" description="Disable"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Enable RIS.TGT interrupt." id="TGT" resetval="0x0">
+         <bitenum id="EN" value="1" token="Enable" description="Enable"/>
+         <bitenum id="DIS" value="0" token="Disable" description="Disable"/>
+      </bitfield>
+   </register>
+   <register acronym="RIS" width="32" description="Raw interrupt status. This register reflects the state of all pending interrupts, regardless of masking. This register allows the user to implement a poll scheme. A flag set in this register can be cleared by writing 1 to the corresponding ICLR register bit." id="RIS" offset="0x6c">
+      <bitfield range="" begin="31" width="21" end="11" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="RO" description="Status of the C2CC interrupt. The interrupt is set when C2CC has capture or compare event. " id="C2CC" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="CLR" value="0" token="Cleared" description="Cleared"/>
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RO" description="Status of the C1CC interrupt. The interrupt is set when C1CC has capture or compare event. " id="C1CC" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="CLR" value="0" token="Cleared" description="Cleared"/>
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RO" description="Status of the C0CC interrupt. The interrupt is set when C0CC has capture or compare event. " id="C0CC" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="CLR" value="0" token="Cleared" description="Cleared"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED7" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RO" description="Status of the FAULT interrupt. The interrupt is set immediately on active fault input." id="FAULT" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="CLR" value="0" token="Cleared" description="Cleared"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RO" description="Status of the IDX interrupt. The interrupt is set when IDX is active. " id="IDX" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="CLR" value="0" token="Cleared" description="Cleared"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RO" description="Status of the DIRCHNG interrupt. The interrupt is set when the direction of the counter changes. " id="DIRCHNG" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="CLR" value="0" token="Cleared" description="Cleared"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RO" description="Status of the CNTRCHNG interrupt. The interrupt is set when the counter increments or decrements." id="CNTRCHNG" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="CLR" value="0" token="Cleared" description="Cleared"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RO" description="Status of the DBLTRANS interrupt. The interrupt is set when a double transition has happened during QDEC mode." id="DBLTRANS" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="CLR" value="0" token="Cleared" description="Cleared"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Status of the ZERO interrupt. The interrupt is set when CNTR = 0. " id="ZERO" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="CLR" value="0" token="Cleared" description="Cleared"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Status of the TGT interrupt. The interrupt is set when CNTR = TGT. " id="TGT" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="CLR" value="0" token="Cleared" description="Cleared"/>
+      </bitfield>
+   </register>
+   <register acronym="MIS" width="32" description="Masked interrupt status. This register is simply a bitwise AND of the contents of IMASK and RIS.*] registers. A flag set in this register can be cleared by writing 1 to the corresponding ICLR register bit." id="MIS" offset="0x70">
+      <bitfield range="" begin="31" width="21" end="11" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="RO" description="Masked status of the RIS.C2CC interrupt. " id="C2CC" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="CLR" value="0" token="Cleared" description="Cleared"/>
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RO" description="Masked status of the RIS.C1CC interrupt." id="C1CC" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="CLR" value="0" token="Cleared" description="Cleared"/>
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RO" description="Masked status of the RIS.C0CC interrupt." id="C0CC" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="CLR" value="0" token="Cleared" description="Cleared"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED7" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RO" description="Masked status of the RIS.FAULT interrupt." id="FAULT" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="CLR" value="0" token="Cleared" description="Cleared"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="RO" description="Masked status of the RIS.IDX interrupt." id="IDX" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="CLR" value="0" token="Cleared" description="Cleared"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="RO" description="Masked status of the RIS.DIRCHNG interrupt." id="DIRCHNG" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="CLR" value="0" token="Cleared" description="Cleared"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="RO" description="Masked status of the RIS.CNTRCHNG interrupt." id="CNTRCHNG" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="CLR" value="0" token="Cleared" description="Cleared"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="RO" description="Masked status of the RIS.DBLTRANS interrupt." id="DBLTRANS" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="CLR" value="0" token="Cleared" description="Cleared"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RO" description="Masked status of the RIS.ZERO interrupt." id="ZERO" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="CLR" value="0" token="Cleared" description="Cleared"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RO" description="Masked status of the RIS.TGT interrupt." id="TGT" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="CLR" value="0" token="Cleared" description="Cleared"/>
+      </bitfield>
+   </register>
+   <register acronym="ISET" width="32" description="Interrupt set register. This register can used by software for diagnostics and safety checking purposes. Writing a 1 to a bit in this register will set the event and the corresponding RIS bit also gets set. If the corresponding IMASK bit is set, then the corresponding MIS register bit also gets set." id="ISET" offset="0x74">
+      <bitfield range="" begin="31" width="21" end="11" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="WO" description="Set the RIS.C2CC interrupt. " id="C2CC" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="WO" description="Set the RIS.C1CC interrupt." id="C1CC" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="WO" description="Set the RIS.C0CC interrupt." id="C0CC" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED7" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="WO" description="Set the RIS.FAULT interrupt." id="FAULT" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="WO" description="Set the RIS.IDX interrupt." id="IDX" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="WO" description="Set the RIS.DIRCHNG interrupt." id="DIRCHNG" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="WO" description="Set the RIS.CNTRCHNG interrupt." id="CNTRCHNG" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="WO" description="Set the RIS.DBLTRANS interrupt." id="DBLTRANS" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="Set the RIS.ZERO interrupt." id="ZERO" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="Set the RIS.TGT interrupt." id="TGT" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+   </register>
+   <register acronym="ICLR" width="32" description="Interrupt clear register. This register allows software to clear interrupts. Writing a 1 to a bit in this register will clear the event and the corresponding RIS bit also gets cleared. If the corresponding IMASK bit is set, then the corresponding MIS register bit also gets cleared." id="ICLR" offset="0x78">
+      <bitfield range="" begin="31" width="21" end="11" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="WO" description="Clear the RIS.C2CC interrupt. " id="C2CC" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear" description="Clear"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="WO" description="Clear the RIS.C1CC interrupt." id="C1CC" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear" description="Clear"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="WO" description="Clear the RIS.C0CC interrupt." id="C0CC" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear" description="Clear"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED7" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="WO" description="Clear the RIS.FAULT interrupt." id="FAULT" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear" description="Clear"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="WO" description="Clear the RIS.IDX interrupt." id="IDX" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear" description="Clear"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="WO" description="Clear the RIS.DIRCHNG interrupt." id="DIRCHNG" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear" description="Clear"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="WO" description="Clear the RIS.CNTRCHNG interrupt." id="CNTRCHNG" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear" description="Clear"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="WO" description="Clear the RIS.DBLTRANS interrupt." id="DBLTRANS" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear" description="Clear"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="Clear the RIS.ZERO interrupt." id="ZERO" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear" description="Clear"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="Clear the RIS.TGT interrupt." id="TGT" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear" description="Clear"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+   </register>
+   <register acronym="IMSET" width="32" description="Interrupt mask set register. Writing a 1 to a bit in this register will set the corresponding IMASK bit." id="IMSET" offset="0x7c">
+      <bitfield range="" begin="31" width="21" end="11" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="WO" description="Set the MIS.C2CC mask. " id="C2CC" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="WO" description="Set the MIS.C1CC mask." id="C1CC" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="WO" description="Set the MIS.C0CC mask." id="C0CC" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED7" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="WO" description="Set the MIS.FAULT mask." id="FAULT" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="WO" description="Set the MIS.IDX mask." id="IDX" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="WO" description="Set the MIS.DIRCHNG mask." id="DIRCHNG" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="WO" description="Set the MIS.CNTRCHNG mask." id="CNTRCHNG" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="WO" description="Set the MIS.DBLTRANS mask." id="DBLTRANS" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="Set the MIS.ZERO mask." id="ZERO" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="Set the MIS.TGT mask." id="TGT" resetval="0x0">
+         <bitenum id="SET" value="1" token="Set" description="Set"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+   </register>
+   <register acronym="IMCLR" width="32" description="Interrupt mask clear register. Writing a 1 to a bit in this register will clear the corresponding IMASK bit." id="IMCLR" offset="0x80">
+      <bitfield range="" begin="31" width="21" end="11" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="WO" description="Clear the MIS.C2CC mask. " id="C2CC" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear" description="Clear"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="WO" description="Clear the MIS.C1CC mask." id="C1CC" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear" description="Clear"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="WO" description="Clear the MIS.C0CC mask." id="C0CC" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear" description="Clear"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED7" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="WO" description="Clear the MIS.FAULT mask." id="FAULT" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear" description="Clear"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="1" end="5" rwaccess="WO" description="Clear the MIS.IDX mask." id="IDX" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear" description="Clear"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="4" width="1" end="4" rwaccess="WO" description="Clear the MIS.DIRCHNG mask." id="DIRCHNG" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear" description="Clear"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="3" width="1" end="3" rwaccess="WO" description="Clear the MIS.CNTRCHNG mask." id="CNTRCHNG" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear" description="Clear"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="2" width="1" end="2" rwaccess="WO" description="Clear the MIS.DBLTRANS mask." id="DBLTRANS" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear" description="Clear"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="WO" description="Clear the MIS.ZERO mask." id="ZERO" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear" description="Clear"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="WO" description="Clear the MIS.TGT mask." id="TGT" resetval="0x0">
+         <bitenum id="CLR" value="1" token="Clear" description="Clear"/>
+         <bitenum id="NO_EFFECT" value="0" token="No effect" description="No effect"/>
+      </bitfield>
+   </register>
+   <register acronym="EMU" width="32" description="Debug control
+
+This register can be used to freeze the timer when CPU halts when HALT is set to 1. When HALT is set to 0, or when the CPU releases debug halt, the filters and edge detection logic is flushed and the timer starts. For setting a predefined output value during a CPU debug halt, PARK, if the timer has this register, should be configured additionally. If this timer does not have the PARK register a predefined output value during CPU halt is not possible." id="EMU" offset="0x84">
+      <bitfield range="" begin="31" width="30" end="2" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED2" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="1" width="1" end="1" rwaccess="RW" description="Halt control.
+
+Configure when the counter shall stop upon CPU halt. This bitfield only applies if HALT = 1." id="CTL" resetval="0x0">
+         <bitenum id="ZERCOND" value="1" token="Zero condition. The counter stops when CNTR = 0." description="Zero condition. The counter stops when CNTR = 0."/>
+         <bitenum id="IMMEDIATE" value="0" token="Immediate reaction. The counter stops immediately on debug halt." description="Immediate reaction. The counter stops immediately on debug halt."/>
+      </bitfield>
+      <bitfield range="" begin="0" width="1" end="0" rwaccess="RW" description="Halt LGPT when CPU is halted in debug." id="HALT" resetval="0x0">
+         <bitenum id="EN" value="1" token="Enable." description="Enable."/>
+         <bitenum id="DIS" value="0" token="Disable." description="Disable."/>
+      </bitfield>
+   </register>
+   <register acronym="C0CFG" width="32" description="Channel 0 Configuration
+
+This register configures channel function and enables outputs.
+
+Each channel has an edge-detection circuit. The the edge-detection circuit is: 
+ - enabled while CCACT selects a capture function and CTL.MODE is different from DIS.
+ - flushed while CCACT selects a capture function and CTL.MODE is changed from DIS to another mode.
+
+The flush action uses two system clock periods. It prevents capture events caused by expired signal values stored in the edge-detection circuit.
+
+The channel input signal enters the edge-detection circuit. False capture events can occur when:
+- the edge-detection circuit contains expired signal samples and the circuit is enabled without flush as described above.
+- the CCACT field is reconfigured while CTL.MODE is different from DIS.
+
+Primary use scenario is to select CCACT before starting the timer. Follow these steps to configure CCACT to a capture action while CTL.MODE is different from DIS:
+- Set EDGE to NONE.
+- Configure CCACT.
+- Wait for three system clock periods before setting EDGE different from NONE.
+These steps prevent capture events caused by expired signal values in edge-detection circuit." id="C0CFG" offset="0xc0">
+      <bitfield range="" begin="31" width="21" end="11" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Output 2 enable.
+
+When 0 $lt; CCACT $lt; 8, OUT2 becomes zero after a capture or compare event." id="OUT2" resetval="0x0">
+         <bitenum id="EN" value="1" token="Channel 0 controls output 2." description="Channel 0 controls output 2."/>
+         <bitenum id="DIS" value="0" token="Channel 0 does not control output 2." description="Channel 0 does not control output 2."/>
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Output 1 enable.
+
+When 0 $lt; CCACT $lt; 8, OUT1 becomes zero after a capture or compare event." id="OUT1" resetval="0x0">
+         <bitenum id="EN" value="1" token="Channel 0 controls output 1." description="Channel 0 controls output 1."/>
+         <bitenum id="DIS" value="0" token="Channel 0 does not control output 1." description="Channel 0 does not control output 1."/>
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Output 0 enable.
+
+When 0 $lt; CCACT $lt; 8, OUT0 becomes zero after a capture or compare event." id="OUT0" resetval="0x0">
+         <bitenum id="EN" value="1" token="Channel 0 controls output 0." description="Channel 0 controls output 0."/>
+         <bitenum id="DIS" value="0" token="Channel 0 does not control output 0." description="Channel 0 does not control output 0."/>
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED7" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Select channel input." id="INPUT" resetval="0x0">
+         <bitenum id="IO" value="1" token="IO controller" description="IO controller"/>
+         <bitenum id="EV" value="0" token="Event fabric" description="Event fabric"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Determines the edge that triggers the channel input event. This happens post filter." id="EDGE" resetval="0x0">
+         <bitenum id="BOTH" value="3" token="Input event is triggered at both edges." description="Input event is triggered at both edges."/>
+         <bitenum id="FALL" value="2" token="Input event is triggered at falling edge." description="Input event is triggered at falling edge."/>
+         <bitenum id="RISE" value="1" token="Input event is triggered at rising edge." description="Input event is triggered at rising edge."/>
+         <bitenum id="NONE" value="0" token="Input is turned off." description="Input is turned off."/>
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Capture-Compare action.
+
+Capture-Compare action defines 15 different channel functions that utilize capture, compare, and zero events. In every compare event the timer looks at the current value of CNTR. The corresponding output event will be set 1 timer period after CNTR = C0CC. " id="CCACT" resetval="0x0">
+         <bitenum id="PULSE_ON_CMP" value="15" token="Pulse on compare repeatedly. 
+
+Channel function sequence: 
+- Pulse enabled outputs when C0CC.VAL = CNTR.VAL.
+
+ The output is high for two timer clock periods." description="Pulse on compare repeatedly. 
+
+Channel function sequence: 
+- Pulse enabled outputs when C0CC.VAL = CNTR.VAL.
+
+ The output is high for two timer clock periods."/>
+         <bitenum id="TGL_ON_CMP" value="14" token="Toggle on compare repeatedly.
+
+Channel function sequence: 
+- Toggle enabled outputs  when C0CC.VAL = CNTR.VAL." description="Toggle on compare repeatedly.
+
+Channel function sequence: 
+- Toggle enabled outputs  when C0CC.VAL = CNTR.VAL."/>
+         <bitenum id="SET_ON_CMP" value="13" token="Set on compare repeatedly.
+
+Channel function sequence: 
+- Set enabled outputs  when C0CC.VAL = CNTR.VAL." description="Set on compare repeatedly.
+
+Channel function sequence: 
+- Set enabled outputs  when C0CC.VAL = CNTR.VAL."/>
+         <bitenum id="CLR_ON_CMP" value="12" token="Clear on compare repeatedly.
+
+Channel function sequence: 
+- Clear enabled outputs  when C0CC.VAL = CNTR.VAL." description="Clear on compare repeatedly.
+
+Channel function sequence: 
+- Clear enabled outputs  when C0CC.VAL = CNTR.VAL."/>
+         <bitenum id="SET_ON_0_TGL_ON_CMP" value="11" token="Set on zero, toggle on compare repeatedly.
+
+Channel function sequence: 
+- Set enabled outputs when CNTR.VAL = 0.
+- Toggle enabled outputs when C0CC.VAL = CNTR.VAL.
+
+Set CTL.MODE to UP_PER for edge-aligned PWM generation. Duty cycle is given by: 
+
+When C0CC.VAL $lt;= TGT.VAL: 
+   Duty cycle = C0CC.VAL / ( TGT.VAL + 1 ).
+
+When C0CC.VAL $gt; TGT.VAL: 
+   Duty cycle = 1.
+
+Enabled outputs are cleared when C0CC.VAL = 0 and CNTR.VAL = 0." description="Set on zero, toggle on compare repeatedly.
+
+Channel function sequence: 
+- Set enabled outputs when CNTR.VAL = 0.
+- Toggle enabled outputs when C0CC.VAL = CNTR.VAL.
+
+Set CTL.MODE to UP_PER for edge-aligned PWM generation. Duty cycle is given by: 
+
+When C0CC.VAL $lt;= TGT.VAL: 
+   Duty cycle = C0CC.VAL / ( TGT.VAL + 1 ).
+
+When C0CC.VAL $gt; TGT.VAL: 
+   Duty cycle = 1.
+
+Enabled outputs are cleared when C0CC.VAL = 0 and CNTR.VAL = 0."/>
+         <bitenum id="CLR_ON_0_TGL_ON_CMP" value="10" token="Clear on zero, toggle on compare repeatedly.
+ 
+Channel function sequence: 
+- Clear enabled outputs when CNTR.VAL = 0.
+- Toggle enabled outputs when C0CC.VAL = CNTR.VAL.
+
+Set CTL.MODE to UPDWN_PER for center-aligned PWM generation. Duty cycle is given by: 
+
+When C0CC.VAL $lt;= TGT.VAL: 
+   Duty cycle = 1 - ( C0CC.VAL / TGT.VAL ).
+
+When C0CC.VAL $gt; TGT.VAL: 
+   Duty cycle = 0.
+
+Enabled outputs are set when C0CC.VAL = 0 and CNTR.VAL = 0." description="Clear on zero, toggle on compare repeatedly.
+ 
+Channel function sequence: 
+- Clear enabled outputs when CNTR.VAL = 0.
+- Toggle enabled outputs when C0CC.VAL = CNTR.VAL.
+
+Set CTL.MODE to UPDWN_PER for center-aligned PWM generation. Duty cycle is given by: 
+
+When C0CC.VAL $lt;= TGT.VAL: 
+   Duty cycle = 1 - ( C0CC.VAL / TGT.VAL ).
+
+When C0CC.VAL $gt; TGT.VAL: 
+   Duty cycle = 0.
+
+Enabled outputs are set when C0CC.VAL = 0 and CNTR.VAL = 0."/>
+         <bitenum id="SET_ON_CAPT" value="9" token="Set on capture repeatedly.
+
+Channel function sequence: 
+- Set enabled outputs on capture event and copy CNTR.VAL to C0CC.VAL.
+
+" description="Set on capture repeatedly.
+
+Channel function sequence: 
+- Set enabled outputs on capture event and copy CNTR.VAL to C0CC.VAL.
+
+"/>
+         <bitenum id="PER_PULSE_WIDTH_MEAS" value="8" token="Period and pulse width measurement.
+
+Continuously capture period and pulse width of the signal selected by INPUT relative to the signal edge given by EDGE. 
+
+Set enabled outputs and RIS.C0CC when C0CC.VAL contains signal period and PC0CC.VAL contains signal pulse width.
+
+Notes: 
+- Make sure to configure INPUT and CCACT when CTL.MODE equals DIS, then set CTL.MODE to UP_ONCE or UP_PER. 
+- The counter restarts in the selected timer mode when C0CC.VAL contains the signal period.
+- If more than one channel uses this function, the channels will perform this function one at a time. The channel with lowest number has priority and performs the function first. Next measurement starts when current measurement completes successfully or times out. A timeout occurs when counter equals target. 
+- To observe a timeout event the RIS.TGT interrupt can be used, or another channel can be configured to SET_ON_CMP with compare value equal TGT.
+
+Signal property requirements:
+- Signal Period $gt;= 2 * ( 1 + PRECFG.TICKDIV ) * timer clock period.
+- Signal Period $lt;= MAX(CNTR) * (1 + PRECFG.TICKDIV ) * timer clock period.
+- Signal low and high phase $gt;= (1 + PRECFG.TICKDIV ) * timer clock period. " description="Period and pulse width measurement.
+
+Continuously capture period and pulse width of the signal selected by INPUT relative to the signal edge given by EDGE. 
+
+Set enabled outputs and RIS.C0CC when C0CC.VAL contains signal period and PC0CC.VAL contains signal pulse width.
+
+Notes: 
+- Make sure to configure INPUT and CCACT when CTL.MODE equals DIS, then set CTL.MODE to UP_ONCE or UP_PER. 
+- The counter restarts in the selected timer mode when C0CC.VAL contains the signal period.
+- If more than one channel uses this function, the channels will perform this function one at a time. The channel with lowest number has priority and performs the function first. Next measurement starts when current measurement completes successfully or times out. A timeout occurs when counter equals target. 
+- To observe a timeout event the RIS.TGT interrupt can be used, or another channel can be configured to SET_ON_CMP with compare value equal TGT.
+
+Signal property requirements:
+- Signal Period $gt;= 2 * ( 1 + PRECFG.TICKDIV ) * timer clock period.
+- Signal Period $lt;= MAX(CNTR) * (1 + PRECFG.TICKDIV ) * timer clock period.
+- Signal low and high phase $gt;= (1 + PRECFG.TICKDIV ) * timer clock period. "/>
+         <bitenum id="PULSE_ON_CMP_DIS" value="7" token="Pulse on compare, and then disable channel.
+
+Channel function sequence: 
+- Pulse enabled outputs when C0CC.VAL = CNTR.VAL.
+- Disable channel.
+
+ The output is high for two timer clock periods." description="Pulse on compare, and then disable channel.
+
+Channel function sequence: 
+- Pulse enabled outputs when C0CC.VAL = CNTR.VAL.
+- Disable channel.
+
+ The output is high for two timer clock periods."/>
+         <bitenum id="TGL_ON_CMP_DIS" value="6" token="Toggle on compare, and then disable channel.
+
+Channel function sequence: 
+- Toggle enabled outputs when C0CC.VAL = CNTR.VAL.
+- Disable channel." description="Toggle on compare, and then disable channel.
+
+Channel function sequence: 
+- Toggle enabled outputs when C0CC.VAL = CNTR.VAL.
+- Disable channel."/>
+         <bitenum id="SET_ON_CMP_DIS" value="5" token="Set on compare, and then disable channel.
+
+Channel function sequence: 
+- Set enabled outputs when C0CC.VAL = CNTR.VAL.
+- Disable channel." description="Set on compare, and then disable channel.
+
+Channel function sequence: 
+- Set enabled outputs when C0CC.VAL = CNTR.VAL.
+- Disable channel."/>
+         <bitenum id="CLR_ON_CMP_DIS" value="4" token="Clear on compare, and then disable channel.
+
+Channel function sequence: 
+- Clear enabled outputs when C0CC.VAL = CNTR.VAL.
+- Disable channel." description="Clear on compare, and then disable channel.
+
+Channel function sequence: 
+- Clear enabled outputs when C0CC.VAL = CNTR.VAL.
+- Disable channel."/>
+         <bitenum id="SET_ON_0_TGL_ON_CMP_DIS" value="3" token="Set on zero, toggle on compare, and then disable channel.
+
+Channel function sequence: 
+- Set enabled outputs when CNTR.VAL = 0.
+- Toggle enabled outputs when C0CC.VAL = CNTR.VAL.
+- Disable channel.
+
+Enabled outputs are cleared when C0CC.VAL = 0 and CNTR.VAL = 0." description="Set on zero, toggle on compare, and then disable channel.
+
+Channel function sequence: 
+- Set enabled outputs when CNTR.VAL = 0.
+- Toggle enabled outputs when C0CC.VAL = CNTR.VAL.
+- Disable channel.
+
+Enabled outputs are cleared when C0CC.VAL = 0 and CNTR.VAL = 0."/>
+         <bitenum id="CLR_ON_0_TGL_ON_CMP_DIS" value="2" token="Clear on zero, toggle on compare, and then disable channel.
+
+Channel function sequence: 
+- Clear enabled outputs when CNTR.VAL = 0.
+- Toggle enabled outputs when C0CC.VAL = CNTR.VAL.
+- Disable channel.
+
+Enabled outputs are set when C0CC.VAL = 0 and CNTR.VAL = 0." description="Clear on zero, toggle on compare, and then disable channel.
+
+Channel function sequence: 
+- Clear enabled outputs when CNTR.VAL = 0.
+- Toggle enabled outputs when C0CC.VAL = CNTR.VAL.
+- Disable channel.
+
+Enabled outputs are set when C0CC.VAL = 0 and CNTR.VAL = 0."/>
+         <bitenum id="SET_ON_CAPT_DIS" value="1" token="Set on capture, and then disable channel.
+
+Channel function sequence: 
+- Set enabled outputs on capture event and copy CNTR.VAL to C0CC.VAL.
+- Disable channel. 
+
+Primary use scenario is to select this function before starting the timer.
+Follow these steps to select this function while CTL.MODE is different from DIS:  
+ - Set CCACT to SET_ON_CAPT with no output enable.
+ - Configure INPUT (optional).
+ - Wait for three timer clock periods as defined in PRECFG before setting CCACT to SET_ON_CAPT_DIS. Output enable is optional.
+
+These steps prevent capture events caused by expired signal values in edge-detection circuit." description="Set on capture, and then disable channel.
+
+Channel function sequence: 
+- Set enabled outputs on capture event and copy CNTR.VAL to C0CC.VAL.
+- Disable channel. 
+
+Primary use scenario is to select this function before starting the timer.
+Follow these steps to select this function while CTL.MODE is different from DIS:  
+ - Set CCACT to SET_ON_CAPT with no output enable.
+ - Configure INPUT (optional).
+ - Wait for three timer clock periods as defined in PRECFG before setting CCACT to SET_ON_CAPT_DIS. Output enable is optional.
+
+These steps prevent capture events caused by expired signal values in edge-detection circuit."/>
+         <bitenum id="DIS" value="0" token="Disable channel." description="Disable channel."/>
+      </bitfield>
+   </register>
+   <register acronym="C1CFG" width="32" description="Channel 1 Configuration
+
+This register configures channel function and enables outputs.
+
+Each channel has an edge-detection circuit. The the edge-detection circuit is: 
+ - enabled while CCACT selects a capture function and CTL.MODE is different from DIS.
+ - flushed while CCACT selects a capture function and CTL.MODE is changed from DIS to another mode.
+
+The flush action uses two system clock periods. It prevents capture events caused by expired signal values stored in the edge-detection circuit.
+
+The channel input signal enters the edge-detection circuit. False capture events can occur when:
+- the edge-detection circuit contains expired signal samples and the circuit is enabled without flush as described above.
+- the CCACT field is reconfigured while CTL.MODE is different from DIS.
+
+Primary use scenario is to select CCACT before starting the timer. Follow these steps to configure CCACT to a capture action while CTL.MODE is different from DIS:
+- Set EDGE to NONE.
+- Configure CCACT.
+- Wait for three system clock periods before setting EDGE different from NONE.
+These steps prevent capture events caused by expired signal values in edge-detection circuit." id="C1CFG" offset="0xc4">
+      <bitfield range="" begin="31" width="21" end="11" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Output 2 enable.
+
+When 0 $lt; CCACT $lt; 8, OUT2 becomes zero after a capture or compare event." id="OUT2" resetval="0x0">
+         <bitenum id="EN" value="1" token="Channel 1 controls output 2." description="Channel 1 controls output 2."/>
+         <bitenum id="DIS" value="0" token="Channel 1 does not control output 2." description="Channel 1 does not control output 2."/>
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Output 1 enable.
+
+When 0 $lt; CCACT $lt; 8, OUT1 becomes zero after a capture or compare event." id="OUT1" resetval="0x0">
+         <bitenum id="EN" value="1" token="Channel 1 controls output 1." description="Channel 1 controls output 1."/>
+         <bitenum id="DIS" value="0" token="Channel 1 does not control output 1." description="Channel 1 does not control output 1."/>
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Output 0 enable.
+When 0 $lt; CCACT $lt; 8, OUT0 becomes zero after a capture or compare event.
+" id="OUT0" resetval="0x0">
+         <bitenum id="EN" value="1" token="Channel 1 controls output 0." description="Channel 1 controls output 0."/>
+         <bitenum id="DIS" value="0" token="Channel 1 does not control output 0." description="Channel 1 does not control output 0."/>
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED7" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Select channel input." id="INPUT" resetval="0x0">
+         <bitenum id="IO" value="1" token="IO controller" description="IO controller"/>
+         <bitenum id="EV" value="0" token="Event fabric" description="Event fabric"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Determines the edge that triggers the channel input event. This happens post filter." id="EDGE" resetval="0x0">
+         <bitenum id="BOTH" value="3" token="Input event is triggered at both edges." description="Input event is triggered at both edges."/>
+         <bitenum id="FALL" value="2" token="Input event is triggered at falling edge." description="Input event is triggered at falling edge."/>
+         <bitenum id="RISE" value="1" token="Input event is triggered at rising edge." description="Input event is triggered at rising edge."/>
+         <bitenum id="NONE" value="0" token="Input is turned off." description="Input is turned off."/>
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Capture-Compare action.
+
+Capture-Compare action defines 15 different channel functions that utilize capture, compare, and zero events. In every compare event the timer looks at the current value of CNTR. The corresponding output event will be set 1 timer period after CNTR = C1CC. " id="CCACT" resetval="0x0">
+         <bitenum id="PULSE_ON_CMP" value="15" token="Pulse on compare repeatedly. 
+
+Channel function sequence: 
+- Pulse enabled outputs when C1CC.VAL = CNTR.VAL.
+
+ The output is high for two timer clock periods." description="Pulse on compare repeatedly. 
+
+Channel function sequence: 
+- Pulse enabled outputs when C1CC.VAL = CNTR.VAL.
+
+ The output is high for two timer clock periods."/>
+         <bitenum id="TGL_ON_CMP" value="14" token="Toggle on compare repeatedly.
+
+Channel function sequence: 
+- Toggle enabled outputs  when C1CC.VAL = CNTR.VAL." description="Toggle on compare repeatedly.
+
+Channel function sequence: 
+- Toggle enabled outputs  when C1CC.VAL = CNTR.VAL."/>
+         <bitenum id="SET_ON_CMP" value="13" token="Set on compare repeatedly.
+
+Channel function sequence: 
+- Set enabled outputs  when C1CC.VAL = CNTR.VAL." description="Set on compare repeatedly.
+
+Channel function sequence: 
+- Set enabled outputs  when C1CC.VAL = CNTR.VAL."/>
+         <bitenum id="CLR_ON_CMP" value="12" token="Clear on compare repeatedly.
+
+Channel function sequence: 
+- Clear enabled outputs  when C1CC.VAL = CNTR.VAL." description="Clear on compare repeatedly.
+
+Channel function sequence: 
+- Clear enabled outputs  when C1CC.VAL = CNTR.VAL."/>
+         <bitenum id="SET_ON_0_TGL_ON_CMP" value="11" token="Set on zero, toggle on compare repeatedly.
+
+Channel function sequence: 
+- Set enabled outputs when CNTR.VAL = 0.
+- Toggle enabled outputs when C1CC.VAL = CNTR.VAL.
+
+Set CTL.MODE to UP_PER for edge-aligned PWM generation. Duty cycle is given by: 
+
+When C1CC.VAL $lt;= TGT.VAL: 
+   Duty cycle = C1CC.VAL / ( TGT.VAL + 1 ).
+
+When C1CC.VAL $gt; TGT.VAL: 
+   Duty cycle = 1.
+
+Enabled outputs are cleared when C1CC.VAL = 0 and CNTR.VAL = 0." description="Set on zero, toggle on compare repeatedly.
+
+Channel function sequence: 
+- Set enabled outputs when CNTR.VAL = 0.
+- Toggle enabled outputs when C1CC.VAL = CNTR.VAL.
+
+Set CTL.MODE to UP_PER for edge-aligned PWM generation. Duty cycle is given by: 
+
+When C1CC.VAL $lt;= TGT.VAL: 
+   Duty cycle = C1CC.VAL / ( TGT.VAL + 1 ).
+
+When C1CC.VAL $gt; TGT.VAL: 
+   Duty cycle = 1.
+
+Enabled outputs are cleared when C1CC.VAL = 0 and CNTR.VAL = 0."/>
+         <bitenum id="CLR_ON_0_TGL_ON_CMP" value="10" token="Clear on zero, toggle on compare repeatedly.
+ 
+Channel function sequence: 
+- Clear enabled outputs when CNTR.VAL = 0.
+- Toggle enabled outputs when C1CC.VAL = CNTR.VAL.
+
+Set CTL.MODE to UPDWN_PER for center-aligned PWM generation. Duty cycle is given by: 
+
+When C1CC.VAL $lt;= TGT.VAL: 
+   Duty cycle = 1 - ( C1CC.VAL / TGT.VAL ).
+
+When C1CC.VAL $gt; TGT.VAL: 
+   Duty cycle = 0.
+
+Enabled outputs are set when C1CC.VAL = 0 and CNTR.VAL = 0." description="Clear on zero, toggle on compare repeatedly.
+ 
+Channel function sequence: 
+- Clear enabled outputs when CNTR.VAL = 0.
+- Toggle enabled outputs when C1CC.VAL = CNTR.VAL.
+
+Set CTL.MODE to UPDWN_PER for center-aligned PWM generation. Duty cycle is given by: 
+
+When C1CC.VAL $lt;= TGT.VAL: 
+   Duty cycle = 1 - ( C1CC.VAL / TGT.VAL ).
+
+When C1CC.VAL $gt; TGT.VAL: 
+   Duty cycle = 0.
+
+Enabled outputs are set when C1CC.VAL = 0 and CNTR.VAL = 0."/>
+         <bitenum id="SET_ON_CAPT" value="9" token="Set on capture repeatedly.
+
+Channel function sequence: 
+- Set enabled outputs on capture event and copy CNTR.VAL to C1CC.VAL.
+
+" description="Set on capture repeatedly.
+
+Channel function sequence: 
+- Set enabled outputs on capture event and copy CNTR.VAL to C1CC.VAL.
+
+"/>
+         <bitenum id="PER_PULSE_WIDTH_MEAS" value="8" token="Period and pulse width measurement.
+
+Continuously capture period and pulse width of the signal selected by INPUT relative to the signal edge given by EDGE. 
+
+Set enabled outputs and RIS.C1CC when C1CC.VAL contains signal period and PC1CC.VAL contains signal pulse width. 
+
+Notes: 
+- Make sure to configure INPUT and CCACT when CTL.MODE equals DIS, then set CTL.MODE to UP_ONCE or UP_PER. 
+- The counter restarts in the selected timer mode when C1CC.VAL contains the signal period.
+- If more than one channel uses this function, the channels will perform this function one at a time. The channel with lowest number has priority and performs the function first. Next measurement starts when current measurement completes successfully or times out. A timeout occurs when counter equals target. 
+- To observe a timeout event the RIS.TGT interrupt can be used, or another channel can be configured to SET_ON_CMP with compare value equal TGT.
+
+Signal property requirements:
+- Signal Period $gt;= 2 * ( 1 + PRECFG.TICKDIV ) * timer clock period.
+- Signal Period $lt;= MAX(CNTR) * (1 + PRECFG.TICKDIV ) * timer clock period.
+- Signal low and high phase $gt;= (1 + PRECFG.TICKDIV ) * timer clock period." description="Period and pulse width measurement.
+
+Continuously capture period and pulse width of the signal selected by INPUT relative to the signal edge given by EDGE. 
+
+Set enabled outputs and RIS.C1CC when C1CC.VAL contains signal period and PC1CC.VAL contains signal pulse width. 
+
+Notes: 
+- Make sure to configure INPUT and CCACT when CTL.MODE equals DIS, then set CTL.MODE to UP_ONCE or UP_PER. 
+- The counter restarts in the selected timer mode when C1CC.VAL contains the signal period.
+- If more than one channel uses this function, the channels will perform this function one at a time. The channel with lowest number has priority and performs the function first. Next measurement starts when current measurement completes successfully or times out. A timeout occurs when counter equals target. 
+- To observe a timeout event the RIS.TGT interrupt can be used, or another channel can be configured to SET_ON_CMP with compare value equal TGT.
+
+Signal property requirements:
+- Signal Period $gt;= 2 * ( 1 + PRECFG.TICKDIV ) * timer clock period.
+- Signal Period $lt;= MAX(CNTR) * (1 + PRECFG.TICKDIV ) * timer clock period.
+- Signal low and high phase $gt;= (1 + PRECFG.TICKDIV ) * timer clock period."/>
+         <bitenum id="PULSE_ON_CMP_DIS" value="7" token="Pulse on compare, and then disable channel.
+
+Channel function sequence: 
+- Pulse enabled outputs when C1CC.VAL = CNTR.VAL.
+- Disable channel.
+
+ The output is high for two timer clock periods." description="Pulse on compare, and then disable channel.
+
+Channel function sequence: 
+- Pulse enabled outputs when C1CC.VAL = CNTR.VAL.
+- Disable channel.
+
+ The output is high for two timer clock periods."/>
+         <bitenum id="TGL_ON_CMP_DIS" value="6" token="Toggle on compare, and then disable channel.
+
+Channel function sequence: 
+- Toggle enabled outputs when C1CC.VAL = CNTR.VAL.
+- Disable channel." description="Toggle on compare, and then disable channel.
+
+Channel function sequence: 
+- Toggle enabled outputs when C1CC.VAL = CNTR.VAL.
+- Disable channel."/>
+         <bitenum id="SET_ON_CMP_DIS" value="5" token="Set on compare, and then disable channel.
+
+Channel function sequence: 
+- Set enabled outputs when C1CC.VAL = CNTR.VAL.
+- Disable channel." description="Set on compare, and then disable channel.
+
+Channel function sequence: 
+- Set enabled outputs when C1CC.VAL = CNTR.VAL.
+- Disable channel."/>
+         <bitenum id="CLR_ON_CMP_DIS" value="4" token="Clear on compare, and then disable channel.
+
+Channel function sequence: 
+- Clear enabled outputs when C1CC.VAL = CNTR.VAL.
+- Disable channel." description="Clear on compare, and then disable channel.
+
+Channel function sequence: 
+- Clear enabled outputs when C1CC.VAL = CNTR.VAL.
+- Disable channel."/>
+         <bitenum id="SET_ON_0_TGL_ON_CMP_DIS" value="3" token="Set on zero, toggle on compare, and then disable channel.
+
+Channel function sequence: 
+- Set enabled outputs when CNTR.VAL = 0.
+- Toggle enabled outputs when C1CC.VAL = CNTR.VAL.
+- Disable channel.
+
+Enabled outputs are cleared when C1CC.VAL = 0 and CNTR.VAL = 0." description="Set on zero, toggle on compare, and then disable channel.
+
+Channel function sequence: 
+- Set enabled outputs when CNTR.VAL = 0.
+- Toggle enabled outputs when C1CC.VAL = CNTR.VAL.
+- Disable channel.
+
+Enabled outputs are cleared when C1CC.VAL = 0 and CNTR.VAL = 0."/>
+         <bitenum id="CLR_ON_0_TGL_ON_CMP_DIS" value="2" token="Clear on zero, toggle on compare, and then disable channel.
+
+Channel function sequence: 
+- Clear enabled outputs when CNTR.VAL = 0.
+- Toggle enabled outputs when C1CC.VAL = CNTR.VAL.
+- Disable channel.
+
+Enabled outputs are set when C1CC.VAL = 0 and CNTR.VAL = 0." description="Clear on zero, toggle on compare, and then disable channel.
+
+Channel function sequence: 
+- Clear enabled outputs when CNTR.VAL = 0.
+- Toggle enabled outputs when C1CC.VAL = CNTR.VAL.
+- Disable channel.
+
+Enabled outputs are set when C1CC.VAL = 0 and CNTR.VAL = 0."/>
+         <bitenum id="SET_ON_CAPT_DIS" value="1" token="Set on capture, and then disable channel.
+
+Channel function sequence: 
+- Set enabled outputs on capture event and copy CNTR.VAL to C1CC.VAL.
+- Disable channel. 
+
+Primary use scenario is to select this function before starting the timer.
+Follow these steps to select this function while CTL.MODE is different from DIS:  
+ - Set CCACT to SET_ON_CAPT with no output enable.
+ - Configure INPUT (optional).
+ - Wait for three timer clock periods as defined in PRECFG before setting CCACT to SET_ON_CAPT_DIS. Output enable is optional.
+
+These steps prevent capture events caused by expired signal values in edge-detection circuit." description="Set on capture, and then disable channel.
+
+Channel function sequence: 
+- Set enabled outputs on capture event and copy CNTR.VAL to C1CC.VAL.
+- Disable channel. 
+
+Primary use scenario is to select this function before starting the timer.
+Follow these steps to select this function while CTL.MODE is different from DIS:  
+ - Set CCACT to SET_ON_CAPT with no output enable.
+ - Configure INPUT (optional).
+ - Wait for three timer clock periods as defined in PRECFG before setting CCACT to SET_ON_CAPT_DIS. Output enable is optional.
+
+These steps prevent capture events caused by expired signal values in edge-detection circuit."/>
+         <bitenum id="DIS" value="0" token="Disable channel." description="Disable channel."/>
+      </bitfield>
+   </register>
+   <register acronym="C2CFG" width="32" description="Channel 2 Configuration
+
+This register configures channel function and enables outputs.
+
+Each channel has an edge-detection circuit. The the edge-detection circuit is: 
+ - enabled while CCACT selects a capture function and CTL.MODE is different from DIS.
+ - flushed while CCACT selects a capture function and CTL.MODE is changed from DIS to another mode.
+
+The flush action uses two system clock periods. It prevents capture events caused by expired signal values stored in the edge-detection circuit.
+
+The channel input signal enters the edge-detection circuit. False capture events can occur when:
+- the edge-detection circuit contains expired signal samples and the circuit is enabled without flush as described above.
+- the CCACT field is reconfigured while CTL.MODE is different from DIS.
+
+Primary use scenario is to select CCACT before starting the timer. Follow these steps to configure CCACT to a capture action while CTL.MODE is different from DIS:
+- Set EDGE to NONE.
+- Configure CCACT.
+- Wait for three system clock periods before setting EDGE different from NONE.
+These steps prevent capture events caused by expired signal values in edge-detection circuit." id="C2CFG" offset="0xc8">
+      <bitfield range="" begin="31" width="21" end="11" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED11" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="10" width="1" end="10" rwaccess="RW" description="Output 2 enable.
+
+When 0 $lt; CCACT $lt; 8, OUT2 becomes zero after a capture or compare event." id="OUT2" resetval="0x0">
+         <bitenum id="EN" value="1" token="Channel 2 controls output 2." description="Channel 2 controls output 2."/>
+         <bitenum id="DIS" value="0" token="Channel 2 does not control output 2." description="Channel 2 does not control output 2."/>
+      </bitfield>
+      <bitfield range="" begin="9" width="1" end="9" rwaccess="RW" description="Output 1 enable.
+
+When 0 $lt; CCACT $lt; 8, OUT1 becomes zero after a capture or compare event." id="OUT1" resetval="0x0">
+         <bitenum id="EN" value="1" token="Channel 2 controls output 1." description="Channel 2 controls output 1."/>
+         <bitenum id="DIS" value="0" token="Channel 2 does not control output 1." description="Channel 2 does not control output 1."/>
+      </bitfield>
+      <bitfield range="" begin="8" width="1" end="8" rwaccess="RW" description="Output 0 enable.
+
+When 0 $lt; CCACT $lt; 8, OUT0 becomes zero after a capture or compare event." id="OUT0" resetval="0x0">
+         <bitenum id="EN" value="1" token="Channel 2 controls output 0." description="Channel 2 controls output 0."/>
+         <bitenum id="DIS" value="0" token="Channel 2 does not control output 0." description="Channel 2 does not control output 0."/>
+      </bitfield>
+      <bitfield range="" begin="7" width="1" end="7" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED7" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="6" width="1" end="6" rwaccess="RW" description="Select channel input." id="INPUT" resetval="0x0">
+         <bitenum id="IO" value="1" token="IO controller" description="IO controller"/>
+         <bitenum id="EV" value="0" token="Event fabric" description="Event fabric"/>
+      </bitfield>
+      <bitfield range="" begin="5" width="2" end="4" rwaccess="RW" description="Determines the edge that triggers the channel input event. This happens post filter." id="EDGE" resetval="0x0">
+         <bitenum id="BOTH" value="3" token="Input event is triggered at both edges." description="Input event is triggered at both edges."/>
+         <bitenum id="FALL" value="2" token="Input event is triggered at falling edge." description="Input event is triggered at falling edge."/>
+         <bitenum id="RISE" value="1" token="Input event is triggered at rising edge." description="Input event is triggered at rising edge."/>
+         <bitenum id="NONE" value="0" token="Input is turned off." description="Input is turned off."/>
+      </bitfield>
+      <bitfield range="" begin="3" width="4" end="0" rwaccess="RW" description="Capture-Compare action.
+
+Capture-Compare action defines 15 different channel functions that utilize capture, compare, and zero events. In every compare event the timer looks at the current value of CNTR. The corresponding output event will be set 1 timer period after CNTR = C2CC. " id="CCACT" resetval="0x0">
+         <bitenum id="PULSE_ON_CMP" value="15" token="Pulse on compare repeatedly. 
+
+Channel function sequence: 
+- Pulse enabled outputs when C2CC.VAL = CNTR.VAL.
+
+ The output is high for two timer clock periods." description="Pulse on compare repeatedly. 
+
+Channel function sequence: 
+- Pulse enabled outputs when C2CC.VAL = CNTR.VAL.
+
+ The output is high for two timer clock periods."/>
+         <bitenum id="TGL_ON_CMP" value="14" token="Toggle on compare repeatedly.
+
+Channel function sequence: 
+- Toggle enabled outputs  when C2CC.VAL = CNTR.VAL." description="Toggle on compare repeatedly.
+
+Channel function sequence: 
+- Toggle enabled outputs  when C2CC.VAL = CNTR.VAL."/>
+         <bitenum id="SET_ON_CMP" value="13" token="Set on compare repeatedly.
+
+Channel function sequence: 
+- Set enabled outputs  when C2CC.VAL = CNTR.VAL." description="Set on compare repeatedly.
+
+Channel function sequence: 
+- Set enabled outputs  when C2CC.VAL = CNTR.VAL."/>
+         <bitenum id="CLR_ON_CMP" value="12" token="Clear on compare repeatedly.
+
+Channel function sequence: 
+- Clear enabled outputs  when C2CC.VAL = CNTR.VAL." description="Clear on compare repeatedly.
+
+Channel function sequence: 
+- Clear enabled outputs  when C2CC.VAL = CNTR.VAL."/>
+         <bitenum id="SET_ON_0_TGL_ON_CMP" value="11" token="Set on zero, toggle on compare repeatedly.
+
+Channel function sequence: 
+- Set enabled outputs when CNTR.VAL = 0.
+- Toggle enabled outputs when C2CC.VAL = CNTR.VAL.
+
+Set CTL.MODE to UP_PER for edge-aligned PWM generation. Duty cycle is given by: 
+
+When C2CC.VAL $lt;= TGT.VAL: 
+   Duty cycle = C2CC.VAL / ( TGT.VAL + 1 ).
+
+When C2CC.VAL $gt; TGT.VAL: 
+   Duty cycle = 1.
+
+Enabled outputs are cleared when C2CC.VAL = 0 and CNTR.VAL = 0." description="Set on zero, toggle on compare repeatedly.
+
+Channel function sequence: 
+- Set enabled outputs when CNTR.VAL = 0.
+- Toggle enabled outputs when C2CC.VAL = CNTR.VAL.
+
+Set CTL.MODE to UP_PER for edge-aligned PWM generation. Duty cycle is given by: 
+
+When C2CC.VAL $lt;= TGT.VAL: 
+   Duty cycle = C2CC.VAL / ( TGT.VAL + 1 ).
+
+When C2CC.VAL $gt; TGT.VAL: 
+   Duty cycle = 1.
+
+Enabled outputs are cleared when C2CC.VAL = 0 and CNTR.VAL = 0."/>
+         <bitenum id="CLR_ON_0_TGL_ON_CMP" value="10" token="Clear on zero, toggle on compare repeatedly.
+ 
+Channel function sequence: 
+- Clear enabled outputs when CNTR.VAL = 0.
+- Toggle enabled outputs when C2CC.VAL = CNTR.VAL.
+
+Set CTL.MODE to UPDWN_PER for center-aligned PWM generation. Duty cycle is given by: 
+
+When C2CC.VAL $lt;= TGT.VAL: 
+   Duty cycle = 1 - ( C2CC.VAL / TGT.VAL ).
+
+When C2CC.VAL $gt; TGT.VAL: 
+   Duty cycle = 0.
+
+Enabled outputs are set when C2CC.VAL = 0 and CNTR.VAL = 0." description="Clear on zero, toggle on compare repeatedly.
+ 
+Channel function sequence: 
+- Clear enabled outputs when CNTR.VAL = 0.
+- Toggle enabled outputs when C2CC.VAL = CNTR.VAL.
+
+Set CTL.MODE to UPDWN_PER for center-aligned PWM generation. Duty cycle is given by: 
+
+When C2CC.VAL $lt;= TGT.VAL: 
+   Duty cycle = 1 - ( C2CC.VAL / TGT.VAL ).
+
+When C2CC.VAL $gt; TGT.VAL: 
+   Duty cycle = 0.
+
+Enabled outputs are set when C2CC.VAL = 0 and CNTR.VAL = 0."/>
+         <bitenum id="SET_ON_CAPT" value="9" token="Set on capture repeatedly.
+
+Channel function sequence: 
+- Set enabled outputs on capture event and copy CNTR.VAL to C2CC.VAL.
+
+" description="Set on capture repeatedly.
+
+Channel function sequence: 
+- Set enabled outputs on capture event and copy CNTR.VAL to C2CC.VAL.
+
+"/>
+         <bitenum id="PER_PULSE_WIDTH_MEAS" value="8" token="Period and pulse width measurement.
+
+Continuously capture period and pulse width of the signal selected by INPUT relative to the signal edge given by EDGE. 
+
+Set enabled outputs and RIS.C2CC when C2CC.VAL contains signal period and PC2CC.VAL contains signal pulse width. 
+
+Notes: 
+- Make sure to configure INPUT and CCACT when CTL.MODE equals DIS, then set CTL.MODE to UP_ONCE or UP_PER. 
+- The counter restarts in the selected timer mode when C2CC.VAL contains the signal period.
+- If more than one channel uses this function, the channels will perform this function one at a time. The channel with lowest number has priority and performs the function first. Next measurement starts when current measurement completes successfully or times out. A timeout occurs when counter equals target. 
+- To observe a timeout event the RIS.TGT interrupt can be used, or another channel can be configured to SET_ON_CMP with compare value equal TGT.
+
+Signal property requirements:
+- Signal Period $gt;= 2 * ( 1 + PRECFG.TICKDIV ) * timer clock period.
+- Signal Period $lt;= MAX(CNTR) * (1 + PRECFG.TICKDIV ) * timer clock period.
+- Signal low and high phase $gt;= (1 + PRECFG.TICKDIV ) * timer clock period. " description="Period and pulse width measurement.
+
+Continuously capture period and pulse width of the signal selected by INPUT relative to the signal edge given by EDGE. 
+
+Set enabled outputs and RIS.C2CC when C2CC.VAL contains signal period and PC2CC.VAL contains signal pulse width. 
+
+Notes: 
+- Make sure to configure INPUT and CCACT when CTL.MODE equals DIS, then set CTL.MODE to UP_ONCE or UP_PER. 
+- The counter restarts in the selected timer mode when C2CC.VAL contains the signal period.
+- If more than one channel uses this function, the channels will perform this function one at a time. The channel with lowest number has priority and performs the function first. Next measurement starts when current measurement completes successfully or times out. A timeout occurs when counter equals target. 
+- To observe a timeout event the RIS.TGT interrupt can be used, or another channel can be configured to SET_ON_CMP with compare value equal TGT.
+
+Signal property requirements:
+- Signal Period $gt;= 2 * ( 1 + PRECFG.TICKDIV ) * timer clock period.
+- Signal Period $lt;= MAX(CNTR) * (1 + PRECFG.TICKDIV ) * timer clock period.
+- Signal low and high phase $gt;= (1 + PRECFG.TICKDIV ) * timer clock period. "/>
+         <bitenum id="PULSE_ON_CMP_DIS" value="7" token="Pulse on compare, and then disable channel.
+
+Channel function sequence: 
+- Pulse enabled outputs when C2CC.VAL = CNTR.VAL.
+- Disable channel.
+
+ The output is high for two timer clock periods." description="Pulse on compare, and then disable channel.
+
+Channel function sequence: 
+- Pulse enabled outputs when C2CC.VAL = CNTR.VAL.
+- Disable channel.
+
+ The output is high for two timer clock periods."/>
+         <bitenum id="TGL_ON_CMP_DIS" value="6" token="Toggle on compare, and then disable channel.
+
+Channel function sequence: 
+- Toggle enabled outputs when C2CC.VAL = CNTR.VAL.
+- Disable channel." description="Toggle on compare, and then disable channel.
+
+Channel function sequence: 
+- Toggle enabled outputs when C2CC.VAL = CNTR.VAL.
+- Disable channel."/>
+         <bitenum id="SET_ON_CMP_DIS" value="5" token="Set on compare, and then disable channel.
+
+Channel function sequence: 
+- Set enabled outputs when C2CC.VAL = CNTR.VAL.
+- Disable channel." description="Set on compare, and then disable channel.
+
+Channel function sequence: 
+- Set enabled outputs when C2CC.VAL = CNTR.VAL.
+- Disable channel."/>
+         <bitenum id="CLR_ON_CMP_DIS" value="4" token="Clear on compare, and then disable channel.
+
+Channel function sequence: 
+- Clear enabled outputs when C2CC.VAL = CNTR.VAL.
+- Disable channel." description="Clear on compare, and then disable channel.
+
+Channel function sequence: 
+- Clear enabled outputs when C2CC.VAL = CNTR.VAL.
+- Disable channel."/>
+         <bitenum id="SET_ON_0_TGL_ON_CMP_DIS" value="3" token="Set on zero, toggle on compare, and then disable channel.
+
+Channel function sequence: 
+- Set enabled outputs when CNTR.VAL = 0.
+- Toggle enabled outputs when C2CC.VAL = CNTR.VAL.
+- Disable channel.
+
+Enabled outputs are cleared when C2CC.VAL = 0 and CNTR.VAL = 0." description="Set on zero, toggle on compare, and then disable channel.
+
+Channel function sequence: 
+- Set enabled outputs when CNTR.VAL = 0.
+- Toggle enabled outputs when C2CC.VAL = CNTR.VAL.
+- Disable channel.
+
+Enabled outputs are cleared when C2CC.VAL = 0 and CNTR.VAL = 0."/>
+         <bitenum id="CLR_ON_0_TGL_ON_CMP_DIS" value="2" token="Clear on zero, toggle on compare, and then disable channel.
+
+Channel function sequence: 
+- Clear enabled outputs when CNTR.VAL = 0.
+- Toggle enabled outputs when C2CC.VAL = CNTR.VAL.
+- Disable channel.
+
+Enabled outputs are set when C2CC.VAL = 0 and CNTR.VAL = 0." description="Clear on zero, toggle on compare, and then disable channel.
+
+Channel function sequence: 
+- Clear enabled outputs when CNTR.VAL = 0.
+- Toggle enabled outputs when C2CC.VAL = CNTR.VAL.
+- Disable channel.
+
+Enabled outputs are set when C2CC.VAL = 0 and CNTR.VAL = 0."/>
+         <bitenum id="SET_ON_CAPT_DIS" value="1" token="Set on capture, and then disable channel.
+
+Channel function sequence: 
+- Set enabled outputs on capture event and copy CNTR.VAL to C2CC.VAL.
+- Disable channel. 
+
+Primary use scenario is to select this function before starting the timer.
+Follow these steps to select this function while CTL.MODE is different from DIS:  
+ - Set CCACT to SET_ON_CAPT with no output enable.
+ - Configure INPUT (optional).
+ - Wait for three timer clock periods as defined in PRECFG before setting CCACT to SET_ON_CAPT_DIS. Output enable is optional.
+
+These steps prevent capture events caused by expired signal values in edge-detection circuit." description="Set on capture, and then disable channel.
+
+Channel function sequence: 
+- Set enabled outputs on capture event and copy CNTR.VAL to C2CC.VAL.
+- Disable channel. 
+
+Primary use scenario is to select this function before starting the timer.
+Follow these steps to select this function while CTL.MODE is different from DIS:  
+ - Set CCACT to SET_ON_CAPT with no output enable.
+ - Configure INPUT (optional).
+ - Wait for three timer clock periods as defined in PRECFG before setting CCACT to SET_ON_CAPT_DIS. Output enable is optional.
+
+These steps prevent capture events caused by expired signal values in edge-detection circuit."/>
+         <bitenum id="DIS" value="0" token="Disable channel." description="Disable channel."/>
+      </bitfield>
+   </register>
+   <register acronym="PTGT" width="32" description="Pipeline Target
+A read or write to this register will clear the RIS.ZERO and RIS.TGT interrupt.
+
+
+If CTL.MODE != QDEC.
+Target value for next counter period.
+The timer will copy PTGT.VAL to TGT.VAL on the upcoming CNTR zero crossing only if PTGT.VAL has been written. The copy does not happen when restarting the timer.
+This is useful to avoid period jitter in PWM applications with time-varying period, sometimes referenced as phase corrected PWM.
+
+If CTL.MODE = QDEC
+The CNTR value is updated with VALUE on IDX if the counter is counting down. If the counter is counting up, CNTR is loaded with zero on IDX.
+In this mode the VALUE is not loaded into TGT on zero crossing." id="PTGT" offset="0xfc">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="The pipleline target value." id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PC0CC" width="32" description="Pipeline Channel 0 Capture Compare " id="PC0CC" offset="0x100">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Pipeline Capture Compare value.
+
+User defined pipeline compare value or channel-updated capture value.
+
+A read or write to this register will clear the RIS.C0CC interrupt.
+
+Compare mode: 
+An update of VAL will be transferred to C0CC.VAL when the next CNTR.VAL is zero and CTL.MODE is different from DIS. This is useful for PWM generation and prevents jitter on the edges of the generated signal.
+
+Capture mode: 
+When C0CFG.CCACT equals PER_PULSE_WIDTH_MEAS then VAL contains the width of the low or high phase of the selected signal. This is specified by C0CFG.EDGE." id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PC1CC" width="32" description="Pipeline Channel 1 Capture Compare " id="PC1CC" offset="0x104">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Pipeline Capture Compare value.
+
+User defined pipeline compare value or channel-updated capture value.
+
+A read or write to this register will clear the RIS.C1CC interrupt.
+
+Compare mode: 
+An update of VAL will be transferred to C1CC.VAL when the next CNTR.VAL is zero and CTL.MODE is different from DIS. This is useful for PWM generation and prevents jitter on the edges of the generated signal.
+
+Capture mode: 
+When C1CFG.CCACT equals PER_PULSE_WIDTH_MEAS then VAL contains the width of the low or high phase of the selected signal. This is specified by C1CFG.EDGE." id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PC2CC" width="32" description="Pipeline Channel 2 Capture Compare " id="PC2CC" offset="0x108">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Pipeline Capture Compare value.
+
+User defined pipeline compare value or channel-updated capture value.
+
+A read or write to this register will clear the RIS.C2CC interrupt.
+
+Compare mode: 
+An update of VAL will be transferred to C2CC.VAL when the next CNTR.VAL is zero and CTL.MODE is different from DIS. This is useful for PWM generation and prevents jitter on the edges of the generated signal.
+
+Capture mode: 
+When C2CFG.CCACT equals PER_PULSE_WIDTH_MEAS then VAL contains the width of the low or high phase of the selected signal. This is specified by C2CFG.EDGE." id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TGT" width="32" description="Target
+
+User defined counter target. 
+A read or write to this register will clear the RIS.ZERO and RIS.TGT interrupt." id="TGT" offset="0x13c">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="User defined counter target value." id="VAL" resetval="0xffff">
+      </bitfield>
+   </register>
+   <register acronym="C0CC" width="32" description="Channel 0 Capture Compare" id="C0CC" offset="0x140">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Capture Compare value.
+
+User defined compare value or channel-updated capture value.
+
+A read or write to this register will clear the RIS.C0CC interrupt.
+
+Compare mode: 
+VAL is compared against CNTR.VAL and an event is generated as specified by C0CFG.CCACT when these are equal. 
+
+Capture mode: 
+The current counter value is stored in VAL when a capture event occurs. C0CFG.CCACT determines if VAL is a signal period or a regular capture value." id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="C1CC" width="32" description="Channel 1 Capture Compare" id="C1CC" offset="0x144">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Capture Compare value.
+
+User defined compare value or channel-updated capture value.
+
+A read or write to this register will clear the RIS.C1CC interrupt.
+
+Compare mode: 
+VAL is compared against CNTR.VAL and an event is generated as specified by C1CFG.CCACT when these are equal. 
+
+Capture mode: 
+The current counter value is stored in VAL when a capture event occurs. C1CFG.CCACT determines if VAL is a signal period or a regular capture value." id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="C2CC" width="32" description="Channel 2 Capture Compare" id="C2CC" offset="0x148">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Capture Compare value.
+
+User defined compare value or channel-updated capture value.
+
+A read or write to this register will clear the RIS.C2CC interrupt.
+
+Compare mode: 
+VAL is compared against CNTR.VAL and an event is generated as specified by C2CFG.CCACT when these are equal. 
+
+Capture mode: 
+The current counter value is stored in VAL when a capture event occurs. C2CFG.CCACT determines if VAL is a signal period or a regular capture value." id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PTGTNC" width="32" description="Pipeline Target No Clear
+
+Use this register to read or write to PTGT without clearing the RIS.ZERO and RIS.TGT interrupt." id="PTGTNC" offset="0x17c">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="A read or write to this register will not clear the RIS.TGT interrupt.
+
+If CTL.MODE != QDEC.
+Target value for next counter period.
+The timer copies VAL to TGT.VAL when CNTR.VAL becomes 0. The copy does not happen when restarting the timer.
+This is useful to avoid period jitter in PWM applications with time-varying period, sometimes referenced as phase corrected PWM.
+
+If CTL.MODE = QDEC.
+The CNTR.VAL is updated with VAL on IDX. VAL is not loaded into TGT.VAL when CNTR.VAL becomes 0. " id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PC0CCNC" width="32" description="Pipeline Channel 0 Capture Compare No Clear" id="PC0CCNC" offset="0x180">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Pipeline Capture Compare value.
+
+User defined pipeline compare value or channel-updated capture value.
+
+A read or write to this register will not clear the RIS.C0CC interrupt.
+
+Compare mode: 
+An update of VAL will be transferred to C0CC.VAL when the next CNTR.VAL is zero and CTL.MODE is different from DIS. This is useful for PWM generation and prevents jitter on the edges of the generated signal.
+
+Capture mode: 
+When C0CFG.CCACT equals PER_PULSE_WIDTH_MEAS then VAL contains the width of the low or high phase of the selected signal. This is specified by C0CFG.EDGE." id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PC1CCNC" width="32" description="Pipeline Channel 1 Capture Compare No Clear" id="PC1CCNC" offset="0x184">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Pipeline Capture Compare value.
+
+User defined pipeline compare value or channel-updated capture value.
+
+A read or write to this register will not clear the RIS.C1CC interrupt.
+
+Compare mode: 
+An update of VAL will be transferred to C1CC.VAL when the next CNTR.VAL is zero and CTL.MODE is different from DIS. This is useful for PWM generation and prevents jitter on the edges of the generated signal.
+
+Capture mode: 
+When C1CFG.CCACT equals PER_PULSE_WIDTH_MEAS then VAL contains the width of the low or high phase of the selected signal. This is specified by C1CFG.EDGE." id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="PC2CCNC" width="32" description="Pipeline Channel 2 Capture Compare No Clear" id="PC2CCNC" offset="0x188">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Pipeline Capture Compare value.
+
+User defined pipeline compare value or channel-updated capture value.
+
+A read or write to this register will not clear the RIS.C2CC interrupt.
+
+Compare mode: 
+An update of VAL will be transferred to C2CC.VAL when the next CNTR.VAL is zero and CTL.MODE is different from DIS. This is useful for PWM generation and prevents jitter on the edges of the generated signal.
+
+Capture mode: 
+When C2CFG.CCACT equals PER_PULSE_WIDTH_MEAS then VAL contains the width of the low or high phase of the selected signal. This is specified by C2CFG.EDGE." id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="TGTNC" width="32" description="Target No Clear
+
+Use this register to read or write to TGT without clearing the RIS.ZERO and RIS.TGT interrupt." id="TGTNC" offset="0x1bc">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="User defined counter target value." id="VAL" resetval="0xffff">
+      </bitfield>
+   </register>
+   <register acronym="C0CCNC" width="32" description="Channel 0 Capture Compare No Clear" id="C0CCNC" offset="0x1c0">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Capture Compare value.
+
+User defined compare value or channel-updated capture value.
+
+A read or write to this register will not clear the RIS.C0CC interrupt.
+
+Compare mode: 
+VAL is compared against CNTR.VAL and an event is generated as specified by C0CFG.CCACT when these are equal. 
+
+Capture mode: 
+The current counter value is stored in VAL when a capture event occurs. C0CFG.CCACT determines if VAL is a signal period or a regular capture value." id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="C1CCNC" width="32" description="Channel 1 Capture Compare No Clear" id="C1CCNC" offset="0x1c4">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Capture Compare value.
+
+User defined compare value or channel-updated capture value.
+
+A read or write to this register will not clear the RIS.C1CC interrupt.
+
+Compare mode: 
+VAL is compared against CNTR.VAL and an event is generated as specified by C1CFG.CCACT when these are equal. 
+
+Capture mode: 
+The current counter value is stored in VAL when a capture event occurs. C1CFG.CCACT determines if VAL is a signal period or a regular capture value." id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+   <register acronym="C2CCNC" width="32" description="Channel 2 Capture Compare No Clear" id="C2CCNC" offset="0x1c8">
+      <bitfield range="" begin="31" width="16" end="16" rwaccess="RO" description="Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior." id="RESERVED16" resetval="0x0">
+      </bitfield>
+      <bitfield range="" begin="15" width="16" end="0" rwaccess="RW" description="Capture Compare value.
+
+User defined compare value or channel-updated capture value.
+
+A read or write to this register will not clear the RIS.C2CC interrupt.
+
+Compare mode: 
+VAL is compared against CNTR.VAL and an event is generated as specified by C2CFG.CCACT when these are equal. 
+
+Capture mode: 
+The current counter value is stored in VAL when a capture event occurs. C2CFG.CCACT determines if VAL is a signal period or a regular capture value." id="VAL" resetval="0x0">
+      </bitfield>
+   </register>
+</module>
