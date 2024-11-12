@@ -67,11 +67,32 @@ pub static __INTERRUPTS: [Vector; 19] = [
 
 #[doc = r"Enumeration of all the interrupts."]
 #[derive(Copy, Clone, Debug, PartialEq, Eq)]
-pub enum Interrupt {}
+pub enum Interrupt {
+    INT_CPUIRQ0 = 0,
+    INT_CPUIRQ1 = 1,
+    INT_CPUIRQ2 = 2,
+    INT_CPUIRQ3 = 3,
+    INT_CPUIRQ4 = 4,
+    INT_GPIO_COMB = 5,
+    INT_LRFD_IRQ0 = 6,
+    INT_LRFD_IRQ1 = 7,
+    INT_DMA_DONE_COMB = 8,
+    INT_AES_COMB = 9,
+    INT_SPI0_COMB = 10,
+    INT_UART0_COMB = 11,
+    INT_I2C0_IRQ = 12,
+    INT_LGPT0_COMB = 13,
+    INT_LGPT1_COMB = 14,
+    INT_ADC_COMB = 15,
+    INT_CPUIRQ16 = 16,
+    INT_LGPT2_COMB = 17,
+    INT_LGPT3_COMB = 18,
+}
+
 unsafe impl cortex_m::interrupt::InterruptNumber for Interrupt {
     #[inline(always)]
     fn number(self) -> u16 {
-        match self {}
+        self as u16
     }
 }
 #[doc = "This component is the Power Management controller. Together with the System Controller, it controls system resets and the power states of the device."]
