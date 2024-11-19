@@ -1,0 +1,31 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "probe-rs-debug",
+        "request": "launch",
+        "name": "probe_rs Executable launch example",
+        "cwd": "${workspaceFolder}",
+        //!MODIFY
+        "chip": "CC2340R5",
+        "wireProtocol": "Swd",
+        "coreConfigs": [
+          {
+            "coreIndex": 0,
+            //!MODIFY
+            "programBinary": "/home/seanlyons/git/ti-lprf-pacs/target/thumbv6m-none-eabi/debug/cc23x0r5",
+            //!MODIFY
+            "svdFile": "/home/seanlyons/git/ti-lprf-pacs/svds/cc23x0r5.svd",
+            "rttEnabled": true,
+          }
+        ],
+        "env": {
+          //!MODIFY (or remove)
+          // If you set this variable, check the VSCode console log window for the location of the log file.
+          "RUST_LOG": "info"
+        },
+        // Info, Debug
+        "consoleLogLevel": "Console"
+      }
+    ]
+  }

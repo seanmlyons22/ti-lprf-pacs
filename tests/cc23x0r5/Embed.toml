@@ -1,0 +1,11 @@
+[default.probe]
+# The protocol to be used for communicating with the target.
+protocol = "Swd"
+
+[default.flashing]
+# Whether to verify flash contents after downloading
+verify = true
+
+[default.general]
+# The chip name of the chip to be debugged.
+chip = "CC2340R5"
