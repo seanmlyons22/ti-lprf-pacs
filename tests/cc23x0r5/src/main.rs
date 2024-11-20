@@ -4,6 +4,7 @@
 use cc23x0r5::ccfg::Ccfg;
 use cc23x0r5_pac as cc23x0r5;
 use cortex_m_rt::entry;
+
 // pick a panicking behavior
 use panic_halt as _; // you can put a breakpoint on `rust_begin_unwind` to catch panics
                      // use panic_abort as _; // requires nightly
@@ -26,5 +27,6 @@ fn main() -> ! {
     loop {
         p.gpio.douttgl15_12().write(|w| w.dio15().set_bit());
         cortex_m::asm::delay(24_000_000);
+        rprintln!("Hello, world!");
     }
 }

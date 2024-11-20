@@ -27,6 +27,7 @@ The PACs are listed below:
 | `cc13x2x7_cc26x2x7` | CC1312R7, CC1352P7, CC2652P7, CC2652R7                                                 | https://github.com/TexasInstruments/cc13xx_cc26xx_sdk                              | `thumbv7em-none-eabihf`      |
 | `cc13x4_cc26x4`     | CC1314R, CC1354R, CC1354P, CC2674R, CC2674P                                            | https://github.com/TexasInstruments/cc13xx_cc26xx_sdk                              | `thumbv8m.main-none-eabihf`  |
 | `cc2640r2`          | CC2640R2                                                                               | https://www.ti.com/tool/download/SIMPLELINK-CC2640R2-SDK                           | `thumbv7m-none-eabi`         |
+| `cc23x0r5`          | CC2340R5                                                                               | https://github.com/TexasInstruments/simplelink-lowpower-f3-sdk                     | `thumbv6m-none-eabi`         |
 
 **Warning**: The `cc13x2_26x2` PAC crate is named differently (note the missing cc before 26x2) due to the fact that
 other (non maintained) cc13x2_cc26x2 crates exist.
@@ -101,11 +102,14 @@ device families.  One XML file within `input/devices` will produce one PAC.
 
 ### Patches
 
-The TI XML source doesn't contain interrupt defintions. So there are also hand
+The TI XML source doesn't contain interrupt definitions. So there are also hand
 maintained rust files that contain the needed code to define the interrupt
 vector table in Rust. These files are used to patch the generated
 `lib.rs` file. Ideally the SVD files would also be patched, but this is a bit
 more complex, so we use a simpler solution, for now.
+
+This is also true for CCFG, HAPI (ROM API). So these files are hand maintained
+in the `input/devices` folder.
 
 ### Adding or Updating Devices
 
