@@ -15,7 +15,8 @@ use rtt_target::{rprintln, rtt_init_print};
 #[used]
 #[no_mangle]
 #[link_section = ".ccfg"]
-pub static CCFG: Ccfg = Ccfg::new();
+pub static CCFG: Ccfg = Ccfg::new().update_crcs();
+
 
 #[entry]
 fn main() -> ! {

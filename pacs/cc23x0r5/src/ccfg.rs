@@ -183,4 +183,54 @@ impl Ccfg {
             },
         }
     }
+    const fn calc_crc32(data: &[u8]) -> u32 {
+        const CRC: crc::Crc<u32> = crc::Crc::<u32>::new(&crc::CRC_32_ISO_HDLC);
+        CRC.checksum(data)
+    }
+
+    pub const fn update_crcs(mut self) -> Self {
+        // Caculate CRC32 for boot_cfg
+        let boot_cfg_bytes = unsafe {
+            core::slice::from_raw_parts(
+                &self.boot_cfg as *const _ as *const u8,
+                core::mem::size_of::<BootCfg>() - 4, // Exclude CRC field
+            )
+        };
+        self.boot_cfg.crc32 = Self::calc_crc32(boot_cfg_bytes);
+
+        // Calculate CRC32 over hw_opts, permissions, misc, flash_prot, and hw_init_copy_list
+        let hw_bytes = unsafe {
+            core::slice::from_raw_parts(
+                &self.hw_opts as *const _ as *const u8,
+                core::mem::size_of::<[u32; 2]>() +
+                core::mem::size_of::<Permissions>() +
+                core::mem::size_of::<Misc>() +
+                core::mem::size_of::<FlashProt>() +
+                core::mem::size_of::<[u32; (2048/4) - 61]>()
+            )
+        };
+        self.crc32 = Self::calc_crc32(hw_bytes);
+
+        // Calculate CRC32 for user_record
+        let user_bytes = unsafe {
+            core::slice::from_raw_parts(
+                &self.user_record as *const _ as *const u8,
+                core::mem::size_of::<UserRecord>() - 4, // Exclude CRC field
+            )
+        };
+        self.user_record.crc32 = Self::calc_crc32(user_bytes);
+
+        // Calculate CRC32 for debug_cfg
+        let debug_bytes = unsafe {
+            core::slice::from_raw_parts(
+                &self.debug_cfg as *const _ as *const u8,
+                core::mem::size_of::<DebugCfg>() - 4, // Exclude CRC field
+            )
+        };
+        self.debug_cfg.crc32 = Self::calc_crc32(debug_bytes);
+
+
+
+        self
+    }
 }

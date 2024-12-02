@@ -15,6 +15,7 @@ readme.workspace = true
 cortex-m.workspace = true
 vcell.workspace = true
 bitfield-struct.workspace = true
+crc.workspace = true
 
 [dependencies.cortex-m-rt]
 optional = true
