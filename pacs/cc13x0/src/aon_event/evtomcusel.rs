@@ -770,9 +770,6 @@ where
 #[doc = "Field `RESERVED6` reader - 7:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved6R = crate::FieldReader;
-#[doc = "Field `RESERVED6` writer - 7:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "13:8\\]
 Event selector for AON_PROG1 event. AON Event Source id# selecting event routed to EVENT as AON_PROG1 event.\n\nValue on reset: 43"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1541,9 +1538,6 @@ where
 #[doc = "Field `RESERVED14` reader - 15:14\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved14R = crate::FieldReader;
-#[doc = "Field `RESERVED14` writer - 15:14\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved14W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "21:16\\]
 Event selector for AON_PROG2 event. AON Event Source id# selecting event routed to EVENT as AON_PROG2 event.\n\nValue on reset: 43"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -2312,9 +2306,6 @@ where
 #[doc = "Field `RESERVED22` reader - 31:22\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved22R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED22` writer - 31:22\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved22W<'a, REG> = crate::FieldWriter<'a, REG, 10, u16>;
 impl R {
     #[doc = "Bits 0:5 - 5:0\\]
 Event selector for AON_PROG0 event. AON Event Source id# selecting event routed to EVENT as AON_PROG0 event."]
@@ -2361,13 +2352,6 @@ Event selector for AON_PROG0 event. AON Event Source id# selecting event routed 
     pub fn aon_prog0_ev(&mut self) -> AonProg0EvW<EvtomcuselSpec> {
         AonProg0EvW::new(self, 0)
     }
-    #[doc = "Bits 6:7 - 7:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<EvtomcuselSpec> {
-        Reserved6W::new(self, 6)
-    }
     #[doc = "Bits 8:13 - 13:8\\]
 Event selector for AON_PROG1 event. AON Event Source id# selecting event routed to EVENT as AON_PROG1 event."]
     #[inline(always)]
@@ -2375,26 +2359,12 @@ Event selector for AON_PROG1 event. AON Event Source id# selecting event routed 
     pub fn aon_prog1_ev(&mut self) -> AonProg1EvW<EvtomcuselSpec> {
         AonProg1EvW::new(self, 8)
     }
-    #[doc = "Bits 14:15 - 15:14\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved14(&mut self) -> Reserved14W<EvtomcuselSpec> {
-        Reserved14W::new(self, 14)
-    }
     #[doc = "Bits 16:21 - 21:16\\]
 Event selector for AON_PROG2 event. AON Event Source id# selecting event routed to EVENT as AON_PROG2 event."]
     #[inline(always)]
     #[must_use]
     pub fn aon_prog2_ev(&mut self) -> AonProg2EvW<EvtomcuselSpec> {
         AonProg2EvW::new(self, 16)
-    }
-    #[doc = "Bits 22:31 - 31:22\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved22(&mut self) -> Reserved22W<EvtomcuselSpec> {
-        Reserved22W::new(self, 22)
     }
 }
 #[doc = "Event Selector For MCU Event Fabric This register contains pointers for 3 AON events that are routed to the MCU Event Fabric EVENT\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`evtomcusel::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`evtomcusel::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

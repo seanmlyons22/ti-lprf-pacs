@@ -5,9 +5,6 @@ pub type W = crate::W<FedacstatSpec>;
 #[doc = "Field `ERR_PRF_FLG` reader - 23:0\\]
 Internal. Only to be used through TI provided API."]
 pub type ErrPrfFlgR = crate::FieldReader<u32>;
-#[doc = "Field `ERR_PRF_FLG` writer - 23:0\\]
-Internal. Only to be used through TI provided API."]
-pub type ErrPrfFlgW<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 #[doc = "Field `FSM_DONE` reader - 24:24\\]
 Internal. Only to be used through TI provided API."]
 pub type FsmDoneR = crate::BitReader;
@@ -23,9 +20,6 @@ pub type RvfIntW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED26` reader - 31:26\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved26R = crate::FieldReader;
-#[doc = "Field `RESERVED26` writer - 31:26\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved26W<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 impl R {
     #[doc = "Bits 0:23 - 23:0\\]
 Internal. Only to be used through TI provided API."]
@@ -53,13 +47,6 @@ Internal. Only to be used through TI provided API."]
     }
 }
 impl W {
-    #[doc = "Bits 0:23 - 23:0\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn err_prf_flg(&mut self) -> ErrPrfFlgW<FedacstatSpec> {
-        ErrPrfFlgW::new(self, 0)
-    }
     #[doc = "Bit 24 - 24:24\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
@@ -73,13 +60,6 @@ Internal. Only to be used through TI provided API."]
     #[must_use]
     pub fn rvf_int(&mut self) -> RvfIntW<FedacstatSpec> {
         RvfIntW::new(self, 25)
-    }
-    #[doc = "Bits 26:31 - 31:26\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved26(&mut self) -> Reserved26W<FedacstatSpec> {
-        Reserved26W::new(self, 26)
     }
 }
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fedacstat::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fedacstat::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

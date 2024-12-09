@@ -985,9 +985,6 @@ where
 #[doc = "Field `RESERVED16` reader - 31:16\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved16R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED16` writer - 31:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved16W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
     #[doc = "Bits 0:3 - 3:0\\]
 RF Core GPO control bit 0. Selects which signal to output on the RF Core GPO line 0."]
@@ -1048,13 +1045,6 @@ RF Core GPO control bit 3. Selects which signal to output on the RF Core GPO lin
     #[must_use]
     pub fn gpoctl3(&mut self) -> Gpoctl3W<SysgpoctlSpec> {
         Gpoctl3W::new(self, 12)
-    }
-    #[doc = "Bits 16:31 - 31:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved16(&mut self) -> Reserved16W<SysgpoctlSpec> {
-        Reserved16W::new(self, 16)
     }
 }
 #[doc = "RF Core General Purpose Output Control\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`sysgpoctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`sysgpoctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

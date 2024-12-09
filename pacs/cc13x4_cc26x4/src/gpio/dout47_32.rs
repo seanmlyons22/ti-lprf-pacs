@@ -101,9 +101,6 @@ pub type Dio47W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED16` reader - 31:16\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved16R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED16` writer - 31:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved16W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Data output for DIO 32"]
@@ -320,13 +317,6 @@ Data output for DIO 47"]
     #[must_use]
     pub fn dio47(&mut self) -> Dio47W<Dout47_32Spec> {
         Dio47W::new(self, 15)
-    }
-    #[doc = "Bits 16:31 - 31:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved16(&mut self) -> Reserved16W<Dout47_32Spec> {
-        Reserved16W::new(self, 16)
     }
 }
 #[doc = "Data Output for DIO 0 to 31\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`dout47_32::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`dout47_32::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

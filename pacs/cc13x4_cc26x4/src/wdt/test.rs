@@ -61,9 +61,6 @@ where
 #[doc = "Field `RESERVED1` reader - 7:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved1R = crate::FieldReader;
-#[doc = "Field `RESERVED1` writer - 7:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "8:8\\]
 WDT Stall Enable 0: The WDT timer continues counting if the CPU is stopped with a debugger. 1: If the CPU is stopped with a debugger, the WDT stops counting. Once the CPU is restarted, the WDT resumes counting.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -123,9 +120,6 @@ where
 #[doc = "Field `RESERVED9` reader - 31:9\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved9R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED9` writer - 31:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved9W<'a, REG> = crate::FieldWriter<'a, REG, 23, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 The test enable bit 0: Enable external reset 1: Disables the generation of an external reset. Instead bit 1 of the INT_CAUS register is set and an interrupt is generated"]
@@ -160,26 +154,12 @@ The test enable bit 0: Enable external reset 1: Disables the generation of an ex
     pub fn test_en(&mut self) -> TestEnW<TestSpec> {
         TestEnW::new(self, 0)
     }
-    #[doc = "Bits 1:7 - 7:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved1(&mut self) -> Reserved1W<TestSpec> {
-        Reserved1W::new(self, 1)
-    }
     #[doc = "Bit 8 - 8:8\\]
 WDT Stall Enable 0: The WDT timer continues counting if the CPU is stopped with a debugger. 1: If the CPU is stopped with a debugger, the WDT stops counting. Once the CPU is restarted, the WDT resumes counting."]
     #[inline(always)]
     #[must_use]
     pub fn stall(&mut self) -> StallW<TestSpec> {
         StallW::new(self, 8)
-    }
-    #[doc = "Bits 9:31 - 31:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved9(&mut self) -> Reserved9W<TestSpec> {
-        Reserved9W::new(self, 9)
     }
 }
 #[doc = "Test Mode\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`test::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`test::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

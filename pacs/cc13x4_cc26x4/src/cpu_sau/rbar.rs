@@ -5,9 +5,6 @@ pub type W = crate::W<RbarSpec>;
 #[doc = "Field `RESERVED0` reader - 4:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved0R = crate::FieldReader;
-#[doc = "Field `RESERVED0` writer - 4:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved0W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 #[doc = "Field `BADDR` reader - 31:5\\]
 Holds bits \\[31:5\\]
 of the base address for the selected SAU region"]
@@ -32,13 +29,6 @@ of the base address for the selected SAU region"]
     }
 }
 impl W {
-    #[doc = "Bits 0:4 - 4:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved0(&mut self) -> Reserved0W<RbarSpec> {
-        Reserved0W::new(self, 0)
-    }
     #[doc = "Bits 5:31 - 31:5\\]
 Holds bits \\[31:5\\]
 of the base address for the selected SAU region"]

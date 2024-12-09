@@ -13,9 +13,6 @@ pub type BdivW<'a, REG> = crate::FieldWriter<'a, REG, 10, u16>;
 #[doc = "Field `RESERVED10` reader - 31:10\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved10R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED10` writer - 31:10\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved10W<'a, REG> = crate::FieldWriter<'a, REG, 22, u32>;
 impl R {
     #[doc = "Bits 0:9 - 9:0\\]
 An unsigned factor of the division ratio used to generate I2S BCLK \\[2-1024\\]: BCLK = MCUCLK/BDIV\\[Hz\\]
@@ -39,13 +36,6 @@ MCUCLK is 48MHz. A value of 0 is interpreted as 1024. A value of 1 is invalid. I
     #[must_use]
     pub fn bdiv(&mut self) -> BdivW<I2sbclkdivSpec> {
         BdivW::new(self, 0)
-    }
-    #[doc = "Bits 10:31 - 31:10\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved10(&mut self) -> Reserved10W<I2sbclkdivSpec> {
-        Reserved10W::new(self, 10)
     }
 }
 #[doc = "BCLK Division Ratio\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`i2sbclkdiv::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`i2sbclkdiv::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

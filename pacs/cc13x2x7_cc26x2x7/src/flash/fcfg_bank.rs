@@ -5,27 +5,15 @@ pub type W = crate::W<FcfgBankSpec>;
 #[doc = "Field `MAIN_NUM_BANK` reader - 3:0\\]
 Internal. Only to be used through TI provided API."]
 pub type MainNumBankR = crate::FieldReader;
-#[doc = "Field `MAIN_NUM_BANK` writer - 3:0\\]
-Internal. Only to be used through TI provided API."]
-pub type MainNumBankW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `MAIN_BANK_WIDTH` reader - 15:4\\]
 Internal. Only to be used through TI provided API."]
 pub type MainBankWidthR = crate::FieldReader<u16>;
-#[doc = "Field `MAIN_BANK_WIDTH` writer - 15:4\\]
-Internal. Only to be used through TI provided API."]
-pub type MainBankWidthW<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
 #[doc = "Field `EE_NUM_BANK` reader - 19:16\\]
 Internal. Only to be used through TI provided API."]
 pub type EeNumBankR = crate::FieldReader;
-#[doc = "Field `EE_NUM_BANK` writer - 19:16\\]
-Internal. Only to be used through TI provided API."]
-pub type EeNumBankW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `EE_BANK_WIDTH` reader - 31:20\\]
 Internal. Only to be used through TI provided API."]
 pub type EeBankWidthR = crate::FieldReader<u16>;
-#[doc = "Field `EE_BANK_WIDTH` writer - 31:20\\]
-Internal. Only to be used through TI provided API."]
-pub type EeBankWidthW<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
 impl R {
     #[doc = "Bits 0:3 - 3:0\\]
 Internal. Only to be used through TI provided API."]
@@ -52,36 +40,7 @@ Internal. Only to be used through TI provided API."]
         EeBankWidthR::new(((self.bits >> 20) & 0x0fff) as u16)
     }
 }
-impl W {
-    #[doc = "Bits 0:3 - 3:0\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn main_num_bank(&mut self) -> MainNumBankW<FcfgBankSpec> {
-        MainNumBankW::new(self, 0)
-    }
-    #[doc = "Bits 4:15 - 15:4\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn main_bank_width(&mut self) -> MainBankWidthW<FcfgBankSpec> {
-        MainBankWidthW::new(self, 4)
-    }
-    #[doc = "Bits 16:19 - 19:16\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn ee_num_bank(&mut self) -> EeNumBankW<FcfgBankSpec> {
-        EeNumBankW::new(self, 16)
-    }
-    #[doc = "Bits 20:31 - 31:20\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn ee_bank_width(&mut self) -> EeBankWidthW<FcfgBankSpec> {
-        EeBankWidthW::new(self, 20)
-    }
-}
+impl W {}
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fcfg_bank::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fcfg_bank::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct FcfgBankSpec;
 impl crate::RegisterSpec for FcfgBankSpec {

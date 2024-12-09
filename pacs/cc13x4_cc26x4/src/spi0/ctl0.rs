@@ -508,9 +508,6 @@ where
 #[doc = "Field `RESERVED7` reader - 7:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved7R = crate::BitReader;
-#[doc = "Field `RESERVED7` writer - 7:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved7W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "8:8\\]
 CLKOUT polarity (Motorola SPI frame format only)\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -626,9 +623,6 @@ where
 #[doc = "Field `RESERVED10` reader - 11:10\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved10R = crate::FieldReader;
-#[doc = "Field `RESERVED10` writer - 11:10\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved10W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `RESERVED12` reader - 13:12\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved12R = crate::FieldReader;
@@ -694,9 +688,6 @@ where
 #[doc = "Field `RESERVED15` reader - 31:15\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved15R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED15` writer - 31:15\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved15W<'a, REG> = crate::FieldWriter<'a, REG, 17, u32>;
 impl R {
     #[doc = "Bits 0:4 - 4:0\\]
 Data Size Select. Note: Master mode: Values 0 - 2 are reserved and shall not be used. This will map to 4 bit mode. A value of 3h corresponds to 4-bit data (and so on). Slave mode: DSS should be no less than 6 which means the minimum frame length is 7 bits."]
@@ -768,13 +759,6 @@ Frame format Select"]
     pub fn frf(&mut self) -> FrfW<Ctl0Spec> {
         FrfW::new(self, 5)
     }
-    #[doc = "Bit 7 - 7:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved7(&mut self) -> Reserved7W<Ctl0Spec> {
-        Reserved7W::new(self, 7)
-    }
     #[doc = "Bit 8 - 8:8\\]
 CLKOUT polarity (Motorola SPI frame format only)"]
     #[inline(always)]
@@ -789,13 +773,6 @@ CLKOUT phase (Motorola SPI frame format only) This bit selects the clock edge th
     pub fn sph(&mut self) -> SphW<Ctl0Spec> {
         SphW::new(self, 9)
     }
-    #[doc = "Bits 10:11 - 11:10\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved10(&mut self) -> Reserved10W<Ctl0Spec> {
-        Reserved10W::new(self, 10)
-    }
     #[doc = "Bits 12:13 - 13:12\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
@@ -809,13 +786,6 @@ Clear shift register counter when CS gets inactive. This bit is relevant only in
     #[must_use]
     pub fn csclr(&mut self) -> CsclrW<Ctl0Spec> {
         CsclrW::new(self, 14)
-    }
-    #[doc = "Bits 15:31 - 31:15\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved15(&mut self) -> Reserved15W<Ctl0Spec> {
-        Reserved15W::new(self, 15)
     }
 }
 #[doc = "SPI Control Register 0\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ctl0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ctl0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

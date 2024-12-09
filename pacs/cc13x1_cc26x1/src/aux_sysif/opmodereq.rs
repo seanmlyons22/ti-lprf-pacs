@@ -94,9 +94,6 @@ where
 #[doc = "Field `RESERVED2` reader - 31:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED2` writer - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 30, u32>;
 impl R {
     #[doc = "Bits 0:1 - 1:0\\]
 AUX operational mode request."]
@@ -118,13 +115,6 @@ AUX operational mode request."]
     #[must_use]
     pub fn req(&mut self) -> ReqW<OpmodereqSpec> {
         ReqW::new(self, 0)
-    }
-    #[doc = "Bits 2:31 - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<OpmodereqSpec> {
-        Reserved2W::new(self, 2)
     }
 }
 #[doc = "Operational Mode Request AUX can operate in three operational modes. Each mode is associated with: - a SCE clock source or rate, given by AON_PMCTL:AUXSCECLK. This rate is termed SCE_RATE. - a system power supply state request. AUX can request powerdown (uLDO) or active (GLDO or DCDC) system power supply state. Follow these rules: - It is not allowed to change a request until it has been acknowledged through OPMODEACK. - A change in mode request must happen stepwise along this sequence, the direction is irrelevant: PDA - A - LP - PDLP. Failure to follow these rules might result in unexpected behavior and must be avoided.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`opmodereq::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`opmodereq::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

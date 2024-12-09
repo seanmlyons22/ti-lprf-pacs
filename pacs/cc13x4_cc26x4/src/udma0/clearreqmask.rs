@@ -2,29 +2,12 @@
 pub type R = crate::R<ClearreqmaskSpec>;
 #[doc = "Register `CLEARREQMASK` writer"]
 pub type W = crate::W<ClearreqmaskSpec>;
-#[doc = "Field `CHNLS` reader - 31:0\\]
-Set the appropriate bit to enable DMA request for the channel. Write as: Bit \\[Ch\\]
-= 0: No effect. Use the SETREQMASK.CHNLS to disable channel C from generating requests. Bit \\[Ch\\]
-= 1: Enables channel \\[C\\]
-to generate DMA requests. Writing to a bit where a DMA channel is not implemented has no effect."]
-pub type ChnlsR = crate::FieldReader<u32>;
 #[doc = "Field `CHNLS` writer - 31:0\\]
 Set the appropriate bit to enable DMA request for the channel. Write as: Bit \\[Ch\\]
 = 0: No effect. Use the SETREQMASK.CHNLS to disable channel C from generating requests. Bit \\[Ch\\]
 = 1: Enables channel \\[C\\]
 to generate DMA requests. Writing to a bit where a DMA channel is not implemented has no effect."]
 pub type ChnlsW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
-impl R {
-    #[doc = "Bits 0:31 - 31:0\\]
-Set the appropriate bit to enable DMA request for the channel. Write as: Bit \\[Ch\\]
-= 0: No effect. Use the SETREQMASK.CHNLS to disable channel C from generating requests. Bit \\[Ch\\]
-= 1: Enables channel \\[C\\]
-to generate DMA requests. Writing to a bit where a DMA channel is not implemented has no effect."]
-    #[inline(always)]
-    pub fn chnls(&self) -> ChnlsR {
-        ChnlsR::new(self.bits)
-    }
-}
 impl W {
     #[doc = "Bits 0:31 - 31:0\\]
 Set the appropriate bit to enable DMA request for the channel. Write as: Bit \\[Ch\\]

@@ -2,21 +2,12 @@
 pub type R = crate::R<AircrSpec>;
 #[doc = "Register `AIRCR` writer"]
 pub type W = crate::W<AircrSpec>;
-#[doc = "Field `RESERVED0` reader - 0:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved0R = crate::BitReader;
 #[doc = "Field `RESERVED0` writer - 0:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved0W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `VECTCLRACTIVE` reader - 1:1\\]
-Clears all active state information for active NMI, fault, and interrupts. It is the responsibility of the application to reinitialize the stack. This bit is for returning to a known state during debug. The bit self-clears. IPSR is not cleared by this operation. So, if used by an application, it must only be used at the base level of activation, or within a system handler whose active bit can be set."]
-pub type VectclractiveR = crate::BitReader;
 #[doc = "Field `VECTCLRACTIVE` writer - 1:1\\]
 Clears all active state information for active NMI, fault, and interrupts. It is the responsibility of the application to reinitialize the stack. This bit is for returning to a known state during debug. The bit self-clears. IPSR is not cleared by this operation. So, if used by an application, it must only be used at the base level of activation, or within a system handler whose active bit can be set."]
 pub type VectclractiveW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `SYSRESETREQ` reader - 2:2\\]
-Requests a warm reset. Setting this bit does not prevent Halting Debug from running."]
-pub type SysresetreqR = crate::BitReader;
 #[doc = "Field `SYSRESETREQ` writer - 2:2\\]
 Requests a warm reset. Setting this bit does not prevent Halting Debug from running."]
 pub type SysresetreqW<'a, REG> = crate::BitWriter<'a, REG>;
@@ -41,9 +32,6 @@ pub type PrigroupW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `RESERVED11` reader - 12:11\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved11R = crate::FieldReader;
-#[doc = "Field `RESERVED11` writer - 12:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved11W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `BFHFNMINS` reader - 13:13\\]
 BusFault, HardFault, and NMI Non-secure enable. The value of this bit defines whether BusFault and NMI exceptions are Non-secure, and whether exceptions target the Non-secure HardFault exception 0x0 BusFault, HardFault, and NMI are Secure. 0x1 BusFault and NMI are Non-secure and exceptions can target Non-secure HardFault."]
 pub type BfhfnminsR = crate::BitReader;
@@ -53,9 +41,6 @@ pub type BfhfnminsW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `PRIS` reader - 14:14\\]
 Prioritize Secure exceptions. The value of this bit defines whether Secure exception priority boosting is enabled."]
 pub type PrisR = crate::BitReader;
-#[doc = "Field `PRIS` writer - 14:14\\]
-Prioritize Secure exceptions. The value of this bit defines whether Secure exception priority boosting is enabled."]
-pub type PrisW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "15:15\\]
 Data endianness bit\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -94,24 +79,6 @@ impl EndianessR {
         *self == Endianess::Little
     }
 }
-#[doc = "Field `ENDIANESS` writer - 15:15\\]
-Data endianness bit"]
-pub type EndianessW<'a, REG> = crate::BitWriter<'a, REG, Endianess>;
-impl<'a, REG> EndianessW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Big endian"]
-    #[inline(always)]
-    pub fn big(self) -> &'a mut crate::W<REG> {
-        self.variant(Endianess::Big)
-    }
-    #[doc = "Little endian"]
-    #[inline(always)]
-    pub fn little(self) -> &'a mut crate::W<REG> {
-        self.variant(Endianess::Little)
-    }
-}
 #[doc = "Field `VECTKEY` reader - 31:16\\]
 Register key. Writing to this register (AIRCR) requires 0x05FA in VECTKEY. Otherwise the write value is ignored. Read always returns 0xFA05."]
 pub type VectkeyR = crate::FieldReader<u16>;
@@ -119,24 +86,6 @@ pub type VectkeyR = crate::FieldReader<u16>;
 Register key. Writing to this register (AIRCR) requires 0x05FA in VECTKEY. Otherwise the write value is ignored. Read always returns 0xFA05."]
 pub type VectkeyW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
-    #[doc = "Bit 0 - 0:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    pub fn reserved0(&self) -> Reserved0R {
-        Reserved0R::new((self.bits & 1) != 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Clears all active state information for active NMI, fault, and interrupts. It is the responsibility of the application to reinitialize the stack. This bit is for returning to a known state during debug. The bit self-clears. IPSR is not cleared by this operation. So, if used by an application, it must only be used at the base level of activation, or within a system handler whose active bit can be set."]
-    #[inline(always)]
-    pub fn vectclractive(&self) -> VectclractiveR {
-        VectclractiveR::new(((self.bits >> 1) & 1) != 0)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-Requests a warm reset. Setting this bit does not prevent Halting Debug from running."]
-    #[inline(always)]
-    pub fn sysresetreq(&self) -> SysresetreqR {
-        SysresetreqR::new(((self.bits >> 2) & 1) != 0)
-    }
     #[doc = "Bit 3 - 3:3\\]
 System reset request Secure only. The value of this bit defines whether the SYSRESETREQ bit is functional for Non-secure use"]
     #[inline(always)]
@@ -229,33 +178,12 @@ Interrupt priority grouping field. This field is a binary point position indicat
     pub fn prigroup(&mut self) -> PrigroupW<AircrSpec> {
         PrigroupW::new(self, 8)
     }
-    #[doc = "Bits 11:12 - 12:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved11(&mut self) -> Reserved11W<AircrSpec> {
-        Reserved11W::new(self, 11)
-    }
     #[doc = "Bit 13 - 13:13\\]
 BusFault, HardFault, and NMI Non-secure enable. The value of this bit defines whether BusFault and NMI exceptions are Non-secure, and whether exceptions target the Non-secure HardFault exception 0x0 BusFault, HardFault, and NMI are Secure. 0x1 BusFault and NMI are Non-secure and exceptions can target Non-secure HardFault."]
     #[inline(always)]
     #[must_use]
     pub fn bfhfnmins(&mut self) -> BfhfnminsW<AircrSpec> {
         BfhfnminsW::new(self, 13)
-    }
-    #[doc = "Bit 14 - 14:14\\]
-Prioritize Secure exceptions. The value of this bit defines whether Secure exception priority boosting is enabled."]
-    #[inline(always)]
-    #[must_use]
-    pub fn pris(&mut self) -> PrisW<AircrSpec> {
-        PrisW::new(self, 14)
-    }
-    #[doc = "Bit 15 - 15:15\\]
-Data endianness bit"]
-    #[inline(always)]
-    #[must_use]
-    pub fn endianess(&mut self) -> EndianessW<AircrSpec> {
-        EndianessW::new(self, 15)
     }
     #[doc = "Bits 16:31 - 31:16\\]
 Register key. Writing to this register (AIRCR) requires 0x05FA in VECTKEY. Otherwise the write value is ignored. Read always returns 0xFA05."]

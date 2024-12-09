@@ -23,9 +23,6 @@ pub type DirW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `KEY_SIZE` reader - 4:3\\]
 This field specifies the key size. The key size is automatically configured when a new key is loaded via the key store module. 00 = N/A - reserved 01 = 128 bits 10 = N/A - reserved 11 = N/A - reserved For the Crypto peripheral this field is fixed to 128 bits."]
 pub type KeySizeR = crate::FieldReader;
-#[doc = "Field `KEY_SIZE` writer - 4:3\\]
-This field specifies the key size. The key size is automatically configured when a new key is loaded via the key store module. 00 = N/A - reserved 01 = 128 bits 10 = N/A - reserved 11 = N/A - reserved For the Crypto peripheral this field is fixed to 128 bits."]
-pub type KeySizeW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `CBC` reader - 5:5\\]
 CBC mode enable"]
 pub type CbcR = crate::BitReader;
@@ -178,9 +175,6 @@ pub type SavedContextRdyW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `CONTEXT_RDY` reader - 31:31\\]
 If 1, this status bit indicates that the context data registers can be overwritten and the Host is permitted to write the next context. Writing a context means writing either a mode, the crypto length or AESDATALEN1.LEN_MSW, AESDATALEN0.LEN_LSW length registers"]
 pub type ContextRdyR = crate::BitReader;
-#[doc = "Field `CONTEXT_RDY` writer - 31:31\\]
-If 1, this status bit indicates that the context data registers can be overwritten and the Host is permitted to write the next context. Writing a context means writing either a mode, the crypto length or AESDATALEN1.LEN_MSW, AESDATALEN0.LEN_LSW length registers"]
-pub type ContextRdyW<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 If read as 1, this status bit indicates that an AES output block is available to be retrieved by the Host. Writing a 0 clears the bit to zero and indicates that output data is read by the Host. The AES engine can provide a next output data block. Writing a 1 to this bit will be ignored. Note: For DMA operations, this bit is automatically controlled by the Crypto peripheral. For typical use, this bit does NOT need to be written, but is used for status reading only. In this case, this status bit is automatically maintained by the Crypto peripheral."]
@@ -301,13 +295,6 @@ Direction. 0 : Decrypt operation is performed. 1 : Encrypt operation is performe
     pub fn dir(&mut self) -> DirW<AesctlSpec> {
         DirW::new(self, 2)
     }
-    #[doc = "Bits 3:4 - 4:3\\]
-This field specifies the key size. The key size is automatically configured when a new key is loaded via the key store module. 00 = N/A - reserved 01 = 128 bits 10 = N/A - reserved 11 = N/A - reserved For the Crypto peripheral this field is fixed to 128 bits."]
-    #[inline(always)]
-    #[must_use]
-    pub fn key_size(&mut self) -> KeySizeW<AesctlSpec> {
-        KeySizeW::new(self, 3)
-    }
     #[doc = "Bit 5 - 5:5\\]
 CBC mode enable"]
     #[inline(always)]
@@ -384,13 +371,6 @@ If read as 1, this status bit indicates that an AES authentication TAG and/or IV
     #[must_use]
     pub fn saved_context_rdy(&mut self) -> SavedContextRdyW<AesctlSpec> {
         SavedContextRdyW::new(self, 30)
-    }
-    #[doc = "Bit 31 - 31:31\\]
-If 1, this status bit indicates that the context data registers can be overwritten and the Host is permitted to write the next context. Writing a context means writing either a mode, the crypto length or AESDATALEN1.LEN_MSW, AESDATALEN0.LEN_LSW length registers"]
-    #[inline(always)]
-    #[must_use]
-    pub fn context_rdy(&mut self) -> ContextRdyW<AesctlSpec> {
-        ContextRdyW::new(self, 31)
     }
 }
 #[doc = "AES Input/Output Buffer Control\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`aesctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`aesctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

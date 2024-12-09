@@ -101,9 +101,6 @@ pub type AuxTimer2PulseW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED16` reader - 31:16\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved16R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED16` writer - 31:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved16W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 This event flag is set when level selected by EVTOMCUPOL.AUX_WU_EV occurs on reduction-OR of the AUX_SYSIF:WUFLAGS register."]
@@ -320,13 +317,6 @@ This event flag is set when level selected by EVTOMCUPOL.AUX_TIMER2_PULSE occurs
     #[must_use]
     pub fn aux_timer2_pulse(&mut self) -> AuxTimer2PulseW<EvtomcuflagsSpec> {
         AuxTimer2PulseW::new(self, 15)
-    }
-    #[doc = "Bits 16:31 - 31:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved16(&mut self) -> Reserved16W<EvtomcuflagsSpec> {
-        Reserved16W::new(self, 16)
     }
 }
 #[doc = "Events to MCU Flags This register contains a collection of event flags routed to MCU domain. To clear an event flag, write to EVTOMCUFLAGSCLR or write 0 to event flag in this register. Follow procedure described in AUX_SYSIF:WUCLR to clear AUX_WU_EV event flag.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`evtomcuflags::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`evtomcuflags::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

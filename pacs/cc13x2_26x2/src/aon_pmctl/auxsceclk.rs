@@ -61,9 +61,6 @@ where
 #[doc = "Field `RESERVED3` reader - 7:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3R = crate::FieldReader;
-#[doc = "Field `RESERVED3` writer - 7:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "8:8\\]
 Selects the clock source for the AUX domain when AUX is in powerdown mode. Note: Switching the clock source is guaranteed to be glitch-free\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -123,9 +120,6 @@ where
 #[doc = "Field `RESERVED9` reader - 31:9\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved9R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED9` writer - 31:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved9W<'a, REG> = crate::FieldWriter<'a, REG, 23, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Selects the clock source for the AUX domain when AUX is in active mode. Note: Switching the clock source is guaranteed to be glitch-free"]
@@ -160,26 +154,12 @@ Selects the clock source for the AUX domain when AUX is in active mode. Note: Sw
     pub fn src(&mut self) -> SrcW<AuxsceclkSpec> {
         SrcW::new(self, 0)
     }
-    #[doc = "Bits 1:7 - 7:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<AuxsceclkSpec> {
-        Reserved3W::new(self, 1)
-    }
     #[doc = "Bit 8 - 8:8\\]
 Selects the clock source for the AUX domain when AUX is in powerdown mode. Note: Switching the clock source is guaranteed to be glitch-free"]
     #[inline(always)]
     #[must_use]
     pub fn pd_src(&mut self) -> PdSrcW<AuxsceclkSpec> {
         PdSrcW::new(self, 8)
-    }
-    #[doc = "Bits 9:31 - 31:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved9(&mut self) -> Reserved9W<AuxsceclkSpec> {
-        Reserved9W::new(self, 9)
     }
 }
 #[doc = "AUX SCE Clock Management This register contains bitfields that are relevant for setting up the clock to the AUX domain.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`auxsceclk::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`auxsceclk::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

@@ -6,10 +6,6 @@ pub type W = crate::W<Icpr0Spec>;
 For CLRPEND\\[m\\]
 in NVIC_ICPR*n, indicates whether interrupt 32*n + m is pending"]
 pub type ClrpendR = crate::FieldReader<u32>;
-#[doc = "Field `CLRPEND` writer - 31:0\\]
-For CLRPEND\\[m\\]
-in NVIC_ICPR*n, indicates whether interrupt 32*n + m is pending"]
-pub type ClrpendW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 For CLRPEND\\[m\\]
@@ -19,16 +15,7 @@ in NVIC_ICPR*n, indicates whether interrupt 32*n + m is pending"]
         ClrpendR::new(self.bits)
     }
 }
-impl W {
-    #[doc = "Bits 0:31 - 31:0\\]
-For CLRPEND\\[m\\]
-in NVIC_ICPR*n, indicates whether interrupt 32*n + m is pending"]
-    #[inline(always)]
-    #[must_use]
-    pub fn clrpend(&mut self) -> ClrpendW<Icpr0Spec> {
-        ClrpendW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Clears or reads the pending state of each group of 32 interrupts\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`icpr0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`icpr0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Icpr0Spec;
 impl crate::RegisterSpec for Icpr0Spec {

@@ -53,9 +53,6 @@ pub type HfsrcpendimW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED8` reader - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved8R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED8` writer - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 0: Disable interrupt generation when RCOSCHF is qualified 1: Enable interrupt generation when RCOSCHF is qualified"]
@@ -168,13 +165,6 @@ impl W {
     #[must_use]
     pub fn hfsrcpendim(&mut self) -> HfsrcpendimW<OscimscSpec> {
         HfsrcpendimW::new(self, 7)
-    }
-    #[doc = "Bits 8:31 - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved8(&mut self) -> Reserved8W<OscimscSpec> {
-        Reserved8W::new(self, 8)
     }
 }
 #[doc = "Oscillator Interrupt Mask Control\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`oscimsc::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`oscimsc::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

@@ -886,9 +886,6 @@ pub type Ev0PolW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED8` reader - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved8R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED8` writer - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 impl R {
     #[doc = "Bits 0:5 - 5:0\\]
 Select the event source from the synchronous event bus to be used in event equation."]
@@ -936,13 +933,6 @@ Polarity of SCEWEVCFG0.EV0_SEL event. When SCEWEVCFG0.COMB_EV_EN is 0: 0: Non-in
     #[must_use]
     pub fn ev0_pol(&mut self) -> Ev0PolW<Scewevcfg1Spec> {
         Ev0PolW::new(self, 7)
-    }
-    #[doc = "Bits 8:31 - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved8(&mut self) -> Reserved8W<Scewevcfg1Spec> {
-        Reserved8W::new(self, 8)
     }
 }
 #[doc = "Sensor Controller Engine Wait Event Configuration 1 See SCEWEVCFG0 for description.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`scewevcfg1::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`scewevcfg1::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

@@ -588,9 +588,6 @@ where
 #[doc = "Field `RESERVED6` reader - 7:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved6R = crate::FieldReader;
-#[doc = "Field `RESERVED6` writer - 7:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "9:8\\]
 Select source for drive strength control of this IO. This setting controls the drive strength of the Low-Current (LC) mode. Higher drive strength can be selected in IOCURR\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -841,9 +838,6 @@ where
 #[doc = "Field `RESERVED15` reader - 15:15\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved15R = crate::BitReader;
-#[doc = "Field `RESERVED15` writer - 15:15\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved15W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "17:16\\]
 Enable generation of edge detection events on this IO\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1081,9 +1075,6 @@ pub type HystEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED31` reader - 31:31\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved31R = crate::BitReader;
-#[doc = "Field `RESERVED31` writer - 31:31\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved31W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bits 0:5 - 5:0\\]
 Selects usage for DIO8"]
@@ -1184,13 +1175,6 @@ Selects usage for DIO8"]
     pub fn port_id(&mut self) -> PortIdW<Iocfg8Spec> {
         PortIdW::new(self, 0)
     }
-    #[doc = "Bits 6:7 - 7:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<Iocfg8Spec> {
-        Reserved6W::new(self, 6)
-    }
     #[doc = "Bits 8:9 - 9:8\\]
 Select source for drive strength control of this IO. This setting controls the drive strength of the Low-Current (LC) mode. Higher drive strength can be selected in IOCURR"]
     #[inline(always)]
@@ -1218,13 +1202,6 @@ Pull control"]
     #[must_use]
     pub fn pull_ctl(&mut self) -> PullCtlW<Iocfg8Spec> {
         PullCtlW::new(self, 13)
-    }
-    #[doc = "Bit 15 - 15:15\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved15(&mut self) -> Reserved15W<Iocfg8Spec> {
-        Reserved15W::new(self, 15)
     }
     #[doc = "Bits 16:17 - 17:16\\]
 Enable generation of edge detection events on this IO"]
@@ -1274,13 +1251,6 @@ If DIO is configured GPIO or non-AON peripheral signals, i.e. PORT_ID 0x00 or >0
     #[must_use]
     pub fn hyst_en(&mut self) -> HystEnW<Iocfg8Spec> {
         HystEnW::new(self, 30)
-    }
-    #[doc = "Bit 31 - 31:31\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved31(&mut self) -> Reserved31W<Iocfg8Spec> {
-        Reserved31W::new(self, 31)
     }
 }
 #[doc = "Configuration of DIO8\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`iocfg8::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`iocfg8::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

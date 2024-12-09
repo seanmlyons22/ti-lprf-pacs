@@ -94,9 +94,6 @@ where
 #[doc = "Field `RESERVED3` reader - 31:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED3` writer - 31:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 29, u32>;
 impl R {
     #[doc = "Bits 0:2 - 2:0\\]
 Select clock source for AUX_TIMER2. Update is only accepted if SRC equals TIMER2CLKSTAT.STAT or TIMER2CLKSWITCH.RDY is 1. It is recommended to select NONE only when TIMER2BRIDGE.BUSY is 0. A non-enumerated value is ignored."]
@@ -118,13 +115,6 @@ Select clock source for AUX_TIMER2. Update is only accepted if SRC equals TIMER2
     #[must_use]
     pub fn src(&mut self) -> SrcW<Timer2clkctlSpec> {
         SrcW::new(self, 0)
-    }
-    #[doc = "Bits 3:31 - 31:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<Timer2clkctlSpec> {
-        Reserved3W::new(self, 3)
     }
 }
 #[doc = "AUX_TIMER2 Clock Control Access to AUX_TIMER2 is only possible when TIMER2CLKSTAT.STAT is different from NONE.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`timer2clkctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`timer2clkctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

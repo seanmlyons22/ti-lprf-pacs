@@ -46,25 +46,6 @@ impl BankaddrR {
         *self == Bankaddr::Minimum
     }
 }
-#[doc = "Field `BANKADDR` writer - 15:0\\]
-Current Bank Address A bank offset address is stored in this register."]
-pub type BankaddrW<'a, REG> = crate::FieldWriter<'a, REG, 16, Bankaddr>;
-impl<'a, REG> BankaddrW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u16>,
-{
-    #[doc = "Maximum value"]
-    #[inline(always)]
-    pub fn maximum(self) -> &'a mut crate::W<REG> {
-        self.variant(Bankaddr::Maximum)
-    }
-    #[doc = "Minimum value"]
-    #[inline(always)]
-    pub fn minimum(self) -> &'a mut crate::W<REG> {
-        self.variant(Bankaddr::Minimum)
-    }
-}
 #[doc = "20:16\\]
 Current Region ID A region indicator is stored in this register which represents the current flash region on which the state machine is operating.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -123,35 +104,6 @@ impl RegionidR {
     #[inline(always)]
     pub fn is_main(&self) -> bool {
         *self == Regionid::Main
-    }
-}
-#[doc = "Field `REGIONID` writer - 20:16\\]
-Current Region ID A region indicator is stored in this register which represents the current flash region on which the state machine is operating."]
-pub type RegionidW<'a, REG> = crate::FieldWriter<'a, REG, 5, Regionid>;
-impl<'a, REG> RegionidW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "Engr Region"]
-    #[inline(always)]
-    pub fn engr(self) -> &'a mut crate::W<REG> {
-        self.variant(Regionid::Engr)
-    }
-    #[doc = "Trim Region"]
-    #[inline(always)]
-    pub fn trim(self) -> &'a mut crate::W<REG> {
-        self.variant(Regionid::Trim)
-    }
-    #[doc = "Non-Main Region"]
-    #[inline(always)]
-    pub fn nonmain(self) -> &'a mut crate::W<REG> {
-        self.variant(Regionid::Nonmain)
-    }
-    #[doc = "Main Region"]
-    #[inline(always)]
-    pub fn main(self) -> &'a mut crate::W<REG> {
-        self.variant(Regionid::Main)
     }
 }
 #[doc = "25:21\\]
@@ -222,46 +174,9 @@ impl BankidR {
         *self == Bankid::Bank0
     }
 }
-#[doc = "Field `BANKID` writer - 25:21\\]
-Current Bank ID A bank indicator is stored in this register which represents the current bank on which the state machine is operating. There is 1 bit per bank."]
-pub type BankidW<'a, REG> = crate::FieldWriter<'a, REG, 5, Bankid>;
-impl<'a, REG> BankidW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "Bank 4"]
-    #[inline(always)]
-    pub fn bank4(self) -> &'a mut crate::W<REG> {
-        self.variant(Bankid::Bank4)
-    }
-    #[doc = "Bank 3"]
-    #[inline(always)]
-    pub fn bank3(self) -> &'a mut crate::W<REG> {
-        self.variant(Bankid::Bank3)
-    }
-    #[doc = "Bank 2"]
-    #[inline(always)]
-    pub fn bank2(self) -> &'a mut crate::W<REG> {
-        self.variant(Bankid::Bank2)
-    }
-    #[doc = "Bank 1"]
-    #[inline(always)]
-    pub fn bank1(self) -> &'a mut crate::W<REG> {
-        self.variant(Bankid::Bank1)
-    }
-    #[doc = "Bank 0"]
-    #[inline(always)]
-    pub fn bank0(self) -> &'a mut crate::W<REG> {
-        self.variant(Bankid::Bank0)
-    }
-}
 #[doc = "Field `RESERVED26` reader - 31:26\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved26R = crate::FieldReader;
-#[doc = "Field `RESERVED26` writer - 31:26\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved26W<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 impl R {
     #[doc = "Bits 0:15 - 15:0\\]
 Current Bank Address A bank offset address is stored in this register."]
@@ -288,36 +203,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved26R::new(((self.bits >> 26) & 0x3f) as u8)
     }
 }
-impl W {
-    #[doc = "Bits 0:15 - 15:0\\]
-Current Bank Address A bank offset address is stored in this register."]
-    #[inline(always)]
-    #[must_use]
-    pub fn bankaddr(&mut self) -> BankaddrW<StataddrSpec> {
-        BankaddrW::new(self, 0)
-    }
-    #[doc = "Bits 16:20 - 20:16\\]
-Current Region ID A region indicator is stored in this register which represents the current flash region on which the state machine is operating."]
-    #[inline(always)]
-    #[must_use]
-    pub fn regionid(&mut self) -> RegionidW<StataddrSpec> {
-        RegionidW::new(self, 16)
-    }
-    #[doc = "Bits 21:25 - 25:21\\]
-Current Bank ID A bank indicator is stored in this register which represents the current bank on which the state machine is operating. There is 1 bit per bank."]
-    #[inline(always)]
-    #[must_use]
-    pub fn bankid(&mut self) -> BankidW<StataddrSpec> {
-        BankidW::new(self, 21)
-    }
-    #[doc = "Bits 26:31 - 31:26\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved26(&mut self) -> Reserved26W<StataddrSpec> {
-        Reserved26W::new(self, 26)
-    }
-}
+impl W {}
 #[doc = "Current Address Counter Value Read only register giving read access to the state machine current address. A bank id, region id and address are stored in this register and are incremented as necessary during execution of a command.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`stataddr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`stataddr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct StataddrSpec;
 impl crate::RegisterSpec for StataddrSpec {

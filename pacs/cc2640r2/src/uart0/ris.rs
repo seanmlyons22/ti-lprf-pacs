@@ -5,69 +5,36 @@ pub type W = crate::W<RisSpec>;
 #[doc = "Field `RESERVED0` reader - 0:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved0R = crate::BitReader;
-#[doc = "Field `RESERVED0` writer - 0:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved0W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `CTSRMIS` reader - 1:1\\]
 Clear to Send (CTS) modem interrupt status: This field returns the raw interrupt state of UART's clear to send interrupt."]
 pub type CtsrmisR = crate::BitReader;
-#[doc = "Field `CTSRMIS` writer - 1:1\\]
-Clear to Send (CTS) modem interrupt status: This field returns the raw interrupt state of UART's clear to send interrupt."]
-pub type CtsrmisW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED2` reader - 3:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2R = crate::FieldReader;
-#[doc = "Field `RESERVED2` writer - 3:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `RXRIS` reader - 4:4\\]
 Receive interrupt status: This field returns the raw interrupt state of UART's receive interrupt. When FIFOs are enabled (LCRH.FEN = 1), the receive interrupt is asserted if the receive FIFO reaches the programmed trigger level (IFLS.RXSEL). The receive interrupt is cleared by reading data from the receive FIFO until it becomes less than the trigger level, or by clearing the interrupt through ICR.RXIC. When FIFOs are disabled (LCRH.FEN = 0), that is they have a depth of one location, the receive interrupt is asserted if data is received thereby filling the location. The receive interrupt is cleared by performing a single read of the receive FIFO, or by clearing the interrupt through ICR.RXIC."]
 pub type RxrisR = crate::BitReader;
-#[doc = "Field `RXRIS` writer - 4:4\\]
-Receive interrupt status: This field returns the raw interrupt state of UART's receive interrupt. When FIFOs are enabled (LCRH.FEN = 1), the receive interrupt is asserted if the receive FIFO reaches the programmed trigger level (IFLS.RXSEL). The receive interrupt is cleared by reading data from the receive FIFO until it becomes less than the trigger level, or by clearing the interrupt through ICR.RXIC. When FIFOs are disabled (LCRH.FEN = 0), that is they have a depth of one location, the receive interrupt is asserted if data is received thereby filling the location. The receive interrupt is cleared by performing a single read of the receive FIFO, or by clearing the interrupt through ICR.RXIC."]
-pub type RxrisW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `TXRIS` reader - 5:5\\]
 Transmit interrupt status: This field returns the raw interrupt state of UART's transmit interrupt. When FIFOs are enabled (LCRH.FEN = 1), the transmit interrupt is asserted if the number of bytes in transmit FIFO is equal to or lower than the programmed trigger level (IFLS.TXSEL). The transmit interrupt is cleared by writing data to the transmit FIFO until it becomes greater than the trigger level, or by clearing the interrupt through ICR.TXIC. When FIFOs are disabled (LCRH.FEN = 0), that is they have a depth of one location, the transmit interrupt is asserted if there is no data present in the transmitters single location. It is cleared by performing a single write to the transmit FIFO, or by clearing the interrupt through ICR.TXIC."]
 pub type TxrisR = crate::BitReader;
-#[doc = "Field `TXRIS` writer - 5:5\\]
-Transmit interrupt status: This field returns the raw interrupt state of UART's transmit interrupt. When FIFOs are enabled (LCRH.FEN = 1), the transmit interrupt is asserted if the number of bytes in transmit FIFO is equal to or lower than the programmed trigger level (IFLS.TXSEL). The transmit interrupt is cleared by writing data to the transmit FIFO until it becomes greater than the trigger level, or by clearing the interrupt through ICR.TXIC. When FIFOs are disabled (LCRH.FEN = 0), that is they have a depth of one location, the transmit interrupt is asserted if there is no data present in the transmitters single location. It is cleared by performing a single write to the transmit FIFO, or by clearing the interrupt through ICR.TXIC."]
-pub type TxrisW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RTRIS` reader - 6:6\\]
 Receive timeout interrupt status: This field returns the raw interrupt state of UART's receive timeout interrupt. The receive timeout interrupt is asserted when the receive FIFO is not empty, and no more data is received during a 32-bit period. The receive timeout interrupt is cleared either when the FIFO becomes empty through reading all the data, or when a 1 is written to ICR.RTIC. The raw interrupt for receive timeout cannot be set unless the mask is set (IMSC.RTIM = 1). This is because the mask acts as an enable for power saving. That is, the same status can be read from MIS.RTMIS and RTRIS."]
 pub type RtrisR = crate::BitReader;
-#[doc = "Field `RTRIS` writer - 6:6\\]
-Receive timeout interrupt status: This field returns the raw interrupt state of UART's receive timeout interrupt. The receive timeout interrupt is asserted when the receive FIFO is not empty, and no more data is received during a 32-bit period. The receive timeout interrupt is cleared either when the FIFO becomes empty through reading all the data, or when a 1 is written to ICR.RTIC. The raw interrupt for receive timeout cannot be set unless the mask is set (IMSC.RTIM = 1). This is because the mask acts as an enable for power saving. That is, the same status can be read from MIS.RTMIS and RTRIS."]
-pub type RtrisW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `FERIS` reader - 7:7\\]
 Framing error interrupt status: This field returns the raw interrupt state of UART's framing error interrupt. Framing error is set if the received character does not have a valid stop bit (a valid stop bit is 1)."]
 pub type FerisR = crate::BitReader;
-#[doc = "Field `FERIS` writer - 7:7\\]
-Framing error interrupt status: This field returns the raw interrupt state of UART's framing error interrupt. Framing error is set if the received character does not have a valid stop bit (a valid stop bit is 1)."]
-pub type FerisW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `PERIS` reader - 8:8\\]
 Parity error interrupt status: This field returns the raw interrupt state of UART's parity error interrupt. Parity error is set if the parity of the received data character does not match the parity that the LCRH.EPS and LCRH.SPS select."]
 pub type PerisR = crate::BitReader;
-#[doc = "Field `PERIS` writer - 8:8\\]
-Parity error interrupt status: This field returns the raw interrupt state of UART's parity error interrupt. Parity error is set if the parity of the received data character does not match the parity that the LCRH.EPS and LCRH.SPS select."]
-pub type PerisW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `BERIS` reader - 9:9\\]
 Break error interrupt status: This field returns the raw interrupt state of UART's break error interrupt. Break error is set when a break condition is detected, indicating that the received data input (UARTRXD input pin) was held LOW for longer than a full-word transmission time (defined as start, data, parity and stop bits)."]
 pub type BerisR = crate::BitReader;
-#[doc = "Field `BERIS` writer - 9:9\\]
-Break error interrupt status: This field returns the raw interrupt state of UART's break error interrupt. Break error is set when a break condition is detected, indicating that the received data input (UARTRXD input pin) was held LOW for longer than a full-word transmission time (defined as start, data, parity and stop bits)."]
-pub type BerisW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `OERIS` reader - 10:10\\]
 Overrun error interrupt status: This field returns the raw interrupt state of UART's overrun error interrupt. Overrun error occurs if data is received and the receive FIFO is full."]
 pub type OerisR = crate::BitReader;
-#[doc = "Field `OERIS` writer - 10:10\\]
-Overrun error interrupt status: This field returns the raw interrupt state of UART's overrun error interrupt. Overrun error occurs if data is received and the receive FIFO is full."]
-pub type OerisW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED11` reader - 31:11\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved11R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED11` writer - 31:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved11W<'a, REG> = crate::FieldWriter<'a, REG, 21, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
@@ -136,85 +103,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved11R::new((self.bits >> 11) & 0x001f_ffff)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved0(&mut self) -> Reserved0W<RisSpec> {
-        Reserved0W::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Clear to Send (CTS) modem interrupt status: This field returns the raw interrupt state of UART's clear to send interrupt."]
-    #[inline(always)]
-    #[must_use]
-    pub fn ctsrmis(&mut self) -> CtsrmisW<RisSpec> {
-        CtsrmisW::new(self, 1)
-    }
-    #[doc = "Bits 2:3 - 3:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<RisSpec> {
-        Reserved2W::new(self, 2)
-    }
-    #[doc = "Bit 4 - 4:4\\]
-Receive interrupt status: This field returns the raw interrupt state of UART's receive interrupt. When FIFOs are enabled (LCRH.FEN = 1), the receive interrupt is asserted if the receive FIFO reaches the programmed trigger level (IFLS.RXSEL). The receive interrupt is cleared by reading data from the receive FIFO until it becomes less than the trigger level, or by clearing the interrupt through ICR.RXIC. When FIFOs are disabled (LCRH.FEN = 0), that is they have a depth of one location, the receive interrupt is asserted if data is received thereby filling the location. The receive interrupt is cleared by performing a single read of the receive FIFO, or by clearing the interrupt through ICR.RXIC."]
-    #[inline(always)]
-    #[must_use]
-    pub fn rxris(&mut self) -> RxrisW<RisSpec> {
-        RxrisW::new(self, 4)
-    }
-    #[doc = "Bit 5 - 5:5\\]
-Transmit interrupt status: This field returns the raw interrupt state of UART's transmit interrupt. When FIFOs are enabled (LCRH.FEN = 1), the transmit interrupt is asserted if the number of bytes in transmit FIFO is equal to or lower than the programmed trigger level (IFLS.TXSEL). The transmit interrupt is cleared by writing data to the transmit FIFO until it becomes greater than the trigger level, or by clearing the interrupt through ICR.TXIC. When FIFOs are disabled (LCRH.FEN = 0), that is they have a depth of one location, the transmit interrupt is asserted if there is no data present in the transmitters single location. It is cleared by performing a single write to the transmit FIFO, or by clearing the interrupt through ICR.TXIC."]
-    #[inline(always)]
-    #[must_use]
-    pub fn txris(&mut self) -> TxrisW<RisSpec> {
-        TxrisW::new(self, 5)
-    }
-    #[doc = "Bit 6 - 6:6\\]
-Receive timeout interrupt status: This field returns the raw interrupt state of UART's receive timeout interrupt. The receive timeout interrupt is asserted when the receive FIFO is not empty, and no more data is received during a 32-bit period. The receive timeout interrupt is cleared either when the FIFO becomes empty through reading all the data, or when a 1 is written to ICR.RTIC. The raw interrupt for receive timeout cannot be set unless the mask is set (IMSC.RTIM = 1). This is because the mask acts as an enable for power saving. That is, the same status can be read from MIS.RTMIS and RTRIS."]
-    #[inline(always)]
-    #[must_use]
-    pub fn rtris(&mut self) -> RtrisW<RisSpec> {
-        RtrisW::new(self, 6)
-    }
-    #[doc = "Bit 7 - 7:7\\]
-Framing error interrupt status: This field returns the raw interrupt state of UART's framing error interrupt. Framing error is set if the received character does not have a valid stop bit (a valid stop bit is 1)."]
-    #[inline(always)]
-    #[must_use]
-    pub fn feris(&mut self) -> FerisW<RisSpec> {
-        FerisW::new(self, 7)
-    }
-    #[doc = "Bit 8 - 8:8\\]
-Parity error interrupt status: This field returns the raw interrupt state of UART's parity error interrupt. Parity error is set if the parity of the received data character does not match the parity that the LCRH.EPS and LCRH.SPS select."]
-    #[inline(always)]
-    #[must_use]
-    pub fn peris(&mut self) -> PerisW<RisSpec> {
-        PerisW::new(self, 8)
-    }
-    #[doc = "Bit 9 - 9:9\\]
-Break error interrupt status: This field returns the raw interrupt state of UART's break error interrupt. Break error is set when a break condition is detected, indicating that the received data input (UARTRXD input pin) was held LOW for longer than a full-word transmission time (defined as start, data, parity and stop bits)."]
-    #[inline(always)]
-    #[must_use]
-    pub fn beris(&mut self) -> BerisW<RisSpec> {
-        BerisW::new(self, 9)
-    }
-    #[doc = "Bit 10 - 10:10\\]
-Overrun error interrupt status: This field returns the raw interrupt state of UART's overrun error interrupt. Overrun error occurs if data is received and the receive FIFO is full."]
-    #[inline(always)]
-    #[must_use]
-    pub fn oeris(&mut self) -> OerisW<RisSpec> {
-        OerisW::new(self, 10)
-    }
-    #[doc = "Bits 11:31 - 31:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved11(&mut self) -> Reserved11W<RisSpec> {
-        Reserved11W::new(self, 11)
-    }
-}
+impl W {}
 #[doc = "Raw Interrupt Status\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ris::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ris::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct RisSpec;
 impl crate::RegisterSpec for RisSpec {

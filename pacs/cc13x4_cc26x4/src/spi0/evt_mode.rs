@@ -81,9 +81,6 @@ where
 #[doc = "Field `RESERVED2` reader - 31:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED2` writer - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 30, u32>;
 impl R {
     #[doc = "Bits 0:1 - 1:0\\]
 Event line mode select for event corresponding to IPSTANDARD.INT_EVENT0"]
@@ -105,13 +102,6 @@ Event line mode select for event corresponding to IPSTANDARD.INT_EVENT0"]
     #[must_use]
     pub fn int0_cfg(&mut self) -> Int0CfgW<EvtModeSpec> {
         Int0CfgW::new(self, 0)
-    }
-    #[doc = "Bits 2:31 - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<EvtModeSpec> {
-        Reserved2W::new(self, 2)
     }
 }
 #[doc = "Event mode register. It is used to select whether each line is disabled, in software mode (software clears the RIS) or in hardware mode (hardware clears the RIS) Note: The recommendation is to use SPI in the software mode\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`evt_mode::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`evt_mode::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

@@ -5,9 +5,6 @@ pub type W = crate::W<AnabypassValue2Spec>;
 #[doc = "Field `XOSC_HF_IBIASTHERM` reader - 13:0\\]
 Internal. Only to be used through TI provided API."]
 pub type XoscHfIbiasthermR = crate::FieldReader<u16>;
-#[doc = "Field `XOSC_HF_IBIASTHERM` writer - 13:0\\]
-Internal. Only to be used through TI provided API."]
-pub type XoscHfIbiasthermW<'a, REG> = crate::FieldWriter<'a, REG, 14, u16>;
 impl R {
     #[doc = "Bits 0:13 - 13:0\\]
 Internal. Only to be used through TI provided API."]
@@ -16,15 +13,7 @@ Internal. Only to be used through TI provided API."]
         XoscHfIbiasthermR::new((self.bits & 0x3fff) as u16)
     }
 }
-impl W {
-    #[doc = "Bits 0:13 - 13:0\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn xosc_hf_ibiastherm(&mut self) -> XoscHfIbiasthermW<AnabypassValue2Spec> {
-        XoscHfIbiasthermW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`anabypass_value2::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`anabypass_value2::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct AnabypassValue2Spec;
 impl crate::RegisterSpec for AnabypassValue2Spec {

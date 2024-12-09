@@ -11,9 +11,6 @@ pub type BusCfgW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `RESERVED8` reader - 30:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved8R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED8` writer - 30:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 23, u32>;
 #[doc = "Field `VALID` reader - 31:31\\]
 Security configuration valid Registers that needs to be followed by VALID before settings being applied are: - NVMNSCADDR - NVMNSADDR - SRAMNSCADDR - SRAMNSADDR - BUSSECCFG - CPULOCK"]
 pub type ValidR = crate::BitReader;
@@ -47,13 +44,6 @@ Bus interconnect security and firewall configuration 0xFF : Trustzone enabled 0x
     #[must_use]
     pub fn bus_cfg(&mut self) -> BusCfgW<BusseccfgSpec> {
         BusCfgW::new(self, 0)
-    }
-    #[doc = "Bits 8:30 - 30:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved8(&mut self) -> Reserved8W<BusseccfgSpec> {
-        Reserved8W::new(self, 8)
     }
     #[doc = "Bit 31 - 31:31\\]
 Security configuration valid Registers that needs to be followed by VALID before settings being applied are: - NVMNSCADDR - NVMNSADDR - SRAMNSCADDR - SRAMNSADDR - BUSSECCFG - CPULOCK"]

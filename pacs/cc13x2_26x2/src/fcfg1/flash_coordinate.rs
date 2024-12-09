@@ -5,15 +5,9 @@ pub type W = crate::W<FlashCoordinateSpec>;
 #[doc = "Field `YCOORDINATE` reader - 15:0\\]
 Y coordinate of this unit on the wafer."]
 pub type YcoordinateR = crate::FieldReader<u16>;
-#[doc = "Field `YCOORDINATE` writer - 15:0\\]
-Y coordinate of this unit on the wafer."]
-pub type YcoordinateW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 #[doc = "Field `XCOORDINATE` reader - 31:16\\]
 X coordinate of this unit on the wafer."]
 pub type XcoordinateR = crate::FieldReader<u16>;
-#[doc = "Field `XCOORDINATE` writer - 31:16\\]
-X coordinate of this unit on the wafer."]
-pub type XcoordinateW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
     #[doc = "Bits 0:15 - 15:0\\]
 Y coordinate of this unit on the wafer."]
@@ -28,22 +22,7 @@ X coordinate of this unit on the wafer."]
         XcoordinateR::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
-impl W {
-    #[doc = "Bits 0:15 - 15:0\\]
-Y coordinate of this unit on the wafer."]
-    #[inline(always)]
-    #[must_use]
-    pub fn ycoordinate(&mut self) -> YcoordinateW<FlashCoordinateSpec> {
-        YcoordinateW::new(self, 0)
-    }
-    #[doc = "Bits 16:31 - 31:16\\]
-X coordinate of this unit on the wafer."]
-    #[inline(always)]
-    #[must_use]
-    pub fn xcoordinate(&mut self) -> XcoordinateW<FlashCoordinateSpec> {
-        XcoordinateW::new(self, 16)
-    }
-}
+impl W {}
 #[doc = "Flash information\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`flash_coordinate::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`flash_coordinate::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct FlashCoordinateSpec;
 impl crate::RegisterSpec for FlashCoordinateSpec {

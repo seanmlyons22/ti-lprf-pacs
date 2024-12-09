@@ -509,9 +509,6 @@ where
 #[doc = "Field `RESERVED9` reader - 31:9\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved9R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED9` writer - 31:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved9W<'a, REG> = crate::FieldWriter<'a, REG, 23, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 RXFIFO overflow event. This interrupt is set if an RX FIFO overflow has been detected."]
@@ -637,13 +634,6 @@ DMA Done event for TX. This interrupt is set if the TX DMA channel sends the DON
     #[must_use]
     pub fn dma_done_tx(&mut self) -> DmaDoneTxW<RisSpec> {
         DmaDoneTxW::new(self, 8)
-    }
-    #[doc = "Bits 9:31 - 31:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved9(&mut self) -> Reserved9W<RisSpec> {
-        Reserved9W::new(self, 9)
     }
 }
 #[doc = "Raw interrupt status. Reflects all pending interrupts, regardless of masking. The RIS register allows the user to implement a poll scheme. A flag set in this register can be cleared by writing 1 to the ICLR register bit even if the corresponding IMASK bit is not enabled.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ris::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ris::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

@@ -2,38 +2,14 @@
 pub type R = crate::R<Aesdatalen1Spec>;
 #[doc = "Register `AESDATALEN1` writer"]
 pub type W = crate::W<Aesdatalen1Spec>;
-#[doc = "Field `C_LENGTH` reader - 28:0\\]
-C_LENGTH\\[60:32\\]
-Bits \\[60:0\\]
-of the crypto length registers (LSW and MSW) store the cryptographic data length in bytes for all modes. Once processing with this context is started, this length decrements to 0. Data lengths up to (261: 1) bytes are allowed. For GCM, any value up to 236 - 32 bytes can be used. This is because a 32-bit counter mode is used; the maximum number of 128-bit blocks is 232 - 2, resulting in a maximum number of bytes of 236 - 32. A write to this register triggers the engine to start using this context. This is valid for all modes except GCM and CCM. Note: For the combined modes (GCM and CCM), this length does not include the authentication only data; the authentication length is specified in the AESAUTHLEN register All modes must have a length greater than 0. For the combined modes, it is allowed to have one of the lengths equal to 0. For the basic encryption modes (ECB, CBC, and CTR) it is allowed to program zero to the length field; in that case the length is assumed infinite. All data must be byte (8-bit) aligned for stream cipher modes; bit aligned data streams are not supported by the EIP-120t. For block cipher modes, the data length must be programmed in multiples of the block cipher size, 16 bytes. For a host read operation, these registers return all-0s."]
-pub type CLengthR = crate::FieldReader<u32>;
 #[doc = "Field `C_LENGTH` writer - 28:0\\]
 C_LENGTH\\[60:32\\]
 Bits \\[60:0\\]
 of the crypto length registers (LSW and MSW) store the cryptographic data length in bytes for all modes. Once processing with this context is started, this length decrements to 0. Data lengths up to (261: 1) bytes are allowed. For GCM, any value up to 236 - 32 bytes can be used. This is because a 32-bit counter mode is used; the maximum number of 128-bit blocks is 232 - 2, resulting in a maximum number of bytes of 236 - 32. A write to this register triggers the engine to start using this context. This is valid for all modes except GCM and CCM. Note: For the combined modes (GCM and CCM), this length does not include the authentication only data; the authentication length is specified in the AESAUTHLEN register All modes must have a length greater than 0. For the combined modes, it is allowed to have one of the lengths equal to 0. For the basic encryption modes (ECB, CBC, and CTR) it is allowed to program zero to the length field; in that case the length is assumed infinite. All data must be byte (8-bit) aligned for stream cipher modes; bit aligned data streams are not supported by the EIP-120t. For block cipher modes, the data length must be programmed in multiples of the block cipher size, 16 bytes. For a host read operation, these registers return all-0s."]
 pub type CLengthW<'a, REG> = crate::FieldWriter<'a, REG, 29, u32>;
-#[doc = "Field `RESERVED29` reader - 31:29\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved29R = crate::FieldReader;
 #[doc = "Field `RESERVED29` writer - 31:29\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved29W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
-impl R {
-    #[doc = "Bits 0:28 - 28:0\\]
-C_LENGTH\\[60:32\\]
-Bits \\[60:0\\]
-of the crypto length registers (LSW and MSW) store the cryptographic data length in bytes for all modes. Once processing with this context is started, this length decrements to 0. Data lengths up to (261: 1) bytes are allowed. For GCM, any value up to 236 - 32 bytes can be used. This is because a 32-bit counter mode is used; the maximum number of 128-bit blocks is 232 - 2, resulting in a maximum number of bytes of 236 - 32. A write to this register triggers the engine to start using this context. This is valid for all modes except GCM and CCM. Note: For the combined modes (GCM and CCM), this length does not include the authentication only data; the authentication length is specified in the AESAUTHLEN register All modes must have a length greater than 0. For the combined modes, it is allowed to have one of the lengths equal to 0. For the basic encryption modes (ECB, CBC, and CTR) it is allowed to program zero to the length field; in that case the length is assumed infinite. All data must be byte (8-bit) aligned for stream cipher modes; bit aligned data streams are not supported by the EIP-120t. For block cipher modes, the data length must be programmed in multiples of the block cipher size, 16 bytes. For a host read operation, these registers return all-0s."]
-    #[inline(always)]
-    pub fn c_length(&self) -> CLengthR {
-        CLengthR::new(self.bits & 0x1fff_ffff)
-    }
-    #[doc = "Bits 29:31 - 31:29\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    pub fn reserved29(&self) -> Reserved29R {
-        Reserved29R::new(((self.bits >> 29) & 7) as u8)
-    }
-}
 impl W {
     #[doc = "Bits 0:28 - 28:0\\]
 C_LENGTH\\[60:32\\]

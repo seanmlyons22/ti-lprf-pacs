@@ -5,9 +5,6 @@ pub type W = crate::W<ClaimtagSpec>;
 #[doc = "Field `CLAIMTAG` reader - 31:0\\]
 This register forms one half of the Claim Tag value. Reading this register returns the current Claim Tag value. Reading CLAIMMASK determines how many bits from this register must be used. The behavior when writing to this register is described in CLAIMCLR."]
 pub type ClaimtagR = crate::FieldReader<u32>;
-#[doc = "Field `CLAIMTAG` writer - 31:0\\]
-This register forms one half of the Claim Tag value. Reading this register returns the current Claim Tag value. Reading CLAIMMASK determines how many bits from this register must be used. The behavior when writing to this register is described in CLAIMCLR."]
-pub type ClaimtagW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 This register forms one half of the Claim Tag value. Reading this register returns the current Claim Tag value. Reading CLAIMMASK determines how many bits from this register must be used. The behavior when writing to this register is described in CLAIMCLR."]
@@ -16,15 +13,7 @@ This register forms one half of the Claim Tag value. Reading this register retur
         ClaimtagR::new(self.bits)
     }
 }
-impl W {
-    #[doc = "Bits 0:31 - 31:0\\]
-This register forms one half of the Claim Tag value. Reading this register returns the current Claim Tag value. Reading CLAIMMASK determines how many bits from this register must be used. The behavior when writing to this register is described in CLAIMCLR."]
-    #[inline(always)]
-    #[must_use]
-    pub fn claimtag(&mut self) -> ClaimtagW<ClaimtagSpec> {
-        ClaimtagW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Current Claim Tag\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`claimtag::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`claimtag::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct ClaimtagSpec;
 impl crate::RegisterSpec for ClaimtagSpec {

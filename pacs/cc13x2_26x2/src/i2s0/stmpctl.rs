@@ -11,21 +11,12 @@ pub type StmpEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `IN_RDY` reader - 1:1\\]
 Low until the input pins are ready to be started by the samplestamp generator. When started (that is STMPINTRIG equals the WCLK counter) the bit goes back low."]
 pub type InRdyR = crate::BitReader;
-#[doc = "Field `IN_RDY` writer - 1:1\\]
-Low until the input pins are ready to be started by the samplestamp generator. When started (that is STMPINTRIG equals the WCLK counter) the bit goes back low."]
-pub type InRdyW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `OUT_RDY` reader - 2:2\\]
 Low until the output pins are ready to be started by the samplestamp generator. When started (that is STMPOUTTRIG equals the WCLK counter) the bit goes back low."]
 pub type OutRdyR = crate::BitReader;
-#[doc = "Field `OUT_RDY` writer - 2:2\\]
-Low until the output pins are ready to be started by the samplestamp generator. When started (that is STMPOUTTRIG equals the WCLK counter) the bit goes back low."]
-pub type OutRdyW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED3` reader - 31:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED3` writer - 31:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 29, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Enables the samplestamp generator. The samplestamp generator must only be enabled after it has been properly configured. When cleared, all samplestamp generator counters and capture values are cleared."]
@@ -59,27 +50,6 @@ Enables the samplestamp generator. The samplestamp generator must only be enable
     #[must_use]
     pub fn stmp_en(&mut self) -> StmpEnW<StmpctlSpec> {
         StmpEnW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Low until the input pins are ready to be started by the samplestamp generator. When started (that is STMPINTRIG equals the WCLK counter) the bit goes back low."]
-    #[inline(always)]
-    #[must_use]
-    pub fn in_rdy(&mut self) -> InRdyW<StmpctlSpec> {
-        InRdyW::new(self, 1)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-Low until the output pins are ready to be started by the samplestamp generator. When started (that is STMPOUTTRIG equals the WCLK counter) the bit goes back low."]
-    #[inline(always)]
-    #[must_use]
-    pub fn out_rdy(&mut self) -> OutRdyW<StmpctlSpec> {
-        OutRdyW::new(self, 2)
-    }
-    #[doc = "Bits 3:31 - 31:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<StmpctlSpec> {
-        Reserved3W::new(self, 3)
     }
 }
 #[doc = "Samplestamp Generator Control Register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`stmpctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`stmpctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

@@ -2,14 +2,6 @@
 pub type R = crate::R<Aeskey3Spec>;
 #[doc = "Register `AESKEY3` writer"]
 pub type W = crate::W<Aeskey3Spec>;
-#[doc = "Field `AES_KEY3` reader - 31:0\\]
-AES_KEY3\\[31:0\\]/AES_KEY2\\[159:128\\]
-For GCM: -\\[127:0\\]
-- GHASH_H - The internally calculated GHASH key is stored in these registers. Only used for modes that use the GHASH function (GCM). -\\[255:128\\]
-- This register is used to store intermediate values and is initialized with 0s when loading a new key. For CCM: -\\[255:0\\]
-- This register is used to store intermediate values. For CBC-MAC: -\\[255:0\\]
-- ZEROES - This register must remain 0."]
-pub type AesKey3R = crate::FieldReader<u32>;
 #[doc = "Field `AES_KEY3` writer - 31:0\\]
 AES_KEY3\\[31:0\\]/AES_KEY2\\[159:128\\]
 For GCM: -\\[127:0\\]
@@ -18,19 +10,6 @@ For GCM: -\\[127:0\\]
 - This register is used to store intermediate values. For CBC-MAC: -\\[255:0\\]
 - ZEROES - This register must remain 0."]
 pub type AesKey3W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
-impl R {
-    #[doc = "Bits 0:31 - 31:0\\]
-AES_KEY3\\[31:0\\]/AES_KEY2\\[159:128\\]
-For GCM: -\\[127:0\\]
-- GHASH_H - The internally calculated GHASH key is stored in these registers. Only used for modes that use the GHASH function (GCM). -\\[255:128\\]
-- This register is used to store intermediate values and is initialized with 0s when loading a new key. For CCM: -\\[255:0\\]
-- This register is used to store intermediate values. For CBC-MAC: -\\[255:0\\]
-- ZEROES - This register must remain 0."]
-    #[inline(always)]
-    pub fn aes_key3(&self) -> AesKey3R {
-        AesKey3R::new(self.bits)
-    }
-}
 impl W {
     #[doc = "Bits 0:31 - 31:0\\]
 AES_KEY3\\[31:0\\]/AES_KEY2\\[159:128\\]

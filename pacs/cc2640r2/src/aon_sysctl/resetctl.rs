@@ -5,9 +5,6 @@ pub type W = crate::W<ResetctlSpec>;
 #[doc = "Field `RESERVED0` reader - 0:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved0R = crate::BitReader;
-#[doc = "Field `RESERVED0` writer - 0:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved0W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "3:1\\]
 Shows the source of the last system reset: Occurrence of one of the reset sources may trigger several other reset sources as essential parts of the system are undergoing reset. This field will report the root cause of the reset (not the other resets that are consequence of the system reset). To support this feature the actual register is not captured before the reset source being released. If a new reset source is triggered, in a window of four 32 kHz periods after the previous has been released, this register may indicate Power on reset as source.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -100,55 +97,6 @@ impl ResetSrcR {
         *self == ResetSrc::PwrOn
     }
 }
-#[doc = "Field `RESET_SRC` writer - 3:1\\]
-Shows the source of the last system reset: Occurrence of one of the reset sources may trigger several other reset sources as essential parts of the system are undergoing reset. This field will report the root cause of the reset (not the other resets that are consequence of the system reset). To support this feature the actual register is not captured before the reset source being released. If a new reset source is triggered, in a window of four 32 kHz periods after the previous has been released, this register may indicate Power on reset as source."]
-pub type ResetSrcW<'a, REG> = crate::FieldWriter<'a, REG, 3, ResetSrc, crate::Safe>;
-impl<'a, REG> ResetSrcW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "Software reset via PRCM warm reset request"]
-    #[inline(always)]
-    pub fn warmreset(self) -> &'a mut crate::W<REG> {
-        self.variant(ResetSrc::Warmreset)
-    }
-    #[doc = "Software reset via SYSRESET register"]
-    #[inline(always)]
-    pub fn sysreset(self) -> &'a mut crate::W<REG> {
-        self.variant(ResetSrc::Sysreset)
-    }
-    #[doc = "Clock loss detect"]
-    #[inline(always)]
-    pub fn clk_loss(self) -> &'a mut crate::W<REG> {
-        self.variant(ResetSrc::ClkLoss)
-    }
-    #[doc = "Brown out detect on VDDR"]
-    #[inline(always)]
-    pub fn vddr_loss(self) -> &'a mut crate::W<REG> {
-        self.variant(ResetSrc::VddrLoss)
-    }
-    #[doc = "Brown out detect on VDD"]
-    #[inline(always)]
-    pub fn vdd_loss(self) -> &'a mut crate::W<REG> {
-        self.variant(ResetSrc::VddLoss)
-    }
-    #[doc = "Brown out detect on VDDS"]
-    #[inline(always)]
-    pub fn vdds_loss(self) -> &'a mut crate::W<REG> {
-        self.variant(ResetSrc::VddsLoss)
-    }
-    #[doc = "Reset pin"]
-    #[inline(always)]
-    pub fn pin_reset(self) -> &'a mut crate::W<REG> {
-        self.variant(ResetSrc::PinReset)
-    }
-    #[doc = "Power on reset"]
-    #[inline(always)]
-    pub fn pwr_on(self) -> &'a mut crate::W<REG> {
-        self.variant(ResetSrc::PwrOn)
-    }
-}
 #[doc = "Field `CLK_LOSS_EN` reader - 4:4\\]
 Controls reset generation in case SCLK_LF is lost. (provided that clock loss detection is enabled by DDI_0_OSC:CTL0.CLK_LOSS_EN) Note: Clock loss reset generation must be disabled before SCLK_LF clock source is changed in DDI_0_OSC:CTL0.SCLK_LF_SRC_SEL and remain disabled untill the change is confirmed in DDI_0_OSC:STAT0.SCLK_LF_SRC. Failure to do so may result in a spurious system reset. Clock loss reset generation can be disabled through this bitfield or by clearing DDI_0_OSC:CTL0.CLK_LOSS_EN 0: Clock loss is ignored 1: Clock loss generates system reset"]
 pub type ClkLossEnR = crate::BitReader;
@@ -176,9 +124,6 @@ pub type VddsLossEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED8` reader - 8:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved8R = crate::BitReader;
-#[doc = "Field `RESERVED8` writer - 8:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved8W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `VDD_LOSS_EN_OVR` reader - 9:9\\]
 Override of VDD_LOSS_EN 0: Brown out detect of VDD is ignored, unless VDD_LOSS_EN=1 1: Brown out detect of VDD generates system reset (regardless of VDD_LOSS_EN) This bit can be locked"]
 pub type VddLossEnOvrR = crate::BitReader;
@@ -200,31 +145,17 @@ pub type VddsLossEnOvrW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `BOOT_DET_0` reader - 12:12\\]
 Internal. Only to be used through TI provided API."]
 pub type BootDet0R = crate::BitReader;
-#[doc = "Field `BOOT_DET_0` writer - 12:12\\]
-Internal. Only to be used through TI provided API."]
-pub type BootDet0W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `BOOT_DET_1` reader - 13:13\\]
 Internal. Only to be used through TI provided API."]
 pub type BootDet1R = crate::BitReader;
-#[doc = "Field `BOOT_DET_1` writer - 13:13\\]
-Internal. Only to be used through TI provided API."]
-pub type BootDet1W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `GPIO_WU_FROM_SD` reader - 14:14\\]
 A wakeup from SHUTDOWN on an IO event has occurred Please refer to \\[IOC:IOCFGn,.WU_CFG\\]
 for configuring the IO's as wakeup sources. 0: The wakeup did not occur from SHUTDOWN on an IO event 1: A wakeup from SHUTDOWN occurred from an IO event The case where WU_FROM_SD is asserted but this bitfield is not asserted will only occur in a debug session. The boot code will not proceed with wakeup from SHUTDOWN procedure until this bitfield is asserted as well. Note: This flag can not be cleared and will therefor remain valid untill poweroff/reset"]
 pub type GpioWuFromSdR = crate::BitReader;
-#[doc = "Field `GPIO_WU_FROM_SD` writer - 14:14\\]
-A wakeup from SHUTDOWN on an IO event has occurred Please refer to \\[IOC:IOCFGn,.WU_CFG\\]
-for configuring the IO's as wakeup sources. 0: The wakeup did not occur from SHUTDOWN on an IO event 1: A wakeup from SHUTDOWN occurred from an IO event The case where WU_FROM_SD is asserted but this bitfield is not asserted will only occur in a debug session. The boot code will not proceed with wakeup from SHUTDOWN procedure until this bitfield is asserted as well. Note: This flag can not be cleared and will therefor remain valid untill poweroff/reset"]
-pub type GpioWuFromSdW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `WU_FROM_SD` reader - 15:15\\]
 A Wakeup from SHUTDOWN on an IO event has occurred, or a wakeup from SHUTDOWN has occurred as a result of the debugger being attached.. (TCK pin being forced low) Please refer to \\[IOC:IOCFGn,.WU_CFG\\]
 for configuring the IO's as wakeup sources. 0: Wakeup occurred from cold reset or brown out as seen in RESET_SRC 1: A wakeup has occurred from SHUTDOWN Note: This flag can not be cleared and will therefor remain valid untill poweroff/reset"]
 pub type WuFromSdR = crate::BitReader;
-#[doc = "Field `WU_FROM_SD` writer - 15:15\\]
-A Wakeup from SHUTDOWN on an IO event has occurred, or a wakeup from SHUTDOWN has occurred as a result of the debugger being attached.. (TCK pin being forced low) Please refer to \\[IOC:IOCFGn,.WU_CFG\\]
-for configuring the IO's as wakeup sources. 0: Wakeup occurred from cold reset or brown out as seen in RESET_SRC 1: A wakeup has occurred from SHUTDOWN Note: This flag can not be cleared and will therefor remain valid untill poweroff/reset"]
-pub type WuFromSdW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `BOOT_DET_0_SET` reader - 16:16\\]
 Internal. Only to be used through TI provided API."]
 pub type BootDet0SetR = crate::BitReader;
@@ -240,9 +171,6 @@ pub type BootDet1SetW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED18` reader - 23:18\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved18R = crate::FieldReader;
-#[doc = "Field `RESERVED18` writer - 23:18\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved18W<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `BOOT_DET_0_CLR` reader - 24:24\\]
 Internal. Only to be used through TI provided API."]
 pub type BootDet0ClrR = crate::BitReader;
@@ -258,12 +186,6 @@ pub type BootDet1ClrW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED26` reader - 30:26\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved26R = crate::FieldReader;
-#[doc = "Field `RESERVED26` writer - 30:26\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved26W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
-#[doc = "Field `SYSRESET` reader - 31:31\\]
-Cold reset register. Writing 1 to this bitfield will reset the entire chip and cause boot code to run again. 0: No effect 1: Generate system reset. Appears as SYSRESET in RESET_SRC."]
-pub type SysresetR = crate::BitReader;
 #[doc = "Field `SYSRESET` writer - 31:31\\]
 Cold reset register. Writing 1 to this bitfield will reset the entire chip and cause boot code to run again. 0: No effect 1: Generate system reset. Appears as SYSRESET in RESET_SRC."]
 pub type SysresetW<'a, REG> = crate::BitWriter<'a, REG>;
@@ -390,28 +312,8 @@ Software should not rely on the value of a reserved. Writing any other value tha
     pub fn reserved26(&self) -> Reserved26R {
         Reserved26R::new(((self.bits >> 26) & 0x1f) as u8)
     }
-    #[doc = "Bit 31 - 31:31\\]
-Cold reset register. Writing 1 to this bitfield will reset the entire chip and cause boot code to run again. 0: No effect 1: Generate system reset. Appears as SYSRESET in RESET_SRC."]
-    #[inline(always)]
-    pub fn sysreset(&self) -> SysresetR {
-        SysresetR::new(((self.bits >> 31) & 1) != 0)
-    }
 }
 impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved0(&mut self) -> Reserved0W<ResetctlSpec> {
-        Reserved0W::new(self, 0)
-    }
-    #[doc = "Bits 1:3 - 3:1\\]
-Shows the source of the last system reset: Occurrence of one of the reset sources may trigger several other reset sources as essential parts of the system are undergoing reset. This field will report the root cause of the reset (not the other resets that are consequence of the system reset). To support this feature the actual register is not captured before the reset source being released. If a new reset source is triggered, in a window of four 32 kHz periods after the previous has been released, this register may indicate Power on reset as source."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reset_src(&mut self) -> ResetSrcW<ResetctlSpec> {
-        ResetSrcW::new(self, 1)
-    }
     #[doc = "Bit 4 - 4:4\\]
 Controls reset generation in case SCLK_LF is lost. (provided that clock loss detection is enabled by DDI_0_OSC:CTL0.CLK_LOSS_EN) Note: Clock loss reset generation must be disabled before SCLK_LF clock source is changed in DDI_0_OSC:CTL0.SCLK_LF_SRC_SEL and remain disabled untill the change is confirmed in DDI_0_OSC:STAT0.SCLK_LF_SRC. Failure to do so may result in a spurious system reset. Clock loss reset generation can be disabled through this bitfield or by clearing DDI_0_OSC:CTL0.CLK_LOSS_EN 0: Clock loss is ignored 1: Clock loss generates system reset"]
     #[inline(always)]
@@ -440,13 +342,6 @@ Controls reset generation in case VDDS is lost 0: Brown out detect of VDDS is ig
     pub fn vdds_loss_en(&mut self) -> VddsLossEnW<ResetctlSpec> {
         VddsLossEnW::new(self, 7)
     }
-    #[doc = "Bit 8 - 8:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved8(&mut self) -> Reserved8W<ResetctlSpec> {
-        Reserved8W::new(self, 8)
-    }
     #[doc = "Bit 9 - 9:9\\]
 Override of VDD_LOSS_EN 0: Brown out detect of VDD is ignored, unless VDD_LOSS_EN=1 1: Brown out detect of VDD generates system reset (regardless of VDD_LOSS_EN) This bit can be locked"]
     #[inline(always)]
@@ -468,36 +363,6 @@ Override of VDDS_LOSS_EN 0: Brown out detect of VDDS is ignored, unless VDDS_LOS
     pub fn vdds_loss_en_ovr(&mut self) -> VddsLossEnOvrW<ResetctlSpec> {
         VddsLossEnOvrW::new(self, 11)
     }
-    #[doc = "Bit 12 - 12:12\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn boot_det_0(&mut self) -> BootDet0W<ResetctlSpec> {
-        BootDet0W::new(self, 12)
-    }
-    #[doc = "Bit 13 - 13:13\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn boot_det_1(&mut self) -> BootDet1W<ResetctlSpec> {
-        BootDet1W::new(self, 13)
-    }
-    #[doc = "Bit 14 - 14:14\\]
-A wakeup from SHUTDOWN on an IO event has occurred Please refer to \\[IOC:IOCFGn,.WU_CFG\\]
-for configuring the IO's as wakeup sources. 0: The wakeup did not occur from SHUTDOWN on an IO event 1: A wakeup from SHUTDOWN occurred from an IO event The case where WU_FROM_SD is asserted but this bitfield is not asserted will only occur in a debug session. The boot code will not proceed with wakeup from SHUTDOWN procedure until this bitfield is asserted as well. Note: This flag can not be cleared and will therefor remain valid untill poweroff/reset"]
-    #[inline(always)]
-    #[must_use]
-    pub fn gpio_wu_from_sd(&mut self) -> GpioWuFromSdW<ResetctlSpec> {
-        GpioWuFromSdW::new(self, 14)
-    }
-    #[doc = "Bit 15 - 15:15\\]
-A Wakeup from SHUTDOWN on an IO event has occurred, or a wakeup from SHUTDOWN has occurred as a result of the debugger being attached.. (TCK pin being forced low) Please refer to \\[IOC:IOCFGn,.WU_CFG\\]
-for configuring the IO's as wakeup sources. 0: Wakeup occurred from cold reset or brown out as seen in RESET_SRC 1: A wakeup has occurred from SHUTDOWN Note: This flag can not be cleared and will therefor remain valid untill poweroff/reset"]
-    #[inline(always)]
-    #[must_use]
-    pub fn wu_from_sd(&mut self) -> WuFromSdW<ResetctlSpec> {
-        WuFromSdW::new(self, 15)
-    }
     #[doc = "Bit 16 - 16:16\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
@@ -512,13 +377,6 @@ Internal. Only to be used through TI provided API."]
     pub fn boot_det_1_set(&mut self) -> BootDet1SetW<ResetctlSpec> {
         BootDet1SetW::new(self, 17)
     }
-    #[doc = "Bits 18:23 - 23:18\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved18(&mut self) -> Reserved18W<ResetctlSpec> {
-        Reserved18W::new(self, 18)
-    }
     #[doc = "Bit 24 - 24:24\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
@@ -532,13 +390,6 @@ Internal. Only to be used through TI provided API."]
     #[must_use]
     pub fn boot_det_1_clr(&mut self) -> BootDet1ClrW<ResetctlSpec> {
         BootDet1ClrW::new(self, 25)
-    }
-    #[doc = "Bits 26:30 - 30:26\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved26(&mut self) -> Reserved26W<ResetctlSpec> {
-        Reserved26W::new(self, 26)
     }
     #[doc = "Bit 31 - 31:31\\]
 Cold reset register. Writing 1 to this bitfield will reset the entire chip and cause boot code to run again. 0: No effect 1: Generate system reset. Appears as SYSRESET in RESET_SRC."]

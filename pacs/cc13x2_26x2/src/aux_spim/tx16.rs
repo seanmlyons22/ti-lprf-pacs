@@ -2,32 +2,12 @@
 pub type R = crate::R<Tx16Spec>;
 #[doc = "Register `TX16` writer"]
 pub type W = crate::W<Tx16Spec>;
-#[doc = "Field `DATA` reader - 15:0\\]
-16 bit data transfer. Write DATA to start transfer, MSB first. When transfer completes, MOSI stays at the value of LSB."]
-pub type DataR = crate::FieldReader<u16>;
 #[doc = "Field `DATA` writer - 15:0\\]
 16 bit data transfer. Write DATA to start transfer, MSB first. When transfer completes, MOSI stays at the value of LSB."]
 pub type DataW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
-#[doc = "Field `RESERVED16` reader - 31:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved16R = crate::FieldReader<u16>;
 #[doc = "Field `RESERVED16` writer - 31:16\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved16W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
-impl R {
-    #[doc = "Bits 0:15 - 15:0\\]
-16 bit data transfer. Write DATA to start transfer, MSB first. When transfer completes, MOSI stays at the value of LSB."]
-    #[inline(always)]
-    pub fn data(&self) -> DataR {
-        DataR::new((self.bits & 0xffff) as u16)
-    }
-    #[doc = "Bits 16:31 - 31:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    pub fn reserved16(&self) -> Reserved16R {
-        Reserved16R::new(((self.bits >> 16) & 0xffff) as u16)
-    }
-}
 impl W {
     #[doc = "Bits 0:15 - 15:0\\]
 16 bit data transfer. Write DATA to start transfer, MSB first. When transfer completes, MOSI stays at the value of LSB."]

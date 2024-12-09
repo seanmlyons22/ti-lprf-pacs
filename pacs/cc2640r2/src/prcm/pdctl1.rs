@@ -5,9 +5,6 @@ pub type W = crate::W<Pdctl1Spec>;
 #[doc = "Field `RESERVED0` reader - 0:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved0R = crate::BitReader;
-#[doc = "Field `RESERVED0` writer - 0:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved0W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `CPU_ON` reader - 1:1\\]
 0: Causes a power down of the CPU power domain when system CPU indicates it is idle. 1: Initiates power-on of the CPU power domain. This bit is automatically set by a WIC power-on event."]
 pub type CpuOnR = crate::BitReader;
@@ -35,9 +32,6 @@ pub type Reserved4W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED5` reader - 31:5\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved5R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED5` writer - 31:5\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved5W<'a, REG> = crate::FieldWriter<'a, REG, 27, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
@@ -77,13 +71,6 @@ Software should not rely on the value of a reserved. Writing any other value tha
     }
 }
 impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved0(&mut self) -> Reserved0W<Pdctl1Spec> {
-        Reserved0W::new(self, 0)
-    }
     #[doc = "Bit 1 - 1:1\\]
 0: Causes a power down of the CPU power domain when system CPU indicates it is idle. 1: Initiates power-on of the CPU power domain. This bit is automatically set by a WIC power-on event."]
     #[inline(always)]
@@ -111,13 +98,6 @@ Software should not rely on the value of a reserved. Writing any other value tha
     #[must_use]
     pub fn reserved4(&mut self) -> Reserved4W<Pdctl1Spec> {
         Reserved4W::new(self, 4)
-    }
-    #[doc = "Bits 5:31 - 31:5\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved5(&mut self) -> Reserved5W<Pdctl1Spec> {
-        Reserved5W::new(self, 5)
     }
 }
 #[doc = "Power Domain Control\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`pdctl1::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`pdctl1::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

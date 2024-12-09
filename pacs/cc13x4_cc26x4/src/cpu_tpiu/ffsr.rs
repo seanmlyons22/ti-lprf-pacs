@@ -5,33 +5,18 @@ pub type W = crate::W<FfsrSpec>;
 #[doc = "Field `FLINPROG` reader - 0:0\\]
 Read only. Flush in progress. Value can be: 0x0 When all the data received, before the flush is acknowledged, has been output on the trace port 0x1 When a flush is initiated."]
 pub type FlinprogR = crate::BitReader;
-#[doc = "Field `FLINPROG` writer - 0:0\\]
-Read only. Flush in progress. Value can be: 0x0 When all the data received, before the flush is acknowledged, has been output on the trace port 0x1 When a flush is initiated."]
-pub type FlinprogW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `FTSTOPPED` reader - 1:1\\]
 This field always reads as zero"]
 pub type FtstoppedR = crate::BitReader;
-#[doc = "Field `FTSTOPPED` writer - 1:1\\]
-This field always reads as zero"]
-pub type FtstoppedW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `TCPRESENT` reader - 2:2\\]
 This field always reads as zero"]
 pub type TcpresentR = crate::BitReader;
-#[doc = "Field `TCPRESENT` writer - 2:2\\]
-This field always reads as zero"]
-pub type TcpresentW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `FTNONSTOP` reader - 3:3\\]
 0: Formatter can be stopped 1: Formatter cannot be stopped"]
 pub type FtnonstopR = crate::BitReader;
-#[doc = "Field `FTNONSTOP` writer - 3:3\\]
-0: Formatter can be stopped 1: Formatter cannot be stopped"]
-pub type FtnonstopW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED4` reader - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved4R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED4` writer - 31:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved4W<'a, REG> = crate::FieldWriter<'a, REG, 28, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Read only. Flush in progress. Value can be: 0x0 When all the data received, before the flush is acknowledged, has been output on the trace port 0x1 When a flush is initiated."]
@@ -64,43 +49,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved4R::new((self.bits >> 4) & 0x0fff_ffff)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Read only. Flush in progress. Value can be: 0x0 When all the data received, before the flush is acknowledged, has been output on the trace port 0x1 When a flush is initiated."]
-    #[inline(always)]
-    #[must_use]
-    pub fn flinprog(&mut self) -> FlinprogW<FfsrSpec> {
-        FlinprogW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-This field always reads as zero"]
-    #[inline(always)]
-    #[must_use]
-    pub fn ftstopped(&mut self) -> FtstoppedW<FfsrSpec> {
-        FtstoppedW::new(self, 1)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-This field always reads as zero"]
-    #[inline(always)]
-    #[must_use]
-    pub fn tcpresent(&mut self) -> TcpresentW<FfsrSpec> {
-        TcpresentW::new(self, 2)
-    }
-    #[doc = "Bit 3 - 3:3\\]
-0: Formatter can be stopped 1: Formatter cannot be stopped"]
-    #[inline(always)]
-    #[must_use]
-    pub fn ftnonstop(&mut self) -> FtnonstopW<FfsrSpec> {
-        FtnonstopW::new(self, 3)
-    }
-    #[doc = "Bits 4:31 - 31:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved4(&mut self) -> Reserved4W<FfsrSpec> {
-        Reserved4W::new(self, 4)
-    }
-}
+impl W {}
 #[doc = "Formatter and Flush Status\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ffsr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ffsr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct FfsrSpec;
 impl crate::RegisterSpec for FfsrSpec {

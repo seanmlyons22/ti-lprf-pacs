@@ -17,9 +17,6 @@ pub type PerMW<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 #[doc = "Field `RESERVED8` reader - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved8R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED8` writer - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 impl R {
     #[doc = "Bits 0:2 - 2:0\\]
 Internal. Only to be used through TI provided API."]
@@ -54,13 +51,6 @@ Internal. Only to be used through TI provided API."]
     #[must_use]
     pub fn per_m(&mut self) -> PerMW<OsccfgSpec> {
         PerMW::new(self, 3)
-    }
-    #[doc = "Bits 8:31 - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved8(&mut self) -> Reserved8W<OsccfgSpec> {
-        Reserved8W::new(self, 8)
     }
 }
 #[doc = "Oscillator Configuration This register sets the period for Amplitude compensation requests sent to the oscillator control system. The amplitude compensations is only applicable when XOSC_HF is running in low power mode.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`osccfg::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`osccfg::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

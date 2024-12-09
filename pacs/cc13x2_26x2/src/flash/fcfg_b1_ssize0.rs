@@ -5,9 +5,6 @@ pub type W = crate::W<FcfgB1Ssize0Spec>;
 #[doc = "Field `B1_SECT_SIZE` reader - 31:0\\]
 Internal. Only to be used through TI provided API."]
 pub type B1SectSizeR = crate::FieldReader<u32>;
-#[doc = "Field `B1_SECT_SIZE` writer - 31:0\\]
-Internal. Only to be used through TI provided API."]
-pub type B1SectSizeW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 Internal. Only to be used through TI provided API."]
@@ -16,15 +13,7 @@ Internal. Only to be used through TI provided API."]
         B1SectSizeR::new(self.bits)
     }
 }
-impl W {
-    #[doc = "Bits 0:31 - 31:0\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn b1_sect_size(&mut self) -> B1SectSizeW<FcfgB1Ssize0Spec> {
-        B1SectSizeW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fcfg_b1_ssize0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fcfg_b1_ssize0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct FcfgB1Ssize0Spec;
 impl crate::RegisterSpec for FcfgB1Ssize0Spec {

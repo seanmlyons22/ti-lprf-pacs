@@ -68,9 +68,6 @@ where
 #[doc = "Field `RESERVED2` reader - 7:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2R = crate::FieldReader;
-#[doc = "Field `RESERVED2` writer - 7:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "9:8\\]
 0: No force 1: Force clock on for all modes (Run, Sleep and Deep Sleep) Overrides CLK_EN, SSICLKGS.CLK_EN and SSICLKGDS.CLK_EN when enabled. For changes to take effect, CLKLOADCTL.LOAD needs to be written\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -137,9 +134,6 @@ where
 #[doc = "Field `RESERVED10` reader - 31:10\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved10R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED10` writer - 31:10\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved10W<'a, REG> = crate::FieldWriter<'a, REG, 22, u32>;
 impl R {
     #[doc = "Bits 0:1 - 1:0\\]
 0: Disable clock 1: Enable clock Can be forced on by AM_CLK_EN For changes to take effect, CLKLOADCTL.LOAD needs to be written"]
@@ -174,26 +168,12 @@ impl W {
     pub fn clk_en(&mut self) -> ClkEnW<SsiclkgrSpec> {
         ClkEnW::new(self, 0)
     }
-    #[doc = "Bits 2:7 - 7:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<SsiclkgrSpec> {
-        Reserved2W::new(self, 2)
-    }
     #[doc = "Bits 8:9 - 9:8\\]
 0: No force 1: Force clock on for all modes (Run, Sleep and Deep Sleep) Overrides CLK_EN, SSICLKGS.CLK_EN and SSICLKGDS.CLK_EN when enabled. For changes to take effect, CLKLOADCTL.LOAD needs to be written"]
     #[inline(always)]
     #[must_use]
     pub fn am_clk_en(&mut self) -> AmClkEnW<SsiclkgrSpec> {
         AmClkEnW::new(self, 8)
-    }
-    #[doc = "Bits 10:31 - 31:10\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved10(&mut self) -> Reserved10W<SsiclkgrSpec> {
-        Reserved10W::new(self, 10)
     }
 }
 #[doc = "SSI Clock Gate For Run And All Modes\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ssiclkgr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ssiclkgr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

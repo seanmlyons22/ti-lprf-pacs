@@ -46,25 +46,6 @@ impl SectorsizeR {
         *self == Sectorsize::Onekb
     }
 }
-#[doc = "Field `SECTORSIZE` writer - 15:0\\]
-Sector size in bytes"]
-pub type SectorsizeW<'a, REG> = crate::FieldWriter<'a, REG, 16, Sectorsize>;
-impl<'a, REG> SectorsizeW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u16>,
-{
-    #[doc = "Sector size is TWOKB"]
-    #[inline(always)]
-    pub fn twokb(self) -> &'a mut crate::W<REG> {
-        self.variant(Sectorsize::Twokb)
-    }
-    #[doc = "Sector size is ONEKB"]
-    #[inline(always)]
-    pub fn onekb(self) -> &'a mut crate::W<REG> {
-        self.variant(Sectorsize::Onekb)
-    }
-}
 #[doc = "18:16\\]
 Number of banks instantiated Minimum:1 Maximum:5\n\nValue on reset: 2"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -109,25 +90,6 @@ impl NumbanksR {
         *self == Numbanks::Minimum
     }
 }
-#[doc = "Field `NUMBANKS` writer - 18:16\\]
-Number of banks instantiated Minimum:1 Maximum:5"]
-pub type NumbanksW<'a, REG> = crate::FieldWriter<'a, REG, 3, Numbanks>;
-impl<'a, REG> NumbanksW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "Maximum value"]
-    #[inline(always)]
-    pub fn maximum(self) -> &'a mut crate::W<REG> {
-        self.variant(Numbanks::Maximum)
-    }
-    #[doc = "Minimum value"]
-    #[inline(always)]
-    pub fn minimum(self) -> &'a mut crate::W<REG> {
-        self.variant(Numbanks::Minimum)
-    }
-}
 impl R {
     #[doc = "Bits 0:15 - 15:0\\]
 Sector size in bytes"]
@@ -142,22 +104,7 @@ Number of banks instantiated Minimum:1 Maximum:5"]
         NumbanksR::new(((self.bits >> 16) & 7) as u8)
     }
 }
-impl W {
-    #[doc = "Bits 0:15 - 15:0\\]
-Sector size in bytes"]
-    #[inline(always)]
-    #[must_use]
-    pub fn sectorsize(&mut self) -> SectorsizeW<Gblinfo0Spec> {
-        SectorsizeW::new(self, 0)
-    }
-    #[doc = "Bits 16:18 - 18:16\\]
-Number of banks instantiated Minimum:1 Maximum:5"]
-    #[inline(always)]
-    #[must_use]
-    pub fn numbanks(&mut self) -> NumbanksW<Gblinfo0Spec> {
-        NumbanksW::new(self, 16)
-    }
-}
+impl W {}
 #[doc = "Global Info 0 Register Read only register detailing information about sector size and number of banks present.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`gblinfo0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`gblinfo0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Gblinfo0Spec;
 impl crate::RegisterSpec for Gblinfo0Spec {

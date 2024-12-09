@@ -11,9 +11,6 @@ pub type MaxPrgPulW<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
 #[doc = "Field `RESERVED12` reader - 15:12\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved12R = crate::FieldReader;
-#[doc = "Field `RESERVED12` writer - 15:12\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved12W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `BEG_EC_LEVEL` reader - 19:16\\]
 Internal. Only to be used through TI provided API."]
 pub type BegEcLevelR = crate::FieldReader;
@@ -23,9 +20,6 @@ pub type BegEcLevelW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED20` reader - 31:20\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved20R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED20` writer - 31:20\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved20W<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
 impl R {
     #[doc = "Bits 0:11 - 11:0\\]
 Internal. Only to be used through TI provided API."]
@@ -60,26 +54,12 @@ Internal. Only to be used through TI provided API."]
     pub fn max_prg_pul(&mut self) -> MaxPrgPulW<FsmPrgPulSpec> {
         MaxPrgPulW::new(self, 0)
     }
-    #[doc = "Bits 12:15 - 15:12\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved12(&mut self) -> Reserved12W<FsmPrgPulSpec> {
-        Reserved12W::new(self, 12)
-    }
     #[doc = "Bits 16:19 - 19:16\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
     pub fn beg_ec_level(&mut self) -> BegEcLevelW<FsmPrgPulSpec> {
         BegEcLevelW::new(self, 16)
-    }
-    #[doc = "Bits 20:31 - 31:20\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved20(&mut self) -> Reserved20W<FsmPrgPulSpec> {
-        Reserved20W::new(self, 20)
     }
 }
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fsm_prg_pul::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fsm_prg_pul::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

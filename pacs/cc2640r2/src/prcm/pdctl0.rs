@@ -23,9 +23,6 @@ pub type PeriphOnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED3` reader - 31:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED3` writer - 31:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 29, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 0: RFC power domain powered off if also PDCTL1.RFC_ON = 0 1: RFC power domain powered on"]
@@ -73,13 +70,6 @@ PERIPH Power domain. 0: PERIPH power domain is powered down 1: PERIPH power doma
     #[must_use]
     pub fn periph_on(&mut self) -> PeriphOnW<Pdctl0Spec> {
         PeriphOnW::new(self, 2)
-    }
-    #[doc = "Bits 3:31 - 31:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<Pdctl0Spec> {
-        Reserved3W::new(self, 3)
     }
 }
 #[doc = "Power Domain Control\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`pdctl0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`pdctl0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

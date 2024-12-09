@@ -17,9 +17,6 @@ pub type LdToEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED2` reader - 31:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED2` writer - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 30, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Enables AND operation of the CCP outputs for timers A and B. 0 : PWM outputs of Timer A and Timer B are the internal generated PWM signals of the respective timers. 1 : PWM output of Timer A is ANDed version of Timer A and Timer B PWM signals and Timer B PWM ouput is Timer B PWM signal only."]
@@ -54,13 +51,6 @@ PWM assertion would happen at timeout 0: PWM assertion happens when counter matc
     #[must_use]
     pub fn ld_to_en(&mut self) -> LdToEnW<AndccpSpec> {
         LdToEnW::new(self, 1)
-    }
-    #[doc = "Bits 2:31 - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<AndccpSpec> {
-        Reserved2W::new(self, 2)
     }
 }
 #[doc = "Combined CCP Output This register is used to logically AND CCP output pairs for each timer\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`andccp::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`andccp::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

@@ -68,9 +68,6 @@ where
 #[doc = "Field `RESERVED7` reader - 7:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved7R = crate::BitReader;
-#[doc = "Field `RESERVED7` writer - 7:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved7W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "8:8\\]
 Allows direct control of the pump oscillator which is used to generate pumpclk. Normally, enable/disable of pumpclk is under NoWrapper state machine control. This bit allows system to enable the clock independently.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -186,9 +183,6 @@ where
 #[doc = "Field `RESERVED10` reader - 11:10\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved10R = crate::FieldReader;
-#[doc = "Field `RESERVED10` writer - 11:10\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved10W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `CONFIGPMP` reader - 15:12\\]
 Pump configuration control. LP, HP operation"]
 pub type ConfigpmpR = crate::FieldReader;
@@ -204,9 +198,6 @@ pub type IrefevctlW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `RESERVED19` reader - 31:19\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved19R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED19` writer - 31:19\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved19W<'a, REG> = crate::FieldWriter<'a, REG, 13, u16>;
 impl R {
     #[doc = "Bits 0:6 - 6:0\\]
 TCR test mode to be applied to the pump"]
@@ -265,13 +256,6 @@ TCR test mode to be applied to the pump"]
     pub fn tcr(&mut self) -> TcrW<DftpumpctlSpec> {
         TcrW::new(self, 0)
     }
-    #[doc = "Bit 7 - 7:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved7(&mut self) -> Reserved7W<DftpumpctlSpec> {
-        Reserved7W::new(self, 7)
-    }
     #[doc = "Bit 8 - 8:8\\]
 Allows direct control of the pump oscillator which is used to generate pumpclk. Normally, enable/disable of pumpclk is under NoWrapper state machine control. This bit allows system to enable the clock independently."]
     #[inline(always)]
@@ -286,13 +270,6 @@ Dither control for oscillator Enumeration: 0: Disable Dither 1: Enable Dither"]
     pub fn ssen(&mut self) -> SsenW<DftpumpctlSpec> {
         SsenW::new(self, 9)
     }
-    #[doc = "Bits 10:11 - 11:10\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved10(&mut self) -> Reserved10W<DftpumpctlSpec> {
-        Reserved10W::new(self, 10)
-    }
     #[doc = "Bits 12:15 - 15:12\\]
 Pump configuration control. LP, HP operation"]
     #[inline(always)]
@@ -306,13 +283,6 @@ IREFEV control IREFVRD, REFTC, IREFCONST, IREFCCOR blocks in IREFEV"]
     #[must_use]
     pub fn irefevctl(&mut self) -> IrefevctlW<DftpumpctlSpec> {
         IrefevctlW::new(self, 16)
-    }
-    #[doc = "Bits 19:31 - 31:19\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved19(&mut self) -> Reserved19W<DftpumpctlSpec> {
-        Reserved19W::new(self, 19)
     }
 }
 #[doc = "DFT Pump Control Register This allows some configuration of pump parameters during test. This register is only writable when DFTEN.ENABLE is set. This register is blocked for writes after a 1 is written to the CMDEXEC register and prior to STATCMD.DONE being set by the NoWrapper hardware.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`dftpumpctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`dftpumpctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

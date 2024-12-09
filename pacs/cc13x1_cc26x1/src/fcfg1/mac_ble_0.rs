@@ -5,9 +5,6 @@ pub type W = crate::W<MacBle0Spec>;
 #[doc = "Field `ADDR_0_31` reader - 31:0\\]
 The first 32-bits of the 64-bit MAC BLE address"]
 pub type Addr0_31R = crate::FieldReader<u32>;
-#[doc = "Field `ADDR_0_31` writer - 31:0\\]
-The first 32-bits of the 64-bit MAC BLE address"]
-pub type Addr0_31W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 The first 32-bits of the 64-bit MAC BLE address"]
@@ -16,15 +13,7 @@ The first 32-bits of the 64-bit MAC BLE address"]
         Addr0_31R::new(self.bits)
     }
 }
-impl W {
-    #[doc = "Bits 0:31 - 31:0\\]
-The first 32-bits of the 64-bit MAC BLE address"]
-    #[inline(always)]
-    #[must_use]
-    pub fn addr_0_31(&mut self) -> Addr0_31W<MacBle0Spec> {
-        Addr0_31W::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "MAC BLE Address 0\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`mac_ble_0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`mac_ble_0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct MacBle0Spec;
 impl crate::RegisterSpec for MacBle0Spec {

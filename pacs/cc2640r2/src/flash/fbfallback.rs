@@ -59,9 +59,6 @@ pub type RegPwrsavW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED20` reader - 23:20\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved20R = crate::FieldReader;
-#[doc = "Field `RESERVED20` writer - 23:20\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved20W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `FSM_PWRSAV` reader - 27:24\\]
 Internal. Only to be used through TI provided API."]
 pub type FsmPwrsavR = crate::FieldReader;
@@ -71,9 +68,6 @@ pub type FsmPwrsavW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED28` reader - 31:28\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved28R = crate::FieldReader;
-#[doc = "Field `RESERVED28` writer - 31:28\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved28W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 impl R {
     #[doc = "Bits 0:1 - 1:0\\]
 Internal. Only to be used through TI provided API."]
@@ -212,26 +206,12 @@ Internal. Only to be used through TI provided API."]
     pub fn reg_pwrsav(&mut self) -> RegPwrsavW<FbfallbackSpec> {
         RegPwrsavW::new(self, 16)
     }
-    #[doc = "Bits 20:23 - 23:20\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved20(&mut self) -> Reserved20W<FbfallbackSpec> {
-        Reserved20W::new(self, 20)
-    }
     #[doc = "Bits 24:27 - 27:24\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
     pub fn fsm_pwrsav(&mut self) -> FsmPwrsavW<FbfallbackSpec> {
         FsmPwrsavW::new(self, 24)
-    }
-    #[doc = "Bits 28:31 - 31:28\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved28(&mut self) -> Reserved28W<FbfallbackSpec> {
-        Reserved28W::new(self, 28)
     }
 }
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fbfallback::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fbfallback::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

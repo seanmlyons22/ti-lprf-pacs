@@ -11,9 +11,6 @@ pub type RegionW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `RESERVED8` reader - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved8R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED8` writer - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Indicates the memory region accessed by MPU_RBAR and MPU_RLAR"]
@@ -35,13 +32,6 @@ Indicates the memory region accessed by MPU_RBAR and MPU_RLAR"]
     #[must_use]
     pub fn region(&mut self) -> RegionW<RnrSpec> {
         RegionW::new(self, 0)
-    }
-    #[doc = "Bits 8:31 - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved8(&mut self) -> Reserved8W<RnrSpec> {
-        Reserved8W::new(self, 8)
     }
 }
 #[doc = "Selects the region currently accessed by MPU_RBAR and MPU_RLAR\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`rnr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`rnr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

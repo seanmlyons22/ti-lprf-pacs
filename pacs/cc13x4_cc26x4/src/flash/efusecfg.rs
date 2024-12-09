@@ -11,9 +11,6 @@ pub type GatingW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED1` reader - 2:1\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved1R = crate::FieldReader;
-#[doc = "Field `RESERVED1` writer - 2:1\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `SLAVEPOWER` reader - 4:3\\]
 Internal. Only to be used through TI provided API."]
 pub type SlavepowerR = crate::FieldReader;
@@ -23,9 +20,6 @@ pub type SlavepowerW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `RESERVED5` reader - 7:5\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved5R = crate::FieldReader;
-#[doc = "Field `RESERVED5` writer - 7:5\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved5W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `IDLEGATING` reader - 8:8\\]
 Internal. Only to be used through TI provided API."]
 pub type IdlegatingR = crate::BitReader;
@@ -35,9 +29,6 @@ pub type IdlegatingW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED9` reader - 31:9\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved9R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED9` writer - 31:9\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved9W<'a, REG> = crate::FieldWriter<'a, REG, 23, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Internal. Only to be used through TI provided API."]
@@ -84,13 +75,6 @@ Internal. Only to be used through TI provided API."]
     pub fn gating(&mut self) -> GatingW<EfusecfgSpec> {
         GatingW::new(self, 0)
     }
-    #[doc = "Bits 1:2 - 2:1\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved1(&mut self) -> Reserved1W<EfusecfgSpec> {
-        Reserved1W::new(self, 1)
-    }
     #[doc = "Bits 3:4 - 4:3\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
@@ -98,26 +82,12 @@ Internal. Only to be used through TI provided API."]
     pub fn slavepower(&mut self) -> SlavepowerW<EfusecfgSpec> {
         SlavepowerW::new(self, 3)
     }
-    #[doc = "Bits 5:7 - 7:5\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved5(&mut self) -> Reserved5W<EfusecfgSpec> {
-        Reserved5W::new(self, 5)
-    }
     #[doc = "Bit 8 - 8:8\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
     pub fn idlegating(&mut self) -> IdlegatingW<EfusecfgSpec> {
         IdlegatingW::new(self, 8)
-    }
-    #[doc = "Bits 9:31 - 31:9\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved9(&mut self) -> Reserved9W<EfusecfgSpec> {
-        Reserved9W::new(self, 9)
     }
 }
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`efusecfg::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`efusecfg::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

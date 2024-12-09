@@ -5,15 +5,9 @@ pub type W = crate::W<FmcRevIdSpec>;
 #[doc = "Field `CONFIG_CRC` reader - 11:0\\]
 Internal. Only to be used through TI provided API."]
 pub type ConfigCrcR = crate::FieldReader<u16>;
-#[doc = "Field `CONFIG_CRC` writer - 11:0\\]
-Internal. Only to be used through TI provided API."]
-pub type ConfigCrcW<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
 #[doc = "Field `MOD_VERSION` reader - 31:12\\]
 Internal. Only to be used through TI provided API."]
 pub type ModVersionR = crate::FieldReader<u32>;
-#[doc = "Field `MOD_VERSION` writer - 31:12\\]
-Internal. Only to be used through TI provided API."]
-pub type ModVersionW<'a, REG> = crate::FieldWriter<'a, REG, 20, u32>;
 impl R {
     #[doc = "Bits 0:11 - 11:0\\]
 Internal. Only to be used through TI provided API."]
@@ -28,22 +22,7 @@ Internal. Only to be used through TI provided API."]
         ModVersionR::new((self.bits >> 12) & 0x000f_ffff)
     }
 }
-impl W {
-    #[doc = "Bits 0:11 - 11:0\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn config_crc(&mut self) -> ConfigCrcW<FmcRevIdSpec> {
-        ConfigCrcW::new(self, 0)
-    }
-    #[doc = "Bits 12:31 - 31:12\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn mod_version(&mut self) -> ModVersionW<FmcRevIdSpec> {
-        ModVersionW::new(self, 12)
-    }
-}
+impl W {}
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fmc_rev_id::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fmc_rev_id::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct FmcRevIdSpec;
 impl crate::RegisterSpec for FmcRevIdSpec {

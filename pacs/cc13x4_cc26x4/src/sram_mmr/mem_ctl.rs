@@ -11,15 +11,9 @@ pub type MemClrEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `MEM_BUSY` reader - 1:1\\]
 Memory Busy status 0: Memory accepts transfers 1: Memory controller is busy during initialization. Read and write transfers are not performed."]
 pub type MemBusyR = crate::BitReader;
-#[doc = "Field `MEM_BUSY` writer - 1:1\\]
-Memory Busy status 0: Memory accepts transfers 1: Memory controller is busy during initialization. Read and write transfers are not performed."]
-pub type MemBusyW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED2` reader - 7:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2R = crate::FieldReader;
-#[doc = "Field `RESERVED2` writer - 7:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `MEM_SEL` reader - 31:8\\]
 Memory Instance Select This field is used to enable/disable initialization of each SRAM instance when triggered using MEM_CTL.MEM_CLR_EN. Each bit corresponds to the respective SRAM instance. bit\\[x\\]: 0: Initialization of instance x is disabled 1: Initialization of instance x is enabled"]
 pub type MemSelR = crate::FieldReader<u32>;
@@ -59,20 +53,6 @@ Memory Contents Initialization enable Writing 1 to MEM_CLR_EN will start memory 
     #[must_use]
     pub fn mem_clr_en(&mut self) -> MemClrEnW<MemCtlSpec> {
         MemClrEnW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Memory Busy status 0: Memory accepts transfers 1: Memory controller is busy during initialization. Read and write transfers are not performed."]
-    #[inline(always)]
-    #[must_use]
-    pub fn mem_busy(&mut self) -> MemBusyW<MemCtlSpec> {
-        MemBusyW::new(self, 1)
-    }
-    #[doc = "Bits 2:7 - 7:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<MemCtlSpec> {
-        Reserved2W::new(self, 2)
     }
     #[doc = "Bits 8:31 - 31:8\\]
 Memory Instance Select This field is used to enable/disable initialization of each SRAM instance when triggered using MEM_CTL.MEM_CLR_EN. Each bit corresponds to the respective SRAM instance. bit\\[x\\]: 0: Initialization of instance x is disabled 1: Initialization of instance x is enabled"]

@@ -11,9 +11,6 @@ pub type DbgFreezeEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED1` reader - 31:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved1R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED1` writer - 31:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 31, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Debug freeze enable. 0: AUX_TIMER2 does not halt when the system CPU halts in debug mode. 1: Halt AUX_TIMER2 when the system CPU halts in debug mode."]
@@ -35,13 +32,6 @@ Debug freeze enable. 0: AUX_TIMER2 does not halt when the system CPU halts in de
     #[must_use]
     pub fn dbg_freeze_en(&mut self) -> DbgFreezeEnW<Timer2dbgctlSpec> {
         DbgFreezeEnW::new(self, 0)
-    }
-    #[doc = "Bits 1:31 - 31:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved1(&mut self) -> Reserved1W<Timer2dbgctlSpec> {
-        Reserved1W::new(self, 1)
     }
 }
 #[doc = "AUX_TIMER2 Debug Control\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`timer2dbgctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`timer2dbgctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

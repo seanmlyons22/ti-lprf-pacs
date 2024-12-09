@@ -159,9 +159,6 @@ where
 #[doc = "Field `RESERVED4` reader - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved4R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED4` writer - 31:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved4W<'a, REG> = crate::FieldWriter<'a, REG, 28, u32>;
 impl R {
     #[doc = "Bits 0:3 - 3:0\\]
 Scalar used for GPTs. The division rate will be constant and ungated for Run / Sleep / DeepSleep mode. For changes to take effect, CLKLOADCTL.LOAD needs to be written Other values are not supported."]
@@ -183,13 +180,6 @@ Scalar used for GPTs. The division rate will be constant and ungated for Run / S
     #[must_use]
     pub fn ratio(&mut self) -> RatioW<GptclkdivSpec> {
         RatioW::new(self, 0)
-    }
-    #[doc = "Bits 4:31 - 31:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved4(&mut self) -> Reserved4W<GptclkdivSpec> {
-        Reserved4W::new(self, 4)
     }
 }
 #[doc = "GPT Scalar\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`gptclkdiv::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`gptclkdiv::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

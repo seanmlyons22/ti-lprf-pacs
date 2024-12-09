@@ -87,9 +87,6 @@ pub type WclkInvW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED3` reader - 31:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED3` writer - 31:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 29, u32>;
 impl R {
     #[doc = "Bits 0:1 - 1:0\\]
 Selects WCLK source for AIF (should be the same as the BCLK source). The BCLK source is defined in the PRCM:I2SBCLKSEL.SRC"]
@@ -124,13 +121,6 @@ Inverts WCLK source (pad or internal) when set. 0: Not inverted 1: Inverted"]
     #[must_use]
     pub fn wclk_inv(&mut self) -> WclkInvW<AifwclksrcSpec> {
         WclkInvW::new(self, 2)
-    }
-    #[doc = "Bits 3:31 - 31:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<AifwclksrcSpec> {
-        Reserved3W::new(self, 3)
     }
 }
 #[doc = "WCLK Source Selection\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`aifwclksrc::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`aifwclksrc::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

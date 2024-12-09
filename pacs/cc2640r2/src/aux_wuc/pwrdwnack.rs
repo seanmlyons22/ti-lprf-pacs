@@ -5,9 +5,6 @@ pub type W = crate::W<PwrdwnackSpec>;
 #[doc = "Field `ACK` reader - 0:0\\]
 Power down acknowledgment. Indicates whether the power down request given by PWRDWNREQ.REQ is captured by the AON domain or not 0: AUX can assume that the system is in active mode 1: The request for power down is acknowledged and the AUX must act like the system is in power down mode and power supply is limited The system CPU cannot use this bit since the bus bridge between MCU domain and AUX domain is always disconnected when this bit is set. For AUX_SCE use only"]
 pub type AckR = crate::BitReader;
-#[doc = "Field `ACK` writer - 0:0\\]
-Power down acknowledgment. Indicates whether the power down request given by PWRDWNREQ.REQ is captured by the AON domain or not 0: AUX can assume that the system is in active mode 1: The request for power down is acknowledged and the AUX must act like the system is in power down mode and power supply is limited The system CPU cannot use this bit since the bus bridge between MCU domain and AUX domain is always disconnected when this bit is set. For AUX_SCE use only"]
-pub type AckW<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Power down acknowledgment. Indicates whether the power down request given by PWRDWNREQ.REQ is captured by the AON domain or not 0: AUX can assume that the system is in active mode 1: The request for power down is acknowledged and the AUX must act like the system is in power down mode and power supply is limited The system CPU cannot use this bit since the bus bridge between MCU domain and AUX domain is always disconnected when this bit is set. For AUX_SCE use only"]
@@ -16,15 +13,7 @@ Power down acknowledgment. Indicates whether the power down request given by PWR
         AckR::new((self.bits & 1) != 0)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Power down acknowledgment. Indicates whether the power down request given by PWRDWNREQ.REQ is captured by the AON domain or not 0: AUX can assume that the system is in active mode 1: The request for power down is acknowledged and the AUX must act like the system is in power down mode and power supply is limited The system CPU cannot use this bit since the bus bridge between MCU domain and AUX domain is always disconnected when this bit is set. For AUX_SCE use only"]
-    #[inline(always)]
-    #[must_use]
-    pub fn ack(&mut self) -> AckW<PwrdwnackSpec> {
-        AckW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Power Down Acknowledgment\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`pwrdwnack::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`pwrdwnack::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct PwrdwnackSpec;
 impl crate::RegisterSpec for PwrdwnackSpec {

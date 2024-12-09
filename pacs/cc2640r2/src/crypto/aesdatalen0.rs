@@ -2,23 +2,10 @@
 pub type R = crate::R<Aesdatalen0Spec>;
 #[doc = "Register `AESDATALEN0` writer"]
 pub type W = crate::W<Aesdatalen0Spec>;
-#[doc = "Field `LEN_LSW` reader - 31:0\\]
-Used to write the Length values to the Crypto peripheral. This register contains bits \\[31:0\\]
-of the combined data length."]
-pub type LenLswR = crate::FieldReader<u32>;
 #[doc = "Field `LEN_LSW` writer - 31:0\\]
 Used to write the Length values to the Crypto peripheral. This register contains bits \\[31:0\\]
 of the combined data length."]
 pub type LenLswW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
-impl R {
-    #[doc = "Bits 0:31 - 31:0\\]
-Used to write the Length values to the Crypto peripheral. This register contains bits \\[31:0\\]
-of the combined data length."]
-    #[inline(always)]
-    pub fn len_lsw(&self) -> LenLswR {
-        LenLswR::new(self.bits)
-    }
-}
 impl W {
     #[doc = "Bits 0:31 - 31:0\\]
 Used to write the Length values to the Crypto peripheral. This register contains bits \\[31:0\\]

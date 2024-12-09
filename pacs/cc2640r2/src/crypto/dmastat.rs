@@ -5,33 +5,18 @@ pub type W = crate::W<DmastatSpec>;
 #[doc = "Field `CH0_ACTIVE` reader - 0:0\\]
 This register field indicates if DMA channel 0 is active or not. 0: Not active 1: Active"]
 pub type Ch0ActiveR = crate::BitReader;
-#[doc = "Field `CH0_ACTIVE` writer - 0:0\\]
-This register field indicates if DMA channel 0 is active or not. 0: Not active 1: Active"]
-pub type Ch0ActiveW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `CH1_ACTIVE` reader - 1:1\\]
 This register field indicates if DMA channel 1 is active or not. 0: Not active 1: Active"]
 pub type Ch1ActiveR = crate::BitReader;
-#[doc = "Field `CH1_ACTIVE` writer - 1:1\\]
-This register field indicates if DMA channel 1 is active or not. 0: Not active 1: Active"]
-pub type Ch1ActiveW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED2` reader - 16:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED2` writer - 16:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 15, u16>;
 #[doc = "Field `PORT_ERR` reader - 17:17\\]
 Reflects possible transfer errors on the AHB port."]
 pub type PortErrR = crate::BitReader;
-#[doc = "Field `PORT_ERR` writer - 17:17\\]
-Reflects possible transfer errors on the AHB port."]
-pub type PortErrW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED18` reader - 31:18\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved18R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED18` writer - 31:18\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved18W<'a, REG> = crate::FieldWriter<'a, REG, 14, u16>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 This register field indicates if DMA channel 0 is active or not. 0: Not active 1: Active"]
@@ -64,43 +49,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved18R::new(((self.bits >> 18) & 0x3fff) as u16)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-This register field indicates if DMA channel 0 is active or not. 0: Not active 1: Active"]
-    #[inline(always)]
-    #[must_use]
-    pub fn ch0_active(&mut self) -> Ch0ActiveW<DmastatSpec> {
-        Ch0ActiveW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-This register field indicates if DMA channel 1 is active or not. 0: Not active 1: Active"]
-    #[inline(always)]
-    #[must_use]
-    pub fn ch1_active(&mut self) -> Ch1ActiveW<DmastatSpec> {
-        Ch1ActiveW::new(self, 1)
-    }
-    #[doc = "Bits 2:16 - 16:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<DmastatSpec> {
-        Reserved2W::new(self, 2)
-    }
-    #[doc = "Bit 17 - 17:17\\]
-Reflects possible transfer errors on the AHB port."]
-    #[inline(always)]
-    #[must_use]
-    pub fn port_err(&mut self) -> PortErrW<DmastatSpec> {
-        PortErrW::new(self, 17)
-    }
-    #[doc = "Bits 18:31 - 31:18\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved18(&mut self) -> Reserved18W<DmastatSpec> {
-        Reserved18W::new(self, 18)
-    }
-}
+impl W {}
 #[doc = "DMA Controller Status\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`dmastat::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`dmastat::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct DmastatSpec;
 impl crate::RegisterSpec for DmastatSpec {

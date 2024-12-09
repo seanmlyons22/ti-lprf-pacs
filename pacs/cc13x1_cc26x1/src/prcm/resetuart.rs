@@ -2,9 +2,6 @@
 pub type R = crate::R<ResetuartSpec>;
 #[doc = "Register `RESETUART` writer"]
 pub type W = crate::W<ResetuartSpec>;
-#[doc = "Field `UART0` reader - 0:0\\]
-0: No action 1: Reset UART0. HW cleared. Acess will only have effect when SERIAL power domain is on, PDSTAT0.SERIAL_ON = 1 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset."]
-pub type Uart0R = crate::BitReader;
 #[doc = "Field `UART0` writer - 0:0\\]
 0: No action 1: Reset UART0. HW cleared. Acess will only have effect when SERIAL power domain is on, PDSTAT0.SERIAL_ON = 1 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset."]
 pub type Uart0W<'a, REG> = crate::BitWriter<'a, REG>;
@@ -15,12 +12,6 @@ pub type Reserved1R = crate::FieldReader<u32>;
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 31, u32>;
 impl R {
-    #[doc = "Bit 0 - 0:0\\]
-0: No action 1: Reset UART0. HW cleared. Acess will only have effect when SERIAL power domain is on, PDSTAT0.SERIAL_ON = 1 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset."]
-    #[inline(always)]
-    pub fn uart0(&self) -> Uart0R {
-        Uart0R::new((self.bits & 1) != 0)
-    }
     #[doc = "Bits 1:31 - 31:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]

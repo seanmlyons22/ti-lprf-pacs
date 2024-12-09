@@ -2,20 +2,9 @@
 pub type R = crate::R<Aeskey3Spec>;
 #[doc = "Register `AESKEY3` writer"]
 pub type W = crate::W<Aeskey3Spec>;
-#[doc = "Field `KEY3` reader - 31:0\\]
-AESKEY3.* bits 31+x:0+x or AESKEY2.* bits 159+x:128+x, where x = 0, 32, 64, 96 ordered from the LSW entry of this 4-deep register arrary. The interpretation of this field depends on the crypto operation mode."]
-pub type Key3R = crate::FieldReader<u32>;
 #[doc = "Field `KEY3` writer - 31:0\\]
 AESKEY3.* bits 31+x:0+x or AESKEY2.* bits 159+x:128+x, where x = 0, 32, 64, 96 ordered from the LSW entry of this 4-deep register arrary. The interpretation of this field depends on the crypto operation mode."]
 pub type Key3W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
-impl R {
-    #[doc = "Bits 0:31 - 31:0\\]
-AESKEY3.* bits 31+x:0+x or AESKEY2.* bits 159+x:128+x, where x = 0, 32, 64, 96 ordered from the LSW entry of this 4-deep register arrary. The interpretation of this field depends on the crypto operation mode."]
-    #[inline(always)]
-    pub fn key3(&self) -> Key3R {
-        Key3R::new(self.bits)
-    }
-}
 impl W {
     #[doc = "Bits 0:31 - 31:0\\]
 AESKEY3.* bits 31+x:0+x or AESKEY2.* bits 159+x:128+x, where x = 0, 32, 64, 96 ordered from the LSW entry of this 4-deep register arrary. The interpretation of this field depends on the crypto operation mode."]

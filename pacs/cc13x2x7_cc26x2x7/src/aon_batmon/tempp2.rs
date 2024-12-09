@@ -11,9 +11,6 @@ pub type CfgW<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 #[doc = "Field `RESERVED5` reader - 31:5\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved5R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED5` writer - 31:5\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved5W<'a, REG> = crate::FieldWriter<'a, REG, 27, u32>;
 impl R {
     #[doc = "Bits 0:4 - 4:0\\]
 Internal. Only to be used through TI provided API."]
@@ -35,13 +32,6 @@ Internal. Only to be used through TI provided API."]
     #[must_use]
     pub fn cfg(&mut self) -> CfgW<Tempp2Spec> {
         CfgW::new(self, 0)
-    }
-    #[doc = "Bits 5:31 - 31:5\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved5(&mut self) -> Reserved5W<Tempp2Spec> {
-        Reserved5W::new(self, 5)
     }
 }
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`tempp2::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`tempp2::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

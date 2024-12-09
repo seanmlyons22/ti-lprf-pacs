@@ -5,57 +5,30 @@ pub type W = crate::W<PwrstatSpec>;
 #[doc = "Field `RESERVED0` reader - 0:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved0R = crate::BitReader;
-#[doc = "Field `RESERVED0` writer - 0:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved0W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `AUX_RESET_DONE` reader - 1:1\\]
 Indicates Reset Done from AUX: 0: AUX is being reset 1: AUX reset is released"]
 pub type AuxResetDoneR = crate::BitReader;
-#[doc = "Field `AUX_RESET_DONE` writer - 1:1\\]
-Indicates Reset Done from AUX: 0: AUX is being reset 1: AUX reset is released"]
-pub type AuxResetDoneW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `AUX_BUS_CONNECTED` reader - 2:2\\]
 Indicates that AUX Bus is connected: 0: AUX bus is not connected 1: AUX bus is connected ( idle_ack = 0 )"]
 pub type AuxBusConnectedR = crate::BitReader;
-#[doc = "Field `AUX_BUS_CONNECTED` writer - 2:2\\]
-Indicates that AUX Bus is connected: 0: AUX bus is not connected 1: AUX bus is connected ( idle_ack = 0 )"]
-pub type AuxBusConnectedW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED3` reader - 3:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3R = crate::BitReader;
-#[doc = "Field `RESERVED3` writer - 3:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `MCU_PD_ON` reader - 4:4\\]
 Indicates MCU power state: 0: MCU Power sequencing is not yet finalized and MCU_AONIF registers may not be reliable 1: MCU Power sequencing is finalized and all MCU_AONIF registers are reliable"]
 pub type McuPdOnR = crate::BitReader;
-#[doc = "Field `MCU_PD_ON` writer - 4:4\\]
-Indicates MCU power state: 0: MCU Power sequencing is not yet finalized and MCU_AONIF registers may not be reliable 1: MCU Power sequencing is finalized and all MCU_AONIF registers are reliable"]
-pub type McuPdOnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `AUX_PD_ON` reader - 5:5\\]
 Indicates AUX power state: 0: AUX is not ready for use ( may be powered off or in power state transition ) 1: AUX is powered on, connected to bus and ready for use,"]
 pub type AuxPdOnR = crate::BitReader;
-#[doc = "Field `AUX_PD_ON` writer - 5:5\\]
-Indicates AUX power state: 0: AUX is not ready for use ( may be powered off or in power state transition ) 1: AUX is powered on, connected to bus and ready for use,"]
-pub type AuxPdOnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `JTAG_PD_ON` reader - 6:6\\]
 Indicates JTAG power state: 0: JTAG is powered off 1: JTAG is powered on"]
 pub type JtagPdOnR = crate::BitReader;
-#[doc = "Field `JTAG_PD_ON` writer - 6:6\\]
-Indicates JTAG power state: 0: JTAG is powered off 1: JTAG is powered on"]
-pub type JtagPdOnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED7` reader - 8:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved7R = crate::FieldReader;
-#[doc = "Field `RESERVED7` writer - 8:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved7W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `AUX_PWR_DWN` reader - 9:9\\]
 Indicates the AUX powerdown state when AUX domain is powered up. 0: Active mode 1: AUX Powerdown request has been granted"]
 pub type AuxPwrDwnR = crate::BitReader;
-#[doc = "Field `AUX_PWR_DWN` writer - 9:9\\]
-Indicates the AUX powerdown state when AUX domain is powered up. 0: Active mode 1: AUX Powerdown request has been granted"]
-pub type AuxPwrDwnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED10` reader - 31:10\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved10R = crate::FieldReader<u32>;
@@ -125,69 +98,6 @@ Software should not rely on the value of a reserved. Writing any other value tha
     }
 }
 impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved0(&mut self) -> Reserved0W<PwrstatSpec> {
-        Reserved0W::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Indicates Reset Done from AUX: 0: AUX is being reset 1: AUX reset is released"]
-    #[inline(always)]
-    #[must_use]
-    pub fn aux_reset_done(&mut self) -> AuxResetDoneW<PwrstatSpec> {
-        AuxResetDoneW::new(self, 1)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-Indicates that AUX Bus is connected: 0: AUX bus is not connected 1: AUX bus is connected ( idle_ack = 0 )"]
-    #[inline(always)]
-    #[must_use]
-    pub fn aux_bus_connected(&mut self) -> AuxBusConnectedW<PwrstatSpec> {
-        AuxBusConnectedW::new(self, 2)
-    }
-    #[doc = "Bit 3 - 3:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<PwrstatSpec> {
-        Reserved3W::new(self, 3)
-    }
-    #[doc = "Bit 4 - 4:4\\]
-Indicates MCU power state: 0: MCU Power sequencing is not yet finalized and MCU_AONIF registers may not be reliable 1: MCU Power sequencing is finalized and all MCU_AONIF registers are reliable"]
-    #[inline(always)]
-    #[must_use]
-    pub fn mcu_pd_on(&mut self) -> McuPdOnW<PwrstatSpec> {
-        McuPdOnW::new(self, 4)
-    }
-    #[doc = "Bit 5 - 5:5\\]
-Indicates AUX power state: 0: AUX is not ready for use ( may be powered off or in power state transition ) 1: AUX is powered on, connected to bus and ready for use,"]
-    #[inline(always)]
-    #[must_use]
-    pub fn aux_pd_on(&mut self) -> AuxPdOnW<PwrstatSpec> {
-        AuxPdOnW::new(self, 5)
-    }
-    #[doc = "Bit 6 - 6:6\\]
-Indicates JTAG power state: 0: JTAG is powered off 1: JTAG is powered on"]
-    #[inline(always)]
-    #[must_use]
-    pub fn jtag_pd_on(&mut self) -> JtagPdOnW<PwrstatSpec> {
-        JtagPdOnW::new(self, 6)
-    }
-    #[doc = "Bits 7:8 - 8:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved7(&mut self) -> Reserved7W<PwrstatSpec> {
-        Reserved7W::new(self, 7)
-    }
-    #[doc = "Bit 9 - 9:9\\]
-Indicates the AUX powerdown state when AUX domain is powered up. 0: Active mode 1: AUX Powerdown request has been granted"]
-    #[inline(always)]
-    #[must_use]
-    pub fn aux_pwr_dwn(&mut self) -> AuxPwrDwnW<PwrstatSpec> {
-        AuxPwrDwnW::new(self, 9)
-    }
     #[doc = "Bits 10:31 - 31:10\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]

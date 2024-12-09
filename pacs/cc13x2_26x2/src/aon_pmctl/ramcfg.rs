@@ -107,9 +107,6 @@ where
 #[doc = "Field `RESERVED4` reader - 15:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved4R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED4` writer - 15:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved4W<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
 #[doc = "Field `AUX_SRAM_RET_EN` reader - 16:16\\]
 Internal. Only to be used through TI provided API."]
 pub type AuxSramRetEnR = crate::BitReader;
@@ -125,9 +122,6 @@ pub type AuxSramPwrOffW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED18` reader - 31:18\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved18R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED18` writer - 31:18\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved18W<'a, REG> = crate::FieldWriter<'a, REG, 14, u16>;
 impl R {
     #[doc = "Bits 0:3 - 3:0\\]
 MCU SRAM is partitioned into 5 banks . This register controls which of the banks that has retention during MCU Bus domain power off"]
@@ -168,13 +162,6 @@ MCU SRAM is partitioned into 5 banks . This register controls which of the banks
     pub fn bus_sram_ret_en(&mut self) -> BusSramRetEnW<RamcfgSpec> {
         BusSramRetEnW::new(self, 0)
     }
-    #[doc = "Bits 4:15 - 15:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved4(&mut self) -> Reserved4W<RamcfgSpec> {
-        Reserved4W::new(self, 4)
-    }
     #[doc = "Bit 16 - 16:16\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
@@ -188,13 +175,6 @@ Internal. Only to be used through TI provided API."]
     #[must_use]
     pub fn aux_sram_pwr_off(&mut self) -> AuxSramPwrOffW<RamcfgSpec> {
         AuxSramPwrOffW::new(self, 17)
-    }
-    #[doc = "Bits 18:31 - 31:18\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved18(&mut self) -> Reserved18W<RamcfgSpec> {
-        Reserved18W::new(self, 18)
     }
 }
 #[doc = "RAM Configuration This register contains power management related configuration for the SRAM in the MCU and AUX domain.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ramcfg::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ramcfg::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

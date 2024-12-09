@@ -5,15 +5,9 @@ pub type W = crate::W<RtcsecSpec>;
 #[doc = "Field `SEC` reader - 15:0\\]
 Bits 15:0 in AON_RTC:SEC.VALUE. Follow this procedure to get the correct value: - Do two dummy reads of SEC. - Then read SEC until two consecutive reads are equal."]
 pub type SecR = crate::FieldReader<u16>;
-#[doc = "Field `SEC` writer - 15:0\\]
-Bits 15:0 in AON_RTC:SEC.VALUE. Follow this procedure to get the correct value: - Do two dummy reads of SEC. - Then read SEC until two consecutive reads are equal."]
-pub type SecW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 #[doc = "Field `RESERVED16` reader - 31:16\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved16R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED16` writer - 31:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved16W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
     #[doc = "Bits 0:15 - 15:0\\]
 Bits 15:0 in AON_RTC:SEC.VALUE. Follow this procedure to get the correct value: - Do two dummy reads of SEC. - Then read SEC until two consecutive reads are equal."]
@@ -28,22 +22,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved16R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
-impl W {
-    #[doc = "Bits 0:15 - 15:0\\]
-Bits 15:0 in AON_RTC:SEC.VALUE. Follow this procedure to get the correct value: - Do two dummy reads of SEC. - Then read SEC until two consecutive reads are equal."]
-    #[inline(always)]
-    #[must_use]
-    pub fn sec(&mut self) -> SecW<RtcsecSpec> {
-        SecW::new(self, 0)
-    }
-    #[doc = "Bits 16:31 - 31:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved16(&mut self) -> Reserved16W<RtcsecSpec> {
-        Reserved16W::new(self, 16)
-    }
-}
+impl W {}
 #[doc = "Real Time Counter Second System CPU must not access this register. Instead, system CPU must access AON_RTC:SEC.VALUE directly.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`rtcsec::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`rtcsec::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct RtcsecSpec;
 impl crate::RegisterSpec for RtcsecSpec {

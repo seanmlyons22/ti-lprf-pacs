@@ -5,15 +5,9 @@ pub type W = crate::W<IctrSpec>;
 #[doc = "Field `INTLINESNUM` reader - 3:0\\]
 Indicates the number of the highest implemented register in each of the NVIC control register sets, or in the case of NVIC_IPR*n, 4xINTLINESNUM"]
 pub type IntlinesnumR = crate::FieldReader;
-#[doc = "Field `INTLINESNUM` writer - 3:0\\]
-Indicates the number of the highest implemented register in each of the NVIC control register sets, or in the case of NVIC_IPR*n, 4xINTLINESNUM"]
-pub type IntlinesnumW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED4` reader - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved4R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED4` writer - 31:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved4W<'a, REG> = crate::FieldWriter<'a, REG, 28, u32>;
 impl R {
     #[doc = "Bits 0:3 - 3:0\\]
 Indicates the number of the highest implemented register in each of the NVIC control register sets, or in the case of NVIC_IPR*n, 4xINTLINESNUM"]
@@ -28,22 +22,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved4R::new((self.bits >> 4) & 0x0fff_ffff)
     }
 }
-impl W {
-    #[doc = "Bits 0:3 - 3:0\\]
-Indicates the number of the highest implemented register in each of the NVIC control register sets, or in the case of NVIC_IPR*n, 4xINTLINESNUM"]
-    #[inline(always)]
-    #[must_use]
-    pub fn intlinesnum(&mut self) -> IntlinesnumW<IctrSpec> {
-        IntlinesnumW::new(self, 0)
-    }
-    #[doc = "Bits 4:31 - 31:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved4(&mut self) -> Reserved4W<IctrSpec> {
-        Reserved4W::new(self, 4)
-    }
-}
+impl W {}
 #[doc = "Provides information about the interrupt controller\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ictr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ictr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct IctrSpec;
 impl crate::RegisterSpec for IctrSpec {

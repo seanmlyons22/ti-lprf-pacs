@@ -5,9 +5,6 @@ pub type W = crate::W<FsmCmpVsuSpec>;
 #[doc = "Field `RESERVED0` reader - 11:0\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved0R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED0` writer - 11:0\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved0W<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
 #[doc = "Field `ADD_EXZ` reader - 15:12\\]
 Internal. Only to be used through TI provided API."]
 pub type AddExzR = crate::FieldReader;
@@ -17,9 +14,6 @@ pub type AddExzW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED16` reader - 31:16\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved16R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED16` writer - 31:16\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved16W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
     #[doc = "Bits 0:11 - 11:0\\]
 Internal. Only to be used through TI provided API."]
@@ -41,26 +35,12 @@ Internal. Only to be used through TI provided API."]
     }
 }
 impl W {
-    #[doc = "Bits 0:11 - 11:0\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved0(&mut self) -> Reserved0W<FsmCmpVsuSpec> {
-        Reserved0W::new(self, 0)
-    }
     #[doc = "Bits 12:15 - 15:12\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
     pub fn add_exz(&mut self) -> AddExzW<FsmCmpVsuSpec> {
         AddExzW::new(self, 12)
-    }
-    #[doc = "Bits 16:31 - 31:16\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved16(&mut self) -> Reserved16W<FsmCmpVsuSpec> {
-        Reserved16W::new(self, 16)
     }
 }
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fsm_cmp_vsu::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fsm_cmp_vsu::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

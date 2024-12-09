@@ -17,9 +17,6 @@ pub type IntW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `RESERVED11` reader - 31:11\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved11R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED11` writer - 31:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved11W<'a, REG> = crate::FieldWriter<'a, REG, 21, u32>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Fractional part, standard binary fractional encoding. 0x00: .0V ... 0x20: 1/8 = .125V 0x40: 1/4 = .25V 0x80: 1/2 = .5V ... 0xA0: 1/2 + 1/8 = .625V ... 0xFF: Max"]
@@ -54,13 +51,6 @@ Integer part: 0x0: 0V + fractional part ... 0x3: 3V + fractional part 0x4: 4V + 
     #[must_use]
     pub fn int(&mut self) -> IntW<BattllSpec> {
         IntW::new(self, 8)
-    }
-    #[doc = "Bits 11:31 - 31:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved11(&mut self) -> Reserved11W<BattllSpec> {
-        Reserved11W::new(self, 11)
     }
 }
 #[doc = "Battery Lower Limit\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`battll::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`battll::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

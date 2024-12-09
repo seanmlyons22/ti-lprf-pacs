@@ -17,9 +17,6 @@ pub type MajrevW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED8` reader - 11:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved8R = crate::FieldReader;
-#[doc = "Field `RESERVED8` writer - 11:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `FEATUREVER` reader - 15:12\\]
 Feature set version for this module instance."]
 pub type FeatureverR = crate::FieldReader;
@@ -78,13 +75,6 @@ Major revision of the IP"]
     #[must_use]
     pub fn majrev(&mut self) -> MajrevW<DescSpec> {
         MajrevW::new(self, 4)
-    }
-    #[doc = "Bits 8:11 - 11:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved8(&mut self) -> Reserved8W<DescSpec> {
-        Reserved8W::new(self, 8)
     }
     #[doc = "Bits 12:15 - 15:12\\]
 Feature set version for this module instance."]

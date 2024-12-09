@@ -38,20 +38,6 @@ impl EvR {
         *self == Ev::WdtNmi
     }
 }
-#[doc = "Field `EV` writer - 6:0\\]
-Read only selection value"]
-pub type EvW<'a, REG> = crate::FieldWriter<'a, REG, 7, Ev>;
-impl<'a, REG> EvW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "Watchdog non maskable interrupt event, controlled by WDT:CTL.INTTYPE"]
-    #[inline(always)]
-    pub fn wdt_nmi(self) -> &'a mut crate::W<REG> {
-        self.variant(Ev::WdtNmi)
-    }
-}
 impl R {
     #[doc = "Bits 0:6 - 6:0\\]
 Read only selection value"]
@@ -60,15 +46,7 @@ Read only selection value"]
         EvR::new((self.bits & 0x7f) as u8)
     }
 }
-impl W {
-    #[doc = "Bits 0:6 - 6:0\\]
-Read only selection value"]
-    #[inline(always)]
-    #[must_use]
-    pub fn ev(&mut self) -> EvW<Cm3nmisel0Spec> {
-        EvW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Output Selection for NMI Subscriber 0\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`cm3nmisel0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`cm3nmisel0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Cm3nmisel0Spec;
 impl crate::RegisterSpec for Cm3nmisel0Spec {

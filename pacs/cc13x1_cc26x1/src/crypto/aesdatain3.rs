@@ -2,26 +2,11 @@
 pub type R = crate::R<Aesdatain3Spec>;
 #[doc = "Register `AESDATAIN3` writer"]
 pub type W = crate::W<Aesdatain3Spec>;
-#[doc = "Field `DATA` reader - 31:0\\]
-Data registers for input block data to the Crypto peripheral. These bits = AES Input Data\\[127:96\\]
-of \\[127:0\\]
-For normal operations, this register is not used, since data input and output is transferred from and to the AES engine via DMA. For a Host write operation, these registers must be written with the 128-bit input block for the next AES operation. Writing at a word-aligned offset within this address range will store the word (4 bytes) of data into the corresponding position of 4-word deep (16 bytes = 128-bit AES block) data input buffer. This buffer is used for the next AES operation. If the last data block is not completely filled with valid data (see notes below), it is allowed to write only the words with valid data. Next AES operation is triggered by writing to AESCTL.INPUT_RDY. Note: AES typically operates on 128 bits block multiple input data. The CTR and CCM modes form an exception. The last block of a CTR-mode message may contain less than 128 bits (refer to \\[NIST 800-38A\\]): 0 &lt; n &lt;= 128 bits. For CCM, the last block of both AAD and message data may contain less than 128 bits (refer to \\[NIST 800-38D\\]). The Crypto peripheral automatically pads or masks misaligned ending data blocks with zeroes for CCM and CBC-MAC. For CTR mode, the remaining data in an unaligned data block is ignored."]
-pub type DataR = crate::FieldReader<u32>;
 #[doc = "Field `DATA` writer - 31:0\\]
 Data registers for input block data to the Crypto peripheral. These bits = AES Input Data\\[127:96\\]
 of \\[127:0\\]
 For normal operations, this register is not used, since data input and output is transferred from and to the AES engine via DMA. For a Host write operation, these registers must be written with the 128-bit input block for the next AES operation. Writing at a word-aligned offset within this address range will store the word (4 bytes) of data into the corresponding position of 4-word deep (16 bytes = 128-bit AES block) data input buffer. This buffer is used for the next AES operation. If the last data block is not completely filled with valid data (see notes below), it is allowed to write only the words with valid data. Next AES operation is triggered by writing to AESCTL.INPUT_RDY. Note: AES typically operates on 128 bits block multiple input data. The CTR and CCM modes form an exception. The last block of a CTR-mode message may contain less than 128 bits (refer to \\[NIST 800-38A\\]): 0 &lt; n &lt;= 128 bits. For CCM, the last block of both AAD and message data may contain less than 128 bits (refer to \\[NIST 800-38D\\]). The Crypto peripheral automatically pads or masks misaligned ending data blocks with zeroes for CCM and CBC-MAC. For CTR mode, the remaining data in an unaligned data block is ignored."]
 pub type DataW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
-impl R {
-    #[doc = "Bits 0:31 - 31:0\\]
-Data registers for input block data to the Crypto peripheral. These bits = AES Input Data\\[127:96\\]
-of \\[127:0\\]
-For normal operations, this register is not used, since data input and output is transferred from and to the AES engine via DMA. For a Host write operation, these registers must be written with the 128-bit input block for the next AES operation. Writing at a word-aligned offset within this address range will store the word (4 bytes) of data into the corresponding position of 4-word deep (16 bytes = 128-bit AES block) data input buffer. This buffer is used for the next AES operation. If the last data block is not completely filled with valid data (see notes below), it is allowed to write only the words with valid data. Next AES operation is triggered by writing to AESCTL.INPUT_RDY. Note: AES typically operates on 128 bits block multiple input data. The CTR and CCM modes form an exception. The last block of a CTR-mode message may contain less than 128 bits (refer to \\[NIST 800-38A\\]): 0 &lt; n &lt;= 128 bits. For CCM, the last block of both AAD and message data may contain less than 128 bits (refer to \\[NIST 800-38D\\]). The Crypto peripheral automatically pads or masks misaligned ending data blocks with zeroes for CCM and CBC-MAC. For CTR mode, the remaining data in an unaligned data block is ignored."]
-    #[inline(always)]
-    pub fn data(&self) -> DataR {
-        DataR::new(self.bits)
-    }
-}
 impl W {
     #[doc = "Bits 0:31 - 31:0\\]
 Data registers for input block data to the Crypto peripheral. These bits = AES Input Data\\[127:96\\]

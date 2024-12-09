@@ -5,15 +5,9 @@ pub type W = crate::W<MemStaSpec>;
 #[doc = "Field `RESERVED0` reader - 7:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved0R = crate::FieldReader;
-#[doc = "Field `RESERVED0` writer - 7:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved0W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `MEM_STA` reader - 31:8\\]
 Memory Instance Status This field gives the current status of each SRAM instance. When an instance is being initialized the corresponding bit is set to 1, 0 otherwise. bit\\[x\\]: 0 : Instance x is in normal mode 1 : Instance x is getting initialized"]
 pub type MemStaR = crate::FieldReader<u32>;
-#[doc = "Field `MEM_STA` writer - 31:8\\]
-Memory Instance Status This field gives the current status of each SRAM instance. When an instance is being initialized the corresponding bit is set to 1, 0 otherwise. bit\\[x\\]: 0 : Instance x is in normal mode 1 : Instance x is getting initialized"]
-pub type MemStaW<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
@@ -28,22 +22,7 @@ Memory Instance Status This field gives the current status of each SRAM instance
         MemStaR::new((self.bits >> 8) & 0x00ff_ffff)
     }
 }
-impl W {
-    #[doc = "Bits 0:7 - 7:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved0(&mut self) -> Reserved0W<MemStaSpec> {
-        Reserved0W::new(self, 0)
-    }
-    #[doc = "Bits 8:31 - 31:8\\]
-Memory Instance Status This field gives the current status of each SRAM instance. When an instance is being initialized the corresponding bit is set to 1, 0 otherwise. bit\\[x\\]: 0 : Instance x is in normal mode 1 : Instance x is getting initialized"]
-    #[inline(always)]
-    #[must_use]
-    pub fn mem_sta(&mut self) -> MemStaW<MemStaSpec> {
-        MemStaW::new(self, 8)
-    }
-}
+impl W {}
 #[doc = "Memory Status Controls memory initialization\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`mem_sta::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`mem_sta::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct MemStaSpec;
 impl crate::RegisterSpec for MemStaSpec {

@@ -5,15 +5,9 @@ pub type W = crate::W<FlashVhvESpec>;
 #[doc = "Field `VHV_E_STEP_HIGHT` reader - 15:0\\]
 Internal. Only to be used through TI provided API."]
 pub type VhvEStepHightR = crate::FieldReader<u16>;
-#[doc = "Field `VHV_E_STEP_HIGHT` writer - 15:0\\]
-Internal. Only to be used through TI provided API."]
-pub type VhvEStepHightW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 #[doc = "Field `VHV_E_START` reader - 31:16\\]
 Internal. Only to be used through TI provided API."]
 pub type VhvEStartR = crate::FieldReader<u16>;
-#[doc = "Field `VHV_E_START` writer - 31:16\\]
-Internal. Only to be used through TI provided API."]
-pub type VhvEStartW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
     #[doc = "Bits 0:15 - 15:0\\]
 Internal. Only to be used through TI provided API."]
@@ -28,22 +22,7 @@ Internal. Only to be used through TI provided API."]
         VhvEStartR::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
-impl W {
-    #[doc = "Bits 0:15 - 15:0\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn vhv_e_step_hight(&mut self) -> VhvEStepHightW<FlashVhvESpec> {
-        VhvEStepHightW::new(self, 0)
-    }
-    #[doc = "Bits 16:31 - 31:16\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn vhv_e_start(&mut self) -> VhvEStartW<FlashVhvESpec> {
-        VhvEStartW::new(self, 16)
-    }
-}
+impl W {}
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`flash_vhv_e::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`flash_vhv_e::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct FlashVhvESpec;
 impl crate::RegisterSpec for FlashVhvESpec {

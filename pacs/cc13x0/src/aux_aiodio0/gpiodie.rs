@@ -13,9 +13,6 @@ pub type Io7_0W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `RESERVED8` reader - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved8R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED8` writer - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Write 1 to bit index n in this bit vector to enable digital input buffer for AUXIO\\[8i+n\\]. Write 0 to bit index n in this bit vector to disable digital input buffer for AUXIO\\[8i+n\\]. You must enable the digital input buffer for AUXIO\\[8i+n\\]
@@ -39,13 +36,6 @@ to read the pin value in GPIODIN. You must disable the digital input buffer for 
     #[must_use]
     pub fn io7_0(&mut self) -> Io7_0W<GpiodieSpec> {
         Io7_0W::new(self, 0)
-    }
-    #[doc = "Bits 8:31 - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved8(&mut self) -> Reserved8W<GpiodieSpec> {
-        Reserved8W::new(self, 8)
     }
 }
 #[doc = "General Purpose Input Output Digital Input Enable This register controls input buffers for AUXIO that are controlled by instance i of AUX_AIODIO. Hence, in formulas below i = 0 for AUX_AIODIO0 and I = 1 for AUX_AIODIO1.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`gpiodie::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`gpiodie::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

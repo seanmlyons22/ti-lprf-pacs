@@ -29,9 +29,6 @@ pub type WdivW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 #[doc = "Field `RESERVED16` reader - 31:16\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved16R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED16` writer - 31:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved16W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
     #[doc = "Bits 0:15 - 15:0\\]
 If I2SCLKCTL.WCLK_PHASE = 0, Single phase. WCLK is high one BCLK period and low WDIV\\[9:0\\]
@@ -71,13 +68,6 @@ For changes to take effect, CLKLOADCTL.LOAD needs to be written"]
     #[must_use]
     pub fn wdiv(&mut self) -> WdivW<I2swclkdivSpec> {
         WdivW::new(self, 0)
-    }
-    #[doc = "Bits 16:31 - 31:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved16(&mut self) -> Reserved16W<I2swclkdivSpec> {
-        Reserved16W::new(self, 16)
     }
 }
 #[doc = "WCLK Division Ratio\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`i2swclkdiv::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`i2swclkdiv::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

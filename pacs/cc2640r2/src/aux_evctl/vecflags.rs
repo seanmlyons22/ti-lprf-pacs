@@ -29,9 +29,6 @@ pub type Vec3W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED4` reader - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved4R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED4` writer - 31:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved4W<'a, REG> = crate::FieldWriter<'a, REG, 28, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Vector flag 0. The vector flag is set if the edge selected VECCFG0.VEC0_POL occurs on the event selected in VECCFG0.VEC0_EV. The flag is cleared by writing a 0 to this bit, or (preferably) a 1 to VECFLAGSCLR.VEC0."]
@@ -92,13 +89,6 @@ Vector flag 3. The vector flag is set if the edge selected VECCFG1.VEC3_POL occu
     #[must_use]
     pub fn vec3(&mut self) -> Vec3W<VecflagsSpec> {
         Vec3W::new(self, 3)
-    }
-    #[doc = "Bits 4:31 - 31:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved4(&mut self) -> Reserved4W<VecflagsSpec> {
-        Reserved4W::new(self, 4)
     }
 }
 #[doc = "Vector Flags If a vector flag becomes 1 and AUX_SCE sleeps, AUX_SCE will wake up and execute the corresponding vector. The vector with the lowest index will execute first if multiple vectors flags are set. AUX_SCE must return to sleep to execute the next vector. During execution of a vector, AUX_SCE must clear the vector flag that triggered execution. Write 1 to bit index n in VECFLAGSCLR to clear vector flag n.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`vecflags::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`vecflags::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

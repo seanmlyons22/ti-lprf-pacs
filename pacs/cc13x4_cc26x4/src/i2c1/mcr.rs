@@ -61,9 +61,6 @@ where
 #[doc = "Field `RESERVED1` reader - 3:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved1R = crate::FieldReader;
-#[doc = "Field `RESERVED1` writer - 3:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "4:4\\]
 I2C master function enable\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -221,13 +218,6 @@ I2C loopback 0: Normal operation 1: Loopback operation (test mode)"]
     #[must_use]
     pub fn lpbk(&mut self) -> LpbkW<McrSpec> {
         LpbkW::new(self, 0)
-    }
-    #[doc = "Bits 1:3 - 3:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved1(&mut self) -> Reserved1W<McrSpec> {
-        Reserved1W::new(self, 1)
     }
     #[doc = "Bit 4 - 4:4\\]
 I2C master function enable"]

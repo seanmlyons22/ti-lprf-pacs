@@ -2,9 +2,6 @@
 pub type R = crate::R<Reseti2cSpec>;
 #[doc = "Register `RESETI2C` writer"]
 pub type W = crate::W<Reseti2cSpec>;
-#[doc = "Field `I2C` reader - 0:0\\]
-0: No action 1: Reset I2C. HW cleared. Acess will only have effect when SERIAL power domain is on, PDSTAT0.SERIAL_ON = 1 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset."]
-pub type I2cR = crate::BitReader;
 #[doc = "Field `I2C` writer - 0:0\\]
 0: No action 1: Reset I2C. HW cleared. Acess will only have effect when SERIAL power domain is on, PDSTAT0.SERIAL_ON = 1 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset."]
 pub type I2cW<'a, REG> = crate::BitWriter<'a, REG>;
@@ -15,12 +12,6 @@ pub type Spare1R = crate::FieldReader<u32>;
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Spare1W<'a, REG> = crate::FieldWriter<'a, REG, 31, u32>;
 impl R {
-    #[doc = "Bit 0 - 0:0\\]
-0: No action 1: Reset I2C. HW cleared. Acess will only have effect when SERIAL power domain is on, PDSTAT0.SERIAL_ON = 1 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset."]
-    #[inline(always)]
-    pub fn i2c(&self) -> I2cR {
-        I2cR::new((self.bits & 1) != 0)
-    }
     #[doc = "Bits 1:31 - 31:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]

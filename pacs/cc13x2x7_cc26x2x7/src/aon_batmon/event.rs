@@ -41,9 +41,6 @@ pub type TempUpdateW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED6` reader - 31:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved6R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED6` writer - 31:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 26, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Read: 1: Battery level is above the upper limit set by BATTUL. 0: Battery level is not above the upper limit set by BATTUL. Write: 1: Clears the flag 0: No change in the flag"]
@@ -130,13 +127,6 @@ Alias to TEMPUPD.STAT"]
     #[must_use]
     pub fn temp_update(&mut self) -> TempUpdateW<EventSpec> {
         TempUpdateW::new(self, 5)
-    }
-    #[doc = "Bits 6:31 - 31:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<EventSpec> {
-        Reserved6W::new(self, 6)
     }
 }
 #[doc = "Event\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`event::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`event::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

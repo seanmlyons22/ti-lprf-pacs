@@ -923,9 +923,6 @@ where
 #[doc = "Field `RESERVED8` reader - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved8R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED8` writer - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 impl R {
     #[doc = "Bits 0:5 - 5:0\\]
 Wakeup source from the asynchronous AUX event bus. Only change WU_SRC when EN is 0 or WUFLAGSCLR.PROG_WU2 is 1. If you write a non-enumerated value the behavior is identical to NO_EVENT. The written value is returned when read."]
@@ -973,13 +970,6 @@ Polarity of WU_SRC. The procedure used to clear the wakeup flag decides level or
     #[must_use]
     pub fn pol(&mut self) -> PolW<Progwu2cfgSpec> {
         PolW::new(self, 7)
-    }
-    #[doc = "Bits 8:31 - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved8(&mut self) -> Reserved8W<Progwu2cfgSpec> {
-        Reserved8W::new(self, 8)
     }
 }
 #[doc = "Programmable Wakeup 2 Configuration Configure this register to enable a customized AUX wakeup flag. The wakeup flag will be captured by AON_PMCTL which responds according to the current operational mode. You can select WUFLAGS.PROG_WU2 to trigger execution of a programmable AUX_SCE vector by configuration of VECCFGn. You need to follow the procedure described in WUFLAGSCLR to clear this flag. You need to follow the procedure described in WUGATE to configure it.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`progwu2cfg::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`progwu2cfg::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

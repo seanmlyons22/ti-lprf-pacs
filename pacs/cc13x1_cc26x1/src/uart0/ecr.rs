@@ -2,56 +2,18 @@
 pub type R = crate::R<EcrSpec>;
 #[doc = "Register `ECR` writer"]
 pub type W = crate::W<EcrSpec>;
-#[doc = "Field `FE` reader - 0:0\\]
-The framing (FE), parity (PE), break (BE) and overrun (OE) errors are cleared to 0 by any write to this register."]
-pub type FeR = crate::BitReader;
 #[doc = "Field `FE` writer - 0:0\\]
 The framing (FE), parity (PE), break (BE) and overrun (OE) errors are cleared to 0 by any write to this register."]
 pub type FeW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `PE` reader - 1:1\\]
-The framing (FE), parity (PE), break (BE) and overrun (OE) errors are cleared to 0 by any write to this register."]
-pub type PeR = crate::BitReader;
 #[doc = "Field `PE` writer - 1:1\\]
 The framing (FE), parity (PE), break (BE) and overrun (OE) errors are cleared to 0 by any write to this register."]
 pub type PeW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `BE` reader - 2:2\\]
-The framing (FE), parity (PE), break (BE) and overrun (OE) errors are cleared to 0 by any write to this register."]
-pub type BeR = crate::BitReader;
 #[doc = "Field `BE` writer - 2:2\\]
 The framing (FE), parity (PE), break (BE) and overrun (OE) errors are cleared to 0 by any write to this register."]
 pub type BeW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `OE` reader - 3:3\\]
-The framing (FE), parity (PE), break (BE) and overrun (OE) errors are cleared to 0 by any write to this register."]
-pub type OeR = crate::BitReader;
 #[doc = "Field `OE` writer - 3:3\\]
 The framing (FE), parity (PE), break (BE) and overrun (OE) errors are cleared to 0 by any write to this register."]
 pub type OeW<'a, REG> = crate::BitWriter<'a, REG>;
-impl R {
-    #[doc = "Bit 0 - 0:0\\]
-The framing (FE), parity (PE), break (BE) and overrun (OE) errors are cleared to 0 by any write to this register."]
-    #[inline(always)]
-    pub fn fe(&self) -> FeR {
-        FeR::new((self.bits & 1) != 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-The framing (FE), parity (PE), break (BE) and overrun (OE) errors are cleared to 0 by any write to this register."]
-    #[inline(always)]
-    pub fn pe(&self) -> PeR {
-        PeR::new(((self.bits >> 1) & 1) != 0)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-The framing (FE), parity (PE), break (BE) and overrun (OE) errors are cleared to 0 by any write to this register."]
-    #[inline(always)]
-    pub fn be(&self) -> BeR {
-        BeR::new(((self.bits >> 2) & 1) != 0)
-    }
-    #[doc = "Bit 3 - 3:3\\]
-The framing (FE), parity (PE), break (BE) and overrun (OE) errors are cleared to 0 by any write to this register."]
-    #[inline(always)]
-    pub fn oe(&self) -> OeR {
-        OeR::new(((self.bits >> 3) & 1) != 0)
-    }
-}
 impl W {
     #[doc = "Bit 0 - 0:0\\]
 The framing (FE), parity (PE), break (BE) and overrun (OE) errors are cleared to 0 by any write to this register."]

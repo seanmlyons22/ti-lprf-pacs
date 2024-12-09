@@ -5,9 +5,6 @@ pub type W = crate::W<MiscTrimSpec>;
 #[doc = "Field `TEMPVSLOPE` reader - 7:0\\]
 Signed byte value representing the TEMP slope with battery voltage, in degrees C / V, with four fractional bits."]
 pub type TempvslopeR = crate::FieldReader;
-#[doc = "Field `TEMPVSLOPE` writer - 7:0\\]
-Signed byte value representing the TEMP slope with battery voltage, in degrees C / V, with four fractional bits."]
-pub type TempvslopeW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Signed byte value representing the TEMP slope with battery voltage, in degrees C / V, with four fractional bits."]
@@ -16,15 +13,7 @@ Signed byte value representing the TEMP slope with battery voltage, in degrees C
         TempvslopeR::new((self.bits & 0xff) as u8)
     }
 }
-impl W {
-    #[doc = "Bits 0:7 - 7:0\\]
-Signed byte value representing the TEMP slope with battery voltage, in degrees C / V, with four fractional bits."]
-    #[inline(always)]
-    #[must_use]
-    pub fn tempvslope(&mut self) -> TempvslopeW<MiscTrimSpec> {
-        TempvslopeW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Miscellaneous Trim Parameters\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`misc_trim::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`misc_trim::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct MiscTrimSpec;
 impl crate::RegisterSpec for MiscTrimSpec {

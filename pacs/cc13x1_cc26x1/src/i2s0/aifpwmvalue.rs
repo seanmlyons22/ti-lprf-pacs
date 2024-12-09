@@ -11,9 +11,6 @@ pub type PulseWidthW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 #[doc = "Field `RESERVED16` reader - 31:16\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved16R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED16` writer - 31:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved16W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
     #[doc = "Bits 0:15 - 15:0\\]
 The value written to this register determines the width of the active high PWM pulse (pwm_debug), which starts together with MSB of the first output word in a DMA buffer: 0x0000: Constant low 0x0001: Width of the pulse (number of BCLK cycles, here 1). ... 0xFFFE: Width of the pulse (number of BCLK cycles, here 65534). 0xFFFF: Constant high"]
@@ -35,13 +32,6 @@ The value written to this register determines the width of the active high PWM p
     #[must_use]
     pub fn pulse_width(&mut self) -> PulseWidthW<AifpwmvalueSpec> {
         PulseWidthW::new(self, 0)
-    }
-    #[doc = "Bits 16:31 - 31:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved16(&mut self) -> Reserved16W<AifpwmvalueSpec> {
-        Reserved16W::new(self, 16)
     }
 }
 #[doc = "Audio Interface PWM Debug Value\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`aifpwmvalue::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`aifpwmvalue::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

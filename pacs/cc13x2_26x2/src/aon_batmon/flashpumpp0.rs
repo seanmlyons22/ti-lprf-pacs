@@ -41,9 +41,6 @@ pub type DisNoiseFilterW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED9` reader - 31:10\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved9R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED9` writer - 31:10\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved9W<'a, REG> = crate::FieldWriter<'a, REG, 22, u32>;
 impl R {
     #[doc = "Bits 0:3 - 3:0\\]
 Internal. Only to be used through TI provided API."]
@@ -130,13 +127,6 @@ Internal. Only to be used through TI provided API."]
     #[must_use]
     pub fn dis_noise_filter(&mut self) -> DisNoiseFilterW<Flashpumpp0Spec> {
         DisNoiseFilterW::new(self, 9)
-    }
-    #[doc = "Bits 10:31 - 31:10\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved9(&mut self) -> Reserved9W<Flashpumpp0Spec> {
-        Reserved9W::new(self, 10)
     }
 }
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`flashpumpp0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`flashpumpp0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

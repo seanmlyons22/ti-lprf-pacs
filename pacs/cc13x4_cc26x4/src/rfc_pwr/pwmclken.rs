@@ -5,9 +5,6 @@ pub type W = crate::W<PwmclkenSpec>;
 #[doc = "Field `RFC` reader - 0:0\\]
 Enable essential clocks for the RF Core interface. This includes the interconnect, the radio doorbell DBELL command interface, the power management (PWR) clock control module, and bus clock (sclk) for the CPE. To remove possibility of locking yourself out from the RF Core, this bit can not be cleared. If you need to disable all clocks to the RF Core, see the PRCM:RFCCLKG.CLK_EN register."]
 pub type RfcR = crate::BitReader;
-#[doc = "Field `RFC` writer - 0:0\\]
-Enable essential clocks for the RF Core interface. This includes the interconnect, the radio doorbell DBELL command interface, the power management (PWR) clock control module, and bus clock (sclk) for the CPE. To remove possibility of locking yourself out from the RF Core, this bit can not be cleared. If you need to disable all clocks to the RF Core, see the PRCM:RFCCLKG.CLK_EN register."]
-pub type RfcW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `CPE` reader - 1:1\\]
 Enable processor clock (hclk) to the Command and Packet Engine (CPE). As part of RF Core initialization, set this bit together with CPERAM bit to enable CPE to boot."]
 pub type CpeR = crate::BitReader;
@@ -89,9 +86,6 @@ pub type DemodW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED14` reader - 31:14\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved14R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED14` writer - 31:14\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved14W<'a, REG> = crate::FieldWriter<'a, REG, 18, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Enable essential clocks for the RF Core interface. This includes the interconnect, the radio doorbell DBELL command interface, the power management (PWR) clock control module, and bus clock (sclk) for the CPE. To remove possibility of locking yourself out from the RF Core, this bit can not be cleared. If you need to disable all clocks to the RF Core, see the PRCM:RFCCLKG.CLK_EN register."]
@@ -185,13 +179,6 @@ Software should not rely on the value of a reserved. Writing any other value tha
     }
 }
 impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Enable essential clocks for the RF Core interface. This includes the interconnect, the radio doorbell DBELL command interface, the power management (PWR) clock control module, and bus clock (sclk) for the CPE. To remove possibility of locking yourself out from the RF Core, this bit can not be cleared. If you need to disable all clocks to the RF Core, see the PRCM:RFCCLKG.CLK_EN register."]
-    #[inline(always)]
-    #[must_use]
-    pub fn rfc(&mut self) -> RfcW<PwmclkenSpec> {
-        RfcW::new(self, 0)
-    }
     #[doc = "Bit 1 - 1:1\\]
 Enable processor clock (hclk) to the Command and Packet Engine (CPE). As part of RF Core initialization, set this bit together with CPERAM bit to enable CPE to boot."]
     #[inline(always)]
@@ -282,13 +269,6 @@ Enable clock to the Demodulator"]
     #[must_use]
     pub fn demod(&mut self) -> DemodW<PwmclkenSpec> {
         DemodW::new(self, 13)
-    }
-    #[doc = "Bits 14:31 - 31:14\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved14(&mut self) -> Reserved14W<PwmclkenSpec> {
-        Reserved14W::new(self, 14)
     }
 }
 #[doc = "RF Core Power Management and Clock Enable\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`pwmclken::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`pwmclken::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

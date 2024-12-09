@@ -68,9 +68,6 @@ where
 #[doc = "Field `RESERVED7` reader - 7:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved7R = crate::BitReader;
-#[doc = "Field `RESERVED7` writer - 7:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved7W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "8:8\\]
 When set, TEZ is asserted to the flash banks. Which banks get the asserted signal is determined by the BANKSELECT field in CMDCTL. 0x0 Do no assert TEZ 0x1 Assert TEZ\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -154,13 +151,6 @@ TCR test mode to be applied to the bank"]
     #[must_use]
     pub fn tcr(&mut self) -> TcrW<DftbankctlSpec> {
         TcrW::new(self, 0)
-    }
-    #[doc = "Bit 7 - 7:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved7(&mut self) -> Reserved7W<DftbankctlSpec> {
-        Reserved7W::new(self, 7)
     }
     #[doc = "Bit 8 - 8:8\\]
 When set, TEZ is asserted to the flash banks. Which banks get the asserted signal is determined by the BANKSELECT field in CMDCTL. 0x0 Do no assert TEZ 0x1 Assert TEZ"]

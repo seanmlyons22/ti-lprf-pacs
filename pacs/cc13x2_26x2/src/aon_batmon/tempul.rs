@@ -5,9 +5,6 @@ pub type W = crate::W<TempulSpec>;
 #[doc = "Field `RESERVED0` reader - 5:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved0R = crate::FieldReader;
-#[doc = "Field `RESERVED0` writer - 5:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved0W<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `FRAC` reader - 7:6\\]
 Fractional part of temperature upper limit. Total value = INTEGER + FRACTIONAL The encoding is an extension of the 2's complement encoding. 00: 0.0C 01: 0.25C 10: 0.5C 11: 0.75C For example: 000000001,00 = ( 1+0,00) = 1,00 000000000,11 = ( 0+0,75) = 0,75 000000000,10 = ( 0+0,50) = 0,50 000000000,01 = ( 0+0,25) = 0,25 000000000,00 = ( 0+0,00) = 0,00 111111111,11 = (-1+0,75) = -0,25 111111111,10 = (-1+0,50) = -0,50 111111111,01 = (-1+0,25) = -0,75 111111111,00 = (-1+0,00) = -1,00 111111110,11 = (-2+0,75) = -1,25"]
 pub type FracR = crate::FieldReader;
@@ -23,9 +20,6 @@ pub type IntW<'a, REG> = crate::FieldWriter<'a, REG, 9, u16>;
 #[doc = "Field `RESERVED17` reader - 31:17\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved17R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED17` writer - 31:17\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved17W<'a, REG> = crate::FieldWriter<'a, REG, 15, u16>;
 impl R {
     #[doc = "Bits 0:5 - 5:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
@@ -53,13 +47,6 @@ Software should not rely on the value of a reserved. Writing any other value tha
     }
 }
 impl W {
-    #[doc = "Bits 0:5 - 5:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved0(&mut self) -> Reserved0W<TempulSpec> {
-        Reserved0W::new(self, 0)
-    }
     #[doc = "Bits 6:7 - 7:6\\]
 Fractional part of temperature upper limit. Total value = INTEGER + FRACTIONAL The encoding is an extension of the 2's complement encoding. 00: 0.0C 01: 0.25C 10: 0.5C 11: 0.75C For example: 000000001,00 = ( 1+0,00) = 1,00 000000000,11 = ( 0+0,75) = 0,75 000000000,10 = ( 0+0,50) = 0,50 000000000,01 = ( 0+0,25) = 0,25 000000000,00 = ( 0+0,00) = 0,00 111111111,11 = (-1+0,75) = -0,25 111111111,10 = (-1+0,50) = -0,50 111111111,01 = (-1+0,25) = -0,75 111111111,00 = (-1+0,00) = -1,00 111111110,11 = (-2+0,75) = -1,25"]
     #[inline(always)]
@@ -73,13 +60,6 @@ Integer part (signed) of temperature upper limit. Total value = INTEGER + FRACTI
     #[must_use]
     pub fn int(&mut self) -> IntW<TempulSpec> {
         IntW::new(self, 8)
-    }
-    #[doc = "Bits 17:31 - 31:17\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved17(&mut self) -> Reserved17W<TempulSpec> {
-        Reserved17W::new(self, 17)
     }
 }
 #[doc = "Temperature Upper Limit\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`tempul::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`tempul::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

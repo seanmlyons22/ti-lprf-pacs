@@ -11,9 +11,6 @@ pub type FunctionW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED4` reader - 4:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved4R = crate::BitReader;
-#[doc = "Field `RESERVED4` writer - 4:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved4W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `EMITRANGE` reader - 5:5\\]
 Emit range field. This bit permits emitting offset when range match occurs. PC sampling is not supported when emit range is enabled. This field only applies for: FUNCTION = 1, 2, 3, 12, 13, 14, and 15."]
 pub type EmitrangeR = crate::BitReader;
@@ -23,9 +20,6 @@ pub type EmitrangeW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED6` reader - 23:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved6R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED6` writer - 23:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 18, u32>;
 #[doc = "Field `MATCHED` reader - 24:24\\]
 This bit is set when the comparator matches, and indicates that the operation defined by FUNCTION has occurred since this bit was last read. This bit is cleared on read."]
 pub type MatchedR = crate::BitReader;
@@ -84,26 +78,12 @@ Function settings. 0x0: Disabled 0x1: EMITRANGE = 0, sample and emit PC through 
     pub fn function(&mut self) -> FunctionW<Function2Spec> {
         FunctionW::new(self, 0)
     }
-    #[doc = "Bit 4 - 4:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved4(&mut self) -> Reserved4W<Function2Spec> {
-        Reserved4W::new(self, 4)
-    }
     #[doc = "Bit 5 - 5:5\\]
 Emit range field. This bit permits emitting offset when range match occurs. PC sampling is not supported when emit range is enabled. This field only applies for: FUNCTION = 1, 2, 3, 12, 13, 14, and 15."]
     #[inline(always)]
     #[must_use]
     pub fn emitrange(&mut self) -> EmitrangeW<Function2Spec> {
         EmitrangeW::new(self, 5)
-    }
-    #[doc = "Bits 6:23 - 23:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<Function2Spec> {
-        Reserved6W::new(self, 6)
     }
     #[doc = "Bit 24 - 24:24\\]
 This bit is set when the comparator matches, and indicates that the operation defined by FUNCTION has occurred since this bit was last read. This bit is cleared on read."]

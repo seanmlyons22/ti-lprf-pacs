@@ -5,9 +5,6 @@ pub type W = crate::W<PbistctlSpec>;
 #[doc = "Field `PBIST_KEY` reader - 31:0\\]
 Internal. Only to be used through TI provided API."]
 pub type PbistKeyR = crate::FieldReader<u32>;
-#[doc = "Field `PBIST_KEY` writer - 31:0\\]
-Internal. Only to be used through TI provided API."]
-pub type PbistKeyW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 Internal. Only to be used through TI provided API."]
@@ -16,15 +13,7 @@ Internal. Only to be used through TI provided API."]
         PbistKeyR::new(self.bits)
     }
 }
-impl W {
-    #[doc = "Bits 0:31 - 31:0\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn pbist_key(&mut self) -> PbistKeyW<PbistctlSpec> {
-        PbistKeyW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`pbistctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`pbistctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct PbistctlSpec;
 impl crate::RegisterSpec for PbistctlSpec {

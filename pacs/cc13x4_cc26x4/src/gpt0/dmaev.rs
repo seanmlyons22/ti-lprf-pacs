@@ -65,9 +65,6 @@ pub type TbmdmaenW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED12` reader - 31:12\\]
 Software should not rely on the value of a reserved field. Writing any other value may result in undefined behavior."]
 pub type Reserved12R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED12` writer - 31:12\\]
-Software should not rely on the value of a reserved field. Writing any other value may result in undefined behavior."]
-pub type Reserved12W<'a, REG> = crate::FieldWriter<'a, REG, 20, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 GPT Timer A Time-Out DMA Trigger Enable"]
@@ -206,13 +203,6 @@ GPT Timer B Match DMA Trigger Enable"]
     #[must_use]
     pub fn tbmdmaen(&mut self) -> TbmdmaenW<DmaevSpec> {
         TbmdmaenW::new(self, 11)
-    }
-    #[doc = "Bits 12:31 - 31:12\\]
-Software should not rely on the value of a reserved field. Writing any other value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved12(&mut self) -> Reserved12W<DmaevSpec> {
-        Reserved12W::new(self, 12)
     }
 }
 #[doc = "DMA Event This register allows software to enable/disable GPT DMA trigger events.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`dmaev::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`dmaev::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

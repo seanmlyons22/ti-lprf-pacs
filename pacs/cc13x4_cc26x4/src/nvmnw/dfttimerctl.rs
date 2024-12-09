@@ -509,9 +509,6 @@ where
 #[doc = "Field `RESERVED9` reader - 11:9\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved9R = crate::FieldReader;
-#[doc = "Field `RESERVED9` writer - 11:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved9W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "27:12\\]
 Program/Erase Pulse Time Value If operation is a program, this value gets loaded into bits \\[15:0\\]
 of the timer when the PEPULSETIMEVALOVR field is set to 1. If operation is an erase, this value gets loaded into bits \\[19:4\\]
@@ -725,9 +722,6 @@ where
 #[doc = "Field `RESERVED31` reader - 31:31\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved31R = crate::BitReader;
-#[doc = "Field `RESERVED31` writer - 31:31\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved31W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Program/Erase Setup Time"]
@@ -874,13 +868,6 @@ Override Program/Erase Pulse Time If set, this will force the program or erase p
     pub fn pepulsetimeovr(&mut self) -> PepulsetimeovrW<DfttimerctlSpec> {
         PepulsetimeovrW::new(self, 8)
     }
-    #[doc = "Bits 9:11 - 11:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved9(&mut self) -> Reserved9W<DfttimerctlSpec> {
-        Reserved9W::new(self, 9)
-    }
     #[doc = "Bits 12:27 - 27:12\\]
 Program/Erase Pulse Time Value If operation is a program, this value gets loaded into bits \\[15:0\\]
 of the timer when the PEPULSETIMEVALOVR field is set to 1. If operation is an erase, this value gets loaded into bits \\[19:4\\]
@@ -896,13 +883,6 @@ Override Timer clock frequency using an ICG-based clock divide mechanism. To div
     #[must_use]
     pub fn timerclockovr(&mut self) -> TimerclockovrW<DfttimerctlSpec> {
         TimerclockovrW::new(self, 28)
-    }
-    #[doc = "Bit 31 - 31:31\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved31(&mut self) -> Reserved31W<DfttimerctlSpec> {
-        Reserved31W::new(self, 31)
     }
 }
 #[doc = "DFT Timer Control Register This allows some configuration of timing values for various phases of flash operations for test. These time values are hard-coded for functional execution. This register is only writable when DFT.ENABLE is set. This register is blocked for writes after a 1 is written to the CMDEXEC register and prior to STATCMD.DONE being set by the NoWrapper hardware.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`dfttimerctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`dfttimerctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

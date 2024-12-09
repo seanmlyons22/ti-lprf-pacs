@@ -287,9 +287,6 @@ where
 #[doc = "Field `RESERVED6` reader - 31:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved6R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED6` writer - 31:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 26, u32>;
 impl R {
     #[doc = "Bits 0:2 - 2:0\\]
 SPI Transmit Interrupt FIFO Level Select The trigger points for the transmit interrupt are as follows:"]
@@ -324,13 +321,6 @@ SPI Receive Interrupt FIFO Level Select The trigger points for the receive inter
     #[must_use]
     pub fn rxiflsel(&mut self) -> RxiflselW<IflsSpec> {
         RxiflselW::new(self, 3)
-    }
-    #[doc = "Bits 6:31 - 31:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<IflsSpec> {
-        Reserved6W::new(self, 6)
     }
 }
 #[doc = "The IFLS register is the interrupt FIFO level select register. This register can be used to define the levels at which the TX, RX FIFO interrupt flags are triggered. Out of reset, the TXIFLSEL and RXIFLSEL bits are configured so that the FIFOs trigger an interrupt at the half-way mark.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ifls::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ifls::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

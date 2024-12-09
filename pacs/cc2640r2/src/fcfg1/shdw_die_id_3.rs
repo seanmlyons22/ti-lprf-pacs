@@ -5,9 +5,6 @@ pub type W = crate::W<ShdwDieId3Spec>;
 #[doc = "Field `ID_127_96` reader - 31:0\\]
 Shadow of DIE_ID_3 register in eFuse row number 6"]
 pub type Id127_96R = crate::FieldReader<u32>;
-#[doc = "Field `ID_127_96` writer - 31:0\\]
-Shadow of DIE_ID_3 register in eFuse row number 6"]
-pub type Id127_96W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 Shadow of DIE_ID_3 register in eFuse row number 6"]
@@ -16,15 +13,7 @@ Shadow of DIE_ID_3 register in eFuse row number 6"]
         Id127_96R::new(self.bits)
     }
 }
-impl W {
-    #[doc = "Bits 0:31 - 31:0\\]
-Shadow of DIE_ID_3 register in eFuse row number 6"]
-    #[inline(always)]
-    #[must_use]
-    pub fn id_127_96(&mut self) -> Id127_96W<ShdwDieId3Spec> {
-        Id127_96W::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Shadow of DIE_ID_3 register in eFuse\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`shdw_die_id_3::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`shdw_die_id_3::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct ShdwDieId3Spec;
 impl crate::RegisterSpec for ShdwDieId3Spec {

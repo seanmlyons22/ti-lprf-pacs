@@ -5,15 +5,9 @@ pub type W = crate::W<FlashProgEpSpec>;
 #[doc = "Field `PROGRAM_PW` reader - 15:0\\]
 Internal. Only to be used through TI provided API."]
 pub type ProgramPwR = crate::FieldReader<u16>;
-#[doc = "Field `PROGRAM_PW` writer - 15:0\\]
-Internal. Only to be used through TI provided API."]
-pub type ProgramPwW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 #[doc = "Field `MAX_EP` reader - 31:16\\]
 Internal. Only to be used through TI provided API."]
 pub type MaxEpR = crate::FieldReader<u16>;
-#[doc = "Field `MAX_EP` writer - 31:16\\]
-Internal. Only to be used through TI provided API."]
-pub type MaxEpW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
     #[doc = "Bits 0:15 - 15:0\\]
 Internal. Only to be used through TI provided API."]
@@ -28,22 +22,7 @@ Internal. Only to be used through TI provided API."]
         MaxEpR::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
-impl W {
-    #[doc = "Bits 0:15 - 15:0\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn program_pw(&mut self) -> ProgramPwW<FlashProgEpSpec> {
-        ProgramPwW::new(self, 0)
-    }
-    #[doc = "Bits 16:31 - 31:16\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn max_ep(&mut self) -> MaxEpW<FlashProgEpSpec> {
-        MaxEpW::new(self, 16)
-    }
-}
+impl W {}
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`flash_prog_ep::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`flash_prog_ep::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct FlashProgEpSpec;
 impl crate::RegisterSpec for FlashProgEpSpec {

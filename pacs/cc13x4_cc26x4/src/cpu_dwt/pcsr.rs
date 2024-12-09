@@ -6,10 +6,6 @@ pub type W = crate::W<PcsrSpec>;
 The possible values of this field are: 0xFFFFFFFF One of the following is true: - The PE is halted in Debug state. - The Security Extension is implemented, the sampled instruction was executed in Secure state, and SecureNoninvasiveDebugAllowed() == FALSE. - NoninvasiveDebugAllowed() == FALSE. - DEMCR.TRCENA == 0. - The address of a recently-executed instruction is not available. Not 0xFFFFFFFF Instruction address of a recently executed instruction. Bit \\[0\\]
 of the sample instruction address is 0."]
 pub type EiasampleR = crate::FieldReader<u32>;
-#[doc = "Field `EIASAMPLE` writer - 31:0\\]
-The possible values of this field are: 0xFFFFFFFF One of the following is true: - The PE is halted in Debug state. - The Security Extension is implemented, the sampled instruction was executed in Secure state, and SecureNoninvasiveDebugAllowed() == FALSE. - NoninvasiveDebugAllowed() == FALSE. - DEMCR.TRCENA == 0. - The address of a recently-executed instruction is not available. Not 0xFFFFFFFF Instruction address of a recently executed instruction. Bit \\[0\\]
-of the sample instruction address is 0."]
-pub type EiasampleW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 The possible values of this field are: 0xFFFFFFFF One of the following is true: - The PE is halted in Debug state. - The Security Extension is implemented, the sampled instruction was executed in Secure state, and SecureNoninvasiveDebugAllowed() == FALSE. - NoninvasiveDebugAllowed() == FALSE. - DEMCR.TRCENA == 0. - The address of a recently-executed instruction is not available. Not 0xFFFFFFFF Instruction address of a recently executed instruction. Bit \\[0\\]
@@ -19,16 +15,7 @@ of the sample instruction address is 0."]
         EiasampleR::new(self.bits)
     }
 }
-impl W {
-    #[doc = "Bits 0:31 - 31:0\\]
-The possible values of this field are: 0xFFFFFFFF One of the following is true: - The PE is halted in Debug state. - The Security Extension is implemented, the sampled instruction was executed in Secure state, and SecureNoninvasiveDebugAllowed() == FALSE. - NoninvasiveDebugAllowed() == FALSE. - DEMCR.TRCENA == 0. - The address of a recently-executed instruction is not available. Not 0xFFFFFFFF Instruction address of a recently executed instruction. Bit \\[0\\]
-of the sample instruction address is 0."]
-    #[inline(always)]
-    #[must_use]
-    pub fn eiasample(&mut self) -> EiasampleW<PcsrSpec> {
-        EiasampleW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Program Counter Sample Register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`pcsr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`pcsr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct PcsrSpec;
 impl crate::RegisterSpec for PcsrSpec {

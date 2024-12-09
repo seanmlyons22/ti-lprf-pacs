@@ -35,9 +35,6 @@ pub type ComparedisableW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED31` reader - 31:31\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved31R = crate::BitReader;
-#[doc = "Field `RESERVED31` writer - 31:31\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved31W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bits 0:8 - 8:0\\]
 Internal. Only to be used through TI provided API."]
@@ -111,13 +108,6 @@ Internal. Only to be used through TI provided API."]
     #[must_use]
     pub fn comparedisable(&mut self) -> ComparedisableW<EfuseprogramSpec> {
         ComparedisableW::new(self, 30)
-    }
-    #[doc = "Bit 31 - 31:31\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved31(&mut self) -> Reserved31W<EfuseprogramSpec> {
-        Reserved31W::new(self, 31)
     }
 }
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`efuseprogram::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`efuseprogram::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

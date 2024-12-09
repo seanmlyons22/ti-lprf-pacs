@@ -770,9 +770,6 @@ where
 #[doc = "Field `RESERVED6` reader - 7:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved6R = crate::FieldReader;
-#[doc = "Field `RESERVED6` writer - 7:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "13:8\\]
 AUX Wakeup Source #1 AON Event Source selecting 1 of 3 events routed to AON_WUC for waking up the AUX domain from Power Off or Power Down. Note:\n\nValue on reset: 63"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1541,9 +1538,6 @@ where
 #[doc = "Field `RESERVED14` reader - 15:14\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved14R = crate::FieldReader;
-#[doc = "Field `RESERVED14` writer - 15:14\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved14W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "21:16\\]
 AUX Wakeup Source #2 AON Event Source selecting 1 of 3 events routed to AON_WUC for waking up the AUX domain from Power Off or Power Down. Note:\n\nValue on reset: 63"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -2312,9 +2306,6 @@ where
 #[doc = "Field `RESERVED22` reader - 31:22\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved22R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED22` writer - 31:22\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved22W<'a, REG> = crate::FieldWriter<'a, REG, 10, u16>;
 impl R {
     #[doc = "Bits 0:5 - 5:0\\]
 AUX Wakeup Source #0 AON Event Source selecting 1 of 3 events routed to AON_WUC for waking up the AUX domain from Power Off or Power Down. Note:"]
@@ -2361,13 +2352,6 @@ AUX Wakeup Source #0 AON Event Source selecting 1 of 3 events routed to AON_WUC 
     pub fn wu0_ev(&mut self) -> Wu0EvW<AuxwuselSpec> {
         Wu0EvW::new(self, 0)
     }
-    #[doc = "Bits 6:7 - 7:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<AuxwuselSpec> {
-        Reserved6W::new(self, 6)
-    }
     #[doc = "Bits 8:13 - 13:8\\]
 AUX Wakeup Source #1 AON Event Source selecting 1 of 3 events routed to AON_WUC for waking up the AUX domain from Power Off or Power Down. Note:"]
     #[inline(always)]
@@ -2375,26 +2359,12 @@ AUX Wakeup Source #1 AON Event Source selecting 1 of 3 events routed to AON_WUC 
     pub fn wu1_ev(&mut self) -> Wu1EvW<AuxwuselSpec> {
         Wu1EvW::new(self, 8)
     }
-    #[doc = "Bits 14:15 - 15:14\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved14(&mut self) -> Reserved14W<AuxwuselSpec> {
-        Reserved14W::new(self, 14)
-    }
     #[doc = "Bits 16:21 - 21:16\\]
 AUX Wakeup Source #2 AON Event Source selecting 1 of 3 events routed to AON_WUC for waking up the AUX domain from Power Off or Power Down. Note:"]
     #[inline(always)]
     #[must_use]
     pub fn wu2_ev(&mut self) -> Wu2EvW<AuxwuselSpec> {
         Wu2EvW::new(self, 16)
-    }
-    #[doc = "Bits 22:31 - 31:22\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved22(&mut self) -> Reserved22W<AuxwuselSpec> {
-        Reserved22W::new(self, 22)
     }
 }
 #[doc = "Wake-up Selector For AUX This register contains pointers to 3 events which are routed to AON_WUC as wakeup sources for AUX. AON_WUC will start a wakeup sequence for the AUX domain when either of the 3 selected events are asserted. A wakeup sequence will guarantee that the AUX power switches are turned on, LDO resources are available and SCLK_HF is available and selected as clock source for AUX. Note: It is recommended ( or required when AON_WUC:AUXCLK.PWR_DWN_SRC=NONE) to also setup a wakeup event here before AUX is requesting powerdown. ( AUX_WUC:PWRDWNREQ.REQ is asserted\\]

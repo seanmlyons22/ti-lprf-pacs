@@ -17,9 +17,6 @@ pub type VinByPassW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED9` reader - 11:9\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved9R = crate::FieldReader;
-#[doc = "Field `RESERVED9` writer - 11:9\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved9W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `VIN_AT_X` reader - 14:12\\]
 Internal. Only to be used through TI provided API."]
 pub type VinAtXR = crate::FieldReader;
@@ -29,9 +26,6 @@ pub type VinAtXW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `RESERVED15` reader - 15:15\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved15R = crate::BitReader;
-#[doc = "Field `RESERVED15` writer - 15:15\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved15W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `TRIM_0P8` reader - 19:16\\]
 Internal. Only to be used through TI provided API."]
 pub type Trim0p8R = crate::FieldReader;
@@ -47,9 +41,6 @@ pub type Trim1p7W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `RESERVED22` reader - 23:22\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved22R = crate::FieldReader;
-#[doc = "Field `RESERVED22` writer - 23:22\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved22W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `TRIM_3P4` reader - 27:24\\]
 Internal. Only to be used through TI provided API."]
 pub type Trim3p4R = crate::FieldReader;
@@ -139,26 +130,12 @@ Internal. Only to be used through TI provided API."]
     pub fn vin_by_pass(&mut self) -> VinByPassW<FseqpmpSpec> {
         VinByPassW::new(self, 8)
     }
-    #[doc = "Bits 9:11 - 11:9\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved9(&mut self) -> Reserved9W<FseqpmpSpec> {
-        Reserved9W::new(self, 9)
-    }
     #[doc = "Bits 12:14 - 14:12\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
     pub fn vin_at_x(&mut self) -> VinAtXW<FseqpmpSpec> {
         VinAtXW::new(self, 12)
-    }
-    #[doc = "Bit 15 - 15:15\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved15(&mut self) -> Reserved15W<FseqpmpSpec> {
-        Reserved15W::new(self, 15)
     }
     #[doc = "Bits 16:19 - 19:16\\]
 Internal. Only to be used through TI provided API."]
@@ -173,13 +150,6 @@ Internal. Only to be used through TI provided API."]
     #[must_use]
     pub fn trim_1p7(&mut self) -> Trim1p7W<FseqpmpSpec> {
         Trim1p7W::new(self, 20)
-    }
-    #[doc = "Bits 22:23 - 23:22\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved22(&mut self) -> Reserved22W<FseqpmpSpec> {
-        Reserved22W::new(self, 22)
     }
     #[doc = "Bits 24:27 - 27:24\\]
 Internal. Only to be used through TI provided API."]

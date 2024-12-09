@@ -5,18 +5,9 @@ pub type W = crate::W<Ctl0Spec>;
 #[doc = "Field `RESERVED0` reader - 1:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved0R = crate::FieldReader;
-#[doc = "Field `RESERVED0` writer - 1:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved0W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
-#[doc = "Field `MCU_SRAM_ERASE` reader - 2:2\\]
-Internal. Only to be used through TI provided API."]
-pub type McuSramEraseR = crate::BitReader;
 #[doc = "Field `MCU_SRAM_ERASE` writer - 2:2\\]
 Internal. Only to be used through TI provided API."]
 pub type McuSramEraseW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `AUX_SRAM_ERASE` reader - 3:3\\]
-Internal. Only to be used through TI provided API."]
-pub type AuxSramEraseR = crate::BitReader;
 #[doc = "Field `AUX_SRAM_ERASE` writer - 3:3\\]
 Internal. Only to be used through TI provided API."]
 pub type AuxSramEraseW<'a, REG> = crate::BitWriter<'a, REG>;
@@ -35,27 +26,12 @@ pub type PwrDwnDisW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED9` reader - 31:9\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved9R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED9` writer - 31:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved9W<'a, REG> = crate::FieldWriter<'a, REG, 23, u32>;
 impl R {
     #[doc = "Bits 0:1 - 1:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     pub fn reserved0(&self) -> Reserved0R {
         Reserved0R::new((self.bits & 3) as u8)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    pub fn mcu_sram_erase(&self) -> McuSramEraseR {
-        McuSramEraseR::new(((self.bits >> 2) & 1) != 0)
-    }
-    #[doc = "Bit 3 - 3:3\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    pub fn aux_sram_erase(&self) -> AuxSramEraseR {
-        AuxSramEraseR::new(((self.bits >> 3) & 1) != 0)
     }
     #[doc = "Bits 4:7 - 7:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
@@ -77,13 +53,6 @@ Software should not rely on the value of a reserved. Writing any other value tha
     }
 }
 impl W {
-    #[doc = "Bits 0:1 - 1:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved0(&mut self) -> Reserved0W<Ctl0Spec> {
-        Reserved0W::new(self, 0)
-    }
     #[doc = "Bit 2 - 2:2\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
@@ -111,13 +80,6 @@ Controls whether MCU and AUX requesting to be powered off will enable a transiti
     #[must_use]
     pub fn pwr_dwn_dis(&mut self) -> PwrDwnDisW<Ctl0Spec> {
         PwrDwnDisW::new(self, 8)
-    }
-    #[doc = "Bits 9:31 - 31:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved9(&mut self) -> Reserved9W<Ctl0Spec> {
-        Reserved9W::new(self, 9)
     }
 }
 #[doc = "Control 0 This register contains various chip level control and debug bitfields.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ctl0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ctl0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

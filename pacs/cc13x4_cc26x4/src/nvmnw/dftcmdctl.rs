@@ -173,9 +173,6 @@ where
 #[doc = "Field `RESERVED3` reader - 3:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3R = crate::BitReader;
-#[doc = "Field `RESERVED3` writer - 3:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "4:4\\]
 Disable redundancy matching. Any repair configuration encoded into the bank trim bits is disabled.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -291,9 +288,6 @@ where
 #[doc = "Field `RESERVED6` reader - 7:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved6R = crate::FieldReader;
-#[doc = "Field `RESERVED6` writer - 7:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "8:8\\]
 Override address counter enable. When set, the state machine address counter will not be loaded when a command is initiated.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -409,9 +403,6 @@ where
 #[doc = "Field `RESERVED10` reader - 11:10\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved10R = crate::FieldReader;
-#[doc = "Field `RESERVED10` writer - 11:10\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved10W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "12:12\\]
 Enable data pattern. Data pattern select in DATAPATSEL field will override data from CMDDATA registers for use as program or verify data.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -774,9 +765,6 @@ where
 #[doc = "Field `RESERVED21` reader - 27:21\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved21R = crate::FieldReader;
-#[doc = "Field `RESERVED21` writer - 27:21\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved21W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "31:28\\]
 DTB Mux Select This field will form the select for the primary DTB mux. This mux selects up to 16 sets of 32-bit fields of internal signals to be present to the 32-bit DTB output.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -973,13 +961,6 @@ Force 2T Enable - Force 2T access to regions that are designated as 1T. Regions 
     pub fn amx2tdis(&mut self) -> Amx2tdisW<DftcmdctlSpec> {
         Amx2tdisW::new(self, 2)
     }
-    #[doc = "Bit 3 - 3:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<DftcmdctlSpec> {
-        Reserved3W::new(self, 3)
-    }
     #[doc = "Bit 4 - 4:4\\]
 Disable redundancy matching. Any repair configuration encoded into the bank trim bits is disabled."]
     #[inline(always)]
@@ -994,13 +975,6 @@ Force redundancy match. If set to 1, repair configuration encoded in the flash b
     pub fn redmatchforce(&mut self) -> RedmatchforceW<DftcmdctlSpec> {
         RedmatchforceW::new(self, 5)
     }
-    #[doc = "Bits 6:7 - 7:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<DftcmdctlSpec> {
-        Reserved6W::new(self, 6)
-    }
     #[doc = "Bit 8 - 8:8\\]
 Override address counter enable. When set, the state machine address counter will not be loaded when a command is initiated."]
     #[inline(always)]
@@ -1014,13 +988,6 @@ Override pulse counter enable. When set, the state machine pulse counter will no
     #[must_use]
     pub fn pulsecntlddis(&mut self) -> PulsecntlddisW<DftcmdctlSpec> {
         PulsecntlddisW::new(self, 9)
-    }
-    #[doc = "Bits 10:11 - 11:10\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved10(&mut self) -> Reserved10W<DftcmdctlSpec> {
-        Reserved10W::new(self, 10)
     }
     #[doc = "Bit 12 - 12:12\\]
 Enable data pattern. Data pattern select in DATAPATSEL field will override data from CMDDATA registers for use as program or verify data."]
@@ -1064,13 +1031,6 @@ Stop read verify on fail. If this bit is set, read verify will halt when the fir
     #[must_use]
     pub fn stopveronfail(&mut self) -> StopveronfailW<DftcmdctlSpec> {
         StopveronfailW::new(self, 20)
-    }
-    #[doc = "Bits 21:27 - 27:21\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved21(&mut self) -> Reserved21W<DftcmdctlSpec> {
-        Reserved21W::new(self, 21)
     }
     #[doc = "Bits 28:31 - 31:28\\]
 DTB Mux Select This field will form the select for the primary DTB mux. This mux selects up to 16 sets of 32-bit fields of internal signals to be present to the 32-bit DTB output."]

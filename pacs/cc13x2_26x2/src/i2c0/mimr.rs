@@ -61,9 +61,6 @@ where
 #[doc = "Field `RESERVED1` reader - 31:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved1R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED1` writer - 31:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 31, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Interrupt mask 0: The MRIS.RIS interrupt is suppressed and not sent to the interrupt controller. 1: The master interrupt is sent to the interrupt controller when the MRIS.RIS is set."]
@@ -85,13 +82,6 @@ Interrupt mask 0: The MRIS.RIS interrupt is suppressed and not sent to the inter
     #[must_use]
     pub fn im(&mut self) -> ImW<MimrSpec> {
         ImW::new(self, 0)
-    }
-    #[doc = "Bits 1:31 - 31:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved1(&mut self) -> Reserved1W<MimrSpec> {
-        Reserved1W::new(self, 1)
     }
 }
 #[doc = "Master Interrupt Mask This register controls whether a raw interrupt is promoted to a controller interrupt.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`mimr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`mimr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

@@ -2,26 +2,11 @@
 pub type R = crate::R<Aesdatalen1Spec>;
 #[doc = "Register `AESDATALEN1` writer"]
 pub type W = crate::W<Aesdatalen1Spec>;
-#[doc = "Field `LEN_MSW` reader - 28:0\\]
-Bits \\[60:32\\]
-of the combined data length. Bits \\[60:0\\]
-of the crypto length registers AESDATALEN1 and AESDATALEN0 store the cryptographic data length in bytes for all modes. Once processing with this context starts, this length decrements to zero. Data lengths up to (2^61 - 1) bytes are allowed. A write to this register triggers the engine to start using this context. This is valid for all modes except CCM. For the combined modes (CCM), this length does not include the authentication only data; the authentication length is specified in the AESAUTHLEN.LEN. All modes must have a length > 0. For the combined modes, it is allowed to have one of the lengths equal to zero. For the basic encryption modes (ECB/CBC/CTR) it is allowed to program zero to the length field; in that case the length is assumed infinite. All data must be byte (8-bit) aligned for stream cipher modes; bit aligned data streams are not supported by the Crypto peripheral. For block cipher modes, the data length must be programmed in multiples of the block cipher size, 16 bytes."]
-pub type LenMswR = crate::FieldReader<u32>;
 #[doc = "Field `LEN_MSW` writer - 28:0\\]
 Bits \\[60:32\\]
 of the combined data length. Bits \\[60:0\\]
 of the crypto length registers AESDATALEN1 and AESDATALEN0 store the cryptographic data length in bytes for all modes. Once processing with this context starts, this length decrements to zero. Data lengths up to (2^61 - 1) bytes are allowed. A write to this register triggers the engine to start using this context. This is valid for all modes except CCM. For the combined modes (CCM), this length does not include the authentication only data; the authentication length is specified in the AESAUTHLEN.LEN. All modes must have a length > 0. For the combined modes, it is allowed to have one of the lengths equal to zero. For the basic encryption modes (ECB/CBC/CTR) it is allowed to program zero to the length field; in that case the length is assumed infinite. All data must be byte (8-bit) aligned for stream cipher modes; bit aligned data streams are not supported by the Crypto peripheral. For block cipher modes, the data length must be programmed in multiples of the block cipher size, 16 bytes."]
 pub type LenMswW<'a, REG> = crate::FieldWriter<'a, REG, 29, u32>;
-impl R {
-    #[doc = "Bits 0:28 - 28:0\\]
-Bits \\[60:32\\]
-of the combined data length. Bits \\[60:0\\]
-of the crypto length registers AESDATALEN1 and AESDATALEN0 store the cryptographic data length in bytes for all modes. Once processing with this context starts, this length decrements to zero. Data lengths up to (2^61 - 1) bytes are allowed. A write to this register triggers the engine to start using this context. This is valid for all modes except CCM. For the combined modes (CCM), this length does not include the authentication only data; the authentication length is specified in the AESAUTHLEN.LEN. All modes must have a length > 0. For the combined modes, it is allowed to have one of the lengths equal to zero. For the basic encryption modes (ECB/CBC/CTR) it is allowed to program zero to the length field; in that case the length is assumed infinite. All data must be byte (8-bit) aligned for stream cipher modes; bit aligned data streams are not supported by the Crypto peripheral. For block cipher modes, the data length must be programmed in multiples of the block cipher size, 16 bytes."]
-    #[inline(always)]
-    pub fn len_msw(&self) -> LenMswR {
-        LenMswR::new(self.bits & 0x1fff_ffff)
-    }
-}
 impl W {
     #[doc = "Bits 0:28 - 28:0\\]
 Bits \\[60:32\\]

@@ -5,21 +5,12 @@ pub type W = crate::W<IcepickDeviceIdSpec>;
 #[doc = "Field `MANUFACTURER_ID` reader - 11:0\\]
 Manufacturer code. 0x02F: Texas Instruments"]
 pub type ManufacturerIdR = crate::FieldReader<u16>;
-#[doc = "Field `MANUFACTURER_ID` writer - 11:0\\]
-Manufacturer code. 0x02F: Texas Instruments"]
-pub type ManufacturerIdW<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
 #[doc = "Field `WAFER_ID` reader - 27:12\\]
 Field used to identify silicon die."]
 pub type WaferIdR = crate::FieldReader<u16>;
-#[doc = "Field `WAFER_ID` writer - 27:12\\]
-Field used to identify silicon die."]
-pub type WaferIdW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 #[doc = "Field `PG_REV` reader - 31:28\\]
 Field used to distinguish revisions of the device."]
 pub type PgRevR = crate::FieldReader;
-#[doc = "Field `PG_REV` writer - 31:28\\]
-Field used to distinguish revisions of the device."]
-pub type PgRevW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 impl R {
     #[doc = "Bits 0:11 - 11:0\\]
 Manufacturer code. 0x02F: Texas Instruments"]
@@ -40,29 +31,7 @@ Field used to distinguish revisions of the device."]
         PgRevR::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
-impl W {
-    #[doc = "Bits 0:11 - 11:0\\]
-Manufacturer code. 0x02F: Texas Instruments"]
-    #[inline(always)]
-    #[must_use]
-    pub fn manufacturer_id(&mut self) -> ManufacturerIdW<IcepickDeviceIdSpec> {
-        ManufacturerIdW::new(self, 0)
-    }
-    #[doc = "Bits 12:27 - 27:12\\]
-Field used to identify silicon die."]
-    #[inline(always)]
-    #[must_use]
-    pub fn wafer_id(&mut self) -> WaferIdW<IcepickDeviceIdSpec> {
-        WaferIdW::new(self, 12)
-    }
-    #[doc = "Bits 28:31 - 31:28\\]
-Field used to distinguish revisions of the device."]
-    #[inline(always)]
-    #[must_use]
-    pub fn pg_rev(&mut self) -> PgRevW<IcepickDeviceIdSpec> {
-        PgRevW::new(self, 28)
-    }
-}
+impl W {}
 #[doc = "IcePick Device Identification Reading this register and the FCFG1:USER_ID register is the only supported way of identifying a device.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`icepick_device_id::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`icepick_device_id::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct IcepickDeviceIdSpec;
 impl crate::RegisterSpec for IcepickDeviceIdSpec {

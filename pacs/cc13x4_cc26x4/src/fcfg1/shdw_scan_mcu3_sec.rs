@@ -5,21 +5,12 @@ pub type W = crate::W<ShdwScanMcu3SecSpec>;
 #[doc = "Field `ULL_MCU_RAM_1_REP_1` reader - 10:0\\]
 Internal. Only to be used through TI provided API."]
 pub type UllMcuRam1Rep1R = crate::FieldReader<u16>;
-#[doc = "Field `ULL_MCU_RAM_1_REP_1` writer - 10:0\\]
-Internal. Only to be used through TI provided API."]
-pub type UllMcuRam1Rep1W<'a, REG> = crate::FieldWriter<'a, REG, 11, u16>;
 #[doc = "Field `ULL_MCU_RAM_0_REP` reader - 22:11\\]
 Internal. Only to be used through TI provided API."]
 pub type UllMcuRam0RepR = crate::FieldReader<u16>;
-#[doc = "Field `ULL_MCU_RAM_0_REP` writer - 22:11\\]
-Internal. Only to be used through TI provided API."]
-pub type UllMcuRam0RepW<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
 #[doc = "Field `SECURITY` reader - 31:24\\]
 Internal. Only to be used through TI provided API."]
 pub type SecurityR = crate::FieldReader;
-#[doc = "Field `SECURITY` writer - 31:24\\]
-Internal. Only to be used through TI provided API."]
-pub type SecurityW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 impl R {
     #[doc = "Bits 0:10 - 10:0\\]
 Internal. Only to be used through TI provided API."]
@@ -40,29 +31,7 @@ Internal. Only to be used through TI provided API."]
         SecurityR::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
-impl W {
-    #[doc = "Bits 0:10 - 10:0\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn ull_mcu_ram_1_rep_1(&mut self) -> UllMcuRam1Rep1W<ShdwScanMcu3SecSpec> {
-        UllMcuRam1Rep1W::new(self, 0)
-    }
-    #[doc = "Bits 11:22 - 22:11\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn ull_mcu_ram_0_rep(&mut self) -> UllMcuRam0RepW<ShdwScanMcu3SecSpec> {
-        UllMcuRam0RepW::new(self, 11)
-    }
-    #[doc = "Bits 24:31 - 31:24\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn security(&mut self) -> SecurityW<ShdwScanMcu3SecSpec> {
-        SecurityW::new(self, 24)
-    }
-}
+impl W {}
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`shdw_scan_mcu3_sec::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`shdw_scan_mcu3_sec::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct ShdwScanMcu3SecSpec;
 impl crate::RegisterSpec for ShdwScanMcu3SecSpec {

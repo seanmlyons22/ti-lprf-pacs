@@ -2,37 +2,16 @@
 pub type R = crate::R<Reseti2cSpec>;
 #[doc = "Register `RESETI2C` writer"]
 pub type W = crate::W<Reseti2cSpec>;
-#[doc = "Field `I2C0` reader - 0:0\\]
-0: No action 1: Reset I2C0. HW cleared. Access will only have effect when SERIAL power domain is on, PDSTAT0.SERIAL_ON = 1 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset."]
-pub type I2c0R = crate::BitReader;
 #[doc = "Field `I2C0` writer - 0:0\\]
 0: No action 1: Reset I2C0. HW cleared. Access will only have effect when SERIAL power domain is on, PDSTAT0.SERIAL_ON = 1 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset."]
 pub type I2c0W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `I2C1` reader - 1:1\\]
-0: No action 1: Reset I2C1. HW cleared. Access will only have effect when PERIPH power domain is on, PDSTAT0.PERIPH_ON = 1 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset."]
-pub type I2c1R = crate::BitReader;
 #[doc = "Field `I2C1` writer - 1:1\\]
 0: No action 1: Reset I2C1. HW cleared. Access will only have effect when PERIPH power domain is on, PDSTAT0.PERIPH_ON = 1 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset."]
 pub type I2c1W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED2` reader - 31:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED2` writer - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 30, u32>;
 impl R {
-    #[doc = "Bit 0 - 0:0\\]
-0: No action 1: Reset I2C0. HW cleared. Access will only have effect when SERIAL power domain is on, PDSTAT0.SERIAL_ON = 1 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset."]
-    #[inline(always)]
-    pub fn i2c0(&self) -> I2c0R {
-        I2c0R::new((self.bits & 1) != 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-0: No action 1: Reset I2C1. HW cleared. Access will only have effect when PERIPH power domain is on, PDSTAT0.PERIPH_ON = 1 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset."]
-    #[inline(always)]
-    pub fn i2c1(&self) -> I2c1R {
-        I2c1R::new(((self.bits >> 1) & 1) != 0)
-    }
     #[doc = "Bits 2:31 - 31:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
@@ -54,13 +33,6 @@ impl W {
     #[must_use]
     pub fn i2c1(&mut self) -> I2c1W<Reseti2cSpec> {
         I2c1W::new(self, 1)
-    }
-    #[doc = "Bits 2:31 - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<Reseti2cSpec> {
-        Reserved2W::new(self, 2)
     }
 }
 #[doc = "RESET For I2C IPs\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`reseti2c::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`reseti2c::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

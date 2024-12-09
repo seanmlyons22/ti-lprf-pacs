@@ -5,27 +5,15 @@ pub type W = crate::W<FlashPRPvSpec>;
 #[doc = "Field `PVH2` reader - 7:0\\]
 Internal. Only to be used through TI provided API."]
 pub type Pvh2R = crate::FieldReader;
-#[doc = "Field `PVH2` writer - 7:0\\]
-Internal. Only to be used through TI provided API."]
-pub type Pvh2W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `PVH` reader - 15:8\\]
 Internal. Only to be used through TI provided API."]
 pub type PvhR = crate::FieldReader;
-#[doc = "Field `PVH` writer - 15:8\\]
-Internal. Only to be used through TI provided API."]
-pub type PvhW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `RH` reader - 23:16\\]
 Internal. Only to be used through TI provided API."]
 pub type RhR = crate::FieldReader;
-#[doc = "Field `RH` writer - 23:16\\]
-Internal. Only to be used through TI provided API."]
-pub type RhW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `PH` reader - 31:24\\]
 Internal. Only to be used through TI provided API."]
 pub type PhR = crate::FieldReader;
-#[doc = "Field `PH` writer - 31:24\\]
-Internal. Only to be used through TI provided API."]
-pub type PhW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Internal. Only to be used through TI provided API."]
@@ -52,36 +40,7 @@ Internal. Only to be used through TI provided API."]
         PhR::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
-impl W {
-    #[doc = "Bits 0:7 - 7:0\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn pvh2(&mut self) -> Pvh2W<FlashPRPvSpec> {
-        Pvh2W::new(self, 0)
-    }
-    #[doc = "Bits 8:15 - 15:8\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn pvh(&mut self) -> PvhW<FlashPRPvSpec> {
-        PvhW::new(self, 8)
-    }
-    #[doc = "Bits 16:23 - 23:16\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn rh(&mut self) -> RhW<FlashPRPvSpec> {
-        RhW::new(self, 16)
-    }
-    #[doc = "Bits 24:31 - 31:24\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn ph(&mut self) -> PhW<FlashPRPvSpec> {
-        PhW::new(self, 24)
-    }
-}
+impl W {}
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`flash_p_r_pv::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`flash_p_r_pv::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct FlashPRPvSpec;
 impl crate::RegisterSpec for FlashPRPvSpec {

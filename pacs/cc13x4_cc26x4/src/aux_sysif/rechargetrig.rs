@@ -11,9 +11,6 @@ pub type TrigW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED1` reader - 31:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved1R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED1` writer - 31:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 31, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Recharge trigger. 0: No effect. 1: Request VDDR recharge. Request VDDR recharge only when AUX_EVCTL:EVSTAT2.PWR_DWN is 1. Follow this sequence when OPMODEREQ.REQ is LP: - Set TRIG. - Wait until AUX_EVCTL:EVSTAT2.VDDR_RECHARGE is 1. - Clear TRIG. - Wait until AUX_EVCTL:EVSTAT2.VDDR_RECHARGE is 0. Follow this sequence when OPMODEREQ.REQ is PDA or PDLP: - Set TRIG. - Clear TRIG."]
@@ -35,13 +32,6 @@ Recharge trigger. 0: No effect. 1: Request VDDR recharge. Request VDDR recharge 
     #[must_use]
     pub fn trig(&mut self) -> TrigW<RechargetrigSpec> {
         TrigW::new(self, 0)
-    }
-    #[doc = "Bits 1:31 - 31:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved1(&mut self) -> Reserved1W<RechargetrigSpec> {
-        Reserved1W::new(self, 1)
     }
 }
 #[doc = "VDDR Recharge Trigger\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`rechargetrig::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`rechargetrig::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

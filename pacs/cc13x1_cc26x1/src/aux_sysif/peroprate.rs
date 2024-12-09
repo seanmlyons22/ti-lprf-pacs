@@ -5,9 +5,6 @@ pub type W = crate::W<PeroprateSpec>;
 #[doc = "Field `RESERVED0` reader - 1:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved0R = crate::FieldReader;
-#[doc = "Field `RESERVED0` writer - 1:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved0W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "2:2\\]
 Select operational rate for AUX_TIMER01.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -123,9 +120,6 @@ where
 #[doc = "Field `RESERVED4` reader - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved4R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED4` writer - 31:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved4W<'a, REG> = crate::FieldWriter<'a, REG, 28, u32>;
 impl R {
     #[doc = "Bits 0:1 - 1:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
@@ -153,13 +147,6 @@ Software should not rely on the value of a reserved. Writing any other value tha
     }
 }
 impl W {
-    #[doc = "Bits 0:1 - 1:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved0(&mut self) -> Reserved0W<PeroprateSpec> {
-        Reserved0W::new(self, 0)
-    }
     #[doc = "Bit 2 - 2:2\\]
 Select operational rate for AUX_TIMER01."]
     #[inline(always)]
@@ -173,13 +160,6 @@ Select operational rate for AUX_ANAIF DAC sample clock state machine."]
     #[must_use]
     pub fn anaif_dac_op_rate(&mut self) -> AnaifDacOpRateW<PeroprateSpec> {
         AnaifDacOpRateW::new(self, 3)
-    }
-    #[doc = "Bits 4:31 - 31:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved4(&mut self) -> Reserved4W<PeroprateSpec> {
-        Reserved4W::new(self, 4)
     }
 }
 #[doc = "Peripheral Operational Rate Some AUX peripherals are operated at either SCE or at AUX bus rate. Select AUX bus rate when system CPU uses such peripheral. SCE rate equals rate configured in AON_PMCTL:AUXSCECLK. AUX bus rate equals SCE rate, or SCLK_HF divided by 2 when MCU domain is active.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`peroprate::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`peroprate::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

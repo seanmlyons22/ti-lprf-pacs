@@ -255,9 +255,6 @@ where
 #[doc = "Field `RESERVED7` reader - 7:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved7R = crate::BitReader;
-#[doc = "Field `RESERVED7` writer - 7:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved7W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "8:8\\]
 GPT Timer B Enable\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -511,9 +508,6 @@ where
 #[doc = "Field `RESERVED15` reader - 31:15\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved15R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED15` writer - 31:15\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved15W<'a, REG> = crate::FieldWriter<'a, REG, 17, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 GPT Timer A Enable"]
@@ -624,13 +618,6 @@ GPT Timer A PWM Output Level"]
     pub fn tapwml(&mut self) -> TapwmlW<CtlSpec> {
         TapwmlW::new(self, 6)
     }
-    #[doc = "Bit 7 - 7:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved7(&mut self) -> Reserved7W<CtlSpec> {
-        Reserved7W::new(self, 7)
-    }
     #[doc = "Bit 8 - 8:8\\]
 GPT Timer B Enable"]
     #[inline(always)]
@@ -665,13 +652,6 @@ GPT Timer B PWM Output Level 0: Output is unaffected. 1: Output is inverted."]
     #[must_use]
     pub fn tbpwml(&mut self) -> TbpwmlW<CtlSpec> {
         TbpwmlW::new(self, 14)
-    }
-    #[doc = "Bits 15:31 - 31:15\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved15(&mut self) -> Reserved15W<CtlSpec> {
-        Reserved15W::new(self, 15)
     }
 }
 #[doc = "Control\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

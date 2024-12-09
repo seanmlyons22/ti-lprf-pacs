@@ -11,9 +11,6 @@ pub type DataW<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
 #[doc = "Field `RESERVED12` reader - 31:12\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved12R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED12` writer - 31:12\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved12W<'a, REG> = crate::FieldWriter<'a, REG, 20, u32>;
 impl R {
     #[doc = "Bits 0:11 - 11:0\\]
 FIFO data. Read: Get oldest ADC sample from FIFO. Write: Write dummy sample to FIFO. This is useful for code development when you do not have real ADC samples."]
@@ -35,13 +32,6 @@ FIFO data. Read: Get oldest ADC sample from FIFO. Write: Write dummy sample to F
     #[must_use]
     pub fn data(&mut self) -> DataW<AdcfifoSpec> {
         DataW::new(self, 0)
-    }
-    #[doc = "Bits 12:31 - 31:12\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved12(&mut self) -> Reserved12W<AdcfifoSpec> {
-        Reserved12W::new(self, 12)
     }
 }
 #[doc = "ADC FIFO\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`adcfifo::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`adcfifo::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

@@ -81,9 +81,6 @@ where
 #[doc = "Field `RESERVED2` reader - 3:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2R = crate::FieldReader;
-#[doc = "Field `RESERVED2` writer - 3:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "5:4\\]
 Configures the AD1 audio data pin usage: 0x3: Reserved\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -163,9 +160,6 @@ where
 #[doc = "Field `RESERVED6` reader - 31:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved6R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED6` writer - 31:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 26, u32>;
 impl R {
     #[doc = "Bits 0:1 - 1:0\\]
 Configures the AD0 audio data pin usage: 0x3: Reserved"]
@@ -200,26 +194,12 @@ Configures the AD0 audio data pin usage: 0x3: Reserved"]
     pub fn ad0(&mut self) -> Ad0W<AifdircfgSpec> {
         Ad0W::new(self, 0)
     }
-    #[doc = "Bits 2:3 - 3:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<AifdircfgSpec> {
-        Reserved2W::new(self, 2)
-    }
     #[doc = "Bits 4:5 - 5:4\\]
 Configures the AD1 audio data pin usage: 0x3: Reserved"]
     #[inline(always)]
     #[must_use]
     pub fn ad1(&mut self) -> Ad1W<AifdircfgSpec> {
         Ad1W::new(self, 4)
-    }
-    #[doc = "Bits 6:31 - 31:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<AifdircfgSpec> {
-        Reserved6W::new(self, 6)
     }
 }
 #[doc = "Pin Direction\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`aifdircfg::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`aifdircfg::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

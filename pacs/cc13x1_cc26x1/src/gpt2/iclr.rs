@@ -41,9 +41,6 @@ pub type DmaaintW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED6` reader - 7:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved6R = crate::FieldReader;
-#[doc = "Field `RESERVED6` writer - 7:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `TBTOCINT` reader - 8:8\\]
 0: Do nothing. 1: Clear RIS.TBTORIS and MIS.TBTOMIS"]
 pub type TbtocintR = crate::BitReader;
@@ -83,9 +80,6 @@ pub type DmabintW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED14` reader - 31:14\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved14R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED14` writer - 31:14\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved14W<'a, REG> = crate::FieldWriter<'a, REG, 18, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 0: Do nothing. 1: Clear RIS.TATORIS and MIS.TATOMIS"]
@@ -215,13 +209,6 @@ Software should not rely on the value of a reserved. Writing any other value tha
     pub fn dmaaint(&mut self) -> DmaaintW<IclrSpec> {
         DmaaintW::new(self, 5)
     }
-    #[doc = "Bits 6:7 - 7:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<IclrSpec> {
-        Reserved6W::new(self, 6)
-    }
     #[doc = "Bit 8 - 8:8\\]
 0: Do nothing. 1: Clear RIS.TBTORIS and MIS.TBTOMIS"]
     #[inline(always)]
@@ -263,13 +250,6 @@ Software should not rely on the value of a reserved. Writing any other value tha
     #[must_use]
     pub fn dmabint(&mut self) -> DmabintW<IclrSpec> {
         DmabintW::new(self, 13)
-    }
-    #[doc = "Bits 14:31 - 31:14\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved14(&mut self) -> Reserved14W<IclrSpec> {
-        Reserved14W::new(self, 14)
     }
 }
 #[doc = "Interrupt Clear This register is used to clear status bits in the RIS and MIS registers\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`iclr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`iclr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

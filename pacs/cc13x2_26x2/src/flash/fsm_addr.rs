@@ -5,21 +5,12 @@ pub type W = crate::W<FsmAddrSpec>;
 #[doc = "Field `CUR_ADDR` reader - 27:0\\]
 Internal. Only to be used through TI provided API."]
 pub type CurAddrR = crate::FieldReader<u32>;
-#[doc = "Field `CUR_ADDR` writer - 27:0\\]
-Internal. Only to be used through TI provided API."]
-pub type CurAddrW<'a, REG> = crate::FieldWriter<'a, REG, 28, u32>;
 #[doc = "Field `BANK` reader - 30:28\\]
 Internal. Only to be used through TI provided API."]
 pub type BankR = crate::FieldReader;
-#[doc = "Field `BANK` writer - 30:28\\]
-Internal. Only to be used through TI provided API."]
-pub type BankW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `RESERVED31` reader - 31:31\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved31R = crate::BitReader;
-#[doc = "Field `RESERVED31` writer - 31:31\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved31W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bits 0:27 - 27:0\\]
 Internal. Only to be used through TI provided API."]
@@ -40,29 +31,7 @@ Internal. Only to be used through TI provided API."]
         Reserved31R::new(((self.bits >> 31) & 1) != 0)
     }
 }
-impl W {
-    #[doc = "Bits 0:27 - 27:0\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn cur_addr(&mut self) -> CurAddrW<FsmAddrSpec> {
-        CurAddrW::new(self, 0)
-    }
-    #[doc = "Bits 28:30 - 30:28\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn bank(&mut self) -> BankW<FsmAddrSpec> {
-        BankW::new(self, 28)
-    }
-    #[doc = "Bit 31 - 31:31\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved31(&mut self) -> Reserved31W<FsmAddrSpec> {
-        Reserved31W::new(self, 31)
-    }
-}
+impl W {}
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fsm_addr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fsm_addr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct FsmAddrSpec;
 impl crate::RegisterSpec for FsmAddrSpec {

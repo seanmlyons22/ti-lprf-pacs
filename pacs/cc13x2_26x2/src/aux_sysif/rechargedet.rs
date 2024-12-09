@@ -11,15 +11,9 @@ pub type EnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `STAT` reader - 1:1\\]
 VDDR recharge detector status. 0: No recharge of VDDR has occurred since EN was set. 1: Recharge of VDDR has occurred since EN was set."]
 pub type StatR = crate::BitReader;
-#[doc = "Field `STAT` writer - 1:1\\]
-VDDR recharge detector status. 0: No recharge of VDDR has occurred since EN was set. 1: Recharge of VDDR has occurred since EN was set."]
-pub type StatW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED2` reader - 31:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED2` writer - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 30, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 VDDR recharge detector enable. 0: Disable recharge detection. STAT becomes zero. 1: Enable recharge detection."]
@@ -47,20 +41,6 @@ VDDR recharge detector enable. 0: Disable recharge detection. STAT becomes zero.
     #[must_use]
     pub fn en(&mut self) -> EnW<RechargedetSpec> {
         EnW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-VDDR recharge detector status. 0: No recharge of VDDR has occurred since EN was set. 1: Recharge of VDDR has occurred since EN was set."]
-    #[inline(always)]
-    #[must_use]
-    pub fn stat(&mut self) -> StatW<RechargedetSpec> {
-        StatW::new(self, 1)
-    }
-    #[doc = "Bits 2:31 - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<RechargedetSpec> {
-        Reserved2W::new(self, 2)
     }
 }
 #[doc = "VDDR Recharge Detection Some applications can be sensitive to power noise caused by recharge of VDDR. You can detect if VDDR recharge occurs.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`rechargedet::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`rechargedet::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

@@ -2,20 +2,9 @@
 pub type R = crate::R<ClaimclrSpec>;
 #[doc = "Register `CLAIMCLR` writer"]
 pub type W = crate::W<ClaimclrSpec>;
-#[doc = "Field `CLAIMCLR` reader - 31:0\\]
-This register forms one half of the Claim Tag value. Writing to this location enables individual bits to be cleared (each bit is considered separately): 0: No effect 1: Clear this bit in the claim tag. The behavior when reading from this location is described in CLAIMTAG."]
-pub type ClaimclrR = crate::FieldReader<u32>;
 #[doc = "Field `CLAIMCLR` writer - 31:0\\]
 This register forms one half of the Claim Tag value. Writing to this location enables individual bits to be cleared (each bit is considered separately): 0: No effect 1: Clear this bit in the claim tag. The behavior when reading from this location is described in CLAIMTAG."]
 pub type ClaimclrW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
-impl R {
-    #[doc = "Bits 0:31 - 31:0\\]
-This register forms one half of the Claim Tag value. Writing to this location enables individual bits to be cleared (each bit is considered separately): 0: No effect 1: Clear this bit in the claim tag. The behavior when reading from this location is described in CLAIMTAG."]
-    #[inline(always)]
-    pub fn claimclr(&self) -> ClaimclrR {
-        ClaimclrR::new(self.bits)
-    }
-}
 impl W {
     #[doc = "Bits 0:31 - 31:0\\]
 This register forms one half of the Claim Tag value. Writing to this location enables individual bits to be cleared (each bit is considered separately): 0: No effect 1: Clear this bit in the claim tag. The behavior when reading from this location is described in CLAIMTAG."]

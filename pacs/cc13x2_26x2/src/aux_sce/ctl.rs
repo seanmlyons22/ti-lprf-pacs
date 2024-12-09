@@ -47,9 +47,6 @@ pub type DbgFreezeEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED7` reader - 7:7\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved7R = crate::BitReader;
-#[doc = "Field `RESERVED7` writer - 7:7\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved7W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESET_VECTOR` reader - 15:8\\]
 Internal. Only to be used through TI provided API."]
 pub type ResetVectorR = crate::FieldReader;
@@ -185,13 +182,6 @@ Internal. Only to be used through TI provided API."]
     #[must_use]
     pub fn dbg_freeze_en(&mut self) -> DbgFreezeEnW<CtlSpec> {
         DbgFreezeEnW::new(self, 6)
-    }
-    #[doc = "Bit 7 - 7:7\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved7(&mut self) -> Reserved7W<CtlSpec> {
-        Reserved7W::new(self, 7)
     }
     #[doc = "Bits 8:15 - 15:8\\]
 Internal. Only to be used through TI provided API."]

@@ -5,21 +5,12 @@ pub type W = crate::W<DevtypeSpec>;
 #[doc = "Field `MAJORTYPE` reader - 3:0\\]
 Indicates this device is a trace sink and specifically a TPIU"]
 pub type MajortypeR = crate::FieldReader;
-#[doc = "Field `MAJORTYPE` writer - 3:0\\]
-Indicates this device is a trace sink and specifically a TPIU"]
-pub type MajortypeW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `SUBTYPE` reader - 7:4\\]
 Identifies the classification of the debug component"]
 pub type SubtypeR = crate::FieldReader;
-#[doc = "Field `SUBTYPE` writer - 7:4\\]
-Identifies the classification of the debug component"]
-pub type SubtypeW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED8` reader - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved8R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED8` writer - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 impl R {
     #[doc = "Bits 0:3 - 3:0\\]
 Indicates this device is a trace sink and specifically a TPIU"]
@@ -40,29 +31,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved8R::new((self.bits >> 8) & 0x00ff_ffff)
     }
 }
-impl W {
-    #[doc = "Bits 0:3 - 3:0\\]
-Indicates this device is a trace sink and specifically a TPIU"]
-    #[inline(always)]
-    #[must_use]
-    pub fn majortype(&mut self) -> MajortypeW<DevtypeSpec> {
-        MajortypeW::new(self, 0)
-    }
-    #[doc = "Bits 4:7 - 7:4\\]
-Identifies the classification of the debug component"]
-    #[inline(always)]
-    #[must_use]
-    pub fn subtype(&mut self) -> SubtypeW<DevtypeSpec> {
-        SubtypeW::new(self, 4)
-    }
-    #[doc = "Bits 8:31 - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved8(&mut self) -> Reserved8W<DevtypeSpec> {
-        Reserved8W::new(self, 8)
-    }
-}
+impl W {}
 #[doc = "The Device Type Identification\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`devtype::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`devtype::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct DevtypeSpec;
 impl crate::RegisterSpec for DevtypeSpec {

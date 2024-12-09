@@ -41,9 +41,6 @@ pub type C2W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED24` reader - 30:24\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved24R = crate::FieldReader;
-#[doc = "Field `RESERVED24` writer - 30:24\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved24W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "Field `ADAPTIVE_EN` reader - 31:31\\]
 Enable adaptive recharge Note: Recharge can be turned completely of by setting MAX_PER_E=7 and MAX_PER_M=31 and this bitfield to 0"]
 pub type AdaptiveEnR = crate::BitReader;
@@ -142,13 +139,6 @@ Gain factor for adaptive recharge algorithm period_new=period * ( 1+/-(2^-C1+2^-
     #[must_use]
     pub fn c2(&mut self) -> C2W<RechargecfgSpec> {
         C2W::new(self, 20)
-    }
-    #[doc = "Bits 24:30 - 30:24\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved24(&mut self) -> Reserved24W<RechargecfgSpec> {
-        Reserved24W::new(self, 24)
     }
     #[doc = "Bit 31 - 31:31\\]
 Enable adaptive recharge Note: Recharge can be turned completely of by setting MAX_PER_E=7 and MAX_PER_M=31 and this bitfield to 0"]

@@ -68,9 +68,6 @@ where
 #[doc = "Field `RESERVED10` reader - 27:10\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved10R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED10` writer - 27:10\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved10W<'a, REG> = crate::FieldWriter<'a, REG, 18, u32>;
 #[doc = "Field `DSAMPLE` reader - 31:28\\]
 Delayed sampling. In master mode the data on the input pin will be sampled after the defined clock cycles. Note: As an example, if the SPI transmit frequency is set to 12 MHz in the master mode, DSAMPLE should be set to a value of 2"]
 pub type DsampleR = crate::FieldReader;
@@ -104,13 +101,6 @@ Serial clock divider: This is used to generate the transmit and receive bit rate
     #[must_use]
     pub fn scr(&mut self) -> ScrW<ClkctlSpec> {
         ScrW::new(self, 0)
-    }
-    #[doc = "Bits 10:27 - 27:10\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved10(&mut self) -> Reserved10W<ClkctlSpec> {
-        Reserved10W::new(self, 10)
     }
     #[doc = "Bits 28:31 - 31:28\\]
 Delayed sampling. In master mode the data on the input pin will be sampled after the defined clock cycles. Note: As an example, if the SPI transmit frequency is set to 12 MHz in the master mode, DSAMPLE should be set to a value of 2"]

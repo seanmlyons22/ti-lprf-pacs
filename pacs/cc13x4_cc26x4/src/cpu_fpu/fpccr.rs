@@ -71,9 +71,6 @@ pub type UfrdyW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED11` reader - 25:11\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved11R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED11` writer - 25:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved11W<'a, REG> = crate::FieldWriter<'a, REG, 15, u16>;
 #[doc = "Field `TS` reader - 26:26\\]
 Treat floating-point registers as Secure enable"]
 pub type TsR = crate::BitReader;
@@ -297,13 +294,6 @@ Indicates whether the software executing when the PE allocated the floating-poin
     #[must_use]
     pub fn ufrdy(&mut self) -> UfrdyW<FpccrSpec> {
         UfrdyW::new(self, 10)
-    }
-    #[doc = "Bits 11:25 - 25:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved11(&mut self) -> Reserved11W<FpccrSpec> {
-        Reserved11W::new(self, 11)
     }
     #[doc = "Bit 26 - 26:26\\]
 Treat floating-point registers as Secure enable"]

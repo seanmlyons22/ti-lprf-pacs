@@ -17,9 +17,6 @@ pub type SmplDivW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED12` reader - 15:12\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved12R = crate::FieldReader;
-#[doc = "Field `RESERVED12` writer - 15:12\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved12W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `MAX_REFILL_CYCLES` reader - 31:16\\]
 This field determines the maximum number of samples (between 2^8 and 2^24) taken to re-generate entropy from the FROs after reading out a 64 bits random number. If the written value of this field is zero, the number of samples is 2^24, otherwise the number of samples equals the written value times 2^8. 0x0000: 2^24 samples 0x0001: 1*2^8 samples 0x0002: 2*2^8 samples 0x0003: 3*2^8 samples ... 0x8000: 32768*2^8 samples 0xC000: 49152*2^8 samples ... 0xFFFF: 65535*2^8 samples This field can only be modified while CTL.TRNG_EN is 0."]
 pub type MaxRefillCyclesR = crate::FieldReader<u16>;
@@ -66,13 +63,6 @@ This field directly controls the number of clock cycles between samples taken fr
     #[must_use]
     pub fn smpl_div(&mut self) -> SmplDivW<Cfg0Spec> {
         SmplDivW::new(self, 8)
-    }
-    #[doc = "Bits 12:15 - 15:12\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved12(&mut self) -> Reserved12W<Cfg0Spec> {
-        Reserved12W::new(self, 12)
     }
     #[doc = "Bits 16:31 - 31:16\\]
 This field determines the maximum number of samples (between 2^8 and 2^24) taken to re-generate entropy from the FROs after reading out a 64 bits random number. If the written value of this field is zero, the number of samples is 2^24, otherwise the number of samples equals the written value times 2^8. 0x0000: 2^24 samples 0x0001: 1*2^8 samples 0x0002: 2*2^8 samples 0x0003: 3*2^8 samples ... 0x8000: 32768*2^8 samples 0xC000: 49152*2^8 samples ... 0xFFFF: 65535*2^8 samples This field can only be modified while CTL.TRNG_EN is 0."]

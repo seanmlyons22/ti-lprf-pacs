@@ -5,9 +5,6 @@ pub type W = crate::W<VersionSpec>;
 #[doc = "Field `VERSION` reader - 31:0\\]
 Timer Revision."]
 pub type VersionR = crate::FieldReader<u32>;
-#[doc = "Field `VERSION` writer - 31:0\\]
-Timer Revision."]
-pub type VersionW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 Timer Revision."]
@@ -16,15 +13,7 @@ Timer Revision."]
         VersionR::new(self.bits)
     }
 }
-impl W {
-    #[doc = "Bits 0:31 - 31:0\\]
-Timer Revision."]
-    #[inline(always)]
-    #[must_use]
-    pub fn version(&mut self) -> VersionW<VersionSpec> {
-        VersionW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Peripheral Version This register provides information regarding the GPT version\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`version::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`version::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct VersionSpec;
 impl crate::RegisterSpec for VersionSpec {

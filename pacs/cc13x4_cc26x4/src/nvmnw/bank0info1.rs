@@ -46,25 +46,6 @@ impl NonmainsizeR {
         *self == Nonmainsize::Minsectors
     }
 }
-#[doc = "Field `NONMAINSIZE` writer - 7:0\\]
-Non-main region size in sectors Minimum:0x0 (0) Maximum:0x10 (16)"]
-pub type NonmainsizeW<'a, REG> = crate::FieldWriter<'a, REG, 8, Nonmainsize>;
-impl<'a, REG> NonmainsizeW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "Maximum value of NONMAINSIZE"]
-    #[inline(always)]
-    pub fn maxsectors(self) -> &'a mut crate::W<REG> {
-        self.variant(Nonmainsize::Maxsectors)
-    }
-    #[doc = "Minimum value of NONMAINSIZE"]
-    #[inline(always)]
-    pub fn minsectors(self) -> &'a mut crate::W<REG> {
-        self.variant(Nonmainsize::Minsectors)
-    }
-}
 #[doc = "15:8\\]
 Trim region size in sectors Minimum:0x0 (0) Maximum:0x10 (16)\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -107,25 +88,6 @@ impl TrimsizeR {
     #[inline(always)]
     pub fn is_minsectors(&self) -> bool {
         *self == Trimsize::Minsectors
-    }
-}
-#[doc = "Field `TRIMSIZE` writer - 15:8\\]
-Trim region size in sectors Minimum:0x0 (0) Maximum:0x10 (16)"]
-pub type TrimsizeW<'a, REG> = crate::FieldWriter<'a, REG, 8, Trimsize>;
-impl<'a, REG> TrimsizeW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "Maximum value of TRIMSIZE"]
-    #[inline(always)]
-    pub fn maxsectors(self) -> &'a mut crate::W<REG> {
-        self.variant(Trimsize::Maxsectors)
-    }
-    #[doc = "Minimum value of TRIMSIZE"]
-    #[inline(always)]
-    pub fn minsectors(self) -> &'a mut crate::W<REG> {
-        self.variant(Trimsize::Minsectors)
     }
 }
 #[doc = "23:16\\]
@@ -172,31 +134,9 @@ impl EngrsizeR {
         *self == Engrsize::Minsectors
     }
 }
-#[doc = "Field `ENGRSIZE` writer - 23:16\\]
-Engr region size in sectors Minimum:0x0 (0) Maximum:0x10 (16)"]
-pub type EngrsizeW<'a, REG> = crate::FieldWriter<'a, REG, 8, Engrsize>;
-impl<'a, REG> EngrsizeW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "Maximum value of ENGRSIZE"]
-    #[inline(always)]
-    pub fn maxsectors(self) -> &'a mut crate::W<REG> {
-        self.variant(Engrsize::Maxsectors)
-    }
-    #[doc = "Minimum value of ENGRSIZE"]
-    #[inline(always)]
-    pub fn minsectors(self) -> &'a mut crate::W<REG> {
-        self.variant(Engrsize::Minsectors)
-    }
-}
 #[doc = "Field `RESERVED24` reader - 31:24\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved24R = crate::FieldReader;
-#[doc = "Field `RESERVED24` writer - 31:24\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved24W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Non-main region size in sectors Minimum:0x0 (0) Maximum:0x10 (16)"]
@@ -223,36 +163,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved24R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
-impl W {
-    #[doc = "Bits 0:7 - 7:0\\]
-Non-main region size in sectors Minimum:0x0 (0) Maximum:0x10 (16)"]
-    #[inline(always)]
-    #[must_use]
-    pub fn nonmainsize(&mut self) -> NonmainsizeW<Bank0info1Spec> {
-        NonmainsizeW::new(self, 0)
-    }
-    #[doc = "Bits 8:15 - 15:8\\]
-Trim region size in sectors Minimum:0x0 (0) Maximum:0x10 (16)"]
-    #[inline(always)]
-    #[must_use]
-    pub fn trimsize(&mut self) -> TrimsizeW<Bank0info1Spec> {
-        TrimsizeW::new(self, 8)
-    }
-    #[doc = "Bits 16:23 - 23:16\\]
-Engr region size in sectors Minimum:0x0 (0) Maximum:0x10 (16)"]
-    #[inline(always)]
-    #[must_use]
-    pub fn engrsize(&mut self) -> EngrsizeW<Bank0info1Spec> {
-        EngrsizeW::new(self, 16)
-    }
-    #[doc = "Bits 24:31 - 31:24\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved24(&mut self) -> Reserved24W<Bank0info1Spec> {
-        Reserved24W::new(self, 24)
-    }
-}
+impl W {}
 #[doc = "Bank Info1 Register for bank 0. Read only register detailing information about Non-Main, Trim, and Engr region sizes in the bank.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`bank0info1::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`bank0info1::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Bank0info1Spec;
 impl crate::RegisterSpec for Bank0info1Spec {

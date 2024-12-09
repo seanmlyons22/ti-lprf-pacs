@@ -14,10 +14,6 @@ pub type SwControlStatW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 These read-only bits can be used by the sequencer to communicate status to the outside world. Bit \\[8\\]
 is also used as sequencer interrupt, with the complement of this bit ORed into the FUNCTION.RUN bit. This field should always be written with zeroes and ignored when reading this register."]
 pub type SequencerStatR = crate::FieldReader;
-#[doc = "Field `SEQUENCER_STAT` writer - 15:8\\]
-These read-only bits can be used by the sequencer to communicate status to the outside world. Bit \\[8\\]
-is also used as sequencer interrupt, with the complement of this bit ORed into the FUNCTION.RUN bit. This field should always be written with zeroes and ignored when reading this register."]
-pub type SequencerStatW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `RESERVED16` reader - 30:16\\]
 Set to zero on write, ignore on read"]
 pub type Reserved16R = crate::FieldReader<u16>;
@@ -66,14 +62,6 @@ here. This field should always be written with zeroes and ignored when reading t
     #[must_use]
     pub fn sw_control_stat(&mut self) -> SwControlStatW<SeqctrlSpec> {
         SwControlStatW::new(self, 0)
-    }
-    #[doc = "Bits 8:15 - 15:8\\]
-These read-only bits can be used by the sequencer to communicate status to the outside world. Bit \\[8\\]
-is also used as sequencer interrupt, with the complement of this bit ORed into the FUNCTION.RUN bit. This field should always be written with zeroes and ignored when reading this register."]
-    #[inline(always)]
-    #[must_use]
-    pub fn sequencer_stat(&mut self) -> SequencerStatW<SeqctrlSpec> {
-        SequencerStatW::new(self, 8)
     }
     #[doc = "Bits 16:30 - 30:16\\]
 Set to zero on write, ignore on read"]

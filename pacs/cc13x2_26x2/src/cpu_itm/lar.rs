@@ -2,20 +2,9 @@
 pub type R = crate::R<LarSpec>;
 #[doc = "Register `LAR` writer"]
 pub type W = crate::W<LarSpec>;
-#[doc = "Field `LOCK_ACCESS` reader - 31:0\\]
-A privileged write of 0xC5ACCE55 enables more write access to Control Registers TER, TPR and TCR. An invalid write removes write access."]
-pub type LockAccessR = crate::FieldReader<u32>;
 #[doc = "Field `LOCK_ACCESS` writer - 31:0\\]
 A privileged write of 0xC5ACCE55 enables more write access to Control Registers TER, TPR and TCR. An invalid write removes write access."]
 pub type LockAccessW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
-impl R {
-    #[doc = "Bits 0:31 - 31:0\\]
-A privileged write of 0xC5ACCE55 enables more write access to Control Registers TER, TPR and TCR. An invalid write removes write access."]
-    #[inline(always)]
-    pub fn lock_access(&self) -> LockAccessR {
-        LockAccessR::new(self.bits)
-    }
-}
 impl W {
     #[doc = "Bits 0:31 - 31:0\\]
 A privileged write of 0xC5ACCE55 enables more write access to Control Registers TER, TPR and TCR. An invalid write removes write access."]

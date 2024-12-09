@@ -5,9 +5,6 @@ pub type W = crate::W<MiscConf1Spec>;
 #[doc = "Field `DEVICE_MINOR_REV` reader - 7:0\\]
 HW minor revision number (a value of 0xFF shall be treated equally to 0x00). Any test of this field by SW should be implemented as a 'greater or equal' comparison as signed integer. Value may change without warning."]
 pub type DeviceMinorRevR = crate::FieldReader;
-#[doc = "Field `DEVICE_MINOR_REV` writer - 7:0\\]
-HW minor revision number (a value of 0xFF shall be treated equally to 0x00). Any test of this field by SW should be implemented as a 'greater or equal' comparison as signed integer. Value may change without warning."]
-pub type DeviceMinorRevW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 HW minor revision number (a value of 0xFF shall be treated equally to 0x00). Any test of this field by SW should be implemented as a 'greater or equal' comparison as signed integer. Value may change without warning."]
@@ -16,15 +13,7 @@ HW minor revision number (a value of 0xFF shall be treated equally to 0x00). Any
         DeviceMinorRevR::new((self.bits & 0xff) as u8)
     }
 }
-impl W {
-    #[doc = "Bits 0:7 - 7:0\\]
-HW minor revision number (a value of 0xFF shall be treated equally to 0x00). Any test of this field by SW should be implemented as a 'greater or equal' comparison as signed integer. Value may change without warning."]
-    #[inline(always)]
-    #[must_use]
-    pub fn device_minor_rev(&mut self) -> DeviceMinorRevW<MiscConf1Spec> {
-        DeviceMinorRevW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Misc configurations\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`misc_conf_1::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`misc_conf_1::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct MiscConf1Spec;
 impl crate::RegisterSpec for MiscConf1Spec {

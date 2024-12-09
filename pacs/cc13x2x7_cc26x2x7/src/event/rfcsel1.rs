@@ -38,20 +38,6 @@ impl EvR {
         *self == Ev::Gpt0bCmp
     }
 }
-#[doc = "Field `EV` writer - 6:0\\]
-Read only selection value"]
-pub type EvW<'a, REG> = crate::FieldWriter<'a, REG, 7, Ev>;
-impl<'a, REG> EvW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "GPT0B compare event. Configured by GPT0:TBMR.TCACT"]
-    #[inline(always)]
-    pub fn gpt0b_cmp(self) -> &'a mut crate::W<REG> {
-        self.variant(Ev::Gpt0bCmp)
-    }
-}
 impl R {
     #[doc = "Bits 0:6 - 6:0\\]
 Read only selection value"]
@@ -60,15 +46,7 @@ Read only selection value"]
         EvR::new((self.bits & 0x7f) as u8)
     }
 }
-impl W {
-    #[doc = "Bits 0:6 - 6:0\\]
-Read only selection value"]
-    #[inline(always)]
-    #[must_use]
-    pub fn ev(&mut self) -> EvW<Rfcsel1Spec> {
-        EvW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Output Selection for RFC Event 1\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`rfcsel1::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`rfcsel1::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Rfcsel1Spec;
 impl crate::RegisterSpec for Rfcsel1Spec {

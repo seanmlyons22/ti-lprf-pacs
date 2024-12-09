@@ -71,9 +71,6 @@ pub type AdcIrqW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED11` reader - 31:11\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved11R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED11` writer - 31:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved11W<'a, REG> = crate::FieldWriter<'a, REG, 21, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 EVTOMCUFLAGS.AON_WU_EV contribution to the AUX_COMB event. 0: Exclude. 1: Include."]
@@ -225,13 +222,6 @@ EVTOMCUFLAGS.ADC_IRQ contribution to the AUX_COMB event. 0: Exclude. 1: Include.
     #[must_use]
     pub fn adc_irq(&mut self) -> AdcIrqW<CombevtomcumaskSpec> {
         AdcIrqW::new(self, 10)
-    }
-    #[doc = "Bits 11:31 - 31:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved11(&mut self) -> Reserved11W<CombevtomcumaskSpec> {
-        Reserved11W::new(self, 11)
     }
 }
 #[doc = "Combined Event To MCU Mask Select event flags in EVTOMCUFLAGS that contribute to the AUX_COMB event to EVENT and system CPU. The AUX_COMB event is high as long as one or more of the included event flags are set.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`combevtomcumask::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`combevtomcumask::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

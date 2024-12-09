@@ -6,10 +6,6 @@ pub type W = crate::W<Icer0Spec>;
 For CLRENA\\[m\\]
 in NVIC_ICER*n, indicates whether interrupt 32*n + m is enabled"]
 pub type ClrenaR = crate::FieldReader<u32>;
-#[doc = "Field `CLRENA` writer - 31:0\\]
-For CLRENA\\[m\\]
-in NVIC_ICER*n, indicates whether interrupt 32*n + m is enabled"]
-pub type ClrenaW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 For CLRENA\\[m\\]
@@ -19,16 +15,7 @@ in NVIC_ICER*n, indicates whether interrupt 32*n + m is enabled"]
         ClrenaR::new(self.bits)
     }
 }
-impl W {
-    #[doc = "Bits 0:31 - 31:0\\]
-For CLRENA\\[m\\]
-in NVIC_ICER*n, indicates whether interrupt 32*n + m is enabled"]
-    #[inline(always)]
-    #[must_use]
-    pub fn clrena(&mut self) -> ClrenaW<Icer0Spec> {
-        ClrenaW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Clears or reads the enabled state of each group of 32 interrupts\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`icer0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`icer0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Icer0Spec;
 impl crate::RegisterSpec for Icer0Spec {

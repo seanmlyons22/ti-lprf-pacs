@@ -59,9 +59,6 @@ pub type AuxTimer1EvW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED9` reader - 31:9\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved9R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED9` writer - 31:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved9W<'a, REG> = crate::FieldWriter<'a, REG, 23, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 This event flag is set when software writes a 1 to SWEVSET.SWEV0."]
@@ -187,13 +184,6 @@ This event flag is set when level selected by EVTOAONPOL.AUX_TIMER1_EV occurs on
     #[must_use]
     pub fn aux_timer1_ev(&mut self) -> AuxTimer1EvW<EvtoaonflagsSpec> {
         AuxTimer1EvW::new(self, 8)
-    }
-    #[doc = "Bits 9:31 - 31:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved9(&mut self) -> Reserved9W<EvtoaonflagsSpec> {
-        Reserved9W::new(self, 9)
     }
 }
 #[doc = "Events To AON Flags This register contains a collection of event flags routed to AON_EVENT. To clear an event flag, write to EVTOAONFLAGSCLR or write 0 to event flag in this register.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`evtoaonflags::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`evtoaonflags::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

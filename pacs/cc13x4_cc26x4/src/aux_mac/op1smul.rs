@@ -2,32 +2,12 @@
 pub type R = crate::R<Op1smulSpec>;
 #[doc = "Register `OP1SMUL` writer"]
 pub type W = crate::W<Op1smulSpec>;
-#[doc = "Field `OP1_VALUE` reader - 15:0\\]
-Signed operand 1 and multiplication trigger. Write OP1_VALUE to set signed operand 1 and trigger the following operation: When operand 0 was written to OP0S.OP0_VALUE: ACC = OP1_VALUE * OP0S.OP0_VALUE. When operand 0 was written to OP0U.OP0_VALUE: ACC = OP1_VALUE * OP0U.OP0_VALUE."]
-pub type Op1ValueR = crate::FieldReader<u16>;
 #[doc = "Field `OP1_VALUE` writer - 15:0\\]
 Signed operand 1 and multiplication trigger. Write OP1_VALUE to set signed operand 1 and trigger the following operation: When operand 0 was written to OP0S.OP0_VALUE: ACC = OP1_VALUE * OP0S.OP0_VALUE. When operand 0 was written to OP0U.OP0_VALUE: ACC = OP1_VALUE * OP0U.OP0_VALUE."]
 pub type Op1ValueW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
-#[doc = "Field `RESERVED16` reader - 31:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved16R = crate::FieldReader<u16>;
 #[doc = "Field `RESERVED16` writer - 31:16\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved16W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
-impl R {
-    #[doc = "Bits 0:15 - 15:0\\]
-Signed operand 1 and multiplication trigger. Write OP1_VALUE to set signed operand 1 and trigger the following operation: When operand 0 was written to OP0S.OP0_VALUE: ACC = OP1_VALUE * OP0S.OP0_VALUE. When operand 0 was written to OP0U.OP0_VALUE: ACC = OP1_VALUE * OP0U.OP0_VALUE."]
-    #[inline(always)]
-    pub fn op1_value(&self) -> Op1ValueR {
-        Op1ValueR::new((self.bits & 0xffff) as u16)
-    }
-    #[doc = "Bits 16:31 - 31:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    pub fn reserved16(&self) -> Reserved16R {
-        Reserved16R::new(((self.bits >> 16) & 0xffff) as u16)
-    }
-}
 impl W {
     #[doc = "Bits 0:15 - 15:0\\]
 Signed operand 1 and multiplication trigger. Write OP1_VALUE to set signed operand 1 and trigger the following operation: When operand 0 was written to OP0S.OP0_VALUE: ACC = OP1_VALUE * OP0S.OP0_VALUE. When operand 0 was written to OP0U.OP0_VALUE: ACC = OP1_VALUE * OP0U.OP0_VALUE."]

@@ -5,21 +5,12 @@ pub type W = crate::W<ConfigSynthDiv10Spec>;
 #[doc = "Field `SLDO_TRIM_OUTPUT` reader - 5:0\\]
 Internal. Only to be used through TI provided API."]
 pub type SldoTrimOutputR = crate::FieldReader;
-#[doc = "Field `SLDO_TRIM_OUTPUT` writer - 5:0\\]
-Internal. Only to be used through TI provided API."]
-pub type SldoTrimOutputW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `LDOVCO_TRIM_OUTPUT` reader - 11:6\\]
 Internal. Only to be used through TI provided API."]
 pub type LdovcoTrimOutputR = crate::FieldReader;
-#[doc = "Field `LDOVCO_TRIM_OUTPUT` writer - 11:6\\]
-Internal. Only to be used through TI provided API."]
-pub type LdovcoTrimOutputW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `RFC_MDM_DEMIQMC0` reader - 27:12\\]
 Trim value for RF Core. Value is read by RF Core ROM FW during RF Core initialization."]
 pub type RfcMdmDemiqmc0R = crate::FieldReader<u16>;
-#[doc = "Field `RFC_MDM_DEMIQMC0` writer - 27:12\\]
-Trim value for RF Core. Value is read by RF Core ROM FW during RF Core initialization."]
-pub type RfcMdmDemiqmc0W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
     #[doc = "Bits 0:5 - 5:0\\]
 Internal. Only to be used through TI provided API."]
@@ -40,29 +31,7 @@ Trim value for RF Core. Value is read by RF Core ROM FW during RF Core initializ
         RfcMdmDemiqmc0R::new(((self.bits >> 12) & 0xffff) as u16)
     }
 }
-impl W {
-    #[doc = "Bits 0:5 - 5:0\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn sldo_trim_output(&mut self) -> SldoTrimOutputW<ConfigSynthDiv10Spec> {
-        SldoTrimOutputW::new(self, 0)
-    }
-    #[doc = "Bits 6:11 - 11:6\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn ldovco_trim_output(&mut self) -> LdovcoTrimOutputW<ConfigSynthDiv10Spec> {
-        LdovcoTrimOutputW::new(self, 6)
-    }
-    #[doc = "Bits 12:27 - 27:12\\]
-Trim value for RF Core. Value is read by RF Core ROM FW during RF Core initialization."]
-    #[inline(always)]
-    #[must_use]
-    pub fn rfc_mdm_demiqmc0(&mut self) -> RfcMdmDemiqmc0W<ConfigSynthDiv10Spec> {
-        RfcMdmDemiqmc0W::new(self, 12)
-    }
-}
+impl W {}
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`config_synth_div10::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`config_synth_div10::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct ConfigSynthDiv10Spec;
 impl crate::RegisterSpec for ConfigSynthDiv10Spec {

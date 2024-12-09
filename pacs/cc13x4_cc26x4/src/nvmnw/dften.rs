@@ -61,9 +61,6 @@ where
 #[doc = "Field `RESERVED1` reader - 31:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved1R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED1` writer - 31:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 31, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Enable Test Features"]
@@ -85,13 +82,6 @@ Enable Test Features"]
     #[must_use]
     pub fn enable(&mut self) -> EnableW<DftenSpec> {
         EnableW::new(self, 0)
-    }
-    #[doc = "Bits 1:31 - 31:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved1(&mut self) -> Reserved1W<DftenSpec> {
-        Reserved1W::new(self, 1)
     }
 }
 #[doc = "DFT Enable Register Allows control of NoWrapper test features. When set, DFT* registers in this aperture open for write access. When cleared, DFT* registers are read-only. This register is blocked for writes after a 1 is written to the CMDEXEC register and prior to STATCMD.DONE being set by the NoWrapper hardware.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`dften::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`dften::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

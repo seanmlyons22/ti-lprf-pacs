@@ -38,20 +38,6 @@ impl EvR {
         *self == Ev::None
     }
 }
-#[doc = "Field `EV` writer - 31:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type EvW<'a, REG> = crate::FieldWriter<'a, REG, 32, Ev>;
-impl<'a, REG> EvW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u32>,
-{
-    #[doc = "Always inactive"]
-    #[inline(always)]
-    pub fn none(self) -> &'a mut crate::W<REG> {
-        self.variant(Ev::None)
-    }
-}
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
@@ -60,15 +46,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         EvR::new(self.bits)
     }
 }
-impl W {
-    #[doc = "Bits 0:31 - 31:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn ev(&mut self) -> EvW<Udmach26sselSpec> {
-        EvW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`udmach26ssel::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`udmach26ssel::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Udmach26sselSpec;
 impl crate::RegisterSpec for Udmach26sselSpec {

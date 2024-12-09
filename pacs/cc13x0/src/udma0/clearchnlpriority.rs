@@ -2,26 +2,11 @@
 pub type R = crate::R<ClearchnlprioritySpec>;
 #[doc = "Register `CLEARCHNLPRIORITY` writer"]
 pub type W = crate::W<ClearchnlprioritySpec>;
-#[doc = "Field `CHNLS` reader - 31:0\\]
-Clear the appropriate bit to select the default priority level for the specified uDMA channel. Write as: Bit \\[Ch\\]
-= 0: No effect. Use the SETCHNLPRIORITY.CHNLS to set channel Ch to the high priority level. Bit \\[Ch\\]
-= 1: Channel Ch uses the default priority level. Writing to a bit where a uDMA channel is not implemented has no effect"]
-pub type ChnlsR = crate::FieldReader<u32>;
 #[doc = "Field `CHNLS` writer - 31:0\\]
 Clear the appropriate bit to select the default priority level for the specified uDMA channel. Write as: Bit \\[Ch\\]
 = 0: No effect. Use the SETCHNLPRIORITY.CHNLS to set channel Ch to the high priority level. Bit \\[Ch\\]
 = 1: Channel Ch uses the default priority level. Writing to a bit where a uDMA channel is not implemented has no effect"]
 pub type ChnlsW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
-impl R {
-    #[doc = "Bits 0:31 - 31:0\\]
-Clear the appropriate bit to select the default priority level for the specified uDMA channel. Write as: Bit \\[Ch\\]
-= 0: No effect. Use the SETCHNLPRIORITY.CHNLS to set channel Ch to the high priority level. Bit \\[Ch\\]
-= 1: Channel Ch uses the default priority level. Writing to a bit where a uDMA channel is not implemented has no effect"]
-    #[inline(always)]
-    pub fn chnls(&self) -> ChnlsR {
-        ChnlsR::new(self.bits)
-    }
-}
 impl W {
     #[doc = "Bits 0:31 - 31:0\\]
 Clear the appropriate bit to select the default priority level for the specified uDMA channel. Write as: Bit \\[Ch\\]

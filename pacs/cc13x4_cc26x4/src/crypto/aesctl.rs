@@ -23,9 +23,6 @@ pub type DirW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `KEY_SIZE` reader - 4:3\\]
 This read-only field specifies the key size. The key size is automatically configured when a new key is loaded through the key store module. 00 = N/A - Reserved 01 = 128-bit 10 = 192-bit 11 = 256-bit"]
 pub type KeySizeR = crate::FieldReader;
-#[doc = "Field `KEY_SIZE` writer - 4:3\\]
-This read-only field specifies the key size. The key size is automatically configured when a new key is loaded through the key store module. 00 = N/A - Reserved 01 = 128-bit 10 = 192-bit 11 = 256-bit"]
-pub type KeySizeW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `CBC` reader - 5:5\\]
 If set to 1, cipher-block-chaining (CBC) mode is selected."]
 pub type CbcR = crate::BitReader;
@@ -202,9 +199,6 @@ pub type SavedContextRdyW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `CONTEXT_READY` reader - 31:31\\]
 If 1, this read-only status bit indicates that the context data registers can be overwritten and the host is permitted to write the next context."]
 pub type ContextReadyR = crate::BitReader;
-#[doc = "Field `CONTEXT_READY` writer - 31:31\\]
-If 1, this read-only status bit indicates that the context data registers can be overwritten and the host is permitted to write the next context."]
-pub type ContextReadyW<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 If 1, this status bit indicates that an AES output block is available to be retrieved by the host. Writing 0 clears the bit to 0 and indicates that output data is read by the host. The AES core can provide a next output data block. Writing 1 to this bit is ignored. Note: For DMA operations, this bit is automatically controlled by the EIP-120t."]
@@ -349,13 +343,6 @@ If set to 1 an encrypt operation is performed. If set to 0 a decrypt operation i
     pub fn dir(&mut self) -> DirW<AesctlSpec> {
         DirW::new(self, 2)
     }
-    #[doc = "Bits 3:4 - 4:3\\]
-This read-only field specifies the key size. The key size is automatically configured when a new key is loaded through the key store module. 00 = N/A - Reserved 01 = 128-bit 10 = 192-bit 11 = 256-bit"]
-    #[inline(always)]
-    #[must_use]
-    pub fn key_size(&mut self) -> KeySizeW<AesctlSpec> {
-        KeySizeW::new(self, 3)
-    }
     #[doc = "Bit 5 - 5:5\\]
 If set to 1, cipher-block-chaining (CBC) mode is selected."]
     #[inline(always)]
@@ -460,13 +447,6 @@ If 1, this status bit indicates that an AES authentication TAG and/or IV block(s
     #[must_use]
     pub fn saved_context_rdy(&mut self) -> SavedContextRdyW<AesctlSpec> {
         SavedContextRdyW::new(self, 30)
-    }
-    #[doc = "Bit 31 - 31:31\\]
-If 1, this read-only status bit indicates that the context data registers can be overwritten and the host is permitted to write the next context."]
-    #[inline(always)]
-    #[must_use]
-    pub fn context_ready(&mut self) -> ContextReadyW<AesctlSpec> {
-        ContextReadyW::new(self, 31)
     }
 }
 #[doc = "AES Control AES input/output buffer control and mode register This register specifies the AES mode of operation for the EIP-120t. Electronic codebook (ECB) mode is automatically selected if bits \\[28:5\\]

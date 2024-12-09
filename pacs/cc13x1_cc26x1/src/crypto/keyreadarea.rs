@@ -165,9 +165,6 @@ pub type Reserved4W<'a, REG> = crate::FieldWriter<'a, REG, 27, u32>;
 #[doc = "Field `BUSY` reader - 31:31\\]
 Key store operation busy status flag (read only) 0: operation is completed. 1: operation is not completed and the key store is busy."]
 pub type BusyR = crate::BitReader;
-#[doc = "Field `BUSY` writer - 31:31\\]
-Key store operation busy status flag (read only) 0: operation is completed. 1: operation is not completed and the key store is busy."]
-pub type BusyW<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bits 0:3 - 3:0\\]
 Selects the area of the key store RAM from where the key needs to be read that will be written to the AES engine. Only RAM areas that contain valid written keys can be selected."]
@@ -202,13 +199,6 @@ Software should not rely on the value of a reserved. Writing any other value tha
     #[must_use]
     pub fn reserved4(&mut self) -> Reserved4W<KeyreadareaSpec> {
         Reserved4W::new(self, 4)
-    }
-    #[doc = "Bit 31 - 31:31\\]
-Key store operation busy status flag (read only) 0: operation is completed. 1: operation is not completed and the key store is busy."]
-    #[inline(always)]
-    #[must_use]
-    pub fn busy(&mut self) -> BusyW<KeyreadareaSpec> {
-        BusyW::new(self, 31)
     }
 }
 #[doc = "Key Read Area\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`keyreadarea::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`keyreadarea::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

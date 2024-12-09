@@ -38,20 +38,6 @@ impl EvR {
         *self == Ev::Ssi0Comb
     }
 }
-#[doc = "Field `EV` writer - 6:0\\]
-Read only selection value"]
-pub type EvW<'a, REG> = crate::FieldWriter<'a, REG, 7, Ev>;
-impl<'a, REG> EvW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "SSI0 combined interrupt, interrupt flags are found here SSI0:MIS"]
-    #[inline(always)]
-    pub fn ssi0_comb(self) -> &'a mut crate::W<REG> {
-        self.variant(Ev::Ssi0Comb)
-    }
-}
 impl R {
     #[doc = "Bits 0:6 - 6:0\\]
 Read only selection value"]
@@ -60,15 +46,7 @@ Read only selection value"]
         EvR::new((self.bits & 0x7f) as u8)
     }
 }
-impl W {
-    #[doc = "Bits 0:6 - 6:0\\]
-Read only selection value"]
-    #[inline(always)]
-    #[must_use]
-    pub fn ev(&mut self) -> EvW<Cpuirqsel7Spec> {
-        EvW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Output Selection for CPU Interrupt 7\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`cpuirqsel7::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`cpuirqsel7::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Cpuirqsel7Spec;
 impl crate::RegisterSpec for Cpuirqsel7Spec {

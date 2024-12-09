@@ -94,61 +94,9 @@ impl AvailR {
         *self == Avail::Mode0
     }
 }
-#[doc = "Field `AVAIL` writer - 7:0\\]
-Permitted RFC modes. More than one mode can be permitted."]
-pub type AvailW<'a, REG> = crate::FieldWriter<'a, REG, 8, Avail>;
-impl<'a, REG> AvailW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "Mode 7 permitted"]
-    #[inline(always)]
-    pub fn mode7(self) -> &'a mut crate::W<REG> {
-        self.variant(Avail::Mode7)
-    }
-    #[doc = "Mode 6 permitted"]
-    #[inline(always)]
-    pub fn mode6(self) -> &'a mut crate::W<REG> {
-        self.variant(Avail::Mode6)
-    }
-    #[doc = "Mode 5 permitted"]
-    #[inline(always)]
-    pub fn mode5(self) -> &'a mut crate::W<REG> {
-        self.variant(Avail::Mode5)
-    }
-    #[doc = "Mode 4 permitted"]
-    #[inline(always)]
-    pub fn mode4(self) -> &'a mut crate::W<REG> {
-        self.variant(Avail::Mode4)
-    }
-    #[doc = "Mode 3 permitted"]
-    #[inline(always)]
-    pub fn mode3(self) -> &'a mut crate::W<REG> {
-        self.variant(Avail::Mode3)
-    }
-    #[doc = "Mode 2 permitted"]
-    #[inline(always)]
-    pub fn mode2(self) -> &'a mut crate::W<REG> {
-        self.variant(Avail::Mode2)
-    }
-    #[doc = "Mode 1 permitted"]
-    #[inline(always)]
-    pub fn mode1(self) -> &'a mut crate::W<REG> {
-        self.variant(Avail::Mode1)
-    }
-    #[doc = "Mode 0 permitted"]
-    #[inline(always)]
-    pub fn mode0(self) -> &'a mut crate::W<REG> {
-        self.variant(Avail::Mode0)
-    }
-}
 #[doc = "Field `RESERVED8` reader - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved8R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED8` writer - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Permitted RFC modes. More than one mode can be permitted."]
@@ -163,22 +111,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved8R::new((self.bits >> 8) & 0x00ff_ffff)
     }
 }
-impl W {
-    #[doc = "Bits 0:7 - 7:0\\]
-Permitted RFC modes. More than one mode can be permitted."]
-    #[inline(always)]
-    #[must_use]
-    pub fn avail(&mut self) -> AvailW<RfcmodehwoptSpec> {
-        AvailW::new(self, 0)
-    }
-    #[doc = "Bits 8:31 - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved8(&mut self) -> Reserved8W<RfcmodehwoptSpec> {
-        Reserved8W::new(self, 8)
-    }
-}
+impl W {}
 #[doc = "Allowed RFC Modes\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`rfcmodehwopt::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`rfcmodehwopt::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct RfcmodehwoptSpec;
 impl crate::RegisterSpec for RfcmodehwoptSpec {

@@ -2,56 +2,18 @@
 pub type R = crate::R<SicrSpec>;
 #[doc = "Register `SICR` writer"]
 pub type W = crate::W<SicrSpec>;
-#[doc = "Field `DATAIC` reader - 0:0\\]
-Data interrupt clear Writing 1 to this bit clears SRIS.DATARIS SMIS.DATAMIS."]
-pub type DataicR = crate::BitReader;
 #[doc = "Field `DATAIC` writer - 0:0\\]
 Data interrupt clear Writing 1 to this bit clears SRIS.DATARIS SMIS.DATAMIS."]
 pub type DataicW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `STARTIC` reader - 1:1\\]
-Start condition interrupt clear Writing 1 to this bit clears SRIS.STARTRIS SMIS.STARTMIS."]
-pub type StarticR = crate::BitReader;
 #[doc = "Field `STARTIC` writer - 1:1\\]
 Start condition interrupt clear Writing 1 to this bit clears SRIS.STARTRIS SMIS.STARTMIS."]
 pub type StarticW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `STOPIC` reader - 2:2\\]
-Stop condition interrupt clear Writing 1 to this bit clears SRIS.STOPRIS and SMIS.STOPMIS."]
-pub type StopicR = crate::BitReader;
 #[doc = "Field `STOPIC` writer - 2:2\\]
 Stop condition interrupt clear Writing 1 to this bit clears SRIS.STOPRIS and SMIS.STOPMIS."]
 pub type StopicW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `RESERVED3` reader - 31:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED3` writer - 31:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 29, u32>;
-impl R {
-    #[doc = "Bit 0 - 0:0\\]
-Data interrupt clear Writing 1 to this bit clears SRIS.DATARIS SMIS.DATAMIS."]
-    #[inline(always)]
-    pub fn dataic(&self) -> DataicR {
-        DataicR::new((self.bits & 1) != 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Start condition interrupt clear Writing 1 to this bit clears SRIS.STARTRIS SMIS.STARTMIS."]
-    #[inline(always)]
-    pub fn startic(&self) -> StarticR {
-        StarticR::new(((self.bits >> 1) & 1) != 0)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-Stop condition interrupt clear Writing 1 to this bit clears SRIS.STOPRIS and SMIS.STOPMIS."]
-    #[inline(always)]
-    pub fn stopic(&self) -> StopicR {
-        StopicR::new(((self.bits >> 2) & 1) != 0)
-    }
-    #[doc = "Bits 3:31 - 31:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    pub fn reserved3(&self) -> Reserved3R {
-        Reserved3R::new((self.bits >> 3) & 0x1fff_ffff)
-    }
-}
 impl W {
     #[doc = "Bit 0 - 0:0\\]
 Data interrupt clear Writing 1 to this bit clears SRIS.DATARIS SMIS.DATAMIS."]

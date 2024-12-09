@@ -11,9 +11,6 @@ pub type AlarmThrW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `RESERVED8` reader - 15:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved8R = crate::FieldReader;
-#[doc = "Field `RESERVED8` writer - 15:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `SHUTDOWN_THR` reader - 20:16\\]
 Threshold setting for generating IRQFLAGSTAT.SHUTDOWN_OVF interrupt. The interrupt is triggered when SHUTDOWN_CNT value exceeds this bit field."]
 pub type ShutdownThrR = crate::FieldReader;
@@ -23,9 +20,6 @@ pub type ShutdownThrW<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 #[doc = "Field `RESERVED21` reader - 23:21\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved21R = crate::FieldReader;
-#[doc = "Field `RESERVED21` writer - 23:21\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved21W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `SHUTDOWN_CNT` reader - 29:24\\]
 Read-only, indicates the number of '1' bits in ALARMSTOP register. The maximum value equals the number of FROs."]
 pub type ShutdownCntR = crate::FieldReader;
@@ -35,9 +29,6 @@ pub type ShutdownCntW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `RESERVED30` reader - 31:30\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved30R = crate::FieldReader;
-#[doc = "Field `RESERVED30` writer - 31:30\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved30W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Alarm detection threshold for the repeating pattern detectors on each FRO. An FRO 'alarm event' is declared when a repeating pattern (of up to four samples length) is detected continuously for the number of samples defined by this field's value. Reset value 0xFF should keep the number of 'alarm events' to a manageable level."]
@@ -84,13 +75,6 @@ Alarm detection threshold for the repeating pattern detectors on each FRO. An FR
     pub fn alarm_thr(&mut self) -> AlarmThrW<AlarmcntSpec> {
         AlarmThrW::new(self, 0)
     }
-    #[doc = "Bits 8:15 - 15:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved8(&mut self) -> Reserved8W<AlarmcntSpec> {
-        Reserved8W::new(self, 8)
-    }
     #[doc = "Bits 16:20 - 20:16\\]
 Threshold setting for generating IRQFLAGSTAT.SHUTDOWN_OVF interrupt. The interrupt is triggered when SHUTDOWN_CNT value exceeds this bit field."]
     #[inline(always)]
@@ -98,26 +82,12 @@ Threshold setting for generating IRQFLAGSTAT.SHUTDOWN_OVF interrupt. The interru
     pub fn shutdown_thr(&mut self) -> ShutdownThrW<AlarmcntSpec> {
         ShutdownThrW::new(self, 16)
     }
-    #[doc = "Bits 21:23 - 23:21\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved21(&mut self) -> Reserved21W<AlarmcntSpec> {
-        Reserved21W::new(self, 21)
-    }
     #[doc = "Bits 24:29 - 29:24\\]
 Read-only, indicates the number of '1' bits in ALARMSTOP register. The maximum value equals the number of FROs."]
     #[inline(always)]
     #[must_use]
     pub fn shutdown_cnt(&mut self) -> ShutdownCntW<AlarmcntSpec> {
         ShutdownCntW::new(self, 24)
-    }
-    #[doc = "Bits 30:31 - 31:30\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved30(&mut self) -> Reserved30W<AlarmcntSpec> {
-        Reserved30W::new(self, 30)
     }
 }
 #[doc = "Alarm Control\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`alarmcnt::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`alarmcnt::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

@@ -118,88 +118,15 @@ impl StateR {
         *self == State::WaitStart
     }
 }
-#[doc = "Field `STATE` writer - 5:0\\]
-TDC state machine status."]
-pub type StateW<'a, REG> = crate::FieldWriter<'a, REG, 6, State>;
-impl<'a, REG> StateW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "Current state is TDC_FORCESTOP. You wrote ABORT to CTL.CMD to abort the TDC measurement."]
-    #[inline(always)]
-    pub fn force_stop(self) -> &'a mut crate::W<REG> {
-        self.variant(State::ForceStop)
-    }
-    #[doc = "Current state is TDC_WAIT_STARTFALL. The fast-counter circuit waits for a falling edge on the start event."]
-    #[inline(always)]
-    pub fn start_fall(self) -> &'a mut crate::W<REG> {
-        self.variant(State::StartFall)
-    }
-    #[doc = "Current state is TDC_STATE_WAIT_CLRCNT_DONE. The state machine waits for fast-counter circuit to finish reset."]
-    #[inline(always)]
-    pub fn wait_clr_cnt_done(self) -> &'a mut crate::W<REG> {
-        self.variant(State::WaitClrCntDone)
-    }
-    #[doc = "Current state is TDC_STATE_POR. This is the reset state."]
-    #[inline(always)]
-    pub fn por(self) -> &'a mut crate::W<REG> {
-        self.variant(State::Por)
-    }
-    #[doc = "Current state is TDC_STATE_GETRESULTS. The state machine copies the counter value from the fast-counter circuit."]
-    #[inline(always)]
-    pub fn get_result(self) -> &'a mut crate::W<REG> {
-        self.variant(State::GetResult)
-    }
-    #[doc = "Current state is TDC_STATE_WAIT_STOPCNTDOWN. The fast-counter circuit looks for the stop condition. It will ignore a number of stop events configured in TRIGCNTLOAD.CNT."]
-    #[inline(always)]
-    pub fn wait_stop_cntdwn(self) -> &'a mut crate::W<REG> {
-        self.variant(State::WaitStopCntdwn)
-    }
-    #[doc = "Current state is TDC_STATE_WAIT_STOP. The state machine waits for the fast-counter circuit to stop."]
-    #[inline(always)]
-    pub fn wait_stop(self) -> &'a mut crate::W<REG> {
-        self.variant(State::WaitStop)
-    }
-    #[doc = "Current state is TDC_STATE_CLRCNT. The fast-counter circuit is reset."]
-    #[inline(always)]
-    pub fn clr_cnt(self) -> &'a mut crate::W<REG> {
-        self.variant(State::ClrCnt)
-    }
-    #[doc = "Current state is TDC_STATE_IDLE. This is the default state after reset and abortion. State will change when you write CTL.CMD to either RUN_SYNC_START or RUN."]
-    #[inline(always)]
-    pub fn idle(self) -> &'a mut crate::W<REG> {
-        self.variant(State::Idle)
-    }
-    #[doc = "Current state is TDC_STATE_WAIT_STARTSTOPCNTEN. The fast-counter circuit looks for the start condition. The state machine waits for the fast-counter to increment."]
-    #[inline(always)]
-    pub fn wait_start_stop_cnt_en(self) -> &'a mut crate::W<REG> {
-        self.variant(State::WaitStartStopCntEn)
-    }
-    #[doc = "Current state is TDC_STATE_WAIT_START. The fast-counter circuit looks for the start condition. The state machine waits for the fast-counter to increment."]
-    #[inline(always)]
-    pub fn wait_start(self) -> &'a mut crate::W<REG> {
-        self.variant(State::WaitStart)
-    }
-}
 #[doc = "Field `DONE` reader - 6:6\\]
 TDC measurement complete flag. 0: TDC measurement has not yet completed. 1: TDC measurement has completed. This field clears when a new TDC measurement starts or when you write CLR_RESULT to CTL.CMD."]
 pub type DoneR = crate::BitReader;
-#[doc = "Field `DONE` writer - 6:6\\]
-TDC measurement complete flag. 0: TDC measurement has not yet completed. 1: TDC measurement has completed. This field clears when a new TDC measurement starts or when you write CLR_RESULT to CTL.CMD."]
-pub type DoneW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `SAT` reader - 7:7\\]
 TDC measurement saturation flag. 0: Conversion has not saturated. 1: Conversion stopped due to saturation. This field is cleared when a new measurement is started or when CLR_RESULT is written to CTL.CMD."]
 pub type SatR = crate::BitReader;
-#[doc = "Field `SAT` writer - 7:7\\]
-TDC measurement saturation flag. 0: Conversion has not saturated. 1: Conversion stopped due to saturation. This field is cleared when a new measurement is started or when CLR_RESULT is written to CTL.CMD."]
-pub type SatW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED8` reader - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved8R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED8` writer - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 impl R {
     #[doc = "Bits 0:5 - 5:0\\]
 TDC state machine status."]
@@ -226,36 +153,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved8R::new((self.bits >> 8) & 0x00ff_ffff)
     }
 }
-impl W {
-    #[doc = "Bits 0:5 - 5:0\\]
-TDC state machine status."]
-    #[inline(always)]
-    #[must_use]
-    pub fn state(&mut self) -> StateW<StatSpec> {
-        StateW::new(self, 0)
-    }
-    #[doc = "Bit 6 - 6:6\\]
-TDC measurement complete flag. 0: TDC measurement has not yet completed. 1: TDC measurement has completed. This field clears when a new TDC measurement starts or when you write CLR_RESULT to CTL.CMD."]
-    #[inline(always)]
-    #[must_use]
-    pub fn done(&mut self) -> DoneW<StatSpec> {
-        DoneW::new(self, 6)
-    }
-    #[doc = "Bit 7 - 7:7\\]
-TDC measurement saturation flag. 0: Conversion has not saturated. 1: Conversion stopped due to saturation. This field is cleared when a new measurement is started or when CLR_RESULT is written to CTL.CMD."]
-    #[inline(always)]
-    #[must_use]
-    pub fn sat(&mut self) -> SatW<StatSpec> {
-        SatW::new(self, 7)
-    }
-    #[doc = "Bits 8:31 - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved8(&mut self) -> Reserved8W<StatSpec> {
-        Reserved8W::new(self, 8)
-    }
-}
+impl W {}
 #[doc = "Status\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`stat::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`stat::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct StatSpec;
 impl crate::RegisterSpec for StatSpec {

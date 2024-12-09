@@ -484,9 +484,6 @@ where
 #[doc = "Field `RESERVED6` reader - 7:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved6R = crate::FieldReader;
-#[doc = "Field `RESERVED6` writer - 7:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "13:8\\]
 MCU Wakeup Source #5 AON Event Source selecting 1 of 8 events routed to AON_PMCTRL for waking up the MCU domain from Power Off or Power Down. Note:\n\nValue on reset: 63"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -969,9 +966,6 @@ where
 #[doc = "Field `RESERVED14` reader - 15:14\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved14R = crate::FieldReader;
-#[doc = "Field `RESERVED14` writer - 15:14\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved14W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "21:16\\]
 MCU Wakeup Source #6 AON Event Source selecting 1 of 8 events routed to AON_PMCTRL for waking up the MCU domain from Power Off or Power Down. Note:\n\nValue on reset: 63"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1454,9 +1448,6 @@ where
 #[doc = "Field `RESERVED22` reader - 23:22\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved22R = crate::FieldReader;
-#[doc = "Field `RESERVED22` writer - 23:22\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved22W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "29:24\\]
 MCU Wakeup Source #7 AON Event Source selecting 1 of 8 events routed to AON_PMCTRL for waking up the MCU domain from Power Off or Power Down. Note:\n\nValue on reset: 63"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1939,9 +1930,6 @@ where
 #[doc = "Field `RESERVED30` reader - 31:30\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved30R = crate::FieldReader;
-#[doc = "Field `RESERVED30` writer - 31:30\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved30W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 impl R {
     #[doc = "Bits 0:5 - 5:0\\]
 MCU Wakeup Source #4 AON Event Source selecting 1 of 8 events routed to AON_PMCTRL for waking up the MCU domain from Power Off or Power Down. Note:"]
@@ -2000,26 +1988,12 @@ MCU Wakeup Source #4 AON Event Source selecting 1 of 8 events routed to AON_PMCT
     pub fn wu4_ev(&mut self) -> Wu4EvW<Mcuwusel1Spec> {
         Wu4EvW::new(self, 0)
     }
-    #[doc = "Bits 6:7 - 7:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<Mcuwusel1Spec> {
-        Reserved6W::new(self, 6)
-    }
     #[doc = "Bits 8:13 - 13:8\\]
 MCU Wakeup Source #5 AON Event Source selecting 1 of 8 events routed to AON_PMCTRL for waking up the MCU domain from Power Off or Power Down. Note:"]
     #[inline(always)]
     #[must_use]
     pub fn wu5_ev(&mut self) -> Wu5EvW<Mcuwusel1Spec> {
         Wu5EvW::new(self, 8)
-    }
-    #[doc = "Bits 14:15 - 15:14\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved14(&mut self) -> Reserved14W<Mcuwusel1Spec> {
-        Reserved14W::new(self, 14)
     }
     #[doc = "Bits 16:21 - 21:16\\]
 MCU Wakeup Source #6 AON Event Source selecting 1 of 8 events routed to AON_PMCTRL for waking up the MCU domain from Power Off or Power Down. Note:"]
@@ -2028,26 +2002,12 @@ MCU Wakeup Source #6 AON Event Source selecting 1 of 8 events routed to AON_PMCT
     pub fn wu6_ev(&mut self) -> Wu6EvW<Mcuwusel1Spec> {
         Wu6EvW::new(self, 16)
     }
-    #[doc = "Bits 22:23 - 23:22\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved22(&mut self) -> Reserved22W<Mcuwusel1Spec> {
-        Reserved22W::new(self, 22)
-    }
     #[doc = "Bits 24:29 - 29:24\\]
 MCU Wakeup Source #7 AON Event Source selecting 1 of 8 events routed to AON_PMCTRL for waking up the MCU domain from Power Off or Power Down. Note:"]
     #[inline(always)]
     #[must_use]
     pub fn wu7_ev(&mut self) -> Wu7EvW<Mcuwusel1Spec> {
         Wu7EvW::new(self, 24)
-    }
-    #[doc = "Bits 30:31 - 31:30\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved30(&mut self) -> Reserved30W<Mcuwusel1Spec> {
-        Reserved30W::new(self, 30)
     }
 }
 #[doc = "Wake-up Selector For MCU This register contains pointers to 4 of 8 events (events 4 to 7) which are routed to AON_PMCTRL as wakeup sources for MCU. AON_PMCTRL will start a wakeup sequence for the MCU domain when either of the 8 selected events are asserted. A wakeup sequence will guarantee that the MCU power switches are turned on, LDO resources are available and SCLK_HF is available and selected as clock source for MCU. Note: It is required to setup a wakeup event in AON_EVENT before MCU is requesting powerdown ( PRCM requests uLDO, see conditions in PRCM:VDCTL.ULDO ).\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`mcuwusel1::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`mcuwusel1::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

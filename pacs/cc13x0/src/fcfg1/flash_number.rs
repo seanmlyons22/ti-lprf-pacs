@@ -5,9 +5,6 @@ pub type W = crate::W<FlashNumberSpec>;
 #[doc = "Field `LOT_NUMBER` reader - 31:0\\]
 Number of the manufacturing lot that produced this unit."]
 pub type LotNumberR = crate::FieldReader<u32>;
-#[doc = "Field `LOT_NUMBER` writer - 31:0\\]
-Number of the manufacturing lot that produced this unit."]
-pub type LotNumberW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 Number of the manufacturing lot that produced this unit."]
@@ -16,15 +13,7 @@ Number of the manufacturing lot that produced this unit."]
         LotNumberR::new(self.bits)
     }
 }
-impl W {
-    #[doc = "Bits 0:31 - 31:0\\]
-Number of the manufacturing lot that produced this unit."]
-    #[inline(always)]
-    #[must_use]
-    pub fn lot_number(&mut self) -> LotNumberW<FlashNumberSpec> {
-        LotNumberW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "FLASH_NUMBER\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`flash_number::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`flash_number::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct FlashNumberSpec;
 impl crate::RegisterSpec for FlashNumberSpec {

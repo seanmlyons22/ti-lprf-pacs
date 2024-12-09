@@ -2,61 +2,22 @@
 pub type R = crate::R<ResetspiSpec>;
 #[doc = "Register `RESETSPI` writer"]
 pub type W = crate::W<ResetspiSpec>;
-#[doc = "Field `SPI0` reader - 0:0\\]
-0: No action 1: Reset SPI0. HW cleared. Access will only have effect when SERIAL power domain is on, PDSTAT0.SERIAL_ON = 1 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset."]
-pub type Spi0R = crate::BitReader;
 #[doc = "Field `SPI0` writer - 0:0\\]
 0: No action 1: Reset SPI0. HW cleared. Access will only have effect when SERIAL power domain is on, PDSTAT0.SERIAL_ON = 1 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset."]
 pub type Spi0W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `SPI1` reader - 1:1\\]
-0: No action 1: Reset SPI1. HW cleared. Access will only have effect when PERIPH power domain is on, PDSTAT0.PERIPH_ON = 1 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset."]
-pub type Spi1R = crate::BitReader;
 #[doc = "Field `SPI1` writer - 1:1\\]
 0: No action 1: Reset SPI1. HW cleared. Access will only have effect when PERIPH power domain is on, PDSTAT0.PERIPH_ON = 1 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset."]
 pub type Spi1W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `SPI2` reader - 2:2\\]
-0: No action 1: Reset SPI2. HW cleared. Access will only have effect when PERIPH power domain is on, PDSTAT0.PERIPH_ON = 1 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset."]
-pub type Spi2R = crate::BitReader;
 #[doc = "Field `SPI2` writer - 2:2\\]
 0: No action 1: Reset SPI2. HW cleared. Access will only have effect when PERIPH power domain is on, PDSTAT0.PERIPH_ON = 1 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset."]
 pub type Spi2W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `SPI3` reader - 3:3\\]
-0: No action 1: Reset SPI3. HW cleared. Access will only have effect when PERIPH power domain is on, PDSTAT0.PERIPH_ON = 1 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset."]
-pub type Spi3R = crate::BitReader;
 #[doc = "Field `SPI3` writer - 3:3\\]
 0: No action 1: Reset SPI3. HW cleared. Access will only have effect when PERIPH power domain is on, PDSTAT0.PERIPH_ON = 1 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset."]
 pub type Spi3W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED4` reader - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved4R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED4` writer - 31:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved4W<'a, REG> = crate::FieldWriter<'a, REG, 28, u32>;
 impl R {
-    #[doc = "Bit 0 - 0:0\\]
-0: No action 1: Reset SPI0. HW cleared. Access will only have effect when SERIAL power domain is on, PDSTAT0.SERIAL_ON = 1 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset."]
-    #[inline(always)]
-    pub fn spi0(&self) -> Spi0R {
-        Spi0R::new((self.bits & 1) != 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-0: No action 1: Reset SPI1. HW cleared. Access will only have effect when PERIPH power domain is on, PDSTAT0.PERIPH_ON = 1 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset."]
-    #[inline(always)]
-    pub fn spi1(&self) -> Spi1R {
-        Spi1R::new(((self.bits >> 1) & 1) != 0)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-0: No action 1: Reset SPI2. HW cleared. Access will only have effect when PERIPH power domain is on, PDSTAT0.PERIPH_ON = 1 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset."]
-    #[inline(always)]
-    pub fn spi2(&self) -> Spi2R {
-        Spi2R::new(((self.bits >> 2) & 1) != 0)
-    }
-    #[doc = "Bit 3 - 3:3\\]
-0: No action 1: Reset SPI3. HW cleared. Access will only have effect when PERIPH power domain is on, PDSTAT0.PERIPH_ON = 1 Before writing set FLASH:CFG.DIS_READACCESS = 1 to ensure the reset is not activated while executing from flash. This means one cannot execute from flash when using the SW reset."]
-    #[inline(always)]
-    pub fn spi3(&self) -> Spi3R {
-        Spi3R::new(((self.bits >> 3) & 1) != 0)
-    }
     #[doc = "Bits 4:31 - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
@@ -92,13 +53,6 @@ impl W {
     #[must_use]
     pub fn spi3(&mut self) -> Spi3W<ResetspiSpec> {
         Spi3W::new(self, 3)
-    }
-    #[doc = "Bits 4:31 - 31:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved4(&mut self) -> Reserved4W<ResetspiSpec> {
-        Reserved4W::new(self, 4)
     }
 }
 #[doc = "RESET For SPI IPs\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`resetspi::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`resetspi::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

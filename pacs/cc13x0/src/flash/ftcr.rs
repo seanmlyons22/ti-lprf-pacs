@@ -11,9 +11,6 @@ pub type TcrW<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "Field `RESERVED7` reader - 31:7\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved7R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED7` writer - 31:7\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved7W<'a, REG> = crate::FieldWriter<'a, REG, 25, u32>;
 impl R {
     #[doc = "Bits 0:6 - 6:0\\]
 Internal. Only to be used through TI provided API."]
@@ -35,13 +32,6 @@ Internal. Only to be used through TI provided API."]
     #[must_use]
     pub fn tcr(&mut self) -> TcrW<FtcrSpec> {
         TcrW::new(self, 0)
-    }
-    #[doc = "Bits 7:31 - 31:7\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved7(&mut self) -> Reserved7W<FtcrSpec> {
-        Reserved7W::new(self, 7)
     }
 }
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ftcr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ftcr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

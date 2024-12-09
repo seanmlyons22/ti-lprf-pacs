@@ -17,9 +17,6 @@ pub type AttrindxW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `RESERVED4` reader - 4:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved4R = crate::BitReader;
-#[doc = "Field `RESERVED4` writer - 4:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved4W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `LIMIT` reader - 31:5\\]
 Contains bits \\[31:5\\]
 of the upper inclusive limit of the selected MPU memory region. This value is postfixed with 0x1F to provide the limit address to be checked against"]
@@ -69,13 +66,6 @@ Associates a set of attributes in the MPU_MAIR0 and MPU_MAIR1 fields"]
     #[must_use]
     pub fn attrindx(&mut self) -> AttrindxW<RlarA3Spec> {
         AttrindxW::new(self, 1)
-    }
-    #[doc = "Bit 4 - 4:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved4(&mut self) -> Reserved4W<RlarA3Spec> {
-        Reserved4W::new(self, 4)
     }
     #[doc = "Bits 5:31 - 31:5\\]
 Contains bits \\[31:5\\]

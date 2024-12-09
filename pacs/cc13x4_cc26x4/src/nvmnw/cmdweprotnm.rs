@@ -61,9 +61,6 @@ where
 #[doc = "Field `RESERVED1` reader - 31:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved1R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED1` writer - 31:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 31, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Each bit protects 1 sector. bit \\[0\\]:When 1, sector 0 of the non-main region will be protected from program and erase. bit \\[1\\]:When 1, sector 1 of the non-main region will be protected from program and erase. : : bit \\[31\\]:When 1, sector 31 of the non-main will be protected from program and erase."]
@@ -85,13 +82,6 @@ Each bit protects 1 sector. bit \\[0\\]:When 1, sector 0 of the non-main region 
     #[must_use]
     pub fn val(&mut self) -> ValW<CmdweprotnmSpec> {
         ValW::new(self, 0)
-    }
-    #[doc = "Bits 1:31 - 31:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved1(&mut self) -> Reserved1W<CmdweprotnmSpec> {
-        Reserved1W::new(self, 1)
     }
 }
 #[doc = "Command WriteErase Protect Non-Main Register This register allows non-main region region sectors to be protected from program and erase. Each bit corresponds to 1 sector. This register is blocked for writes after a 1 is written to the CMDEXEC register and prior to STATCMD.DONE being set by the NoWrapper hardware. In addition, this register is used to aggregate masking for sectors that do not require additional erase pulses during bank erase operations, and will be written to all 1 after the completion of all NoWrapper commands.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`cmdweprotnm::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`cmdweprotnm::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

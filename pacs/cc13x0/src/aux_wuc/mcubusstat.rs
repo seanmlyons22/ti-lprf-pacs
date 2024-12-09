@@ -5,15 +5,9 @@ pub type W = crate::W<McubusstatSpec>;
 #[doc = "Field `DISCONNECT_ACK` reader - 0:0\\]
 Acknowledges reception of the bus disconnection request, by matching the value of MCUBUSCTL.DISCONNECT_REQ. Note that if AON_WUC:AUXCTL.AUX_FORCE_ON = 1 a reconnect to the MCU domain bus will be made regardless of the state of MCUBUSCTL.DISCONNECT_REQ"]
 pub type DisconnectAckR = crate::BitReader;
-#[doc = "Field `DISCONNECT_ACK` writer - 0:0\\]
-Acknowledges reception of the bus disconnection request, by matching the value of MCUBUSCTL.DISCONNECT_REQ. Note that if AON_WUC:AUXCTL.AUX_FORCE_ON = 1 a reconnect to the MCU domain bus will be made regardless of the state of MCUBUSCTL.DISCONNECT_REQ"]
-pub type DisconnectAckW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DISCONNECTED` reader - 1:1\\]
 Indicates whether the AUX domain and MCU domain buses are currently disconnected (1) or connected (0)."]
 pub type DisconnectedR = crate::BitReader;
-#[doc = "Field `DISCONNECTED` writer - 1:1\\]
-Indicates whether the AUX domain and MCU domain buses are currently disconnected (1) or connected (0)."]
-pub type DisconnectedW<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Acknowledges reception of the bus disconnection request, by matching the value of MCUBUSCTL.DISCONNECT_REQ. Note that if AON_WUC:AUXCTL.AUX_FORCE_ON = 1 a reconnect to the MCU domain bus will be made regardless of the state of MCUBUSCTL.DISCONNECT_REQ"]
@@ -28,22 +22,7 @@ Indicates whether the AUX domain and MCU domain buses are currently disconnected
         DisconnectedR::new(((self.bits >> 1) & 1) != 0)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Acknowledges reception of the bus disconnection request, by matching the value of MCUBUSCTL.DISCONNECT_REQ. Note that if AON_WUC:AUXCTL.AUX_FORCE_ON = 1 a reconnect to the MCU domain bus will be made regardless of the state of MCUBUSCTL.DISCONNECT_REQ"]
-    #[inline(always)]
-    #[must_use]
-    pub fn disconnect_ack(&mut self) -> DisconnectAckW<McubusstatSpec> {
-        DisconnectAckW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Indicates whether the AUX domain and MCU domain buses are currently disconnected (1) or connected (0)."]
-    #[inline(always)]
-    #[must_use]
-    pub fn disconnected(&mut self) -> DisconnectedW<McubusstatSpec> {
-        DisconnectedW::new(self, 1)
-    }
-}
+impl W {}
 #[doc = "MCU Bus Status Indicates the connection state of the AUX domain and MCU domain buses. Note that this register cannot be read from the MCU domain while disconnected, and is therefore only useful for the AUX_SCE.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`mcubusstat::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`mcubusstat::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct McubusstatSpec;
 impl crate::RegisterSpec for McubusstatSpec {

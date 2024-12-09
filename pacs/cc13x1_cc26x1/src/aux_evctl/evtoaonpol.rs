@@ -5,9 +5,6 @@ pub type W = crate::W<EvtoaonpolSpec>;
 #[doc = "Field `RESERVED2` reader - 2:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2R = crate::FieldReader;
-#[doc = "Field `RESERVED2` writer - 2:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "3:3\\]
 Select the edge of EVSTAT2.AUX_COMPA that sets EVTOAONFLAGS.AUX_COMPA.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -347,9 +344,6 @@ where
 #[doc = "Field `RESERVED9` reader - 31:9\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved9R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED9` writer - 31:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved9W<'a, REG> = crate::FieldWriter<'a, REG, 23, u32>;
 impl R {
     #[doc = "Bits 0:2 - 2:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
@@ -401,13 +395,6 @@ Software should not rely on the value of a reserved. Writing any other value tha
     }
 }
 impl W {
-    #[doc = "Bits 0:2 - 2:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<EvtoaonpolSpec> {
-        Reserved2W::new(self, 0)
-    }
     #[doc = "Bit 3 - 3:3\\]
 Select the edge of EVSTAT2.AUX_COMPA that sets EVTOAONFLAGS.AUX_COMPA."]
     #[inline(always)]
@@ -449,13 +436,6 @@ Select the level of EVSTAT3.AUX_TIMER1_EV that sets EVTOAONFLAGS.AUX_TIMER1_EV."
     #[must_use]
     pub fn aux_timer1_ev(&mut self) -> AuxTimer1EvW<EvtoaonpolSpec> {
         AuxTimer1EvW::new(self, 8)
-    }
-    #[doc = "Bits 9:31 - 31:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved9(&mut self) -> Reserved9W<EvtoaonpolSpec> {
-        Reserved9W::new(self, 9)
     }
 }
 #[doc = "Events To AON Polarity Event source polarity configuration for EVTOAONFLAGS.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`evtoaonpol::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`evtoaonpol::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

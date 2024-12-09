@@ -5,39 +5,21 @@ pub type W = crate::W<DmahwverSpec>;
 #[doc = "Field `VER_NUM` reader - 7:0\\]
 Version number of the DMA Controller (209)"]
 pub type VerNumR = crate::FieldReader;
-#[doc = "Field `VER_NUM` writer - 7:0\\]
-Version number of the DMA Controller (209)"]
-pub type VerNumW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `VER_NUM_COMPL` reader - 15:8\\]
 Bit-by-bit complement of the VER_NUM field bits."]
 pub type VerNumComplR = crate::FieldReader;
-#[doc = "Field `VER_NUM_COMPL` writer - 15:8\\]
-Bit-by-bit complement of the VER_NUM field bits."]
-pub type VerNumComplW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `HW_PATCH_LVL` reader - 19:16\\]
 Patch level."]
 pub type HwPatchLvlR = crate::FieldReader;
-#[doc = "Field `HW_PATCH_LVL` writer - 19:16\\]
-Patch level."]
-pub type HwPatchLvlW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `HW_MINOR_VER` reader - 23:20\\]
 Minor version number"]
 pub type HwMinorVerR = crate::FieldReader;
-#[doc = "Field `HW_MINOR_VER` writer - 23:20\\]
-Minor version number"]
-pub type HwMinorVerW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `HW_MAJOR_VER` reader - 27:24\\]
 Major version number"]
 pub type HwMajorVerR = crate::FieldReader;
-#[doc = "Field `HW_MAJOR_VER` writer - 27:24\\]
-Major version number"]
-pub type HwMajorVerW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED28` reader - 31:28\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved28R = crate::FieldReader;
-#[doc = "Field `RESERVED28` writer - 31:28\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved28W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Version number of the DMA Controller (209)"]
@@ -76,50 +58,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved28R::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
-impl W {
-    #[doc = "Bits 0:7 - 7:0\\]
-Version number of the DMA Controller (209)"]
-    #[inline(always)]
-    #[must_use]
-    pub fn ver_num(&mut self) -> VerNumW<DmahwverSpec> {
-        VerNumW::new(self, 0)
-    }
-    #[doc = "Bits 8:15 - 15:8\\]
-Bit-by-bit complement of the VER_NUM field bits."]
-    #[inline(always)]
-    #[must_use]
-    pub fn ver_num_compl(&mut self) -> VerNumComplW<DmahwverSpec> {
-        VerNumComplW::new(self, 8)
-    }
-    #[doc = "Bits 16:19 - 19:16\\]
-Patch level."]
-    #[inline(always)]
-    #[must_use]
-    pub fn hw_patch_lvl(&mut self) -> HwPatchLvlW<DmahwverSpec> {
-        HwPatchLvlW::new(self, 16)
-    }
-    #[doc = "Bits 20:23 - 23:20\\]
-Minor version number"]
-    #[inline(always)]
-    #[must_use]
-    pub fn hw_minor_ver(&mut self) -> HwMinorVerW<DmahwverSpec> {
-        HwMinorVerW::new(self, 20)
-    }
-    #[doc = "Bits 24:27 - 27:24\\]
-Major version number"]
-    #[inline(always)]
-    #[must_use]
-    pub fn hw_major_ver(&mut self) -> HwMajorVerW<DmahwverSpec> {
-        HwMajorVerW::new(self, 24)
-    }
-    #[doc = "Bits 28:31 - 31:28\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved28(&mut self) -> Reserved28W<DmahwverSpec> {
-        Reserved28W::new(self, 28)
-    }
-}
+impl W {}
 #[doc = "DMA Controller Version\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`dmahwver::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`dmahwver::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct DmahwverSpec;
 impl crate::RegisterSpec for DmahwverSpec {

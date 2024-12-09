@@ -5,51 +5,27 @@ pub type W = crate::W<FcfgBnkTypeSpec>;
 #[doc = "Field `B0_TYPE` reader - 3:0\\]
 Internal. Only to be used through TI provided API."]
 pub type B0TypeR = crate::FieldReader;
-#[doc = "Field `B0_TYPE` writer - 3:0\\]
-Internal. Only to be used through TI provided API."]
-pub type B0TypeW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `B1_TYPE` reader - 7:4\\]
 Internal. Only to be used through TI provided API."]
 pub type B1TypeR = crate::FieldReader;
-#[doc = "Field `B1_TYPE` writer - 7:4\\]
-Internal. Only to be used through TI provided API."]
-pub type B1TypeW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `B2_TYPE` reader - 11:8\\]
 Internal. Only to be used through TI provided API."]
 pub type B2TypeR = crate::FieldReader;
-#[doc = "Field `B2_TYPE` writer - 11:8\\]
-Internal. Only to be used through TI provided API."]
-pub type B2TypeW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `B3_TYPE` reader - 15:12\\]
 Internal. Only to be used through TI provided API."]
 pub type B3TypeR = crate::FieldReader;
-#[doc = "Field `B3_TYPE` writer - 15:12\\]
-Internal. Only to be used through TI provided API."]
-pub type B3TypeW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `B4_TYPE` reader - 19:16\\]
 Internal. Only to be used through TI provided API."]
 pub type B4TypeR = crate::FieldReader;
-#[doc = "Field `B4_TYPE` writer - 19:16\\]
-Internal. Only to be used through TI provided API."]
-pub type B4TypeW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `B5_TYPE` reader - 23:20\\]
 Internal. Only to be used through TI provided API."]
 pub type B5TypeR = crate::FieldReader;
-#[doc = "Field `B5_TYPE` writer - 23:20\\]
-Internal. Only to be used through TI provided API."]
-pub type B5TypeW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `B6_TYPE` reader - 27:24\\]
 Internal. Only to be used through TI provided API."]
 pub type B6TypeR = crate::FieldReader;
-#[doc = "Field `B6_TYPE` writer - 27:24\\]
-Internal. Only to be used through TI provided API."]
-pub type B6TypeW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `B7_TYPE` reader - 31:28\\]
 Internal. Only to be used through TI provided API."]
 pub type B7TypeR = crate::FieldReader;
-#[doc = "Field `B7_TYPE` writer - 31:28\\]
-Internal. Only to be used through TI provided API."]
-pub type B7TypeW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 impl R {
     #[doc = "Bits 0:3 - 3:0\\]
 Internal. Only to be used through TI provided API."]
@@ -100,64 +76,7 @@ Internal. Only to be used through TI provided API."]
         B7TypeR::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
-impl W {
-    #[doc = "Bits 0:3 - 3:0\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn b0_type(&mut self) -> B0TypeW<FcfgBnkTypeSpec> {
-        B0TypeW::new(self, 0)
-    }
-    #[doc = "Bits 4:7 - 7:4\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn b1_type(&mut self) -> B1TypeW<FcfgBnkTypeSpec> {
-        B1TypeW::new(self, 4)
-    }
-    #[doc = "Bits 8:11 - 11:8\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn b2_type(&mut self) -> B2TypeW<FcfgBnkTypeSpec> {
-        B2TypeW::new(self, 8)
-    }
-    #[doc = "Bits 12:15 - 15:12\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn b3_type(&mut self) -> B3TypeW<FcfgBnkTypeSpec> {
-        B3TypeW::new(self, 12)
-    }
-    #[doc = "Bits 16:19 - 19:16\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn b4_type(&mut self) -> B4TypeW<FcfgBnkTypeSpec> {
-        B4TypeW::new(self, 16)
-    }
-    #[doc = "Bits 20:23 - 23:20\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn b5_type(&mut self) -> B5TypeW<FcfgBnkTypeSpec> {
-        B5TypeW::new(self, 20)
-    }
-    #[doc = "Bits 24:27 - 27:24\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn b6_type(&mut self) -> B6TypeW<FcfgBnkTypeSpec> {
-        B6TypeW::new(self, 24)
-    }
-    #[doc = "Bits 28:31 - 31:28\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn b7_type(&mut self) -> B7TypeW<FcfgBnkTypeSpec> {
-        B7TypeW::new(self, 28)
-    }
-}
+impl W {}
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fcfg_bnk_type::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fcfg_bnk_type::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct FcfgBnkTypeSpec;
 impl crate::RegisterSpec for FcfgBnkTypeSpec {

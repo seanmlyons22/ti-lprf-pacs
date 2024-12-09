@@ -11,15 +11,9 @@ pub type MemClrEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `MEM_BUSY` reader - 1:1\\]
 Memory Busy status 0: Memory accepts transfers 1: Memory controller is busy during initialization. Read and write transfers are not performed."]
 pub type MemBusyR = crate::BitReader;
-#[doc = "Field `MEM_BUSY` writer - 1:1\\]
-Memory Busy status 0: Memory accepts transfers 1: Memory controller is busy during initialization. Read and write transfers are not performed."]
-pub type MemBusyW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED24` reader - 31:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved24R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED24` writer - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved24W<'a, REG> = crate::FieldWriter<'a, REG, 30, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Memory Contents Initialization enable Writing 1 to MEM_CLR_EN will start memory initialization. The contents of all byte locations will be initialized to 0x00. MEM_BUSY will be 1 until memory initialization has completed."]
@@ -47,20 +41,6 @@ Memory Contents Initialization enable Writing 1 to MEM_CLR_EN will start memory 
     #[must_use]
     pub fn mem_clr_en(&mut self) -> MemClrEnW<MemCtlSpec> {
         MemClrEnW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Memory Busy status 0: Memory accepts transfers 1: Memory controller is busy during initialization. Read and write transfers are not performed."]
-    #[inline(always)]
-    #[must_use]
-    pub fn mem_busy(&mut self) -> MemBusyW<MemCtlSpec> {
-        MemBusyW::new(self, 1)
-    }
-    #[doc = "Bits 2:31 - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved24(&mut self) -> Reserved24W<MemCtlSpec> {
-        Reserved24W::new(self, 2)
     }
 }
 #[doc = "Memory Control Controls memory initialization\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`mem_ctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`mem_ctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

@@ -5,9 +5,6 @@ pub type W = crate::W<RxdataSpec>;
 #[doc = "Field `DATA` reader - 31:0\\]
 Received Data"]
 pub type DataR = crate::FieldReader<u32>;
-#[doc = "Field `DATA` writer - 31:0\\]
-Received Data"]
-pub type DataW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 Received Data"]
@@ -16,15 +13,7 @@ Received Data"]
         DataR::new(self.bits)
     }
 }
-impl W {
-    #[doc = "Bits 0:31 - 31:0\\]
-Received Data"]
-    #[inline(always)]
-    #[must_use]
-    pub fn data(&mut self) -> DataW<RxdataSpec> {
-        DataW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "RXDATA Register. Reading this register returns value in the RX FIFO pointed by the current FIFO read pointer. If the RX FIFO is empty, the last read value is returned. Writing has not effect and is ignored.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`rxdata::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`rxdata::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct RxdataSpec;
 impl crate::RegisterSpec for RxdataSpec {

@@ -23,9 +23,6 @@ pub type PkaClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED3` reader - 7:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3R = crate::FieldReader;
-#[doc = "Field `RESERVED3` writer - 7:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 #[doc = "Field `DMA_CLK_EN` reader - 8:8\\]
 0: Disable clock 1: Enable clock Can be forced on by DMA_AM_CLK_EN For changes to take effect, CLKLOADCTL.LOAD needs to be written"]
 pub type DmaClkEnR = crate::BitReader;
@@ -35,9 +32,6 @@ pub type DmaClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED9` reader - 15:9\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved9R = crate::FieldReader;
-#[doc = "Field `RESERVED9` writer - 15:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved9W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "Field `CRYPTO_AM_CLK_EN` reader - 16:16\\]
 0: No force 1: Force clock on for all modes (Run, Sleep and Deep Sleep) Overrides CRYPTO_CLK_EN, SECDMACLKGS.CRYPTO_CLK_EN and SECDMACLKGDS.CRYPTO_CLK_EN when enabled. SYSBUS clock will always run when enabled For changes to take effect, CLKLOADCTL.LOAD needs to be written"]
 pub type CryptoAmClkEnR = crate::BitReader;
@@ -65,9 +59,6 @@ pub type PkaZeriozeResetNW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED20` reader - 23:20\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved20R = crate::FieldReader;
-#[doc = "Field `RESERVED20` writer - 23:20\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved20W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `DMA_AM_CLK_EN` reader - 24:24\\]
 0: No force 1: Force clock on for all modes (Run, Sleep and Deep Sleep) Overrides DMA_CLK_EN, SECDMACLKGS.DMA_CLK_EN and SECDMACLKGDS.DMA_CLK_EN when enabled. SYSBUS clock will always run when enabled For changes to take effect, CLKLOADCTL.LOAD needs to be written"]
 pub type DmaAmClkEnR = crate::BitReader;
@@ -77,9 +68,6 @@ pub type DmaAmClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED25` reader - 31:25\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved25R = crate::FieldReader;
-#[doc = "Field `RESERVED25` writer - 31:25\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved25W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 0: Disable clock 1: Enable clock Can be forced on by CRYPTO_AM_CLK_EN For changes to take effect, CLKLOADCTL.LOAD needs to be written"]
@@ -182,26 +170,12 @@ impl W {
     pub fn pka_clk_en(&mut self) -> PkaClkEnW<SecdmaclkgrSpec> {
         PkaClkEnW::new(self, 2)
     }
-    #[doc = "Bits 3:7 - 7:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<SecdmaclkgrSpec> {
-        Reserved3W::new(self, 3)
-    }
     #[doc = "Bit 8 - 8:8\\]
 0: Disable clock 1: Enable clock Can be forced on by DMA_AM_CLK_EN For changes to take effect, CLKLOADCTL.LOAD needs to be written"]
     #[inline(always)]
     #[must_use]
     pub fn dma_clk_en(&mut self) -> DmaClkEnW<SecdmaclkgrSpec> {
         DmaClkEnW::new(self, 8)
-    }
-    #[doc = "Bits 9:15 - 15:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved9(&mut self) -> Reserved9W<SecdmaclkgrSpec> {
-        Reserved9W::new(self, 9)
     }
     #[doc = "Bit 16 - 16:16\\]
 0: No force 1: Force clock on for all modes (Run, Sleep and Deep Sleep) Overrides CRYPTO_CLK_EN, SECDMACLKGS.CRYPTO_CLK_EN and SECDMACLKGDS.CRYPTO_CLK_EN when enabled. SYSBUS clock will always run when enabled For changes to take effect, CLKLOADCTL.LOAD needs to be written"]
@@ -231,26 +205,12 @@ Zeroization logic hardware reset. 0: pka_zeroize logic inactive. 1: pka_zeroize 
     pub fn pka_zerioze_reset_n(&mut self) -> PkaZeriozeResetNW<SecdmaclkgrSpec> {
         PkaZeriozeResetNW::new(self, 19)
     }
-    #[doc = "Bits 20:23 - 23:20\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved20(&mut self) -> Reserved20W<SecdmaclkgrSpec> {
-        Reserved20W::new(self, 20)
-    }
     #[doc = "Bit 24 - 24:24\\]
 0: No force 1: Force clock on for all modes (Run, Sleep and Deep Sleep) Overrides DMA_CLK_EN, SECDMACLKGS.DMA_CLK_EN and SECDMACLKGDS.DMA_CLK_EN when enabled. SYSBUS clock will always run when enabled For changes to take effect, CLKLOADCTL.LOAD needs to be written"]
     #[inline(always)]
     #[must_use]
     pub fn dma_am_clk_en(&mut self) -> DmaAmClkEnW<SecdmaclkgrSpec> {
         DmaAmClkEnW::new(self, 24)
-    }
-    #[doc = "Bits 25:31 - 31:25\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved25(&mut self) -> Reserved25W<SecdmaclkgrSpec> {
-        Reserved25W::new(self, 25)
     }
 }
 #[doc = "SEC (PKA And TRNG And CRYPTO) And UDMA Clock Gate For Run And All Modes\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`secdmaclkgr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`secdmaclkgr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

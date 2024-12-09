@@ -5,9 +5,6 @@ pub type W = crate::W<AestagoutSpec>;
 #[doc = "Field `TAG` reader - 31:0\\]
 This register contains the authentication TAG for the combined and authentication-only modes."]
 pub type TagR = crate::FieldReader<u32>;
-#[doc = "Field `TAG` writer - 31:0\\]
-This register contains the authentication TAG for the combined and authentication-only modes."]
-pub type TagW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 This register contains the authentication TAG for the combined and authentication-only modes."]
@@ -16,15 +13,7 @@ This register contains the authentication TAG for the combined and authenticatio
         TagR::new(self.bits)
     }
 }
-impl W {
-    #[doc = "Bits 0:31 - 31:0\\]
-This register contains the authentication TAG for the combined and authentication-only modes."]
-    #[inline(always)]
-    #[must_use]
-    pub fn tag(&mut self) -> TagW<AestagoutSpec> {
-        TagW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "AES Tag Output\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`aestagout::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`aestagout::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct AestagoutSpec;
 impl crate::RegisterSpec for AestagoutSpec {

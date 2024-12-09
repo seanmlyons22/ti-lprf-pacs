@@ -6,10 +6,6 @@ pub type W = crate::W<Stmpxcntcapt0Spec>;
 The value of the samplestamp XOSC counter (STMPXCNT.CURR_VALUE) last time an event was pulsed (event source selected in \\[EVENT.I2SSTMPSEL0.EV\\]
 for channel 0). This number corresponds to the number of 24 MHz clock cycles since the last positive edge of the selected WCLK. The value is cleared when STMPCTL.STMP_EN = 0. Note: Due to buffering and synchronization, WCLK is delayed by a small number of BCLK periods and clk periods. Note: When calculating the fractional part of the sample stamp, STMPXPER may be less than this bit field."]
 pub type CaptValueR = crate::FieldReader<u16>;
-#[doc = "Field `CAPT_VALUE` writer - 15:0\\]
-The value of the samplestamp XOSC counter (STMPXCNT.CURR_VALUE) last time an event was pulsed (event source selected in \\[EVENT.I2SSTMPSEL0.EV\\]
-for channel 0). This number corresponds to the number of 24 MHz clock cycles since the last positive edge of the selected WCLK. The value is cleared when STMPCTL.STMP_EN = 0. Note: Due to buffering and synchronization, WCLK is delayed by a small number of BCLK periods and clk periods. Note: When calculating the fractional part of the sample stamp, STMPXPER may be less than this bit field."]
-pub type CaptValueW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
     #[doc = "Bits 0:15 - 15:0\\]
 The value of the samplestamp XOSC counter (STMPXCNT.CURR_VALUE) last time an event was pulsed (event source selected in \\[EVENT.I2SSTMPSEL0.EV\\]
@@ -19,16 +15,7 @@ for channel 0). This number corresponds to the number of 24 MHz clock cycles sin
         CaptValueR::new((self.bits & 0xffff) as u16)
     }
 }
-impl W {
-    #[doc = "Bits 0:15 - 15:0\\]
-The value of the samplestamp XOSC counter (STMPXCNT.CURR_VALUE) last time an event was pulsed (event source selected in \\[EVENT.I2SSTMPSEL0.EV\\]
-for channel 0). This number corresponds to the number of 24 MHz clock cycles since the last positive edge of the selected WCLK. The value is cleared when STMPCTL.STMP_EN = 0. Note: Due to buffering and synchronization, WCLK is delayed by a small number of BCLK periods and clk periods. Note: When calculating the fractional part of the sample stamp, STMPXPER may be less than this bit field."]
-    #[inline(always)]
-    #[must_use]
-    pub fn capt_value(&mut self) -> CaptValueW<Stmpxcntcapt0Spec> {
-        CaptValueW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Captured XOSC Counter Value, Capture Channel 0\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`stmpxcntcapt0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`stmpxcntcapt0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Stmpxcntcapt0Spec;
 impl crate::RegisterSpec for Stmpxcntcapt0Spec {

@@ -2,20 +2,9 @@
 pub type R = crate::R<IcrSpec>;
 #[doc = "Register `ICR` writer"]
 pub type W = crate::W<IcrSpec>;
-#[doc = "Field `WDTICR` reader - 31:0\\]
-This register is the interrupt clear register. A write of any value to this register clears the WDT interrupt and reloads the 32-bit counter from the LOAD register."]
-pub type WdticrR = crate::FieldReader<u32>;
 #[doc = "Field `WDTICR` writer - 31:0\\]
 This register is the interrupt clear register. A write of any value to this register clears the WDT interrupt and reloads the 32-bit counter from the LOAD register."]
 pub type WdticrW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
-impl R {
-    #[doc = "Bits 0:31 - 31:0\\]
-This register is the interrupt clear register. A write of any value to this register clears the WDT interrupt and reloads the 32-bit counter from the LOAD register."]
-    #[inline(always)]
-    pub fn wdticr(&self) -> WdticrR {
-        WdticrR::new(self.bits)
-    }
-}
 impl W {
     #[doc = "Bits 0:31 - 31:0\\]
 This register is the interrupt clear register. A write of any value to this register clears the WDT interrupt and reloads the 32-bit counter from the LOAD register."]

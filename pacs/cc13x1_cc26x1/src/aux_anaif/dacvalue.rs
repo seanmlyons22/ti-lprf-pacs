@@ -11,9 +11,6 @@ pub type ValueW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `RESERVED8` reader - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved8R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED8` writer - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 DAC value. Digital data word for the DAC. Only change VALUE when DACCTL.DAC_EN is 0. Then wait 1 us before you enable the DAC."]
@@ -35,13 +32,6 @@ DAC value. Digital data word for the DAC. Only change VALUE when DACCTL.DAC_EN i
     #[must_use]
     pub fn value(&mut self) -> ValueW<DacvalueSpec> {
         ValueW::new(self, 0)
-    }
-    #[doc = "Bits 8:31 - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved8(&mut self) -> Reserved8W<DacvalueSpec> {
-        Reserved8W::new(self, 8)
     }
 }
 #[doc = "DAC Value\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`dacvalue::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`dacvalue::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

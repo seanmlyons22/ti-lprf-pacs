@@ -23,9 +23,6 @@ pub type ClksourceW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED3` reader - 15:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED3` writer - 15:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 13, u16>;
 #[doc = "Field `COUNTFLAG` reader - 16:16\\]
 Indicates whether the counter has counted to zero since the last read of this register"]
 pub type CountflagR = crate::BitReader;
@@ -35,9 +32,6 @@ pub type CountflagW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED17` reader - 31:17\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved17R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED17` writer - 31:17\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved17W<'a, REG> = crate::FieldWriter<'a, REG, 15, u16>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Indicates the enabled status of the SysTick counter"]
@@ -98,26 +92,12 @@ Indicates the SysTick clock source"]
     pub fn clksource(&mut self) -> ClksourceW<CsrSpec> {
         ClksourceW::new(self, 2)
     }
-    #[doc = "Bits 3:15 - 15:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<CsrSpec> {
-        Reserved3W::new(self, 3)
-    }
     #[doc = "Bit 16 - 16:16\\]
 Indicates whether the counter has counted to zero since the last read of this register"]
     #[inline(always)]
     #[must_use]
     pub fn countflag(&mut self) -> CountflagW<CsrSpec> {
         CountflagW::new(self, 16)
-    }
-    #[doc = "Bits 17:31 - 31:17\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved17(&mut self) -> Reserved17W<CsrSpec> {
-        Reserved17W::new(self, 17)
     }
 }
 #[doc = "Controls the SysTick timer and provides status data `FTSSS\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`csr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`csr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

@@ -29,9 +29,6 @@ pub type DisEfuseclkW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED6` reader - 7:6\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved6R = crate::FieldReader;
-#[doc = "Field `RESERVED6` writer - 7:6\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `ENGR_TRIM_STICKY_EN` reader - 8:8\\]
 Internal. Only to be used through TI provided API."]
 pub type EngrTrimStickyEnR = crate::BitReader;
@@ -59,9 +56,6 @@ pub type MainStickyEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED12` reader - 29:12\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved12R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED12` writer - 29:12\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved12W<'a, REG> = crate::FieldWriter<'a, REG, 18, u32>;
 #[doc = "Field `DIS_FWTEST` reader - 30:30\\]
 Internal. Only to be used through TI provided API."]
 pub type DisFwtestR = crate::BitReader;
@@ -177,13 +171,6 @@ Internal. Only to be used through TI provided API."]
     pub fn dis_efuseclk(&mut self) -> DisEfuseclkW<CfgSpec> {
         DisEfuseclkW::new(self, 5)
     }
-    #[doc = "Bits 6:7 - 7:6\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<CfgSpec> {
-        Reserved6W::new(self, 6)
-    }
     #[doc = "Bit 8 - 8:8\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
@@ -211,13 +198,6 @@ Internal. Only to be used through TI provided API."]
     #[must_use]
     pub fn main_sticky_en(&mut self) -> MainStickyEnW<CfgSpec> {
         MainStickyEnW::new(self, 11)
-    }
-    #[doc = "Bits 12:29 - 29:12\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved12(&mut self) -> Reserved12W<CfgSpec> {
-        Reserved12W::new(self, 12)
     }
     #[doc = "Bit 30 - 30:30\\]
 Internal. Only to be used through TI provided API."]

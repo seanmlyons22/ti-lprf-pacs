@@ -5,9 +5,6 @@ pub type W = crate::W<ValueSpec>;
 #[doc = "Field `WDTVALUE` reader - 31:0\\]
 This register contains the current count value of the timer."]
 pub type WdtvalueR = crate::FieldReader<u32>;
-#[doc = "Field `WDTVALUE` writer - 31:0\\]
-This register contains the current count value of the timer."]
-pub type WdtvalueW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 This register contains the current count value of the timer."]
@@ -16,15 +13,7 @@ This register contains the current count value of the timer."]
         WdtvalueR::new(self.bits)
     }
 }
-impl W {
-    #[doc = "Bits 0:31 - 31:0\\]
-This register contains the current count value of the timer."]
-    #[inline(always)]
-    #[must_use]
-    pub fn wdtvalue(&mut self) -> WdtvalueW<ValueSpec> {
-        WdtvalueW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Current Count Value\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`value::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`value::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct ValueSpec;
 impl crate::RegisterSpec for ValueSpec {

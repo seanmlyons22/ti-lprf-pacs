@@ -2,32 +2,12 @@
 pub type R = crate::R<Op0uSpec>;
 #[doc = "Register `OP0U` writer"]
 pub type W = crate::W<Op0uSpec>;
-#[doc = "Field `OP0_VALUE` reader - 15:0\\]
-Unsigned operand 0. Operand for multiply, multiply-and-accumulate, or 32-bit add operations."]
-pub type Op0ValueR = crate::FieldReader<u16>;
 #[doc = "Field `OP0_VALUE` writer - 15:0\\]
 Unsigned operand 0. Operand for multiply, multiply-and-accumulate, or 32-bit add operations."]
 pub type Op0ValueW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
-#[doc = "Field `RESERVED16` reader - 31:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved16R = crate::FieldReader<u16>;
 #[doc = "Field `RESERVED16` writer - 31:16\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved16W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
-impl R {
-    #[doc = "Bits 0:15 - 15:0\\]
-Unsigned operand 0. Operand for multiply, multiply-and-accumulate, or 32-bit add operations."]
-    #[inline(always)]
-    pub fn op0_value(&self) -> Op0ValueR {
-        Op0ValueR::new((self.bits & 0xffff) as u16)
-    }
-    #[doc = "Bits 16:31 - 31:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    pub fn reserved16(&self) -> Reserved16R {
-        Reserved16R::new(((self.bits >> 16) & 0xffff) as u16)
-    }
-}
 impl W {
     #[doc = "Bits 0:15 - 15:0\\]
 Unsigned operand 0. Operand for multiply, multiply-and-accumulate, or 32-bit add operations."]

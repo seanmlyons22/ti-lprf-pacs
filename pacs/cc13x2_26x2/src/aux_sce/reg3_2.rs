@@ -5,15 +5,9 @@ pub type W = crate::W<Reg3_2Spec>;
 #[doc = "Field `REG2` reader - 15:0\\]
 Internal. Only to be used through TI provided API."]
 pub type Reg2R = crate::FieldReader<u16>;
-#[doc = "Field `REG2` writer - 15:0\\]
-Internal. Only to be used through TI provided API."]
-pub type Reg2W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 #[doc = "Field `REG3` reader - 31:16\\]
 Internal. Only to be used through TI provided API."]
 pub type Reg3R = crate::FieldReader<u16>;
-#[doc = "Field `REG3` writer - 31:16\\]
-Internal. Only to be used through TI provided API."]
-pub type Reg3W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
     #[doc = "Bits 0:15 - 15:0\\]
 Internal. Only to be used through TI provided API."]
@@ -28,22 +22,7 @@ Internal. Only to be used through TI provided API."]
         Reg3R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
-impl W {
-    #[doc = "Bits 0:15 - 15:0\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reg2(&mut self) -> Reg2W<Reg3_2Spec> {
-        Reg2W::new(self, 0)
-    }
-    #[doc = "Bits 16:31 - 31:16\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reg3(&mut self) -> Reg3W<Reg3_2Spec> {
-        Reg3W::new(self, 16)
-    }
-}
+impl W {}
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`reg3_2::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`reg3_2::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Reg3_2Spec;
 impl crate::RegisterSpec for Reg3_2Spec {

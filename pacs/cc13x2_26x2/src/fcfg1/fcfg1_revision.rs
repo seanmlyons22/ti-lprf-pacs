@@ -5,9 +5,6 @@ pub type W = crate::W<Fcfg1RevisionSpec>;
 #[doc = "Field `REV` reader - 31:0\\]
 The revision number of the FCFG1 layout. This value will be read by application SW in order to determine which FCFG1 parameters that have valid values. This revision number must be incremented by 1 before any devices are to be produced if the FCFG1 layout has changed since the previous production of devices. Value migth change without warning."]
 pub type RevR = crate::FieldReader<u32>;
-#[doc = "Field `REV` writer - 31:0\\]
-The revision number of the FCFG1 layout. This value will be read by application SW in order to determine which FCFG1 parameters that have valid values. This revision number must be incremented by 1 before any devices are to be produced if the FCFG1 layout has changed since the previous production of devices. Value migth change without warning."]
-pub type RevW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 The revision number of the FCFG1 layout. This value will be read by application SW in order to determine which FCFG1 parameters that have valid values. This revision number must be incremented by 1 before any devices are to be produced if the FCFG1 layout has changed since the previous production of devices. Value migth change without warning."]
@@ -16,15 +13,7 @@ The revision number of the FCFG1 layout. This value will be read by application 
         RevR::new(self.bits)
     }
 }
-impl W {
-    #[doc = "Bits 0:31 - 31:0\\]
-The revision number of the FCFG1 layout. This value will be read by application SW in order to determine which FCFG1 parameters that have valid values. This revision number must be incremented by 1 before any devices are to be produced if the FCFG1 layout has changed since the previous production of devices. Value migth change without warning."]
-    #[inline(always)]
-    #[must_use]
-    pub fn rev(&mut self) -> RevW<Fcfg1RevisionSpec> {
-        RevW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Factory Configuration (FCFG1) Revision\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fcfg1_revision::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fcfg1_revision::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Fcfg1RevisionSpec;
 impl crate::RegisterSpec for Fcfg1RevisionSpec {

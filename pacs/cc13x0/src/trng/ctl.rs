@@ -23,9 +23,6 @@ pub type NoLfsrFbW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED3` reader - 9:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3R = crate::FieldReader;
-#[doc = "Field `RESERVED3` writer - 9:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "Field `TRNG_EN` reader - 10:10\\]
 0: Forces all TRNG logic back into the idle state immediately. 1: Starts TRNG, gathering entropy from the FROs for the number of samples determined by STARTUP_CYCLES."]
 pub type TrngEnR = crate::BitReader;
@@ -35,9 +32,6 @@ pub type TrngEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED11` reader - 15:11\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved11R = crate::FieldReader;
-#[doc = "Field `RESERVED11` writer - 15:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved11W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 #[doc = "Field `STARTUP_CYCLES` reader - 31:16\\]
 This field determines the number of samples (between 2^8 and 2^24) taken to gather entropy from the FROs during startup. If the written value of this field is zero, the number of samples is 2^24, otherwise the number of samples equals the written value times 2^8. 0x0000: 2^24 samples 0x0001: 1*2^8 samples 0x0002: 2*2^8 samples 0x0003: 3*2^8 samples ... 0x8000: 32768*2^8 samples 0xC000: 49152*2^8 samples ... 0xFFFF: 65535*2^8 samples This field can only be modified while TRNG_EN is 0. If 1 an update will be ignored."]
 pub type StartupCyclesR = crate::FieldReader<u16>;
@@ -110,26 +104,12 @@ Software should not rely on the value of a reserved. Writing any other value tha
     pub fn no_lfsr_fb(&mut self) -> NoLfsrFbW<CtlSpec> {
         NoLfsrFbW::new(self, 2)
     }
-    #[doc = "Bits 3:9 - 9:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<CtlSpec> {
-        Reserved3W::new(self, 3)
-    }
     #[doc = "Bit 10 - 10:10\\]
 0: Forces all TRNG logic back into the idle state immediately. 1: Starts TRNG, gathering entropy from the FROs for the number of samples determined by STARTUP_CYCLES."]
     #[inline(always)]
     #[must_use]
     pub fn trng_en(&mut self) -> TrngEnW<CtlSpec> {
         TrngEnW::new(self, 10)
-    }
-    #[doc = "Bits 11:15 - 15:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved11(&mut self) -> Reserved11W<CtlSpec> {
-        Reserved11W::new(self, 11)
     }
     #[doc = "Bits 16:31 - 31:16\\]
 This field determines the number of samples (between 2^8 and 2^24) taken to gather entropy from the FROs during startup. If the written value of this field is zero, the number of samples is 2^24, otherwise the number of samples equals the written value times 2^8. 0x0000: 2^24 samples 0x0001: 1*2^8 samples 0x0002: 2*2^8 samples 0x0003: 3*2^8 samples ... 0x8000: 32768*2^8 samples 0xC000: 49152*2^8 samples ... 0xFFFF: 65535*2^8 samples This field can only be modified while TRNG_EN is 0. If 1 an update will be ignored."]

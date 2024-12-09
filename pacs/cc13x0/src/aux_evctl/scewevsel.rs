@@ -458,9 +458,6 @@ where
 #[doc = "Field `RESERVED5` reader - 31:5\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved5R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED5` writer - 31:5\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved5W<'a, REG> = crate::FieldWriter<'a, REG, 27, u32>;
 impl R {
     #[doc = "Bits 0:4 - 4:0\\]
 Select event source to connect to AUX_SCE:WUSTAT.EV_SIGNALS bit 7."]
@@ -482,13 +479,6 @@ Select event source to connect to AUX_SCE:WUSTAT.EV_SIGNALS bit 7."]
     #[must_use]
     pub fn wev7_ev(&mut self) -> Wev7EvW<ScewevselSpec> {
         Wev7EvW::new(self, 0)
-    }
-    #[doc = "Bits 5:31 - 31:5\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved5(&mut self) -> Reserved5W<ScewevselSpec> {
-        Reserved5W::new(self, 5)
     }
 }
 #[doc = "Sensor Controller Engine Wait Event Selection Configuration of this register controls bit index 7 in AUX_SCE:WUSTAT.EV_SIGNALS. This bit can be used by AUX_SCE WEV0, WEV1, BEV0 and BEV1 instructions\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`scewevsel::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`scewevsel::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

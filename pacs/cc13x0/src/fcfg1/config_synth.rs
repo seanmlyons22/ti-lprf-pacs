@@ -5,27 +5,15 @@ pub type W = crate::W<ConfigSynthSpec>;
 #[doc = "Field `SLDO_TRIM_OUTPUT` reader - 5:0\\]
 Internal. Only to be used through TI provided API."]
 pub type SldoTrimOutputR = crate::FieldReader;
-#[doc = "Field `SLDO_TRIM_OUTPUT` writer - 5:0\\]
-Internal. Only to be used through TI provided API."]
-pub type SldoTrimOutputW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `LDOVCO_TRIM_OUTPUT` reader - 11:6\\]
 Internal. Only to be used through TI provided API."]
 pub type LdovcoTrimOutputR = crate::FieldReader;
-#[doc = "Field `LDOVCO_TRIM_OUTPUT` writer - 11:6\\]
-Internal. Only to be used through TI provided API."]
-pub type LdovcoTrimOutputW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `RFC_MDM_DEMIQMC0` reader - 27:12\\]
 Trim value for RF Core. Value is read by RF Core ROM FW during RF Core initialization only on cc13x0."]
 pub type RfcMdmDemiqmc0R = crate::FieldReader<u16>;
-#[doc = "Field `RFC_MDM_DEMIQMC0` writer - 27:12\\]
-Trim value for RF Core. Value is read by RF Core ROM FW during RF Core initialization only on cc13x0."]
-pub type RfcMdmDemiqmc0W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 #[doc = "Field `DISABLE_CORNER_CAP` reader - 28:28\\]
 Internal. Only to be used through TI provided API."]
 pub type DisableCornerCapR = crate::BitReader;
-#[doc = "Field `DISABLE_CORNER_CAP` writer - 28:28\\]
-Internal. Only to be used through TI provided API."]
-pub type DisableCornerCapW<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bits 0:5 - 5:0\\]
 Internal. Only to be used through TI provided API."]
@@ -52,36 +40,7 @@ Internal. Only to be used through TI provided API."]
         DisableCornerCapR::new(((self.bits >> 28) & 1) != 0)
     }
 }
-impl W {
-    #[doc = "Bits 0:5 - 5:0\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn sldo_trim_output(&mut self) -> SldoTrimOutputW<ConfigSynthSpec> {
-        SldoTrimOutputW::new(self, 0)
-    }
-    #[doc = "Bits 6:11 - 11:6\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn ldovco_trim_output(&mut self) -> LdovcoTrimOutputW<ConfigSynthSpec> {
-        LdovcoTrimOutputW::new(self, 6)
-    }
-    #[doc = "Bits 12:27 - 27:12\\]
-Trim value for RF Core. Value is read by RF Core ROM FW during RF Core initialization only on cc13x0."]
-    #[inline(always)]
-    #[must_use]
-    pub fn rfc_mdm_demiqmc0(&mut self) -> RfcMdmDemiqmc0W<ConfigSynthSpec> {
-        RfcMdmDemiqmc0W::new(self, 12)
-    }
-    #[doc = "Bit 28 - 28:28\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn disable_corner_cap(&mut self) -> DisableCornerCapW<ConfigSynthSpec> {
-        DisableCornerCapW::new(self, 28)
-    }
-}
+impl W {}
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`config_synth::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`config_synth::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct ConfigSynthSpec;
 impl crate::RegisterSpec for ConfigSynthSpec {

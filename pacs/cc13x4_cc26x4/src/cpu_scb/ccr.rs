@@ -5,9 +5,6 @@ pub type W = crate::W<CcrSpec>;
 #[doc = "Field `RESERVED0` reader - 0:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved0R = crate::BitReader;
-#[doc = "Field `RESERVED0` writer - 0:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved0W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `USERSETMPEND` reader - 1:1\\]
 Enables unprivileged software access to STIR: 0: User code is not allowed to write to the Software Trigger Interrupt register (STIR). 1: User code can write the Software Trigger Interrupt register (STIR) to trigger (pend) a Main exception, which is associated with the Main stack pointer."]
 pub type UsersetmpendR = crate::BitReader;
@@ -47,9 +44,6 @@ pub type BfhfnmignW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED9` reader - 9:9\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved9R = crate::BitReader;
-#[doc = "Field `RESERVED9` writer - 9:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved9W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED10` reader - 31:10\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved10R = crate::FieldReader<u32>;
@@ -113,13 +107,6 @@ Software should not rely on the value of a reserved. Writing any other value tha
     }
 }
 impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved0(&mut self) -> Reserved0W<CcrSpec> {
-        Reserved0W::new(self, 0)
-    }
     #[doc = "Bit 1 - 1:1\\]
 Enables unprivileged software access to STIR: 0: User code is not allowed to write to the Software Trigger Interrupt register (STIR). 1: User code can write the Software Trigger Interrupt register (STIR) to trigger (pend) a Main exception, which is associated with the Main stack pointer."]
     #[inline(always)]
@@ -161,13 +148,6 @@ Enables handlers with priority -1 or -2 to ignore data BusFaults caused by load 
     #[must_use]
     pub fn bfhfnmign(&mut self) -> BfhfnmignW<CcrSpec> {
         BfhfnmignW::new(self, 8)
-    }
-    #[doc = "Bit 9 - 9:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved9(&mut self) -> Reserved9W<CcrSpec> {
-        Reserved9W::new(self, 9)
     }
     #[doc = "Bits 10:31 - 31:10\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]

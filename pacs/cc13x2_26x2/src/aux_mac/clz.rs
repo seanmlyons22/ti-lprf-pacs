@@ -5,15 +5,9 @@ pub type W = crate::W<ClzSpec>;
 #[doc = "Field `VALUE` reader - 5:0\\]
 Number of leading zero bits in the accumulator: 0x00: 0 leading zeros. 0x01: 1 leading zero. ... 0x28: 40 leading zeros (accumulator value is 0)."]
 pub type ValueR = crate::FieldReader;
-#[doc = "Field `VALUE` writer - 5:0\\]
-Number of leading zero bits in the accumulator: 0x00: 0 leading zeros. 0x01: 1 leading zero. ... 0x28: 40 leading zeros (accumulator value is 0)."]
-pub type ValueW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `RESERVED6` reader - 31:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved6R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED6` writer - 31:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 26, u32>;
 impl R {
     #[doc = "Bits 0:5 - 5:0\\]
 Number of leading zero bits in the accumulator: 0x00: 0 leading zeros. 0x01: 1 leading zero. ... 0x28: 40 leading zeros (accumulator value is 0)."]
@@ -28,22 +22,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved6R::new((self.bits >> 6) & 0x03ff_ffff)
     }
 }
-impl W {
-    #[doc = "Bits 0:5 - 5:0\\]
-Number of leading zero bits in the accumulator: 0x00: 0 leading zeros. 0x01: 1 leading zero. ... 0x28: 40 leading zeros (accumulator value is 0)."]
-    #[inline(always)]
-    #[must_use]
-    pub fn value(&mut self) -> ValueW<ClzSpec> {
-        ValueW::new(self, 0)
-    }
-    #[doc = "Bits 6:31 - 31:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<ClzSpec> {
-        Reserved6W::new(self, 6)
-    }
-}
+impl W {}
 #[doc = "Count Leading Zero\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`clz::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`clz::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct ClzSpec;
 impl crate::RegisterSpec for ClzSpec {

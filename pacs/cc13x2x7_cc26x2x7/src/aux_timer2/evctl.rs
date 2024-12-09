@@ -2,116 +2,33 @@
 pub type R = crate::R<EvctlSpec>;
 #[doc = "Register `EVCTL` writer"]
 pub type W = crate::W<EvctlSpec>;
-#[doc = "Field `EV0_CLR` reader - 0:0\\]
-Clear event 0. Write 1 to clear event 0."]
-pub type Ev0ClrR = crate::BitReader;
 #[doc = "Field `EV0_CLR` writer - 0:0\\]
 Clear event 0. Write 1 to clear event 0."]
 pub type Ev0ClrW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `EV0_SET` reader - 1:1\\]
-Set event 0. Write 1 to set event 0."]
-pub type Ev0SetR = crate::BitReader;
 #[doc = "Field `EV0_SET` writer - 1:1\\]
 Set event 0. Write 1 to set event 0."]
 pub type Ev0SetW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `EV1_CLR` reader - 2:2\\]
-Clear event 1. Write 1 to clear event 1."]
-pub type Ev1ClrR = crate::BitReader;
 #[doc = "Field `EV1_CLR` writer - 2:2\\]
 Clear event 1. Write 1 to clear event 1."]
 pub type Ev1ClrW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `EV1_SET` reader - 3:3\\]
-Set event 1. Write 1 to set event 1."]
-pub type Ev1SetR = crate::BitReader;
 #[doc = "Field `EV1_SET` writer - 3:3\\]
 Set event 1. Write 1 to set event 1."]
 pub type Ev1SetW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `EV2_CLR` reader - 4:4\\]
-Clear event 2. Write 1 to clear event 2."]
-pub type Ev2ClrR = crate::BitReader;
 #[doc = "Field `EV2_CLR` writer - 4:4\\]
 Clear event 2. Write 1 to clear event 2."]
 pub type Ev2ClrW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `EV2_SET` reader - 5:5\\]
-Set event 2. Write 1 to set event 2."]
-pub type Ev2SetR = crate::BitReader;
 #[doc = "Field `EV2_SET` writer - 5:5\\]
 Set event 2. Write 1 to set event 2."]
 pub type Ev2SetW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `EV3_CLR` reader - 6:6\\]
-Clear event 3. Write 1 to clear event 3."]
-pub type Ev3ClrR = crate::BitReader;
 #[doc = "Field `EV3_CLR` writer - 6:6\\]
 Clear event 3. Write 1 to clear event 3."]
 pub type Ev3ClrW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `EV3_SET` reader - 7:7\\]
-Set event 3. Write 1 to set event 3."]
-pub type Ev3SetR = crate::BitReader;
 #[doc = "Field `EV3_SET` writer - 7:7\\]
 Set event 3. Write 1 to set event 3."]
 pub type Ev3SetW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `RESERVED8` reader - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved8R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED8` writer - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
-impl R {
-    #[doc = "Bit 0 - 0:0\\]
-Clear event 0. Write 1 to clear event 0."]
-    #[inline(always)]
-    pub fn ev0_clr(&self) -> Ev0ClrR {
-        Ev0ClrR::new((self.bits & 1) != 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Set event 0. Write 1 to set event 0."]
-    #[inline(always)]
-    pub fn ev0_set(&self) -> Ev0SetR {
-        Ev0SetR::new(((self.bits >> 1) & 1) != 0)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-Clear event 1. Write 1 to clear event 1."]
-    #[inline(always)]
-    pub fn ev1_clr(&self) -> Ev1ClrR {
-        Ev1ClrR::new(((self.bits >> 2) & 1) != 0)
-    }
-    #[doc = "Bit 3 - 3:3\\]
-Set event 1. Write 1 to set event 1."]
-    #[inline(always)]
-    pub fn ev1_set(&self) -> Ev1SetR {
-        Ev1SetR::new(((self.bits >> 3) & 1) != 0)
-    }
-    #[doc = "Bit 4 - 4:4\\]
-Clear event 2. Write 1 to clear event 2."]
-    #[inline(always)]
-    pub fn ev2_clr(&self) -> Ev2ClrR {
-        Ev2ClrR::new(((self.bits >> 4) & 1) != 0)
-    }
-    #[doc = "Bit 5 - 5:5\\]
-Set event 2. Write 1 to set event 2."]
-    #[inline(always)]
-    pub fn ev2_set(&self) -> Ev2SetR {
-        Ev2SetR::new(((self.bits >> 5) & 1) != 0)
-    }
-    #[doc = "Bit 6 - 6:6\\]
-Clear event 3. Write 1 to clear event 3."]
-    #[inline(always)]
-    pub fn ev3_clr(&self) -> Ev3ClrR {
-        Ev3ClrR::new(((self.bits >> 6) & 1) != 0)
-    }
-    #[doc = "Bit 7 - 7:7\\]
-Set event 3. Write 1 to set event 3."]
-    #[inline(always)]
-    pub fn ev3_set(&self) -> Ev3SetR {
-        Ev3SetR::new(((self.bits >> 7) & 1) != 0)
-    }
-    #[doc = "Bits 8:31 - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    pub fn reserved8(&self) -> Reserved8R {
-        Reserved8R::new((self.bits >> 8) & 0x00ff_ffff)
-    }
-}
 impl W {
     #[doc = "Bit 0 - 0:0\\]
 Clear event 0. Write 1 to clear event 0."]

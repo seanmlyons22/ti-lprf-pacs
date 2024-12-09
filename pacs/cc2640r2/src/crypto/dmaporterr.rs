@@ -5,33 +5,18 @@ pub type W = crate::W<DmaporterrSpec>;
 #[doc = "Field `RESERVED0` reader - 8:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved0R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED0` writer - 8:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved0W<'a, REG> = crate::FieldWriter<'a, REG, 9, u16>;
 #[doc = "Field `LAST_CH` reader - 9:9\\]
 Indicates which channel was serviced last (channel 0 or channel 1) by the AHB master port."]
 pub type LastChR = crate::BitReader;
-#[doc = "Field `LAST_CH` writer - 9:9\\]
-Indicates which channel was serviced last (channel 0 or channel 1) by the AHB master port."]
-pub type LastChW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED10` reader - 11:10\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved10R = crate::FieldReader;
-#[doc = "Field `RESERVED10` writer - 11:10\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved10W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `AHB_ERR` reader - 12:12\\]
 A 1 indicates that the Crypto peripheral has detected an AHB bus error"]
 pub type AhbErrR = crate::BitReader;
-#[doc = "Field `AHB_ERR` writer - 12:12\\]
-A 1 indicates that the Crypto peripheral has detected an AHB bus error"]
-pub type AhbErrW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED13` reader - 31:13\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved13R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED13` writer - 31:13\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved13W<'a, REG> = crate::FieldWriter<'a, REG, 19, u32>;
 impl R {
     #[doc = "Bits 0:8 - 8:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
@@ -64,43 +49,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved13R::new((self.bits >> 13) & 0x0007_ffff)
     }
 }
-impl W {
-    #[doc = "Bits 0:8 - 8:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved0(&mut self) -> Reserved0W<DmaporterrSpec> {
-        Reserved0W::new(self, 0)
-    }
-    #[doc = "Bit 9 - 9:9\\]
-Indicates which channel was serviced last (channel 0 or channel 1) by the AHB master port."]
-    #[inline(always)]
-    #[must_use]
-    pub fn last_ch(&mut self) -> LastChW<DmaporterrSpec> {
-        LastChW::new(self, 9)
-    }
-    #[doc = "Bits 10:11 - 11:10\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved10(&mut self) -> Reserved10W<DmaporterrSpec> {
-        Reserved10W::new(self, 10)
-    }
-    #[doc = "Bit 12 - 12:12\\]
-A 1 indicates that the Crypto peripheral has detected an AHB bus error"]
-    #[inline(always)]
-    #[must_use]
-    pub fn ahb_err(&mut self) -> AhbErrW<DmaporterrSpec> {
-        AhbErrW::new(self, 12)
-    }
-    #[doc = "Bits 13:31 - 31:13\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved13(&mut self) -> Reserved13W<DmaporterrSpec> {
-        Reserved13W::new(self, 13)
-    }
-}
+impl W {}
 #[doc = "DMA Controller Port Error\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`dmaporterr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`dmaporterr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct DmaporterrSpec;
 impl crate::RegisterSpec for DmaporterrSpec {

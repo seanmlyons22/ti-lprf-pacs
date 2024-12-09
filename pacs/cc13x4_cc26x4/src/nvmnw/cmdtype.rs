@@ -133,9 +133,6 @@ where
 #[doc = "Field `RESERVED3` reader - 3:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3R = crate::BitReader;
-#[doc = "Field `RESERVED3` writer - 3:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "6:4\\]
 Command size\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -278,13 +275,6 @@ Command type"]
     #[must_use]
     pub fn command(&mut self) -> CommandW<CmdtypeSpec> {
         CommandW::new(self, 0)
-    }
-    #[doc = "Bit 3 - 3:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<CmdtypeSpec> {
-        Reserved3W::new(self, 3)
     }
     #[doc = "Bits 4:6 - 6:4\\]
 Command size"]

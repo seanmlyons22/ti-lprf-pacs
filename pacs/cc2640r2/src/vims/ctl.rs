@@ -105,9 +105,6 @@ pub type IdcodeLbDisW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED6` reader - 28:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved6R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED6` writer - 28:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 23, u32>;
 #[doc = "Field `DYN_CG_EN` reader - 29:29\\]
 0: The in-built clock gate functionality is bypassed. 1: The in-built clock gate functionality is enabled, automatically gating the clock when not needed."]
 pub type DynCgEnR = crate::BitReader;
@@ -217,13 +214,6 @@ Icode/Dcode flash line buffer control 0: Enable 1: Disable"]
     #[must_use]
     pub fn idcode_lb_dis(&mut self) -> IdcodeLbDisW<CtlSpec> {
         IdcodeLbDisW::new(self, 5)
-    }
-    #[doc = "Bits 6:28 - 28:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<CtlSpec> {
-        Reserved6W::new(self, 6)
     }
     #[doc = "Bit 29 - 29:29\\]
 0: The in-built clock gate functionality is bypassed. 1: The in-built clock gate functionality is enabled, automatically gating the clock when not needed."]

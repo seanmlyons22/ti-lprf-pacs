@@ -40,30 +40,9 @@ impl BusyR {
         *self == Busy::Complete
     }
 }
-#[doc = "Field `BUSY` writer - 0:0\\]
-Indicates that a pump clock measurement is in progress."]
-pub type BusyW<'a, REG> = crate::BitWriter<'a, REG, Busy>;
-impl<'a, REG> BusyW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Indicates test in progress"]
-    #[inline(always)]
-    pub fn inprogress(self) -> &'a mut crate::W<REG> {
-        self.variant(Busy::Inprogress)
-    }
-    #[doc = "Indicates test complete"]
-    #[inline(always)]
-    pub fn complete(self) -> &'a mut crate::W<REG> {
-        self.variant(Busy::Complete)
-    }
-}
 #[doc = "Field `RESERVED1` reader - 3:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved1R = crate::FieldReader;
-#[doc = "Field `RESERVED1` writer - 3:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "15:4\\]
 Indicates the core clock count captured during the pump clock measurement.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -108,25 +87,6 @@ impl ClockcntR {
         *self == Clockcnt::Minimum
     }
 }
-#[doc = "Field `CLOCKCNT` writer - 15:4\\]
-Indicates the core clock count captured during the pump clock measurement."]
-pub type ClockcntW<'a, REG> = crate::FieldWriter<'a, REG, 12, Clockcnt>;
-impl<'a, REG> ClockcntW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u16>,
-{
-    #[doc = "Maximum count value"]
-    #[inline(always)]
-    pub fn maximum(self) -> &'a mut crate::W<REG> {
-        self.variant(Clockcnt::Maximum)
-    }
-    #[doc = "Minimum count value"]
-    #[inline(always)]
-    pub fn minimum(self) -> &'a mut crate::W<REG> {
-        self.variant(Clockcnt::Minimum)
-    }
-}
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Indicates that a pump clock measurement is in progress."]
@@ -147,29 +107,7 @@ Indicates the core clock count captured during the pump clock measurement."]
         ClockcntR::new(((self.bits >> 4) & 0x0fff) as u16)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Indicates that a pump clock measurement is in progress."]
-    #[inline(always)]
-    #[must_use]
-    pub fn busy(&mut self) -> BusyW<DftpclkteststatSpec> {
-        BusyW::new(self, 0)
-    }
-    #[doc = "Bits 1:3 - 3:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved1(&mut self) -> Reserved1W<DftpclkteststatSpec> {
-        Reserved1W::new(self, 1)
-    }
-    #[doc = "Bits 4:15 - 15:4\\]
-Indicates the core clock count captured during the pump clock measurement."]
-    #[inline(always)]
-    #[must_use]
-    pub fn clockcnt(&mut self) -> ClockcntW<DftpclkteststatSpec> {
-        ClockcntW::new(self, 4)
-    }
-}
+impl W {}
 #[doc = "DFT Pump Clock Test Status Register. This register shows status reported by the hardware features that allow the pump clock to be characterized for trim development. This register is only writable when DFTEN.ENABLE is set.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`dftpclkteststat::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`dftpclkteststat::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct DftpclkteststatSpec;
 impl crate::RegisterSpec for DftpclkteststatSpec {

@@ -68,9 +68,6 @@ where
 #[doc = "Field `RESERVED3` reader - 7:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3R = crate::FieldReader;
-#[doc = "Field `RESERVED3` writer - 7:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 #[doc = "10:8\\]
 Select the AUX clock divider for SCLK_HF NB: It is not supported to change the AUX clock divider while SCLK_HF is active source for AUX\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -278,9 +275,6 @@ where
 #[doc = "Field `RESERVED13` reader - 31:13\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved13R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED13` writer - 31:13\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved13W<'a, REG> = crate::FieldWriter<'a, REG, 19, u32>;
 impl R {
     #[doc = "Bits 0:2 - 2:0\\]
 Selects the clock source for AUX: NB: Switching the clock source is guaranteed to be glitchless"]
@@ -321,13 +315,6 @@ Selects the clock source for AUX: NB: Switching the clock source is guaranteed t
     pub fn src(&mut self) -> SrcW<AuxclkSpec> {
         SrcW::new(self, 0)
     }
-    #[doc = "Bits 3:7 - 7:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<AuxclkSpec> {
-        Reserved3W::new(self, 3)
-    }
     #[doc = "Bits 8:10 - 10:8\\]
 Select the AUX clock divider for SCLK_HF NB: It is not supported to change the AUX clock divider while SCLK_HF is active source for AUX"]
     #[inline(always)]
@@ -341,13 +328,6 @@ When AUX requests powerdown with SCLK_HF as source, then WUC will switch over to
     #[must_use]
     pub fn pwr_dwn_src(&mut self) -> PwrDwnSrcW<AuxclkSpec> {
         PwrDwnSrcW::new(self, 11)
-    }
-    #[doc = "Bits 13:31 - 31:13\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved13(&mut self) -> Reserved13W<AuxclkSpec> {
-        Reserved13W::new(self, 13)
     }
 }
 #[doc = "AUX Clock Management This register contains bitfields that are relevant for setting up the clock to the AUX domain.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`auxclk::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`auxclk::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

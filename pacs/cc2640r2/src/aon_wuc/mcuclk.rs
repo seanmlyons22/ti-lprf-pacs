@@ -74,9 +74,6 @@ pub type RcoscHfCalDoneW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED3` reader - 31:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED3` writer - 31:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 29, u32>;
 impl R {
     #[doc = "Bits 0:1 - 1:0\\]
 Controls the clock source for the entire MCU domain while MCU is requesting powerdown. When MCU requests powerdown with SCLK_HF as source, then WUC will switch over to this clock source during powerdown, and automatically switch back to SCLK_HF when MCU is no longer requesting powerdown and system is back in active mode."]
@@ -111,13 +108,6 @@ MCU bootcode will set this bit when RCOSC_HF is calibrated. The FLASH can not be
     #[must_use]
     pub fn rcosc_hf_cal_done(&mut self) -> RcoscHfCalDoneW<McuclkSpec> {
         RcoscHfCalDoneW::new(self, 2)
-    }
-    #[doc = "Bits 3:31 - 31:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<McuclkSpec> {
-        Reserved3W::new(self, 3)
     }
 }
 #[doc = "MCU Clock Management This register contains bitfields related to the MCU clock.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`mcuclk::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`mcuclk::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

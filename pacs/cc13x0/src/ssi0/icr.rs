@@ -2,32 +2,12 @@
 pub type R = crate::R<IcrSpec>;
 #[doc = "Register `ICR` writer"]
 pub type W = crate::W<IcrSpec>;
-#[doc = "Field `RORIC` reader - 0:0\\]
-Clear the receive overrun interrupt: Writing 1 to this field clears the overrun error interrupt (RIS.RORRIS). Writing 0 has no effect."]
-pub type RoricR = crate::BitReader;
 #[doc = "Field `RORIC` writer - 0:0\\]
 Clear the receive overrun interrupt: Writing 1 to this field clears the overrun error interrupt (RIS.RORRIS). Writing 0 has no effect."]
 pub type RoricW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `RTIC` reader - 1:1\\]
-Clear the receive timeout interrupt: Writing 1 to this field clears the timeout interrupt (RIS.RTRIS). Writing 0 has no effect."]
-pub type RticR = crate::BitReader;
 #[doc = "Field `RTIC` writer - 1:1\\]
 Clear the receive timeout interrupt: Writing 1 to this field clears the timeout interrupt (RIS.RTRIS). Writing 0 has no effect."]
 pub type RticW<'a, REG> = crate::BitWriter<'a, REG>;
-impl R {
-    #[doc = "Bit 0 - 0:0\\]
-Clear the receive overrun interrupt: Writing 1 to this field clears the overrun error interrupt (RIS.RORRIS). Writing 0 has no effect."]
-    #[inline(always)]
-    pub fn roric(&self) -> RoricR {
-        RoricR::new((self.bits & 1) != 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Clear the receive timeout interrupt: Writing 1 to this field clears the timeout interrupt (RIS.RTRIS). Writing 0 has no effect."]
-    #[inline(always)]
-    pub fn rtic(&self) -> RticR {
-        RticR::new(((self.bits >> 1) & 1) != 0)
-    }
-}
 impl W {
     #[doc = "Bit 0 - 0:0\\]
 Clear the receive overrun interrupt: Writing 1 to this field clears the overrun error interrupt (RIS.RORRIS). Writing 0 has no effect."]

@@ -874,9 +874,6 @@ where
 #[doc = "Field `RESERVED7` reader - 7:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved7R = crate::BitReader;
-#[doc = "Field `RESERVED7` writer - 7:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved7W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `IOEV_RTC_EN` reader - 8:8\\]
 Event asserted by this IO when edge detection is enabled 0: Input edge detection does not assert RTC event 1: Input edge detection asserts RTC event"]
 pub type IoevRtcEnR = crate::BitReader;
@@ -1505,13 +1502,6 @@ Selects usage for DIO19 Note: This field should not be written other than the ti
     #[must_use]
     pub fn port_id(&mut self) -> PortIdW<Iocfg19Spec> {
         PortIdW::new(self, 0)
-    }
-    #[doc = "Bit 7 - 7:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved7(&mut self) -> Reserved7W<Iocfg19Spec> {
-        Reserved7W::new(self, 7)
     }
     #[doc = "Bit 8 - 8:8\\]
 Event asserted by this IO when edge detection is enabled 0: Input edge detection does not assert RTC event 1: Input edge detection asserts RTC event"]

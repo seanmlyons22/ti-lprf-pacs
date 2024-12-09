@@ -35,9 +35,6 @@ pub type DatabitW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `RESERVED10` reader - 31:10\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved10R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED10` writer - 31:10\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved10W<'a, REG> = crate::FieldWriter<'a, REG, 22, u32>;
 impl R {
     #[doc = "Bits 0:1 - 1:0\\]
 Internal. Only to be used through TI provided API."]
@@ -111,13 +108,6 @@ Internal. Only to be used through TI provided API."]
     #[must_use]
     pub fn databit(&mut self) -> DatabitW<EfusereadSpec> {
         DatabitW::new(self, 8)
-    }
-    #[doc = "Bits 10:31 - 31:10\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved10(&mut self) -> Reserved10W<EfusereadSpec> {
-        Reserved10W::new(self, 10)
     }
 }
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`efuseread::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`efuseread::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

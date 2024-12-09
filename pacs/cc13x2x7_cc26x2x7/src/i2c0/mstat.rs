@@ -5,51 +5,27 @@ pub type W = crate::W<MstatSpec>;
 #[doc = "Field `BUSY` reader - 0:0\\]
 I2C busy 0: The controller is idle. 1: The controller is busy. When this bit-field is set, the other status bits are not valid. Note: The I2C controller requires four SYSBUS clock cycles to assert the BUSY status after I2C master operation has been initiated through MCTRL register. Hence after programming MCTRL register, application is requested to wait for four SYSBUS clock cycles before issuing a controller status inquiry through MSTAT register. Any prior inquiry would result in wrong status being reported."]
 pub type BusyR = crate::BitReader;
-#[doc = "Field `BUSY` writer - 0:0\\]
-I2C busy 0: The controller is idle. 1: The controller is busy. When this bit-field is set, the other status bits are not valid. Note: The I2C controller requires four SYSBUS clock cycles to assert the BUSY status after I2C master operation has been initiated through MCTRL register. Hence after programming MCTRL register, application is requested to wait for four SYSBUS clock cycles before issuing a controller status inquiry through MSTAT register. Any prior inquiry would result in wrong status being reported."]
-pub type BusyW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `ERR` reader - 1:1\\]
 Error 0: No error was detected on the last operation. 1: An error occurred on the last operation."]
 pub type ErrR = crate::BitReader;
-#[doc = "Field `ERR` writer - 1:1\\]
-Error 0: No error was detected on the last operation. 1: An error occurred on the last operation."]
-pub type ErrW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `ADRACK_N` reader - 2:2\\]
 Address Was Not Acknowledge 0: The transmitted address was acknowledged. 1: The transmitted address was not acknowledged."]
 pub type AdrackNR = crate::BitReader;
-#[doc = "Field `ADRACK_N` writer - 2:2\\]
-Address Was Not Acknowledge 0: The transmitted address was acknowledged. 1: The transmitted address was not acknowledged."]
-pub type AdrackNW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DATACK_N` reader - 3:3\\]
 Data Was Not Acknowledge 0: The transmitted data was acknowledged. 1: The transmitted data was not acknowledged."]
 pub type DatackNR = crate::BitReader;
-#[doc = "Field `DATACK_N` writer - 3:3\\]
-Data Was Not Acknowledge 0: The transmitted data was acknowledged. 1: The transmitted data was not acknowledged."]
-pub type DatackNW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `ARBLST` reader - 4:4\\]
 Arbitration lost 0: The I2C controller won arbitration. 1: The I2C controller lost arbitration."]
 pub type ArblstR = crate::BitReader;
-#[doc = "Field `ARBLST` writer - 4:4\\]
-Arbitration lost 0: The I2C controller won arbitration. 1: The I2C controller lost arbitration."]
-pub type ArblstW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `IDLE` reader - 5:5\\]
 I2C idle 0: The I2C controller is not idle. 1: The I2C controller is idle."]
 pub type IdleR = crate::BitReader;
-#[doc = "Field `IDLE` writer - 5:5\\]
-I2C idle 0: The I2C controller is not idle. 1: The I2C controller is idle."]
-pub type IdleW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `BUSBSY` reader - 6:6\\]
 Bus busy 0: The I2C bus is idle. 1: The I2C bus is busy. The bit changes based on the MCTRL.START and MCTRL.STOP conditions."]
 pub type BusbsyR = crate::BitReader;
-#[doc = "Field `BUSBSY` writer - 6:6\\]
-Bus busy 0: The I2C bus is idle. 1: The I2C bus is busy. The bit changes based on the MCTRL.START and MCTRL.STOP conditions."]
-pub type BusbsyW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED7` reader - 31:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved7R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED7` writer - 31:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved7W<'a, REG> = crate::FieldWriter<'a, REG, 25, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 I2C busy 0: The controller is idle. 1: The controller is busy. When this bit-field is set, the other status bits are not valid. Note: The I2C controller requires four SYSBUS clock cycles to assert the BUSY status after I2C master operation has been initiated through MCTRL register. Hence after programming MCTRL register, application is requested to wait for four SYSBUS clock cycles before issuing a controller status inquiry through MSTAT register. Any prior inquiry would result in wrong status being reported."]
@@ -100,64 +76,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved7R::new((self.bits >> 7) & 0x01ff_ffff)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-I2C busy 0: The controller is idle. 1: The controller is busy. When this bit-field is set, the other status bits are not valid. Note: The I2C controller requires four SYSBUS clock cycles to assert the BUSY status after I2C master operation has been initiated through MCTRL register. Hence after programming MCTRL register, application is requested to wait for four SYSBUS clock cycles before issuing a controller status inquiry through MSTAT register. Any prior inquiry would result in wrong status being reported."]
-    #[inline(always)]
-    #[must_use]
-    pub fn busy(&mut self) -> BusyW<MstatSpec> {
-        BusyW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Error 0: No error was detected on the last operation. 1: An error occurred on the last operation."]
-    #[inline(always)]
-    #[must_use]
-    pub fn err(&mut self) -> ErrW<MstatSpec> {
-        ErrW::new(self, 1)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-Address Was Not Acknowledge 0: The transmitted address was acknowledged. 1: The transmitted address was not acknowledged."]
-    #[inline(always)]
-    #[must_use]
-    pub fn adrack_n(&mut self) -> AdrackNW<MstatSpec> {
-        AdrackNW::new(self, 2)
-    }
-    #[doc = "Bit 3 - 3:3\\]
-Data Was Not Acknowledge 0: The transmitted data was acknowledged. 1: The transmitted data was not acknowledged."]
-    #[inline(always)]
-    #[must_use]
-    pub fn datack_n(&mut self) -> DatackNW<MstatSpec> {
-        DatackNW::new(self, 3)
-    }
-    #[doc = "Bit 4 - 4:4\\]
-Arbitration lost 0: The I2C controller won arbitration. 1: The I2C controller lost arbitration."]
-    #[inline(always)]
-    #[must_use]
-    pub fn arblst(&mut self) -> ArblstW<MstatSpec> {
-        ArblstW::new(self, 4)
-    }
-    #[doc = "Bit 5 - 5:5\\]
-I2C idle 0: The I2C controller is not idle. 1: The I2C controller is idle."]
-    #[inline(always)]
-    #[must_use]
-    pub fn idle(&mut self) -> IdleW<MstatSpec> {
-        IdleW::new(self, 5)
-    }
-    #[doc = "Bit 6 - 6:6\\]
-Bus busy 0: The I2C bus is idle. 1: The I2C bus is busy. The bit changes based on the MCTRL.START and MCTRL.STOP conditions."]
-    #[inline(always)]
-    #[must_use]
-    pub fn busbsy(&mut self) -> BusbsyW<MstatSpec> {
-        BusbsyW::new(self, 6)
-    }
-    #[doc = "Bits 7:31 - 31:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved7(&mut self) -> Reserved7W<MstatSpec> {
-        Reserved7W::new(self, 7)
-    }
-}
+impl W {}
 #[doc = "Master Status\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`mstat::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`mstat::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct MstatSpec;
 impl crate::RegisterSpec for MstatSpec {

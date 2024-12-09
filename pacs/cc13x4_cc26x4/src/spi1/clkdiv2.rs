@@ -146,9 +146,6 @@ where
 #[doc = "Field `RESERVED3` reader - 31:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED3` writer - 31:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 29, u32>;
 impl R {
     #[doc = "Bits 0:2 - 2:0\\]
 Selects divide ratio of module clock"]
@@ -170,13 +167,6 @@ Selects divide ratio of module clock"]
     #[must_use]
     pub fn ratio(&mut self) -> RatioW<Clkdiv2Spec> {
         RatioW::new(self, 0)
-    }
-    #[doc = "Bits 3:31 - 31:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<Clkdiv2Spec> {
-        Reserved3W::new(self, 3)
     }
 }
 #[doc = "This register is used to specify a divide ratio of the SPI functional clock.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`clkdiv2::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`clkdiv2::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

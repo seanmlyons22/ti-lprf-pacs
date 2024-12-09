@@ -11,9 +11,6 @@ pub type CpicntW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `RESERVED8` reader - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved8R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED8` writer - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Counts one on each cycle when all of the following are true: - DWT_CTRL.CPIEVTENA == 1 and DEMCR.TRCENA == 1. - No instruction is executed. - No load-store operation is in progress, see DWT_LSUCNT. - No exception-entry or exception-exit operation is in progress, see DWT_EXCCNT. - The PE is not in a power saving mode, see DWT_SLEEPCNT. - Either SecureNoninvasiveDebugAllowed() == TRUE, or the PE is in Non-secure state and NoninvasiveDebugAllowed() == TRUE."]
@@ -35,13 +32,6 @@ Counts one on each cycle when all of the following are true: - DWT_CTRL.CPIEVTEN
     #[must_use]
     pub fn cpicnt(&mut self) -> CpicntW<CpicntSpec> {
         CpicntW::new(self, 0)
-    }
-    #[doc = "Bits 8:31 - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved8(&mut self) -> Reserved8W<CpicntSpec> {
-        Reserved8W::new(self, 8)
     }
 }
 #[doc = "CPI Count Register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`cpicnt::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`cpicnt::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

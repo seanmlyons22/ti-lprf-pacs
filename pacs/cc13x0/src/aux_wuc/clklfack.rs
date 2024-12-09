@@ -5,9 +5,6 @@ pub type W = crate::W<ClklfackSpec>;
 #[doc = "Field `ACK` reader - 0:0\\]
 Acknowledgment of CLKLFREQ.REQ 0: Acknowledgement that clock frequency is controlled by AON_WUC:AUXCLK and the system state 1: Acknowledgement that the low frequency clock SCLK_LF is the clock source for AUX"]
 pub type AckR = crate::BitReader;
-#[doc = "Field `ACK` writer - 0:0\\]
-Acknowledgment of CLKLFREQ.REQ 0: Acknowledgement that clock frequency is controlled by AON_WUC:AUXCLK and the system state 1: Acknowledgement that the low frequency clock SCLK_LF is the clock source for AUX"]
-pub type AckW<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Acknowledgment of CLKLFREQ.REQ 0: Acknowledgement that clock frequency is controlled by AON_WUC:AUXCLK and the system state 1: Acknowledgement that the low frequency clock SCLK_LF is the clock source for AUX"]
@@ -16,15 +13,7 @@ Acknowledgment of CLKLFREQ.REQ 0: Acknowledgement that clock frequency is contro
         AckR::new((self.bits & 1) != 0)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Acknowledgment of CLKLFREQ.REQ 0: Acknowledgement that clock frequency is controlled by AON_WUC:AUXCLK and the system state 1: Acknowledgement that the low frequency clock SCLK_LF is the clock source for AUX"]
-    #[inline(always)]
-    #[must_use]
-    pub fn ack(&mut self) -> AckW<ClklfackSpec> {
-        AckW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Low Frequency Clock Acknowledgment\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`clklfack::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`clklfack::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct ClklfackSpec;
 impl crate::RegisterSpec for ClklfackSpec {

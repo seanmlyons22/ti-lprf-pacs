@@ -904,9 +904,6 @@ where
 #[doc = "Field `RESERVED7` reader - 31:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved7R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED7` writer - 31:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved7W<'a, REG> = crate::FieldWriter<'a, REG, 25, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Edge configuration. Channel captures counter value at selected edge on signal source selected by CAPT_SRC. See CH1EVCFG.CCACT."]
@@ -941,13 +938,6 @@ Select capture signal source from the asynchronous AUX event bus. The selected s
     #[must_use]
     pub fn capt_src(&mut self) -> CaptSrcW<Ch1ccfgSpec> {
         CaptSrcW::new(self, 1)
-    }
-    #[doc = "Bits 7:31 - 31:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved7(&mut self) -> Reserved7W<Ch1ccfgSpec> {
-        Reserved7W::new(self, 7)
     }
 }
 #[doc = "Channel 1 Capture Configuration\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ch1ccfg::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ch1ccfg::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

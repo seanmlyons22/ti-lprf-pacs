@@ -11,9 +11,6 @@ pub type ReqW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `ACK` reader - 1:1\\]
 Acknowledges the last value written to REQ."]
 pub type AckR = crate::BitReader;
-#[doc = "Field `ACK` writer - 1:1\\]
-Acknowledges the last value written to REQ."]
-pub type AckW<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Enables(1) or disables (0) the TDC reference clock source. This bit must not be modified unless ACK matches the current value."]
@@ -35,13 +32,6 @@ Enables(1) or disables (0) the TDC reference clock source. This bit must not be 
     #[must_use]
     pub fn req(&mut self) -> ReqW<RefclkctlSpec> {
         ReqW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Acknowledges the last value written to REQ."]
-    #[inline(always)]
-    #[must_use]
-    pub fn ack(&mut self) -> AckW<RefclkctlSpec> {
-        AckW::new(self, 1)
     }
 }
 #[doc = "Reference Clock Control Controls the TDC reference clock source, which is to be compared against the TDC counter clock. The source of this clock is controlled by OSC_DIG:CTL0.ACLK_REF_SRC_SEL.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`refclkctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`refclkctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

@@ -5,21 +5,12 @@ pub type W = crate::W<BatmonbatSpec>;
 #[doc = "Field `FRAC` reader - 7:0\\]
 See AON_BATMON:BAT.FRAC. Follow this procedure to get the correct value: - Do two dummy reads of FRAC. - Then read FRAC until two consecutive reads are equal."]
 pub type FracR = crate::FieldReader;
-#[doc = "Field `FRAC` writer - 7:0\\]
-See AON_BATMON:BAT.FRAC. Follow this procedure to get the correct value: - Do two dummy reads of FRAC. - Then read FRAC until two consecutive reads are equal."]
-pub type FracW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `INT` reader - 10:8\\]
 See AON_BATMON:BAT.INT. Follow this procedure to get the correct value: - Do two dummy reads of INT. - Then read INT until two consecutive reads are equal."]
 pub type IntR = crate::FieldReader;
-#[doc = "Field `INT` writer - 10:8\\]
-See AON_BATMON:BAT.INT. Follow this procedure to get the correct value: - Do two dummy reads of INT. - Then read INT until two consecutive reads are equal."]
-pub type IntW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `RESERVED11` reader - 31:11\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved11R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED11` writer - 31:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved11W<'a, REG> = crate::FieldWriter<'a, REG, 21, u32>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 See AON_BATMON:BAT.FRAC. Follow this procedure to get the correct value: - Do two dummy reads of FRAC. - Then read FRAC until two consecutive reads are equal."]
@@ -40,29 +31,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved11R::new((self.bits >> 11) & 0x001f_ffff)
     }
 }
-impl W {
-    #[doc = "Bits 0:7 - 7:0\\]
-See AON_BATMON:BAT.FRAC. Follow this procedure to get the correct value: - Do two dummy reads of FRAC. - Then read FRAC until two consecutive reads are equal."]
-    #[inline(always)]
-    #[must_use]
-    pub fn frac(&mut self) -> FracW<BatmonbatSpec> {
-        FracW::new(self, 0)
-    }
-    #[doc = "Bits 8:10 - 10:8\\]
-See AON_BATMON:BAT.INT. Follow this procedure to get the correct value: - Do two dummy reads of INT. - Then read INT until two consecutive reads are equal."]
-    #[inline(always)]
-    #[must_use]
-    pub fn int(&mut self) -> IntW<BatmonbatSpec> {
-        IntW::new(self, 8)
-    }
-    #[doc = "Bits 11:31 - 31:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved11(&mut self) -> Reserved11W<BatmonbatSpec> {
-        Reserved11W::new(self, 11)
-    }
-}
+impl W {}
 #[doc = "AON_BATMON Battery Voltage Value Read access to AON_BATMON:BAT. System CPU must not access this register. Instead, system CPU must access AON_BATMON:BAT directly. AON_BATMON:BAT updates during VDDR recharge or active operational mode.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`batmonbat::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`batmonbat::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct BatmonbatSpec;
 impl crate::RegisterSpec for BatmonbatSpec {

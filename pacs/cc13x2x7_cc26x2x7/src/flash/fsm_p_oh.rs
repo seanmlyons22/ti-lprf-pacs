@@ -5,9 +5,6 @@ pub type W = crate::W<FsmPOhSpec>;
 #[doc = "Field `RESERVED0` reader - 7:0\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved0R = crate::FieldReader;
-#[doc = "Field `RESERVED0` writer - 7:0\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved0W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `PGM_OH` reader - 15:8\\]
 Internal. Only to be used through TI provided API."]
 pub type PgmOhR = crate::FieldReader;
@@ -17,9 +14,6 @@ pub type PgmOhW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `RESERVED16` reader - 31:16\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved16R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED16` writer - 31:16\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved16W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Internal. Only to be used through TI provided API."]
@@ -41,26 +35,12 @@ Internal. Only to be used through TI provided API."]
     }
 }
 impl W {
-    #[doc = "Bits 0:7 - 7:0\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved0(&mut self) -> Reserved0W<FsmPOhSpec> {
-        Reserved0W::new(self, 0)
-    }
     #[doc = "Bits 8:15 - 15:8\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
     pub fn pgm_oh(&mut self) -> PgmOhW<FsmPOhSpec> {
         PgmOhW::new(self, 8)
-    }
-    #[doc = "Bits 16:31 - 31:16\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved16(&mut self) -> Reserved16W<FsmPOhSpec> {
-        Reserved16W::new(self, 16)
     }
 }
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fsm_p_oh::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fsm_p_oh::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

@@ -2,32 +2,12 @@
 pub type R = crate::R<Tx8Spec>;
 #[doc = "Register `TX8` writer"]
 pub type W = crate::W<Tx8Spec>;
-#[doc = "Field `DATA` reader - 7:0\\]
-8 bit data transfer. Write DATA to start transfer, MSB first. When transfer completes, MOSI stays at the value of LSB."]
-pub type DataR = crate::FieldReader;
 #[doc = "Field `DATA` writer - 7:0\\]
 8 bit data transfer. Write DATA to start transfer, MSB first. When transfer completes, MOSI stays at the value of LSB."]
 pub type DataW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
-#[doc = "Field `RESERVED8` reader - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved8R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED8` writer - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
-impl R {
-    #[doc = "Bits 0:7 - 7:0\\]
-8 bit data transfer. Write DATA to start transfer, MSB first. When transfer completes, MOSI stays at the value of LSB."]
-    #[inline(always)]
-    pub fn data(&self) -> DataR {
-        DataR::new((self.bits & 0xff) as u8)
-    }
-    #[doc = "Bits 8:31 - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    pub fn reserved8(&self) -> Reserved8R {
-        Reserved8R::new((self.bits >> 8) & 0x00ff_ffff)
-    }
-}
 impl W {
     #[doc = "Bits 0:7 - 7:0\\]
 8 bit data transfer. Write DATA to start transfer, MSB first. When transfer completes, MOSI stays at the value of LSB."]

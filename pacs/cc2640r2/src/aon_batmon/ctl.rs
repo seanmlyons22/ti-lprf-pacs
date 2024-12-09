@@ -17,9 +17,6 @@ pub type CalcEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED2` reader - 31:2\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved2R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED2` writer - 31:2\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 30, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Internal. Only to be used through TI provided API."]
@@ -54,13 +51,6 @@ Internal. Only to be used through TI provided API."]
     #[must_use]
     pub fn calc_en(&mut self) -> CalcEnW<CtlSpec> {
         CalcEnW::new(self, 1)
-    }
-    #[doc = "Bits 2:31 - 31:2\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<CtlSpec> {
-        Reserved2W::new(self, 2)
     }
 }
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

@@ -5,9 +5,6 @@ pub type W = crate::W<EvtomcuflagsSpec>;
 #[doc = "Field `RESERVED0` reader - 0:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved0R = crate::BitReader;
-#[doc = "Field `RESERVED0` writer - 0:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved0W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `AUX_COMPA` reader - 1:1\\]
 This event flag is set when edge selected by EVTOMCUPOL.AUX_COMPA occurs on EVSTAT2.AUX_COMPA."]
 pub type AuxCompaR = crate::BitReader;
@@ -71,9 +68,6 @@ pub type AuxAdcIrqW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED11` reader - 31:11\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved11R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED11` writer - 31:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved11W<'a, REG> = crate::FieldWriter<'a, REG, 21, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
@@ -149,13 +143,6 @@ Software should not rely on the value of a reserved. Writing any other value tha
     }
 }
 impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved0(&mut self) -> Reserved0W<EvtomcuflagsSpec> {
-        Reserved0W::new(self, 0)
-    }
     #[doc = "Bit 1 - 1:1\\]
 This event flag is set when edge selected by EVTOMCUPOL.AUX_COMPA occurs on EVSTAT2.AUX_COMPA."]
     #[inline(always)]
@@ -225,13 +212,6 @@ This event flag is set when level selected by EVTOMCUPOL.AUX_ADC_IRQ occurs on E
     #[must_use]
     pub fn aux_adc_irq(&mut self) -> AuxAdcIrqW<EvtomcuflagsSpec> {
         AuxAdcIrqW::new(self, 10)
-    }
-    #[doc = "Bits 11:31 - 31:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved11(&mut self) -> Reserved11W<EvtomcuflagsSpec> {
-        Reserved11W::new(self, 11)
     }
 }
 #[doc = "Events to MCU Flags This register contains a collection of event flags routed to MCU domain. To clear an event flag, write to EVTOMCUFLAGSCLR or write 0 to event flag in this register. Follow procedure described in AUX_SYSIF:WUCLR to clear AUX_WU_EV event flag.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`evtomcuflags::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`evtomcuflags::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

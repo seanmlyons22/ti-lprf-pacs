@@ -26,42 +26,6 @@ impl crate::FieldSpec for Cmd {
     type Ux = u8;
 }
 impl crate::IsEnum for Cmd {}
-#[doc = "Field `CMD` reader - 1:0\\]
-TDC commands."]
-pub type CmdR = crate::FieldReader<Cmd>;
-impl CmdR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Cmd {
-        match self.bits {
-            3 => Cmd::Abort,
-            2 => Cmd::Run,
-            1 => Cmd::RunSyncStart,
-            0 => Cmd::ClrResult,
-            _ => unreachable!(),
-        }
-    }
-    #[doc = "Force TDC state machine back to IDLE state. Never write this command while AUX_TDC:STAT.STATE equals CLR_CNT or WAIT_CLR_CNT_DONE."]
-    #[inline(always)]
-    pub fn is_abort(&self) -> bool {
-        *self == Cmd::Abort
-    }
-    #[doc = "Asynchronous counter start. The counter starts to count when the start event is high. To achieve precise edge-to-edge measurements you must ensure that the start event is low for at least 420 ns after you write this command."]
-    #[inline(always)]
-    pub fn is_run(&self) -> bool {
-        *self == Cmd::Run
-    }
-    #[doc = "Synchronous counter start. The counter looks for the opposite edge of the selected start event before it starts to count when the selected edge occurs. This guarantees an edge-triggered start and is recommended for frequency measurements."]
-    #[inline(always)]
-    pub fn is_run_sync_start(&self) -> bool {
-        *self == Cmd::RunSyncStart
-    }
-    #[doc = "Clear STAT.SAT, STAT.DONE, and RESULT.VALUE. This is not needed as prerequisite for a measurement. Reliable clear is only guaranteed from IDLE state."]
-    #[inline(always)]
-    pub fn is_clr_result(&self) -> bool {
-        *self == Cmd::ClrResult
-    }
-}
 #[doc = "Field `CMD` writer - 1:0\\]
 TDC commands."]
 pub type CmdW<'a, REG> = crate::FieldWriter<'a, REG, 2, Cmd, crate::Safe>;
@@ -94,16 +58,7 @@ where
 #[doc = "Field `RESERVED2` reader - 31:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED2` writer - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 30, u32>;
 impl R {
-    #[doc = "Bits 0:1 - 1:0\\]
-TDC commands."]
-    #[inline(always)]
-    pub fn cmd(&self) -> CmdR {
-        CmdR::new((self.bits & 3) as u8)
-    }
     #[doc = "Bits 2:31 - 31:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
@@ -118,13 +73,6 @@ TDC commands."]
     #[must_use]
     pub fn cmd(&mut self) -> CmdW<CtlSpec> {
         CmdW::new(self, 0)
-    }
-    #[doc = "Bits 2:31 - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<CtlSpec> {
-        Reserved2W::new(self, 2)
     }
 }
 #[doc = "Control\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

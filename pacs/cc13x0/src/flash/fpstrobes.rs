@@ -17,9 +17,6 @@ pub type V3pwrdnzW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED2` reader - 7:2\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved2R = crate::FieldReader;
-#[doc = "Field `RESERVED2` writer - 7:2\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `EXECUTEZ` reader - 8:8\\]
 Internal. Only to be used through TI provided API."]
 pub type ExecutezR = crate::BitReader;
@@ -29,9 +26,6 @@ pub type ExecutezW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED9` reader - 31:9\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved9R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED9` writer - 31:9\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved9W<'a, REG> = crate::FieldWriter<'a, REG, 23, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Internal. Only to be used through TI provided API."]
@@ -79,26 +73,12 @@ Internal. Only to be used through TI provided API."]
     pub fn v3pwrdnz(&mut self) -> V3pwrdnzW<FpstrobesSpec> {
         V3pwrdnzW::new(self, 1)
     }
-    #[doc = "Bits 2:7 - 7:2\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<FpstrobesSpec> {
-        Reserved2W::new(self, 2)
-    }
     #[doc = "Bit 8 - 8:8\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
     pub fn executez(&mut self) -> ExecutezW<FpstrobesSpec> {
         ExecutezW::new(self, 8)
-    }
-    #[doc = "Bits 9:31 - 31:9\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved9(&mut self) -> Reserved9W<FpstrobesSpec> {
-        Reserved9W::new(self, 9)
     }
 }
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fpstrobes::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fpstrobes::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

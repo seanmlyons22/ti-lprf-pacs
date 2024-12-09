@@ -17,9 +17,6 @@ pub type EfTestW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED5` reader - 7:5\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved5R = crate::FieldReader;
-#[doc = "Field `RESERVED5` writer - 7:5\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved5W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `EF_CLRZ` reader - 8:8\\]
 Internal. Only to be used through TI provided API."]
 pub type EfClrzR = crate::BitReader;
@@ -29,9 +26,6 @@ pub type EfClrzW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED9` reader - 15:9\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved9R = crate::FieldReader;
-#[doc = "Field `RESERVED9` writer - 15:9\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved9W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "Field `BP_SEL` reader - 16:16\\]
 Internal. Only to be used through TI provided API."]
 pub type BpSelR = crate::BitReader;
@@ -47,9 +41,6 @@ pub type WriteEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED18` reader - 23:18\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved18R = crate::FieldReader;
-#[doc = "Field `RESERVED18` writer - 23:18\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved18W<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `CHAIN_SEL` reader - 26:24\\]
 Internal. Only to be used through TI provided API."]
 pub type ChainSelR = crate::FieldReader;
@@ -59,9 +50,6 @@ pub type ChainSelW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `RESERVED27` reader - 31:27\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved27R = crate::FieldReader;
-#[doc = "Field `RESERVED27` writer - 31:27\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved27W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 impl R {
     #[doc = "Bits 0:3 - 3:0\\]
 Internal. Only to be used through TI provided API."]
@@ -139,26 +127,12 @@ Internal. Only to be used through TI provided API."]
     pub fn ef_test(&mut self) -> EfTestW<FefusectlSpec> {
         EfTestW::new(self, 4)
     }
-    #[doc = "Bits 5:7 - 7:5\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved5(&mut self) -> Reserved5W<FefusectlSpec> {
-        Reserved5W::new(self, 5)
-    }
     #[doc = "Bit 8 - 8:8\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
     pub fn ef_clrz(&mut self) -> EfClrzW<FefusectlSpec> {
         EfClrzW::new(self, 8)
-    }
-    #[doc = "Bits 9:15 - 15:9\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved9(&mut self) -> Reserved9W<FefusectlSpec> {
-        Reserved9W::new(self, 9)
     }
     #[doc = "Bit 16 - 16:16\\]
 Internal. Only to be used through TI provided API."]
@@ -174,26 +148,12 @@ Internal. Only to be used through TI provided API."]
     pub fn write_en(&mut self) -> WriteEnW<FefusectlSpec> {
         WriteEnW::new(self, 17)
     }
-    #[doc = "Bits 18:23 - 23:18\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved18(&mut self) -> Reserved18W<FefusectlSpec> {
-        Reserved18W::new(self, 18)
-    }
     #[doc = "Bits 24:26 - 26:24\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
     pub fn chain_sel(&mut self) -> ChainSelW<FefusectlSpec> {
         ChainSelW::new(self, 24)
-    }
-    #[doc = "Bits 27:31 - 31:27\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved27(&mut self) -> Reserved27W<FefusectlSpec> {
-        Reserved27W::new(self, 27)
     }
 }
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fefusectl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fefusectl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

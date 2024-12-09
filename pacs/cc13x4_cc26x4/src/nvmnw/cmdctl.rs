@@ -376,9 +376,6 @@ where
 #[doc = "Field `RESERVED13` reader - 13:13\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved13R = crate::BitReader;
-#[doc = "Field `RESERVED13` writer - 13:13\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved13W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "14:14\\]
 Enable verify before program or erase. For program, bits already programmed to the requested value will be masked. For erase, sectors already erased will be masked.\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -550,9 +547,6 @@ where
 #[doc = "Field `RESERVED17` reader - 17:17\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved17R = crate::BitReader;
-#[doc = "Field `RESERVED17` writer - 17:17\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved17W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "18:18\\]
 Disable use of program mask for programming. Bit masking will not be used during program verify. If any bits fail the verify either before (prever) or after (postver) the operation, then all specified flash entries will receive subsequent program pulse.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -780,9 +774,6 @@ where
 #[doc = "Field `RESERVED22` reader - 31:22\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved22R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED22` writer - 31:22\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved22W<'a, REG> = crate::FieldWriter<'a, REG, 10, u16>;
 impl R {
     #[doc = "Bits 0:3 - 3:0\\]
 Mode This field is only used for the Mode Change command type. Otherwise, bank and pump modes are set automaticlly via the NW hardware."]
@@ -885,13 +876,6 @@ Bank Region A specific region ID can be written to this field to indicate to whi
     pub fn regionsel(&mut self) -> RegionselW<CmdctlSpec> {
         RegionselW::new(self, 9)
     }
-    #[doc = "Bit 13 - 13:13\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved13(&mut self) -> Reserved13W<CmdctlSpec> {
-        Reserved13W::new(self, 13)
-    }
     #[doc = "Bit 14 - 14:14\\]
 Enable verify before program or erase. For program, bits already programmed to the requested value will be masked. For erase, sectors already erased will be masked."]
     #[inline(always)]
@@ -912,13 +896,6 @@ Override hardware address translation of address in CMDADDR from a system addres
     #[must_use]
     pub fn addrxlateovr(&mut self) -> AddrxlateovrW<CmdctlSpec> {
         AddrxlateovrW::new(self, 16)
-    }
-    #[doc = "Bit 17 - 17:17\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved17(&mut self) -> Reserved17W<CmdctlSpec> {
-        Reserved17W::new(self, 17)
     }
     #[doc = "Bit 18 - 18:18\\]
 Disable use of program mask for programming. Bit masking will not be used during program verify. If any bits fail the verify either before (prever) or after (postver) the operation, then all specified flash entries will receive subsequent program pulse."]
@@ -947,13 +924,6 @@ Enable invalid data verify. This checks for 0->1 transitions in the memory when 
     #[must_use]
     pub fn dataveren(&mut self) -> DataverenW<CmdctlSpec> {
         DataverenW::new(self, 21)
-    }
-    #[doc = "Bits 22:31 - 31:22\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved22(&mut self) -> Reserved22W<CmdctlSpec> {
-        Reserved22W::new(self, 22)
     }
 }
 #[doc = "Command Control Register This register configures specific capabilities of the state machine for related to the execution of a command. This register is blocked for writes after CMDEXEC is written to a 1 and prior to STATCMD.DONE being set by the hardware to indicate that command execution has completed.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`cmdctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`cmdctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

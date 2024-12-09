@@ -2,20 +2,9 @@
 pub type R = crate::R<ClaimsetSpec>;
 #[doc = "Register `CLAIMSET` writer"]
 pub type W = crate::W<ClaimsetSpec>;
-#[doc = "Field `CLAIMSET` reader - 31:0\\]
-This register forms one half of the Claim Tag value. Writing to this location allows individual bits to be set (each bit is considered separately): 0: No effect 1: Set this bit in the claim tag The behavior when reading from this location is described in CLAIMMASK."]
-pub type ClaimsetR = crate::FieldReader<u32>;
 #[doc = "Field `CLAIMSET` writer - 31:0\\]
 This register forms one half of the Claim Tag value. Writing to this location allows individual bits to be set (each bit is considered separately): 0: No effect 1: Set this bit in the claim tag The behavior when reading from this location is described in CLAIMMASK."]
 pub type ClaimsetW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
-impl R {
-    #[doc = "Bits 0:31 - 31:0\\]
-This register forms one half of the Claim Tag value. Writing to this location allows individual bits to be set (each bit is considered separately): 0: No effect 1: Set this bit in the claim tag The behavior when reading from this location is described in CLAIMMASK."]
-    #[inline(always)]
-    pub fn claimset(&self) -> ClaimsetR {
-        ClaimsetR::new(self.bits)
-    }
-}
 impl W {
     #[doc = "Bits 0:31 - 31:0\\]
 This register forms one half of the Claim Tag value. Writing to this location allows individual bits to be set (each bit is considered separately): 0: No effect 1: Set this bit in the claim tag The behavior when reading from this location is described in CLAIMMASK."]

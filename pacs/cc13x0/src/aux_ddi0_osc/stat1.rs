@@ -5,111 +5,57 @@ pub type W = crate::W<Stat1Spec>;
 #[doc = "Field `CLK_DCDC_GOOD` reader - 0:0\\]
 CLK_DCDC_GOOD"]
 pub type ClkDcdcGoodR = crate::BitReader;
-#[doc = "Field `CLK_DCDC_GOOD` writer - 0:0\\]
-CLK_DCDC_GOOD"]
-pub type ClkDcdcGoodW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `CLK_CHP_GOOD` reader - 1:1\\]
 CLK_CHP_GOOD"]
 pub type ClkChpGoodR = crate::BitReader;
-#[doc = "Field `CLK_CHP_GOOD` writer - 1:1\\]
-CLK_CHP_GOOD"]
-pub type ClkChpGoodW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `ACLK_REF_GOOD` reader - 2:2\\]
 ACLK_REF_GOOD"]
 pub type AclkRefGoodR = crate::BitReader;
-#[doc = "Field `ACLK_REF_GOOD` writer - 2:2\\]
-ACLK_REF_GOOD"]
-pub type AclkRefGoodW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `ACLK_TDC_GOOD` reader - 3:3\\]
 ACLK_TDC_GOOD"]
 pub type AclkTdcGoodR = crate::BitReader;
-#[doc = "Field `ACLK_TDC_GOOD` writer - 3:3\\]
-ACLK_TDC_GOOD"]
-pub type AclkTdcGoodW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `ACLK_ADC_GOOD` reader - 4:4\\]
 ACLK_ADC_GOOD"]
 pub type AclkAdcGoodR = crate::BitReader;
-#[doc = "Field `ACLK_ADC_GOOD` writer - 4:4\\]
-ACLK_ADC_GOOD"]
-pub type AclkAdcGoodW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `SCLK_LF_GOOD` reader - 5:5\\]
 SCLK_LF_GOOD"]
 pub type SclkLfGoodR = crate::BitReader;
-#[doc = "Field `SCLK_LF_GOOD` writer - 5:5\\]
-SCLK_LF_GOOD"]
-pub type SclkLfGoodW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `SCLK_MF_GOOD` reader - 6:6\\]
 SCLK_MF_GOOD"]
 pub type SclkMfGoodR = crate::BitReader;
-#[doc = "Field `SCLK_MF_GOOD` writer - 6:6\\]
-SCLK_MF_GOOD"]
-pub type SclkMfGoodW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `SCLK_HF_GOOD` reader - 7:7\\]
 SCLK_HF_GOOD"]
 pub type SclkHfGoodR = crate::BitReader;
-#[doc = "Field `SCLK_HF_GOOD` writer - 7:7\\]
-SCLK_HF_GOOD"]
-pub type SclkHfGoodW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `CLK_DCDC_EN` reader - 8:8\\]
 CLK_DCDC_EN"]
 pub type ClkDcdcEnR = crate::BitReader;
-#[doc = "Field `CLK_DCDC_EN` writer - 8:8\\]
-CLK_DCDC_EN"]
-pub type ClkDcdcEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `CLK_CHP_EN` reader - 9:9\\]
 CLK_CHP_EN"]
 pub type ClkChpEnR = crate::BitReader;
-#[doc = "Field `CLK_CHP_EN` writer - 9:9\\]
-CLK_CHP_EN"]
-pub type ClkChpEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `ACLK_REF_EN` reader - 10:10\\]
 ACLK_REF_EN"]
 pub type AclkRefEnR = crate::BitReader;
-#[doc = "Field `ACLK_REF_EN` writer - 10:10\\]
-ACLK_REF_EN"]
-pub type AclkRefEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `ACLK_TDC_EN` reader - 11:11\\]
 ACLK_TDC_EN"]
 pub type AclkTdcEnR = crate::BitReader;
-#[doc = "Field `ACLK_TDC_EN` writer - 11:11\\]
-ACLK_TDC_EN"]
-pub type AclkTdcEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `ACLK_ADC_EN` reader - 12:12\\]
 ACLK_ADC_EN"]
 pub type AclkAdcEnR = crate::BitReader;
-#[doc = "Field `ACLK_ADC_EN` writer - 12:12\\]
-ACLK_ADC_EN"]
-pub type AclkAdcEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `SCLK_MF_EN` reader - 13:13\\]
 SCLK_MF_EN"]
 pub type SclkMfEnR = crate::BitReader;
-#[doc = "Field `SCLK_MF_EN` writer - 13:13\\]
-SCLK_MF_EN"]
-pub type SclkMfEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `SCLK_HF_EN` reader - 14:14\\]
 SCLK_HF_EN"]
 pub type SclkHfEnR = crate::BitReader;
-#[doc = "Field `SCLK_HF_EN` writer - 14:14\\]
-SCLK_HF_EN"]
-pub type SclkHfEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `FORCE_RCOSC_HF` reader - 15:15\\]
 force_rcosc_hf"]
 pub type ForceRcoscHfR = crate::BitReader;
-#[doc = "Field `FORCE_RCOSC_HF` writer - 15:15\\]
-force_rcosc_hf"]
-pub type ForceRcoscHfW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `LPM_UPDATE_AMP` reader - 21:16\\]
 OSC amplitude during LPM_UPDATE state When amplitude compensation of XOSC_HF is enabled in low power mode, this value is the amplitude of the crystal oscillations measured by the on-chip oscillator ADC, divided by 15 mV. For example, a value of 0x20 would indicate that the amplitude of the crystal is approximately 480 mV. To enable amplitude compensation, AON_WUC OSCCFG must be set to a non-zero value."]
 pub type LpmUpdateAmpR = crate::FieldReader;
-#[doc = "Field `LPM_UPDATE_AMP` writer - 21:16\\]
-OSC amplitude during LPM_UPDATE state When amplitude compensation of XOSC_HF is enabled in low power mode, this value is the amplitude of the crystal oscillations measured by the on-chip oscillator ADC, divided by 15 mV. For example, a value of 0x20 would indicate that the amplitude of the crystal is approximately 480 mV. To enable amplitude compensation, AON_WUC OSCCFG must be set to a non-zero value."]
-pub type LpmUpdateAmpW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `HPM_UPDATE_AMP` reader - 27:22\\]
 OSC amplitude during HPM_UPDATE state. When amplitude compensation of XOSC_HF is enabled in high performance mode, this value is the amplitude of the crystal oscillations measured by the on-chip oscillator ADC, divided by 15 mV. For example, a value of 0x20 would indicate that the amplitude of the crystal is approximately 480 mV. To enable amplitude compensation, AON_WUC OSCCFG must be set to a non-zero value."]
 pub type HpmUpdateAmpR = crate::FieldReader;
-#[doc = "Field `HPM_UPDATE_AMP` writer - 27:22\\]
-OSC amplitude during HPM_UPDATE state. When amplitude compensation of XOSC_HF is enabled in high performance mode, this value is the amplitude of the crystal oscillations measured by the on-chip oscillator ADC, divided by 15 mV. For example, a value of 0x20 would indicate that the amplitude of the crystal is approximately 480 mV. To enable amplitude compensation, AON_WUC OSCCFG must be set to a non-zero value."]
-pub type HpmUpdateAmpW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "31:28\\]
 AMPCOMP FSM State\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -258,90 +204,6 @@ impl RampstateR {
         *self == Rampstate::Reset
     }
 }
-#[doc = "Field `RAMPSTATE` writer - 31:28\\]
-AMPCOMP FSM State"]
-pub type RampstateW<'a, REG> = crate::FieldWriter<'a, REG, 4, Rampstate>;
-impl<'a, REG> RampstateW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "FAST_START_SETTLE"]
-    #[inline(always)]
-    pub fn fast_start_settle(self) -> &'a mut crate::W<REG> {
-        self.variant(Rampstate::FastStartSettle)
-    }
-    #[doc = "FAST_START"]
-    #[inline(always)]
-    pub fn fast_start(self) -> &'a mut crate::W<REG> {
-        self.variant(Rampstate::FastStart)
-    }
-    #[doc = "DUMMY_TO_INIT_1"]
-    #[inline(always)]
-    pub fn dummy_to_init_1(self) -> &'a mut crate::W<REG> {
-        self.variant(Rampstate::DummyToInit1)
-    }
-    #[doc = "IDAC_DECREMENT_WITH_MEASURE"]
-    #[inline(always)]
-    pub fn idac_dec_w_measure(self) -> &'a mut crate::W<REG> {
-        self.variant(Rampstate::IdacDecWMeasure)
-    }
-    #[doc = "IBIAS_INCREMENT"]
-    #[inline(always)]
-    pub fn ibias_inc(self) -> &'a mut crate::W<REG> {
-        self.variant(Rampstate::IbiasInc)
-    }
-    #[doc = "LPM_UPDATE"]
-    #[inline(always)]
-    pub fn lpm_update(self) -> &'a mut crate::W<REG> {
-        self.variant(Rampstate::LpmUpdate)
-    }
-    #[doc = "IBIAS_DECREMENT_WITH_MEASURE"]
-    #[inline(always)]
-    pub fn ibias_dec_w_measure(self) -> &'a mut crate::W<REG> {
-        self.variant(Rampstate::IbiasDecWMeasure)
-    }
-    #[doc = "IBIAS_CAP_UPDATE"]
-    #[inline(always)]
-    pub fn ibias_cap_update(self) -> &'a mut crate::W<REG> {
-        self.variant(Rampstate::IbiasCapUpdate)
-    }
-    #[doc = "IDAC_INCREMENT"]
-    #[inline(always)]
-    pub fn idac_increment(self) -> &'a mut crate::W<REG> {
-        self.variant(Rampstate::IdacIncrement)
-    }
-    #[doc = "HPM_UPDATE"]
-    #[inline(always)]
-    pub fn hpm_update(self) -> &'a mut crate::W<REG> {
-        self.variant(Rampstate::HpmUpdate)
-    }
-    #[doc = "HPM_RAMP3"]
-    #[inline(always)]
-    pub fn hpm_ramp3(self) -> &'a mut crate::W<REG> {
-        self.variant(Rampstate::HpmRamp3)
-    }
-    #[doc = "HPM_RAMP2"]
-    #[inline(always)]
-    pub fn hpm_ramp2(self) -> &'a mut crate::W<REG> {
-        self.variant(Rampstate::HpmRamp2)
-    }
-    #[doc = "HPM_RAMP1"]
-    #[inline(always)]
-    pub fn hpm_ramp1(self) -> &'a mut crate::W<REG> {
-        self.variant(Rampstate::HpmRamp1)
-    }
-    #[doc = "INITIALIZATION"]
-    #[inline(always)]
-    pub fn initialization(self) -> &'a mut crate::W<REG> {
-        self.variant(Rampstate::Initialization)
-    }
-    #[doc = "RESET"]
-    #[inline(always)]
-    pub fn reset(self) -> &'a mut crate::W<REG> {
-        self.variant(Rampstate::Reset)
-    }
-}
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 CLK_DCDC_GOOD"]
@@ -458,141 +320,7 @@ AMPCOMP FSM State"]
         RampstateR::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-CLK_DCDC_GOOD"]
-    #[inline(always)]
-    #[must_use]
-    pub fn clk_dcdc_good(&mut self) -> ClkDcdcGoodW<Stat1Spec> {
-        ClkDcdcGoodW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-CLK_CHP_GOOD"]
-    #[inline(always)]
-    #[must_use]
-    pub fn clk_chp_good(&mut self) -> ClkChpGoodW<Stat1Spec> {
-        ClkChpGoodW::new(self, 1)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-ACLK_REF_GOOD"]
-    #[inline(always)]
-    #[must_use]
-    pub fn aclk_ref_good(&mut self) -> AclkRefGoodW<Stat1Spec> {
-        AclkRefGoodW::new(self, 2)
-    }
-    #[doc = "Bit 3 - 3:3\\]
-ACLK_TDC_GOOD"]
-    #[inline(always)]
-    #[must_use]
-    pub fn aclk_tdc_good(&mut self) -> AclkTdcGoodW<Stat1Spec> {
-        AclkTdcGoodW::new(self, 3)
-    }
-    #[doc = "Bit 4 - 4:4\\]
-ACLK_ADC_GOOD"]
-    #[inline(always)]
-    #[must_use]
-    pub fn aclk_adc_good(&mut self) -> AclkAdcGoodW<Stat1Spec> {
-        AclkAdcGoodW::new(self, 4)
-    }
-    #[doc = "Bit 5 - 5:5\\]
-SCLK_LF_GOOD"]
-    #[inline(always)]
-    #[must_use]
-    pub fn sclk_lf_good(&mut self) -> SclkLfGoodW<Stat1Spec> {
-        SclkLfGoodW::new(self, 5)
-    }
-    #[doc = "Bit 6 - 6:6\\]
-SCLK_MF_GOOD"]
-    #[inline(always)]
-    #[must_use]
-    pub fn sclk_mf_good(&mut self) -> SclkMfGoodW<Stat1Spec> {
-        SclkMfGoodW::new(self, 6)
-    }
-    #[doc = "Bit 7 - 7:7\\]
-SCLK_HF_GOOD"]
-    #[inline(always)]
-    #[must_use]
-    pub fn sclk_hf_good(&mut self) -> SclkHfGoodW<Stat1Spec> {
-        SclkHfGoodW::new(self, 7)
-    }
-    #[doc = "Bit 8 - 8:8\\]
-CLK_DCDC_EN"]
-    #[inline(always)]
-    #[must_use]
-    pub fn clk_dcdc_en(&mut self) -> ClkDcdcEnW<Stat1Spec> {
-        ClkDcdcEnW::new(self, 8)
-    }
-    #[doc = "Bit 9 - 9:9\\]
-CLK_CHP_EN"]
-    #[inline(always)]
-    #[must_use]
-    pub fn clk_chp_en(&mut self) -> ClkChpEnW<Stat1Spec> {
-        ClkChpEnW::new(self, 9)
-    }
-    #[doc = "Bit 10 - 10:10\\]
-ACLK_REF_EN"]
-    #[inline(always)]
-    #[must_use]
-    pub fn aclk_ref_en(&mut self) -> AclkRefEnW<Stat1Spec> {
-        AclkRefEnW::new(self, 10)
-    }
-    #[doc = "Bit 11 - 11:11\\]
-ACLK_TDC_EN"]
-    #[inline(always)]
-    #[must_use]
-    pub fn aclk_tdc_en(&mut self) -> AclkTdcEnW<Stat1Spec> {
-        AclkTdcEnW::new(self, 11)
-    }
-    #[doc = "Bit 12 - 12:12\\]
-ACLK_ADC_EN"]
-    #[inline(always)]
-    #[must_use]
-    pub fn aclk_adc_en(&mut self) -> AclkAdcEnW<Stat1Spec> {
-        AclkAdcEnW::new(self, 12)
-    }
-    #[doc = "Bit 13 - 13:13\\]
-SCLK_MF_EN"]
-    #[inline(always)]
-    #[must_use]
-    pub fn sclk_mf_en(&mut self) -> SclkMfEnW<Stat1Spec> {
-        SclkMfEnW::new(self, 13)
-    }
-    #[doc = "Bit 14 - 14:14\\]
-SCLK_HF_EN"]
-    #[inline(always)]
-    #[must_use]
-    pub fn sclk_hf_en(&mut self) -> SclkHfEnW<Stat1Spec> {
-        SclkHfEnW::new(self, 14)
-    }
-    #[doc = "Bit 15 - 15:15\\]
-force_rcosc_hf"]
-    #[inline(always)]
-    #[must_use]
-    pub fn force_rcosc_hf(&mut self) -> ForceRcoscHfW<Stat1Spec> {
-        ForceRcoscHfW::new(self, 15)
-    }
-    #[doc = "Bits 16:21 - 21:16\\]
-OSC amplitude during LPM_UPDATE state When amplitude compensation of XOSC_HF is enabled in low power mode, this value is the amplitude of the crystal oscillations measured by the on-chip oscillator ADC, divided by 15 mV. For example, a value of 0x20 would indicate that the amplitude of the crystal is approximately 480 mV. To enable amplitude compensation, AON_WUC OSCCFG must be set to a non-zero value."]
-    #[inline(always)]
-    #[must_use]
-    pub fn lpm_update_amp(&mut self) -> LpmUpdateAmpW<Stat1Spec> {
-        LpmUpdateAmpW::new(self, 16)
-    }
-    #[doc = "Bits 22:27 - 27:22\\]
-OSC amplitude during HPM_UPDATE state. When amplitude compensation of XOSC_HF is enabled in high performance mode, this value is the amplitude of the crystal oscillations measured by the on-chip oscillator ADC, divided by 15 mV. For example, a value of 0x20 would indicate that the amplitude of the crystal is approximately 480 mV. To enable amplitude compensation, AON_WUC OSCCFG must be set to a non-zero value."]
-    #[inline(always)]
-    #[must_use]
-    pub fn hpm_update_amp(&mut self) -> HpmUpdateAmpW<Stat1Spec> {
-        HpmUpdateAmpW::new(self, 22)
-    }
-    #[doc = "Bits 28:31 - 31:28\\]
-AMPCOMP FSM State"]
-    #[inline(always)]
-    #[must_use]
-    pub fn rampstate(&mut self) -> RampstateW<Stat1Spec> {
-        RampstateW::new(self, 28)
-    }
-}
+impl W {}
 #[doc = "Status 1 This register contains status signals from OSC_DIG\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`stat1::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`stat1::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Stat1Spec;
 impl crate::RegisterSpec for Stat1Spec {

@@ -570,9 +570,6 @@ where
 #[doc = "Field `RESERVED7` reader - 7:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved7R = crate::BitReader;
-#[doc = "Field `RESERVED7` writer - 7:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved7W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "12:8\\]
 Select vector 3 trigger source event.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1141,9 +1138,6 @@ where
 #[doc = "Field `RESERVED15` reader - 31:15\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved15R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED15` writer - 31:15\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved15W<'a, REG> = crate::FieldWriter<'a, REG, 17, u32>;
 impl R {
     #[doc = "Bits 0:4 - 4:0\\]
 Select vector 2 trigger source event."]
@@ -1216,13 +1210,6 @@ Vector 2 trigger event polarity. To manually trigger vector 2 execution: - AUX_S
     pub fn vec2_pol(&mut self) -> Vec2PolW<Veccfg1Spec> {
         Vec2PolW::new(self, 6)
     }
-    #[doc = "Bit 7 - 7:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved7(&mut self) -> Reserved7W<Veccfg1Spec> {
-        Reserved7W::new(self, 7)
-    }
     #[doc = "Bits 8:12 - 12:8\\]
 Select vector 3 trigger source event."]
     #[inline(always)]
@@ -1243,13 +1230,6 @@ Vector 3 trigger event polarity. To manually trigger vector 3 execution: - AUX_S
     #[must_use]
     pub fn vec3_pol(&mut self) -> Vec3PolW<Veccfg1Spec> {
         Vec3PolW::new(self, 14)
-    }
-    #[doc = "Bits 15:31 - 31:15\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved15(&mut self) -> Reserved15W<Veccfg1Spec> {
-        Reserved15W::new(self, 15)
     }
 }
 #[doc = "Vector Configuration 1 AUX_SCE event vectors 2 and 3 configuration\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`veccfg1::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`veccfg1::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

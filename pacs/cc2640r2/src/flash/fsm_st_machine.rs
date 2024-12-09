@@ -41,9 +41,6 @@ pub type PgmSecCofEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED6` reader - 6:6\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved6R = crate::BitReader;
-#[doc = "Field `RESERVED6` writer - 6:6\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved6W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DBG_SHORT_ROW` reader - 10:7\\]
 Internal. Only to be used through TI provided API."]
 pub type DbgShortRowR = crate::FieldReader;
@@ -59,9 +56,6 @@ pub type DoReduColW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED12` reader - 13:12\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved12R = crate::FieldReader;
-#[doc = "Field `RESERVED12` writer - 13:12\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved12W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `ONE_TIME_GOOD` reader - 14:14\\]
 Internal. Only to be used through TI provided API."]
 pub type OneTimeGoodR = crate::BitReader;
@@ -71,9 +65,6 @@ pub type OneTimeGoodW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED15` reader - 15:15\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved15R = crate::BitReader;
-#[doc = "Field `RESERVED15` writer - 15:15\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved15W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RV_INT_EN` reader - 16:16\\]
 Internal. Only to be used through TI provided API."]
 pub type RvIntEnR = crate::BitReader;
@@ -125,9 +116,6 @@ pub type DoPrecondW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED24` reader - 31:24\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved24R = crate::FieldReader;
-#[doc = "Field `RESERVED24` writer - 31:24\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved24W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Internal. Only to be used through TI provided API."]
@@ -299,13 +287,6 @@ Internal. Only to be used through TI provided API."]
     pub fn pgm_sec_cof_en(&mut self) -> PgmSecCofEnW<FsmStMachineSpec> {
         PgmSecCofEnW::new(self, 5)
     }
-    #[doc = "Bit 6 - 6:6\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<FsmStMachineSpec> {
-        Reserved6W::new(self, 6)
-    }
     #[doc = "Bits 7:10 - 10:7\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
@@ -320,26 +301,12 @@ Internal. Only to be used through TI provided API."]
     pub fn do_redu_col(&mut self) -> DoReduColW<FsmStMachineSpec> {
         DoReduColW::new(self, 11)
     }
-    #[doc = "Bits 12:13 - 13:12\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved12(&mut self) -> Reserved12W<FsmStMachineSpec> {
-        Reserved12W::new(self, 12)
-    }
     #[doc = "Bit 14 - 14:14\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
     pub fn one_time_good(&mut self) -> OneTimeGoodW<FsmStMachineSpec> {
         OneTimeGoodW::new(self, 14)
-    }
-    #[doc = "Bit 15 - 15:15\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved15(&mut self) -> Reserved15W<FsmStMachineSpec> {
-        Reserved15W::new(self, 15)
     }
     #[doc = "Bit 16 - 16:16\\]
 Internal. Only to be used through TI provided API."]
@@ -396,13 +363,6 @@ Internal. Only to be used through TI provided API."]
     #[must_use]
     pub fn do_precond(&mut self) -> DoPrecondW<FsmStMachineSpec> {
         DoPrecondW::new(self, 23)
-    }
-    #[doc = "Bits 24:31 - 31:24\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved24(&mut self) -> Reserved24W<FsmStMachineSpec> {
-        Reserved24W::new(self, 24)
     }
 }
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fsm_st_machine::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fsm_st_machine::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

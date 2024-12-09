@@ -5,27 +5,15 @@ pub type W = crate::W<Pdstat0Spec>;
 #[doc = "Field `RFC_ON` reader - 0:0\\]
 RFC Power domain 0: Domain may be powered down 1: Domain powered up (guaranteed)"]
 pub type RfcOnR = crate::BitReader;
-#[doc = "Field `RFC_ON` writer - 0:0\\]
-RFC Power domain 0: Domain may be powered down 1: Domain powered up (guaranteed)"]
-pub type RfcOnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `SERIAL_ON` reader - 1:1\\]
 SERIAL Power domain. 0: Domain may be powered down 1: Domain powered up (guaranteed)"]
 pub type SerialOnR = crate::BitReader;
-#[doc = "Field `SERIAL_ON` writer - 1:1\\]
-SERIAL Power domain. 0: Domain may be powered down 1: Domain powered up (guaranteed)"]
-pub type SerialOnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `PERIPH_ON` reader - 2:2\\]
 PERIPH Power domain. 0: Domain may be powered down 1: Domain powered up (guaranteed)"]
 pub type PeriphOnR = crate::BitReader;
-#[doc = "Field `PERIPH_ON` writer - 2:2\\]
-PERIPH Power domain. 0: Domain may be powered down 1: Domain powered up (guaranteed)"]
-pub type PeriphOnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED3` reader - 31:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED3` writer - 31:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 29, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 RFC Power domain 0: Domain may be powered down 1: Domain powered up (guaranteed)"]
@@ -52,36 +40,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved3R::new((self.bits >> 3) & 0x1fff_ffff)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-RFC Power domain 0: Domain may be powered down 1: Domain powered up (guaranteed)"]
-    #[inline(always)]
-    #[must_use]
-    pub fn rfc_on(&mut self) -> RfcOnW<Pdstat0Spec> {
-        RfcOnW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-SERIAL Power domain. 0: Domain may be powered down 1: Domain powered up (guaranteed)"]
-    #[inline(always)]
-    #[must_use]
-    pub fn serial_on(&mut self) -> SerialOnW<Pdstat0Spec> {
-        SerialOnW::new(self, 1)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-PERIPH Power domain. 0: Domain may be powered down 1: Domain powered up (guaranteed)"]
-    #[inline(always)]
-    #[must_use]
-    pub fn periph_on(&mut self) -> PeriphOnW<Pdstat0Spec> {
-        PeriphOnW::new(self, 2)
-    }
-    #[doc = "Bits 3:31 - 31:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<Pdstat0Spec> {
-        Reserved3W::new(self, 3)
-    }
-}
+impl W {}
 #[doc = "Power Domain Status\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`pdstat0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`pdstat0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Pdstat0Spec;
 impl crate::RegisterSpec for Pdstat0Spec {

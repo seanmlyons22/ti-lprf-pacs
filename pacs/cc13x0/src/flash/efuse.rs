@@ -11,9 +11,6 @@ pub type DumpwordW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 #[doc = "Field `RESERVED16` reader - 23:16\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved16R = crate::FieldReader;
-#[doc = "Field `RESERVED16` writer - 23:16\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved16W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `INSTRUCTION` reader - 28:24\\]
 Internal. Only to be used through TI provided API."]
 pub type InstructionR = crate::FieldReader;
@@ -23,9 +20,6 @@ pub type InstructionW<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 #[doc = "Field `RESERVED29` reader - 31:29\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved29R = crate::FieldReader;
-#[doc = "Field `RESERVED29` writer - 31:29\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved29W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 impl R {
     #[doc = "Bits 0:15 - 15:0\\]
 Internal. Only to be used through TI provided API."]
@@ -60,26 +54,12 @@ Internal. Only to be used through TI provided API."]
     pub fn dumpword(&mut self) -> DumpwordW<EfuseSpec> {
         DumpwordW::new(self, 0)
     }
-    #[doc = "Bits 16:23 - 23:16\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved16(&mut self) -> Reserved16W<EfuseSpec> {
-        Reserved16W::new(self, 16)
-    }
     #[doc = "Bits 24:28 - 28:24\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
     pub fn instruction(&mut self) -> InstructionW<EfuseSpec> {
         InstructionW::new(self, 24)
-    }
-    #[doc = "Bits 29:31 - 31:29\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved29(&mut self) -> Reserved29W<EfuseSpec> {
-        Reserved29W::new(self, 29)
     }
 }
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`efuse::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`efuse::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

@@ -899,9 +899,6 @@ where
 #[doc = "Field `RESERVED15` reader - 15:15\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved15R = crate::BitReader;
-#[doc = "Field `RESERVED15` writer - 15:15\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved15W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "17:16\\]
 Enable generation of edge detection events on this IO\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1157,9 +1154,6 @@ pub type HystEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED31` reader - 31:31\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved31R = crate::BitReader;
-#[doc = "Field `RESERVED31` writer - 31:31\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved31W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bits 0:5 - 5:0\\]
 Selects usage for DIO11 Note: This field should not be written other than the times when PORT_ID value is specifically required to change."]
@@ -1326,13 +1320,6 @@ Pull control"]
     pub fn pull_ctl(&mut self) -> PullCtlW<Iocfg11Spec> {
         PullCtlW::new(self, 13)
     }
-    #[doc = "Bit 15 - 15:15\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved15(&mut self) -> Reserved15W<Iocfg11Spec> {
-        Reserved15W::new(self, 15)
-    }
     #[doc = "Bits 16:17 - 17:16\\]
 Enable generation of edge detection events on this IO"]
     #[inline(always)]
@@ -1402,13 +1389,6 @@ If DIO is configured GPIO or non-AON peripheral signals, PORT_ID 0x00 or >0x08: 
     #[must_use]
     pub fn hyst_en(&mut self) -> HystEnW<Iocfg11Spec> {
         HystEnW::new(self, 30)
-    }
-    #[doc = "Bit 31 - 31:31\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved31(&mut self) -> Reserved31W<Iocfg11Spec> {
-        Reserved31W::new(self, 31)
     }
 }
 #[doc = "Configuration of DIO11\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`iocfg11::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`iocfg11::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

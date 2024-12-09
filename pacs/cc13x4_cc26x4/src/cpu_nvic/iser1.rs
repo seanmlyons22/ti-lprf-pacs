@@ -6,16 +6,9 @@ pub type W = crate::W<Iser1Spec>;
 For SETENA\\[m\\]
 in NVIC_ISER*n, indicates whether interrupt 32*n + m is enabled"]
 pub type SetenaR = crate::FieldReader<u16>;
-#[doc = "Field `SETENA` writer - 15:0\\]
-For SETENA\\[m\\]
-in NVIC_ISER*n, indicates whether interrupt 32*n + m is enabled"]
-pub type SetenaW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 #[doc = "Field `RESERVED16` reader - 31:16\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved16R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED16` writer - 31:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved16W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
     #[doc = "Bits 0:15 - 15:0\\]
 For SETENA\\[m\\]
@@ -31,23 +24,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved16R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
-impl W {
-    #[doc = "Bits 0:15 - 15:0\\]
-For SETENA\\[m\\]
-in NVIC_ISER*n, indicates whether interrupt 32*n + m is enabled"]
-    #[inline(always)]
-    #[must_use]
-    pub fn setena(&mut self) -> SetenaW<Iser1Spec> {
-        SetenaW::new(self, 0)
-    }
-    #[doc = "Bits 16:31 - 31:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved16(&mut self) -> Reserved16W<Iser1Spec> {
-        Reserved16W::new(self, 16)
-    }
-}
+impl W {}
 #[doc = "Enables or reads the enabled state of each group of 32 interrupts\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`iser1::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`iser1::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Iser1Spec;
 impl crate::RegisterSpec for Iser1Spec {

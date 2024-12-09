@@ -23,9 +23,6 @@ pub type SceRunEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED3` reader - 30:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED3` writer - 30:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 28, u32>;
 #[doc = "Field `RESET_REQ` reader - 31:31\\]
 Reset request for AUX. Writing 1 to this register will assert reset to AUX. The reset will be held until the bit is cleared again. 0: AUX reset pin will be deasserted 1: AUX reset pin will be asserted"]
 pub type ResetReqR = crate::BitReader;
@@ -85,13 +82,6 @@ Enables (1) or disables (0) AUX_SCE execution. AUX_SCE execution will begin when
     #[must_use]
     pub fn sce_run_en(&mut self) -> SceRunEnW<AuxctlSpec> {
         SceRunEnW::new(self, 2)
-    }
-    #[doc = "Bits 3:30 - 30:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<AuxctlSpec> {
-        Reserved3W::new(self, 3)
     }
     #[doc = "Bit 31 - 31:31\\]
 Reset request for AUX. Writing 1 to this register will assert reset to AUX. The reset will be held until the bit is cleared again. 0: AUX reset pin will be deasserted 1: AUX reset pin will be asserted"]

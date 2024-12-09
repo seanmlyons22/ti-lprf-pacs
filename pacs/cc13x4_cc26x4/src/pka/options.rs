@@ -5,47 +5,25 @@ pub type W = crate::W<OptionsSpec>;
 #[doc = "Field `PKCP_CONFIGURATION` reader - 1:0\\]
 PKCP Configuration 0x0 : Reserved 0x1 : Indicates a PKCP with a 16x16 multiplier, 0x2: indicates a PKCP with a 32x32 multiplier, 0x3 : Reserved Note: Reset value is undefined."]
 pub type PkcpConfigurationR = crate::FieldReader;
-#[doc = "Field `PKCP_CONFIGURATION` writer - 1:0\\]
-PKCP Configuration 0x0 : Reserved 0x1 : Indicates a PKCP with a 16x16 multiplier, 0x2: indicates a PKCP with a 32x32 multiplier, 0x3 : Reserved Note: Reset value is undefined."]
-pub type PkcpConfigurationW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `RESERVED2` reader - 4:2\\]
 Ignore on read"]
 pub type Reserved2R = crate::FieldReader;
-#[doc = "Field `RESERVED2` writer - 4:2\\]
-Ignore on read"]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `SEQUENCER_CONFIGURATION` reader - 6:5\\]
 Sequencer Configuration 0x0: Reserved 0x1 : Indicates a standard sequencer 0x2: Reserved 0x3: Reserved"]
 pub type SequencerConfigurationR = crate::FieldReader;
-#[doc = "Field `SEQUENCER_CONFIGURATION` writer - 6:5\\]
-Sequencer Configuration 0x0: Reserved 0x1 : Indicates a standard sequencer 0x2: Reserved 0x3: Reserved"]
-pub type SequencerConfigurationW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `PROGRAM_RAM` reader - 7:7\\]
 Program RAM 0x1: indicates sequencer program storage in RAM, 0x0: indicates sequencer program storage in ROM. Note: Reset value is undefined"]
 pub type ProgramRamR = crate::BitReader;
-#[doc = "Field `PROGRAM_RAM` writer - 7:7\\]
-Program RAM 0x1: indicates sequencer program storage in RAM, 0x0: indicates sequencer program storage in ROM. Note: Reset value is undefined"]
-pub type ProgramRamW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `PROTECTION_OPTION` reader - 10:8\\]
 Protection Option 0x0: indicates no additional protection against side channel attacks, 0x1: indicates the SCAP option 0x2: Reserved 0x3: indicates the PROT option; Note: Reset value is undefined"]
 pub type ProtectionOptionR = crate::FieldReader;
-#[doc = "Field `PROTECTION_OPTION` writer - 10:8\\]
-Protection Option 0x0: indicates no additional protection against side channel attacks, 0x1: indicates the SCAP option 0x2: Reserved 0x3: indicates the PROT option; Note: Reset value is undefined"]
-pub type ProtectionOptionW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `INT_MASKING` reader - 11:11\\]
 Interrupt Masking 0x0: indicates that the main interrupt output (bit \\[1\\]
 of the interrupts output bus) is the direct complement of the run bit in the PKA_CONTROL register, 0x1 : indicates that interrupt masking logic is present for this output. Note: Reset value is undefined"]
 pub type IntMaskingR = crate::BitReader;
-#[doc = "Field `INT_MASKING` writer - 11:11\\]
-Interrupt Masking 0x0: indicates that the main interrupt output (bit \\[1\\]
-of the interrupts output bus) is the direct complement of the run bit in the PKA_CONTROL register, 0x1 : indicates that interrupt masking logic is present for this output. Note: Reset value is undefined"]
-pub type IntMaskingW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED12` reader - 31:12\\]
 Ignore on read"]
 pub type Reserved12R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED12` writer - 31:12\\]
-Ignore on read"]
-pub type Reserved12W<'a, REG> = crate::FieldWriter<'a, REG, 20, u32>;
 impl R {
     #[doc = "Bits 0:1 - 1:0\\]
 PKCP Configuration 0x0 : Reserved 0x1 : Indicates a PKCP with a 16x16 multiplier, 0x2: indicates a PKCP with a 32x32 multiplier, 0x3 : Reserved Note: Reset value is undefined."]
@@ -91,58 +69,7 @@ Ignore on read"]
         Reserved12R::new((self.bits >> 12) & 0x000f_ffff)
     }
 }
-impl W {
-    #[doc = "Bits 0:1 - 1:0\\]
-PKCP Configuration 0x0 : Reserved 0x1 : Indicates a PKCP with a 16x16 multiplier, 0x2: indicates a PKCP with a 32x32 multiplier, 0x3 : Reserved Note: Reset value is undefined."]
-    #[inline(always)]
-    #[must_use]
-    pub fn pkcp_configuration(&mut self) -> PkcpConfigurationW<OptionsSpec> {
-        PkcpConfigurationW::new(self, 0)
-    }
-    #[doc = "Bits 2:4 - 4:2\\]
-Ignore on read"]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<OptionsSpec> {
-        Reserved2W::new(self, 2)
-    }
-    #[doc = "Bits 5:6 - 6:5\\]
-Sequencer Configuration 0x0: Reserved 0x1 : Indicates a standard sequencer 0x2: Reserved 0x3: Reserved"]
-    #[inline(always)]
-    #[must_use]
-    pub fn sequencer_configuration(&mut self) -> SequencerConfigurationW<OptionsSpec> {
-        SequencerConfigurationW::new(self, 5)
-    }
-    #[doc = "Bit 7 - 7:7\\]
-Program RAM 0x1: indicates sequencer program storage in RAM, 0x0: indicates sequencer program storage in ROM. Note: Reset value is undefined"]
-    #[inline(always)]
-    #[must_use]
-    pub fn program_ram(&mut self) -> ProgramRamW<OptionsSpec> {
-        ProgramRamW::new(self, 7)
-    }
-    #[doc = "Bits 8:10 - 10:8\\]
-Protection Option 0x0: indicates no additional protection against side channel attacks, 0x1: indicates the SCAP option 0x2: Reserved 0x3: indicates the PROT option; Note: Reset value is undefined"]
-    #[inline(always)]
-    #[must_use]
-    pub fn protection_option(&mut self) -> ProtectionOptionW<OptionsSpec> {
-        ProtectionOptionW::new(self, 8)
-    }
-    #[doc = "Bit 11 - 11:11\\]
-Interrupt Masking 0x0: indicates that the main interrupt output (bit \\[1\\]
-of the interrupts output bus) is the direct complement of the run bit in the PKA_CONTROL register, 0x1 : indicates that interrupt masking logic is present for this output. Note: Reset value is undefined"]
-    #[inline(always)]
-    #[must_use]
-    pub fn int_masking(&mut self) -> IntMaskingW<OptionsSpec> {
-        IntMaskingW::new(self, 11)
-    }
-    #[doc = "Bits 12:31 - 31:12\\]
-Ignore on read"]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved12(&mut self) -> Reserved12W<OptionsSpec> {
-        Reserved12W::new(self, 12)
-    }
-}
+impl W {}
 #[doc = "PKA hardware options register This register provides the host with a means to determine the hardware configuration implemented in this PKA engine, focused on options that have an effect on software interacting with the module.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`options::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`options::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct OptionsSpec;
 impl crate::RegisterSpec for OptionsSpec {

@@ -38,20 +38,6 @@ impl EvR {
         *self == Ev::AonProg0
     }
 }
-#[doc = "Field `EV` writer - 7:0\\]
-Read only selection value"]
-pub type EvW<'a, REG> = crate::FieldWriter<'a, REG, 8, Ev>;
-impl<'a, REG> EvW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "AON programmable event 0. Event selected by AON_EVENT MCU event selector, AON_EVENT:EVTOMCUSEL.AON_PROG0_EV"]
-    #[inline(always)]
-    pub fn aon_prog0(self) -> &'a mut crate::W<REG> {
-        self.variant(Ev::AonProg0)
-    }
-}
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Read only selection value"]
@@ -60,15 +46,7 @@ Read only selection value"]
         EvR::new((self.bits & 0xff) as u8)
     }
 }
-impl W {
-    #[doc = "Bits 0:7 - 7:0\\]
-Read only selection value"]
-    #[inline(always)]
-    #[must_use]
-    pub fn ev(&mut self) -> EvW<Cpuirqsel29Spec> {
-        EvW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Output Selection for CPU Interrupt 29\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`cpuirqsel29::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`cpuirqsel29::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Cpuirqsel29Spec;
 impl crate::RegisterSpec for Cpuirqsel29Spec {

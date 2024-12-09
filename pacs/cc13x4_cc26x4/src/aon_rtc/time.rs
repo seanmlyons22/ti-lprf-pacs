@@ -5,15 +5,9 @@ pub type W = crate::W<TimeSpec>;
 #[doc = "Field `SUBSEC_H` reader - 15:0\\]
 Returns the upper halfword of SUBSEC register."]
 pub type SubsecHR = crate::FieldReader<u16>;
-#[doc = "Field `SUBSEC_H` writer - 15:0\\]
-Returns the upper halfword of SUBSEC register."]
-pub type SubsecHW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 #[doc = "Field `SEC_L` reader - 31:16\\]
 Returns the lower halfword of SEC register."]
 pub type SecLR = crate::FieldReader<u16>;
-#[doc = "Field `SEC_L` writer - 31:16\\]
-Returns the lower halfword of SEC register."]
-pub type SecLW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
     #[doc = "Bits 0:15 - 15:0\\]
 Returns the upper halfword of SUBSEC register."]
@@ -28,22 +22,7 @@ Returns the lower halfword of SEC register."]
         SecLR::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
-impl W {
-    #[doc = "Bits 0:15 - 15:0\\]
-Returns the upper halfword of SUBSEC register."]
-    #[inline(always)]
-    #[must_use]
-    pub fn subsec_h(&mut self) -> SubsecHW<TimeSpec> {
-        SubsecHW::new(self, 0)
-    }
-    #[doc = "Bits 16:31 - 31:16\\]
-Returns the lower halfword of SEC register."]
-    #[inline(always)]
-    #[must_use]
-    pub fn sec_l(&mut self) -> SecLW<TimeSpec> {
-        SecLW::new(self, 16)
-    }
-}
+impl W {}
 #[doc = "Current Counter Value\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`time::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`time::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct TimeSpec;
 impl crate::RegisterSpec for TimeSpec {

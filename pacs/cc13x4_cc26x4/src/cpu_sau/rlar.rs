@@ -17,9 +17,6 @@ pub type NscW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED2` reader - 4:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2R = crate::FieldReader;
-#[doc = "Field `RESERVED2` writer - 4:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `LADDR` reader - 31:5\\]
 Holds bits \\[31:5\\]
 of the limit address for the selected SAU region"]
@@ -69,13 +66,6 @@ Controls whether Non-secure state is permitted to execute an SG instruction from
     #[must_use]
     pub fn nsc(&mut self) -> NscW<RlarSpec> {
         NscW::new(self, 1)
-    }
-    #[doc = "Bits 2:4 - 4:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<RlarSpec> {
-        Reserved2W::new(self, 2)
     }
     #[doc = "Bits 5:31 - 31:5\\]
 Holds bits \\[31:5\\]

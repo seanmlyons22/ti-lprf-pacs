@@ -2,80 +2,24 @@
 pub type R = crate::R<IrqclrSpec>;
 #[doc = "Register `IRQCLR` writer"]
 pub type W = crate::W<IrqclrSpec>;
-#[doc = "Field `RESULT_AVAIL` reader - 0:0\\]
-If 1 is written to this bit, the result available (irq_result_av) interrupt output is cleared. Writing 0 has no effect. Note that clearing an interrupt makes sense only if the interrupt output is programmed as level (refer to IRQTYPE)."]
-pub type ResultAvailR = crate::BitReader;
 #[doc = "Field `RESULT_AVAIL` writer - 0:0\\]
 If 1 is written to this bit, the result available (irq_result_av) interrupt output is cleared. Writing 0 has no effect. Note that clearing an interrupt makes sense only if the interrupt output is programmed as level (refer to IRQTYPE)."]
 pub type ResultAvailW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `DMA_IN_DONE` reader - 1:1\\]
-If 1 is written to this bit, the DMA in done (irq_dma_in_done) interrupt output is cleared. Writing 0 has no effect. Note that clearing an interrupt makes sense only if the interrupt output is programmed as level (refer to IRQTYPE)."]
-pub type DmaInDoneR = crate::BitReader;
 #[doc = "Field `DMA_IN_DONE` writer - 1:1\\]
 If 1 is written to this bit, the DMA in done (irq_dma_in_done) interrupt output is cleared. Writing 0 has no effect. Note that clearing an interrupt makes sense only if the interrupt output is programmed as level (refer to IRQTYPE)."]
 pub type DmaInDoneW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `RESERVED2` reader - 28:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED2` writer - 28:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 27, u32>;
-#[doc = "Field `KEY_ST_RD_ERR` reader - 29:29\\]
-If 1 is written to this bit, the key store read error status is cleared. Writing 0 has no effect."]
-pub type KeyStRdErrR = crate::BitReader;
 #[doc = "Field `KEY_ST_RD_ERR` writer - 29:29\\]
 If 1 is written to this bit, the key store read error status is cleared. Writing 0 has no effect."]
 pub type KeyStRdErrW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `KEY_ST_WR_ERR` reader - 30:30\\]
-If 1 is written to this bit, the key store write error status is cleared. Writing 0 has no effect."]
-pub type KeyStWrErrR = crate::BitReader;
 #[doc = "Field `KEY_ST_WR_ERR` writer - 30:30\\]
 If 1 is written to this bit, the key store write error status is cleared. Writing 0 has no effect."]
 pub type KeyStWrErrW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `DMA_BUS_ERR` reader - 31:31\\]
-If 1 is written to this bit, the DMA bus error status is cleared. Writing 0 has no effect."]
-pub type DmaBusErrR = crate::BitReader;
 #[doc = "Field `DMA_BUS_ERR` writer - 31:31\\]
 If 1 is written to this bit, the DMA bus error status is cleared. Writing 0 has no effect."]
 pub type DmaBusErrW<'a, REG> = crate::BitWriter<'a, REG>;
-impl R {
-    #[doc = "Bit 0 - 0:0\\]
-If 1 is written to this bit, the result available (irq_result_av) interrupt output is cleared. Writing 0 has no effect. Note that clearing an interrupt makes sense only if the interrupt output is programmed as level (refer to IRQTYPE)."]
-    #[inline(always)]
-    pub fn result_avail(&self) -> ResultAvailR {
-        ResultAvailR::new((self.bits & 1) != 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-If 1 is written to this bit, the DMA in done (irq_dma_in_done) interrupt output is cleared. Writing 0 has no effect. Note that clearing an interrupt makes sense only if the interrupt output is programmed as level (refer to IRQTYPE)."]
-    #[inline(always)]
-    pub fn dma_in_done(&self) -> DmaInDoneR {
-        DmaInDoneR::new(((self.bits >> 1) & 1) != 0)
-    }
-    #[doc = "Bits 2:28 - 28:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    pub fn reserved2(&self) -> Reserved2R {
-        Reserved2R::new((self.bits >> 2) & 0x07ff_ffff)
-    }
-    #[doc = "Bit 29 - 29:29\\]
-If 1 is written to this bit, the key store read error status is cleared. Writing 0 has no effect."]
-    #[inline(always)]
-    pub fn key_st_rd_err(&self) -> KeyStRdErrR {
-        KeyStRdErrR::new(((self.bits >> 29) & 1) != 0)
-    }
-    #[doc = "Bit 30 - 30:30\\]
-If 1 is written to this bit, the key store write error status is cleared. Writing 0 has no effect."]
-    #[inline(always)]
-    pub fn key_st_wr_err(&self) -> KeyStWrErrR {
-        KeyStWrErrR::new(((self.bits >> 30) & 1) != 0)
-    }
-    #[doc = "Bit 31 - 31:31\\]
-If 1 is written to this bit, the DMA bus error status is cleared. Writing 0 has no effect."]
-    #[inline(always)]
-    pub fn dma_bus_err(&self) -> DmaBusErrR {
-        DmaBusErrR::new(((self.bits >> 31) & 1) != 0)
-    }
-}
 impl W {
     #[doc = "Bit 0 - 0:0\\]
 If 1 is written to this bit, the result available (irq_result_av) interrupt output is cleared. Writing 0 has no effect. Note that clearing an interrupt makes sense only if the interrupt output is programmed as level (refer to IRQTYPE)."]

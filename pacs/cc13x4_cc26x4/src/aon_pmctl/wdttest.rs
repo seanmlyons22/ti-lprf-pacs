@@ -11,9 +11,6 @@ pub type StallenW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED0` reader - 31:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved0R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED0` writer - 31:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved0W<'a, REG> = crate::FieldWriter<'a, REG, 31, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 WDT Stall Enable 0: The WDT timer continues counting if the CPU is stopped with a debugger. 1: If the CPU is stopped with a debugger, the WDT stops counting. Once the CPU is restarted, the WDT resumes counting."]
@@ -35,13 +32,6 @@ WDT Stall Enable 0: The WDT timer continues counting if the CPU is stopped with 
     #[must_use]
     pub fn stallen(&mut self) -> StallenW<WdttestSpec> {
         StallenW::new(self, 0)
-    }
-    #[doc = "Bits 1:31 - 31:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved0(&mut self) -> Reserved0W<WdttestSpec> {
-        Reserved0W::new(self, 1)
     }
 }
 #[doc = "Test Mode\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`wdttest::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`wdttest::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

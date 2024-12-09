@@ -5,9 +5,6 @@ pub type W = crate::W<FlashOtpData3Spec>;
 #[doc = "Field `FLASH_SIZE` reader - 2:0\\]
 Internal. Only to be used through TI provided API."]
 pub type FlashSizeR = crate::FieldReader;
-#[doc = "Field `FLASH_SIZE` writer - 2:0\\]
-Internal. Only to be used through TI provided API."]
-pub type FlashSizeW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 impl R {
     #[doc = "Bits 0:2 - 2:0\\]
 Internal. Only to be used through TI provided API."]
@@ -16,15 +13,7 @@ Internal. Only to be used through TI provided API."]
         FlashSizeR::new((self.bits & 7) as u8)
     }
 }
-impl W {
-    #[doc = "Bits 0:2 - 2:0\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn flash_size(&mut self) -> FlashSizeW<FlashOtpData3Spec> {
-        FlashSizeW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`flash_otp_data3::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`flash_otp_data3::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct FlashOtpData3Spec;
 impl crate::RegisterSpec for FlashOtpData3Spec {

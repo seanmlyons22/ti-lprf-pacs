@@ -17,29 +17,6 @@ impl From<Done> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `DONE` reader - 0:0\\]
-0: No effect 1: Set the DONE interrupt in the RIS register"]
-pub type DoneR = crate::BitReader<Done>;
-impl DoneR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Done {
-        match self.bits {
-            true => Done::Set,
-            false => Done::NoEffect,
-        }
-    }
-    #[doc = "Set IPSTANDARD.RIS bit"]
-    #[inline(always)]
-    pub fn is_set(&self) -> bool {
-        *self == Done::Set
-    }
-    #[doc = "Writing a 0 has no effect"]
-    #[inline(always)]
-    pub fn is_no_effect(&self) -> bool {
-        *self == Done::NoEffect
-    }
-}
 #[doc = "Field `DONE` writer - 0:0\\]
 0: No effect 1: Set the DONE interrupt in the RIS register"]
 pub type DoneW<'a, REG> = crate::BitWriter<'a, REG, Done>;
@@ -61,16 +38,7 @@ where
 #[doc = "Field `RESERVED1` reader - 31:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved1R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED1` writer - 31:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 31, u32>;
 impl R {
-    #[doc = "Bit 0 - 0:0\\]
-0: No effect 1: Set the DONE interrupt in the RIS register"]
-    #[inline(always)]
-    pub fn done(&self) -> DoneR {
-        DoneR::new((self.bits & 1) != 0)
-    }
     #[doc = "Bits 1:31 - 31:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
@@ -85,13 +53,6 @@ impl W {
     #[must_use]
     pub fn done(&mut self) -> DoneW<IsetSpec> {
         DoneW::new(self, 0)
-    }
-    #[doc = "Bits 1:31 - 31:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved1(&mut self) -> Reserved1W<IsetSpec> {
-        Reserved1W::new(self, 1)
     }
 }
 #[doc = "Interrupt Set Register: The ISET register allows software to write a 1 to set corresponding interrupt. Safety: This meets a safety requirement to allow software diagnostics to trigger interrupts. PSD compliant register.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`iset::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`iset::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

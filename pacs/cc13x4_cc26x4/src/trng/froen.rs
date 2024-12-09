@@ -13,9 +13,6 @@ pub type FroMaskW<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 #[doc = "Field `RESERVED24` reader - 31:24\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved24R = crate::FieldReader;
-#[doc = "Field `RESERVED24` writer - 31:24\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved24W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 impl R {
     #[doc = "Bits 0:23 - 23:0\\]
 Enable bits for the individual FROs. A '1' in bit \\[n\\]
@@ -39,13 +36,6 @@ enables FRO 'n'. Default state is all '1's to enable all FROs after power-up. No
     #[must_use]
     pub fn fro_mask(&mut self) -> FroMaskW<FroenSpec> {
         FroMaskW::new(self, 0)
-    }
-    #[doc = "Bits 24:31 - 31:24\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved24(&mut self) -> Reserved24W<FroenSpec> {
-        Reserved24W::new(self, 24)
     }
 }
 #[doc = "FRO Enable\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`froen::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`froen::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

@@ -23,9 +23,6 @@ pub type RdEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED23` reader - 31:23\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved23R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED23` writer - 31:23\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved23W<'a, REG> = crate::FieldWriter<'a, REG, 9, u16>;
 impl R {
     #[doc = "Bits 0:15 - 15:0\\]
 Mask AUX_SCE is allowed to update bits in half-word given by ADDR according to this bit mask."]
@@ -73,13 +70,6 @@ Read Enable 0: AUX_SCE is not allowed to read DDI half-word given by ADDR. 1: AU
     #[must_use]
     pub fn rd_en(&mut self) -> RdEnW<Nonsecddiacc1Spec> {
         RdEnW::new(self, 22)
-    }
-    #[doc = "Bits 23:31 - 31:23\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved23(&mut self) -> Reserved23W<Nonsecddiacc1Spec> {
-        Reserved23W::new(self, 23)
     }
 }
 #[doc = "Non-Secure DDI Access 1 When system is in secure state, AUX_SCE is allowed to update a predefined DDI half-word using SET or CLR access. Configuration will determine if AUX_SCE can read the same half-word. An access to a non-allowed register will suspend the AUX_SCE when system state is secure. If ADDR field in two or more NONSECDDIACC registers are equal, the MASK and RD_EN from the highest numbered register will be used. Examples: Half-word with address of 0 corresponds to DDI_0_OSC:CTL0 bit range \\[15:0\\]. Half-word with address of 1 corresponds to DDI_0_OSC:CTL0 bit range \\[31:16\\]. … Half-word with address of 34 corresponds to DDI_0_OSC:STAT2 bit range \\[15:0\\]. Half-word with address of 35 corresponds to DDI_0_OSC:STAT2 bit range \\[31:16\\].\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`nonsecddiacc1::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`nonsecddiacc1::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

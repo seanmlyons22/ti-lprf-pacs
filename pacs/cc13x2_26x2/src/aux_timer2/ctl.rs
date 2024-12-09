@@ -177,9 +177,6 @@ pub type Ch3ResetW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED7` reader - 31:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved7R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED7` writer - 31:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved7W<'a, REG> = crate::FieldWriter<'a, REG, 25, u32>;
 impl R {
     #[doc = "Bits 0:1 - 1:0\\]
 Timer mode control. The timer restarts from 0 when you set MODE to UP_ONCE, UP_PER, or UPDWN_PER. When you write MODE all internally queued updates to \\[CHnCC.*\\]
@@ -268,13 +265,6 @@ Channel 3 reset. 0: No effect. 1: Reset CH3CC, CH3PCC, CH3EVCFG, and CH3CCFG. Re
     #[must_use]
     pub fn ch3_reset(&mut self) -> Ch3ResetW<CtlSpec> {
         Ch3ResetW::new(self, 6)
-    }
-    #[doc = "Bits 7:31 - 31:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved7(&mut self) -> Reserved7W<CtlSpec> {
-        Reserved7W::new(self, 7)
     }
 }
 #[doc = "Timer Control\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

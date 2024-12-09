@@ -5,15 +5,9 @@ pub type W = crate::W<FetchstatSpec>;
 #[doc = "Field `PC` reader - 15:0\\]
 Internal. Only to be used through TI provided API."]
 pub type PcR = crate::FieldReader<u16>;
-#[doc = "Field `PC` writer - 15:0\\]
-Internal. Only to be used through TI provided API."]
-pub type PcW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 #[doc = "Field `OPCODE` reader - 31:16\\]
 Internal. Only to be used through TI provided API."]
 pub type OpcodeR = crate::FieldReader<u16>;
-#[doc = "Field `OPCODE` writer - 31:16\\]
-Internal. Only to be used through TI provided API."]
-pub type OpcodeW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
     #[doc = "Bits 0:15 - 15:0\\]
 Internal. Only to be used through TI provided API."]
@@ -28,22 +22,7 @@ Internal. Only to be used through TI provided API."]
         OpcodeR::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
-impl W {
-    #[doc = "Bits 0:15 - 15:0\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn pc(&mut self) -> PcW<FetchstatSpec> {
-        PcW::new(self, 0)
-    }
-    #[doc = "Bits 16:31 - 31:16\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn opcode(&mut self) -> OpcodeW<FetchstatSpec> {
-        OpcodeW::new(self, 16)
-    }
-}
+impl W {}
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fetchstat::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fetchstat::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct FetchstatSpec;
 impl crate::RegisterSpec for FetchstatSpec {

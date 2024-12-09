@@ -11,9 +11,6 @@ pub type DcdcEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `EXT_REG_MODE` reader - 1:1\\]
 Status of source for VDDRsupply: 0: DCDC/GLDO are generating VDDR 1: DCDC/GLDO are bypassed, external regulator supplies VDDR"]
 pub type ExtRegModeR = crate::BitReader;
-#[doc = "Field `EXT_REG_MODE` writer - 1:1\\]
-Status of source for VDDRsupply: 0: DCDC/GLDO are generating VDDR 1: DCDC/GLDO are bypassed, external regulator supplies VDDR"]
-pub type ExtRegModeW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DCDC_ACTIVE` reader - 2:2\\]
 Select to use DCDC regulator for VDDR in active mode 0: Use GLDO for regulation of VDDRin active mode. 1: Use DCDC for regulation of VDDRin active mode."]
 pub type DcdcActiveR = crate::BitReader;
@@ -59,13 +56,6 @@ Select to use DCDC regulator during recharge of VDDR 0: Use GLDO for recharge of
     #[must_use]
     pub fn dcdc_en(&mut self) -> DcdcEnW<PwrctlSpec> {
         DcdcEnW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Status of source for VDDRsupply: 0: DCDC/GLDO are generating VDDR 1: DCDC/GLDO are bypassed, external regulator supplies VDDR"]
-    #[inline(always)]
-    #[must_use]
-    pub fn ext_reg_mode(&mut self) -> ExtRegModeW<PwrctlSpec> {
-        ExtRegModeW::new(self, 1)
     }
     #[doc = "Bit 2 - 2:2\\]
 Select to use DCDC regulator for VDDR in active mode 0: Use GLDO for regulation of VDDRin active mode. 1: Use DCDC for regulation of VDDRin active mode."]

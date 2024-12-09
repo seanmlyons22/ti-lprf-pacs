@@ -17,9 +17,6 @@ pub type Trim13PvW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED8` reader - 15:8\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved8R = crate::FieldReader;
-#[doc = "Field `RESERVED8` writer - 15:8\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `VHVCT_E` reader - 19:16\\]
 Internal. Only to be used through TI provided API."]
 pub type VhvctER = crate::FieldReader;
@@ -35,9 +32,6 @@ pub type Trim13EW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED24` reader - 31:24\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved24R = crate::FieldReader;
-#[doc = "Field `RESERVED24` writer - 31:24\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved24W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 impl R {
     #[doc = "Bits 0:3 - 3:0\\]
 Internal. Only to be used through TI provided API."]
@@ -91,13 +85,6 @@ Internal. Only to be used through TI provided API."]
     pub fn trim13_pv(&mut self) -> Trim13PvW<Fvhvct1Spec> {
         Trim13PvW::new(self, 4)
     }
-    #[doc = "Bits 8:15 - 15:8\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved8(&mut self) -> Reserved8W<Fvhvct1Spec> {
-        Reserved8W::new(self, 8)
-    }
     #[doc = "Bits 16:19 - 19:16\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
@@ -111,13 +98,6 @@ Internal. Only to be used through TI provided API."]
     #[must_use]
     pub fn trim13_e(&mut self) -> Trim13EW<Fvhvct1Spec> {
         Trim13EW::new(self, 20)
-    }
-    #[doc = "Bits 24:31 - 31:24\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved24(&mut self) -> Reserved24W<Fvhvct1Spec> {
-        Reserved24W::new(self, 24)
     }
 }
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fvhvct1::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fvhvct1::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

@@ -5,15 +5,9 @@ pub type W = crate::W<Ch1captSpec>;
 #[doc = "Field `SUBSEC` reader - 15:0\\]
 Value of SUBSEC.VALUE bits 31:16 at capture time."]
 pub type SubsecR = crate::FieldReader<u16>;
-#[doc = "Field `SUBSEC` writer - 15:0\\]
-Value of SUBSEC.VALUE bits 31:16 at capture time."]
-pub type SubsecW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 #[doc = "Field `SEC` reader - 31:16\\]
 Value of SEC.VALUE bits 15:0 at capture time."]
 pub type SecR = crate::FieldReader<u16>;
-#[doc = "Field `SEC` writer - 31:16\\]
-Value of SEC.VALUE bits 15:0 at capture time."]
-pub type SecW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
     #[doc = "Bits 0:15 - 15:0\\]
 Value of SUBSEC.VALUE bits 31:16 at capture time."]
@@ -28,22 +22,7 @@ Value of SEC.VALUE bits 15:0 at capture time."]
         SecR::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
-impl W {
-    #[doc = "Bits 0:15 - 15:0\\]
-Value of SUBSEC.VALUE bits 31:16 at capture time."]
-    #[inline(always)]
-    #[must_use]
-    pub fn subsec(&mut self) -> SubsecW<Ch1captSpec> {
-        SubsecW::new(self, 0)
-    }
-    #[doc = "Bits 16:31 - 31:16\\]
-Value of SEC.VALUE bits 15:0 at capture time."]
-    #[inline(always)]
-    #[must_use]
-    pub fn sec(&mut self) -> SecW<Ch1captSpec> {
-        SecW::new(self, 16)
-    }
-}
+impl W {}
 #[doc = "Channel 1 Capture Value If CHCTL.CH1_EN = 1and CHCTL.CH1_CAPT_EN = 1, capture occurs on each rising edge of the event selected in AON_EVENT:RTCSEL.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ch1capt::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ch1capt::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Ch1captSpec;
 impl crate::RegisterSpec for Ch1captSpec {

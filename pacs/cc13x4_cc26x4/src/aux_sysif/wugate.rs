@@ -11,9 +11,6 @@ pub type EnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED1` reader - 31:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved1R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED1` writer - 31:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 31, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Wakeup output enable. 0: Disable AUX wakeup output. 1: Enable AUX wakeup output."]
@@ -35,13 +32,6 @@ Wakeup output enable. 0: Disable AUX wakeup output. 1: Enable AUX wakeup output.
     #[must_use]
     pub fn en(&mut self) -> EnW<WugateSpec> {
         EnW::new(self, 0)
-    }
-    #[doc = "Bits 1:31 - 31:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved1(&mut self) -> Reserved1W<WugateSpec> {
-        Reserved1W::new(self, 1)
     }
 }
 #[doc = "Wakeup Gate You must disable the AUX wakeup output: - Before you clear a programmable wakeup flag. - Before you change the value of \\[PROGWUnCFG.EN\\]

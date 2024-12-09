@@ -5,21 +5,12 @@ pub type W = crate::W<FsmSectorSpec>;
 #[doc = "Field `SEC_OUT` reader - 3:0\\]
 Internal. Only to be used through TI provided API."]
 pub type SecOutR = crate::FieldReader;
-#[doc = "Field `SEC_OUT` writer - 3:0\\]
-Internal. Only to be used through TI provided API."]
-pub type SecOutW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `SECTOR` reader - 7:4\\]
 Internal. Only to be used through TI provided API."]
 pub type SectorR = crate::FieldReader;
-#[doc = "Field `SECTOR` writer - 7:4\\]
-Internal. Only to be used through TI provided API."]
-pub type SectorW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `FSM_SECTOR_EXTENSION` reader - 15:8\\]
 Internal. Only to be used through TI provided API."]
 pub type FsmSectorExtensionR = crate::FieldReader;
-#[doc = "Field `FSM_SECTOR_EXTENSION` writer - 15:8\\]
-Internal. Only to be used through TI provided API."]
-pub type FsmSectorExtensionW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `SECT_ERASED` reader - 31:16\\]
 Internal. Only to be used through TI provided API."]
 pub type SectErasedR = crate::FieldReader<u16>;
@@ -53,27 +44,6 @@ Internal. Only to be used through TI provided API."]
     }
 }
 impl W {
-    #[doc = "Bits 0:3 - 3:0\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn sec_out(&mut self) -> SecOutW<FsmSectorSpec> {
-        SecOutW::new(self, 0)
-    }
-    #[doc = "Bits 4:7 - 7:4\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn sector(&mut self) -> SectorW<FsmSectorSpec> {
-        SectorW::new(self, 4)
-    }
-    #[doc = "Bits 8:15 - 15:8\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn fsm_sector_extension(&mut self) -> FsmSectorExtensionW<FsmSectorSpec> {
-        FsmSectorExtensionW::new(self, 8)
-    }
     #[doc = "Bits 16:31 - 31:16\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]

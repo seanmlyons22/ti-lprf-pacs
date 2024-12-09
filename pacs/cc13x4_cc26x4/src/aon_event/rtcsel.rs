@@ -484,9 +484,6 @@ where
 #[doc = "Field `RESERVED6` reader - 31:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved6R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED6` writer - 31:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 26, u32>;
 impl R {
     #[doc = "Bits 0:5 - 5:0\\]
 AON Event Source id# for RTCSEL event which is fed to AON_RTC. Please refer to AON_RTC:CH1CAPT"]
@@ -508,13 +505,6 @@ AON Event Source id# for RTCSEL event which is fed to AON_RTC. Please refer to A
     #[must_use]
     pub fn rtc_ch1_capt_ev(&mut self) -> RtcCh1CaptEvW<RtcselSpec> {
         RtcCh1CaptEvW::new(self, 0)
-    }
-    #[doc = "Bits 6:31 - 31:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<RtcselSpec> {
-        Reserved6W::new(self, 6)
     }
 }
 #[doc = "RTC Capture Event Selector For AON_RTC This register contains a pointer to select an AON event for RTC capture. Please refer to AON_RTC:CH1CAPT\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`rtcsel::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`rtcsel::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

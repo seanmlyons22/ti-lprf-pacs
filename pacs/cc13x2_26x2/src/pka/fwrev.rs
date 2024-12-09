@@ -5,33 +5,18 @@ pub type W = crate::W<FwrevSpec>;
 #[doc = "Field `RESERVED0` reader - 15:0\\]
 Ignore on read"]
 pub type Reserved0R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED0` writer - 15:0\\]
-Ignore on read"]
-pub type Reserved0W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 #[doc = "Field `FW_PATCH_LEVEL` reader - 19:16\\]
 4-bit binary encoding of the firmware patch level, initial release will carry value zero Patches are used to remove bugs without changing the functionality or interface of a module."]
 pub type FwPatchLevelR = crate::FieldReader;
-#[doc = "Field `FW_PATCH_LEVEL` writer - 19:16\\]
-4-bit binary encoding of the firmware patch level, initial release will carry value zero Patches are used to remove bugs without changing the functionality or interface of a module."]
-pub type FwPatchLevelW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `MINOR_FW_REVISION` reader - 23:20\\]
 4-bit binary encoding of the minor firmware revision number"]
 pub type MinorFwRevisionR = crate::FieldReader;
-#[doc = "Field `MINOR_FW_REVISION` writer - 23:20\\]
-4-bit binary encoding of the minor firmware revision number"]
-pub type MinorFwRevisionW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `MAJOR_FW_REVISION` reader - 27:24\\]
 4-bit binary encoding of the major firmware revision number"]
 pub type MajorFwRevisionR = crate::FieldReader;
-#[doc = "Field `MAJOR_FW_REVISION` writer - 27:24\\]
-4-bit binary encoding of the major firmware revision number"]
-pub type MajorFwRevisionW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `FW_CAPABILITIES` reader - 31:28\\]
 Firmware Capabilities 4-bit binary encoding for the functionality implemented in the firmware. 0x0: indicates basic ModExp with/without CRT. 0x1: adds Modular Inversion, 0x2: value 2 adds Modular Inversion and ECC operations. 0x3-0xF : Reserved."]
 pub type FwCapabilitiesR = crate::FieldReader;
-#[doc = "Field `FW_CAPABILITIES` writer - 31:28\\]
-Firmware Capabilities 4-bit binary encoding for the functionality implemented in the firmware. 0x0: indicates basic ModExp with/without CRT. 0x1: adds Modular Inversion, 0x2: value 2 adds Modular Inversion and ECC operations. 0x3-0xF : Reserved."]
-pub type FwCapabilitiesW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 impl R {
     #[doc = "Bits 0:15 - 15:0\\]
 Ignore on read"]
@@ -64,43 +49,7 @@ Firmware Capabilities 4-bit binary encoding for the functionality implemented in
         FwCapabilitiesR::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
-impl W {
-    #[doc = "Bits 0:15 - 15:0\\]
-Ignore on read"]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved0(&mut self) -> Reserved0W<FwrevSpec> {
-        Reserved0W::new(self, 0)
-    }
-    #[doc = "Bits 16:19 - 19:16\\]
-4-bit binary encoding of the firmware patch level, initial release will carry value zero Patches are used to remove bugs without changing the functionality or interface of a module."]
-    #[inline(always)]
-    #[must_use]
-    pub fn fw_patch_level(&mut self) -> FwPatchLevelW<FwrevSpec> {
-        FwPatchLevelW::new(self, 16)
-    }
-    #[doc = "Bits 20:23 - 23:20\\]
-4-bit binary encoding of the minor firmware revision number"]
-    #[inline(always)]
-    #[must_use]
-    pub fn minor_fw_revision(&mut self) -> MinorFwRevisionW<FwrevSpec> {
-        MinorFwRevisionW::new(self, 20)
-    }
-    #[doc = "Bits 24:27 - 27:24\\]
-4-bit binary encoding of the major firmware revision number"]
-    #[inline(always)]
-    #[must_use]
-    pub fn major_fw_revision(&mut self) -> MajorFwRevisionW<FwrevSpec> {
-        MajorFwRevisionW::new(self, 24)
-    }
-    #[doc = "Bits 28:31 - 31:28\\]
-Firmware Capabilities 4-bit binary encoding for the functionality implemented in the firmware. 0x0: indicates basic ModExp with/without CRT. 0x1: adds Modular Inversion, 0x2: value 2 adds Modular Inversion and ECC operations. 0x3-0xF : Reserved."]
-    #[inline(always)]
-    #[must_use]
-    pub fn fw_capabilities(&mut self) -> FwCapabilitiesW<FwrevSpec> {
-        FwCapabilitiesW::new(self, 28)
-    }
-}
+impl W {}
 #[doc = "PKA firmware revision and capabilities register This register allows the host access to the internal firmware revision number of the PKA Engine for software driver matching and diagnostic purposes. This register also contains a field that encodes the capabilities of the embedded firmware. This register is written by the firmware within a few clock cycles after starting up that firmware. The hardware reset value is zero, indicating that the information has not been written yet.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fwrev::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fwrev::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct FwrevSpec;
 impl crate::RegisterSpec for FwrevSpec {

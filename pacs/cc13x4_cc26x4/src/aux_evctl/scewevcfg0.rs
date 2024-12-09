@@ -880,9 +880,6 @@ pub type CombEvEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED7` reader - 31:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved7R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED7` writer - 31:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved7W<'a, REG> = crate::FieldWriter<'a, REG, 25, u32>;
 impl R {
     #[doc = "Bits 0:5 - 5:0\\]
 Select the event source from the synchronous event bus to be used in event equation."]
@@ -917,13 +914,6 @@ Event combination control: 0: Disable event combination. 1: Enable event combina
     #[must_use]
     pub fn comb_ev_en(&mut self) -> CombEvEnW<Scewevcfg0Spec> {
         CombEvEnW::new(self, 6)
-    }
-    #[doc = "Bits 7:31 - 31:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved7(&mut self) -> Reserved7W<Scewevcfg0Spec> {
-        Reserved7W::new(self, 7)
     }
 }
 #[doc = "Sensor Controller Engine Wait Event Configuration 0 Configuration of this register and SCEWEVCFG1 controls bit index 7 in AUX_SCE:WUSTAT.EV_SIGNALS. This bit can be used by AUX_SCE WEV0, WEV1, BEV0 and BEV1 instructions. When COMB_EV_EN = 0: AUX_SCE:WUSTAT.EV_SIGNALS (7) = EV0_SEL event When COMB_EV_EN = 1: AUX_SCE:WUSTAT.EV_SIGNALS (7) = ( EV0_SEL event ) OR ( SCEWEVCFG1.EV1_SEL event ) Bit fields SCEWEVCFG1.EV0_POL and SCEWEVCFG1.EV1_POL control the polarity of selected events. Event combination is useful when there is a need to wait for a certain condition with timeout.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`scewevcfg0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`scewevcfg0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

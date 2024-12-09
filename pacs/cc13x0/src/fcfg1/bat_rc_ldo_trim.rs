@@ -5,51 +5,27 @@ pub type W = crate::W<BatRcLdoTrimSpec>;
 #[doc = "Field `MEASUREPER` reader - 1:0\\]
 Internal. Only to be used through TI provided API."]
 pub type MeasureperR = crate::FieldReader;
-#[doc = "Field `MEASUREPER` writer - 1:0\\]
-Internal. Only to be used through TI provided API."]
-pub type MeasureperW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `RESERVED1` reader - 7:2\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved1R = crate::FieldReader;
-#[doc = "Field `RESERVED1` writer - 7:2\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `RCOSCHF_ITUNE_TRIM` reader - 11:8\\]
 Internal. Only to be used through TI provided API."]
 pub type RcoschfItuneTrimR = crate::FieldReader;
-#[doc = "Field `RCOSCHF_ITUNE_TRIM` writer - 11:8\\]
-Internal. Only to be used through TI provided API."]
-pub type RcoschfItuneTrimW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED2` reader - 15:12\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved2R = crate::FieldReader;
-#[doc = "Field `RESERVED2` writer - 15:12\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `VTRIM_UDIG` reader - 19:16\\]
 Internal. Only to be used through TI provided API."]
 pub type VtrimUdigR = crate::FieldReader;
-#[doc = "Field `VTRIM_UDIG` writer - 19:16\\]
-Internal. Only to be used through TI provided API."]
-pub type VtrimUdigW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED3` reader - 23:20\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved3R = crate::FieldReader;
-#[doc = "Field `RESERVED3` writer - 23:20\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `VTRIM_BOD` reader - 27:24\\]
 Internal. Only to be used through TI provided API."]
 pub type VtrimBodR = crate::FieldReader;
-#[doc = "Field `VTRIM_BOD` writer - 27:24\\]
-Internal. Only to be used through TI provided API."]
-pub type VtrimBodW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED4` reader - 31:28\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved4R = crate::FieldReader;
-#[doc = "Field `RESERVED4` writer - 31:28\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved4W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 impl R {
     #[doc = "Bits 0:1 - 1:0\\]
 Internal. Only to be used through TI provided API."]
@@ -100,64 +76,7 @@ Internal. Only to be used through TI provided API."]
         Reserved4R::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
-impl W {
-    #[doc = "Bits 0:1 - 1:0\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn measureper(&mut self) -> MeasureperW<BatRcLdoTrimSpec> {
-        MeasureperW::new(self, 0)
-    }
-    #[doc = "Bits 2:7 - 7:2\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved1(&mut self) -> Reserved1W<BatRcLdoTrimSpec> {
-        Reserved1W::new(self, 2)
-    }
-    #[doc = "Bits 8:11 - 11:8\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn rcoschf_itune_trim(&mut self) -> RcoschfItuneTrimW<BatRcLdoTrimSpec> {
-        RcoschfItuneTrimW::new(self, 8)
-    }
-    #[doc = "Bits 12:15 - 15:12\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<BatRcLdoTrimSpec> {
-        Reserved2W::new(self, 12)
-    }
-    #[doc = "Bits 16:19 - 19:16\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn vtrim_udig(&mut self) -> VtrimUdigW<BatRcLdoTrimSpec> {
-        VtrimUdigW::new(self, 16)
-    }
-    #[doc = "Bits 20:23 - 23:20\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<BatRcLdoTrimSpec> {
-        Reserved3W::new(self, 20)
-    }
-    #[doc = "Bits 24:27 - 27:24\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn vtrim_bod(&mut self) -> VtrimBodW<BatRcLdoTrimSpec> {
-        VtrimBodW::new(self, 24)
-    }
-    #[doc = "Bits 28:31 - 31:28\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved4(&mut self) -> Reserved4W<BatRcLdoTrimSpec> {
-        Reserved4W::new(self, 28)
-    }
-}
+impl W {}
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`bat_rc_ldo_trim::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`bat_rc_ldo_trim::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct BatRcLdoTrimSpec;
 impl crate::RegisterSpec for BatRcLdoTrimSpec {

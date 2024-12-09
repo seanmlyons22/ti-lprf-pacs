@@ -2,32 +2,12 @@
 pub type R = crate::R<StirSpec>;
 #[doc = "Register `STIR` writer"]
 pub type W = crate::W<StirSpec>;
-#[doc = "Field `INTID` reader - 8:0\\]
-Interrupt ID field. Writing a value to this bit-field is the same as manually pending an interrupt by setting the corresponding interrupt bit in an Interrupt Set Pending Register in NVIC_ISPR0 or NVIC_ISPR1."]
-pub type IntidR = crate::FieldReader<u16>;
 #[doc = "Field `INTID` writer - 8:0\\]
 Interrupt ID field. Writing a value to this bit-field is the same as manually pending an interrupt by setting the corresponding interrupt bit in an Interrupt Set Pending Register in NVIC_ISPR0 or NVIC_ISPR1."]
 pub type IntidW<'a, REG> = crate::FieldWriter<'a, REG, 9, u16>;
-#[doc = "Field `RESERVED9` reader - 31:9\\]
-Software should not rely on the value of a reserved. Write 0."]
-pub type Reserved9R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED9` writer - 31:9\\]
 Software should not rely on the value of a reserved. Write 0."]
 pub type Reserved9W<'a, REG> = crate::FieldWriter<'a, REG, 23, u32>;
-impl R {
-    #[doc = "Bits 0:8 - 8:0\\]
-Interrupt ID field. Writing a value to this bit-field is the same as manually pending an interrupt by setting the corresponding interrupt bit in an Interrupt Set Pending Register in NVIC_ISPR0 or NVIC_ISPR1."]
-    #[inline(always)]
-    pub fn intid(&self) -> IntidR {
-        IntidR::new((self.bits & 0x01ff) as u16)
-    }
-    #[doc = "Bits 9:31 - 31:9\\]
-Software should not rely on the value of a reserved. Write 0."]
-    #[inline(always)]
-    pub fn reserved9(&self) -> Reserved9R {
-        Reserved9R::new((self.bits >> 9) & 0x007f_ffff)
-    }
-}
 impl W {
     #[doc = "Bits 0:8 - 8:0\\]
 Interrupt ID field. Writing a value to this bit-field is the same as manually pending an interrupt by setting the corresponding interrupt bit in an Interrupt Set Pending Register in NVIC_ISPR0 or NVIC_ISPR1."]

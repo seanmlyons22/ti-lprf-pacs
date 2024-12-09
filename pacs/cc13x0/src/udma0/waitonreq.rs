@@ -7,11 +7,6 @@ Channel wait on request status: Bit \\[Ch\\]
 = 0: Once uDMA receives a single or burst request on channel Ch, this channel may come out of active state even if request is still present. Bit \\[Ch\\]
 = 1: Once uDMA receives a single or burst request on channel Ch, it keeps channel Ch in active state until the requests are deasserted. This handshake is necessary for channels where the requester is in an asynchronous domain or can run at slower clock speed than uDMA"]
 pub type ChnlstatusR = crate::FieldReader<u32>;
-#[doc = "Field `CHNLSTATUS` writer - 31:0\\]
-Channel wait on request status: Bit \\[Ch\\]
-= 0: Once uDMA receives a single or burst request on channel Ch, this channel may come out of active state even if request is still present. Bit \\[Ch\\]
-= 1: Once uDMA receives a single or burst request on channel Ch, it keeps channel Ch in active state until the requests are deasserted. This handshake is necessary for channels where the requester is in an asynchronous domain or can run at slower clock speed than uDMA"]
-pub type ChnlstatusW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 Channel wait on request status: Bit \\[Ch\\]
@@ -22,17 +17,7 @@ Channel wait on request status: Bit \\[Ch\\]
         ChnlstatusR::new(self.bits)
     }
 }
-impl W {
-    #[doc = "Bits 0:31 - 31:0\\]
-Channel wait on request status: Bit \\[Ch\\]
-= 0: Once uDMA receives a single or burst request on channel Ch, this channel may come out of active state even if request is still present. Bit \\[Ch\\]
-= 1: Once uDMA receives a single or burst request on channel Ch, it keeps channel Ch in active state until the requests are deasserted. This handshake is necessary for channels where the requester is in an asynchronous domain or can run at slower clock speed than uDMA"]
-    #[inline(always)]
-    #[must_use]
-    pub fn chnlstatus(&mut self) -> ChnlstatusW<WaitonreqSpec> {
-        ChnlstatusW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Channel Wait On Request Status\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`waitonreq::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`waitonreq::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct WaitonreqSpec;
 impl crate::RegisterSpec for WaitonreqSpec {

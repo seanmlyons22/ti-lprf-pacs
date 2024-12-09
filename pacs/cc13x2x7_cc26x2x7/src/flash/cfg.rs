@@ -5,9 +5,6 @@ pub type W = crate::W<CfgSpec>;
 #[doc = "Field `RESERVED0` reader - 0:0\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved0R = crate::BitReader;
-#[doc = "Field `RESERVED0` writer - 0:0\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved0W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `DIS_STANDBY` reader - 1:1\\]
 Internal. Only to be used through TI provided API."]
 pub type DisStandbyR = crate::BitReader;
@@ -125,13 +122,6 @@ Internal. Only to be used through TI provided API."]
     }
 }
 impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved0(&mut self) -> Reserved0W<CfgSpec> {
-        Reserved0W::new(self, 0)
-    }
     #[doc = "Bit 1 - 1:1\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]

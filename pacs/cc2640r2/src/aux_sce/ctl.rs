@@ -38,18 +38,12 @@ pub type ForceWuLowR = crate::BitReader;
 #[doc = "Field `FORCE_WU_LOW` writer - 5:5\\]
 Internal. Only to be used through TI provided API."]
 pub type ForceWuLowW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `DBG_FREEZE_EN` reader - 6:6\\]
-Internal. Only to be used through TI provided API."]
-pub type DbgFreezeEnR = crate::BitReader;
 #[doc = "Field `DBG_FREEZE_EN` writer - 6:6\\]
 Internal. Only to be used through TI provided API."]
 pub type DbgFreezeEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED7` reader - 7:7\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved7R = crate::BitReader;
-#[doc = "Field `RESERVED7` writer - 7:7\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved7W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESET_VECTOR` reader - 11:8\\]
 Internal. Only to be used through TI provided API."]
 pub type ResetVectorR = crate::FieldReader;
@@ -59,9 +53,6 @@ pub type ResetVectorW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED12` reader - 15:12\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved12R = crate::FieldReader;
-#[doc = "Field `RESERVED12` writer - 15:12\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved12W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `FORCE_EV_HIGH` reader - 23:16\\]
 Internal. Only to be used through TI provided API."]
 pub type ForceEvHighR = crate::FieldReader;
@@ -110,12 +101,6 @@ Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn force_wu_low(&self) -> ForceWuLowR {
         ForceWuLowR::new(((self.bits >> 5) & 1) != 0)
-    }
-    #[doc = "Bit 6 - 6:6\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    pub fn dbg_freeze_en(&self) -> DbgFreezeEnR {
-        DbgFreezeEnR::new(((self.bits >> 6) & 1) != 0)
     }
     #[doc = "Bit 7 - 7:7\\]
 Internal. Only to be used through TI provided API."]
@@ -198,26 +183,12 @@ Internal. Only to be used through TI provided API."]
     pub fn dbg_freeze_en(&mut self) -> DbgFreezeEnW<CtlSpec> {
         DbgFreezeEnW::new(self, 6)
     }
-    #[doc = "Bit 7 - 7:7\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved7(&mut self) -> Reserved7W<CtlSpec> {
-        Reserved7W::new(self, 7)
-    }
     #[doc = "Bits 8:11 - 11:8\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
     pub fn reset_vector(&mut self) -> ResetVectorW<CtlSpec> {
         ResetVectorW::new(self, 8)
-    }
-    #[doc = "Bits 12:15 - 15:12\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved12(&mut self) -> Reserved12W<CtlSpec> {
-        Reserved12W::new(self, 12)
     }
     #[doc = "Bits 16:23 - 23:16\\]
 Internal. Only to be used through TI provided API."]

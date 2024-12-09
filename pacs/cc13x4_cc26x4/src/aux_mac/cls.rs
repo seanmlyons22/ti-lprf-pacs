@@ -5,15 +5,9 @@ pub type W = crate::W<ClsSpec>;
 #[doc = "Field `VALUE` reader - 5:0\\]
 Number of leading sign bits in the accumulator. When MSB of accumulator is 0, VALUE is number of leading zeros, MSB included. When MSB of accumulator is 1, VALUE is number of leading ones, MSB included. VALUE range is 1 thru 40."]
 pub type ValueR = crate::FieldReader;
-#[doc = "Field `VALUE` writer - 5:0\\]
-Number of leading sign bits in the accumulator. When MSB of accumulator is 0, VALUE is number of leading zeros, MSB included. When MSB of accumulator is 1, VALUE is number of leading ones, MSB included. VALUE range is 1 thru 40."]
-pub type ValueW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `RESERVED6` reader - 31:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved6R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED6` writer - 31:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 26, u32>;
 impl R {
     #[doc = "Bits 0:5 - 5:0\\]
 Number of leading sign bits in the accumulator. When MSB of accumulator is 0, VALUE is number of leading zeros, MSB included. When MSB of accumulator is 1, VALUE is number of leading ones, MSB included. VALUE range is 1 thru 40."]
@@ -28,22 +22,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved6R::new((self.bits >> 6) & 0x03ff_ffff)
     }
 }
-impl W {
-    #[doc = "Bits 0:5 - 5:0\\]
-Number of leading sign bits in the accumulator. When MSB of accumulator is 0, VALUE is number of leading zeros, MSB included. When MSB of accumulator is 1, VALUE is number of leading ones, MSB included. VALUE range is 1 thru 40."]
-    #[inline(always)]
-    #[must_use]
-    pub fn value(&mut self) -> ValueW<ClsSpec> {
-        ValueW::new(self, 0)
-    }
-    #[doc = "Bits 6:31 - 31:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<ClsSpec> {
-        Reserved6W::new(self, 6)
-    }
-}
+impl W {}
 #[doc = "Count Leading Sign\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`cls::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`cls::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct ClsSpec;
 impl crate::RegisterSpec for ClsSpec {

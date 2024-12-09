@@ -41,9 +41,6 @@ pub type CSnapstallW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED6` reader - 15:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved6R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED6` writer - 15:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 10, u16>;
 #[doc = "Field `S_REGRDY` reader - 16:16\\]
 Register Read/Write on the Debug Core Register Selector register is available. Last transfer is complete. When writing to this register, 1 must be written this bit-field, otherwise the write operation is ignored and no bits are written into the register."]
 pub type SRegrdyR = crate::BitReader;
@@ -226,13 +223,6 @@ If the core is stalled on a load/store operation the stall ceases and the instru
     #[must_use]
     pub fn c_snapstall(&mut self) -> CSnapstallW<DhcsrSpec> {
         CSnapstallW::new(self, 5)
-    }
-    #[doc = "Bits 6:15 - 15:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<DhcsrSpec> {
-        Reserved6W::new(self, 6)
     }
     #[doc = "Bit 16 - 16:16\\]
 Register Read/Write on the Debug Core Register Selector register is available. Last transfer is complete. When writing to this register, 1 must be written this bit-field, otherwise the write operation is ignored and no bits are written into the register."]

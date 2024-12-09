@@ -23,9 +23,6 @@ pub type PerDisableW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED9` reader - 31:9\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved9R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED9` writer - 31:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved9W<'a, REG> = crate::FieldWriter<'a, REG, 23, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Parity Error Debug Enable 0: Normal operation 1: An address offset can be written to PER_DBG.PER_DEBUG_ADDR and parity errors will be generated on reads from within this offset"]
@@ -73,13 +70,6 @@ Parity Status Disable 0: A parity error will update PER_CHK.PER_ADDR field 1: Pa
     #[must_use]
     pub fn per_disable(&mut self) -> PerDisableW<PerCtlSpec> {
         PerDisableW::new(self, 8)
-    }
-    #[doc = "Bits 9:31 - 31:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved9(&mut self) -> Reserved9W<PerCtlSpec> {
-        Reserved9W::new(self, 9)
     }
 }
 #[doc = "Parity Error Control Parity error check controls\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`per_ctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`per_ctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

@@ -70,46 +70,9 @@ impl BanknotinrdR {
         *self == Banknotinrd::Bank0
     }
 }
-#[doc = "Field `BANKNOTINRD` writer - 4:0\\]
-Bank not in read mode. Indicates which banks are not in READ mode. There is 1 bit per bank."]
-pub type BanknotinrdW<'a, REG> = crate::FieldWriter<'a, REG, 5, Banknotinrd>;
-impl<'a, REG> BanknotinrdW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "Bank 4"]
-    #[inline(always)]
-    pub fn bank4(self) -> &'a mut crate::W<REG> {
-        self.variant(Banknotinrd::Bank4)
-    }
-    #[doc = "Bank 3"]
-    #[inline(always)]
-    pub fn bank3(self) -> &'a mut crate::W<REG> {
-        self.variant(Banknotinrd::Bank3)
-    }
-    #[doc = "Bank 2"]
-    #[inline(always)]
-    pub fn bank2(self) -> &'a mut crate::W<REG> {
-        self.variant(Banknotinrd::Bank2)
-    }
-    #[doc = "Bank 1"]
-    #[inline(always)]
-    pub fn bank1(self) -> &'a mut crate::W<REG> {
-        self.variant(Banknotinrd::Bank1)
-    }
-    #[doc = "Bank 0"]
-    #[inline(always)]
-    pub fn bank0(self) -> &'a mut crate::W<REG> {
-        self.variant(Banknotinrd::Bank0)
-    }
-}
 #[doc = "Field `RESERVED1` reader - 7:5\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved1R = crate::FieldReader;
-#[doc = "Field `RESERVED1` writer - 7:5\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "11:8\\]
 Indicates mode of bank(s) that are not in READ mode\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -226,70 +189,6 @@ impl BankmodeR {
         *self == Bankmode::Read
     }
 }
-#[doc = "Field `BANKMODE` writer - 11:8\\]
-Indicates mode of bank(s) that are not in READ mode"]
-pub type BankmodeW<'a, REG> = crate::FieldWriter<'a, REG, 4, Bankmode>;
-impl<'a, REG> BankmodeW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "Erase Bank"]
-    #[inline(always)]
-    pub fn erasebnk(self) -> &'a mut crate::W<REG> {
-        self.variant(Bankmode::Erasebnk)
-    }
-    #[doc = "Program Multiple Word"]
-    #[inline(always)]
-    pub fn pgmmw(self) -> &'a mut crate::W<REG> {
-        self.variant(Bankmode::Pgmmw)
-    }
-    #[doc = "Erase Sector"]
-    #[inline(always)]
-    pub fn erasesect(self) -> &'a mut crate::W<REG> {
-        self.variant(Bankmode::Erasesect)
-    }
-    #[doc = "Erase Verify Mode"]
-    #[inline(always)]
-    pub fn erasever(self) -> &'a mut crate::W<REG> {
-        self.variant(Bankmode::Erasever)
-    }
-    #[doc = "Program Single Word"]
-    #[inline(always)]
-    pub fn pgmsw(self) -> &'a mut crate::W<REG> {
-        self.variant(Bankmode::Pgmsw)
-    }
-    #[doc = "Program Verify Mode"]
-    #[inline(always)]
-    pub fn pgmver(self) -> &'a mut crate::W<REG> {
-        self.variant(Bankmode::Pgmver)
-    }
-    #[doc = "Read Margin 1B Mode"]
-    #[inline(always)]
-    pub fn rdmarg1b(self) -> &'a mut crate::W<REG> {
-        self.variant(Bankmode::Rdmarg1b)
-    }
-    #[doc = "Read Margin 0B Mode"]
-    #[inline(always)]
-    pub fn rdmarg0b(self) -> &'a mut crate::W<REG> {
-        self.variant(Bankmode::Rdmarg0b)
-    }
-    #[doc = "Read Margin 1 Mode"]
-    #[inline(always)]
-    pub fn rdmarg1(self) -> &'a mut crate::W<REG> {
-        self.variant(Bankmode::Rdmarg1)
-    }
-    #[doc = "Read Margin 0 Mode"]
-    #[inline(always)]
-    pub fn rdmarg0(self) -> &'a mut crate::W<REG> {
-        self.variant(Bankmode::Rdmarg0)
-    }
-    #[doc = "Read Mode"]
-    #[inline(always)]
-    pub fn read(self) -> &'a mut crate::W<REG> {
-        self.variant(Bankmode::Read)
-    }
-}
 #[doc = "16:16\\]
 Bank 2T Ready. Bank(s) are ready for 2T access. This is accomplished when the pump has fully driven power rails to the bank(s).\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -326,24 +225,6 @@ impl Bank2trdyR {
     #[inline(always)]
     pub fn is_false(&self) -> bool {
         *self == Bank2trdy::False
-    }
-}
-#[doc = "Field `BANK2TRDY` writer - 16:16\\]
-Bank 2T Ready. Bank(s) are ready for 2T access. This is accomplished when the pump has fully driven power rails to the bank(s)."]
-pub type Bank2trdyW<'a, REG> = crate::BitWriter<'a, REG, Bank2trdy>;
-impl<'a, REG> Bank2trdyW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Ready"]
-    #[inline(always)]
-    pub fn true_(self) -> &'a mut crate::W<REG> {
-        self.variant(Bank2trdy::True)
-    }
-    #[doc = "Not ready"]
-    #[inline(always)]
-    pub fn false_(self) -> &'a mut crate::W<REG> {
-        self.variant(Bank2trdy::False)
     }
 }
 #[doc = "17:17\\]
@@ -384,24 +265,6 @@ impl Bank1trdyR {
         *self == Bank1trdy::False
     }
 }
-#[doc = "Field `BANK1TRDY` writer - 17:17\\]
-Bank 1T Ready. Bank(s) are ready for 1T access. This is accomplished when the bank and pump have been trimmed."]
-pub type Bank1trdyW<'a, REG> = crate::BitWriter<'a, REG, Bank1trdy>;
-impl<'a, REG> Bank1trdyW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Ready"]
-    #[inline(always)]
-    pub fn true_(self) -> &'a mut crate::W<REG> {
-        self.variant(Bank1trdy::True)
-    }
-    #[doc = "Not ready"]
-    #[inline(always)]
-    pub fn false_(self) -> &'a mut crate::W<REG> {
-        self.variant(Bank1trdy::False)
-    }
-}
 impl R {
     #[doc = "Bits 0:4 - 4:0\\]
 Bank not in read mode. Indicates which banks are not in READ mode. There is 1 bit per bank."]
@@ -434,43 +297,7 @@ Bank 1T Ready. Bank(s) are ready for 1T access. This is accomplished when the ba
         Bank1trdyR::new(((self.bits >> 17) & 1) != 0)
     }
 }
-impl W {
-    #[doc = "Bits 0:4 - 4:0\\]
-Bank not in read mode. Indicates which banks are not in READ mode. There is 1 bit per bank."]
-    #[inline(always)]
-    #[must_use]
-    pub fn banknotinrd(&mut self) -> BanknotinrdW<StatmodeSpec> {
-        BanknotinrdW::new(self, 0)
-    }
-    #[doc = "Bits 5:7 - 7:5\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved1(&mut self) -> Reserved1W<StatmodeSpec> {
-        Reserved1W::new(self, 5)
-    }
-    #[doc = "Bits 8:11 - 11:8\\]
-Indicates mode of bank(s) that are not in READ mode"]
-    #[inline(always)]
-    #[must_use]
-    pub fn bankmode(&mut self) -> BankmodeW<StatmodeSpec> {
-        BankmodeW::new(self, 8)
-    }
-    #[doc = "Bit 16 - 16:16\\]
-Bank 2T Ready. Bank(s) are ready for 2T access. This is accomplished when the pump has fully driven power rails to the bank(s)."]
-    #[inline(always)]
-    #[must_use]
-    pub fn bank2trdy(&mut self) -> Bank2trdyW<StatmodeSpec> {
-        Bank2trdyW::new(self, 16)
-    }
-    #[doc = "Bit 17 - 17:17\\]
-Bank 1T Ready. Bank(s) are ready for 1T access. This is accomplished when the bank and pump have been trimmed."]
-    #[inline(always)]
-    #[must_use]
-    pub fn bank1trdy(&mut self) -> Bank1trdyW<StatmodeSpec> {
-        Bank1trdyW::new(self, 17)
-    }
-}
+impl W {}
 #[doc = "Mode Status Register Indicates any banks which not in READ mode, and it indicates the mode which the bank(s) are in.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`statmode::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`statmode::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct StatmodeSpec;
 impl crate::RegisterSpec for StatmodeSpec {

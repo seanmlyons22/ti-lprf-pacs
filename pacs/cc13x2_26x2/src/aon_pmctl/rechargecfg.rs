@@ -41,9 +41,6 @@ pub type C2W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED24` reader - 29:24\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved24R = crate::FieldReader;
-#[doc = "Field `RESERVED24` writer - 29:24\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved24W<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "31:30\\]
 Selects recharge algorithm for VDDR when the system is running on the uLDO\n\nValue on reset: 3"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -225,13 +222,6 @@ Internal. Only to be used through TI provided API."]
     #[must_use]
     pub fn c2(&mut self) -> C2W<RechargecfgSpec> {
         C2W::new(self, 20)
-    }
-    #[doc = "Bits 24:29 - 29:24\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved24(&mut self) -> Reserved24W<RechargecfgSpec> {
-        Reserved24W::new(self, 24)
     }
     #[doc = "Bits 30:31 - 31:30\\]
 Selects recharge algorithm for VDDR when the system is running on the uLDO"]

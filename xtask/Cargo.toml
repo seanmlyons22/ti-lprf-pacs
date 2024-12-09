@@ -7,6 +7,6 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-tixml2svd = "0.1.4"
+tixml2svd = { git = "https://github.com/seanmlyons22/tixml2svd.git", rev = "e826132977a3356cbef343442de89cf16d2b985c" }
 svd2rust = "0.33.1"
 form = "0.12.1"

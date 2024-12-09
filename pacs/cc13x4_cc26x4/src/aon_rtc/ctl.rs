@@ -23,12 +23,6 @@ pub type Rtc4khzEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED3` reader - 6:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3R = crate::FieldReader;
-#[doc = "Field `RESERVED3` writer - 6:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
-#[doc = "Field `RESET` reader - 7:7\\]
-RTC Counter reset. Writing 1 to this bit will reset the RTC counter. This bit is cleared when reset takes effect"]
-pub type ResetR = crate::BitReader;
 #[doc = "Field `RESET` writer - 7:7\\]
 RTC Counter reset. Writing 1 to this bit will reset the RTC counter. This bit is cleared when reset takes effect"]
 pub type ResetW<'a, REG> = crate::BitWriter<'a, REG>;
@@ -254,9 +248,6 @@ where
 #[doc = "Field `RESERVED12` reader - 15:12\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved12R = crate::FieldReader;
-#[doc = "Field `RESERVED12` writer - 15:12\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved12W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "18:16\\]
 Eventmask selecting which delayed events that form the combined event.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -349,9 +340,6 @@ where
 #[doc = "Field `RESERVED19` reader - 31:19\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved19R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED19` writer - 31:19\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved19W<'a, REG> = crate::FieldWriter<'a, REG, 13, u16>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Enable RTC counter 0: Halted (frozen) 1: Running"]
@@ -376,12 +364,6 @@ Software should not rely on the value of a reserved. Writing any other value tha
     #[inline(always)]
     pub fn reserved3(&self) -> Reserved3R {
         Reserved3R::new(((self.bits >> 3) & 0x0f) as u8)
-    }
-    #[doc = "Bit 7 - 7:7\\]
-RTC Counter reset. Writing 1 to this bit will reset the RTC counter. This bit is cleared when reset takes effect"]
-    #[inline(always)]
-    pub fn reset(&self) -> ResetR {
-        ResetR::new(((self.bits >> 7) & 1) != 0)
     }
     #[doc = "Bits 8:11 - 11:8\\]
 Number of SCLK_LF clock cycles waited before generating delayed events. (Common setting for all RTC cannels) the delayed event is delayed"]
@@ -430,13 +412,6 @@ RTC_4KHZ is a 4 KHz reference output, tapped from SUBSEC.VALUE bit 19 which is u
     pub fn rtc_4khz_en(&mut self) -> Rtc4khzEnW<CtlSpec> {
         Rtc4khzEnW::new(self, 2)
     }
-    #[doc = "Bits 3:6 - 6:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<CtlSpec> {
-        Reserved3W::new(self, 3)
-    }
     #[doc = "Bit 7 - 7:7\\]
 RTC Counter reset. Writing 1 to this bit will reset the RTC counter. This bit is cleared when reset takes effect"]
     #[inline(always)]
@@ -451,26 +426,12 @@ Number of SCLK_LF clock cycles waited before generating delayed events. (Common 
     pub fn ev_delay(&mut self) -> EvDelayW<CtlSpec> {
         EvDelayW::new(self, 8)
     }
-    #[doc = "Bits 12:15 - 15:12\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved12(&mut self) -> Reserved12W<CtlSpec> {
-        Reserved12W::new(self, 12)
-    }
     #[doc = "Bits 16:18 - 18:16\\]
 Eventmask selecting which delayed events that form the combined event."]
     #[inline(always)]
     #[must_use]
     pub fn comb_ev_mask(&mut self) -> CombEvMaskW<CtlSpec> {
         CombEvMaskW::new(self, 16)
-    }
-    #[doc = "Bits 19:31 - 31:19\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved19(&mut self) -> Reserved19W<CtlSpec> {
-        Reserved19W::new(self, 19)
     }
 }
 #[doc = "Control This register contains various bitfields for configuration of RTC RTL Name = CONFIG\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

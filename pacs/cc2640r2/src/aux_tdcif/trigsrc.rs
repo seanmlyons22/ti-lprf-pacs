@@ -514,9 +514,6 @@ where
 #[doc = "Field `RESERVED6` reader - 7:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved6R = crate::FieldReader;
-#[doc = "Field `RESERVED6` writer - 7:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "12:8\\]
 Select stop source from the asynchronous AUX event bus. Change only while STAT.STATE is IDLE.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1029,9 +1026,6 @@ where
 #[doc = "Field `RESERVED14` reader - 31:14\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved14R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED14` writer - 31:14\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved14W<'a, REG> = crate::FieldWriter<'a, REG, 18, u32>;
 impl R {
     #[doc = "Bits 0:4 - 4:0\\]
 Select start source from the asynchronous AUX event bus. Change only while STAT.STATE is IDLE."]
@@ -1085,13 +1079,6 @@ Polarity of start source. Change only while STAT.STATE is IDLE."]
     pub fn start_pol(&mut self) -> StartPolW<TrigsrcSpec> {
         StartPolW::new(self, 5)
     }
-    #[doc = "Bits 6:7 - 7:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<TrigsrcSpec> {
-        Reserved6W::new(self, 6)
-    }
     #[doc = "Bits 8:12 - 12:8\\]
 Select stop source from the asynchronous AUX event bus. Change only while STAT.STATE is IDLE."]
     #[inline(always)]
@@ -1105,13 +1092,6 @@ Polarity of stop source. Change only while STAT.STATE is IDLE."]
     #[must_use]
     pub fn stop_pol(&mut self) -> StopPolW<TrigsrcSpec> {
         StopPolW::new(self, 13)
-    }
-    #[doc = "Bits 14:31 - 31:14\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved14(&mut self) -> Reserved14W<TrigsrcSpec> {
-        Reserved14W::new(self, 14)
     }
 }
 #[doc = "Trigger Source Select source and polarity for TDC start and stop events. See the Technical Reference Manual for event timing requirements.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`trigsrc::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`trigsrc::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

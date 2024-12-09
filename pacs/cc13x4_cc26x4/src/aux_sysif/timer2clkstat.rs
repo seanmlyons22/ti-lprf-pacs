@@ -62,41 +62,9 @@ impl StatR {
         *self == Stat::None
     }
 }
-#[doc = "Field `STAT` writer - 2:0\\]
-AUX_TIMER2 clock source status."]
-pub type StatW<'a, REG> = crate::FieldWriter<'a, REG, 3, Stat>;
-impl<'a, REG> StatW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "SCLK_HF / 2"]
-    #[inline(always)]
-    pub fn sclk_hfdiv2(self) -> &'a mut crate::W<REG> {
-        self.variant(Stat::SclkHfdiv2)
-    }
-    #[doc = "SCLK_MF"]
-    #[inline(always)]
-    pub fn sclk_mf(self) -> &'a mut crate::W<REG> {
-        self.variant(Stat::SclkMf)
-    }
-    #[doc = "SCLK_LF"]
-    #[inline(always)]
-    pub fn sclk_lf(self) -> &'a mut crate::W<REG> {
-        self.variant(Stat::SclkLf)
-    }
-    #[doc = "No clock"]
-    #[inline(always)]
-    pub fn none(self) -> &'a mut crate::W<REG> {
-        self.variant(Stat::None)
-    }
-}
 #[doc = "Field `RESERVED3` reader - 31:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED3` writer - 31:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 29, u32>;
 impl R {
     #[doc = "Bits 0:2 - 2:0\\]
 AUX_TIMER2 clock source status."]
@@ -111,22 +79,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved3R::new((self.bits >> 3) & 0x1fff_ffff)
     }
 }
-impl W {
-    #[doc = "Bits 0:2 - 2:0\\]
-AUX_TIMER2 clock source status."]
-    #[inline(always)]
-    #[must_use]
-    pub fn stat(&mut self) -> StatW<Timer2clkstatSpec> {
-        StatW::new(self, 0)
-    }
-    #[doc = "Bits 3:31 - 31:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<Timer2clkstatSpec> {
-        Reserved3W::new(self, 3)
-    }
-}
+impl W {}
 #[doc = "AUX_TIMER2 Clock Status\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`timer2clkstat::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`timer2clkstat::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Timer2clkstatSpec;
 impl crate::RegisterSpec for Timer2clkstatSpec {

@@ -17,9 +17,6 @@ pub type SbrselW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED2` reader - 15:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED2` writer - 15:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 14, u16>;
 #[doc = "Field `CDS` reader - 16:16\\]
 This field indicates the current Security state of the processor"]
 pub type CdsR = crate::BitReader;
@@ -35,9 +32,6 @@ pub type CdskeyW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED18` reader - 31:18\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved18R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED18` writer - 31:18\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved18W<'a, REG> = crate::FieldWriter<'a, REG, 14, u16>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Controls whether the SBRSEL field or the current Security state of the processor selects which version of the memory-mapped Banked registers are accessed to the debugger"]
@@ -91,13 +85,6 @@ If SBRSELEN is 1 this bit selects whether the Non-secure or the Secure version o
     pub fn sbrsel(&mut self) -> SbrselW<DscsrSpec> {
         SbrselW::new(self, 1)
     }
-    #[doc = "Bits 2:15 - 15:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<DscsrSpec> {
-        Reserved2W::new(self, 2)
-    }
     #[doc = "Bit 16 - 16:16\\]
 This field indicates the current Security state of the processor"]
     #[inline(always)]
@@ -111,13 +98,6 @@ Writes to the CDS bit are ignored unless CDSKEY is concurrently written to zero"
     #[must_use]
     pub fn cdskey(&mut self) -> CdskeyW<DscsrSpec> {
         CdskeyW::new(self, 17)
-    }
-    #[doc = "Bits 18:31 - 31:18\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved18(&mut self) -> Reserved18W<DscsrSpec> {
-        Reserved18W::new(self, 18)
     }
 }
 #[doc = "Provides control and status information for Secure debug\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`dscsr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`dscsr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

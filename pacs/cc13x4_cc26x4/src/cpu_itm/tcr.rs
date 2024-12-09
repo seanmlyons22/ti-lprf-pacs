@@ -41,9 +41,6 @@ pub type StallenaW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED6` reader - 7:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved6R = crate::FieldReader;
-#[doc = "Field `RESERVED6` writer - 7:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `TSPrescale` reader - 9:8\\]
 Local timestamp prescaler, used with the trace packet reference clock"]
 pub type TsprescaleR = crate::FieldReader;
@@ -59,9 +56,6 @@ pub type GtsfreqW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `RESERVED12` reader - 15:12\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved12R = crate::FieldReader;
-#[doc = "Field `RESERVED12` writer - 15:12\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved12W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `TraceBusID` reader - 22:16\\]
 Identifier for multi-source trace stream formatting. If multi-source trace is in use, the debugger must write a unique non-zero trace ID value to this field"]
 pub type TraceBusIdR = crate::FieldReader;
@@ -71,15 +65,9 @@ pub type TraceBusIdW<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "Field `BUSY` reader - 23:23\\]
 Indicates whether the ITM is currently processing events"]
 pub type BusyR = crate::BitReader;
-#[doc = "Field `BUSY` writer - 23:23\\]
-Indicates whether the ITM is currently processing events"]
-pub type BusyW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED24` reader - 31:24\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved24R = crate::FieldReader;
-#[doc = "Field `RESERVED24` writer - 31:24\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved24W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Enables the ITM"]
@@ -203,13 +191,6 @@ Stall the PE to guarantee delivery of Data Trace packets."]
     pub fn stallena(&mut self) -> StallenaW<TcrSpec> {
         StallenaW::new(self, 5)
     }
-    #[doc = "Bits 6:7 - 7:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<TcrSpec> {
-        Reserved6W::new(self, 6)
-    }
     #[doc = "Bits 8:9 - 9:8\\]
 Local timestamp prescaler, used with the trace packet reference clock"]
     #[inline(always)]
@@ -224,33 +205,12 @@ Defines how often the ITM generates a global timestamp, based on the global time
     pub fn gtsfreq(&mut self) -> GtsfreqW<TcrSpec> {
         GtsfreqW::new(self, 10)
     }
-    #[doc = "Bits 12:15 - 15:12\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved12(&mut self) -> Reserved12W<TcrSpec> {
-        Reserved12W::new(self, 12)
-    }
     #[doc = "Bits 16:22 - 22:16\\]
 Identifier for multi-source trace stream formatting. If multi-source trace is in use, the debugger must write a unique non-zero trace ID value to this field"]
     #[inline(always)]
     #[must_use]
     pub fn trace_bus_id(&mut self) -> TraceBusIdW<TcrSpec> {
         TraceBusIdW::new(self, 16)
-    }
-    #[doc = "Bit 23 - 23:23\\]
-Indicates whether the ITM is currently processing events"]
-    #[inline(always)]
-    #[must_use]
-    pub fn busy(&mut self) -> BusyW<TcrSpec> {
-        BusyW::new(self, 23)
-    }
-    #[doc = "Bits 24:31 - 31:24\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved24(&mut self) -> Reserved24W<TcrSpec> {
-        Reserved24W::new(self, 24)
     }
 }
 #[doc = "Configures and controls transfers through the ITM interface\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`tcr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`tcr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

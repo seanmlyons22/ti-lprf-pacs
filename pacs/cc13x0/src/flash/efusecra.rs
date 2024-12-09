@@ -11,9 +11,6 @@ pub type DataW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `RESERVED6` reader - 31:6\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved6R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED6` writer - 31:6\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 26, u32>;
 impl R {
     #[doc = "Bits 0:5 - 5:0\\]
 Internal. Only to be used through TI provided API."]
@@ -35,13 +32,6 @@ Internal. Only to be used through TI provided API."]
     #[must_use]
     pub fn data(&mut self) -> DataW<EfusecraSpec> {
         DataW::new(self, 0)
-    }
-    #[doc = "Bits 6:31 - 31:6\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<EfusecraSpec> {
-        Reserved6W::new(self, 6)
     }
 }
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`efusecra::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`efusecra::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

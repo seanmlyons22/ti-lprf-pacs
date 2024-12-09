@@ -23,9 +23,6 @@ pub type OtpprotdisW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `RESERVED19` reader - 31:18\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved19R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED19` writer - 31:18\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved19W<'a, REG> = crate::FieldWriter<'a, REG, 14, u16>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Internal. Only to be used through TI provided API."]
@@ -73,13 +70,6 @@ Internal. Only to be used through TI provided API."]
     #[must_use]
     pub fn otpprotdis(&mut self) -> OtpprotdisW<FbacSpec> {
         OtpprotdisW::new(self, 16)
-    }
-    #[doc = "Bits 18:31 - 31:18\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved19(&mut self) -> Reserved19W<FbacSpec> {
-        Reserved19W::new(self, 18)
     }
 }
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fbac::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fbac::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

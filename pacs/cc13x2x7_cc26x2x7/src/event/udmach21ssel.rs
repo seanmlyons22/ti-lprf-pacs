@@ -38,20 +38,6 @@ impl EvR {
         *self == Ev::Swev0
     }
 }
-#[doc = "Field `EV` writer - 6:0\\]
-Read only selection value"]
-pub type EvW<'a, REG> = crate::FieldWriter<'a, REG, 7, Ev>;
-impl<'a, REG> EvW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "Software event 0, triggered by SWEV.SWEV0"]
-    #[inline(always)]
-    pub fn swev0(self) -> &'a mut crate::W<REG> {
-        self.variant(Ev::Swev0)
-    }
-}
 impl R {
     #[doc = "Bits 0:6 - 6:0\\]
 Read only selection value"]
@@ -60,15 +46,7 @@ Read only selection value"]
         EvR::new((self.bits & 0x7f) as u8)
     }
 }
-impl W {
-    #[doc = "Bits 0:6 - 6:0\\]
-Read only selection value"]
-    #[inline(always)]
-    #[must_use]
-    pub fn ev(&mut self) -> EvW<Udmach21sselSpec> {
-        EvW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Output Selection for DMA Channel 21 SREQ\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`udmach21ssel::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`udmach21ssel::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Udmach21sselSpec;
 impl crate::RegisterSpec for Udmach21sselSpec {

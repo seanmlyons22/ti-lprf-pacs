@@ -2,37 +2,16 @@
 pub type R = crate::R<SwresetSpec>;
 #[doc = "Register `SWRESET` writer"]
 pub type W = crate::W<SwresetSpec>;
-#[doc = "Field `RESERVED0` reader - 1:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved0R = crate::FieldReader;
 #[doc = "Field `RESERVED0` writer - 1:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved0W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
-#[doc = "Field `MCU` reader - 2:2\\]
-Internal. Only to be used through TI provided API."]
-pub type McuR = crate::BitReader;
 #[doc = "Field `MCU` writer - 2:2\\]
 Internal. Only to be used through TI provided API."]
 pub type McuW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED3` reader - 31:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED3` writer - 31:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 29, u32>;
 impl R {
-    #[doc = "Bits 0:1 - 1:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    pub fn reserved0(&self) -> Reserved0R {
-        Reserved0R::new((self.bits & 3) as u8)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    pub fn mcu(&self) -> McuR {
-        McuR::new(((self.bits >> 2) & 1) != 0)
-    }
     #[doc = "Bits 3:31 - 31:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
@@ -54,13 +33,6 @@ Internal. Only to be used through TI provided API."]
     #[must_use]
     pub fn mcu(&mut self) -> McuW<SwresetSpec> {
         McuW::new(self, 2)
-    }
-    #[doc = "Bits 3:31 - 31:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<SwresetSpec> {
-        Reserved3W::new(self, 3)
     }
 }
 #[doc = "SW Initiated Resets\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`swreset::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`swreset::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

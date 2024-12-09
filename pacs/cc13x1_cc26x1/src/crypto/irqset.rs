@@ -2,44 +2,15 @@
 pub type R = crate::R<IrqsetSpec>;
 #[doc = "Register `IRQSET` writer"]
 pub type W = crate::W<IrqsetSpec>;
-#[doc = "Field `RESULT_AVAIL` reader - 0:0\\]
-If 1 is written to this bit, IRQSTAT.RESULT_AVAIL is set. Writing 0 has no effect."]
-pub type ResultAvailR = crate::BitReader;
 #[doc = "Field `RESULT_AVAIL` writer - 0:0\\]
 If 1 is written to this bit, IRQSTAT.RESULT_AVAIL is set. Writing 0 has no effect."]
 pub type ResultAvailW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `DMA_IN_DONE` reader - 1:1\\]
-If 1 is written to this bit, IRQSTAT.DMA_IN_DONE is set. Writing 0 has no effect."]
-pub type DmaInDoneR = crate::BitReader;
 #[doc = "Field `DMA_IN_DONE` writer - 1:1\\]
 If 1 is written to this bit, IRQSTAT.DMA_IN_DONE is set. Writing 0 has no effect."]
 pub type DmaInDoneW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `RESERVED2` reader - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED2` writer - 31:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 30, u32>;
-impl R {
-    #[doc = "Bit 0 - 0:0\\]
-If 1 is written to this bit, IRQSTAT.RESULT_AVAIL is set. Writing 0 has no effect."]
-    #[inline(always)]
-    pub fn result_avail(&self) -> ResultAvailR {
-        ResultAvailR::new((self.bits & 1) != 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-If 1 is written to this bit, IRQSTAT.DMA_IN_DONE is set. Writing 0 has no effect."]
-    #[inline(always)]
-    pub fn dma_in_done(&self) -> DmaInDoneR {
-        DmaInDoneR::new(((self.bits >> 1) & 1) != 0)
-    }
-    #[doc = "Bits 2:31 - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    pub fn reserved2(&self) -> Reserved2R {
-        Reserved2R::new((self.bits >> 2) & 0x3fff_ffff)
-    }
-}
 impl W {
     #[doc = "Bit 0 - 0:0\\]
 If 1 is written to this bit, IRQSTAT.RESULT_AVAIL is set. Writing 0 has no effect."]

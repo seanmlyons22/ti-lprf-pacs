@@ -117,9 +117,6 @@ where
 #[doc = "Field `RESERVED2` reader - 3:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2R = crate::FieldReader;
-#[doc = "Field `RESERVED2` writer - 3:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `PRE` reader - 7:4\\]
 Prescaler division ratio is 2^PRE: 0x0: Divide by 1. 0x1: Divide by 2. 0x2: Divide by 4. ... 0xF: Divide by 32,768."]
 pub type PreR = crate::FieldReader;
@@ -950,9 +947,6 @@ where
 #[doc = "Field `RESERVED15` reader - 31:15\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved15R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED15` writer - 31:15\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved15W<'a, REG> = crate::FieldWriter<'a, REG, 17, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Timer 0 reload mode."]
@@ -1012,13 +1006,6 @@ Timer 0 mode. Configure source for Timer 0 prescaler."]
     pub fn mode(&mut self) -> ModeW<T0cfgSpec> {
         ModeW::new(self, 1)
     }
-    #[doc = "Bits 2:3 - 3:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<T0cfgSpec> {
-        Reserved2W::new(self, 2)
-    }
     #[doc = "Bits 4:7 - 7:4\\]
 Prescaler division ratio is 2^PRE: 0x0: Divide by 1. 0x1: Divide by 2. 0x2: Divide by 4. ... 0xF: Divide by 32,768."]
     #[inline(always)]
@@ -1039,13 +1026,6 @@ Tick source polarity for Timer 0."]
     #[must_use]
     pub fn tick_src_pol(&mut self) -> TickSrcPolW<T0cfgSpec> {
         TickSrcPolW::new(self, 14)
-    }
-    #[doc = "Bits 15:31 - 31:15\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved15(&mut self) -> Reserved15W<T0cfgSpec> {
-        Reserved15W::new(self, 15)
     }
 }
 #[doc = "Timer 0 Configuration\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`t0cfg::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`t0cfg::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

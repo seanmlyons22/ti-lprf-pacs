@@ -2,56 +2,18 @@
 pub type R = crate::R<DcrsrSpec>;
 #[doc = "Register `DCRSR` writer"]
 pub type W = crate::W<DcrsrSpec>;
-#[doc = "Field `REGSEL` reader - 4:0\\]
-Register select 0x00: R0 0x01: R1 0x02: R2 0x03: R3 0x04: R4 0x05: R5 0x06: R6 0x07: R7 0x08: R8 0x09: R9 0x0A: R10 0x0B: R11 0x0C: R12 0x0D: Current SP 0x0E: LR 0x0F: DebugReturnAddress 0x10: XPSR/flags, execution state information, and exception number 0x11: MSP (Main SP) 0x12: PSP (Process SP) 0x14: CONTROL&lt;&lt;24 | FAULTMASK&lt;&lt;16 | BASEPRI&lt;&lt;8 | PRIMASK"]
-pub type RegselR = crate::FieldReader;
 #[doc = "Field `REGSEL` writer - 4:0\\]
 Register select 0x00: R0 0x01: R1 0x02: R2 0x03: R3 0x04: R4 0x05: R5 0x06: R6 0x07: R7 0x08: R8 0x09: R9 0x0A: R10 0x0B: R11 0x0C: R12 0x0D: Current SP 0x0E: LR 0x0F: DebugReturnAddress 0x10: XPSR/flags, execution state information, and exception number 0x11: MSP (Main SP) 0x12: PSP (Process SP) 0x14: CONTROL&lt;&lt;24 | FAULTMASK&lt;&lt;16 | BASEPRI&lt;&lt;8 | PRIMASK"]
 pub type RegselW<'a, REG> = crate::FieldWriter<'a, REG, 5>;
-#[doc = "Field `RESERVED5` reader - 15:5\\]
-Software should not rely on the value of a reserved. Write 0."]
-pub type Reserved5R = crate::FieldReader<u16>;
 #[doc = "Field `RESERVED5` writer - 15:5\\]
 Software should not rely on the value of a reserved. Write 0."]
 pub type Reserved5W<'a, REG> = crate::FieldWriter<'a, REG, 11, u16>;
-#[doc = "Field `REGWNR` reader - 16:16\\]
-1: Write 0: Read"]
-pub type RegwnrR = crate::BitReader;
 #[doc = "Field `REGWNR` writer - 16:16\\]
 1: Write 0: Read"]
 pub type RegwnrW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `RESERVED17` reader - 31:17\\]
-Software should not rely on the value of a reserved. Write 0."]
-pub type Reserved17R = crate::FieldReader<u16>;
 #[doc = "Field `RESERVED17` writer - 31:17\\]
 Software should not rely on the value of a reserved. Write 0."]
 pub type Reserved17W<'a, REG> = crate::FieldWriter<'a, REG, 15, u16>;
-impl R {
-    #[doc = "Bits 0:4 - 4:0\\]
-Register select 0x00: R0 0x01: R1 0x02: R2 0x03: R3 0x04: R4 0x05: R5 0x06: R6 0x07: R7 0x08: R8 0x09: R9 0x0A: R10 0x0B: R11 0x0C: R12 0x0D: Current SP 0x0E: LR 0x0F: DebugReturnAddress 0x10: XPSR/flags, execution state information, and exception number 0x11: MSP (Main SP) 0x12: PSP (Process SP) 0x14: CONTROL&lt;&lt;24 | FAULTMASK&lt;&lt;16 | BASEPRI&lt;&lt;8 | PRIMASK"]
-    #[inline(always)]
-    pub fn regsel(&self) -> RegselR {
-        RegselR::new((self.bits & 0x1f) as u8)
-    }
-    #[doc = "Bits 5:15 - 15:5\\]
-Software should not rely on the value of a reserved. Write 0."]
-    #[inline(always)]
-    pub fn reserved5(&self) -> Reserved5R {
-        Reserved5R::new(((self.bits >> 5) & 0x07ff) as u16)
-    }
-    #[doc = "Bit 16 - 16:16\\]
-1: Write 0: Read"]
-    #[inline(always)]
-    pub fn regwnr(&self) -> RegwnrR {
-        RegwnrR::new(((self.bits >> 16) & 1) != 0)
-    }
-    #[doc = "Bits 17:31 - 31:17\\]
-Software should not rely on the value of a reserved. Write 0."]
-    #[inline(always)]
-    pub fn reserved17(&self) -> Reserved17R {
-        Reserved17R::new(((self.bits >> 17) & 0x7fff) as u16)
-    }
-}
 impl W {
     #[doc = "Bits 0:4 - 4:0\\]
 Register select 0x00: R0 0x01: R1 0x02: R2 0x03: R3 0x04: R4 0x05: R5 0x06: R6 0x07: R7 0x08: R8 0x09: R9 0x0A: R10 0x0B: R11 0x0C: R12 0x0D: Current SP 0x0E: LR 0x0F: DebugReturnAddress 0x10: XPSR/flags, execution state information, and exception number 0x11: MSP (Main SP) 0x12: PSP (Process SP) 0x14: CONTROL&lt;&lt;24 | FAULTMASK&lt;&lt;16 | BASEPRI&lt;&lt;8 | PRIMASK"]

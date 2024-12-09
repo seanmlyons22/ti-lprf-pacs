@@ -2,32 +2,12 @@
 pub type R = crate::R<MicrSpec>;
 #[doc = "Register `MICR` writer"]
 pub type W = crate::W<MicrSpec>;
-#[doc = "Field `IC` reader - 0:0\\]
-Interrupt clear Writing 1 to this bit clears MRIS.RIS and MMIS.MIS . Reading this register returns no meaningful data."]
-pub type IcR = crate::BitReader;
 #[doc = "Field `IC` writer - 0:0\\]
 Interrupt clear Writing 1 to this bit clears MRIS.RIS and MMIS.MIS . Reading this register returns no meaningful data."]
 pub type IcW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `RESERVED1` reader - 31:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved1R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED1` writer - 31:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 31, u32>;
-impl R {
-    #[doc = "Bit 0 - 0:0\\]
-Interrupt clear Writing 1 to this bit clears MRIS.RIS and MMIS.MIS . Reading this register returns no meaningful data."]
-    #[inline(always)]
-    pub fn ic(&self) -> IcR {
-        IcR::new((self.bits & 1) != 0)
-    }
-    #[doc = "Bits 1:31 - 31:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    pub fn reserved1(&self) -> Reserved1R {
-        Reserved1R::new((self.bits >> 1) & 0x7fff_ffff)
-    }
-}
 impl W {
     #[doc = "Bit 0 - 0:0\\]
 Interrupt clear Writing 1 to this bit clears MRIS.RIS and MMIS.MIS . Reading this register returns no meaningful data."]

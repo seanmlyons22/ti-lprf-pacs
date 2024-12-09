@@ -5,54 +5,27 @@ pub type W = crate::W<IcsrSpec>;
 #[doc = "Field `VECTACTIVE` reader - 8:0\\]
 Active ISR number field. Reset clears this field."]
 pub type VectactiveR = crate::FieldReader<u16>;
-#[doc = "Field `VECTACTIVE` writer - 8:0\\]
-Active ISR number field. Reset clears this field."]
-pub type VectactiveW<'a, REG> = crate::FieldWriter<'a, REG, 9, u16>;
 #[doc = "Field `RESERVED9` reader - 10:9\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved9R = crate::FieldReader;
-#[doc = "Field `RESERVED9` writer - 10:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved9W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `RETTOBASE` reader - 11:11\\]
 Indicates whether there are preempted active exceptions: 0: There are preempted active exceptions to execute 1: There are no active exceptions, or the currently-executing exception is the only active exception."]
 pub type RettobaseR = crate::BitReader;
-#[doc = "Field `RETTOBASE` writer - 11:11\\]
-Indicates whether there are preempted active exceptions: 0: There are preempted active exceptions to execute 1: There are no active exceptions, or the currently-executing exception is the only active exception."]
-pub type RettobaseW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `VECTPENDING` reader - 20:12\\]
 Pending ISR number field. This field contains the interrupt number of the highest priority pending ISR."]
 pub type VectpendingR = crate::FieldReader<u16>;
-#[doc = "Field `VECTPENDING` writer - 20:12\\]
-Pending ISR number field. This field contains the interrupt number of the highest priority pending ISR."]
-pub type VectpendingW<'a, REG> = crate::FieldWriter<'a, REG, 9, u16>;
 #[doc = "Field `RESERVED21` reader - 21:21\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved21R = crate::BitReader;
-#[doc = "Field `RESERVED21` writer - 21:21\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved21W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `ISRPENDING` reader - 22:22\\]
 Interrupt pending flag. Excludes NMI and faults. 0x0: Interrupt not pending 0x1: Interrupt pending"]
 pub type IsrpendingR = crate::BitReader;
-#[doc = "Field `ISRPENDING` writer - 22:22\\]
-Interrupt pending flag. Excludes NMI and faults. 0x0: Interrupt not pending 0x1: Interrupt pending"]
-pub type IsrpendingW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `ISRPREEMPT` reader - 23:23\\]
 This field can only be used at debug time. It indicates that a pending interrupt is to be taken in the next running cycle. If DHCSR.C_MASKINTS= 0, the interrupt is serviced. 0: A pending exception is not serviced. 1: A pending exception is serviced on exit from the debug halt state"]
 pub type IsrpreemptR = crate::BitReader;
-#[doc = "Field `ISRPREEMPT` writer - 23:23\\]
-This field can only be used at debug time. It indicates that a pending interrupt is to be taken in the next running cycle. If DHCSR.C_MASKINTS= 0, the interrupt is serviced. 0: A pending exception is not serviced. 1: A pending exception is serviced on exit from the debug halt state"]
-pub type IsrpreemptW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `STTNS` reader - 24:24\\]
 SysTick Targets Non-secure. Controls whether in a single SysTick implementation, the SysTick is Secure or Non-secure. 0x0 SysTick is Secure. 0x1 SysTick is Non-secure."]
 pub type SttnsR = crate::BitReader;
-#[doc = "Field `STTNS` writer - 24:24\\]
-SysTick Targets Non-secure. Controls whether in a single SysTick implementation, the SysTick is Secure or Non-secure. 0x0 SysTick is Secure. 0x1 SysTick is Non-secure."]
-pub type SttnsW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `PENDSTCLR` reader - 25:25\\]
-Clear pending SysTick bit 0: No action 1: Clear pending SysTick"]
-pub type PendstclrR = crate::BitReader;
 #[doc = "Field `PENDSTCLR` writer - 25:25\\]
 Clear pending SysTick bit 0: No action 1: Clear pending SysTick"]
 pub type PendstclrW<'a, REG> = crate::BitWriter<'a, REG>;
@@ -62,9 +35,6 @@ pub type PendstsetR = crate::BitReader;
 #[doc = "Field `PENDSTSET` writer - 26:26\\]
 Set a pending SysTick bit. 0: No action 1: Set pending SysTick"]
 pub type PendstsetW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `PENDSVCLR` reader - 27:27\\]
-Clear pending pendSV bit 0: No action 1: Clear pending pendSV"]
-pub type PendsvclrR = crate::BitReader;
 #[doc = "Field `PENDSVCLR` writer - 27:27\\]
 Clear pending pendSV bit 0: No action 1: Clear pending pendSV"]
 pub type PendsvclrW<'a, REG> = crate::BitWriter<'a, REG>;
@@ -141,23 +111,11 @@ SysTick Targets Non-secure. Controls whether in a single SysTick implementation,
     pub fn sttns(&self) -> SttnsR {
         SttnsR::new(((self.bits >> 24) & 1) != 0)
     }
-    #[doc = "Bit 25 - 25:25\\]
-Clear pending SysTick bit 0: No action 1: Clear pending SysTick"]
-    #[inline(always)]
-    pub fn pendstclr(&self) -> PendstclrR {
-        PendstclrR::new(((self.bits >> 25) & 1) != 0)
-    }
     #[doc = "Bit 26 - 26:26\\]
 Set a pending SysTick bit. 0: No action 1: Set pending SysTick"]
     #[inline(always)]
     pub fn pendstset(&self) -> PendstsetR {
         PendstsetR::new(((self.bits >> 26) & 1) != 0)
-    }
-    #[doc = "Bit 27 - 27:27\\]
-Clear pending pendSV bit 0: No action 1: Clear pending pendSV"]
-    #[inline(always)]
-    pub fn pendsvclr(&self) -> PendsvclrR {
-        PendsvclrR::new(((self.bits >> 27) & 1) != 0)
     }
     #[doc = "Bit 28 - 28:28\\]
 Set pending pendSV bit. 0: No action 1: Set pending PendSV"]
@@ -185,62 +143,6 @@ Set pending NMI bit. Setting this bit pends and activates an NMI. Because NMI is
     }
 }
 impl W {
-    #[doc = "Bits 0:8 - 8:0\\]
-Active ISR number field. Reset clears this field."]
-    #[inline(always)]
-    #[must_use]
-    pub fn vectactive(&mut self) -> VectactiveW<IcsrSpec> {
-        VectactiveW::new(self, 0)
-    }
-    #[doc = "Bits 9:10 - 10:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved9(&mut self) -> Reserved9W<IcsrSpec> {
-        Reserved9W::new(self, 9)
-    }
-    #[doc = "Bit 11 - 11:11\\]
-Indicates whether there are preempted active exceptions: 0: There are preempted active exceptions to execute 1: There are no active exceptions, or the currently-executing exception is the only active exception."]
-    #[inline(always)]
-    #[must_use]
-    pub fn rettobase(&mut self) -> RettobaseW<IcsrSpec> {
-        RettobaseW::new(self, 11)
-    }
-    #[doc = "Bits 12:20 - 20:12\\]
-Pending ISR number field. This field contains the interrupt number of the highest priority pending ISR."]
-    #[inline(always)]
-    #[must_use]
-    pub fn vectpending(&mut self) -> VectpendingW<IcsrSpec> {
-        VectpendingW::new(self, 12)
-    }
-    #[doc = "Bit 21 - 21:21\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved21(&mut self) -> Reserved21W<IcsrSpec> {
-        Reserved21W::new(self, 21)
-    }
-    #[doc = "Bit 22 - 22:22\\]
-Interrupt pending flag. Excludes NMI and faults. 0x0: Interrupt not pending 0x1: Interrupt pending"]
-    #[inline(always)]
-    #[must_use]
-    pub fn isrpending(&mut self) -> IsrpendingW<IcsrSpec> {
-        IsrpendingW::new(self, 22)
-    }
-    #[doc = "Bit 23 - 23:23\\]
-This field can only be used at debug time. It indicates that a pending interrupt is to be taken in the next running cycle. If DHCSR.C_MASKINTS= 0, the interrupt is serviced. 0: A pending exception is not serviced. 1: A pending exception is serviced on exit from the debug halt state"]
-    #[inline(always)]
-    #[must_use]
-    pub fn isrpreempt(&mut self) -> IsrpreemptW<IcsrSpec> {
-        IsrpreemptW::new(self, 23)
-    }
-    #[doc = "Bit 24 - 24:24\\]
-SysTick Targets Non-secure. Controls whether in a single SysTick implementation, the SysTick is Secure or Non-secure. 0x0 SysTick is Secure. 0x1 SysTick is Non-secure."]
-    #[inline(always)]
-    #[must_use]
-    pub fn sttns(&mut self) -> SttnsW<IcsrSpec> {
-        SttnsW::new(self, 24)
-    }
     #[doc = "Bit 25 - 25:25\\]
 Clear pending SysTick bit 0: No action 1: Clear pending SysTick"]
     #[inline(always)]

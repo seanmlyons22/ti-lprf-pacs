@@ -291,9 +291,6 @@ where
 #[doc = "Field `RESERVED6` reader - 7:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved6R = crate::FieldReader;
-#[doc = "Field `RESERVED6` writer - 7:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "8:8\\]
 Enabling this bit will make the RIS.TBTORIS interrupt propagate to MIS.TBTOMIS\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -521,9 +518,6 @@ where
 #[doc = "Field `RESERVED12` reader - 12:12\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved12R = crate::BitReader;
-#[doc = "Field `RESERVED12` writer - 12:12\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved12W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "13:13\\]
 Enabling this bit will make the RIS.DMABRIS interrupt propagate to MIS.DMABMIS\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -583,9 +577,6 @@ where
 #[doc = "Field `RESERVED14` reader - 31:14\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved14R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED14` writer - 31:14\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved14W<'a, REG> = crate::FieldWriter<'a, REG, 18, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Enabling this bit will make the RIS.TATORIS interrupt propagate to MIS.TATOMIS"]
@@ -715,13 +706,6 @@ Enabling this bit will make the RIS.DMAARIS interrupt propagate to MIS.DMAAMIS"]
     pub fn dmaaim(&mut self) -> DmaaimW<ImrSpec> {
         DmaaimW::new(self, 5)
     }
-    #[doc = "Bits 6:7 - 7:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<ImrSpec> {
-        Reserved6W::new(self, 6)
-    }
     #[doc = "Bit 8 - 8:8\\]
 Enabling this bit will make the RIS.TBTORIS interrupt propagate to MIS.TBTOMIS"]
     #[inline(always)]
@@ -750,26 +734,12 @@ Enabling this bit will make the RIS.TBMRIS interrupt propagate to MIS.TBMMIS"]
     pub fn tbmim(&mut self) -> TbmimW<ImrSpec> {
         TbmimW::new(self, 11)
     }
-    #[doc = "Bit 12 - 12:12\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved12(&mut self) -> Reserved12W<ImrSpec> {
-        Reserved12W::new(self, 12)
-    }
     #[doc = "Bit 13 - 13:13\\]
 Enabling this bit will make the RIS.DMABRIS interrupt propagate to MIS.DMABMIS"]
     #[inline(always)]
     #[must_use]
     pub fn dmabim(&mut self) -> DmabimW<ImrSpec> {
         DmabimW::new(self, 13)
-    }
-    #[doc = "Bits 14:31 - 31:14\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved14(&mut self) -> Reserved14W<ImrSpec> {
-        Reserved14W::new(self, 14)
     }
 }
 #[doc = "Interrupt Mask This register is used to enable the interrupts. Associated registers: RIS, MIS, ICLR\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`imr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`imr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

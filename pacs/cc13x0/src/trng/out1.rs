@@ -5,9 +5,6 @@ pub type W = crate::W<Out1Spec>;
 #[doc = "Field `VALUE_63_32` reader - 31:0\\]
 MSW of 64-bit random value. New value ready when IRQFLAGSTAT.RDY = 1."]
 pub type Value63_32R = crate::FieldReader<u32>;
-#[doc = "Field `VALUE_63_32` writer - 31:0\\]
-MSW of 64-bit random value. New value ready when IRQFLAGSTAT.RDY = 1."]
-pub type Value63_32W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 MSW of 64-bit random value. New value ready when IRQFLAGSTAT.RDY = 1."]
@@ -16,15 +13,7 @@ MSW of 64-bit random value. New value ready when IRQFLAGSTAT.RDY = 1."]
         Value63_32R::new(self.bits)
     }
 }
-impl W {
-    #[doc = "Bits 0:31 - 31:0\\]
-MSW of 64-bit random value. New value ready when IRQFLAGSTAT.RDY = 1."]
-    #[inline(always)]
-    #[must_use]
-    pub fn value_63_32(&mut self) -> Value63_32W<Out1Spec> {
-        Value63_32W::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Random Number Upper Word Readout Value\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`out1::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`out1::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Out1Spec;
 impl crate::RegisterSpec for Out1Spec {

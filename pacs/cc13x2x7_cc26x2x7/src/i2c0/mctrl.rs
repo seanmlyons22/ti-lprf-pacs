@@ -17,29 +17,6 @@ impl From<Run> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `RUN` reader - 0:0\\]
-I2C master enable 0: The master is disabled. 1: The master is enabled to transmit or receive data."]
-pub type RunR = crate::BitReader<Run>;
-impl RunR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Run {
-        match self.bits {
-            true => Run::En,
-            false => Run::Dis,
-        }
-    }
-    #[doc = "Enable Master"]
-    #[inline(always)]
-    pub fn is_en(&self) -> bool {
-        *self == Run::En
-    }
-    #[doc = "Disable Master"]
-    #[inline(always)]
-    pub fn is_dis(&self) -> bool {
-        *self == Run::Dis
-    }
-}
 #[doc = "Field `RUN` writer - 0:0\\]
 I2C master enable 0: The master is disabled. 1: The master is enabled to transmit or receive data."]
 pub type RunW<'a, REG> = crate::BitWriter<'a, REG, Run>;
@@ -71,29 +48,6 @@ impl From<Start> for bool {
     #[inline(always)]
     fn from(variant: Start) -> Self {
         variant as u8 != 0
-    }
-}
-#[doc = "Field `START` reader - 1:1\\]
-This bit-field generates the Start or Repeated Start condition. 0: The controller does not generate the Start condition. 1: The controller generates the Start condition."]
-pub type StartR = crate::BitReader<Start>;
-impl StartR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Start {
-        match self.bits {
-            true => Start::En,
-            false => Start::Dis,
-        }
-    }
-    #[doc = "Enable START"]
-    #[inline(always)]
-    pub fn is_en(&self) -> bool {
-        *self == Start::En
-    }
-    #[doc = "Disable START"]
-    #[inline(always)]
-    pub fn is_dis(&self) -> bool {
-        *self == Start::Dis
     }
 }
 #[doc = "Field `START` writer - 1:1\\]
@@ -129,29 +83,6 @@ impl From<Stop> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `STOP` reader - 2:2\\]
-This bit-field determines if the cycle stops at the end of the data cycle or continues on to a repeated START condition. 0: The controller does not generate the Stop condition. 1: The controller generates the Stop condition."]
-pub type StopR = crate::BitReader<Stop>;
-impl StopR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Stop {
-        match self.bits {
-            true => Stop::En,
-            false => Stop::Dis,
-        }
-    }
-    #[doc = "Enable STOP"]
-    #[inline(always)]
-    pub fn is_en(&self) -> bool {
-        *self == Stop::En
-    }
-    #[doc = "Disable STOP"]
-    #[inline(always)]
-    pub fn is_dis(&self) -> bool {
-        *self == Stop::Dis
-    }
-}
 #[doc = "Field `STOP` writer - 2:2\\]
 This bit-field determines if the cycle stops at the end of the data cycle or continues on to a repeated START condition. 0: The controller does not generate the Stop condition. 1: The controller generates the Stop condition."]
 pub type StopW<'a, REG> = crate::BitWriter<'a, REG, Stop>;
@@ -185,29 +116,6 @@ impl From<Ack> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `ACK` reader - 3:3\\]
-Data acknowledge enable 0: The received data byte is not acknowledged automatically by the master. 1: The received data byte is acknowledged automatically by the master. This bit-field must be cleared when the I2C bus controller requires no further data to be transmitted from the slave transmitter."]
-pub type AckR = crate::BitReader<Ack>;
-impl AckR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Ack {
-        match self.bits {
-            true => Ack::En,
-            false => Ack::Dis,
-        }
-    }
-    #[doc = "Enable acknowledge"]
-    #[inline(always)]
-    pub fn is_en(&self) -> bool {
-        *self == Ack::En
-    }
-    #[doc = "Disable acknowledge"]
-    #[inline(always)]
-    pub fn is_dis(&self) -> bool {
-        *self == Ack::Dis
-    }
-}
 #[doc = "Field `ACK` writer - 3:3\\]
 Data acknowledge enable 0: The received data byte is not acknowledged automatically by the master. 1: The received data byte is acknowledged automatically by the master. This bit-field must be cleared when the I2C bus controller requires no further data to be transmitted from the slave transmitter."]
 pub type AckW<'a, REG> = crate::BitWriter<'a, REG, Ack>;
@@ -226,44 +134,9 @@ where
         self.variant(Ack::Dis)
     }
 }
-#[doc = "Field `RESERVED4` reader - 31:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved4R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED4` writer - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved4W<'a, REG> = crate::FieldWriter<'a, REG, 28, u32>;
-impl R {
-    #[doc = "Bit 0 - 0:0\\]
-I2C master enable 0: The master is disabled. 1: The master is enabled to transmit or receive data."]
-    #[inline(always)]
-    pub fn run(&self) -> RunR {
-        RunR::new((self.bits & 1) != 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-This bit-field generates the Start or Repeated Start condition. 0: The controller does not generate the Start condition. 1: The controller generates the Start condition."]
-    #[inline(always)]
-    pub fn start(&self) -> StartR {
-        StartR::new(((self.bits >> 1) & 1) != 0)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-This bit-field determines if the cycle stops at the end of the data cycle or continues on to a repeated START condition. 0: The controller does not generate the Stop condition. 1: The controller generates the Stop condition."]
-    #[inline(always)]
-    pub fn stop(&self) -> StopR {
-        StopR::new(((self.bits >> 2) & 1) != 0)
-    }
-    #[doc = "Bit 3 - 3:3\\]
-Data acknowledge enable 0: The received data byte is not acknowledged automatically by the master. 1: The received data byte is acknowledged automatically by the master. This bit-field must be cleared when the I2C bus controller requires no further data to be transmitted from the slave transmitter."]
-    #[inline(always)]
-    pub fn ack(&self) -> AckR {
-        AckR::new(((self.bits >> 3) & 1) != 0)
-    }
-    #[doc = "Bits 4:31 - 31:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    pub fn reserved4(&self) -> Reserved4R {
-        Reserved4R::new((self.bits >> 4) & 0x0fff_ffff)
-    }
-}
 impl W {
     #[doc = "Bit 0 - 0:0\\]
 I2C master enable 0: The master is disabled. 1: The master is enabled to transmit or receive data."]

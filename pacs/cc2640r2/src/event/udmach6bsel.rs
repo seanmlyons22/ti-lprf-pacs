@@ -5,9 +5,6 @@ pub type W = crate::W<Udmach6bselSpec>;
 #[doc = "Field `RESERVED0` reader - 31:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved0R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED0` writer - 31:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved0W<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
@@ -16,15 +13,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved0R::new(self.bits)
     }
 }
-impl W {
-    #[doc = "Bits 0:31 - 31:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved0(&mut self) -> Reserved0W<Udmach6bselSpec> {
-        Reserved0W::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Output Selection for DMA Channel 6 REQ\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`udmach6bsel::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`udmach6bsel::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Udmach6bselSpec;
 impl crate::RegisterSpec for Udmach6bselSpec {

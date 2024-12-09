@@ -110,71 +110,9 @@ impl StatR {
         *self == Stat::NoIntr
     }
 }
-#[doc = "Field `STAT` writer - 7:0\\]
-Interrupt index status"]
-pub type StatW<'a, REG> = crate::FieldWriter<'a, REG, 8, Stat>;
-impl<'a, REG> StatW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "DMA Done for Transmit Event/interrupt pending"]
-    #[inline(always)]
-    pub fn dma_done_tx_evt(self) -> &'a mut crate::W<REG> {
-        self.variant(Stat::DmaDoneTxEvt)
-    }
-    #[doc = "DMA Done for Receive Event/interrupt pending"]
-    #[inline(always)]
-    pub fn dma_done_rx_evt(self) -> &'a mut crate::W<REG> {
-        self.variant(Stat::DmaDoneRxEvt)
-    }
-    #[doc = "End of Transmit Event/interrupt pending"]
-    #[inline(always)]
-    pub fn idle_evt(self) -> &'a mut crate::W<REG> {
-        self.variant(Stat::IdleEvt)
-    }
-    #[doc = "Transmit Buffer Empty Event/interrupt pending"]
-    #[inline(always)]
-    pub fn tx_empty(self) -> &'a mut crate::W<REG> {
-        self.variant(Stat::TxEmpty)
-    }
-    #[doc = "Transmit Event/interrupt pending"]
-    #[inline(always)]
-    pub fn tx_evt(self) -> &'a mut crate::W<REG> {
-        self.variant(Stat::TxEvt)
-    }
-    #[doc = "Receive Event/interrupt pending"]
-    #[inline(always)]
-    pub fn rx_evt(self) -> &'a mut crate::W<REG> {
-        self.variant(Stat::RxEvt)
-    }
-    #[doc = "SPI Receive Time-Out Event/interrupt pending"]
-    #[inline(always)]
-    pub fn rtout_evt(self) -> &'a mut crate::W<REG> {
-        self.variant(Stat::RtoutEvt)
-    }
-    #[doc = "Transmit Parity Event/interrupt pending"]
-    #[inline(always)]
-    pub fn per_evt(self) -> &'a mut crate::W<REG> {
-        self.variant(Stat::PerEvt)
-    }
-    #[doc = "RX FIFO Overflow Event/interrupt pending"]
-    #[inline(always)]
-    pub fn rxfifo_ofv_evt(self) -> &'a mut crate::W<REG> {
-        self.variant(Stat::RxfifoOfvEvt)
-    }
-    #[doc = "No interrupt pending"]
-    #[inline(always)]
-    pub fn no_intr(self) -> &'a mut crate::W<REG> {
-        self.variant(Stat::NoIntr)
-    }
-}
 #[doc = "Field `RESERVED8` reader - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved8R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED8` writer - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Interrupt index status"]
@@ -189,22 +127,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved8R::new((self.bits >> 8) & 0x00ff_ffff)
     }
 }
-impl W {
-    #[doc = "Bits 0:7 - 7:0\\]
-Interrupt index status"]
-    #[inline(always)]
-    #[must_use]
-    pub fn stat(&mut self) -> StatW<IidxSpec> {
-        StatW::new(self, 0)
-    }
-    #[doc = "Bits 8:31 - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved8(&mut self) -> Reserved8W<IidxSpec> {
-        Reserved8W::new(self, 8)
-    }
-}
+impl W {}
 #[doc = "This register provides the highest priority enabled interrupt index. Value 0x00 means no event pending. Interrupt 1 is the highest priority, and 31 is the least priority. That is, the least bit position that is set to 1 denotes the highest priority pending interrupt. The priority order is fixed. However, users can implement their own prioritization schemes using other registers that expose the full set of interrupts that have occurred. On each read, only one interrupt is indicated. On a read, the current interrupt (highest priority) is automatically cleared by the hardware and the corresponding interrupt flag in RIS and MIS are cleared as well. After a read from the CPU (not from the debug interface), the register is updated with the next highest priority interrupt, if none are pending, then it would display 0x0.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`iidx::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`iidx::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct IidxSpec;
 impl crate::RegisterSpec for IidxSpec {

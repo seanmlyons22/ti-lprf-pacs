@@ -11,15 +11,9 @@ pub type MaxUsedPerW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 #[doc = "Field `VDDR_SMPLS` reader - 19:16\\]
 The last 4 VDDR samples. For each bit: 0: VDDR was below VDDR_OK threshold when recharge started 1: VDDR was above VDDR_OK threshold when recharge started The register is updated prior to every recharge period with a shift left, and bit 0 is updated with the last VDDR sample."]
 pub type VddrSmplsR = crate::FieldReader;
-#[doc = "Field `VDDR_SMPLS` writer - 19:16\\]
-The last 4 VDDR samples. For each bit: 0: VDDR was below VDDR_OK threshold when recharge started 1: VDDR was above VDDR_OK threshold when recharge started The register is updated prior to every recharge period with a shift left, and bit 0 is updated with the last VDDR sample."]
-pub type VddrSmplsW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED20` reader - 31:20\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved20R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED20` writer - 31:20\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved20W<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
 impl R {
     #[doc = "Bits 0:15 - 15:0\\]
 Shows the maximum number of 32kHz periods that have separated two recharge cycles and VDDR still was above VDDR_OK threshold when the latter recharge started. This register can be used as an indication of the leakage current during standby. This bitfield is cleared to 0 when writing this register."]
@@ -47,20 +41,6 @@ Shows the maximum number of 32kHz periods that have separated two recharge cycle
     #[must_use]
     pub fn max_used_per(&mut self) -> MaxUsedPerW<RechargestatSpec> {
         MaxUsedPerW::new(self, 0)
-    }
-    #[doc = "Bits 16:19 - 19:16\\]
-The last 4 VDDR samples. For each bit: 0: VDDR was below VDDR_OK threshold when recharge started 1: VDDR was above VDDR_OK threshold when recharge started The register is updated prior to every recharge period with a shift left, and bit 0 is updated with the last VDDR sample."]
-    #[inline(always)]
-    #[must_use]
-    pub fn vddr_smpls(&mut self) -> VddrSmplsW<RechargestatSpec> {
-        VddrSmplsW::new(self, 16)
-    }
-    #[doc = "Bits 20:31 - 31:20\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved20(&mut self) -> Reserved20W<RechargestatSpec> {
-        Reserved20W::new(self, 20)
     }
 }
 #[doc = "Recharge Controller Status This register controls various status registers which are updated during recharge. The register is mostly intended for test and debug.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`rechargestat::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`rechargestat::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

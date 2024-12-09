@@ -81,9 +81,6 @@ where
 #[doc = "Field `RESERVED2` reader - 7:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2R = crate::FieldReader;
-#[doc = "Field `RESERVED2` writer - 7:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "13:8\\]
 Select ADC trigger event source from the asynchronous AUX event bus. Set START_SRC to NO_EVENT if you want to trigger the ADC manually through ADCTRIG.START. If you write a non-enumerated value the behavior is identical to NO_EVENT. The written value is returned when read.\n\nValue on reset: 63"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -830,9 +827,6 @@ where
 #[doc = "Field `RESERVED15` reader - 31:15\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved15R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED15` writer - 31:15\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved15W<'a, REG> = crate::FieldWriter<'a, REG, 17, u32>;
 impl R {
     #[doc = "Bits 0:1 - 1:0\\]
 ADC interface command. Non-enumerated values are not supported. The written value is returned when read."]
@@ -873,13 +867,6 @@ ADC interface command. Non-enumerated values are not supported. The written valu
     pub fn cmd(&mut self) -> CmdW<AdcctlSpec> {
         CmdW::new(self, 0)
     }
-    #[doc = "Bits 2:7 - 7:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<AdcctlSpec> {
-        Reserved2W::new(self, 2)
-    }
     #[doc = "Bits 8:13 - 13:8\\]
 Select ADC trigger event source from the asynchronous AUX event bus. Set START_SRC to NO_EVENT if you want to trigger the ADC manually through ADCTRIG.START. If you write a non-enumerated value the behavior is identical to NO_EVENT. The written value is returned when read."]
     #[inline(always)]
@@ -893,13 +880,6 @@ Select active polarity for START_SRC event."]
     #[must_use]
     pub fn start_pol(&mut self) -> StartPolW<AdcctlSpec> {
         StartPolW::new(self, 14)
-    }
-    #[doc = "Bits 15:31 - 31:15\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved15(&mut self) -> Reserved15W<AdcctlSpec> {
-        Reserved15W::new(self, 15)
     }
 }
 #[doc = "ADC Control Configuration of ADI_4_AUX:ADC0.SMPL_MODE decides if the ADC trigger starts sampling or conversion.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`adcctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`adcctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

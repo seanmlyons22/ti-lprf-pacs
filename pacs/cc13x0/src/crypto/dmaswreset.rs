@@ -2,32 +2,12 @@
 pub type R = crate::R<DmaswresetSpec>;
 #[doc = "Register `DMASWRESET` writer"]
 pub type W = crate::W<DmaswresetSpec>;
-#[doc = "Field `RESET` reader - 0:0\\]
-Software reset enable 0: Disable 1: Enable (self-cleared to zero). Note: Completion of the software reset must be checked in DMASTAT.CH0_ACTIVE and DMASTAT.CH1_ACTIVE."]
-pub type ResetR = crate::BitReader;
 #[doc = "Field `RESET` writer - 0:0\\]
 Software reset enable 0: Disable 1: Enable (self-cleared to zero). Note: Completion of the software reset must be checked in DMASTAT.CH0_ACTIVE and DMASTAT.CH1_ACTIVE."]
 pub type ResetW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `RESERVED1` reader - 31:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved1R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED1` writer - 31:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 31, u32>;
-impl R {
-    #[doc = "Bit 0 - 0:0\\]
-Software reset enable 0: Disable 1: Enable (self-cleared to zero). Note: Completion of the software reset must be checked in DMASTAT.CH0_ACTIVE and DMASTAT.CH1_ACTIVE."]
-    #[inline(always)]
-    pub fn reset(&self) -> ResetR {
-        ResetR::new((self.bits & 1) != 0)
-    }
-    #[doc = "Bits 1:31 - 31:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    pub fn reserved1(&self) -> Reserved1R {
-        Reserved1R::new((self.bits >> 1) & 0x7fff_ffff)
-    }
-}
 impl W {
     #[doc = "Bit 0 - 0:0\\]
 Software reset enable 0: Disable 1: Enable (self-cleared to zero). Note: Completion of the software reset must be checked in DMASTAT.CH0_ACTIVE and DMASTAT.CH1_ACTIVE."]

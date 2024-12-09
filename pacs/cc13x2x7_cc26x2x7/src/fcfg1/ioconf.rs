@@ -5,15 +5,9 @@ pub type W = crate::W<IoconfSpec>;
 #[doc = "Field `GPIO_CNT` reader - 6:0\\]
 Number of available DIOs."]
 pub type GpioCntR = crate::FieldReader;
-#[doc = "Field `GPIO_CNT` writer - 6:0\\]
-Number of available DIOs."]
-pub type GpioCntW<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "Field `RESERVED7` reader - 31:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved7R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED7` writer - 31:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved7W<'a, REG> = crate::FieldWriter<'a, REG, 25, u32>;
 impl R {
     #[doc = "Bits 0:6 - 6:0\\]
 Number of available DIOs."]
@@ -28,22 +22,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved7R::new((self.bits >> 7) & 0x01ff_ffff)
     }
 }
-impl W {
-    #[doc = "Bits 0:6 - 6:0\\]
-Number of available DIOs."]
-    #[inline(always)]
-    #[must_use]
-    pub fn gpio_cnt(&mut self) -> GpioCntW<IoconfSpec> {
-        GpioCntW::new(self, 0)
-    }
-    #[doc = "Bits 7:31 - 31:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved7(&mut self) -> Reserved7W<IoconfSpec> {
-        Reserved7W::new(self, 7)
-    }
-}
+impl W {}
 #[doc = "IO Configuration\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ioconf::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ioconf::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct IoconfSpec;
 impl crate::RegisterSpec for IoconfSpec {

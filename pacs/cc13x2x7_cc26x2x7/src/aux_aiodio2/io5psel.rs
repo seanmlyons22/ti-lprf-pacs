@@ -149,9 +149,6 @@ where
 #[doc = "Field `RESERVED3` reader - 31:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED3` writer - 31:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 29, u32>;
 impl R {
     #[doc = "Bits 0:2 - 2:0\\]
 Select a peripheral signal that connects to AUXIO\\[8i+5\\]
@@ -175,13 +172,6 @@ when IOPOE bit 5 is set."]
     #[must_use]
     pub fn src(&mut self) -> SrcW<Io5pselSpec> {
         SrcW::new(self, 0)
-    }
-    #[doc = "Bits 3:31 - 31:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<Io5pselSpec> {
-        Reserved3W::new(self, 3)
     }
 }
 #[doc = "Input Output 5 Peripheral Select This register selects a peripheral signal that connects to AUXIO\\[8i+5\\]

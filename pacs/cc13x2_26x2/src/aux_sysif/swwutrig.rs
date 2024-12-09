@@ -2,68 +2,21 @@
 pub type R = crate::R<SwwutrigSpec>;
 #[doc = "Register `SWWUTRIG` writer"]
 pub type W = crate::W<SwwutrigSpec>;
-#[doc = "Field `SW_WU0` reader - 0:0\\]
-Software wakeup 0 trigger. 0: No effect. 1: Set WUFLAGS.SW_WU0 and trigger AUX wakeup."]
-pub type SwWu0R = crate::BitReader;
 #[doc = "Field `SW_WU0` writer - 0:0\\]
 Software wakeup 0 trigger. 0: No effect. 1: Set WUFLAGS.SW_WU0 and trigger AUX wakeup."]
 pub type SwWu0W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `SW_WU1` reader - 1:1\\]
-Software wakeup 1 trigger. 0: No effect. 1: Set WUFLAGS.SW_WU1 and trigger AUX wakeup."]
-pub type SwWu1R = crate::BitReader;
 #[doc = "Field `SW_WU1` writer - 1:1\\]
 Software wakeup 1 trigger. 0: No effect. 1: Set WUFLAGS.SW_WU1 and trigger AUX wakeup."]
 pub type SwWu1W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `SW_WU2` reader - 2:2\\]
-Software wakeup 2 trigger. 0: No effect. 1: Set WUFLAGS.SW_WU2 and trigger AUX wakeup."]
-pub type SwWu2R = crate::BitReader;
 #[doc = "Field `SW_WU2` writer - 2:2\\]
 Software wakeup 2 trigger. 0: No effect. 1: Set WUFLAGS.SW_WU2 and trigger AUX wakeup."]
 pub type SwWu2W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `SW_WU3` reader - 3:3\\]
-Software wakeup 3 trigger. 0: No effect. 1: Set WUFLAGS.SW_WU3 and trigger AUX wakeup."]
-pub type SwWu3R = crate::BitReader;
 #[doc = "Field `SW_WU3` writer - 3:3\\]
 Software wakeup 3 trigger. 0: No effect. 1: Set WUFLAGS.SW_WU3 and trigger AUX wakeup."]
 pub type SwWu3W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `RESERVED4` reader - 31:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved4R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED4` writer - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved4W<'a, REG> = crate::FieldWriter<'a, REG, 28, u32>;
-impl R {
-    #[doc = "Bit 0 - 0:0\\]
-Software wakeup 0 trigger. 0: No effect. 1: Set WUFLAGS.SW_WU0 and trigger AUX wakeup."]
-    #[inline(always)]
-    pub fn sw_wu0(&self) -> SwWu0R {
-        SwWu0R::new((self.bits & 1) != 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Software wakeup 1 trigger. 0: No effect. 1: Set WUFLAGS.SW_WU1 and trigger AUX wakeup."]
-    #[inline(always)]
-    pub fn sw_wu1(&self) -> SwWu1R {
-        SwWu1R::new(((self.bits >> 1) & 1) != 0)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-Software wakeup 2 trigger. 0: No effect. 1: Set WUFLAGS.SW_WU2 and trigger AUX wakeup."]
-    #[inline(always)]
-    pub fn sw_wu2(&self) -> SwWu2R {
-        SwWu2R::new(((self.bits >> 2) & 1) != 0)
-    }
-    #[doc = "Bit 3 - 3:3\\]
-Software wakeup 3 trigger. 0: No effect. 1: Set WUFLAGS.SW_WU3 and trigger AUX wakeup."]
-    #[inline(always)]
-    pub fn sw_wu3(&self) -> SwWu3R {
-        SwWu3R::new(((self.bits >> 3) & 1) != 0)
-    }
-    #[doc = "Bits 4:31 - 31:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    pub fn reserved4(&self) -> Reserved4R {
-        Reserved4R::new((self.bits >> 4) & 0x0fff_ffff)
-    }
-}
 impl W {
     #[doc = "Bit 0 - 0:0\\]
 Software wakeup 0 trigger. 0: No effect. 1: Set WUFLAGS.SW_WU0 and trigger AUX wakeup."]

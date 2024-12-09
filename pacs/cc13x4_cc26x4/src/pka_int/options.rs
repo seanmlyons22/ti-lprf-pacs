@@ -17,45 +17,24 @@ pub type AhbInterfaceW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `AHB_IS_ASYNC` reader - 2:2\\]
 When set to '1', indicates that AHB interface is asynchronous Only applicable when AHB_INTERFACE is 1"]
 pub type AhbIsAsyncR = crate::BitReader;
-#[doc = "Field `AHB_IS_ASYNC` writer - 2:2\\]
-When set to '1', indicates that AHB interface is asynchronous Only applicable when AHB_INTERFACE is 1"]
-pub type AhbIsAsyncW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `AXI_INTERFACE` reader - 3:3\\]
 When set to '1', indicates that the EIP150 is equipped with a AXI interface"]
 pub type AxiInterfaceR = crate::BitReader;
-#[doc = "Field `AXI_INTERFACE` writer - 3:3\\]
-When set to '1', indicates that the EIP150 is equipped with a AXI interface"]
-pub type AxiInterfaceW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED4` reader - 7:4\\]
 Ignore on read"]
 pub type Reserved4R = crate::FieldReader;
-#[doc = "Field `RESERVED4` writer - 7:4\\]
-Ignore on read"]
-pub type Reserved4W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `EIP28_PRESENT` reader - 8:8\\]
 When set to '1', indicates that the EIP28 PKA is included in the EIP150"]
 pub type Eip28PresentR = crate::BitReader;
-#[doc = "Field `EIP28_PRESENT` writer - 8:8\\]
-When set to '1', indicates that the EIP28 PKA is included in the EIP150"]
-pub type Eip28PresentW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `EIP76_PRESENT` reader - 9:9\\]
 When set to '1', indicates that the EIP76 TRNG is included in the EIP150"]
 pub type Eip76PresentR = crate::BitReader;
-#[doc = "Field `EIP76_PRESENT` writer - 9:9\\]
-When set to '1', indicates that the EIP76 TRNG is included in the EIP150"]
-pub type Eip76PresentW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `AIC_PRESENT` reader - 10:10\\]
 When set to '1', indicates that an EIP201 AIC is included in the EIP150"]
 pub type AicPresentR = crate::BitReader;
-#[doc = "Field `AIC_PRESENT` writer - 10:10\\]
-When set to '1', indicates that an EIP201 AIC is included in the EIP150"]
-pub type AicPresentW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED11` reader - 31:11\\]
 Ignore on read"]
 pub type Reserved11R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED11` writer - 31:11\\]
-Ignore on read"]
-pub type Reserved11W<'a, REG> = crate::FieldWriter<'a, REG, 21, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 When set to '1', indicates that the EIP150 is equipped with a PLB interface"]
@@ -126,55 +105,6 @@ When set to '1', indicates that the EIP150 is equipped with a AHB interface"]
     #[must_use]
     pub fn ahb_interface(&mut self) -> AhbInterfaceW<OptionsSpec> {
         AhbInterfaceW::new(self, 1)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-When set to '1', indicates that AHB interface is asynchronous Only applicable when AHB_INTERFACE is 1"]
-    #[inline(always)]
-    #[must_use]
-    pub fn ahb_is_async(&mut self) -> AhbIsAsyncW<OptionsSpec> {
-        AhbIsAsyncW::new(self, 2)
-    }
-    #[doc = "Bit 3 - 3:3\\]
-When set to '1', indicates that the EIP150 is equipped with a AXI interface"]
-    #[inline(always)]
-    #[must_use]
-    pub fn axi_interface(&mut self) -> AxiInterfaceW<OptionsSpec> {
-        AxiInterfaceW::new(self, 3)
-    }
-    #[doc = "Bits 4:7 - 7:4\\]
-Ignore on read"]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved4(&mut self) -> Reserved4W<OptionsSpec> {
-        Reserved4W::new(self, 4)
-    }
-    #[doc = "Bit 8 - 8:8\\]
-When set to '1', indicates that the EIP28 PKA is included in the EIP150"]
-    #[inline(always)]
-    #[must_use]
-    pub fn eip28_present(&mut self) -> Eip28PresentW<OptionsSpec> {
-        Eip28PresentW::new(self, 8)
-    }
-    #[doc = "Bit 9 - 9:9\\]
-When set to '1', indicates that the EIP76 TRNG is included in the EIP150"]
-    #[inline(always)]
-    #[must_use]
-    pub fn eip76_present(&mut self) -> Eip76PresentW<OptionsSpec> {
-        Eip76PresentW::new(self, 9)
-    }
-    #[doc = "Bit 10 - 10:10\\]
-When set to '1', indicates that an EIP201 AIC is included in the EIP150"]
-    #[inline(always)]
-    #[must_use]
-    pub fn aic_present(&mut self) -> AicPresentW<OptionsSpec> {
-        AicPresentW::new(self, 10)
-    }
-    #[doc = "Bits 11:31 - 31:11\\]
-Ignore on read"]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved11(&mut self) -> Reserved11W<OptionsSpec> {
-        Reserved11W::new(self, 11)
     }
 }
 #[doc = "PKA Options register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`options::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`options::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

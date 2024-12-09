@@ -5,9 +5,6 @@ pub type W = crate::W<CtrlSpec>;
 #[doc = "Field `RESERVED0` reader - 9:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved0R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED0` writer - 9:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved0W<'a, REG> = crate::FieldWriter<'a, REG, 10, u16>;
 #[doc = "Field `BASEPTR` reader - 31:10\\]
 This register point to the base address for the primary data structures of each DMA channel. This is not stored in module, but in system memory, thus space must be allocated for this usage when DMA is in usage"]
 pub type BaseptrR = crate::FieldReader<u32>;
@@ -29,13 +26,6 @@ This register point to the base address for the primary data structures of each 
     }
 }
 impl W {
-    #[doc = "Bits 0:9 - 9:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved0(&mut self) -> Reserved0W<CtrlSpec> {
-        Reserved0W::new(self, 0)
-    }
     #[doc = "Bits 10:31 - 31:10\\]
 This register point to the base address for the primary data structures of each DMA channel. This is not stored in module, but in system memory, thus space must be allocated for this usage when DMA is in usage"]
     #[inline(always)]

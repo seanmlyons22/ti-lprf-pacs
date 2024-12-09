@@ -46,31 +46,9 @@ impl PulsecntR {
         *self == Pulsecnt::Minimum
     }
 }
-#[doc = "Field `PULSECNT` writer - 11:0\\]
-Current Pulse Counter Value"]
-pub type PulsecntW<'a, REG> = crate::FieldWriter<'a, REG, 12, Pulsecnt>;
-impl<'a, REG> PulsecntW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u16>,
-{
-    #[doc = "Maximum value"]
-    #[inline(always)]
-    pub fn maximum(self) -> &'a mut crate::W<REG> {
-        self.variant(Pulsecnt::Maximum)
-    }
-    #[doc = "Minimum value"]
-    #[inline(always)]
-    pub fn minimum(self) -> &'a mut crate::W<REG> {
-        self.variant(Pulsecnt::Minimum)
-    }
-}
 #[doc = "Field `RESERVED12` reader - 31:12\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved12R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED12` writer - 31:12\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved12W<'a, REG> = crate::FieldWriter<'a, REG, 20, u32>;
 impl R {
     #[doc = "Bits 0:11 - 11:0\\]
 Current Pulse Counter Value"]
@@ -85,22 +63,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved12R::new((self.bits >> 12) & 0x000f_ffff)
     }
 }
-impl W {
-    #[doc = "Bits 0:11 - 11:0\\]
-Current Pulse Counter Value"]
-    #[inline(always)]
-    #[must_use]
-    pub fn pulsecnt(&mut self) -> PulsecntW<StatpcntSpec> {
-        PulsecntW::new(self, 0)
-    }
-    #[doc = "Bits 12:31 - 31:12\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved12(&mut self) -> Reserved12W<StatpcntSpec> {
-        Reserved12W::new(self, 12)
-    }
-}
+impl W {}
 #[doc = "Current Pulse Count Register: Read only register giving read access to the state machine current pulse count value for program/erase operations.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`statpcnt::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`statpcnt::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct StatpcntSpec;
 impl crate::RegisterSpec for StatpcntSpec {

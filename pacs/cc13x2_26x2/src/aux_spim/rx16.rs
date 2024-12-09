@@ -5,15 +5,9 @@ pub type W = crate::W<Rx16Spec>;
 #[doc = "Field `DATA` reader - 15:0\\]
 Latest 16 bits received on MISO."]
 pub type DataR = crate::FieldReader<u16>;
-#[doc = "Field `DATA` writer - 15:0\\]
-Latest 16 bits received on MISO."]
-pub type DataW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 #[doc = "Field `RESERVED16` reader - 31:16\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved16R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED16` writer - 31:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved16W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
     #[doc = "Bits 0:15 - 15:0\\]
 Latest 16 bits received on MISO."]
@@ -28,22 +22,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved16R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
-impl W {
-    #[doc = "Bits 0:15 - 15:0\\]
-Latest 16 bits received on MISO."]
-    #[inline(always)]
-    #[must_use]
-    pub fn data(&mut self) -> DataW<Rx16Spec> {
-        DataW::new(self, 0)
-    }
-    #[doc = "Bits 16:31 - 31:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved16(&mut self) -> Reserved16W<Rx16Spec> {
-        Reserved16W::new(self, 16)
-    }
-}
+impl W {}
 #[doc = "Receive 16 Bit Read operation stalls until current transfer completes.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`rx16::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`rx16::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Rx16Spec;
 impl crate::RegisterSpec for Rx16Spec {

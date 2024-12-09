@@ -5,39 +5,21 @@ pub type W = crate::W<Pdstat1Spec>;
 #[doc = "Field `RESERVED0` reader - 0:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved0R = crate::BitReader;
-#[doc = "Field `RESERVED0` writer - 0:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved0W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `CPU_ON` reader - 1:1\\]
 0: CPU and BUS domain not accessible 1: CPU and BUS domains are both currently accessible"]
 pub type CpuOnR = crate::BitReader;
-#[doc = "Field `CPU_ON` writer - 1:1\\]
-0: CPU and BUS domain not accessible 1: CPU and BUS domains are both currently accessible"]
-pub type CpuOnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RFC_ON` reader - 2:2\\]
 0: RFC domain not accessible 1: RFC domain is currently accessible"]
 pub type RfcOnR = crate::BitReader;
-#[doc = "Field `RFC_ON` writer - 2:2\\]
-0: RFC domain not accessible 1: RFC domain is currently accessible"]
-pub type RfcOnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `VIMS_MODE` reader - 3:3\\]
 0: VIMS domain not accessible 1: VIMS domain is currently accessible"]
 pub type VimsModeR = crate::BitReader;
-#[doc = "Field `VIMS_MODE` writer - 3:3\\]
-0: VIMS domain not accessible 1: VIMS domain is currently accessible"]
-pub type VimsModeW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `BUS_ON` reader - 4:4\\]
 0: BUS domain not accessible 1: BUS domain is currently accessible"]
 pub type BusOnR = crate::BitReader;
-#[doc = "Field `BUS_ON` writer - 4:4\\]
-0: BUS domain not accessible 1: BUS domain is currently accessible"]
-pub type BusOnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED5` reader - 31:5\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved5R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED5` writer - 31:5\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved5W<'a, REG> = crate::FieldWriter<'a, REG, 27, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
@@ -76,50 +58,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved5R::new((self.bits >> 5) & 0x07ff_ffff)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved0(&mut self) -> Reserved0W<Pdstat1Spec> {
-        Reserved0W::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-0: CPU and BUS domain not accessible 1: CPU and BUS domains are both currently accessible"]
-    #[inline(always)]
-    #[must_use]
-    pub fn cpu_on(&mut self) -> CpuOnW<Pdstat1Spec> {
-        CpuOnW::new(self, 1)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-0: RFC domain not accessible 1: RFC domain is currently accessible"]
-    #[inline(always)]
-    #[must_use]
-    pub fn rfc_on(&mut self) -> RfcOnW<Pdstat1Spec> {
-        RfcOnW::new(self, 2)
-    }
-    #[doc = "Bit 3 - 3:3\\]
-0: VIMS domain not accessible 1: VIMS domain is currently accessible"]
-    #[inline(always)]
-    #[must_use]
-    pub fn vims_mode(&mut self) -> VimsModeW<Pdstat1Spec> {
-        VimsModeW::new(self, 3)
-    }
-    #[doc = "Bit 4 - 4:4\\]
-0: BUS domain not accessible 1: BUS domain is currently accessible"]
-    #[inline(always)]
-    #[must_use]
-    pub fn bus_on(&mut self) -> BusOnW<Pdstat1Spec> {
-        BusOnW::new(self, 4)
-    }
-    #[doc = "Bits 5:31 - 31:5\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved5(&mut self) -> Reserved5W<Pdstat1Spec> {
-        Reserved5W::new(self, 5)
-    }
-}
+impl W {}
 #[doc = "Power Manager Status\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`pdstat1::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`pdstat1::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Pdstat1Spec;
 impl crate::RegisterSpec for Pdstat1Spec {

@@ -38,20 +38,6 @@ impl EvR {
         *self == Ev::RfcCpe0
     }
 }
-#[doc = "Field `EV` writer - 7:0\\]
-Read only selection value"]
-pub type EvW<'a, REG> = crate::FieldWriter<'a, REG, 8, Ev>;
-impl<'a, REG> EvW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "Combined Interrupt for CPE Generated events. Corresponding flags are here RFC_DBELL:RFCPEIFG. Only interrupts selected with CPE0 in RFC_DBELL:RFCPEIFG can trigger a RFC_CPE_0 event"]
-    #[inline(always)]
-    pub fn rfc_cpe_0(self) -> &'a mut crate::W<REG> {
-        self.variant(Ev::RfcCpe0)
-    }
-}
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Read only selection value"]
@@ -60,15 +46,7 @@ Read only selection value"]
         EvR::new((self.bits & 0xff) as u8)
     }
 }
-impl W {
-    #[doc = "Bits 0:7 - 7:0\\]
-Read only selection value"]
-    #[inline(always)]
-    #[must_use]
-    pub fn ev(&mut self) -> EvW<Cpuirqsel9Spec> {
-        EvW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Output Selection for CPU Interrupt 9\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`cpuirqsel9::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`cpuirqsel9::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Cpuirqsel9Spec;
 impl crate::RegisterSpec for Cpuirqsel9Spec {

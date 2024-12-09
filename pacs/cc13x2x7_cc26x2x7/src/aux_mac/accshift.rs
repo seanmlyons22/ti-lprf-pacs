@@ -2,56 +2,18 @@
 pub type R = crate::R<AccshiftSpec>;
 #[doc = "Register `ACCSHIFT` writer"]
 pub type W = crate::W<AccshiftSpec>;
-#[doc = "Field `ASR1` reader - 0:0\\]
-Arithmetic shift right by 1 bit. Write 1 to shift the accumulator one bit to the right, previous sign bit inserted at bit 39."]
-pub type Asr1R = crate::BitReader;
 #[doc = "Field `ASR1` writer - 0:0\\]
 Arithmetic shift right by 1 bit. Write 1 to shift the accumulator one bit to the right, previous sign bit inserted at bit 39."]
 pub type Asr1W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `LSR1` reader - 1:1\\]
-Logic shift right by 1 bit. Write 1 to shift the accumulator one bit to the right, 0 inserted at bit 39."]
-pub type Lsr1R = crate::BitReader;
 #[doc = "Field `LSR1` writer - 1:1\\]
 Logic shift right by 1 bit. Write 1 to shift the accumulator one bit to the right, 0 inserted at bit 39."]
 pub type Lsr1W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `LSL1` reader - 2:2\\]
-Logic shift left by 1 bit. Write 1 to shift the accumulator one bit to the left, 0 inserted at bit 0."]
-pub type Lsl1R = crate::BitReader;
 #[doc = "Field `LSL1` writer - 2:2\\]
 Logic shift left by 1 bit. Write 1 to shift the accumulator one bit to the left, 0 inserted at bit 0."]
 pub type Lsl1W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `RESERVED3` reader - 31:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED3` writer - 31:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 29, u32>;
-impl R {
-    #[doc = "Bit 0 - 0:0\\]
-Arithmetic shift right by 1 bit. Write 1 to shift the accumulator one bit to the right, previous sign bit inserted at bit 39."]
-    #[inline(always)]
-    pub fn asr1(&self) -> Asr1R {
-        Asr1R::new((self.bits & 1) != 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Logic shift right by 1 bit. Write 1 to shift the accumulator one bit to the right, 0 inserted at bit 39."]
-    #[inline(always)]
-    pub fn lsr1(&self) -> Lsr1R {
-        Lsr1R::new(((self.bits >> 1) & 1) != 0)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-Logic shift left by 1 bit. Write 1 to shift the accumulator one bit to the left, 0 inserted at bit 0."]
-    #[inline(always)]
-    pub fn lsl1(&self) -> Lsl1R {
-        Lsl1R::new(((self.bits >> 2) & 1) != 0)
-    }
-    #[doc = "Bits 3:31 - 31:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    pub fn reserved3(&self) -> Reserved3R {
-        Reserved3R::new((self.bits >> 3) & 0x1fff_ffff)
-    }
-}
 impl W {
     #[doc = "Bit 0 - 0:0\\]
 Arithmetic shift right by 1 bit. Write 1 to shift the accumulator one bit to the right, previous sign bit inserted at bit 39."]

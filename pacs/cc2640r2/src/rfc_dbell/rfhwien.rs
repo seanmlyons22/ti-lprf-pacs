@@ -125,9 +125,6 @@ pub type Ratch7W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED20` reader - 31:20\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved20R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED20` writer - 31:20\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved20W<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
@@ -396,13 +393,6 @@ Interrupt enable for RFHWIFG.RATCH7."]
     #[must_use]
     pub fn ratch7(&mut self) -> Ratch7W<RfhwienSpec> {
         Ratch7W::new(self, 19)
-    }
-    #[doc = "Bits 20:31 - 31:20\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved20(&mut self) -> Reserved20W<RfhwienSpec> {
-        Reserved20W::new(self, 20)
     }
 }
 #[doc = "Interrupt Enable For RF Hardware Modules\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`rfhwien::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`rfhwien::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

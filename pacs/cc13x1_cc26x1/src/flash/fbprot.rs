@@ -11,9 +11,6 @@ pub type Protl1disW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED1` reader - 31:1\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved1R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED1` writer - 31:1\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 31, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Internal. Only to be used through TI provided API."]
@@ -35,13 +32,6 @@ Internal. Only to be used through TI provided API."]
     #[must_use]
     pub fn protl1dis(&mut self) -> Protl1disW<FbprotSpec> {
         Protl1disW::new(self, 0)
-    }
-    #[doc = "Bits 1:31 - 31:1\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved1(&mut self) -> Reserved1W<FbprotSpec> {
-        Reserved1W::new(self, 1)
     }
 }
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fbprot::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fbprot::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

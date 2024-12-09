@@ -5,9 +5,6 @@ pub type W = crate::W<Fedacctl2Spec>;
 #[doc = "Field `SEC_THRESHOLD` reader - 31:0\\]
 Internal. Only to be used through TI provided API."]
 pub type SecThresholdR = crate::FieldReader<u32>;
-#[doc = "Field `SEC_THRESHOLD` writer - 31:0\\]
-Internal. Only to be used through TI provided API."]
-pub type SecThresholdW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 Internal. Only to be used through TI provided API."]
@@ -16,15 +13,7 @@ Internal. Only to be used through TI provided API."]
         SecThresholdR::new(self.bits)
     }
 }
-impl W {
-    #[doc = "Bits 0:31 - 31:0\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn sec_threshold(&mut self) -> SecThresholdW<Fedacctl2Spec> {
-        SecThresholdW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fedacctl2::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fedacctl2::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Fedacctl2Spec;
 impl crate::RegisterSpec for Fedacctl2Spec {

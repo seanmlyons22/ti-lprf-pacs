@@ -5,39 +5,21 @@ pub type W = crate::W<HwrevSpec>;
 #[doc = "Field `BASIC_EIP_NUMBER` reader - 7:0\\]
 8-bit binary encoding of the EIP number, EIP-28 gives 0x1C"]
 pub type BasicEipNumberR = crate::FieldReader;
-#[doc = "Field `BASIC_EIP_NUMBER` writer - 7:0\\]
-8-bit binary encoding of the EIP number, EIP-28 gives 0x1C"]
-pub type BasicEipNumberW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `COMPLEMENT_OF_BASIC_EIP_NUMBER` reader - 15:8\\]
 Bit-by-bit logic complement of bits \\[7:0\\], EIP-28 gives 0xE3"]
 pub type ComplementOfBasicEipNumberR = crate::FieldReader;
-#[doc = "Field `COMPLEMENT_OF_BASIC_EIP_NUMBER` writer - 15:8\\]
-Bit-by-bit logic complement of bits \\[7:0\\], EIP-28 gives 0xE3"]
-pub type ComplementOfBasicEipNumberW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `HW_PATCH_LEVEL` reader - 19:16\\]
 4-bit binary encoding of the hardware patch level, initial release will carry value zero Patches are used to remove bugs without changing the functionality or interface of a module."]
 pub type HwPatchLevelR = crate::FieldReader;
-#[doc = "Field `HW_PATCH_LEVEL` writer - 19:16\\]
-4-bit binary encoding of the hardware patch level, initial release will carry value zero Patches are used to remove bugs without changing the functionality or interface of a module."]
-pub type HwPatchLevelW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `MINOR_HW_REVISION` reader - 23:20\\]
 4-bit binary encoding of the minor hardware revision number"]
 pub type MinorHwRevisionR = crate::FieldReader;
-#[doc = "Field `MINOR_HW_REVISION` writer - 23:20\\]
-4-bit binary encoding of the minor hardware revision number"]
-pub type MinorHwRevisionW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `MAJOR_HW_REVISION` reader - 27:24\\]
 4-bit binary encoding of the major hardware revision number"]
 pub type MajorHwRevisionR = crate::FieldReader;
-#[doc = "Field `MAJOR_HW_REVISION` writer - 27:24\\]
-4-bit binary encoding of the major hardware revision number"]
-pub type MajorHwRevisionW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED28` reader - 31:28\\]
 Ignore on read"]
 pub type Reserved28R = crate::FieldReader;
-#[doc = "Field `RESERVED28` writer - 31:28\\]
-Ignore on read"]
-pub type Reserved28W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 8-bit binary encoding of the EIP number, EIP-28 gives 0x1C"]
@@ -76,50 +58,7 @@ Ignore on read"]
         Reserved28R::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
-impl W {
-    #[doc = "Bits 0:7 - 7:0\\]
-8-bit binary encoding of the EIP number, EIP-28 gives 0x1C"]
-    #[inline(always)]
-    #[must_use]
-    pub fn basic_eip_number(&mut self) -> BasicEipNumberW<HwrevSpec> {
-        BasicEipNumberW::new(self, 0)
-    }
-    #[doc = "Bits 8:15 - 15:8\\]
-Bit-by-bit logic complement of bits \\[7:0\\], EIP-28 gives 0xE3"]
-    #[inline(always)]
-    #[must_use]
-    pub fn complement_of_basic_eip_number(&mut self) -> ComplementOfBasicEipNumberW<HwrevSpec> {
-        ComplementOfBasicEipNumberW::new(self, 8)
-    }
-    #[doc = "Bits 16:19 - 19:16\\]
-4-bit binary encoding of the hardware patch level, initial release will carry value zero Patches are used to remove bugs without changing the functionality or interface of a module."]
-    #[inline(always)]
-    #[must_use]
-    pub fn hw_patch_level(&mut self) -> HwPatchLevelW<HwrevSpec> {
-        HwPatchLevelW::new(self, 16)
-    }
-    #[doc = "Bits 20:23 - 23:20\\]
-4-bit binary encoding of the minor hardware revision number"]
-    #[inline(always)]
-    #[must_use]
-    pub fn minor_hw_revision(&mut self) -> MinorHwRevisionW<HwrevSpec> {
-        MinorHwRevisionW::new(self, 20)
-    }
-    #[doc = "Bits 24:27 - 27:24\\]
-4-bit binary encoding of the major hardware revision number"]
-    #[inline(always)]
-    #[must_use]
-    pub fn major_hw_revision(&mut self) -> MajorHwRevisionW<HwrevSpec> {
-        MajorHwRevisionW::new(self, 24)
-    }
-    #[doc = "Bits 28:31 - 31:28\\]
-Ignore on read"]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved28(&mut self) -> Reserved28W<HwrevSpec> {
-        Reserved28W::new(self, 28)
-    }
-}
+impl W {}
 #[doc = "PKA hardware revision register This register allows the host access to the hardware revision number of the PKA engine for software driver matching and diagnostic purposes. It is always located at the highest address in the access space of the module and contains an encoding of the EIP number (with its complement as signature) for recognition of the hardware module.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`hwrev::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`hwrev::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct HwrevSpec;
 impl crate::RegisterSpec for HwrevSpec {

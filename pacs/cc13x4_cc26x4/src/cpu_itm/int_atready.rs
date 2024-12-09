@@ -5,21 +5,12 @@ pub type W = crate::W<IntAtreadySpec>;
 #[doc = "Field `ATREADY` reader - 0:0\\]
 A read of this bit returns the value of ATREADY"]
 pub type AtreadyR = crate::BitReader;
-#[doc = "Field `ATREADY` writer - 0:0\\]
-A read of this bit returns the value of ATREADY"]
-pub type AtreadyW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `AFVALID` reader - 1:1\\]
 A read of this bit returns the value of AFVALID"]
 pub type AfvalidR = crate::BitReader;
-#[doc = "Field `AFVALID` writer - 1:1\\]
-A read of this bit returns the value of AFVALID"]
-pub type AfvalidW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED2` reader - 31:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED2` writer - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 30, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 A read of this bit returns the value of ATREADY"]
@@ -40,29 +31,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved2R::new((self.bits >> 2) & 0x3fff_ffff)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-A read of this bit returns the value of ATREADY"]
-    #[inline(always)]
-    #[must_use]
-    pub fn atready(&mut self) -> AtreadyW<IntAtreadySpec> {
-        AtreadyW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-A read of this bit returns the value of AFVALID"]
-    #[inline(always)]
-    #[must_use]
-    pub fn afvalid(&mut self) -> AfvalidW<IntAtreadySpec> {
-        AfvalidW::new(self, 1)
-    }
-    #[doc = "Bits 2:31 - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<IntAtreadySpec> {
-        Reserved2W::new(self, 2)
-    }
-}
+impl W {}
 #[doc = "Integration Mode: Read ATB Ready\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`int_atready::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`int_atready::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct IntAtreadySpec;
 impl crate::RegisterSpec for IntAtreadySpec {

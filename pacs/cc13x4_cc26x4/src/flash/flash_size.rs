@@ -5,9 +5,6 @@ pub type W = crate::W<FlashSizeSpec>;
 #[doc = "Field `RESERVED0` reader - 6:0\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved0R = crate::FieldReader;
-#[doc = "Field `RESERVED0` writer - 6:0\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved0W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "Field `SECTORS` reader - 9:7\\]
 Internal. Only to be used through TI provided API."]
 pub type SectorsR = crate::FieldReader;
@@ -17,9 +14,6 @@ pub type SectorsW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `RESERVED10` reader - 31:10\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved10R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED10` writer - 31:10\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved10W<'a, REG> = crate::FieldWriter<'a, REG, 22, u32>;
 impl R {
     #[doc = "Bits 0:6 - 6:0\\]
 Internal. Only to be used through TI provided API."]
@@ -41,26 +35,12 @@ Internal. Only to be used through TI provided API."]
     }
 }
 impl W {
-    #[doc = "Bits 0:6 - 6:0\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved0(&mut self) -> Reserved0W<FlashSizeSpec> {
-        Reserved0W::new(self, 0)
-    }
     #[doc = "Bits 7:9 - 9:7\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
     pub fn sectors(&mut self) -> SectorsW<FlashSizeSpec> {
         SectorsW::new(self, 7)
-    }
-    #[doc = "Bits 10:31 - 31:10\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved10(&mut self) -> Reserved10W<FlashSizeSpec> {
-        Reserved10W::new(self, 10)
     }
 }
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`flash_size::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`flash_size::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

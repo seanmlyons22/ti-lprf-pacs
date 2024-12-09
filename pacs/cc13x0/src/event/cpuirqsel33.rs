@@ -38,20 +38,6 @@ impl EvR {
         *self == Ev::TrngIrq
     }
 }
-#[doc = "Field `EV` writer - 6:0\\]
-Read only selection value"]
-pub type EvW<'a, REG> = crate::FieldWriter<'a, REG, 7, Ev>;
-impl<'a, REG> EvW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "TRNG Interrupt event, controlled by TRNG:IRQEN.EN"]
-    #[inline(always)]
-    pub fn trng_irq(self) -> &'a mut crate::W<REG> {
-        self.variant(Ev::TrngIrq)
-    }
-}
 impl R {
     #[doc = "Bits 0:6 - 6:0\\]
 Read only selection value"]
@@ -60,15 +46,7 @@ Read only selection value"]
         EvR::new((self.bits & 0x7f) as u8)
     }
 }
-impl W {
-    #[doc = "Bits 0:6 - 6:0\\]
-Read only selection value"]
-    #[inline(always)]
-    #[must_use]
-    pub fn ev(&mut self) -> EvW<Cpuirqsel33Spec> {
-        EvW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Output Selection for CPU Interrupt 33\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`cpuirqsel33::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`cpuirqsel33::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Cpuirqsel33Spec;
 impl crate::RegisterSpec for Cpuirqsel33Spec {

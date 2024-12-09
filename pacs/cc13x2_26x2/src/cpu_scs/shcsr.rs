@@ -40,24 +40,6 @@ impl MemfaultactR {
         *self == Memfaultact::Notactive
     }
 }
-#[doc = "Field `MEMFAULTACT` writer - 0:0\\]
-MemManage exception active"]
-pub type MemfaultactW<'a, REG> = crate::BitWriter<'a, REG, Memfaultact>;
-impl<'a, REG> MemfaultactW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Exception is active"]
-    #[inline(always)]
-    pub fn active(self) -> &'a mut crate::W<REG> {
-        self.variant(Memfaultact::Active)
-    }
-    #[doc = "Exception is not active"]
-    #[inline(always)]
-    pub fn notactive(self) -> &'a mut crate::W<REG> {
-        self.variant(Memfaultact::Notactive)
-    }
-}
 #[doc = "1:1\\]
 BusFault exception active\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -96,30 +78,9 @@ impl BusfaultactR {
         *self == Busfaultact::Notactive
     }
 }
-#[doc = "Field `BUSFAULTACT` writer - 1:1\\]
-BusFault exception active"]
-pub type BusfaultactW<'a, REG> = crate::BitWriter<'a, REG, Busfaultact>;
-impl<'a, REG> BusfaultactW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Exception is active"]
-    #[inline(always)]
-    pub fn active(self) -> &'a mut crate::W<REG> {
-        self.variant(Busfaultact::Active)
-    }
-    #[doc = "Exception is not active"]
-    #[inline(always)]
-    pub fn notactive(self) -> &'a mut crate::W<REG> {
-        self.variant(Busfaultact::Notactive)
-    }
-}
 #[doc = "Field `RESERVED2` reader - 2:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2R = crate::BitReader;
-#[doc = "Field `RESERVED2` writer - 2:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "3:3\\]
 UsageFault exception active\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -158,30 +119,9 @@ impl UsgfaultactR {
         *self == Usgfaultact::Notactive
     }
 }
-#[doc = "Field `USGFAULTACT` writer - 3:3\\]
-UsageFault exception active"]
-pub type UsgfaultactW<'a, REG> = crate::BitWriter<'a, REG, Usgfaultact>;
-impl<'a, REG> UsgfaultactW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Exception is active"]
-    #[inline(always)]
-    pub fn active(self) -> &'a mut crate::W<REG> {
-        self.variant(Usgfaultact::Active)
-    }
-    #[doc = "Exception is not active"]
-    #[inline(always)]
-    pub fn notactive(self) -> &'a mut crate::W<REG> {
-        self.variant(Usgfaultact::Notactive)
-    }
-}
 #[doc = "Field `RESERVED4` reader - 6:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved4R = crate::FieldReader;
-#[doc = "Field `RESERVED4` writer - 6:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved4W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "7:7\\]
 SVCall active\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -218,24 +158,6 @@ impl SvcallactR {
     #[inline(always)]
     pub fn is_notactive(&self) -> bool {
         *self == Svcallact::Notactive
-    }
-}
-#[doc = "Field `SVCALLACT` writer - 7:7\\]
-SVCall active"]
-pub type SvcallactW<'a, REG> = crate::BitWriter<'a, REG, Svcallact>;
-impl<'a, REG> SvcallactW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Exception is active"]
-    #[inline(always)]
-    pub fn active(self) -> &'a mut crate::W<REG> {
-        self.variant(Svcallact::Active)
-    }
-    #[doc = "Exception is not active"]
-    #[inline(always)]
-    pub fn notactive(self) -> &'a mut crate::W<REG> {
-        self.variant(Svcallact::Notactive)
     }
 }
 #[doc = "8:8\\]
@@ -276,36 +198,12 @@ impl MonitoractR {
         *self == Monitoract::Notactive
     }
 }
-#[doc = "Field `MONITORACT` writer - 8:8\\]
-Debug monitor active"]
-pub type MonitoractW<'a, REG> = crate::BitWriter<'a, REG, Monitoract>;
-impl<'a, REG> MonitoractW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Exception is active"]
-    #[inline(always)]
-    pub fn active(self) -> &'a mut crate::W<REG> {
-        self.variant(Monitoract::Active)
-    }
-    #[doc = "Exception is not active"]
-    #[inline(always)]
-    pub fn notactive(self) -> &'a mut crate::W<REG> {
-        self.variant(Monitoract::Notactive)
-    }
-}
 #[doc = "Field `RESERVED9` reader - 9:9\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved9R = crate::BitReader;
-#[doc = "Field `RESERVED9` writer - 9:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved9W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `PENDSVACT` reader - 10:10\\]
 PendSV active 0x0: Not active 0x1: Active"]
 pub type PendsvactR = crate::BitReader;
-#[doc = "Field `PENDSVACT` writer - 10:10\\]
-PendSV active 0x0: Not active 0x1: Active"]
-pub type PendsvactW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "11:11\\]
 SysTick active flag. 0x0: Not active 0x1: Active\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -342,24 +240,6 @@ impl SystickactR {
     #[inline(always)]
     pub fn is_notactive(&self) -> bool {
         *self == Systickact::Notactive
-    }
-}
-#[doc = "Field `SYSTICKACT` writer - 11:11\\]
-SysTick active flag. 0x0: Not active 0x1: Active"]
-pub type SystickactW<'a, REG> = crate::BitWriter<'a, REG, Systickact>;
-impl<'a, REG> SystickactW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Exception is active"]
-    #[inline(always)]
-    pub fn active(self) -> &'a mut crate::W<REG> {
-        self.variant(Systickact::Active)
-    }
-    #[doc = "Exception is not active"]
-    #[inline(always)]
-    pub fn notactive(self) -> &'a mut crate::W<REG> {
-        self.variant(Systickact::Notactive)
     }
 }
 #[doc = "12:12\\]
@@ -400,24 +280,6 @@ impl UsgfaultpendedR {
         *self == Usgfaultpended::Notpending
     }
 }
-#[doc = "Field `USGFAULTPENDED` writer - 12:12\\]
-Usage fault pending"]
-pub type UsgfaultpendedW<'a, REG> = crate::BitWriter<'a, REG, Usgfaultpended>;
-impl<'a, REG> UsgfaultpendedW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Exception is pending."]
-    #[inline(always)]
-    pub fn pending(self) -> &'a mut crate::W<REG> {
-        self.variant(Usgfaultpended::Pending)
-    }
-    #[doc = "Exception is not active"]
-    #[inline(always)]
-    pub fn notpending(self) -> &'a mut crate::W<REG> {
-        self.variant(Usgfaultpended::Notpending)
-    }
-}
 #[doc = "13:13\\]
 MemManage exception pending\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -454,24 +316,6 @@ impl MemfaultpendedR {
     #[inline(always)]
     pub fn is_notpending(&self) -> bool {
         *self == Memfaultpended::Notpending
-    }
-}
-#[doc = "Field `MEMFAULTPENDED` writer - 13:13\\]
-MemManage exception pending"]
-pub type MemfaultpendedW<'a, REG> = crate::BitWriter<'a, REG, Memfaultpended>;
-impl<'a, REG> MemfaultpendedW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Exception is pending."]
-    #[inline(always)]
-    pub fn pending(self) -> &'a mut crate::W<REG> {
-        self.variant(Memfaultpended::Pending)
-    }
-    #[doc = "Exception is not active"]
-    #[inline(always)]
-    pub fn notpending(self) -> &'a mut crate::W<REG> {
-        self.variant(Memfaultpended::Notpending)
     }
 }
 #[doc = "14:14\\]
@@ -512,24 +356,6 @@ impl BusfaultpendedR {
         *self == Busfaultpended::Notpending
     }
 }
-#[doc = "Field `BUSFAULTPENDED` writer - 14:14\\]
-BusFault pending"]
-pub type BusfaultpendedW<'a, REG> = crate::BitWriter<'a, REG, Busfaultpended>;
-impl<'a, REG> BusfaultpendedW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Exception is pending."]
-    #[inline(always)]
-    pub fn pending(self) -> &'a mut crate::W<REG> {
-        self.variant(Busfaultpended::Pending)
-    }
-    #[doc = "Exception is not active"]
-    #[inline(always)]
-    pub fn notpending(self) -> &'a mut crate::W<REG> {
-        self.variant(Busfaultpended::Notpending)
-    }
-}
 #[doc = "15:15\\]
 SVCall pending\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -566,24 +392,6 @@ impl SvcallpendedR {
     #[inline(always)]
     pub fn is_notpending(&self) -> bool {
         *self == Svcallpended::Notpending
-    }
-}
-#[doc = "Field `SVCALLPENDED` writer - 15:15\\]
-SVCall pending"]
-pub type SvcallpendedW<'a, REG> = crate::BitWriter<'a, REG, Svcallpended>;
-impl<'a, REG> SvcallpendedW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Exception is pending."]
-    #[inline(always)]
-    pub fn pending(self) -> &'a mut crate::W<REG> {
-        self.variant(Svcallpended::Pending)
-    }
-    #[doc = "Exception is not active"]
-    #[inline(always)]
-    pub fn notpending(self) -> &'a mut crate::W<REG> {
-        self.variant(Svcallpended::Notpending)
     }
 }
 #[doc = "16:16\\]
@@ -871,104 +679,6 @@ Software should not rely on the value of a reserved. Writing any other value tha
     }
 }
 impl W {
-    #[doc = "Bit 0 - 0:0\\]
-MemManage exception active"]
-    #[inline(always)]
-    #[must_use]
-    pub fn memfaultact(&mut self) -> MemfaultactW<ShcsrSpec> {
-        MemfaultactW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-BusFault exception active"]
-    #[inline(always)]
-    #[must_use]
-    pub fn busfaultact(&mut self) -> BusfaultactW<ShcsrSpec> {
-        BusfaultactW::new(self, 1)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<ShcsrSpec> {
-        Reserved2W::new(self, 2)
-    }
-    #[doc = "Bit 3 - 3:3\\]
-UsageFault exception active"]
-    #[inline(always)]
-    #[must_use]
-    pub fn usgfaultact(&mut self) -> UsgfaultactW<ShcsrSpec> {
-        UsgfaultactW::new(self, 3)
-    }
-    #[doc = "Bits 4:6 - 6:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved4(&mut self) -> Reserved4W<ShcsrSpec> {
-        Reserved4W::new(self, 4)
-    }
-    #[doc = "Bit 7 - 7:7\\]
-SVCall active"]
-    #[inline(always)]
-    #[must_use]
-    pub fn svcallact(&mut self) -> SvcallactW<ShcsrSpec> {
-        SvcallactW::new(self, 7)
-    }
-    #[doc = "Bit 8 - 8:8\\]
-Debug monitor active"]
-    #[inline(always)]
-    #[must_use]
-    pub fn monitoract(&mut self) -> MonitoractW<ShcsrSpec> {
-        MonitoractW::new(self, 8)
-    }
-    #[doc = "Bit 9 - 9:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved9(&mut self) -> Reserved9W<ShcsrSpec> {
-        Reserved9W::new(self, 9)
-    }
-    #[doc = "Bit 10 - 10:10\\]
-PendSV active 0x0: Not active 0x1: Active"]
-    #[inline(always)]
-    #[must_use]
-    pub fn pendsvact(&mut self) -> PendsvactW<ShcsrSpec> {
-        PendsvactW::new(self, 10)
-    }
-    #[doc = "Bit 11 - 11:11\\]
-SysTick active flag. 0x0: Not active 0x1: Active"]
-    #[inline(always)]
-    #[must_use]
-    pub fn systickact(&mut self) -> SystickactW<ShcsrSpec> {
-        SystickactW::new(self, 11)
-    }
-    #[doc = "Bit 12 - 12:12\\]
-Usage fault pending"]
-    #[inline(always)]
-    #[must_use]
-    pub fn usgfaultpended(&mut self) -> UsgfaultpendedW<ShcsrSpec> {
-        UsgfaultpendedW::new(self, 12)
-    }
-    #[doc = "Bit 13 - 13:13\\]
-MemManage exception pending"]
-    #[inline(always)]
-    #[must_use]
-    pub fn memfaultpended(&mut self) -> MemfaultpendedW<ShcsrSpec> {
-        MemfaultpendedW::new(self, 13)
-    }
-    #[doc = "Bit 14 - 14:14\\]
-BusFault pending"]
-    #[inline(always)]
-    #[must_use]
-    pub fn busfaultpended(&mut self) -> BusfaultpendedW<ShcsrSpec> {
-        BusfaultpendedW::new(self, 14)
-    }
-    #[doc = "Bit 15 - 15:15\\]
-SVCall pending"]
-    #[inline(always)]
-    #[must_use]
-    pub fn svcallpended(&mut self) -> SvcallpendedW<ShcsrSpec> {
-        SvcallpendedW::new(self, 15)
-    }
     #[doc = "Bit 16 - 16:16\\]
 MemManage fault system handler enable"]
     #[inline(always)]

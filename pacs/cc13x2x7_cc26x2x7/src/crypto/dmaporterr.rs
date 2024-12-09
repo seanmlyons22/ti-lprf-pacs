@@ -5,33 +5,18 @@ pub type W = crate::W<DmaporterrSpec>;
 #[doc = "Field `RESERVED0` reader - 8:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved0R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED0` writer - 8:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved0W<'a, REG> = crate::FieldWriter<'a, REG, 9, u16>;
 #[doc = "Field `PORT1_CHANNEL` reader - 9:9\\]
 Indicates which channel has serviced last (channel 0 or channel 1) by AHB master port."]
 pub type Port1ChannelR = crate::BitReader;
-#[doc = "Field `PORT1_CHANNEL` writer - 9:9\\]
-Indicates which channel has serviced last (channel 0 or channel 1) by AHB master port."]
-pub type Port1ChannelW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED10` reader - 11:10\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved10R = crate::FieldReader;
-#[doc = "Field `RESERVED10` writer - 11:10\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved10W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `PORT1_AHB_ERROR` reader - 12:12\\]
 A value of 1 indicates that the EIP-101 has detected an AHB bus error"]
 pub type Port1AhbErrorR = crate::BitReader;
-#[doc = "Field `PORT1_AHB_ERROR` writer - 12:12\\]
-A value of 1 indicates that the EIP-101 has detected an AHB bus error"]
-pub type Port1AhbErrorW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED13` reader - 31:13\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved13R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED13` writer - 31:13\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved13W<'a, REG> = crate::FieldWriter<'a, REG, 19, u32>;
 impl R {
     #[doc = "Bits 0:8 - 8:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
@@ -64,43 +49,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved13R::new((self.bits >> 13) & 0x0007_ffff)
     }
 }
-impl W {
-    #[doc = "Bits 0:8 - 8:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved0(&mut self) -> Reserved0W<DmaporterrSpec> {
-        Reserved0W::new(self, 0)
-    }
-    #[doc = "Bit 9 - 9:9\\]
-Indicates which channel has serviced last (channel 0 or channel 1) by AHB master port."]
-    #[inline(always)]
-    #[must_use]
-    pub fn port1_channel(&mut self) -> Port1ChannelW<DmaporterrSpec> {
-        Port1ChannelW::new(self, 9)
-    }
-    #[doc = "Bits 10:11 - 11:10\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved10(&mut self) -> Reserved10W<DmaporterrSpec> {
-        Reserved10W::new(self, 10)
-    }
-    #[doc = "Bit 12 - 12:12\\]
-A value of 1 indicates that the EIP-101 has detected an AHB bus error"]
-    #[inline(always)]
-    #[must_use]
-    pub fn port1_ahb_error(&mut self) -> Port1AhbErrorW<DmaporterrSpec> {
-        Port1AhbErrorW::new(self, 12)
-    }
-    #[doc = "Bits 13:31 - 31:13\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved13(&mut self) -> Reserved13W<DmaporterrSpec> {
-        Reserved13W::new(self, 13)
-    }
-}
+impl W {}
 #[doc = "DMAC Port Error Raw Status This register provides the actual status of individual port errors. It also indicates which channel is serviced by an external AHB port (which is frozen by a port error). A port error aborts operations on all serviced channels (channel enable bit is forced to 0) and prevents further transfers via that port until the error is cleared by writing to the DMASWRESET register.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`dmaporterr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`dmaporterr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct DmaporterrSpec;
 impl crate::RegisterSpec for DmaporterrSpec {

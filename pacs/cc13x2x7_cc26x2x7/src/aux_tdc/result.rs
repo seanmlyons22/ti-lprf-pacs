@@ -5,15 +5,9 @@ pub type W = crate::W<ResultSpec>;
 #[doc = "Field `VALUE` reader - 24:0\\]
 TDC conversion result. The result of the TDC conversion is given in number of clock edges of the clock source selected in DDI_0_OSC:CTL0.ACLK_TDC_SRC_SEL. Both rising and falling edges are counted. If TDC counter saturates, VALUE is slightly higher than SATCFG.LIMIT, as it takes a non-zero time to stop the measurement. Hence, the maximum value of this field becomes slightly higher than 2^24 if you configure SATCFG.LIMIT to R24."]
 pub type ValueR = crate::FieldReader<u32>;
-#[doc = "Field `VALUE` writer - 24:0\\]
-TDC conversion result. The result of the TDC conversion is given in number of clock edges of the clock source selected in DDI_0_OSC:CTL0.ACLK_TDC_SRC_SEL. Both rising and falling edges are counted. If TDC counter saturates, VALUE is slightly higher than SATCFG.LIMIT, as it takes a non-zero time to stop the measurement. Hence, the maximum value of this field becomes slightly higher than 2^24 if you configure SATCFG.LIMIT to R24."]
-pub type ValueW<'a, REG> = crate::FieldWriter<'a, REG, 25, u32>;
 #[doc = "Field `RESERVED25` reader - 31:25\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved25R = crate::FieldReader;
-#[doc = "Field `RESERVED25` writer - 31:25\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved25W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 impl R {
     #[doc = "Bits 0:24 - 24:0\\]
 TDC conversion result. The result of the TDC conversion is given in number of clock edges of the clock source selected in DDI_0_OSC:CTL0.ACLK_TDC_SRC_SEL. Both rising and falling edges are counted. If TDC counter saturates, VALUE is slightly higher than SATCFG.LIMIT, as it takes a non-zero time to stop the measurement. Hence, the maximum value of this field becomes slightly higher than 2^24 if you configure SATCFG.LIMIT to R24."]
@@ -28,22 +22,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved25R::new(((self.bits >> 25) & 0x7f) as u8)
     }
 }
-impl W {
-    #[doc = "Bits 0:24 - 24:0\\]
-TDC conversion result. The result of the TDC conversion is given in number of clock edges of the clock source selected in DDI_0_OSC:CTL0.ACLK_TDC_SRC_SEL. Both rising and falling edges are counted. If TDC counter saturates, VALUE is slightly higher than SATCFG.LIMIT, as it takes a non-zero time to stop the measurement. Hence, the maximum value of this field becomes slightly higher than 2^24 if you configure SATCFG.LIMIT to R24."]
-    #[inline(always)]
-    #[must_use]
-    pub fn value(&mut self) -> ValueW<ResultSpec> {
-        ValueW::new(self, 0)
-    }
-    #[doc = "Bits 25:31 - 31:25\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved25(&mut self) -> Reserved25W<ResultSpec> {
-        Reserved25W::new(self, 25)
-    }
-}
+impl W {}
 #[doc = "Result Result of last TDC conversion.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`result::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`result::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct ResultSpec;
 impl crate::RegisterSpec for ResultSpec {

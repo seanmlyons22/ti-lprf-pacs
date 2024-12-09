@@ -5,9 +5,6 @@ pub type W = crate::W<PcsrSpec>;
 #[doc = "Field `EIASAMPLE` reader - 31:0\\]
 Execution instruction address sample, or 0xFFFFFFFF if the core is halted."]
 pub type EiasampleR = crate::FieldReader<u32>;
-#[doc = "Field `EIASAMPLE` writer - 31:0\\]
-Execution instruction address sample, or 0xFFFFFFFF if the core is halted."]
-pub type EiasampleW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 Execution instruction address sample, or 0xFFFFFFFF if the core is halted."]
@@ -16,15 +13,7 @@ Execution instruction address sample, or 0xFFFFFFFF if the core is halted."]
         EiasampleR::new(self.bits)
     }
 }
-impl W {
-    #[doc = "Bits 0:31 - 31:0\\]
-Execution instruction address sample, or 0xFFFFFFFF if the core is halted."]
-    #[inline(always)]
-    #[must_use]
-    pub fn eiasample(&mut self) -> EiasampleW<PcsrSpec> {
-        EiasampleW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Program Counter Sample This register is used to enable coarse-grained software profiling using a debug agent, without changing the currently executing code. If the core is not in debug state, the value returned is the instruction address of a recently executed instruction. If the core is in debug state, the value returned is 0xFFFFFFFF.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`pcsr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`pcsr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct PcsrSpec;
 impl crate::RegisterSpec for PcsrSpec {

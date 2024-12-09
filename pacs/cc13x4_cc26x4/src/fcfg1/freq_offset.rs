@@ -5,21 +5,12 @@ pub type W = crate::W<FreqOffsetSpec>;
 #[doc = "Field `HPOSC_COMP_P2` reader - 7:0\\]
 Internal. Only to be used through TI provided API."]
 pub type HposcCompP2R = crate::FieldReader;
-#[doc = "Field `HPOSC_COMP_P2` writer - 7:0\\]
-Internal. Only to be used through TI provided API."]
-pub type HposcCompP2W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `HPOSC_COMP_P1` reader - 15:8\\]
 Internal. Only to be used through TI provided API."]
 pub type HposcCompP1R = crate::FieldReader;
-#[doc = "Field `HPOSC_COMP_P1` writer - 15:8\\]
-Internal. Only to be used through TI provided API."]
-pub type HposcCompP1W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `HPOSC_COMP_P0` reader - 31:16\\]
 Internal. Only to be used through TI provided API."]
 pub type HposcCompP0R = crate::FieldReader<u16>;
-#[doc = "Field `HPOSC_COMP_P0` writer - 31:16\\]
-Internal. Only to be used through TI provided API."]
-pub type HposcCompP0W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Internal. Only to be used through TI provided API."]
@@ -40,29 +31,7 @@ Internal. Only to be used through TI provided API."]
         HposcCompP0R::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
-impl W {
-    #[doc = "Bits 0:7 - 7:0\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn hposc_comp_p2(&mut self) -> HposcCompP2W<FreqOffsetSpec> {
-        HposcCompP2W::new(self, 0)
-    }
-    #[doc = "Bits 8:15 - 15:8\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn hposc_comp_p1(&mut self) -> HposcCompP1W<FreqOffsetSpec> {
-        HposcCompP1W::new(self, 8)
-    }
-    #[doc = "Bits 16:31 - 31:16\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn hposc_comp_p0(&mut self) -> HposcCompP0W<FreqOffsetSpec> {
-        HposcCompP0W::new(self, 16)
-    }
-}
+impl W {}
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`freq_offset::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`freq_offset::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct FreqOffsetSpec;
 impl crate::RegisterSpec for FreqOffsetSpec {

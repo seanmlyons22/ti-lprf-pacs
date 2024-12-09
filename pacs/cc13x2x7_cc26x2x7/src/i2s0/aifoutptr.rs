@@ -5,9 +5,6 @@ pub type W = crate::W<AifoutptrSpec>;
 #[doc = "Field `PTR` reader - 31:0\\]
 Value of the DMA output buffer pointer currently used by the DMA controller Incremented by 1 (byte) or 2 (word) for each AHB access."]
 pub type PtrR = crate::FieldReader<u32>;
-#[doc = "Field `PTR` writer - 31:0\\]
-Value of the DMA output buffer pointer currently used by the DMA controller Incremented by 1 (byte) or 2 (word) for each AHB access."]
-pub type PtrW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 Value of the DMA output buffer pointer currently used by the DMA controller Incremented by 1 (byte) or 2 (word) for each AHB access."]
@@ -16,15 +13,7 @@ Value of the DMA output buffer pointer currently used by the DMA controller Incr
         PtrR::new(self.bits)
     }
 }
-impl W {
-    #[doc = "Bits 0:31 - 31:0\\]
-Value of the DMA output buffer pointer currently used by the DMA controller Incremented by 1 (byte) or 2 (word) for each AHB access."]
-    #[inline(always)]
-    #[must_use]
-    pub fn ptr(&mut self) -> PtrW<AifoutptrSpec> {
-        PtrW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "DMA Output Buffer Current Pointer\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`aifoutptr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`aifoutptr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct AifoutptrSpec;
 impl crate::RegisterSpec for AifoutptrSpec {

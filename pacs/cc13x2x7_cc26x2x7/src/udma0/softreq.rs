@@ -2,26 +2,11 @@
 pub type R = crate::R<SoftreqSpec>;
 #[doc = "Register `SOFTREQ` writer"]
 pub type W = crate::W<SoftreqSpec>;
-#[doc = "Field `CHNLS` reader - 31:0\\]
-Set the appropriate bit to generate a software uDMA request on the corresponding uDMA channel Bit \\[Ch\\]
-= 0: Does not create a uDMA request for channel Ch Bit \\[Ch\\]
-= 1: Creates a uDMA request for channel Ch Writing to a bit where a uDMA channel is not implemented does not create a uDMA request for that channel"]
-pub type ChnlsR = crate::FieldReader<u32>;
 #[doc = "Field `CHNLS` writer - 31:0\\]
 Set the appropriate bit to generate a software uDMA request on the corresponding uDMA channel Bit \\[Ch\\]
 = 0: Does not create a uDMA request for channel Ch Bit \\[Ch\\]
 = 1: Creates a uDMA request for channel Ch Writing to a bit where a uDMA channel is not implemented does not create a uDMA request for that channel"]
 pub type ChnlsW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
-impl R {
-    #[doc = "Bits 0:31 - 31:0\\]
-Set the appropriate bit to generate a software uDMA request on the corresponding uDMA channel Bit \\[Ch\\]
-= 0: Does not create a uDMA request for channel Ch Bit \\[Ch\\]
-= 1: Creates a uDMA request for channel Ch Writing to a bit where a uDMA channel is not implemented does not create a uDMA request for that channel"]
-    #[inline(always)]
-    pub fn chnls(&self) -> ChnlsR {
-        ChnlsR::new(self.bits)
-    }
-}
 impl W {
     #[doc = "Bits 0:31 - 31:0\\]
 Set the appropriate bit to generate a software uDMA request on the corresponding uDMA channel Bit \\[Ch\\]
