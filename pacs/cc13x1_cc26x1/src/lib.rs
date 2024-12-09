@@ -99,6 +99,43 @@ pub static __INTERRUPTS: [Vector; 38] = [
     Vector { _handler: INT_BATMON_COMB }
 ];
 
+pub enum Interrupt {
+    INT_AON_GPIO_EDGE = 0,
+    INT_I2C = 1,
+    INT_RFC_CPE_1 = 2,
+    INT_AON_RTC_COMB = 3,
+    INT_UART0_COMB = 4,
+    INT_AUX_SWEV0 = 5,
+    INT_SSI0_COMB = 6,
+    INT_RFC_CPE_0 = 7,
+    INT_RFC_HW_COMB = 8,
+    INT_RFC_CMD_ACK = 9,
+    INT_I2S = 10,
+    INT_AUX_SWEV1 = 11,
+    INT_WDT = 12,
+    INT_GPT0A = 13,
+    INT_GPT0B = 14,
+    INT_GPT1A = 15,
+    INT_GPT1B = 16,
+    INT_GPT2A = 17,
+    INT_GPT2B = 18,
+    INT_GPT3A = 19,
+    INT_GPT3B = 20,
+    INT_CRYPTO_RESULT_AVAIL = 21,
+    INT_DMA_DONE_COMB = 22,
+    INT_DMA_ERR = 23,
+    INT_FLASH = 24,
+    INT_SWEV0 = 25,
+    INT_AUX_COMB = 26,
+    INT_AON_PROG0 = 27,
+    INT_PROG0 = 28,
+    INT_AUX_COMPA = 29,
+    INT_AUX_ADC = 30,
+    INT_TRNG = 31,
+    INT_OSC_COMB = 32,
+    INT_BATMON_COMB = 33,
+}
+
 #[doc = r"Enumeration of all the interrupts."]
 #[derive(Copy, Clone, Debug, PartialEq, Eq)]
 pub enum Interrupt {}
