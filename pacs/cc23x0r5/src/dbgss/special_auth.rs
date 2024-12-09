@@ -40,24 +40,6 @@ impl SecapenR {
         *self == Secapen::Dis
     }
 }
-#[doc = "Field `SECAPEN` writer - 0:0\\]
-Indicates status of SECAP"]
-pub type SecapenW<'a, REG> = crate::BitWriter<'a, REG, Secapen>;
-impl<'a, REG> SecapenW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Enable SEC-AP"]
-    #[inline(always)]
-    pub fn en(self) -> &'a mut crate::W<REG> {
-        self.variant(Secapen::En)
-    }
-    #[doc = "Disable SEC-AP"]
-    #[inline(always)]
-    pub fn dis(self) -> &'a mut crate::W<REG> {
-        self.variant(Secapen::Dis)
-    }
-}
 #[doc = "1:1\\]
 Indicates status of FAKESTBYEN\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -94,24 +76,6 @@ impl FakestbyenR {
     #[inline(always)]
     pub fn is_dis(&self) -> bool {
         *self == Fakestbyen::Dis
-    }
-}
-#[doc = "Field `FAKESTBYEN` writer - 1:1\\]
-Indicates status of FAKESTBYEN"]
-pub type FakestbyenW<'a, REG> = crate::BitWriter<'a, REG, Fakestbyen>;
-impl<'a, REG> FakestbyenW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "FAKESTBYEN is Enabled"]
-    #[inline(always)]
-    pub fn en(self) -> &'a mut crate::W<REG> {
-        self.variant(Fakestbyen::En)
-    }
-    #[doc = "FAKESTBYEN is Disabled"]
-    #[inline(always)]
-    pub fn dis(self) -> &'a mut crate::W<REG> {
-        self.variant(Fakestbyen::Dis)
     }
 }
 #[doc = "2:2\\]
@@ -152,30 +116,9 @@ impl DftapenR {
         *self == Dftapen::Dis
     }
 }
-#[doc = "Field `DFTAPEN` writer - 2:2\\]
-Indicates status of DFTAPEN"]
-pub type DftapenW<'a, REG> = crate::BitWriter<'a, REG, Dftapen>;
-impl<'a, REG> DftapenW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Enable DFT-TAP"]
-    #[inline(always)]
-    pub fn en(self) -> &'a mut crate::W<REG> {
-        self.variant(Dftapen::En)
-    }
-    #[doc = "Disable DFT-TAP"]
-    #[inline(always)]
-    pub fn dis(self) -> &'a mut crate::W<REG> {
-        self.variant(Dftapen::Dis)
-    }
-}
 #[doc = "Field `RESERVED3` reader - 3:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3R = crate::BitReader;
-#[doc = "Field `RESERVED3` writer - 3:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "4:4\\]
 Indicates status of CFGAPEN\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -212,24 +155,6 @@ impl CfgapenR {
     #[inline(always)]
     pub fn is_dis(&self) -> bool {
         *self == Cfgapen::Dis
-    }
-}
-#[doc = "Field `CFGAPEN` writer - 4:4\\]
-Indicates status of CFGAPEN"]
-pub type CfgapenW<'a, REG> = crate::BitWriter<'a, REG, Cfgapen>;
-impl<'a, REG> CfgapenW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Enable CFG-AP"]
-    #[inline(always)]
-    pub fn en(self) -> &'a mut crate::W<REG> {
-        self.variant(Cfgapen::En)
-    }
-    #[doc = "Disable CFG-AP"]
-    #[inline(always)]
-    pub fn dis(self) -> &'a mut crate::W<REG> {
-        self.variant(Cfgapen::Dis)
     }
 }
 #[doc = "5:5\\]
@@ -270,24 +195,6 @@ impl AhbapenR {
         *self == Ahbapen::Dis
     }
 }
-#[doc = "Field `AHBAPEN` writer - 5:5\\]
-Indicates status of AHBAPEN"]
-pub type AhbapenW<'a, REG> = crate::BitWriter<'a, REG, Ahbapen>;
-impl<'a, REG> AhbapenW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Enable AHB-AP"]
-    #[inline(always)]
-    pub fn en(self) -> &'a mut crate::W<REG> {
-        self.variant(Ahbapen::En)
-    }
-    #[doc = "Disable AHB-AP"]
-    #[inline(always)]
-    pub fn dis(self) -> &'a mut crate::W<REG> {
-        self.variant(Ahbapen::Dis)
-    }
-}
 #[doc = "6:6\\]
 Indicates status of DBGDIS.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -326,30 +233,9 @@ impl DbgdisR {
         *self == Dbgdis::En
     }
 }
-#[doc = "Field `DBGDIS` writer - 6:6\\]
-Indicates status of DBGDIS."]
-pub type DbgdisW<'a, REG> = crate::BitWriter<'a, REG, Dbgdis>;
-impl<'a, REG> DbgdisW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Disables debugging capability"]
-    #[inline(always)]
-    pub fn dis(self) -> &'a mut crate::W<REG> {
-        self.variant(Dbgdis::Dis)
-    }
-    #[doc = "Enables debugging capability."]
-    #[inline(always)]
-    pub fn en(self) -> &'a mut crate::W<REG> {
-        self.variant(Dbgdis::En)
-    }
-}
 #[doc = "Field `RESERVED7` reader - 31:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved7R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED7` writer - 31:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved7W<'a, REG> = crate::FieldWriter<'a, REG, 25, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Indicates status of SECAP"]
@@ -400,64 +286,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved7R::new((self.bits >> 7) & 0x01ff_ffff)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Indicates status of SECAP"]
-    #[inline(always)]
-    #[must_use]
-    pub fn secapen(&mut self) -> SecapenW<SpecialAuthSpec> {
-        SecapenW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Indicates status of FAKESTBYEN"]
-    #[inline(always)]
-    #[must_use]
-    pub fn fakestbyen(&mut self) -> FakestbyenW<SpecialAuthSpec> {
-        FakestbyenW::new(self, 1)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-Indicates status of DFTAPEN"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dftapen(&mut self) -> DftapenW<SpecialAuthSpec> {
-        DftapenW::new(self, 2)
-    }
-    #[doc = "Bit 3 - 3:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<SpecialAuthSpec> {
-        Reserved3W::new(self, 3)
-    }
-    #[doc = "Bit 4 - 4:4\\]
-Indicates status of CFGAPEN"]
-    #[inline(always)]
-    #[must_use]
-    pub fn cfgapen(&mut self) -> CfgapenW<SpecialAuthSpec> {
-        CfgapenW::new(self, 4)
-    }
-    #[doc = "Bit 5 - 5:5\\]
-Indicates status of AHBAPEN"]
-    #[inline(always)]
-    #[must_use]
-    pub fn ahbapen(&mut self) -> AhbapenW<SpecialAuthSpec> {
-        AhbapenW::new(self, 5)
-    }
-    #[doc = "Bit 6 - 6:6\\]
-Indicates status of DBGDIS."]
-    #[inline(always)]
-    #[must_use]
-    pub fn dbgdis(&mut self) -> DbgdisW<SpecialAuthSpec> {
-        DbgdisW::new(self, 6)
-    }
-    #[doc = "Bits 7:31 - 31:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved7(&mut self) -> Reserved7W<SpecialAuthSpec> {
-        Reserved7W::new(self, 7)
-    }
-}
+impl W {}
 #[doc = "This register indicates the status of different AP firewalls and fakestandby enable.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`special_auth::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`special_auth::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct SpecialAuthSpec;
 impl crate::RegisterSpec for SpecialAuthSpec {

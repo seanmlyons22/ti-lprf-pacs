@@ -185,9 +185,6 @@ where
 #[doc = "Field `RESERVED4` reader - 8:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved4R = crate::FieldReader;
-#[doc = "Field `RESERVED4` writer - 8:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved4W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 #[doc = "12:9\\]
 Bank Region A specific region ID can be written to this field to indicate to which region an operation should be applied if CMDCTL.ADDRXLATEOVR is set.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -286,9 +283,6 @@ pub type Reserved13W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED14` reader - 15:14\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved14R = crate::FieldReader;
-#[doc = "Field `RESERVED14` writer - 15:14\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved14W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "16:16\\]
 Override hardware address translation of address in CMDADDR from a system address to a bank address and bank ID. Use data written to CMDADDR directly as the bank address. Use the value written to CMDCTL.BANKSEL directly as the bank ID. Use the value written to CMDCTL.REGIONSEL directly as the region ID.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -348,9 +342,6 @@ where
 #[doc = "Field `RESERVED17` reader - 19:17\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved17R = crate::FieldReader;
-#[doc = "Field `RESERVED17` writer - 19:17\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved17W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "20:20\\]
 Disable Stair-Step Erase. If set, the default VHV trim voltage setting will be used for all erase pulses. By default, this bit is reset, meaning that the VHV voltage will be stepped during successive erase pulses. The step count, step voltage, begin and end voltages are all hard-wired.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -539,13 +530,6 @@ Mode This field is only used for the Mode Change command type. Otherwise, bank a
     pub fn modesel(&mut self) -> ModeselW<CmdctlSpec> {
         ModeselW::new(self, 0)
     }
-    #[doc = "Bits 4:8 - 8:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved4(&mut self) -> Reserved4W<CmdctlSpec> {
-        Reserved4W::new(self, 4)
-    }
     #[doc = "Bits 9:12 - 12:9\\]
 Bank Region A specific region ID can be written to this field to indicate to which region an operation should be applied if CMDCTL.ADDRXLATEOVR is set."]
     #[inline(always)]
@@ -560,26 +544,12 @@ Reserved"]
     pub fn reserved_13(&mut self) -> Reserved13W<CmdctlSpec> {
         Reserved13W::new(self, 13)
     }
-    #[doc = "Bits 14:15 - 15:14\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved14(&mut self) -> Reserved14W<CmdctlSpec> {
-        Reserved14W::new(self, 14)
-    }
     #[doc = "Bit 16 - 16:16\\]
 Override hardware address translation of address in CMDADDR from a system address to a bank address and bank ID. Use data written to CMDADDR directly as the bank address. Use the value written to CMDCTL.BANKSEL directly as the bank ID. Use the value written to CMDCTL.REGIONSEL directly as the region ID."]
     #[inline(always)]
     #[must_use]
     pub fn addrxlateovr(&mut self) -> AddrxlateovrW<CmdctlSpec> {
         AddrxlateovrW::new(self, 16)
-    }
-    #[doc = "Bits 17:19 - 19:17\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved17(&mut self) -> Reserved17W<CmdctlSpec> {
-        Reserved17W::new(self, 17)
     }
     #[doc = "Bit 20 - 20:20\\]
 Disable Stair-Step Erase. If set, the default VHV trim voltage setting will be used for all erase pulses. By default, this bit is reset, meaning that the VHV voltage will be stepped during successive erase pulses. The step count, step voltage, begin and end voltages are all hard-wired."]

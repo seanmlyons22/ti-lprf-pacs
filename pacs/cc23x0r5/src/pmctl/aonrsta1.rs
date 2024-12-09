@@ -46,31 +46,9 @@ impl FlagR {
         *self == Flag::AllClr
     }
 }
-#[doc = "Field `FLAG` writer - 17:0\\]
-State of the AON register flags"]
-pub type FlagW<'a, REG> = crate::FieldWriter<'a, REG, 18, Flag>;
-impl<'a, REG> FlagW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u32>,
-{
-    #[doc = "All flags set"]
-    #[inline(always)]
-    pub fn all_set(self) -> &'a mut crate::W<REG> {
-        self.variant(Flag::AllSet)
-    }
-    #[doc = "All flags cleared"]
-    #[inline(always)]
-    pub fn all_clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Flag::AllClr)
-    }
-}
 #[doc = "Field `RESERVED18` reader - 31:18\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved18R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED18` writer - 31:18\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved18W<'a, REG> = crate::FieldWriter<'a, REG, 14, u16>;
 impl R {
     #[doc = "Bits 0:17 - 17:0\\]
 State of the AON register flags"]
@@ -85,22 +63,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved18R::new(((self.bits >> 18) & 0x3fff) as u16)
     }
 }
-impl W {
-    #[doc = "Bits 0:17 - 17:0\\]
-State of the AON register flags"]
-    #[inline(always)]
-    #[must_use]
-    pub fn flag(&mut self) -> FlagW<Aonrsta1Spec> {
-        FlagW::new(self, 0)
-    }
-    #[doc = "Bits 18:31 - 31:18\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved18(&mut self) -> Reserved18W<Aonrsta1Spec> {
-        Reserved18W::new(self, 18)
-    }
-}
+impl W {}
 #[doc = "AON Register Status 1. This register contains the general purpose AON flags for SW, and is updated through AONRSET1.FLAG and AONRCLR1.FLAG. The register is only reset on a POR event.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`aonrsta1::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`aonrsta1::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Aonrsta1Spec;
 impl crate::RegisterSpec for Aonrsta1Spec {

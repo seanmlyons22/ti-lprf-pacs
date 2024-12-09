@@ -11,9 +11,6 @@ pub type EnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED1` reader - 31:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved1R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED1` writer - 31:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 31, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Enable LFMONITOR. Enable only after a LF clock source has been selected, enabled and is stable. If LFMONITOR detects a clock loss, the system will be reset."]
@@ -35,13 +32,6 @@ Enable LFMONITOR. Enable only after a LF clock source has been selected, enabled
     #[must_use]
     pub fn en(&mut self) -> EnW<LfmonctlSpec> {
         EnW::new(self, 0)
-    }
-    #[doc = "Bits 1:31 - 31:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved1(&mut self) -> Reserved1W<LfmonctlSpec> {
-        Reserved1W::new(self, 1)
     }
 }
 #[doc = "Low-frequency clock-monitor control\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`lfmonctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`lfmonctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

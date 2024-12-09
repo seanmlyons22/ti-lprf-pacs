@@ -2,20 +2,9 @@
 pub type R = crate::R<Txtx0Spec>;
 #[doc = "Register `TXTX0` writer"]
 pub type W = crate::W<Txtx0Spec>;
-#[doc = "Field `VAL` reader - 31:0\\]
-Value in TXT0 will be TXT0.VAL = VAL XOR TXT0.VAL"]
-pub type ValR = crate::FieldReader<u32>;
 #[doc = "Field `VAL` writer - 31:0\\]
 Value in TXT0 will be TXT0.VAL = VAL XOR TXT0.VAL"]
 pub type ValW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
-impl R {
-    #[doc = "Bits 0:31 - 31:0\\]
-Value in TXT0 will be TXT0.VAL = VAL XOR TXT0.VAL"]
-    #[inline(always)]
-    pub fn val(&self) -> ValR {
-        ValR::new(self.bits)
-    }
-}
 impl W {
     #[doc = "Bits 0:31 - 31:0\\]
 Value in TXT0 will be TXT0.VAL = VAL XOR TXT0.VAL"]

@@ -770,9 +770,6 @@ where
 #[doc = "Field `RESERVED6` reader - 15:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior"]
 pub type Reserved6R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED6` writer - 15:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior"]
-pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 10, u16>;
 #[doc = "Field `EDGDETDIS` reader - 16:16\\]
 Edge detect disable. 0: Enabled. 1: Disabled"]
 pub type EdgdetdisR = crate::BitReader;
@@ -782,9 +779,6 @@ pub type EdgdetdisW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED17` reader - 31:17\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior"]
 pub type Reserved17R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED17` writer - 31:17\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior"]
-pub type Reserved17W<'a, REG> = crate::FieldWriter<'a, REG, 15, u16>;
 impl R {
     #[doc = "Bits 0:5 - 5:0\\]
 Read/write selection value. Writing any other value than values defined by a ENUM may result in undefined behavior."]
@@ -819,26 +813,12 @@ Read/write selection value. Writing any other value than values defined by a ENU
     pub fn pubid(&mut self) -> PubidW<Dmach6selSpec> {
         PubidW::new(self, 0)
     }
-    #[doc = "Bits 6:15 - 15:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior"]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<Dmach6selSpec> {
-        Reserved6W::new(self, 6)
-    }
     #[doc = "Bit 16 - 16:16\\]
 Edge detect disable. 0: Enabled. 1: Disabled"]
     #[inline(always)]
     #[must_use]
     pub fn edgdetdis(&mut self) -> EdgdetdisW<Dmach6selSpec> {
         EdgdetdisW::new(self, 16)
-    }
-    #[doc = "Bits 17:31 - 31:17\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior"]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved17(&mut self) -> Reserved17W<Dmach6selSpec> {
-        Reserved17W::new(self, 17)
     }
 }
 #[doc = "Output Selection for DMA CH6\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`dmach6sel::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`dmach6sel::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

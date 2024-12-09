@@ -1461,9 +1461,6 @@ where
 #[doc = "Field `RESERVED26` reader - 31:26\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved26R = crate::FieldReader;
-#[doc = "Field `RESERVED26` writer - 31:26\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved26W<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Interrupt mask for DIO0"]
@@ -1810,13 +1807,6 @@ Interrupt mask for DIO25"]
     #[must_use]
     pub fn dio25(&mut self) -> Dio25W<ImaskSpec> {
         Dio25W::new(self, 25)
-    }
-    #[doc = "Bits 26:31 - 31:26\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved26(&mut self) -> Reserved26W<ImaskSpec> {
-        Reserved26W::new(self, 26)
     }
 }
 #[doc = "Interrupt mask for DIO pins\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`imask::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`imask::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

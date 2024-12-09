@@ -94,9 +94,6 @@ where
 #[doc = "Field `RESERVED2` reader - 7:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2R = crate::FieldReader;
-#[doc = "Field `RESERVED2` writer - 7:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `LOAD` reader - 15:8\\]
 The input of the channel filter is passed to the edge detection logic after LOAD + 1 consecutive equal samples."]
 pub type LoadR = crate::FieldReader;
@@ -106,9 +103,6 @@ pub type LoadW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `RESERVED16` reader - 31:16\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved16R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED16` writer - 31:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved16W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
     #[doc = "Bits 0:1 - 1:0\\]
 Channel filter mode"]
@@ -143,26 +137,12 @@ Channel filter mode"]
     pub fn mode(&mut self) -> ModeW<ChfiltSpec> {
         ModeW::new(self, 0)
     }
-    #[doc = "Bits 2:7 - 7:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<ChfiltSpec> {
-        Reserved2W::new(self, 2)
-    }
     #[doc = "Bits 8:15 - 15:8\\]
 The input of the channel filter is passed to the edge detection logic after LOAD + 1 consecutive equal samples."]
     #[inline(always)]
     #[must_use]
     pub fn load(&mut self) -> LoadW<ChfiltSpec> {
         LoadW::new(self, 8)
-    }
-    #[doc = "Bits 16:31 - 31:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved16(&mut self) -> Reserved16W<ChfiltSpec> {
-        Reserved16W::new(self, 16)
     }
 }
 #[doc = "Channel Input Filter This register is used to configure the filter on the channel inputs. The configuration is for all inputs. The filter is enabled when a channel is in capture mode. The input to the filter is passed to the edge detection logic if LOAD + 1 consecutive input samples are equal. The filter functions as a down counter, counting down every input sample. If two consecutive samples are unequal, the filter counter restarts from LOAD. If the filter counter reaches zero, the input signal is valid and passed to the edge detection logic. The channel filter should only be configured while the CTL.MODE = DIS. Configuring the filter while the timer is running can result in unexpected behavior.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`chfilt::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`chfilt::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

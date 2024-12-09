@@ -285,9 +285,6 @@ where
 #[doc = "Field `RESERVED5` reader - 31:5\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved5R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED5` writer - 31:5\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved5W<'a, REG> = crate::FieldWriter<'a, REG, 27, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Arming channel 0 for either compare or capture operation."]
@@ -361,13 +358,6 @@ Arming channel 4 for either compare or capture operation."]
     #[must_use]
     pub fn ch4(&mut self) -> Ch4W<ArmsetSpec> {
         Ch4W::new(self, 4)
-    }
-    #[doc = "Bits 5:31 - 31:5\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved5(&mut self) -> Reserved5W<ArmsetSpec> {
-        Reserved5W::new(self, 5)
     }
 }
 #[doc = "ARMSET on read gives out the status of the 5 channels 1. channel state UNARMED returns 0 2. channel state CAPTURE or COMPARE returns 1 A write to ARMSET has for each channel the following effect: 1. If ARMSTA\\[x\\]==0 -$gt; no effect 2. If ARMSTA\\[x\\]==1 and channel x is in CAPTURE state then no effect on the channel 3. Else Set channel in COMPARE mode using existing CHxVAL value\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`armset::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`armset::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

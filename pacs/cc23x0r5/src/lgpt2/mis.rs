@@ -40,24 +40,6 @@ impl TgtR {
         *self == Tgt::Clr
     }
 }
-#[doc = "Field `TGT` writer - 0:0\\]
-Masked status of the RIS.TGT interrupt."]
-pub type TgtW<'a, REG> = crate::BitWriter<'a, REG, Tgt>;
-impl<'a, REG> TgtW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Set"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Tgt::Set)
-    }
-    #[doc = "Cleared"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Tgt::Clr)
-    }
-}
 #[doc = "1:1\\]
 Masked status of the RIS.ZERO interrupt.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -94,24 +76,6 @@ impl ZeroR {
     #[inline(always)]
     pub fn is_clr(&self) -> bool {
         *self == Zero::Clr
-    }
-}
-#[doc = "Field `ZERO` writer - 1:1\\]
-Masked status of the RIS.ZERO interrupt."]
-pub type ZeroW<'a, REG> = crate::BitWriter<'a, REG, Zero>;
-impl<'a, REG> ZeroW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Set"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Zero::Set)
-    }
-    #[doc = "Cleared"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Zero::Clr)
     }
 }
 #[doc = "2:2\\]
@@ -152,24 +116,6 @@ impl DbltransR {
         *self == Dbltrans::Clr
     }
 }
-#[doc = "Field `DBLTRANS` writer - 2:2\\]
-Masked status of the RIS.DBLTRANS interrupt."]
-pub type DbltransW<'a, REG> = crate::BitWriter<'a, REG, Dbltrans>;
-impl<'a, REG> DbltransW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Set"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Dbltrans::Set)
-    }
-    #[doc = "Cleared"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Dbltrans::Clr)
-    }
-}
 #[doc = "3:3\\]
 Masked status of the RIS.CNTRCHNG interrupt.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -206,24 +152,6 @@ impl CntrchngR {
     #[inline(always)]
     pub fn is_clr(&self) -> bool {
         *self == Cntrchng::Clr
-    }
-}
-#[doc = "Field `CNTRCHNG` writer - 3:3\\]
-Masked status of the RIS.CNTRCHNG interrupt."]
-pub type CntrchngW<'a, REG> = crate::BitWriter<'a, REG, Cntrchng>;
-impl<'a, REG> CntrchngW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Set"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Cntrchng::Set)
-    }
-    #[doc = "Cleared"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Cntrchng::Clr)
     }
 }
 #[doc = "4:4\\]
@@ -264,24 +192,6 @@ impl DirchngR {
         *self == Dirchng::Clr
     }
 }
-#[doc = "Field `DIRCHNG` writer - 4:4\\]
-Masked status of the RIS.DIRCHNG interrupt."]
-pub type DirchngW<'a, REG> = crate::BitWriter<'a, REG, Dirchng>;
-impl<'a, REG> DirchngW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Set"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Dirchng::Set)
-    }
-    #[doc = "Cleared"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Dirchng::Clr)
-    }
-}
 #[doc = "5:5\\]
 Masked status of the RIS.IDX interrupt.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -318,24 +228,6 @@ impl IdxR {
     #[inline(always)]
     pub fn is_clr(&self) -> bool {
         *self == Idx::Clr
-    }
-}
-#[doc = "Field `IDX` writer - 5:5\\]
-Masked status of the RIS.IDX interrupt."]
-pub type IdxW<'a, REG> = crate::BitWriter<'a, REG, Idx>;
-impl<'a, REG> IdxW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Set"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Idx::Set)
-    }
-    #[doc = "Cleared"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Idx::Clr)
     }
 }
 #[doc = "6:6\\]
@@ -376,30 +268,9 @@ impl FaultR {
         *self == Fault::Clr
     }
 }
-#[doc = "Field `FAULT` writer - 6:6\\]
-Masked status of the RIS.FAULT interrupt."]
-pub type FaultW<'a, REG> = crate::BitWriter<'a, REG, Fault>;
-impl<'a, REG> FaultW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Set"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Fault::Set)
-    }
-    #[doc = "Cleared"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Fault::Clr)
-    }
-}
 #[doc = "Field `RESERVED7` reader - 7:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved7R = crate::BitReader;
-#[doc = "Field `RESERVED7` writer - 7:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved7W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "8:8\\]
 Masked status of the RIS.C0CC interrupt.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -436,24 +307,6 @@ impl C0ccR {
     #[inline(always)]
     pub fn is_clr(&self) -> bool {
         *self == C0cc::Clr
-    }
-}
-#[doc = "Field `C0CC` writer - 8:8\\]
-Masked status of the RIS.C0CC interrupt."]
-pub type C0ccW<'a, REG> = crate::BitWriter<'a, REG, C0cc>;
-impl<'a, REG> C0ccW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Set"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(C0cc::Set)
-    }
-    #[doc = "Cleared"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(C0cc::Clr)
     }
 }
 #[doc = "9:9\\]
@@ -494,24 +347,6 @@ impl C1ccR {
         *self == C1cc::Clr
     }
 }
-#[doc = "Field `C1CC` writer - 9:9\\]
-Masked status of the RIS.C1CC interrupt."]
-pub type C1ccW<'a, REG> = crate::BitWriter<'a, REG, C1cc>;
-impl<'a, REG> C1ccW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Set"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(C1cc::Set)
-    }
-    #[doc = "Cleared"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(C1cc::Clr)
-    }
-}
 #[doc = "10:10\\]
 Masked status of the RIS.C2CC interrupt.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -550,30 +385,9 @@ impl C2ccR {
         *self == C2cc::Clr
     }
 }
-#[doc = "Field `C2CC` writer - 10:10\\]
-Masked status of the RIS.C2CC interrupt."]
-pub type C2ccW<'a, REG> = crate::BitWriter<'a, REG, C2cc>;
-impl<'a, REG> C2ccW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Set"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(C2cc::Set)
-    }
-    #[doc = "Cleared"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(C2cc::Clr)
-    }
-}
 #[doc = "Field `RESERVED11` reader - 31:11\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved11R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED11` writer - 31:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved11W<'a, REG> = crate::FieldWriter<'a, REG, 21, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Masked status of the RIS.TGT interrupt."]
@@ -648,92 +462,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved11R::new((self.bits >> 11) & 0x001f_ffff)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Masked status of the RIS.TGT interrupt."]
-    #[inline(always)]
-    #[must_use]
-    pub fn tgt(&mut self) -> TgtW<MisSpec> {
-        TgtW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Masked status of the RIS.ZERO interrupt."]
-    #[inline(always)]
-    #[must_use]
-    pub fn zero(&mut self) -> ZeroW<MisSpec> {
-        ZeroW::new(self, 1)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-Masked status of the RIS.DBLTRANS interrupt."]
-    #[inline(always)]
-    #[must_use]
-    pub fn dbltrans(&mut self) -> DbltransW<MisSpec> {
-        DbltransW::new(self, 2)
-    }
-    #[doc = "Bit 3 - 3:3\\]
-Masked status of the RIS.CNTRCHNG interrupt."]
-    #[inline(always)]
-    #[must_use]
-    pub fn cntrchng(&mut self) -> CntrchngW<MisSpec> {
-        CntrchngW::new(self, 3)
-    }
-    #[doc = "Bit 4 - 4:4\\]
-Masked status of the RIS.DIRCHNG interrupt."]
-    #[inline(always)]
-    #[must_use]
-    pub fn dirchng(&mut self) -> DirchngW<MisSpec> {
-        DirchngW::new(self, 4)
-    }
-    #[doc = "Bit 5 - 5:5\\]
-Masked status of the RIS.IDX interrupt."]
-    #[inline(always)]
-    #[must_use]
-    pub fn idx(&mut self) -> IdxW<MisSpec> {
-        IdxW::new(self, 5)
-    }
-    #[doc = "Bit 6 - 6:6\\]
-Masked status of the RIS.FAULT interrupt."]
-    #[inline(always)]
-    #[must_use]
-    pub fn fault(&mut self) -> FaultW<MisSpec> {
-        FaultW::new(self, 6)
-    }
-    #[doc = "Bit 7 - 7:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved7(&mut self) -> Reserved7W<MisSpec> {
-        Reserved7W::new(self, 7)
-    }
-    #[doc = "Bit 8 - 8:8\\]
-Masked status of the RIS.C0CC interrupt."]
-    #[inline(always)]
-    #[must_use]
-    pub fn c0cc(&mut self) -> C0ccW<MisSpec> {
-        C0ccW::new(self, 8)
-    }
-    #[doc = "Bit 9 - 9:9\\]
-Masked status of the RIS.C1CC interrupt."]
-    #[inline(always)]
-    #[must_use]
-    pub fn c1cc(&mut self) -> C1ccW<MisSpec> {
-        C1ccW::new(self, 9)
-    }
-    #[doc = "Bit 10 - 10:10\\]
-Masked status of the RIS.C2CC interrupt."]
-    #[inline(always)]
-    #[must_use]
-    pub fn c2cc(&mut self) -> C2ccW<MisSpec> {
-        C2ccW::new(self, 10)
-    }
-    #[doc = "Bits 11:31 - 31:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved11(&mut self) -> Reserved11W<MisSpec> {
-        Reserved11W::new(self, 11)
-    }
-}
+impl W {}
 #[doc = "Masked interrupt status. This register is simply a bitwise AND of the contents of IMASK and RIS.*\\]
 registers. A flag set in this register can be cleared by writing 1 to the corresponding ICLR register bit.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`mis::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`mis::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct MisSpec;

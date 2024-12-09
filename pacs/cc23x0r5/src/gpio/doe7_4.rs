@@ -61,9 +61,6 @@ where
 #[doc = "Field `RESERVED1` reader - 7:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved1R = crate::FieldReader;
-#[doc = "Field `RESERVED1` writer - 7:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "8:8\\]
 Data output enable for DIO5\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -123,9 +120,6 @@ where
 #[doc = "Field `RESERVED9` reader - 15:9\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved9R = crate::FieldReader;
-#[doc = "Field `RESERVED9` writer - 15:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved9W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "16:16\\]
 Data output enable for DIO6\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -185,9 +179,6 @@ where
 #[doc = "Field `RESERVED17` reader - 23:17\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved17R = crate::FieldReader;
-#[doc = "Field `RESERVED17` writer - 23:17\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved17W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "24:24\\]
 Data output enable for DIO7\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -247,9 +238,6 @@ where
 #[doc = "Field `RESERVED25` reader - 31:25\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved25R = crate::FieldReader;
-#[doc = "Field `RESERVED25` writer - 31:25\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved25W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Data output enable for DIO4"]
@@ -308,26 +296,12 @@ Data output enable for DIO4"]
     pub fn dio4(&mut self) -> Dio4W<Doe7_4Spec> {
         Dio4W::new(self, 0)
     }
-    #[doc = "Bits 1:7 - 7:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved1(&mut self) -> Reserved1W<Doe7_4Spec> {
-        Reserved1W::new(self, 1)
-    }
     #[doc = "Bit 8 - 8:8\\]
 Data output enable for DIO5"]
     #[inline(always)]
     #[must_use]
     pub fn dio5(&mut self) -> Dio5W<Doe7_4Spec> {
         Dio5W::new(self, 8)
-    }
-    #[doc = "Bits 9:15 - 15:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved9(&mut self) -> Reserved9W<Doe7_4Spec> {
-        Reserved9W::new(self, 9)
     }
     #[doc = "Bit 16 - 16:16\\]
 Data output enable for DIO6"]
@@ -336,26 +310,12 @@ Data output enable for DIO6"]
     pub fn dio6(&mut self) -> Dio6W<Doe7_4Spec> {
         Dio6W::new(self, 16)
     }
-    #[doc = "Bits 17:23 - 23:17\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved17(&mut self) -> Reserved17W<Doe7_4Spec> {
-        Reserved17W::new(self, 17)
-    }
     #[doc = "Bit 24 - 24:24\\]
 Data output enable for DIO7"]
     #[inline(always)]
     #[must_use]
     pub fn dio7(&mut self) -> Dio7W<Doe7_4Spec> {
         Dio7W::new(self, 24)
-    }
-    #[doc = "Bits 25:31 - 31:25\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved25(&mut self) -> Reserved25W<Doe7_4Spec> {
-        Reserved25W::new(self, 25)
     }
 }
 #[doc = "Data out enable 7 to 4. Alias register for byte access to DOE31_0\\[7:4\\]

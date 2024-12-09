@@ -11,9 +11,6 @@ pub type LfincW<'a, REG> = crate::FieldWriter<'a, REG, 22, u32>;
 #[doc = "Field `RESERVED22` reader - 30:22\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved22R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED22` writer - 30:22\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved22W<'a, REG> = crate::FieldWriter<'a, REG, 9, u16>;
 #[doc = "Field `OVERRIDE` reader - 31:31\\]
 Override LF increment Use the value provided in LFINC instead of the value calculated by Hardware."]
 pub type OverrideR = crate::BitReader;
@@ -47,13 +44,6 @@ LF increment value This value is used when OVERRIDE is set to 1. Otherwise the v
     #[must_use]
     pub fn lfinc(&mut self) -> LfincW<LfincovrSpec> {
         LfincW::new(self, 0)
-    }
-    #[doc = "Bits 22:30 - 30:22\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved22(&mut self) -> Reserved22W<LfincovrSpec> {
-        Reserved22W::new(self, 22)
     }
     #[doc = "Bit 31 - 31:31\\]
 Override LF increment Use the value provided in LFINC instead of the value calculated by Hardware."]

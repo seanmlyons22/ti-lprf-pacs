@@ -249,9 +249,6 @@ where
 #[doc = "Field `RESERVED5` reader - 31:5\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved5R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED5` writer - 31:5\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved5W<'a, REG> = crate::FieldWriter<'a, REG, 27, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Decides the channel mode."]
@@ -312,13 +309,6 @@ This bit decides the RESOLUTION of the channel that will be used."]
     #[must_use]
     pub fn res(&mut self) -> ResW<Ch0cfgSpec> {
         ResW::new(self, 4)
-    }
-    #[doc = "Bits 5:31 - 31:5\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved5(&mut self) -> Reserved5W<Ch0cfgSpec> {
-        Reserved5W::new(self, 5)
     }
 }
 #[doc = "Systimer channel 0 configuration. This channel has configurability for 250ns and 1us based capture and compare operations.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ch0cfg::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ch0cfg::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

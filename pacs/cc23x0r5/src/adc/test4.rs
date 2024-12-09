@@ -5,9 +5,6 @@ pub type W = crate::W<Test4Spec>;
 #[doc = "Field `RESERVED0` reader - 15:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved0R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED0` writer - 15:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved0W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 #[doc = "Field `CAL_STEP_SEL` reader - 21:16\\]
 ADC CAL STEP SELECTION"]
 pub type CalStepSelR = crate::FieldReader;
@@ -17,9 +14,6 @@ pub type CalStepSelW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `RESERVED22` reader - 23:22\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved22R = crate::FieldReader;
-#[doc = "Field `RESERVED22` writer - 23:22\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved22W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `CAL_MODE_EN` reader - 24:24\\]
 ADC CDAC Calibration mode enable"]
 pub type CalModeEnR = crate::BitReader;
@@ -29,9 +23,6 @@ pub type CalModeEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED25` reader - 30:25\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved25R = crate::FieldReader;
-#[doc = "Field `RESERVED25` writer - 30:25\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved25W<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `HW_STEP_SEL_DIS` reader - 31:31\\]
 By Enabling this bit, DLC written value overwritten of ull_usc_ulpadchp_dft_i$lt;26:0$gt; from TEST7 regsiter. This is for debug."]
 pub type HwStepSelDisR = crate::BitReader;
@@ -77,13 +68,6 @@ By Enabling this bit, DLC written value overwritten of ull_usc_ulpadchp_dft_i$lt
     }
 }
 impl W {
-    #[doc = "Bits 0:15 - 15:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved0(&mut self) -> Reserved0W<Test4Spec> {
-        Reserved0W::new(self, 0)
-    }
     #[doc = "Bits 16:21 - 21:16\\]
 ADC CAL STEP SELECTION"]
     #[inline(always)]
@@ -91,26 +75,12 @@ ADC CAL STEP SELECTION"]
     pub fn cal_step_sel(&mut self) -> CalStepSelW<Test4Spec> {
         CalStepSelW::new(self, 16)
     }
-    #[doc = "Bits 22:23 - 23:22\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved22(&mut self) -> Reserved22W<Test4Spec> {
-        Reserved22W::new(self, 22)
-    }
     #[doc = "Bit 24 - 24:24\\]
 ADC CDAC Calibration mode enable"]
     #[inline(always)]
     #[must_use]
     pub fn cal_mode_en(&mut self) -> CalModeEnW<Test4Spec> {
         CalModeEnW::new(self, 24)
-    }
-    #[doc = "Bits 25:30 - 30:25\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved25(&mut self) -> Reserved25W<Test4Spec> {
-        Reserved25W::new(self, 25)
     }
     #[doc = "Bit 31 - 31:31\\]
 By Enabling this bit, DLC written value overwritten of ull_usc_ulpadchp_dft_i$lt;26:0$gt; from TEST7 regsiter. This is for debug."]

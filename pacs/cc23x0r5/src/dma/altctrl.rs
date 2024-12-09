@@ -5,9 +5,6 @@ pub type W = crate::W<AltctrlSpec>;
 #[doc = "Field `BASEPTR` reader - 31:0\\]
 This register shows the base address for the alternate data structures and is calculated by module, thus read only"]
 pub type BaseptrR = crate::FieldReader<u32>;
-#[doc = "Field `BASEPTR` writer - 31:0\\]
-This register shows the base address for the alternate data structures and is calculated by module, thus read only"]
-pub type BaseptrW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 This register shows the base address for the alternate data structures and is calculated by module, thus read only"]
@@ -16,15 +13,7 @@ This register shows the base address for the alternate data structures and is ca
         BaseptrR::new(self.bits)
     }
 }
-impl W {
-    #[doc = "Bits 0:31 - 31:0\\]
-This register shows the base address for the alternate data structures and is calculated by module, thus read only"]
-    #[inline(always)]
-    #[must_use]
-    pub fn baseptr(&mut self) -> BaseptrW<AltctrlSpec> {
-        BaseptrW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Channel Alternate Control Data Base Pointer Register.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`altctrl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`altctrl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct AltctrlSpec;
 impl crate::RegisterSpec for AltctrlSpec {

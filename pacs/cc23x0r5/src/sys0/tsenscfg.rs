@@ -81,9 +81,6 @@ where
 #[doc = "Field `RESERVED2` reader - 7:2\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved2R = crate::FieldReader;
-#[doc = "Field `RESERVED2` writer - 7:2\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `SPARE` reader - 11:8\\]
 Internal. Only to be used through TI provided API."]
 pub type SpareR = crate::FieldReader;
@@ -93,9 +90,6 @@ pub type SpareW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED12` reader - 31:12\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved12R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED12` writer - 31:12\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved12W<'a, REG> = crate::FieldWriter<'a, REG, 20, u32>;
 impl R {
     #[doc = "Bits 0:1 - 1:0\\]
 Internal. Only to be used through TI provided API."]
@@ -130,26 +124,12 @@ Internal. Only to be used through TI provided API."]
     pub fn sel(&mut self) -> SelW<TsenscfgSpec> {
         SelW::new(self, 0)
     }
-    #[doc = "Bits 2:7 - 7:2\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<TsenscfgSpec> {
-        Reserved2W::new(self, 2)
-    }
     #[doc = "Bits 8:11 - 11:8\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
     pub fn spare(&mut self) -> SpareW<TsenscfgSpec> {
         SpareW::new(self, 8)
-    }
-    #[doc = "Bits 12:31 - 31:12\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved12(&mut self) -> Reserved12W<TsenscfgSpec> {
-        Reserved12W::new(self, 12)
     }
 }
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`tsenscfg::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`tsenscfg::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

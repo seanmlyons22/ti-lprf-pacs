@@ -5,33 +5,18 @@ pub type W = crate::W<HfxtstatSpec>;
 #[doc = "Field `GOOD` reader - 0:0\\]
 HFXT clock available. The frequency is not necessarily good enough for radio operation."]
 pub type GoodR = crate::BitReader;
-#[doc = "Field `GOOD` writer - 0:0\\]
-HFXT clock available. The frequency is not necessarily good enough for radio operation."]
-pub type GoodW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `FAULT` reader - 1:1\\]
 HFXT clock fault Indicates a lower than expected HFXT frequency. HFXT will not recover from this fault, disabling and re-enabling HFXT is required."]
 pub type FaultR = crate::BitReader;
-#[doc = "Field `FAULT` writer - 1:1\\]
-HFXT clock fault Indicates a lower than expected HFXT frequency. HFXT will not recover from this fault, disabling and re-enabling HFXT is required."]
-pub type FaultW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED2` reader - 15:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED2` writer - 15:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 14, u16>;
 #[doc = "Field `STARTUPTIME` reader - 30:16\\]
 HFXT startup time Can be used by software to plan starting HFXT ahead in time. Measured whenever HFXT is enabled in CLKULL periods (24MHz), from HFXTCTL.EN until the clock is good for radio operation (amplitude compensation is settled)."]
 pub type StartuptimeR = crate::FieldReader<u16>;
-#[doc = "Field `STARTUPTIME` writer - 30:16\\]
-HFXT startup time Can be used by software to plan starting HFXT ahead in time. Measured whenever HFXT is enabled in CLKULL periods (24MHz), from HFXTCTL.EN until the clock is good for radio operation (amplitude compensation is settled)."]
-pub type StartuptimeW<'a, REG> = crate::FieldWriter<'a, REG, 15, u16>;
 #[doc = "Field `RESERVED31` reader - 31:31\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved31R = crate::BitReader;
-#[doc = "Field `RESERVED31` writer - 31:31\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved31W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 HFXT clock available. The frequency is not necessarily good enough for radio operation."]
@@ -64,43 +49,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved31R::new(((self.bits >> 31) & 1) != 0)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-HFXT clock available. The frequency is not necessarily good enough for radio operation."]
-    #[inline(always)]
-    #[must_use]
-    pub fn good(&mut self) -> GoodW<HfxtstatSpec> {
-        GoodW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-HFXT clock fault Indicates a lower than expected HFXT frequency. HFXT will not recover from this fault, disabling and re-enabling HFXT is required."]
-    #[inline(always)]
-    #[must_use]
-    pub fn fault(&mut self) -> FaultW<HfxtstatSpec> {
-        FaultW::new(self, 1)
-    }
-    #[doc = "Bits 2:15 - 15:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<HfxtstatSpec> {
-        Reserved2W::new(self, 2)
-    }
-    #[doc = "Bits 16:30 - 30:16\\]
-HFXT startup time Can be used by software to plan starting HFXT ahead in time. Measured whenever HFXT is enabled in CLKULL periods (24MHz), from HFXTCTL.EN until the clock is good for radio operation (amplitude compensation is settled)."]
-    #[inline(always)]
-    #[must_use]
-    pub fn startuptime(&mut self) -> StartuptimeW<HfxtstatSpec> {
-        StartuptimeW::new(self, 16)
-    }
-    #[doc = "Bit 31 - 31:31\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved31(&mut self) -> Reserved31W<HfxtstatSpec> {
-        Reserved31W::new(self, 31)
-    }
-}
+impl W {}
 #[doc = "HFXT status information\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`hfxtstat::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`hfxtstat::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct HfxtstatSpec;
 impl crate::RegisterSpec for HfxtstatSpec {

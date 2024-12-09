@@ -29,27 +29,15 @@ pub type DatacknAckW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `ARBLST` reader - 4:4\\]
 Arbitration status 0 - The *I2C* controller won arbitration. 1 - The *I2C* controller lost arbitration."]
 pub type ArblstR = crate::BitReader;
-#[doc = "Field `ARBLST` writer - 4:4\\]
-Arbitration status 0 - The *I2C* controller won arbitration. 1 - The *I2C* controller lost arbitration."]
-pub type ArblstW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `IDLE` reader - 5:5\\]
 *I2C* idle 0 - The *I2C* controller is not idle. 1 - The *I2C* controller is idle."]
 pub type IdleR = crate::BitReader;
-#[doc = "Field `IDLE` writer - 5:5\\]
-*I2C* idle 0 - The *I2C* controller is not idle. 1 - The *I2C* controller is idle."]
-pub type IdleW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `BUSBSY` reader - 6:6\\]
 Bus busy 0 - The *I2C* bus is idle. 1 - The *I2C* bus is busy. Note:The bit changes based on the MCTRL.START and MCTRL.STOP conditions."]
 pub type BusbsyR = crate::BitReader;
-#[doc = "Field `BUSBSY` writer - 6:6\\]
-Bus busy 0 - The *I2C* bus is idle. 1 - The *I2C* bus is busy. Note:The bit changes based on the MCTRL.START and MCTRL.STOP conditions."]
-pub type BusbsyW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED7` reader - 31:7\\]
 Reads to this field return zero.Writes to this field are ignored."]
 pub type Reserved7R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED7` writer - 31:7\\]
-Reads to this field return zero.Writes to this field are ignored."]
-pub type Reserved7W<'a, REG> = crate::FieldWriter<'a, REG, 25, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 This field reflects the *I2C* busy status when read and sets *I2C* master enable when written. When Read 0 - The controller is idle. 1 - The controller is busy. When this bit-field is set, the other status bits are not valid. Note: The *I2C* controller requires four SYSBUS clock cycles to assert the BUSY status after *I2C* master operation has been initiated through a write into MSTAT_MCTL register. Hence after programming MCTRL register, application is requested to wait for four SYSBUS clock cycles before issuing a controller status inquiry through a read from MSTAT_MCTL register. Any prior inquiry would result in wrong status being reported. When written: 0 - The master is disabled. 1 - The master is enabled to transmit or receive data."]
@@ -128,34 +116,6 @@ This field contains Data acknowledge in status read and Data acknowledge enable 
     #[must_use]
     pub fn datackn_ack(&mut self) -> DatacknAckW<MstatMctlSpec> {
         DatacknAckW::new(self, 3)
-    }
-    #[doc = "Bit 4 - 4:4\\]
-Arbitration status 0 - The *I2C* controller won arbitration. 1 - The *I2C* controller lost arbitration."]
-    #[inline(always)]
-    #[must_use]
-    pub fn arblst(&mut self) -> ArblstW<MstatMctlSpec> {
-        ArblstW::new(self, 4)
-    }
-    #[doc = "Bit 5 - 5:5\\]
-*I2C* idle 0 - The *I2C* controller is not idle. 1 - The *I2C* controller is idle."]
-    #[inline(always)]
-    #[must_use]
-    pub fn idle(&mut self) -> IdleW<MstatMctlSpec> {
-        IdleW::new(self, 5)
-    }
-    #[doc = "Bit 6 - 6:6\\]
-Bus busy 0 - The *I2C* bus is idle. 1 - The *I2C* bus is busy. Note:The bit changes based on the MCTRL.START and MCTRL.STOP conditions."]
-    #[inline(always)]
-    #[must_use]
-    pub fn busbsy(&mut self) -> BusbsyW<MstatMctlSpec> {
-        BusbsyW::new(self, 6)
-    }
-    #[doc = "Bits 7:31 - 31:7\\]
-Reads to this field return zero.Writes to this field are ignored."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved7(&mut self) -> Reserved7W<MstatMctlSpec> {
-        Reserved7W::new(self, 7)
     }
 }
 #[doc = "Master Control and Status This register functions as a control register when written, and a status register when read.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`mstat_mctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`mstat_mctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

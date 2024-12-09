@@ -5,27 +5,15 @@ pub type W = crate::W<DescexSpec>;
 #[doc = "Field `ROMSZ` reader - 14:0\\]
 Provides the size of ROM in Bytes."]
 pub type RomszR = crate::FieldReader<u16>;
-#[doc = "Field `ROMSZ` writer - 14:0\\]
-Provides the size of ROM in Bytes."]
-pub type RomszW<'a, REG> = crate::FieldWriter<'a, REG, 15, u16>;
 #[doc = "Field `FLSZ` reader - 26:15\\]
 This provides the total FLASH size in Kilo Bytes. The total FLASH size is (FLSZ + 1)KB"]
 pub type FlszR = crate::FieldReader<u16>;
-#[doc = "Field `FLSZ` writer - 26:15\\]
-This provides the total FLASH size in Kilo Bytes. The total FLASH size is (FLSZ + 1)KB"]
-pub type FlszW<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
 #[doc = "Field `NBANK` reader - 27:27\\]
 Provides the FLASH Bank count"]
 pub type NbankR = crate::BitReader;
-#[doc = "Field `NBANK` writer - 27:27\\]
-Provides the FLASH Bank count"]
-pub type NbankW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED28` reader - 31:28\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved28R = crate::FieldReader;
-#[doc = "Field `RESERVED28` writer - 31:28\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved28W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 impl R {
     #[doc = "Bits 0:14 - 14:0\\]
 Provides the size of ROM in Bytes."]
@@ -52,36 +40,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved28R::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
-impl W {
-    #[doc = "Bits 0:14 - 14:0\\]
-Provides the size of ROM in Bytes."]
-    #[inline(always)]
-    #[must_use]
-    pub fn romsz(&mut self) -> RomszW<DescexSpec> {
-        RomszW::new(self, 0)
-    }
-    #[doc = "Bits 15:26 - 26:15\\]
-This provides the total FLASH size in Kilo Bytes. The total FLASH size is (FLSZ + 1)KB"]
-    #[inline(always)]
-    #[must_use]
-    pub fn flsz(&mut self) -> FlszW<DescexSpec> {
-        FlszW::new(self, 15)
-    }
-    #[doc = "Bit 27 - 27:27\\]
-Provides the FLASH Bank count"]
-    #[inline(always)]
-    #[must_use]
-    pub fn nbank(&mut self) -> NbankW<DescexSpec> {
-        NbankW::new(self, 27)
-    }
-    #[doc = "Bits 28:31 - 31:28\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved28(&mut self) -> Reserved28W<DescexSpec> {
-        Reserved28W::new(self, 28)
-    }
-}
+impl W {}
 #[doc = "This register describes the configuration of VIMS.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`descex::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`descex::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct DescexSpec;
 impl crate::RegisterSpec for DescexSpec {

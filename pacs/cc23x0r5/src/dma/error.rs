@@ -11,9 +11,6 @@ pub type StatusW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED1` reader - 31:1\\]
 Reads to this field return zero, writes to this field are ignored."]
 pub type Reserved1R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED1` writer - 31:1\\]
-Reads to this field return zero, writes to this field are ignored."]
-pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 31, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Returns the status of bus error flag in uDMA, or clears this bit Read as: 0: No bus error detected 1: Bus error detected Write as: 0: No effect, status of bus error flag is unchanged. 1: Clears the bus error flag."]
@@ -35,13 +32,6 @@ Returns the status of bus error flag in uDMA, or clears this bit Read as: 0: No 
     #[must_use]
     pub fn status(&mut self) -> StatusW<ErrorSpec> {
         StatusW::new(self, 0)
-    }
-    #[doc = "Bits 1:31 - 31:1\\]
-Reads to this field return zero, writes to this field are ignored."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved1(&mut self) -> Reserved1W<ErrorSpec> {
-        Reserved1W::new(self, 1)
     }
 }
 #[doc = "Error Status and Clear Register.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`error::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`error::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

@@ -5,39 +5,21 @@ pub type W = crate::W<AmpstatSpec>;
 #[doc = "Field `AMPGOOD` reader - 0:0\\]
 HFXT amplitude good"]
 pub type AmpgoodR = crate::BitReader;
-#[doc = "Field `AMPGOOD` writer - 0:0\\]
-HFXT amplitude good"]
-pub type AmpgoodW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `CTRLATTARGET` reader - 1:1\\]
 HFXT control values match target values. This applies to IREF, Q1CAP, Q2CAP values."]
 pub type CtrlattargetR = crate::BitReader;
-#[doc = "Field `CTRLATTARGET` writer - 1:1\\]
-HFXT control values match target values. This applies to IREF, Q1CAP, Q2CAP values."]
-pub type CtrlattargetW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `Q1CAP` reader - 7:2\\]
 Current Q1CAP control value."]
 pub type Q1capR = crate::FieldReader;
-#[doc = "Field `Q1CAP` writer - 7:2\\]
-Current Q1CAP control value."]
-pub type Q1capW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `Q2CAP` reader - 13:8\\]
 Current Q2CAP control value."]
 pub type Q2capR = crate::FieldReader;
-#[doc = "Field `Q2CAP` writer - 13:8\\]
-Current Q2CAP control value."]
-pub type Q2capW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `IREF` reader - 17:14\\]
 Current IREF control value."]
 pub type IrefR = crate::FieldReader;
-#[doc = "Field `IREF` writer - 17:14\\]
-Current IREF control value."]
-pub type IrefW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `IDAC` reader - 24:18\\]
 Current IDAC control value."]
 pub type IdacR = crate::FieldReader;
-#[doc = "Field `IDAC` writer - 24:18\\]
-Current IDAC control value."]
-pub type IdacW<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "28:25\\]
 Current AMPCOMP FSM state.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -162,81 +144,9 @@ impl StateR {
         *self == State::Idle
     }
 }
-#[doc = "Field `STATE` writer - 28:25\\]
-Current AMPCOMP FSM state."]
-pub type StateW<'a, REG> = crate::FieldWriter<'a, REG, 4, State>;
-impl<'a, REG> StateW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "Settled state"]
-    #[inline(always)]
-    pub fn settled(self) -> &'a mut crate::W<REG> {
-        self.variant(State::Settled)
-    }
-    #[doc = "Amplitude up correction"]
-    #[inline(always)]
-    pub fn updateup(self) -> &'a mut crate::W<REG> {
-        self.variant(State::Updateup)
-    }
-    #[doc = "TCXO settled state"]
-    #[inline(always)]
-    pub fn txcomode(self) -> &'a mut crate::W<REG> {
-        self.variant(State::Txcomode)
-    }
-    #[doc = "First shutdown state"]
-    #[inline(always)]
-    pub fn shutdn0(self) -> &'a mut crate::W<REG> {
-        self.variant(State::Shutdn0)
-    }
-    #[doc = "Post injection settle wait"]
-    #[inline(always)]
-    pub fn injwait(self) -> &'a mut crate::W<REG> {
-        self.variant(State::Injwait)
-    }
-    #[doc = "Amplitude down correction"]
-    #[inline(always)]
-    pub fn updatedn(self) -> &'a mut crate::W<REG> {
-        self.variant(State::Updatedn)
-    }
-    #[doc = "Initial amplitude ramping with HFXTINIT values"]
-    #[inline(always)]
-    pub fn ramp0(self) -> &'a mut crate::W<REG> {
-        self.variant(State::Ramp0)
-    }
-    #[doc = "Transition to HFXTTARG values"]
-    #[inline(always)]
-    pub fn ramp1(self) -> &'a mut crate::W<REG> {
-        self.variant(State::Ramp1)
-    }
-    #[doc = "Injecting HFOSC for fast startup"]
-    #[inline(always)]
-    pub fn inject(self) -> &'a mut crate::W<REG> {
-        self.variant(State::Inject)
-    }
-    #[doc = "Second shutdown state"]
-    #[inline(always)]
-    pub fn shutdn1(self) -> &'a mut crate::W<REG> {
-        self.variant(State::Shutdn1)
-    }
-    #[doc = "Starting LDO"]
-    #[inline(always)]
-    pub fn ldostart(self) -> &'a mut crate::W<REG> {
-        self.variant(State::Ldostart)
-    }
-    #[doc = "FSM in idle state"]
-    #[inline(always)]
-    pub fn idle(self) -> &'a mut crate::W<REG> {
-        self.variant(State::Idle)
-    }
-}
 #[doc = "Field `RESERVED29` reader - 31:29\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved29R = crate::FieldReader;
-#[doc = "Field `RESERVED29` writer - 31:29\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved29W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 HFXT amplitude good"]
@@ -287,64 +197,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved29R::new(((self.bits >> 29) & 7) as u8)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-HFXT amplitude good"]
-    #[inline(always)]
-    #[must_use]
-    pub fn ampgood(&mut self) -> AmpgoodW<AmpstatSpec> {
-        AmpgoodW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-HFXT control values match target values. This applies to IREF, Q1CAP, Q2CAP values."]
-    #[inline(always)]
-    #[must_use]
-    pub fn ctrlattarget(&mut self) -> CtrlattargetW<AmpstatSpec> {
-        CtrlattargetW::new(self, 1)
-    }
-    #[doc = "Bits 2:7 - 7:2\\]
-Current Q1CAP control value."]
-    #[inline(always)]
-    #[must_use]
-    pub fn q1cap(&mut self) -> Q1capW<AmpstatSpec> {
-        Q1capW::new(self, 2)
-    }
-    #[doc = "Bits 8:13 - 13:8\\]
-Current Q2CAP control value."]
-    #[inline(always)]
-    #[must_use]
-    pub fn q2cap(&mut self) -> Q2capW<AmpstatSpec> {
-        Q2capW::new(self, 8)
-    }
-    #[doc = "Bits 14:17 - 17:14\\]
-Current IREF control value."]
-    #[inline(always)]
-    #[must_use]
-    pub fn iref(&mut self) -> IrefW<AmpstatSpec> {
-        IrefW::new(self, 14)
-    }
-    #[doc = "Bits 18:24 - 24:18\\]
-Current IDAC control value."]
-    #[inline(always)]
-    #[must_use]
-    pub fn idac(&mut self) -> IdacW<AmpstatSpec> {
-        IdacW::new(self, 18)
-    }
-    #[doc = "Bits 25:28 - 28:25\\]
-Current AMPCOMP FSM state."]
-    #[inline(always)]
-    #[must_use]
-    pub fn state(&mut self) -> StateW<AmpstatSpec> {
-        StateW::new(self, 25)
-    }
-    #[doc = "Bits 29:31 - 31:29\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved29(&mut self) -> Reserved29W<AmpstatSpec> {
-        Reserved29W::new(self, 29)
-    }
-}
+impl W {}
 #[doc = "HFXT Amplitude Compensation Status\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ampstat::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ampstat::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct AmpstatSpec;
 impl crate::RegisterSpec for AmpstatSpec {

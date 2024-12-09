@@ -5,15 +5,9 @@ pub type W = crate::W<DeltaSpec>;
 #[doc = "Field `TIME` reader - 11:0\\]
 Delta time. Measured time in us between SWSTMP.SWRDY and HFXT ready. This is a always a positive number, and SLWP is used to determine which event occurred first. Measurement is enabled when PREPUCTL.WUTIMEN is set."]
 pub type TimeR = crate::FieldReader<u16>;
-#[doc = "Field `TIME` writer - 11:0\\]
-Delta time. Measured time in us between SWSTMP.SWRDY and HFXT ready. This is a always a positive number, and SLWP is used to determine which event occurred first. Measurement is enabled when PREPUCTL.WUTIMEN is set."]
-pub type TimeW<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
 #[doc = "Field `RESERVED12` reader - 29:12\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved12R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED12` writer - 29:12\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved12W<'a, REG> = crate::FieldWriter<'a, REG, 18, u32>;
 #[doc = "31:30\\]
 Slow part. States which of HFXT ready or SW ready that completed first during wakeup from STANDBY mode.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -74,35 +68,6 @@ impl SlwpR {
         *self == Slwp::Invalid0
     }
 }
-#[doc = "Field `SLWP` writer - 31:30\\]
-Slow part. States which of HFXT ready or SW ready that completed first during wakeup from STANDBY mode."]
-pub type SlwpW<'a, REG> = crate::FieldWriter<'a, REG, 2, Slwp, crate::Safe>;
-impl<'a, REG> SlwpW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "No valid measurement available"]
-    #[inline(always)]
-    pub fn invalid3(self) -> &'a mut crate::W<REG> {
-        self.variant(Slwp::Invalid3)
-    }
-    #[doc = "HFXT ready set after SW ready (SWSTMP.SWRDY)"]
-    #[inline(always)]
-    pub fn hfxt(self) -> &'a mut crate::W<REG> {
-        self.variant(Slwp::Hfxt)
-    }
-    #[doc = "HFXT ready set before SW ready (SWSTMP.SWRDY)"]
-    #[inline(always)]
-    pub fn svt(self) -> &'a mut crate::W<REG> {
-        self.variant(Slwp::Svt)
-    }
-    #[doc = "No valid measurement available"]
-    #[inline(always)]
-    pub fn invalid0(self) -> &'a mut crate::W<REG> {
-        self.variant(Slwp::Invalid0)
-    }
-}
 impl R {
     #[doc = "Bits 0:11 - 11:0\\]
 Delta time. Measured time in us between SWSTMP.SWRDY and HFXT ready. This is a always a positive number, and SLWP is used to determine which event occurred first. Measurement is enabled when PREPUCTL.WUTIMEN is set."]
@@ -123,29 +88,7 @@ Slow part. States which of HFXT ready or SW ready that completed first during wa
         SlwpR::new(((self.bits >> 30) & 3) as u8)
     }
 }
-impl W {
-    #[doc = "Bits 0:11 - 11:0\\]
-Delta time. Measured time in us between SWSTMP.SWRDY and HFXT ready. This is a always a positive number, and SLWP is used to determine which event occurred first. Measurement is enabled when PREPUCTL.WUTIMEN is set."]
-    #[inline(always)]
-    #[must_use]
-    pub fn time(&mut self) -> TimeW<DeltaSpec> {
-        TimeW::new(self, 0)
-    }
-    #[doc = "Bits 12:29 - 29:12\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved12(&mut self) -> Reserved12W<DeltaSpec> {
-        Reserved12W::new(self, 12)
-    }
-    #[doc = "Bits 30:31 - 31:30\\]
-Slow part. States which of HFXT ready or SW ready that completed first during wakeup from STANDBY mode."]
-    #[inline(always)]
-    #[must_use]
-    pub fn slwp(&mut self) -> SlwpW<DeltaSpec> {
-        SlwpW::new(self, 30)
-    }
-}
+impl W {}
 #[doc = "Delta Time Register. This register contains the measured delta time during wakeup from STANDBY mode.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`delta::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`delta::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct DeltaSpec;
 impl crate::RegisterSpec for DeltaSpec {

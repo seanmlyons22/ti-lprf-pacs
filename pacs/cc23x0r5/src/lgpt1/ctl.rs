@@ -278,9 +278,6 @@ where
 #[doc = "Field `RESERVED6` reader - 7:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved6R = crate::FieldReader;
-#[doc = "Field `RESERVED6` writer - 7:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "8:8\\]
 Channel 0 reset.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -294,29 +291,6 @@ impl From<C0rst> for bool {
     #[inline(always)]
     fn from(variant: C0rst) -> Self {
         variant as u8 != 0
-    }
-}
-#[doc = "Field `C0RST` reader - 8:8\\]
-Channel 0 reset."]
-pub type C0rstR = crate::BitReader<C0rst>;
-impl C0rstR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> C0rst {
-        match self.bits {
-            true => C0rst::Rst,
-            false => C0rst::Noeff,
-        }
-    }
-    #[doc = "Reset C0CC, PC0CC, and C0CFG."]
-    #[inline(always)]
-    pub fn is_rst(&self) -> bool {
-        *self == C0rst::Rst
-    }
-    #[doc = "No effect."]
-    #[inline(always)]
-    pub fn is_noeff(&self) -> bool {
-        *self == C0rst::Noeff
     }
 }
 #[doc = "Field `C0RST` writer - 8:8\\]
@@ -352,29 +326,6 @@ impl From<C1rst> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `C1RST` reader - 9:9\\]
-Channel 1 reset."]
-pub type C1rstR = crate::BitReader<C1rst>;
-impl C1rstR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> C1rst {
-        match self.bits {
-            true => C1rst::Rst,
-            false => C1rst::Noeff,
-        }
-    }
-    #[doc = "Reset C1CC, PC1CC, and C1CFG."]
-    #[inline(always)]
-    pub fn is_rst(&self) -> bool {
-        *self == C1rst::Rst
-    }
-    #[doc = "No effect."]
-    #[inline(always)]
-    pub fn is_noeff(&self) -> bool {
-        *self == C1rst::Noeff
-    }
-}
 #[doc = "Field `C1RST` writer - 9:9\\]
 Channel 1 reset."]
 pub type C1rstW<'a, REG> = crate::BitWriter<'a, REG, C1rst>;
@@ -408,29 +359,6 @@ impl From<C2rst> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `C2RST` reader - 10:10\\]
-Channel 2 reset."]
-pub type C2rstR = crate::BitReader<C2rst>;
-impl C2rstR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> C2rst {
-        match self.bits {
-            true => C2rst::Rst,
-            false => C2rst::Noeff,
-        }
-    }
-    #[doc = "Reset C2CC, PC2CC, and C2CFG."]
-    #[inline(always)]
-    pub fn is_rst(&self) -> bool {
-        *self == C2rst::Rst
-    }
-    #[doc = "No effect."]
-    #[inline(always)]
-    pub fn is_noeff(&self) -> bool {
-        *self == C2rst::Noeff
-    }
-}
 #[doc = "Field `C2RST` writer - 10:10\\]
 Channel 2 reset."]
 pub type C2rstW<'a, REG> = crate::BitWriter<'a, REG, C2rst>;
@@ -452,9 +380,6 @@ where
 #[doc = "Field `RESERVED11` reader - 31:11\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved11R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED11` writer - 31:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved11W<'a, REG> = crate::FieldWriter<'a, REG, 21, u32>;
 impl R {
     #[doc = "Bits 0:2 - 2:0\\]
 Timer mode control The CNTR restarts from 0 when MODE is written to UP_ONCE, UP_PER, UPDWN_PER, QDEC, SYNC_UP_ONCE, SYNC_UP_PER or SYNC_UPDWN_PER. When writing MODE all internally queued updates to the channels and TGT is cleared. When configuring the timer, MODE should be the last thing to configure. If changing timer configuration after MODE has been set is necessary, instructions, if any, given in the configuration registers should be followed. See for example C0CFG."]
@@ -479,24 +404,6 @@ Software should not rely on the value of a reserved. Writing any other value tha
     #[inline(always)]
     pub fn reserved6(&self) -> Reserved6R {
         Reserved6R::new(((self.bits >> 6) & 3) as u8)
-    }
-    #[doc = "Bit 8 - 8:8\\]
-Channel 0 reset."]
-    #[inline(always)]
-    pub fn c0rst(&self) -> C0rstR {
-        C0rstR::new(((self.bits >> 8) & 1) != 0)
-    }
-    #[doc = "Bit 9 - 9:9\\]
-Channel 1 reset."]
-    #[inline(always)]
-    pub fn c1rst(&self) -> C1rstR {
-        C1rstR::new(((self.bits >> 9) & 1) != 0)
-    }
-    #[doc = "Bit 10 - 10:10\\]
-Channel 2 reset."]
-    #[inline(always)]
-    pub fn c2rst(&self) -> C2rstR {
-        C2rstR::new(((self.bits >> 10) & 1) != 0)
     }
     #[doc = "Bits 11:31 - 31:11\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
@@ -527,13 +434,6 @@ Interrupt Phase. This bit field controls when the RIS.TGT and RIS.ZERO interrupt
     pub fn intp(&mut self) -> IntpW<CtlSpec> {
         IntpW::new(self, 5)
     }
-    #[doc = "Bits 6:7 - 7:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<CtlSpec> {
-        Reserved6W::new(self, 6)
-    }
     #[doc = "Bit 8 - 8:8\\]
 Channel 0 reset."]
     #[inline(always)]
@@ -554,13 +454,6 @@ Channel 2 reset."]
     #[must_use]
     pub fn c2rst(&mut self) -> C2rstW<CtlSpec> {
         C2rstW::new(self, 10)
-    }
-    #[doc = "Bits 11:31 - 31:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved11(&mut self) -> Reserved11W<CtlSpec> {
-        Reserved11W::new(self, 11)
     }
 }
 #[doc = "Timer Control\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

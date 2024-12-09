@@ -157,9 +157,6 @@ where
 #[doc = "Field `RESERVED28` reader - 29:28\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved28R = crate::FieldReader;
-#[doc = "Field `RESERVED28` writer - 29:28\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved28W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `DSMBYP` reader - 30:30\\]
 Bypass Delta-Sigma-Modulation of fine trim."]
 pub type DsmbypR = crate::BitReader;
@@ -218,13 +215,6 @@ Select the reference clock for the tracking loop. Change only while the tracking
     #[must_use]
     pub fn refclk(&mut self) -> RefclkW<HftrackctlSpec> {
         RefclkW::new(self, 26)
-    }
-    #[doc = "Bits 28:29 - 29:28\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved28(&mut self) -> Reserved28W<HftrackctlSpec> {
-        Reserved28W::new(self, 28)
     }
     #[doc = "Bit 30 - 30:30\\]
 Bypass Delta-Sigma-Modulation of fine trim."]

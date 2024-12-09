@@ -24,36 +24,6 @@ impl crate::FieldSpec for Ecbop {
     type Ux = u8;
 }
 impl crate::IsEnum for Ecbop {}
-#[doc = "Field `ECBOP` reader - 1:0\\]
-Electronic Codebook (ECB) Operation Write an enumerated value to this field when STA.STATE = IDLE to manually trigger an ECB encryption. If condition is not met, the trigger is ignored. Non-enumerated values are ignored. Enumerated value indicates source of ECB operation"]
-pub type EcbopR = crate::FieldReader<Ecbop>;
-impl EcbopR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Option<Ecbop> {
-        match self.bits {
-            3 => Some(Ecbop::Txtxbuf),
-            2 => Some(Ecbop::Buf),
-            1 => Some(Ecbop::Txt),
-            _ => None,
-        }
-    }
-    #[doc = "TXT = ECB(KEY, TXT XOR BUF)"]
-    #[inline(always)]
-    pub fn is_txtxbuf(&self) -> bool {
-        *self == Ecbop::Txtxbuf
-    }
-    #[doc = "TXT = ECB(KEY,BUF)"]
-    #[inline(always)]
-    pub fn is_buf(&self) -> bool {
-        *self == Ecbop::Buf
-    }
-    #[doc = "TXT = ECB(KEY,TXT)"]
-    #[inline(always)]
-    pub fn is_txt(&self) -> bool {
-        *self == Ecbop::Txt
-    }
-}
 #[doc = "Field `ECBOP` writer - 1:0\\]
 Electronic Codebook (ECB) Operation Write an enumerated value to this field when STA.STATE = IDLE to manually trigger an ECB encryption. If condition is not met, the trigger is ignored. Non-enumerated values are ignored. Enumerated value indicates source of ECB operation"]
 pub type EcbopW<'a, REG> = crate::FieldWriter<'a, REG, 2, Ecbop>;
@@ -78,50 +48,15 @@ where
         self.variant(Ecbop::Txt)
     }
 }
-#[doc = "Field `DMACHB` reader - 2:2\\]
-Write 1 to this field to manually trigger channel B request."]
-pub type DmachbR = crate::BitReader;
 #[doc = "Field `DMACHB` writer - 2:2\\]
 Write 1 to this field to manually trigger channel B request."]
 pub type DmachbW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `DMACHA` reader - 3:3\\]
-Write 1 to this field to manually trigger channel A request."]
-pub type DmachaR = crate::BitReader;
 #[doc = "Field `DMACHA` writer - 3:3\\]
 Write 1 to this field to manually trigger channel A request."]
 pub type DmachaW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `RESERVED2` reader - 31:4\\]
-Reads to this field return zero, writes to this field are ignored."]
-pub type Reserved2R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED2` writer - 31:4\\]
 Reads to this field return zero, writes to this field are ignored."]
 pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 28, u32>;
-impl R {
-    #[doc = "Bits 0:1 - 1:0\\]
-Electronic Codebook (ECB) Operation Write an enumerated value to this field when STA.STATE = IDLE to manually trigger an ECB encryption. If condition is not met, the trigger is ignored. Non-enumerated values are ignored. Enumerated value indicates source of ECB operation"]
-    #[inline(always)]
-    pub fn ecbop(&self) -> EcbopR {
-        EcbopR::new((self.bits & 3) as u8)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-Write 1 to this field to manually trigger channel B request."]
-    #[inline(always)]
-    pub fn dmachb(&self) -> DmachbR {
-        DmachbR::new(((self.bits >> 2) & 1) != 0)
-    }
-    #[doc = "Bit 3 - 3:3\\]
-Write 1 to this field to manually trigger channel A request."]
-    #[inline(always)]
-    pub fn dmacha(&self) -> DmachaR {
-        DmachaR::new(((self.bits >> 3) & 1) != 0)
-    }
-    #[doc = "Bits 4:31 - 31:4\\]
-Reads to this field return zero, writes to this field are ignored."]
-    #[inline(always)]
-    pub fn reserved2(&self) -> Reserved2R {
-        Reserved2R::new((self.bits >> 4) & 0x0fff_ffff)
-    }
-}
 impl W {
     #[doc = "Bits 0:1 - 1:0\\]
 Electronic Codebook (ECB) Operation Write an enumerated value to this field when STA.STATE = IDLE to manually trigger an ECB encryption. If condition is not met, the trigger is ignored. Non-enumerated values are ignored. Enumerated value indicates source of ECB operation"]

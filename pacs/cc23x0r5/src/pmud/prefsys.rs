@@ -627,9 +627,6 @@ pub type SpareW<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 #[doc = "Field `RESERVED16` reader - 31:16\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved16R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED16` writer - 31:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved16W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Connects 2uA IPTAT to va_atb_pmurefsys_a"]
@@ -794,13 +791,6 @@ Spare bits. BATMON comparator enable in test mode is based on COMPTEST.EN bit."]
     #[must_use]
     pub fn spare(&mut self) -> SpareW<PrefsysSpec> {
         SpareW::new(self, 11)
-    }
-    #[doc = "Bits 16:31 - 31:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved16(&mut self) -> Reserved16W<PrefsysSpec> {
-        Reserved16W::new(self, 16)
     }
 }
 #[doc = "PMU REFSYS test register. These test bits connect to PMU REFSYS analog module directly. Note: This register is write-protected except for bits \\[3:1\\]

@@ -58,42 +58,24 @@ where
         self.variant(Enable::BkptDis)
     }
 }
-#[doc = "Field `KEY` reader - 1:1\\]
-Key field. To write to the Breakpoint Control Register, you must write a 1 to this write-only bit. This bit reads as zero."]
-pub type KeyR = crate::BitReader;
 #[doc = "Field `KEY` writer - 1:1\\]
 Key field. To write to the Breakpoint Control Register, you must write a 1 to this write-only bit. This bit reads as zero."]
 pub type KeyW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED2` reader - 3:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2R = crate::FieldReader;
-#[doc = "Field `RESERVED2` writer - 3:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `NUM_CODE` reader - 7:4\\]
 Number of comparators."]
 pub type NumCodeR = crate::FieldReader;
-#[doc = "Field `NUM_CODE` writer - 7:4\\]
-Number of comparators."]
-pub type NumCodeW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED8` reader - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved8R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED8` writer - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Breakpoint unit enable bit. DBGRESETn clears the ENABLE bit."]
     #[inline(always)]
     pub fn enable(&self) -> EnableR {
         EnableR::new((self.bits & 1) != 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Key field. To write to the Breakpoint Control Register, you must write a 1 to this write-only bit. This bit reads as zero."]
-    #[inline(always)]
-    pub fn key(&self) -> KeyR {
-        KeyR::new(((self.bits >> 1) & 1) != 0)
     }
     #[doc = "Bits 2:3 - 3:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
@@ -128,27 +110,6 @@ Key field. To write to the Breakpoint Control Register, you must write a 1 to th
     #[must_use]
     pub fn key(&mut self) -> KeyW<BpCtrlSpec> {
         KeyW::new(self, 1)
-    }
-    #[doc = "Bits 2:3 - 3:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<BpCtrlSpec> {
-        Reserved2W::new(self, 2)
-    }
-    #[doc = "Bits 4:7 - 7:4\\]
-Number of comparators."]
-    #[inline(always)]
-    #[must_use]
-    pub fn num_code(&mut self) -> NumCodeW<BpCtrlSpec> {
-        NumCodeW::new(self, 4)
-    }
-    #[doc = "Bits 8:31 - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved8(&mut self) -> Reserved8W<BpCtrlSpec> {
-        Reserved8W::new(self, 8)
     }
 }
 #[doc = "Use the Breakpoint Control Register to enable the Breakpoint block\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`bp_ctrl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`bp_ctrl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

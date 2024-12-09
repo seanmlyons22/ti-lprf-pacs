@@ -40,24 +40,6 @@ impl DbgenR {
         *self == Dbgen::Dis
     }
 }
-#[doc = "Field `DBGEN` writer - 0:0\\]
-Controls invasive debug enable."]
-pub type DbgenW<'a, REG> = crate::BitWriter<'a, REG, Dbgen>;
-impl<'a, REG> DbgenW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Invasive debug enabled"]
-    #[inline(always)]
-    pub fn en(self) -> &'a mut crate::W<REG> {
-        self.variant(Dbgen::En)
-    }
-    #[doc = "Invasive debug disabled"]
-    #[inline(always)]
-    pub fn dis(self) -> &'a mut crate::W<REG> {
-        self.variant(Dbgen::Dis)
-    }
-}
 #[doc = "1:1\\]
 Controls non-invasive debug enable.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -96,30 +78,9 @@ impl NidenR {
         *self == Niden::Dis
     }
 }
-#[doc = "Field `NIDEN` writer - 1:1\\]
-Controls non-invasive debug enable."]
-pub type NidenW<'a, REG> = crate::BitWriter<'a, REG, Niden>;
-impl<'a, REG> NidenW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Non-invasive debug enabled"]
-    #[inline(always)]
-    pub fn en(self) -> &'a mut crate::W<REG> {
-        self.variant(Niden::En)
-    }
-    #[doc = "Non-invasive debug disabled"]
-    #[inline(always)]
-    pub fn dis(self) -> &'a mut crate::W<REG> {
-        self.variant(Niden::Dis)
-    }
-}
 #[doc = "Field `RESERVED2` reader - 31:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED2` writer - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 30, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Controls invasive debug enable."]
@@ -140,29 +101,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved2R::new((self.bits >> 2) & 0x3fff_ffff)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Controls invasive debug enable."]
-    #[inline(always)]
-    #[must_use]
-    pub fn dbgen(&mut self) -> DbgenW<AppAuthSpec> {
-        DbgenW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Controls non-invasive debug enable."]
-    #[inline(always)]
-    #[must_use]
-    pub fn niden(&mut self) -> NidenW<AppAuthSpec> {
-        NidenW::new(self, 1)
-    }
-    #[doc = "Bits 2:31 - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<AppAuthSpec> {
-        Reserved2W::new(self, 2)
-    }
-}
+impl W {}
 #[doc = "This register indicates the debug privileges of ARM Cortex CPU.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`app_auth::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`app_auth::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct AppAuthSpec;
 impl crate::RegisterSpec for AppAuthSpec {

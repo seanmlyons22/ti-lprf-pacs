@@ -458,9 +458,6 @@ where
 #[doc = "Field `RESERVED5` reader - 7:5\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved5R = crate::FieldReader;
-#[doc = "Field `RESERVED5` writer - 7:5\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved5W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "9:8\\]
 Voltage reference selection. AREF- must be connected to on-board ground when external reference option is selected. Note: Writing value 0x3 defaults to INTREF.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -540,9 +537,6 @@ where
 #[doc = "Field `RESERVED10` reader - 11:10\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved10R = crate::FieldReader;
-#[doc = "Field `RESERVED10` writer - 11:10\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved10W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "12:12\\]
 Selects the source of sample timer period between SCOMP0 and SCOMP1.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -602,9 +596,6 @@ where
 #[doc = "Field `RESERVED13` reader - 23:13\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved13R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED13` writer - 23:13\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved13W<'a, REG> = crate::FieldWriter<'a, REG, 11, u16>;
 #[doc = "24:24\\]
 Trigger policy. Indicates if a trigger will be needed to step to the next MEMCTL in the sequence or to perform next conversion in the case of repeat single channel conversions.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -664,9 +655,6 @@ where
 #[doc = "Field `RESERVED25` reader - 27:25\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved25R = crate::FieldReader;
-#[doc = "Field `RESERVED25` writer - 27:25\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved25W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "28:28\\]
 Enable window comparator.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -726,9 +714,6 @@ where
 #[doc = "Field `RESERVED29` reader - 31:29\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved29R = crate::FieldReader;
-#[doc = "Field `RESERVED29` writer - 31:29\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved29W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 impl R {
     #[doc = "Bits 0:4 - 4:0\\]
 Input channel select."]
@@ -799,26 +784,12 @@ Input channel select."]
     pub fn chansel(&mut self) -> ChanselW<Memctl3Spec> {
         ChanselW::new(self, 0)
     }
-    #[doc = "Bits 5:7 - 7:5\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved5(&mut self) -> Reserved5W<Memctl3Spec> {
-        Reserved5W::new(self, 5)
-    }
     #[doc = "Bits 8:9 - 9:8\\]
 Voltage reference selection. AREF- must be connected to on-board ground when external reference option is selected. Note: Writing value 0x3 defaults to INTREF."]
     #[inline(always)]
     #[must_use]
     pub fn vrsel(&mut self) -> VrselW<Memctl3Spec> {
         VrselW::new(self, 8)
-    }
-    #[doc = "Bits 10:11 - 11:10\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved10(&mut self) -> Reserved10W<Memctl3Spec> {
-        Reserved10W::new(self, 10)
     }
     #[doc = "Bit 12 - 12:12\\]
 Selects the source of sample timer period between SCOMP0 and SCOMP1."]
@@ -827,13 +798,6 @@ Selects the source of sample timer period between SCOMP0 and SCOMP1."]
     pub fn stime(&mut self) -> StimeW<Memctl3Spec> {
         StimeW::new(self, 12)
     }
-    #[doc = "Bits 13:23 - 23:13\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved13(&mut self) -> Reserved13W<Memctl3Spec> {
-        Reserved13W::new(self, 13)
-    }
     #[doc = "Bit 24 - 24:24\\]
 Trigger policy. Indicates if a trigger will be needed to step to the next MEMCTL in the sequence or to perform next conversion in the case of repeat single channel conversions."]
     #[inline(always)]
@@ -841,26 +805,12 @@ Trigger policy. Indicates if a trigger will be needed to step to the next MEMCTL
     pub fn trig(&mut self) -> TrigW<Memctl3Spec> {
         TrigW::new(self, 24)
     }
-    #[doc = "Bits 25:27 - 27:25\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved25(&mut self) -> Reserved25W<Memctl3Spec> {
-        Reserved25W::new(self, 25)
-    }
     #[doc = "Bit 28 - 28:28\\]
 Enable window comparator."]
     #[inline(always)]
     #[must_use]
     pub fn wincomp(&mut self) -> WincompW<Memctl3Spec> {
         WincompW::new(self, 28)
-    }
-    #[doc = "Bits 29:31 - 31:29\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved29(&mut self) -> Reserved29W<Memctl3Spec> {
-        Reserved29W::new(self, 29)
     }
 }
 #[doc = "Conversion Memory Control Register 3. CTL0.ENC must be set to 0 to write to this register.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`memctl3::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`memctl3::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

@@ -211,9 +211,6 @@ where
 #[doc = "Field `RESERVED4` reader - 4:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved4R = crate::BitReader;
-#[doc = "Field `RESERVED4` writer - 4:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved4W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "6:5\\]
 Frame format select\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -306,9 +303,6 @@ where
 #[doc = "Field `RESERVED7` reader - 7:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved7R = crate::BitReader;
-#[doc = "Field `RESERVED7` writer - 7:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved7W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "8:8\\]
 CLKOUT polarity (Motorola SPI frame format only).\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -872,9 +866,6 @@ where
 #[doc = "Field `RESERVED18` reader - 31:18\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved18R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED18` writer - 31:18\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved18W<'a, REG> = crate::FieldWriter<'a, REG, 14, u16>;
 impl R {
     #[doc = "Bits 0:3 - 3:0\\]
 Data size select. Valid DSS values for controller mode operation are 0x3 to 0xF and for peripheral mode operation are 0x6 to 0xF. DSS values 0x0 to 0x2 are reserved and shall not be used."]
@@ -975,26 +966,12 @@ Data size select. Valid DSS values for controller mode operation are 0x3 to 0xF 
     pub fn dss(&mut self) -> DssW<Ctl0Spec> {
         DssW::new(self, 0)
     }
-    #[doc = "Bit 4 - 4:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved4(&mut self) -> Reserved4W<Ctl0Spec> {
-        Reserved4W::new(self, 4)
-    }
     #[doc = "Bits 5:6 - 6:5\\]
 Frame format select"]
     #[inline(always)]
     #[must_use]
     pub fn frf(&mut self) -> FrfW<Ctl0Spec> {
         FrfW::new(self, 5)
-    }
-    #[doc = "Bit 7 - 7:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved7(&mut self) -> Reserved7W<Ctl0Spec> {
-        Reserved7W::new(self, 7)
     }
     #[doc = "Bit 8 - 8:8\\]
 CLKOUT polarity (Motorola SPI frame format only)."]
@@ -1065,13 +1042,6 @@ The Idle value of POCI - when TXFIFO is empty and before data is writtern into T
     #[must_use]
     pub fn poci_idleval(&mut self) -> PociIdlevalW<Ctl0Spec> {
         PociIdlevalW::new(self, 17)
-    }
-    #[doc = "Bits 18:31 - 31:18\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved18(&mut self) -> Reserved18W<Ctl0Spec> {
-        Reserved18W::new(self, 18)
     }
 }
 #[doc = "SPI control register 0\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ctl0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ctl0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

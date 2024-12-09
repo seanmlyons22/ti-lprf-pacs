@@ -40,24 +40,6 @@ impl GpioR {
         *self == Gpio::IpUnavail
     }
 }
-#[doc = "Field `GPIO` writer - 0:0\\]
-IP status on device"]
-pub type GpioW<'a, REG> = crate::BitWriter<'a, REG, Gpio>;
-impl<'a, REG> GpioW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "IP is available"]
-    #[inline(always)]
-    pub fn ip_avail(self) -> &'a mut crate::W<REG> {
-        self.variant(Gpio::IpAvail)
-    }
-    #[doc = "IP is unavailable"]
-    #[inline(always)]
-    pub fn ip_unavail(self) -> &'a mut crate::W<REG> {
-        self.variant(Gpio::IpUnavail)
-    }
-}
 #[doc = "1:1\\]
 IP status on device\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -94,24 +76,6 @@ impl LrfdR {
     #[inline(always)]
     pub fn is_ip_unavail(&self) -> bool {
         *self == Lrfd::IpUnavail
-    }
-}
-#[doc = "Field `LRFD` writer - 1:1\\]
-IP status on device"]
-pub type LrfdW<'a, REG> = crate::BitWriter<'a, REG, Lrfd>;
-impl<'a, REG> LrfdW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "IP is available"]
-    #[inline(always)]
-    pub fn ip_avail(self) -> &'a mut crate::W<REG> {
-        self.variant(Lrfd::IpAvail)
-    }
-    #[doc = "IP is unavailable"]
-    #[inline(always)]
-    pub fn ip_unavail(self) -> &'a mut crate::W<REG> {
-        self.variant(Lrfd::IpUnavail)
     }
 }
 #[doc = "2:2\\]
@@ -152,30 +116,9 @@ impl Uart0R {
         *self == Uart0::IpUnavail
     }
 }
-#[doc = "Field `UART0` writer - 2:2\\]
-IP status on device"]
-pub type Uart0W<'a, REG> = crate::BitWriter<'a, REG, Uart0>;
-impl<'a, REG> Uart0W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "IP is available"]
-    #[inline(always)]
-    pub fn ip_avail(self) -> &'a mut crate::W<REG> {
-        self.variant(Uart0::IpAvail)
-    }
-    #[doc = "IP is unavailable"]
-    #[inline(always)]
-    pub fn ip_unavail(self) -> &'a mut crate::W<REG> {
-        self.variant(Uart0::IpUnavail)
-    }
-}
 #[doc = "Field `RESERVED3` reader - 5:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3R = crate::FieldReader;
-#[doc = "Field `RESERVED3` writer - 5:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "6:6\\]
 IP status on device\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -214,30 +157,9 @@ impl I2c0R {
         *self == I2c0::IpUnavail
     }
 }
-#[doc = "Field `I2C0` writer - 6:6\\]
-IP status on device"]
-pub type I2c0W<'a, REG> = crate::BitWriter<'a, REG, I2c0>;
-impl<'a, REG> I2c0W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "IP is available"]
-    #[inline(always)]
-    pub fn ip_avail(self) -> &'a mut crate::W<REG> {
-        self.variant(I2c0::IpAvail)
-    }
-    #[doc = "IP is unavailable"]
-    #[inline(always)]
-    pub fn ip_unavail(self) -> &'a mut crate::W<REG> {
-        self.variant(I2c0::IpUnavail)
-    }
-}
 #[doc = "Field `RESERVED7` reader - 9:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved7R = crate::FieldReader;
-#[doc = "Field `RESERVED7` writer - 9:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved7W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "10:10\\]
 IP status on device\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -276,30 +198,9 @@ impl Spi0R {
         *self == Spi0::IpUnavail
     }
 }
-#[doc = "Field `SPI0` writer - 10:10\\]
-IP status on device"]
-pub type Spi0W<'a, REG> = crate::BitWriter<'a, REG, Spi0>;
-impl<'a, REG> Spi0W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "IP is available"]
-    #[inline(always)]
-    pub fn ip_avail(self) -> &'a mut crate::W<REG> {
-        self.variant(Spi0::IpAvail)
-    }
-    #[doc = "IP is unavailable"]
-    #[inline(always)]
-    pub fn ip_unavail(self) -> &'a mut crate::W<REG> {
-        self.variant(Spi0::IpUnavail)
-    }
-}
 #[doc = "Field `RESERVED11` reader - 13:11\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved11R = crate::FieldReader;
-#[doc = "Field `RESERVED11` writer - 13:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved11W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "14:14\\]
 IP status on device\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -338,30 +239,9 @@ impl Adc0R {
         *self == Adc0::IpUnavail
     }
 }
-#[doc = "Field `ADC0` writer - 14:14\\]
-IP status on device"]
-pub type Adc0W<'a, REG> = crate::BitWriter<'a, REG, Adc0>;
-impl<'a, REG> Adc0W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "IP is available"]
-    #[inline(always)]
-    pub fn ip_avail(self) -> &'a mut crate::W<REG> {
-        self.variant(Adc0::IpAvail)
-    }
-    #[doc = "IP is unavailable"]
-    #[inline(always)]
-    pub fn ip_unavail(self) -> &'a mut crate::W<REG> {
-        self.variant(Adc0::IpUnavail)
-    }
-}
 #[doc = "Field `RESERVED15` reader - 15:15\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved15R = crate::BitReader;
-#[doc = "Field `RESERVED15` writer - 15:15\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved15W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "16:16\\]
 IP status on device\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -398,24 +278,6 @@ impl LaesR {
     #[inline(always)]
     pub fn is_ip_unavail(&self) -> bool {
         *self == Laes::IpUnavail
-    }
-}
-#[doc = "Field `LAES` writer - 16:16\\]
-IP status on device"]
-pub type LaesW<'a, REG> = crate::BitWriter<'a, REG, Laes>;
-impl<'a, REG> LaesW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "IP is available"]
-    #[inline(always)]
-    pub fn ip_avail(self) -> &'a mut crate::W<REG> {
-        self.variant(Laes::IpAvail)
-    }
-    #[doc = "IP is unavailable"]
-    #[inline(always)]
-    pub fn ip_unavail(self) -> &'a mut crate::W<REG> {
-        self.variant(Laes::IpUnavail)
     }
 }
 #[doc = "17:17\\]
@@ -456,30 +318,9 @@ impl DmaR {
         *self == Dma::IpUnavail
     }
 }
-#[doc = "Field `DMA` writer - 17:17\\]
-IP status on device"]
-pub type DmaW<'a, REG> = crate::BitWriter<'a, REG, Dma>;
-impl<'a, REG> DmaW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "IP is available"]
-    #[inline(always)]
-    pub fn ip_avail(self) -> &'a mut crate::W<REG> {
-        self.variant(Dma::IpAvail)
-    }
-    #[doc = "IP is unavailable"]
-    #[inline(always)]
-    pub fn ip_unavail(self) -> &'a mut crate::W<REG> {
-        self.variant(Dma::IpUnavail)
-    }
-}
 #[doc = "Field `RESERVED18` reader - 26:18\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved18R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED18` writer - 26:18\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved18W<'a, REG> = crate::FieldWriter<'a, REG, 9, u16>;
 #[doc = "27:27\\]
 IP status on device\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -516,24 +357,6 @@ impl Lgpt0R {
     #[inline(always)]
     pub fn is_ip_unavail(&self) -> bool {
         *self == Lgpt0::IpUnavail
-    }
-}
-#[doc = "Field `LGPT0` writer - 27:27\\]
-IP status on device"]
-pub type Lgpt0W<'a, REG> = crate::BitWriter<'a, REG, Lgpt0>;
-impl<'a, REG> Lgpt0W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "IP is available"]
-    #[inline(always)]
-    pub fn ip_avail(self) -> &'a mut crate::W<REG> {
-        self.variant(Lgpt0::IpAvail)
-    }
-    #[doc = "IP is unavailable"]
-    #[inline(always)]
-    pub fn ip_unavail(self) -> &'a mut crate::W<REG> {
-        self.variant(Lgpt0::IpUnavail)
     }
 }
 #[doc = "28:28\\]
@@ -574,24 +397,6 @@ impl Lgpt1R {
         *self == Lgpt1::IpUnavail
     }
 }
-#[doc = "Field `LGPT1` writer - 28:28\\]
-IP status on device"]
-pub type Lgpt1W<'a, REG> = crate::BitWriter<'a, REG, Lgpt1>;
-impl<'a, REG> Lgpt1W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "IP is available"]
-    #[inline(always)]
-    pub fn ip_avail(self) -> &'a mut crate::W<REG> {
-        self.variant(Lgpt1::IpAvail)
-    }
-    #[doc = "IP is unavailable"]
-    #[inline(always)]
-    pub fn ip_unavail(self) -> &'a mut crate::W<REG> {
-        self.variant(Lgpt1::IpUnavail)
-    }
-}
 #[doc = "29:29\\]
 IP status on device\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -628,24 +433,6 @@ impl Lgpt2R {
     #[inline(always)]
     pub fn is_ip_unavail(&self) -> bool {
         *self == Lgpt2::IpUnavail
-    }
-}
-#[doc = "Field `LGPT2` writer - 29:29\\]
-IP status on device"]
-pub type Lgpt2W<'a, REG> = crate::BitWriter<'a, REG, Lgpt2>;
-impl<'a, REG> Lgpt2W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "IP is available"]
-    #[inline(always)]
-    pub fn ip_avail(self) -> &'a mut crate::W<REG> {
-        self.variant(Lgpt2::IpAvail)
-    }
-    #[doc = "IP is unavailable"]
-    #[inline(always)]
-    pub fn ip_unavail(self) -> &'a mut crate::W<REG> {
-        self.variant(Lgpt2::IpUnavail)
     }
 }
 #[doc = "30:30\\]
@@ -686,30 +473,9 @@ impl Lgpt3R {
         *self == Lgpt3::IpUnavail
     }
 }
-#[doc = "Field `LGPT3` writer - 30:30\\]
-IP status on device"]
-pub type Lgpt3W<'a, REG> = crate::BitWriter<'a, REG, Lgpt3>;
-impl<'a, REG> Lgpt3W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "IP is available"]
-    #[inline(always)]
-    pub fn ip_avail(self) -> &'a mut crate::W<REG> {
-        self.variant(Lgpt3::IpAvail)
-    }
-    #[doc = "IP is unavailable"]
-    #[inline(always)]
-    pub fn ip_unavail(self) -> &'a mut crate::W<REG> {
-        self.variant(Lgpt3::IpUnavail)
-    }
-}
 #[doc = "Field `RESERVED31` reader - 31:31\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved31R = crate::BitReader;
-#[doc = "Field `RESERVED31` writer - 31:31\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved31W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 IP status on device"]
@@ -820,134 +586,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved31R::new(((self.bits >> 31) & 1) != 0)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-IP status on device"]
-    #[inline(always)]
-    #[must_use]
-    pub fn gpio(&mut self) -> GpioW<Descex0Spec> {
-        GpioW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-IP status on device"]
-    #[inline(always)]
-    #[must_use]
-    pub fn lrfd(&mut self) -> LrfdW<Descex0Spec> {
-        LrfdW::new(self, 1)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-IP status on device"]
-    #[inline(always)]
-    #[must_use]
-    pub fn uart0(&mut self) -> Uart0W<Descex0Spec> {
-        Uart0W::new(self, 2)
-    }
-    #[doc = "Bits 3:5 - 5:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<Descex0Spec> {
-        Reserved3W::new(self, 3)
-    }
-    #[doc = "Bit 6 - 6:6\\]
-IP status on device"]
-    #[inline(always)]
-    #[must_use]
-    pub fn i2c0(&mut self) -> I2c0W<Descex0Spec> {
-        I2c0W::new(self, 6)
-    }
-    #[doc = "Bits 7:9 - 9:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved7(&mut self) -> Reserved7W<Descex0Spec> {
-        Reserved7W::new(self, 7)
-    }
-    #[doc = "Bit 10 - 10:10\\]
-IP status on device"]
-    #[inline(always)]
-    #[must_use]
-    pub fn spi0(&mut self) -> Spi0W<Descex0Spec> {
-        Spi0W::new(self, 10)
-    }
-    #[doc = "Bits 11:13 - 13:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved11(&mut self) -> Reserved11W<Descex0Spec> {
-        Reserved11W::new(self, 11)
-    }
-    #[doc = "Bit 14 - 14:14\\]
-IP status on device"]
-    #[inline(always)]
-    #[must_use]
-    pub fn adc0(&mut self) -> Adc0W<Descex0Spec> {
-        Adc0W::new(self, 14)
-    }
-    #[doc = "Bit 15 - 15:15\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved15(&mut self) -> Reserved15W<Descex0Spec> {
-        Reserved15W::new(self, 15)
-    }
-    #[doc = "Bit 16 - 16:16\\]
-IP status on device"]
-    #[inline(always)]
-    #[must_use]
-    pub fn laes(&mut self) -> LaesW<Descex0Spec> {
-        LaesW::new(self, 16)
-    }
-    #[doc = "Bit 17 - 17:17\\]
-IP status on device"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dma(&mut self) -> DmaW<Descex0Spec> {
-        DmaW::new(self, 17)
-    }
-    #[doc = "Bits 18:26 - 26:18\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved18(&mut self) -> Reserved18W<Descex0Spec> {
-        Reserved18W::new(self, 18)
-    }
-    #[doc = "Bit 27 - 27:27\\]
-IP status on device"]
-    #[inline(always)]
-    #[must_use]
-    pub fn lgpt0(&mut self) -> Lgpt0W<Descex0Spec> {
-        Lgpt0W::new(self, 27)
-    }
-    #[doc = "Bit 28 - 28:28\\]
-IP status on device"]
-    #[inline(always)]
-    #[must_use]
-    pub fn lgpt1(&mut self) -> Lgpt1W<Descex0Spec> {
-        Lgpt1W::new(self, 28)
-    }
-    #[doc = "Bit 29 - 29:29\\]
-IP status on device"]
-    #[inline(always)]
-    #[must_use]
-    pub fn lgpt2(&mut self) -> Lgpt2W<Descex0Spec> {
-        Lgpt2W::new(self, 29)
-    }
-    #[doc = "Bit 30 - 30:30\\]
-IP status on device"]
-    #[inline(always)]
-    #[must_use]
-    pub fn lgpt3(&mut self) -> Lgpt3W<Descex0Spec> {
-        Lgpt3W::new(self, 30)
-    }
-    #[doc = "Bit 31 - 31:31\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved31(&mut self) -> Reserved31W<Descex0Spec> {
-        Reserved31W::new(self, 31)
-    }
-}
+impl W {}
 #[doc = "Extended Description Register 0. This register shows SVT IP availability, HW features and memory size configuration.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`descex0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`descex0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Descex0Spec;
 impl crate::RegisterSpec for Descex0Spec {

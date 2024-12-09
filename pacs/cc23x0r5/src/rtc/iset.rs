@@ -17,29 +17,6 @@ impl From<Ev0> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `EV0` reader - 0:0\\]
-Set Channel 0 event Interrupt."]
-pub type Ev0R = crate::BitReader<Ev0>;
-impl Ev0R {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Ev0 {
-        match self.bits {
-            true => Ev0::Set,
-            false => Ev0::NoEffect,
-        }
-    }
-    #[doc = "Set interrupt"]
-    #[inline(always)]
-    pub fn is_set(&self) -> bool {
-        *self == Ev0::Set
-    }
-    #[doc = "Writing 0 has no effect"]
-    #[inline(always)]
-    pub fn is_no_effect(&self) -> bool {
-        *self == Ev0::NoEffect
-    }
-}
 #[doc = "Field `EV0` writer - 0:0\\]
 Set Channel 0 event Interrupt."]
 pub type Ev0W<'a, REG> = crate::BitWriter<'a, REG, Ev0>;
@@ -73,29 +50,6 @@ impl From<Ev1> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `EV1` reader - 1:1\\]
-Set Channel 1 event Interrupt."]
-pub type Ev1R = crate::BitReader<Ev1>;
-impl Ev1R {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Ev1 {
-        match self.bits {
-            true => Ev1::Set,
-            false => Ev1::NoEffect,
-        }
-    }
-    #[doc = "Set interrupt"]
-    #[inline(always)]
-    pub fn is_set(&self) -> bool {
-        *self == Ev1::Set
-    }
-    #[doc = "Writing 0 has no effect"]
-    #[inline(always)]
-    pub fn is_no_effect(&self) -> bool {
-        *self == Ev1::NoEffect
-    }
-}
 #[doc = "Field `EV1` writer - 1:1\\]
 Set Channel 1 event Interrupt."]
 pub type Ev1W<'a, REG> = crate::BitWriter<'a, REG, Ev1>;
@@ -117,22 +71,7 @@ where
 #[doc = "Field `RESERVED2` reader - 31:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED2` writer - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 30, u32>;
 impl R {
-    #[doc = "Bit 0 - 0:0\\]
-Set Channel 0 event Interrupt."]
-    #[inline(always)]
-    pub fn ev0(&self) -> Ev0R {
-        Ev0R::new((self.bits & 1) != 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Set Channel 1 event Interrupt."]
-    #[inline(always)]
-    pub fn ev1(&self) -> Ev1R {
-        Ev1R::new(((self.bits >> 1) & 1) != 0)
-    }
     #[doc = "Bits 2:31 - 31:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
@@ -154,13 +93,6 @@ Set Channel 1 event Interrupt."]
     #[must_use]
     pub fn ev1(&mut self) -> Ev1W<IsetSpec> {
         Ev1W::new(self, 1)
-    }
-    #[doc = "Bits 2:31 - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<IsetSpec> {
-        Reserved2W::new(self, 2)
     }
 }
 #[doc = "Interrupt set register. This register can used by software for diagnostics and safety checking purposes. Writing a 1 to a bit in this register will set the event and the corresponding RIS bit also gets set. If the corresponding IMASK bit is set, then the corresponding MIS register bit also gets set.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`iset::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`iset::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

@@ -17,9 +17,6 @@ pub type SaW<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "Field `RESERVED8` reader - 31:8\\]
 Reads to this field return zero.Writes to this field are ignored."]
 pub type Reserved8R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED8` writer - 31:8\\]
-Reads to this field return zero.Writes to this field are ignored."]
-pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Receive or Send This bit-field specifies the next operation with addressed slave SA. 0 - Transmit/send data to slave 1 - Receive data from slave"]
@@ -54,13 +51,6 @@ Receive or Send This bit-field specifies the next operation with addressed slave
     #[must_use]
     pub fn sa(&mut self) -> SaW<MsaSpec> {
         SaW::new(self, 1)
-    }
-    #[doc = "Bits 8:31 - 31:8\\]
-Reads to this field return zero.Writes to this field are ignored."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved8(&mut self) -> Reserved8W<MsaSpec> {
-        Reserved8W::new(self, 8)
     }
 }
 #[doc = "Master Slave Address This register contains seven address bits of the slave to be accessed by the master (a6-a0), and an RS bit determining if the next operation is a receive or transmit.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`msa::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`msa::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

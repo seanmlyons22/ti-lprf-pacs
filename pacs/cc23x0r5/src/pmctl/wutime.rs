@@ -5,27 +5,15 @@ pub type W = crate::W<WutimeSpec>;
 #[doc = "Field `HFXTWU` reader - 7:0\\]
 HFXT wakeup time Gives the time (in us) from HFSOC is running until HFXT auto enable is triggered. Measurement is enabled when PREPUCTL.WUTIMEN is set."]
 pub type HfxtwuR = crate::FieldReader;
-#[doc = "Field `HFXTWU` writer - 7:0\\]
-HFXT wakeup time Gives the time (in us) from HFSOC is running until HFXT auto enable is triggered. Measurement is enabled when PREPUCTL.WUTIMEN is set."]
-pub type HfxtwuW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `RESERVED8` reader - 15:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved8R = crate::FieldReader;
-#[doc = "Field `RESERVED8` writer - 15:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `DIGWU` reader - 23:16\\]
 Digital wakeup time. Gives the time (in us) from HFSOC is running until CPU execution starts. Measurement is enabled when PREPUCTL.WUTIMEN is set."]
 pub type DigwuR = crate::FieldReader;
-#[doc = "Field `DIGWU` writer - 23:16\\]
-Digital wakeup time. Gives the time (in us) from HFSOC is running until CPU execution starts. Measurement is enabled when PREPUCTL.WUTIMEN is set."]
-pub type DigwuW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `RESERVED24` reader - 31:24\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved24R = crate::FieldReader;
-#[doc = "Field `RESERVED24` writer - 31:24\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved24W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 HFXT wakeup time Gives the time (in us) from HFSOC is running until HFXT auto enable is triggered. Measurement is enabled when PREPUCTL.WUTIMEN is set."]
@@ -52,36 +40,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved24R::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
-impl W {
-    #[doc = "Bits 0:7 - 7:0\\]
-HFXT wakeup time Gives the time (in us) from HFSOC is running until HFXT auto enable is triggered. Measurement is enabled when PREPUCTL.WUTIMEN is set."]
-    #[inline(always)]
-    #[must_use]
-    pub fn hfxtwu(&mut self) -> HfxtwuW<WutimeSpec> {
-        HfxtwuW::new(self, 0)
-    }
-    #[doc = "Bits 8:15 - 15:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved8(&mut self) -> Reserved8W<WutimeSpec> {
-        Reserved8W::new(self, 8)
-    }
-    #[doc = "Bits 16:23 - 23:16\\]
-Digital wakeup time. Gives the time (in us) from HFSOC is running until CPU execution starts. Measurement is enabled when PREPUCTL.WUTIMEN is set."]
-    #[inline(always)]
-    #[must_use]
-    pub fn digwu(&mut self) -> DigwuW<WutimeSpec> {
-        DigwuW::new(self, 16)
-    }
-    #[doc = "Bits 24:31 - 31:24\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved24(&mut self) -> Reserved24W<WutimeSpec> {
-        Reserved24W::new(self, 24)
-    }
-}
+impl W {}
 #[doc = "WakeUp Time Register This register contains the measured wakeup times from STANDBY mode.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`wutime::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`wutime::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct WutimeSpec;
 impl crate::RegisterSpec for WutimeSpec {

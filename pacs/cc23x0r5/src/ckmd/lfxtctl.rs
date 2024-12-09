@@ -23,9 +23,6 @@ pub type HpbufenW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED3` reader - 3:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3R = crate::BitReader;
-#[doc = "Field `RESERVED3` writer - 3:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `REGBIAS` reader - 5:4\\]
 Regulation loop bias resistor value This value depends on the crystal and needs to be configured by Firmware."]
 pub type RegbiasR = crate::FieldReader;
@@ -179,9 +176,6 @@ where
 #[doc = "Field `RESERVED15` reader - 31:15\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved15R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED15` writer - 31:15\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved15W<'a, REG> = crate::FieldWriter<'a, REG, 17, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 LFXT enable"]
@@ -266,13 +260,6 @@ Control the buffer used. In normal operation, low-power buffer is used in all de
     pub fn hpbufen(&mut self) -> HpbufenW<LfxtctlSpec> {
         HpbufenW::new(self, 2)
     }
-    #[doc = "Bit 3 - 3:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<LfxtctlSpec> {
-        Reserved3W::new(self, 3)
-    }
     #[doc = "Bits 4:5 - 5:4\\]
 Regulation loop bias resistor value This value depends on the crystal and needs to be configured by Firmware."]
     #[inline(always)]
@@ -307,13 +294,6 @@ Leakage compensation control"]
     #[must_use]
     pub fn leakcomp(&mut self) -> LeakcompW<LfxtctlSpec> {
         LeakcompW::new(self, 13)
-    }
-    #[doc = "Bits 15:31 - 31:15\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved15(&mut self) -> Reserved15W<LfxtctlSpec> {
-        Reserved15W::new(self, 15)
     }
 }
 #[doc = "Low frequency crystal control\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`lfxtctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`lfxtctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

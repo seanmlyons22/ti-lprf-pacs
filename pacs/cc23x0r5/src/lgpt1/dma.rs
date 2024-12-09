@@ -247,9 +247,6 @@ where
 #[doc = "Field `RESERVED4` reader - 7:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved4R = crate::FieldReader;
-#[doc = "Field `RESERVED4` writer - 7:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved4W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RWADDR` reader - 14:8\\]
 The base address which the DMA access when reading/writing DMARW. The base address is set by taking the 9 LSB of the physical address and divide by 4. For example, if you wanted the RWADDR to point to the PTGT register you should set RWADDR = 0x0FC/4."]
 pub type RwaddrR = crate::FieldReader;
@@ -259,9 +256,6 @@ pub type RwaddrW<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "Field `RESERVED15` reader - 15:15\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved15R = crate::BitReader;
-#[doc = "Field `RESERVED15` writer - 15:15\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved15W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RWCNTR` reader - 19:16\\]
 The read/write counter. RWCNTR+1 is the number of times the DMA can access (read/write) the DMARW register. For each DMA access to DMARW an internal counter is incremented, writing to the next address field. RWADDR + 4*RWCNTR is the final register address which can be accessed by the DMA."]
 pub type RwcntrR = crate::FieldReader;
@@ -271,9 +265,6 @@ pub type RwcntrW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED20` reader - 31:20\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved20R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED20` writer - 31:20\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved20W<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
 impl R {
     #[doc = "Bits 0:3"]
     #[inline(always)]
@@ -318,13 +309,6 @@ impl W {
     pub fn req(&mut self) -> ReqW<DmaSpec> {
         ReqW::new(self, 0)
     }
-    #[doc = "Bits 4:7 - 7:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved4(&mut self) -> Reserved4W<DmaSpec> {
-        Reserved4W::new(self, 4)
-    }
     #[doc = "Bits 8:14 - 14:8\\]
 The base address which the DMA access when reading/writing DMARW. The base address is set by taking the 9 LSB of the physical address and divide by 4. For example, if you wanted the RWADDR to point to the PTGT register you should set RWADDR = 0x0FC/4."]
     #[inline(always)]
@@ -332,26 +316,12 @@ The base address which the DMA access when reading/writing DMARW. The base addre
     pub fn rwaddr(&mut self) -> RwaddrW<DmaSpec> {
         RwaddrW::new(self, 8)
     }
-    #[doc = "Bit 15 - 15:15\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved15(&mut self) -> Reserved15W<DmaSpec> {
-        Reserved15W::new(self, 15)
-    }
     #[doc = "Bits 16:19 - 19:16\\]
 The read/write counter. RWCNTR+1 is the number of times the DMA can access (read/write) the DMARW register. For each DMA access to DMARW an internal counter is incremented, writing to the next address field. RWADDR + 4*RWCNTR is the final register address which can be accessed by the DMA."]
     #[inline(always)]
     #[must_use]
     pub fn rwcntr(&mut self) -> RwcntrW<DmaSpec> {
         RwcntrW::new(self, 16)
-    }
-    #[doc = "Bits 20:31 - 31:20\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved20(&mut self) -> Reserved20W<DmaSpec> {
-        Reserved20W::new(self, 20)
     }
 }
 #[doc = "Direct Memory Accsess This register is used to enable DMA requests from the timer and set the register addresses which the DMA will access (read/write). Choose DMA request source by setting the REQ field. The setting of the corresponding interrupt in the RIS registers also sets the DMA request. Upon a DMA request defined by REQ an internal address pointer is set to RWADDR*4. Every access to DMARW will increment the internal pointer by 4 such that the next DMA access will be to the next register. The internal pointer will stop after RWCNTR increments. Further access will be ignored.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`dma::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`dma::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

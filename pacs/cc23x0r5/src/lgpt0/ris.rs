@@ -40,24 +40,6 @@ impl TgtR {
         *self == Tgt::Clr
     }
 }
-#[doc = "Field `TGT` writer - 0:0\\]
-Status of the TGT interrupt. The interrupt is set when CNTR = TGT."]
-pub type TgtW<'a, REG> = crate::BitWriter<'a, REG, Tgt>;
-impl<'a, REG> TgtW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Set"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Tgt::Set)
-    }
-    #[doc = "Cleared"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Tgt::Clr)
-    }
-}
 #[doc = "1:1\\]
 Status of the ZERO interrupt. The interrupt is set when CNTR = 0.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -94,24 +76,6 @@ impl ZeroR {
     #[inline(always)]
     pub fn is_clr(&self) -> bool {
         *self == Zero::Clr
-    }
-}
-#[doc = "Field `ZERO` writer - 1:1\\]
-Status of the ZERO interrupt. The interrupt is set when CNTR = 0."]
-pub type ZeroW<'a, REG> = crate::BitWriter<'a, REG, Zero>;
-impl<'a, REG> ZeroW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Set"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Zero::Set)
-    }
-    #[doc = "Cleared"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Zero::Clr)
     }
 }
 #[doc = "2:2\\]
@@ -152,24 +116,6 @@ impl DbltransR {
         *self == Dbltrans::Clr
     }
 }
-#[doc = "Field `DBLTRANS` writer - 2:2\\]
-Status of the DBLTRANS interrupt. The interrupt is set when a double transition has happened during QDEC mode."]
-pub type DbltransW<'a, REG> = crate::BitWriter<'a, REG, Dbltrans>;
-impl<'a, REG> DbltransW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Set"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Dbltrans::Set)
-    }
-    #[doc = "Cleared"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Dbltrans::Clr)
-    }
-}
 #[doc = "3:3\\]
 Status of the CNTRCHNG interrupt. The interrupt is set when the counter increments or decrements.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -206,24 +152,6 @@ impl CntrchngR {
     #[inline(always)]
     pub fn is_clr(&self) -> bool {
         *self == Cntrchng::Clr
-    }
-}
-#[doc = "Field `CNTRCHNG` writer - 3:3\\]
-Status of the CNTRCHNG interrupt. The interrupt is set when the counter increments or decrements."]
-pub type CntrchngW<'a, REG> = crate::BitWriter<'a, REG, Cntrchng>;
-impl<'a, REG> CntrchngW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Set"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Cntrchng::Set)
-    }
-    #[doc = "Cleared"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Cntrchng::Clr)
     }
 }
 #[doc = "4:4\\]
@@ -264,24 +192,6 @@ impl DirchngR {
         *self == Dirchng::Clr
     }
 }
-#[doc = "Field `DIRCHNG` writer - 4:4\\]
-Status of the DIRCHNG interrupt. The interrupt is set when the direction of the counter changes."]
-pub type DirchngW<'a, REG> = crate::BitWriter<'a, REG, Dirchng>;
-impl<'a, REG> DirchngW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Set"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Dirchng::Set)
-    }
-    #[doc = "Cleared"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Dirchng::Clr)
-    }
-}
 #[doc = "5:5\\]
 Status of the IDX interrupt. The interrupt is set when IDX is active.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -318,24 +228,6 @@ impl IdxR {
     #[inline(always)]
     pub fn is_clr(&self) -> bool {
         *self == Idx::Clr
-    }
-}
-#[doc = "Field `IDX` writer - 5:5\\]
-Status of the IDX interrupt. The interrupt is set when IDX is active."]
-pub type IdxW<'a, REG> = crate::BitWriter<'a, REG, Idx>;
-impl<'a, REG> IdxW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Set"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Idx::Set)
-    }
-    #[doc = "Cleared"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Idx::Clr)
     }
 }
 #[doc = "6:6\\]
@@ -376,30 +268,9 @@ impl FaultR {
         *self == Fault::Clr
     }
 }
-#[doc = "Field `FAULT` writer - 6:6\\]
-Status of the FAULT interrupt. The interrupt is set immediately on active fault input."]
-pub type FaultW<'a, REG> = crate::BitWriter<'a, REG, Fault>;
-impl<'a, REG> FaultW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Set"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Fault::Set)
-    }
-    #[doc = "Cleared"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Fault::Clr)
-    }
-}
 #[doc = "Field `RESERVED7` reader - 7:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved7R = crate::BitReader;
-#[doc = "Field `RESERVED7` writer - 7:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved7W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "8:8\\]
 Status of the C0CC interrupt. The interrupt is set when C0CC has capture or compare event.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -436,24 +307,6 @@ impl C0ccR {
     #[inline(always)]
     pub fn is_clr(&self) -> bool {
         *self == C0cc::Clr
-    }
-}
-#[doc = "Field `C0CC` writer - 8:8\\]
-Status of the C0CC interrupt. The interrupt is set when C0CC has capture or compare event."]
-pub type C0ccW<'a, REG> = crate::BitWriter<'a, REG, C0cc>;
-impl<'a, REG> C0ccW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Set"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(C0cc::Set)
-    }
-    #[doc = "Cleared"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(C0cc::Clr)
     }
 }
 #[doc = "9:9\\]
@@ -494,24 +347,6 @@ impl C1ccR {
         *self == C1cc::Clr
     }
 }
-#[doc = "Field `C1CC` writer - 9:9\\]
-Status of the C1CC interrupt. The interrupt is set when C1CC has capture or compare event."]
-pub type C1ccW<'a, REG> = crate::BitWriter<'a, REG, C1cc>;
-impl<'a, REG> C1ccW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Set"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(C1cc::Set)
-    }
-    #[doc = "Cleared"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(C1cc::Clr)
-    }
-}
 #[doc = "10:10\\]
 Status of the C2CC interrupt. The interrupt is set when C2CC has capture or compare event.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -550,30 +385,9 @@ impl C2ccR {
         *self == C2cc::Clr
     }
 }
-#[doc = "Field `C2CC` writer - 10:10\\]
-Status of the C2CC interrupt. The interrupt is set when C2CC has capture or compare event."]
-pub type C2ccW<'a, REG> = crate::BitWriter<'a, REG, C2cc>;
-impl<'a, REG> C2ccW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Set"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(C2cc::Set)
-    }
-    #[doc = "Cleared"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(C2cc::Clr)
-    }
-}
 #[doc = "Field `RESERVED11` reader - 31:11\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved11R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED11` writer - 31:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved11W<'a, REG> = crate::FieldWriter<'a, REG, 21, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Status of the TGT interrupt. The interrupt is set when CNTR = TGT."]
@@ -648,92 +462,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved11R::new((self.bits >> 11) & 0x001f_ffff)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Status of the TGT interrupt. The interrupt is set when CNTR = TGT."]
-    #[inline(always)]
-    #[must_use]
-    pub fn tgt(&mut self) -> TgtW<RisSpec> {
-        TgtW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Status of the ZERO interrupt. The interrupt is set when CNTR = 0."]
-    #[inline(always)]
-    #[must_use]
-    pub fn zero(&mut self) -> ZeroW<RisSpec> {
-        ZeroW::new(self, 1)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-Status of the DBLTRANS interrupt. The interrupt is set when a double transition has happened during QDEC mode."]
-    #[inline(always)]
-    #[must_use]
-    pub fn dbltrans(&mut self) -> DbltransW<RisSpec> {
-        DbltransW::new(self, 2)
-    }
-    #[doc = "Bit 3 - 3:3\\]
-Status of the CNTRCHNG interrupt. The interrupt is set when the counter increments or decrements."]
-    #[inline(always)]
-    #[must_use]
-    pub fn cntrchng(&mut self) -> CntrchngW<RisSpec> {
-        CntrchngW::new(self, 3)
-    }
-    #[doc = "Bit 4 - 4:4\\]
-Status of the DIRCHNG interrupt. The interrupt is set when the direction of the counter changes."]
-    #[inline(always)]
-    #[must_use]
-    pub fn dirchng(&mut self) -> DirchngW<RisSpec> {
-        DirchngW::new(self, 4)
-    }
-    #[doc = "Bit 5 - 5:5\\]
-Status of the IDX interrupt. The interrupt is set when IDX is active."]
-    #[inline(always)]
-    #[must_use]
-    pub fn idx(&mut self) -> IdxW<RisSpec> {
-        IdxW::new(self, 5)
-    }
-    #[doc = "Bit 6 - 6:6\\]
-Status of the FAULT interrupt. The interrupt is set immediately on active fault input."]
-    #[inline(always)]
-    #[must_use]
-    pub fn fault(&mut self) -> FaultW<RisSpec> {
-        FaultW::new(self, 6)
-    }
-    #[doc = "Bit 7 - 7:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved7(&mut self) -> Reserved7W<RisSpec> {
-        Reserved7W::new(self, 7)
-    }
-    #[doc = "Bit 8 - 8:8\\]
-Status of the C0CC interrupt. The interrupt is set when C0CC has capture or compare event."]
-    #[inline(always)]
-    #[must_use]
-    pub fn c0cc(&mut self) -> C0ccW<RisSpec> {
-        C0ccW::new(self, 8)
-    }
-    #[doc = "Bit 9 - 9:9\\]
-Status of the C1CC interrupt. The interrupt is set when C1CC has capture or compare event."]
-    #[inline(always)]
-    #[must_use]
-    pub fn c1cc(&mut self) -> C1ccW<RisSpec> {
-        C1ccW::new(self, 9)
-    }
-    #[doc = "Bit 10 - 10:10\\]
-Status of the C2CC interrupt. The interrupt is set when C2CC has capture or compare event."]
-    #[inline(always)]
-    #[must_use]
-    pub fn c2cc(&mut self) -> C2ccW<RisSpec> {
-        C2ccW::new(self, 10)
-    }
-    #[doc = "Bits 11:31 - 31:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved11(&mut self) -> Reserved11W<RisSpec> {
-        Reserved11W::new(self, 11)
-    }
-}
+impl W {}
 #[doc = "Raw interrupt status. This register reflects the state of all pending interrupts, regardless of masking. This register allows the user to implement a poll scheme. A flag set in this register can be cleared by writing 1 to the corresponding ICLR register bit.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ris::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ris::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct RisSpec;
 impl crate::RegisterSpec for RisSpec {

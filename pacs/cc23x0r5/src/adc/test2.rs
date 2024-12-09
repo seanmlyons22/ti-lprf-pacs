@@ -5,9 +5,6 @@ pub type W = crate::W<Test2Spec>;
 #[doc = "Field `RESERVED0` reader - 7:0\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved0R = crate::FieldReader;
-#[doc = "Field `RESERVED0` writer - 7:0\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved0W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `MUX_TEST_SEL` reader - 8:8\\]
 Internal. Only to be used through TI provided API."]
 pub type MuxTestSelR = crate::BitReader;
@@ -17,9 +14,6 @@ pub type MuxTestSelW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED9` reader - 19:9\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved9R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED9` writer - 19:9\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved9W<'a, REG> = crate::FieldWriter<'a, REG, 11, u16>;
 #[doc = "Field `COMP_GAIN_TRIM` reader - 20:20\\]
 Internal. Only to be used through TI provided API."]
 pub type CompGainTrimR = crate::BitReader;
@@ -29,9 +23,6 @@ pub type CompGainTrimW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED21` reader - 23:21\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved21R = crate::FieldReader;
-#[doc = "Field `RESERVED21` writer - 23:21\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved21W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `LATCH_TRIM_EN` reader - 24:24\\]
 Internal. Only to be used through TI provided API."]
 pub type LatchTrimEnR = crate::BitReader;
@@ -41,9 +32,6 @@ pub type LatchTrimEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED25` reader - 30:25\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved25R = crate::FieldReader;
-#[doc = "Field `RESERVED25` writer - 30:25\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved25W<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `CDAC_OVST_EN` reader - 31:31\\]
 Internal. Only to be used through TI provided API."]
 pub type CdacOvstEnR = crate::BitReader;
@@ -101,26 +89,12 @@ Internal. Only to be used through TI provided API."]
     }
 }
 impl W {
-    #[doc = "Bits 0:7 - 7:0\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved0(&mut self) -> Reserved0W<Test2Spec> {
-        Reserved0W::new(self, 0)
-    }
     #[doc = "Bit 8 - 8:8\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
     pub fn mux_test_sel(&mut self) -> MuxTestSelW<Test2Spec> {
         MuxTestSelW::new(self, 8)
-    }
-    #[doc = "Bits 9:19 - 19:9\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved9(&mut self) -> Reserved9W<Test2Spec> {
-        Reserved9W::new(self, 9)
     }
     #[doc = "Bit 20 - 20:20\\]
 Internal. Only to be used through TI provided API."]
@@ -129,26 +103,12 @@ Internal. Only to be used through TI provided API."]
     pub fn comp_gain_trim(&mut self) -> CompGainTrimW<Test2Spec> {
         CompGainTrimW::new(self, 20)
     }
-    #[doc = "Bits 21:23 - 23:21\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved21(&mut self) -> Reserved21W<Test2Spec> {
-        Reserved21W::new(self, 21)
-    }
     #[doc = "Bit 24 - 24:24\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
     pub fn latch_trim_en(&mut self) -> LatchTrimEnW<Test2Spec> {
         LatchTrimEnW::new(self, 24)
-    }
-    #[doc = "Bits 25:30 - 30:25\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved25(&mut self) -> Reserved25W<Test2Spec> {
-        Reserved25W::new(self, 25)
     }
     #[doc = "Bit 31 - 31:31\\]
 Internal. Only to be used through TI provided API."]

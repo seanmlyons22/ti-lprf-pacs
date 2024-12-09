@@ -68,9 +68,6 @@ where
 #[doc = "Field `RESERVED16` reader - 17:16\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved16R = crate::FieldReader;
-#[doc = "Field `RESERVED16` writer - 17:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved16W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `RESERVED_31_18` reader - 31:18\\]
 Reserved"]
 pub type Reserved31_18R = crate::FieldReader<u16>;
@@ -104,13 +101,6 @@ Command Byte Enable value. A 1-bit per flash word byte value is placed in this r
     #[must_use]
     pub fn val(&mut self) -> ValW<CmdbytenSpec> {
         ValW::new(self, 0)
-    }
-    #[doc = "Bits 16:17 - 17:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved16(&mut self) -> Reserved16W<CmdbytenSpec> {
-        Reserved16W::new(self, 16)
     }
     #[doc = "Bits 18:31 - 31:18\\]
 Reserved"]

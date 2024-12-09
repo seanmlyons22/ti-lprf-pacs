@@ -22,30 +22,6 @@ impl crate::FieldSpec for Flag {
     type Ux = u32;
 }
 impl crate::IsEnum for Flag {}
-#[doc = "Field `FLAG` reader - 17:0\\]
-Write 1 to clear AONRSTA1.FLAG"]
-pub type FlagR = crate::FieldReader<Flag>;
-impl FlagR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Option<Flag> {
-        match self.bits {
-            262143 => Some(Flag::AllClr),
-            0 => Some(Flag::Noeff),
-            _ => None,
-        }
-    }
-    #[doc = "Clear all flags"]
-    #[inline(always)]
-    pub fn is_all_clr(&self) -> bool {
-        *self == Flag::AllClr
-    }
-    #[doc = "No flags changed status"]
-    #[inline(always)]
-    pub fn is_noeff(&self) -> bool {
-        *self == Flag::Noeff
-    }
-}
 #[doc = "Field `FLAG` writer - 17:0\\]
 Write 1 to clear AONRSTA1.FLAG"]
 pub type FlagW<'a, REG> = crate::FieldWriter<'a, REG, 18, Flag>;
@@ -72,12 +48,6 @@ pub type Reserved18R = crate::FieldReader<u16>;
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved18W<'a, REG> = crate::FieldWriter<'a, REG, 14, u16>;
 impl R {
-    #[doc = "Bits 0:17 - 17:0\\]
-Write 1 to clear AONRSTA1.FLAG"]
-    #[inline(always)]
-    pub fn flag(&self) -> FlagR {
-        FlagR::new(self.bits & 0x0003_ffff)
-    }
     #[doc = "Bits 18:31 - 31:18\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]

@@ -17,29 +17,6 @@ impl From<Dbgen> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `DBGEN` reader - 0:0\\]
-Sets DBGEN bit in APP_AUTH register."]
-pub type DbgenR = crate::BitReader<Dbgen>;
-impl DbgenR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Dbgen {
-        match self.bits {
-            true => Dbgen::Set,
-            false => Dbgen::Noeff,
-        }
-    }
-    #[doc = "Sets DBGEN"]
-    #[inline(always)]
-    pub fn is_set(&self) -> bool {
-        *self == Dbgen::Set
-    }
-    #[doc = "Writing 0 has no effect"]
-    #[inline(always)]
-    pub fn is_noeff(&self) -> bool {
-        *self == Dbgen::Noeff
-    }
-}
 #[doc = "Field `DBGEN` writer - 0:0\\]
 Sets DBGEN bit in APP_AUTH register."]
 pub type DbgenW<'a, REG> = crate::BitWriter<'a, REG, Dbgen>;
@@ -71,29 +48,6 @@ impl From<Niden> for bool {
     #[inline(always)]
     fn from(variant: Niden) -> Self {
         variant as u8 != 0
-    }
-}
-#[doc = "Field `NIDEN` reader - 1:1\\]
-Sets NIDEN bit in \\[APP_AUTH \\]register."]
-pub type NidenR = crate::BitReader<Niden>;
-impl NidenR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Niden {
-        match self.bits {
-            true => Niden::Set,
-            false => Niden::Noeff,
-        }
-    }
-    #[doc = "Sets NIDEN"]
-    #[inline(always)]
-    pub fn is_set(&self) -> bool {
-        *self == Niden::Set
-    }
-    #[doc = "Writing 0 has no effect"]
-    #[inline(always)]
-    pub fn is_noeff(&self) -> bool {
-        *self == Niden::Noeff
     }
 }
 #[doc = "Field `NIDEN` writer - 1:1\\]
@@ -138,24 +92,6 @@ impl crate::FieldSpec for Key {
     type Ux = u8;
 }
 impl crate::IsEnum for Key {}
-#[doc = "Field `KEY` reader - 31:24\\]
-This field must be configured with 0x39 in order to access this register."]
-pub type KeyR = crate::FieldReader<Key>;
-impl KeyR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Option<Key> {
-        match self.bits {
-            57 => Some(Key::_ToUnlockW_),
-            _ => None,
-        }
-    }
-    #[doc = "Write this value 0x39 to unlock writing to the APP_AUTH_SET register"]
-    #[inline(always)]
-    pub fn is_to_unlock_w_(&self) -> bool {
-        *self == Key::_ToUnlockW_
-    }
-}
 #[doc = "Field `KEY` writer - 31:24\\]
 This field must be configured with 0x39 in order to access this register."]
 pub type KeyW<'a, REG> = crate::FieldWriter<'a, REG, 8, Key>;
@@ -171,29 +107,11 @@ where
     }
 }
 impl R {
-    #[doc = "Bit 0 - 0:0\\]
-Sets DBGEN bit in APP_AUTH register."]
-    #[inline(always)]
-    pub fn dbgen(&self) -> DbgenR {
-        DbgenR::new((self.bits & 1) != 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Sets NIDEN bit in \\[APP_AUTH \\]register."]
-    #[inline(always)]
-    pub fn niden(&self) -> NidenR {
-        NidenR::new(((self.bits >> 1) & 1) != 0)
-    }
     #[doc = "Bits 2:23 - 23:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     pub fn reserved2(&self) -> Reserved2R {
         Reserved2R::new((self.bits >> 2) & 0x003f_ffff)
-    }
-    #[doc = "Bits 24:31 - 31:24\\]
-This field must be configured with 0x39 in order to access this register."]
-    #[inline(always)]
-    pub fn key(&self) -> KeyR {
-        KeyR::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
 impl W {

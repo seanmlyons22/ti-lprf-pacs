@@ -40,24 +40,6 @@ impl GpioR {
         *self == Gpio::ClkDis
     }
 }
-#[doc = "Field `GPIO` writer - 0:0\\]
-IP clock configuration"]
-pub type GpioW<'a, REG> = crate::BitWriter<'a, REG, Gpio>;
-impl<'a, REG> GpioW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Clock is enabled"]
-    #[inline(always)]
-    pub fn clk_en(self) -> &'a mut crate::W<REG> {
-        self.variant(Gpio::ClkEn)
-    }
-    #[doc = "Clock is disabled"]
-    #[inline(always)]
-    pub fn clk_dis(self) -> &'a mut crate::W<REG> {
-        self.variant(Gpio::ClkDis)
-    }
-}
 #[doc = "1:1\\]
 IP clock configuration\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -94,24 +76,6 @@ impl LrfdR {
     #[inline(always)]
     pub fn is_clk_dis(&self) -> bool {
         *self == Lrfd::ClkDis
-    }
-}
-#[doc = "Field `LRFD` writer - 1:1\\]
-IP clock configuration"]
-pub type LrfdW<'a, REG> = crate::BitWriter<'a, REG, Lrfd>;
-impl<'a, REG> LrfdW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Clock is enabled"]
-    #[inline(always)]
-    pub fn clk_en(self) -> &'a mut crate::W<REG> {
-        self.variant(Lrfd::ClkEn)
-    }
-    #[doc = "Clock is disabled"]
-    #[inline(always)]
-    pub fn clk_dis(self) -> &'a mut crate::W<REG> {
-        self.variant(Lrfd::ClkDis)
     }
 }
 #[doc = "2:2\\]
@@ -152,30 +116,9 @@ impl Uart0R {
         *self == Uart0::ClkDis
     }
 }
-#[doc = "Field `UART0` writer - 2:2\\]
-IP clock configuration"]
-pub type Uart0W<'a, REG> = crate::BitWriter<'a, REG, Uart0>;
-impl<'a, REG> Uart0W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Clock is enabled"]
-    #[inline(always)]
-    pub fn clk_en(self) -> &'a mut crate::W<REG> {
-        self.variant(Uart0::ClkEn)
-    }
-    #[doc = "Clock is disabled"]
-    #[inline(always)]
-    pub fn clk_dis(self) -> &'a mut crate::W<REG> {
-        self.variant(Uart0::ClkDis)
-    }
-}
 #[doc = "Field `RESERVED3` reader - 5:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3R = crate::FieldReader;
-#[doc = "Field `RESERVED3` writer - 5:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "6:6\\]
 IP clock configuration\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -214,30 +157,9 @@ impl I2c0R {
         *self == I2c0::ClkDis
     }
 }
-#[doc = "Field `I2C0` writer - 6:6\\]
-IP clock configuration"]
-pub type I2c0W<'a, REG> = crate::BitWriter<'a, REG, I2c0>;
-impl<'a, REG> I2c0W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Clock is enabled"]
-    #[inline(always)]
-    pub fn clk_en(self) -> &'a mut crate::W<REG> {
-        self.variant(I2c0::ClkEn)
-    }
-    #[doc = "Clock is disabled"]
-    #[inline(always)]
-    pub fn clk_dis(self) -> &'a mut crate::W<REG> {
-        self.variant(I2c0::ClkDis)
-    }
-}
 #[doc = "Field `RESERVED7` reader - 9:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved7R = crate::FieldReader;
-#[doc = "Field `RESERVED7` writer - 9:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved7W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "10:10\\]
 IP clock configuration\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -276,30 +198,9 @@ impl Spi0R {
         *self == Spi0::ClkDis
     }
 }
-#[doc = "Field `SPI0` writer - 10:10\\]
-IP clock configuration"]
-pub type Spi0W<'a, REG> = crate::BitWriter<'a, REG, Spi0>;
-impl<'a, REG> Spi0W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Clock is enabled"]
-    #[inline(always)]
-    pub fn clk_en(self) -> &'a mut crate::W<REG> {
-        self.variant(Spi0::ClkEn)
-    }
-    #[doc = "Clock is disabled"]
-    #[inline(always)]
-    pub fn clk_dis(self) -> &'a mut crate::W<REG> {
-        self.variant(Spi0::ClkDis)
-    }
-}
 #[doc = "Field `RESERVED11` reader - 13:11\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved11R = crate::FieldReader;
-#[doc = "Field `RESERVED11` writer - 13:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved11W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "14:14\\]
 IP clock configuration\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -338,30 +239,9 @@ impl Adc0R {
         *self == Adc0::ClkDis
     }
 }
-#[doc = "Field `ADC0` writer - 14:14\\]
-IP clock configuration"]
-pub type Adc0W<'a, REG> = crate::BitWriter<'a, REG, Adc0>;
-impl<'a, REG> Adc0W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Clock is enabled"]
-    #[inline(always)]
-    pub fn clk_en(self) -> &'a mut crate::W<REG> {
-        self.variant(Adc0::ClkEn)
-    }
-    #[doc = "Clock is disabled"]
-    #[inline(always)]
-    pub fn clk_dis(self) -> &'a mut crate::W<REG> {
-        self.variant(Adc0::ClkDis)
-    }
-}
 #[doc = "Field `RESERVED15` reader - 15:15\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved15R = crate::BitReader;
-#[doc = "Field `RESERVED15` writer - 15:15\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved15W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "16:16\\]
 IP clock configuration\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -398,24 +278,6 @@ impl LaesR {
     #[inline(always)]
     pub fn is_clk_dis(&self) -> bool {
         *self == Laes::ClkDis
-    }
-}
-#[doc = "Field `LAES` writer - 16:16\\]
-IP clock configuration"]
-pub type LaesW<'a, REG> = crate::BitWriter<'a, REG, Laes>;
-impl<'a, REG> LaesW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Clock is enabled"]
-    #[inline(always)]
-    pub fn clk_en(self) -> &'a mut crate::W<REG> {
-        self.variant(Laes::ClkEn)
-    }
-    #[doc = "Clock is disabled"]
-    #[inline(always)]
-    pub fn clk_dis(self) -> &'a mut crate::W<REG> {
-        self.variant(Laes::ClkDis)
     }
 }
 #[doc = "17:17\\]
@@ -456,30 +318,9 @@ impl DmaR {
         *self == Dma::ClkDis
     }
 }
-#[doc = "Field `DMA` writer - 17:17\\]
-IP clock configuration"]
-pub type DmaW<'a, REG> = crate::BitWriter<'a, REG, Dma>;
-impl<'a, REG> DmaW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Clock is enabled"]
-    #[inline(always)]
-    pub fn clk_en(self) -> &'a mut crate::W<REG> {
-        self.variant(Dma::ClkEn)
-    }
-    #[doc = "Clock is disabled"]
-    #[inline(always)]
-    pub fn clk_dis(self) -> &'a mut crate::W<REG> {
-        self.variant(Dma::ClkDis)
-    }
-}
 #[doc = "Field `RESERVED18` reader - 26:18\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved18R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED18` writer - 26:18\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved18W<'a, REG> = crate::FieldWriter<'a, REG, 9, u16>;
 #[doc = "27:27\\]
 IP clock configuration\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -516,24 +357,6 @@ impl Lgpt0R {
     #[inline(always)]
     pub fn is_clk_dis(&self) -> bool {
         *self == Lgpt0::ClkDis
-    }
-}
-#[doc = "Field `LGPT0` writer - 27:27\\]
-IP clock configuration"]
-pub type Lgpt0W<'a, REG> = crate::BitWriter<'a, REG, Lgpt0>;
-impl<'a, REG> Lgpt0W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Clock is enabled"]
-    #[inline(always)]
-    pub fn clk_en(self) -> &'a mut crate::W<REG> {
-        self.variant(Lgpt0::ClkEn)
-    }
-    #[doc = "Clock is disabled"]
-    #[inline(always)]
-    pub fn clk_dis(self) -> &'a mut crate::W<REG> {
-        self.variant(Lgpt0::ClkDis)
     }
 }
 #[doc = "28:28\\]
@@ -574,24 +397,6 @@ impl Lgpt1R {
         *self == Lgpt1::ClkDis
     }
 }
-#[doc = "Field `LGPT1` writer - 28:28\\]
-IP clock configuration"]
-pub type Lgpt1W<'a, REG> = crate::BitWriter<'a, REG, Lgpt1>;
-impl<'a, REG> Lgpt1W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Clock is enabled"]
-    #[inline(always)]
-    pub fn clk_en(self) -> &'a mut crate::W<REG> {
-        self.variant(Lgpt1::ClkEn)
-    }
-    #[doc = "Clock is disabled"]
-    #[inline(always)]
-    pub fn clk_dis(self) -> &'a mut crate::W<REG> {
-        self.variant(Lgpt1::ClkDis)
-    }
-}
 #[doc = "29:29\\]
 IP clock configuration\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -628,24 +433,6 @@ impl Lgpt2R {
     #[inline(always)]
     pub fn is_clk_dis(&self) -> bool {
         *self == Lgpt2::ClkDis
-    }
-}
-#[doc = "Field `LGPT2` writer - 29:29\\]
-IP clock configuration"]
-pub type Lgpt2W<'a, REG> = crate::BitWriter<'a, REG, Lgpt2>;
-impl<'a, REG> Lgpt2W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Clock is enabled"]
-    #[inline(always)]
-    pub fn clk_en(self) -> &'a mut crate::W<REG> {
-        self.variant(Lgpt2::ClkEn)
-    }
-    #[doc = "Clock is disabled"]
-    #[inline(always)]
-    pub fn clk_dis(self) -> &'a mut crate::W<REG> {
-        self.variant(Lgpt2::ClkDis)
     }
 }
 #[doc = "30:30\\]
@@ -686,30 +473,9 @@ impl Lgpt3R {
         *self == Lgpt3::ClkDis
     }
 }
-#[doc = "Field `LGPT3` writer - 30:30\\]
-IP clock configuration"]
-pub type Lgpt3W<'a, REG> = crate::BitWriter<'a, REG, Lgpt3>;
-impl<'a, REG> Lgpt3W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Clock is enabled"]
-    #[inline(always)]
-    pub fn clk_en(self) -> &'a mut crate::W<REG> {
-        self.variant(Lgpt3::ClkEn)
-    }
-    #[doc = "Clock is disabled"]
-    #[inline(always)]
-    pub fn clk_dis(self) -> &'a mut crate::W<REG> {
-        self.variant(Lgpt3::ClkDis)
-    }
-}
 #[doc = "Field `RESERVED31` reader - 31:31\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved31R = crate::BitReader;
-#[doc = "Field `RESERVED31` writer - 31:31\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved31W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 IP clock configuration"]
@@ -820,134 +586,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved31R::new(((self.bits >> 31) & 1) != 0)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-IP clock configuration"]
-    #[inline(always)]
-    #[must_use]
-    pub fn gpio(&mut self) -> GpioW<Clkcfg0Spec> {
-        GpioW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-IP clock configuration"]
-    #[inline(always)]
-    #[must_use]
-    pub fn lrfd(&mut self) -> LrfdW<Clkcfg0Spec> {
-        LrfdW::new(self, 1)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-IP clock configuration"]
-    #[inline(always)]
-    #[must_use]
-    pub fn uart0(&mut self) -> Uart0W<Clkcfg0Spec> {
-        Uart0W::new(self, 2)
-    }
-    #[doc = "Bits 3:5 - 5:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<Clkcfg0Spec> {
-        Reserved3W::new(self, 3)
-    }
-    #[doc = "Bit 6 - 6:6\\]
-IP clock configuration"]
-    #[inline(always)]
-    #[must_use]
-    pub fn i2c0(&mut self) -> I2c0W<Clkcfg0Spec> {
-        I2c0W::new(self, 6)
-    }
-    #[doc = "Bits 7:9 - 9:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved7(&mut self) -> Reserved7W<Clkcfg0Spec> {
-        Reserved7W::new(self, 7)
-    }
-    #[doc = "Bit 10 - 10:10\\]
-IP clock configuration"]
-    #[inline(always)]
-    #[must_use]
-    pub fn spi0(&mut self) -> Spi0W<Clkcfg0Spec> {
-        Spi0W::new(self, 10)
-    }
-    #[doc = "Bits 11:13 - 13:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved11(&mut self) -> Reserved11W<Clkcfg0Spec> {
-        Reserved11W::new(self, 11)
-    }
-    #[doc = "Bit 14 - 14:14\\]
-IP clock configuration"]
-    #[inline(always)]
-    #[must_use]
-    pub fn adc0(&mut self) -> Adc0W<Clkcfg0Spec> {
-        Adc0W::new(self, 14)
-    }
-    #[doc = "Bit 15 - 15:15\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved15(&mut self) -> Reserved15W<Clkcfg0Spec> {
-        Reserved15W::new(self, 15)
-    }
-    #[doc = "Bit 16 - 16:16\\]
-IP clock configuration"]
-    #[inline(always)]
-    #[must_use]
-    pub fn laes(&mut self) -> LaesW<Clkcfg0Spec> {
-        LaesW::new(self, 16)
-    }
-    #[doc = "Bit 17 - 17:17\\]
-IP clock configuration"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dma(&mut self) -> DmaW<Clkcfg0Spec> {
-        DmaW::new(self, 17)
-    }
-    #[doc = "Bits 18:26 - 26:18\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved18(&mut self) -> Reserved18W<Clkcfg0Spec> {
-        Reserved18W::new(self, 18)
-    }
-    #[doc = "Bit 27 - 27:27\\]
-IP clock configuration"]
-    #[inline(always)]
-    #[must_use]
-    pub fn lgpt0(&mut self) -> Lgpt0W<Clkcfg0Spec> {
-        Lgpt0W::new(self, 27)
-    }
-    #[doc = "Bit 28 - 28:28\\]
-IP clock configuration"]
-    #[inline(always)]
-    #[must_use]
-    pub fn lgpt1(&mut self) -> Lgpt1W<Clkcfg0Spec> {
-        Lgpt1W::new(self, 28)
-    }
-    #[doc = "Bit 29 - 29:29\\]
-IP clock configuration"]
-    #[inline(always)]
-    #[must_use]
-    pub fn lgpt2(&mut self) -> Lgpt2W<Clkcfg0Spec> {
-        Lgpt2W::new(self, 29)
-    }
-    #[doc = "Bit 30 - 30:30\\]
-IP clock configuration"]
-    #[inline(always)]
-    #[must_use]
-    pub fn lgpt3(&mut self) -> Lgpt3W<Clkcfg0Spec> {
-        Lgpt3W::new(self, 30)
-    }
-    #[doc = "Bit 31 - 31:31\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved31(&mut self) -> Reserved31W<Clkcfg0Spec> {
-        Reserved31W::new(self, 31)
-    }
-}
+impl W {}
 #[doc = "Clock Configuration Register 0. This register shows the IP clock configuration for the system. The configuration is updated through CLKENSET0 and CLKENCLR0.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`clkcfg0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`clkcfg0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Clkcfg0Spec;
 impl crate::RegisterSpec for Clkcfg0Spec {

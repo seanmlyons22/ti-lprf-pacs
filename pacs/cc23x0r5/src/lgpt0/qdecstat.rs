@@ -40,24 +40,6 @@ impl QdirR {
         *self == Qdir::Up
     }
 }
-#[doc = "Field `QDIR` writer - 0:0\\]
-Direction of count during QDEC mode."]
-pub type QdirW<'a, REG> = crate::BitWriter<'a, REG, Qdir>;
-impl<'a, REG> QdirW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Down (PHB leads PHA)"]
-    #[inline(always)]
-    pub fn down(self) -> &'a mut crate::W<REG> {
-        self.variant(Qdir::Down)
-    }
-    #[doc = "Up (PHA leads PHB)"]
-    #[inline(always)]
-    pub fn up(self) -> &'a mut crate::W<REG> {
-        self.variant(Qdir::Up)
-    }
-}
 #[doc = "1:1\\]
 Double transition\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -96,30 +78,9 @@ impl DbltransR {
         *self == Dbltrans::None
     }
 }
-#[doc = "Field `DBLTRANS` writer - 1:1\\]
-Double transition"]
-pub type DbltransW<'a, REG> = crate::BitWriter<'a, REG, Dbltrans>;
-impl<'a, REG> DbltransW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Double transition on phase inputs."]
-    #[inline(always)]
-    pub fn dbl(self) -> &'a mut crate::W<REG> {
-        self.variant(Dbltrans::Dbl)
-    }
-    #[doc = "Single or no transition on phase inputs."]
-    #[inline(always)]
-    pub fn none(self) -> &'a mut crate::W<REG> {
-        self.variant(Dbltrans::None)
-    }
-}
 #[doc = "Field `RESERVED2` reader - 31:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED2` writer - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 30, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Direction of count during QDEC mode."]
@@ -140,29 +101,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved2R::new((self.bits >> 2) & 0x3fff_ffff)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Direction of count during QDEC mode."]
-    #[inline(always)]
-    #[must_use]
-    pub fn qdir(&mut self) -> QdirW<QdecstatSpec> {
-        QdirW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Double transition"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dbltrans(&mut self) -> DbltransW<QdecstatSpec> {
-        DbltransW::new(self, 1)
-    }
-    #[doc = "Bits 2:31 - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<QdecstatSpec> {
-        Reserved2W::new(self, 2)
-    }
-}
+impl W {}
 #[doc = "Quadrature Decoder Status This register can be used during QDEC mode to check the status of the quadrature decoder.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`qdecstat::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`qdecstat::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct QdecstatSpec;
 impl crate::RegisterSpec for QdecstatSpec {

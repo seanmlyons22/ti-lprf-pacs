@@ -146,9 +146,6 @@ where
 #[doc = "Field `RESERVED3` reader - 7:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3R = crate::FieldReader;
-#[doc = "Field `RESERVED3` writer - 7:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 #[doc = "10:8\\]
 Receive FIFO Level Select. The trigger points for the receive interrupt are as follows:\n\nValue on reset: 2"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -293,9 +290,6 @@ where
 #[doc = "Field `RESERVED11` reader - 31:11\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved11R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED11` writer - 31:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved11W<'a, REG> = crate::FieldWriter<'a, REG, 21, u32>;
 impl R {
     #[doc = "Bits 0:2 - 2:0\\]
 Transmit FIFO Level Select. The trigger points for the transmit interrupt are as follows:"]
@@ -330,26 +324,12 @@ Transmit FIFO Level Select. The trigger points for the transmit interrupt are as
     pub fn txsel(&mut self) -> TxselW<IflsSpec> {
         TxselW::new(self, 0)
     }
-    #[doc = "Bits 3:7 - 7:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<IflsSpec> {
-        Reserved3W::new(self, 3)
-    }
     #[doc = "Bits 8:10 - 10:8\\]
 Receive FIFO Level Select. The trigger points for the receive interrupt are as follows:"]
     #[inline(always)]
     #[must_use]
     pub fn rxsel(&mut self) -> RxselW<IflsSpec> {
         RxselW::new(self, 8)
-    }
-    #[doc = "Bits 11:31 - 31:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved11(&mut self) -> Reserved11W<IflsSpec> {
-        Reserved11W::new(self, 11)
     }
 }
 #[doc = "Interrupt FIFO level select register. This register can be used to define the levels at which the RIS.TX, RIS.RX flags are triggered. The interrupts are generated based on FIFO level. Out of reset, the IFLS.TXSEL and IFLS.RXSEL bits are configured so that the FIFOs trigger an interrupt at the half-way mark.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ifls::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ifls::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

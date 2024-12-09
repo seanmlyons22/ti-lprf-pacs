@@ -17,9 +17,6 @@ pub type MaxerrW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `RESERVED14` reader - 31:14\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved14R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED14` writer - 31:14\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved14W<'a, REG> = crate::FieldWriter<'a, REG, 18, u32>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Number of consecutive times the LFCLK period error has to be smaller than MAXERR to be considered \"good\". Setting this value to 0 will bypass clock qualification, and the \"good\" indicator will always be 1."]
@@ -54,13 +51,6 @@ Maximum LFCLK period error. Value given in microseconds, 3 integer bits + 3 frac
     #[must_use]
     pub fn maxerr(&mut self) -> MaxerrW<LfqualctlSpec> {
         MaxerrW::new(self, 8)
-    }
-    #[doc = "Bits 14:31 - 31:14\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved14(&mut self) -> Reserved14W<LfqualctlSpec> {
-        Reserved14W::new(self, 14)
     }
 }
 #[doc = "Low frequency clock qualification control\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`lfqualctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`lfqualctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

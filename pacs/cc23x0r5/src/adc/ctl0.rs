@@ -61,9 +61,6 @@ where
 #[doc = "Field `RESERVED1` reader - 15:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved1R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED1` writer - 15:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 15, u16>;
 #[doc = "16:16\\]
 Power down policy\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -123,9 +120,6 @@ where
 #[doc = "Field `RESERVED17` reader - 23:17\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved17R = crate::FieldReader;
-#[doc = "Field `RESERVED17` writer - 23:17\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved17W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "26:24\\]
 Sample clock divider\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -270,9 +264,6 @@ where
 #[doc = "Field `RESERVED27` reader - 31:27\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved27R = crate::FieldReader;
-#[doc = "Field `RESERVED27` writer - 31:27\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved27W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Enable conversion"]
@@ -319,13 +310,6 @@ Enable conversion"]
     pub fn enc(&mut self) -> EncW<Ctl0Spec> {
         EncW::new(self, 0)
     }
-    #[doc = "Bits 1:15 - 15:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved1(&mut self) -> Reserved1W<Ctl0Spec> {
-        Reserved1W::new(self, 1)
-    }
     #[doc = "Bit 16 - 16:16\\]
 Power down policy"]
     #[inline(always)]
@@ -333,26 +317,12 @@ Power down policy"]
     pub fn pwrdn(&mut self) -> PwrdnW<Ctl0Spec> {
         PwrdnW::new(self, 16)
     }
-    #[doc = "Bits 17:23 - 23:17\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved17(&mut self) -> Reserved17W<Ctl0Spec> {
-        Reserved17W::new(self, 17)
-    }
     #[doc = "Bits 24:26 - 26:24\\]
 Sample clock divider"]
     #[inline(always)]
     #[must_use]
     pub fn sclkdiv(&mut self) -> SclkdivW<Ctl0Spec> {
         SclkdivW::new(self, 24)
-    }
-    #[doc = "Bits 27:31 - 31:27\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved27(&mut self) -> Reserved27W<Ctl0Spec> {
-        Reserved27W::new(self, 27)
     }
 }
 #[doc = "Control Register 0\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ctl0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ctl0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

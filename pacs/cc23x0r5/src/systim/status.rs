@@ -40,30 +40,9 @@ impl ValR {
         *self == Val::Stop
     }
 }
-#[doc = "Field `VAL` writer - 0:0\\]
-This bit indicates if the system time is initialized and running."]
-pub type ValW<'a, REG> = crate::BitWriter<'a, REG, Val>;
-impl<'a, REG> ValW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "system timer is running"]
-    #[inline(always)]
-    pub fn run(self) -> &'a mut crate::W<REG> {
-        self.variant(Val::Run)
-    }
-    #[doc = "system timer is not running."]
-    #[inline(always)]
-    pub fn stop(self) -> &'a mut crate::W<REG> {
-        self.variant(Val::Stop)
-    }
-}
 #[doc = "Field `RESERVED1` reader - 3:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved1R = crate::FieldReader;
-#[doc = "Field `RESERVED1` writer - 3:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `SYNCUP` reader - 4:4\\]
 This bit indicates sync status of Systimer with RTC. The bitfield has a reset value of '1' , which gets cleared to '0' after the systimer synchronizes with RTC on the first LFTICK edge. A write to this bit resynchronizes the Systimer with RTC on the next LFTICK edge. A read value of '1' indicates the synchronization is ongoing and a read of '0' indicates the synchronization is done."]
 pub type SyncupR = crate::BitReader;
@@ -73,9 +52,6 @@ pub type SyncupW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED5` reader - 31:5\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved5R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED5` writer - 31:5\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved5W<'a, REG> = crate::FieldWriter<'a, REG, 27, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 This bit indicates if the system time is initialized and running."]
@@ -103,33 +79,12 @@ Software should not rely on the value of a reserved. Writing any other value tha
     }
 }
 impl W {
-    #[doc = "Bit 0 - 0:0\\]
-This bit indicates if the system time is initialized and running."]
-    #[inline(always)]
-    #[must_use]
-    pub fn val(&mut self) -> ValW<StatusSpec> {
-        ValW::new(self, 0)
-    }
-    #[doc = "Bits 1:3 - 3:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved1(&mut self) -> Reserved1W<StatusSpec> {
-        Reserved1W::new(self, 1)
-    }
     #[doc = "Bit 4 - 4:4\\]
 This bit indicates sync status of Systimer with RTC. The bitfield has a reset value of '1' , which gets cleared to '0' after the systimer synchronizes with RTC on the first LFTICK edge. A write to this bit resynchronizes the Systimer with RTC on the next LFTICK edge. A read value of '1' indicates the synchronization is ongoing and a read of '0' indicates the synchronization is done."]
     #[inline(always)]
     #[must_use]
     pub fn syncup(&mut self) -> SyncupW<StatusSpec> {
         SyncupW::new(self, 4)
-    }
-    #[doc = "Bits 5:31 - 31:5\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved5(&mut self) -> Reserved5W<StatusSpec> {
-        Reserved5W::new(self, 5)
     }
 }
 #[doc = "Systimer status register. This register can be used to read the running status of the timer and to resync the Systimer with RTC.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`status::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`status::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

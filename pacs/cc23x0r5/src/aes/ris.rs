@@ -40,24 +40,6 @@ impl EcbdoneR {
         *self == Ecbdone::Clr
     }
 }
-#[doc = "Field `ECBDONE` writer - 0:0\\]
-Raw interrupt status for ECB Done"]
-pub type EcbdoneW<'a, REG> = crate::BitWriter<'a, REG, Ecbdone>;
-impl<'a, REG> EcbdoneW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Ecbdone::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Ecbdone::Clr)
-    }
-}
 #[doc = "1:1\\]
 Raw interrupt status for ECB Start\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -94,24 +76,6 @@ impl EcbstartR {
     #[inline(always)]
     pub fn is_clr(&self) -> bool {
         *self == Ecbstart::Clr
-    }
-}
-#[doc = "Field `ECBSTART` writer - 1:1\\]
-Raw interrupt status for ECB Start"]
-pub type EcbstartW<'a, REG> = crate::BitWriter<'a, REG, Ecbstart>;
-impl<'a, REG> EcbstartW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Ecbstart::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Ecbstart::Clr)
     }
 }
 #[doc = "2:2\\]
@@ -152,24 +116,6 @@ impl ChadoneR {
         *self == Chadone::Clr
     }
 }
-#[doc = "Field `CHADONE` writer - 2:2\\]
-Raw interrupt status for DMA Channel A Done"]
-pub type ChadoneW<'a, REG> = crate::BitWriter<'a, REG, Chadone>;
-impl<'a, REG> ChadoneW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Chadone::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Chadone::Clr)
-    }
-}
 #[doc = "3:3\\]
 Raw interrupt status for DMA Channel B Done\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -208,30 +154,9 @@ impl ChbdoneR {
         *self == Chbdone::Clr
     }
 }
-#[doc = "Field `CHBDONE` writer - 3:3\\]
-Raw interrupt status for DMA Channel B Done"]
-pub type ChbdoneW<'a, REG> = crate::BitWriter<'a, REG, Chbdone>;
-impl<'a, REG> ChbdoneW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Chbdone::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Chbdone::Clr)
-    }
-}
 #[doc = "Field `RESERVED2` reader - 31:4\\]
 Reads to this field return zero, writes to this field are ignored."]
 pub type Reserved2R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED2` writer - 31:4\\]
-Reads to this field return zero, writes to this field are ignored."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 28, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Raw interrupt status for ECB Done"]
@@ -264,43 +189,7 @@ Reads to this field return zero, writes to this field are ignored."]
         Reserved2R::new((self.bits >> 4) & 0x0fff_ffff)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Raw interrupt status for ECB Done"]
-    #[inline(always)]
-    #[must_use]
-    pub fn ecbdone(&mut self) -> EcbdoneW<RisSpec> {
-        EcbdoneW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Raw interrupt status for ECB Start"]
-    #[inline(always)]
-    #[must_use]
-    pub fn ecbstart(&mut self) -> EcbstartW<RisSpec> {
-        EcbstartW::new(self, 1)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-Raw interrupt status for DMA Channel A Done"]
-    #[inline(always)]
-    #[must_use]
-    pub fn chadone(&mut self) -> ChadoneW<RisSpec> {
-        ChadoneW::new(self, 2)
-    }
-    #[doc = "Bit 3 - 3:3\\]
-Raw interrupt status for DMA Channel B Done"]
-    #[inline(always)]
-    #[must_use]
-    pub fn chbdone(&mut self) -> ChbdoneW<RisSpec> {
-        ChbdoneW::new(self, 3)
-    }
-    #[doc = "Bits 4:31 - 31:4\\]
-Reads to this field return zero, writes to this field are ignored."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<RisSpec> {
-        Reserved2W::new(self, 4)
-    }
-}
+impl W {}
 #[doc = "Raw interrupt status. This register reflects the state of all pending interrupts, regardless of masking. This register allows the user to implement a poll scheme. A flag set in this register can be cleared by writing 1 to the corresponding ICLR register bit.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ris::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ris::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct RisSpec;
 impl crate::RegisterSpec for RisSpec {

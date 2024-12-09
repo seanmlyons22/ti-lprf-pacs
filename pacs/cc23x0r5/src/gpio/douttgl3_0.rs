@@ -17,29 +17,6 @@ impl From<Dio0> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `DIO0` reader - 0:0\\]
-Data output toggle for DIO0"]
-pub type Dio0R = crate::BitReader<Dio0>;
-impl Dio0R {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Dio0 {
-        match self.bits {
-            true => Dio0::Toggle,
-            false => Dio0::NoEffect,
-        }
-    }
-    #[doc = "Toggle"]
-    #[inline(always)]
-    pub fn is_toggle(&self) -> bool {
-        *self == Dio0::Toggle
-    }
-    #[doc = "No effect"]
-    #[inline(always)]
-    pub fn is_no_effect(&self) -> bool {
-        *self == Dio0::NoEffect
-    }
-}
 #[doc = "Field `DIO0` writer - 0:0\\]
 Data output toggle for DIO0"]
 pub type Dio0W<'a, REG> = crate::BitWriter<'a, REG, Dio0>;
@@ -61,9 +38,6 @@ where
 #[doc = "Field `RESERVED1` reader - 7:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved1R = crate::FieldReader;
-#[doc = "Field `RESERVED1` writer - 7:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "8:8\\]
 Data output toggle for DIO1\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -77,29 +51,6 @@ impl From<Dio1> for bool {
     #[inline(always)]
     fn from(variant: Dio1) -> Self {
         variant as u8 != 0
-    }
-}
-#[doc = "Field `DIO1` reader - 8:8\\]
-Data output toggle for DIO1"]
-pub type Dio1R = crate::BitReader<Dio1>;
-impl Dio1R {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Dio1 {
-        match self.bits {
-            true => Dio1::Toggle,
-            false => Dio1::NoEffect,
-        }
-    }
-    #[doc = "Toggle"]
-    #[inline(always)]
-    pub fn is_toggle(&self) -> bool {
-        *self == Dio1::Toggle
-    }
-    #[doc = "No effect"]
-    #[inline(always)]
-    pub fn is_no_effect(&self) -> bool {
-        *self == Dio1::NoEffect
     }
 }
 #[doc = "Field `DIO1` writer - 8:8\\]
@@ -123,9 +74,6 @@ where
 #[doc = "Field `RESERVED9` reader - 15:9\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved9R = crate::FieldReader;
-#[doc = "Field `RESERVED9` writer - 15:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved9W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "16:16\\]
 Data output toggle for DIO2\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -139,29 +87,6 @@ impl From<Dio2> for bool {
     #[inline(always)]
     fn from(variant: Dio2) -> Self {
         variant as u8 != 0
-    }
-}
-#[doc = "Field `DIO2` reader - 16:16\\]
-Data output toggle for DIO2"]
-pub type Dio2R = crate::BitReader<Dio2>;
-impl Dio2R {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Dio2 {
-        match self.bits {
-            true => Dio2::Toggle,
-            false => Dio2::NoEffect,
-        }
-    }
-    #[doc = "Toggle"]
-    #[inline(always)]
-    pub fn is_toggle(&self) -> bool {
-        *self == Dio2::Toggle
-    }
-    #[doc = "No effect"]
-    #[inline(always)]
-    pub fn is_no_effect(&self) -> bool {
-        *self == Dio2::NoEffect
     }
 }
 #[doc = "Field `DIO2` writer - 16:16\\]
@@ -185,9 +110,6 @@ where
 #[doc = "Field `RESERVED17` reader - 23:17\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved17R = crate::FieldReader;
-#[doc = "Field `RESERVED17` writer - 23:17\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved17W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "24:24\\]
 Data output toggle for DIO3\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -201,29 +123,6 @@ impl From<Dio3> for bool {
     #[inline(always)]
     fn from(variant: Dio3) -> Self {
         variant as u8 != 0
-    }
-}
-#[doc = "Field `DIO3` reader - 24:24\\]
-Data output toggle for DIO3"]
-pub type Dio3R = crate::BitReader<Dio3>;
-impl Dio3R {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Dio3 {
-        match self.bits {
-            true => Dio3::Toggle,
-            false => Dio3::NoEffect,
-        }
-    }
-    #[doc = "Toggle"]
-    #[inline(always)]
-    pub fn is_toggle(&self) -> bool {
-        *self == Dio3::Toggle
-    }
-    #[doc = "No effect"]
-    #[inline(always)]
-    pub fn is_no_effect(&self) -> bool {
-        *self == Dio3::NoEffect
     }
 }
 #[doc = "Field `DIO3` writer - 24:24\\]
@@ -247,27 +146,12 @@ where
 #[doc = "Field `RESERVED25` reader - 31:25\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved25R = crate::FieldReader;
-#[doc = "Field `RESERVED25` writer - 31:25\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved25W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 impl R {
-    #[doc = "Bit 0 - 0:0\\]
-Data output toggle for DIO0"]
-    #[inline(always)]
-    pub fn dio0(&self) -> Dio0R {
-        Dio0R::new((self.bits & 1) != 0)
-    }
     #[doc = "Bits 1:7 - 7:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     pub fn reserved1(&self) -> Reserved1R {
         Reserved1R::new(((self.bits >> 1) & 0x7f) as u8)
-    }
-    #[doc = "Bit 8 - 8:8\\]
-Data output toggle for DIO1"]
-    #[inline(always)]
-    pub fn dio1(&self) -> Dio1R {
-        Dio1R::new(((self.bits >> 8) & 1) != 0)
     }
     #[doc = "Bits 9:15 - 15:9\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
@@ -275,23 +159,11 @@ Software should not rely on the value of a reserved. Writing any other value tha
     pub fn reserved9(&self) -> Reserved9R {
         Reserved9R::new(((self.bits >> 9) & 0x7f) as u8)
     }
-    #[doc = "Bit 16 - 16:16\\]
-Data output toggle for DIO2"]
-    #[inline(always)]
-    pub fn dio2(&self) -> Dio2R {
-        Dio2R::new(((self.bits >> 16) & 1) != 0)
-    }
     #[doc = "Bits 17:23 - 23:17\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     pub fn reserved17(&self) -> Reserved17R {
         Reserved17R::new(((self.bits >> 17) & 0x7f) as u8)
-    }
-    #[doc = "Bit 24 - 24:24\\]
-Data output toggle for DIO3"]
-    #[inline(always)]
-    pub fn dio3(&self) -> Dio3R {
-        Dio3R::new(((self.bits >> 24) & 1) != 0)
     }
     #[doc = "Bits 25:31 - 31:25\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
@@ -308,26 +180,12 @@ Data output toggle for DIO0"]
     pub fn dio0(&mut self) -> Dio0W<Douttgl3_0Spec> {
         Dio0W::new(self, 0)
     }
-    #[doc = "Bits 1:7 - 7:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved1(&mut self) -> Reserved1W<Douttgl3_0Spec> {
-        Reserved1W::new(self, 1)
-    }
     #[doc = "Bit 8 - 8:8\\]
 Data output toggle for DIO1"]
     #[inline(always)]
     #[must_use]
     pub fn dio1(&mut self) -> Dio1W<Douttgl3_0Spec> {
         Dio1W::new(self, 8)
-    }
-    #[doc = "Bits 9:15 - 15:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved9(&mut self) -> Reserved9W<Douttgl3_0Spec> {
-        Reserved9W::new(self, 9)
     }
     #[doc = "Bit 16 - 16:16\\]
 Data output toggle for DIO2"]
@@ -336,26 +194,12 @@ Data output toggle for DIO2"]
     pub fn dio2(&mut self) -> Dio2W<Douttgl3_0Spec> {
         Dio2W::new(self, 16)
     }
-    #[doc = "Bits 17:23 - 23:17\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved17(&mut self) -> Reserved17W<Douttgl3_0Spec> {
-        Reserved17W::new(self, 17)
-    }
     #[doc = "Bit 24 - 24:24\\]
 Data output toggle for DIO3"]
     #[inline(always)]
     #[must_use]
     pub fn dio3(&mut self) -> Dio3W<Douttgl3_0Spec> {
         Dio3W::new(self, 24)
-    }
-    #[doc = "Bits 25:31 - 31:25\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved25(&mut self) -> Reserved25W<Douttgl3_0Spec> {
-        Reserved25W::new(self, 25)
     }
 }
 #[doc = "Data out toggle 3 to 0. Alias register for byte access to DOUTTGL31_0\\[3:0\\]

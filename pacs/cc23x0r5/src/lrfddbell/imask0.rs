@@ -509,9 +509,6 @@ where
 #[doc = "Field `RESERVED9` reader - 9:9\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved9R = crate::BitReader;
-#[doc = "Field `RESERVED9` writer - 9:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved9W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "10:10\\]
 PBE10 event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -2001,13 +1998,6 @@ PBE8 event"]
     #[must_use]
     pub fn pbe8(&mut self) -> Pbe8W<Imask0Spec> {
         Pbe8W::new(self, 8)
-    }
-    #[doc = "Bit 9 - 9:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved9(&mut self) -> Reserved9W<Imask0Spec> {
-        Reserved9W::new(self, 9)
     }
     #[doc = "Bit 10 - 10:10\\]
 PBE10 event"]

@@ -285,9 +285,6 @@ where
 #[doc = "Field `RESERVED5` reader - 5:5\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved5R = crate::BitReader;
-#[doc = "Field `RESERVED5` writer - 5:5\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved5W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "6:6\\]
 Conversion underflow interrupt mask\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1973,13 +1970,6 @@ In-range comparator interrupt mask."]
     #[must_use]
     pub fn inifg(&mut self) -> InifgW<Imask0Spec> {
         InifgW::new(self, 4)
-    }
-    #[doc = "Bit 5 - 5:5\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved5(&mut self) -> Reserved5W<Imask0Spec> {
-        Reserved5W::new(self, 5)
     }
     #[doc = "Bit 6 - 6:6\\]
 Conversion underflow interrupt mask"]

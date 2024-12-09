@@ -509,12 +509,6 @@ where
 #[doc = "Field `RESERVED9` reader - 23:9\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved9R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED9` writer - 23:9\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved9W<'a, REG> = crate::FieldWriter<'a, REG, 15, u16>;
-#[doc = "Field `KEY` reader - 31:24\\]
-Internal. Only to be used through TI provided API."]
-pub type KeyR = crate::FieldReader;
 #[doc = "Field `KEY` writer - 31:24\\]
 Internal. Only to be used through TI provided API."]
 pub type KeyW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
@@ -578,12 +572,6 @@ Internal. Only to be used through TI provided API."]
     #[inline(always)]
     pub fn reserved9(&self) -> Reserved9R {
         Reserved9R::new(((self.bits >> 9) & 0x7fff) as u16)
-    }
-    #[doc = "Bits 24:31 - 31:24\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    pub fn key(&self) -> KeyR {
-        KeyR::new(((self.bits >> 24) & 0xff) as u8)
     }
 }
 impl W {
@@ -649,13 +637,6 @@ Internal. Only to be used through TI provided API."]
     #[must_use]
     pub fn vsel(&mut self) -> VselW<AtestcfgSpec> {
         VselW::new(self, 8)
-    }
-    #[doc = "Bits 9:23 - 23:9\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved9(&mut self) -> Reserved9W<AtestcfgSpec> {
-        Reserved9W::new(self, 9)
     }
     #[doc = "Bits 24:31 - 31:24\\]
 Internal. Only to be used through TI provided API."]

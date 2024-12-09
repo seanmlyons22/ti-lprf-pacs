@@ -137,9 +137,6 @@ where
 #[doc = "Field `RESERVED3` reader - 7:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3R = crate::FieldReader;
-#[doc = "Field `RESERVED3` writer - 7:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 #[doc = "8:8\\]
 Enable DMA trigger for data transfer. Note: DMAEN bit is cleared by hardware based on DMA done signal at the end of data transfer. Software has to re-enable DMAEN bit for ADC to generate DMA triggers.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -199,9 +196,6 @@ where
 #[doc = "Field `RESERVED9` reader - 9:9\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved9R = crate::BitReader;
-#[doc = "Field `RESERVED9` writer - 9:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved9W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "10:10\\]
 Enable FIFO based operation\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -261,9 +255,6 @@ where
 #[doc = "Field `RESERVED11` reader - 15:11\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved11R = crate::FieldReader;
-#[doc = "Field `RESERVED11` writer - 15:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved11W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 #[doc = "20:16\\]
 Sequencer start address. These bits select which MEMCTLx is used for single conversion or as first MEMCTL for sequence mode. The value of STARTADD is 0x00 to 0x17, corresponding to MEMRES0 to MEMRES23.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -616,9 +607,6 @@ where
 #[doc = "Field `RESERVED21` reader - 23:21\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved21R = crate::FieldReader;
-#[doc = "Field `RESERVED21` writer - 23:21\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved21W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "28:24\\]
 Sequence end address. These bits select which MEMCTLx is the last one for the sequence mode. The value of ENDADD is 0x00 to 0x17, corresponding to MEMRES0 to MEMRES23.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -971,9 +959,6 @@ where
 #[doc = "Field `RESERVED29` reader - 31:29\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved29R = crate::FieldReader;
-#[doc = "Field `RESERVED29` writer - 31:29\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved29W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Data read-back format. Data is always stored in binary unsigned format."]
@@ -1057,26 +1042,12 @@ Resolution. These bits define the resolutoin of ADC conversion result. Note : A 
     pub fn res(&mut self) -> ResW<Ctl2Spec> {
         ResW::new(self, 1)
     }
-    #[doc = "Bits 3:7 - 7:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<Ctl2Spec> {
-        Reserved3W::new(self, 3)
-    }
     #[doc = "Bit 8 - 8:8\\]
 Enable DMA trigger for data transfer. Note: DMAEN bit is cleared by hardware based on DMA done signal at the end of data transfer. Software has to re-enable DMAEN bit for ADC to generate DMA triggers."]
     #[inline(always)]
     #[must_use]
     pub fn dmaen(&mut self) -> DmaenW<Ctl2Spec> {
         DmaenW::new(self, 8)
-    }
-    #[doc = "Bit 9 - 9:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved9(&mut self) -> Reserved9W<Ctl2Spec> {
-        Reserved9W::new(self, 9)
     }
     #[doc = "Bit 10 - 10:10\\]
 Enable FIFO based operation"]
@@ -1085,13 +1056,6 @@ Enable FIFO based operation"]
     pub fn fifoen(&mut self) -> FifoenW<Ctl2Spec> {
         FifoenW::new(self, 10)
     }
-    #[doc = "Bits 11:15 - 15:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved11(&mut self) -> Reserved11W<Ctl2Spec> {
-        Reserved11W::new(self, 11)
-    }
     #[doc = "Bits 16:20 - 20:16\\]
 Sequencer start address. These bits select which MEMCTLx is used for single conversion or as first MEMCTL for sequence mode. The value of STARTADD is 0x00 to 0x17, corresponding to MEMRES0 to MEMRES23."]
     #[inline(always)]
@@ -1099,26 +1063,12 @@ Sequencer start address. These bits select which MEMCTLx is used for single conv
     pub fn startadd(&mut self) -> StartaddW<Ctl2Spec> {
         StartaddW::new(self, 16)
     }
-    #[doc = "Bits 21:23 - 23:21\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved21(&mut self) -> Reserved21W<Ctl2Spec> {
-        Reserved21W::new(self, 21)
-    }
     #[doc = "Bits 24:28 - 28:24\\]
 Sequence end address. These bits select which MEMCTLx is the last one for the sequence mode. The value of ENDADD is 0x00 to 0x17, corresponding to MEMRES0 to MEMRES23."]
     #[inline(always)]
     #[must_use]
     pub fn endadd(&mut self) -> EndaddW<Ctl2Spec> {
         EndaddW::new(self, 24)
-    }
-    #[doc = "Bits 29:31 - 31:29\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved29(&mut self) -> Reserved29W<Ctl2Spec> {
-        Reserved29W::new(self, 29)
     }
 }
 #[doc = "Control Register 2\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ctl2::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ctl2::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

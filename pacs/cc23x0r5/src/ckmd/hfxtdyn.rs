@@ -35,9 +35,6 @@ pub type AmpthrW<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "Field `RESERVED30` reader - 30:30\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved30R = crate::BitReader;
-#[doc = "Field `RESERVED30` writer - 30:30\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved30W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "31:31\\]
 Select the dynamic configuration. Amplitude ramping will always happen using the values in HFXTINIT, and HFXTTARG. Afterwards, this bit can be used to select between HFXTTARG and HFXTDYN. Hardware will ensure a smooth transition of analog control signals.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -173,13 +170,6 @@ Minimum HFXT amplitude"]
     #[must_use]
     pub fn ampthr(&mut self) -> AmpthrW<HfxtdynSpec> {
         AmpthrW::new(self, 23)
-    }
-    #[doc = "Bit 30 - 30:30\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved30(&mut self) -> Reserved30W<HfxtdynSpec> {
-        Reserved30W::new(self, 30)
     }
     #[doc = "Bit 31 - 31:31\\]
 Select the dynamic configuration. Amplitude ramping will always happen using the values in HFXTINIT, and HFXTTARG. Afterwards, this bit can be used to select between HFXTTARG and HFXTDYN. Hardware will ensure a smooth transition of analog control signals."]

@@ -11,9 +11,6 @@ pub type ScrW<'a, REG> = crate::FieldWriter<'a, REG, 10, u16>;
 #[doc = "Field `RESERVED10` reader - 15:10\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved10R = crate::FieldReader;
-#[doc = "Field `RESERVED10` writer - 15:10\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved10W<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `DSAMPLE` reader - 19:16\\]
 Delayed sampling. In controller mode the data on the input pin will be delayed sampled by the defined clock cycles. DSAMPLE values can range from 0 to SCR+1. Typically, values of 1 or 2 would suffice."]
 pub type DsampleR = crate::FieldReader;
@@ -23,9 +20,6 @@ pub type DsampleW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED20` reader - 31:20\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved20R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED20` writer - 31:20\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved20W<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
 impl R {
     #[doc = "Bits 0:9 - 9:0\\]
 Serial clock divider. This is used to generate the transmit and receive bit rate of the SPI. The SPI bit rate: (SPI's functional clock frequency)/((SCR+1)*2). SCR value can be from 0 to1023."]
@@ -60,26 +54,12 @@ Serial clock divider. This is used to generate the transmit and receive bit rate
     pub fn scr(&mut self) -> ScrW<Clkcfg1Spec> {
         ScrW::new(self, 0)
     }
-    #[doc = "Bits 10:15 - 15:10\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved10(&mut self) -> Reserved10W<Clkcfg1Spec> {
-        Reserved10W::new(self, 10)
-    }
     #[doc = "Bits 16:19 - 19:16\\]
 Delayed sampling. In controller mode the data on the input pin will be delayed sampled by the defined clock cycles. DSAMPLE values can range from 0 to SCR+1. Typically, values of 1 or 2 would suffice."]
     #[inline(always)]
     #[must_use]
     pub fn dsample(&mut self) -> DsampleW<Clkcfg1Spec> {
         DsampleW::new(self, 16)
-    }
-    #[doc = "Bits 20:31 - 31:20\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved20(&mut self) -> Reserved20W<Clkcfg1Spec> {
-        Reserved20W::new(self, 20)
     }
 }
 #[doc = "Clock configuration register 1. This register is used to configure serial clock rate and clock count for delayed sampling in controller mode.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`clkcfg1::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`clkcfg1::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

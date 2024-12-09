@@ -6,24 +6,13 @@ pub type W = crate::W<Pidr1Spec>;
 Bits \\[11:8\\]
 of the component's part number. This is selected by the designer of the component."]
 pub type Part1R = crate::FieldReader;
-#[doc = "Field `PART_1` writer - 3:0\\]
-Bits \\[11:8\\]
-of the component's part number. This is selected by the designer of the component."]
-pub type Part1W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `DES_0` reader - 7:4\\]
 Bits \\[3:0\\]
 of the JEDEC identity code indicating the designer of the component (along with the continuation code)"]
 pub type Des0R = crate::FieldReader;
-#[doc = "Field `DES_0` writer - 7:4\\]
-Bits \\[3:0\\]
-of the JEDEC identity code indicating the designer of the component (along with the continuation code)"]
-pub type Des0W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED8` reader - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved8R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED8` writer - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 impl R {
     #[doc = "Bits 0:3 - 3:0\\]
 Bits \\[11:8\\]
@@ -46,31 +35,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved8R::new((self.bits >> 8) & 0x00ff_ffff)
     }
 }
-impl W {
-    #[doc = "Bits 0:3 - 3:0\\]
-Bits \\[11:8\\]
-of the component's part number. This is selected by the designer of the component."]
-    #[inline(always)]
-    #[must_use]
-    pub fn part_1(&mut self) -> Part1W<Pidr1Spec> {
-        Part1W::new(self, 0)
-    }
-    #[doc = "Bits 4:7 - 7:4\\]
-Bits \\[3:0\\]
-of the JEDEC identity code indicating the designer of the component (along with the continuation code)"]
-    #[inline(always)]
-    #[must_use]
-    pub fn des_0(&mut self) -> Des0W<Pidr1Spec> {
-        Des0W::new(self, 4)
-    }
-    #[doc = "Bits 8:31 - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved8(&mut self) -> Reserved8W<Pidr1Spec> {
-        Reserved8W::new(self, 8)
-    }
-}
+impl W {}
 #[doc = "Part of the set of Peripheral Identification registers. Contains part of the designer specific part number and part of the designer identity.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`pidr1::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`pidr1::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Pidr1Spec;
 impl crate::RegisterSpec for Pidr1Spec {

@@ -5,9 +5,6 @@ pub type W = crate::W<LfincctlSpec>;
 #[doc = "Field `RESERVED0` reader - 1:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved0R = crate::FieldReader;
-#[doc = "Field `RESERVED0` writer - 1:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved0W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "2:2\\]
 Use a higher gear after re-enabling / wakeup. The filter will require 16-24 LFCLK periods to settle (depending on STOPGEAR), but may respond faster to frequency changes during STANDBY.\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -294,9 +291,6 @@ pub type IntW<'a, REG> = crate::FieldWriter<'a, REG, 22, u32>;
 #[doc = "Field `RESERVED30` reader - 30:30\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved30R = crate::BitReader;
-#[doc = "Field `RESERVED30` writer - 30:30\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved30W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "31:31\\]
 Controls if the LFINC filter prevents STANBY entry until settled.\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -404,13 +398,6 @@ Controls if the LFINC filter prevents STANBY entry until settled."]
     }
 }
 impl W {
-    #[doc = "Bits 0:1 - 1:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved0(&mut self) -> Reserved0W<LfincctlSpec> {
-        Reserved0W::new(self, 0)
-    }
     #[doc = "Bit 2 - 2:2\\]
 Use a higher gear after re-enabling / wakeup. The filter will require 16-24 LFCLK periods to settle (depending on STOPGEAR), but may respond faster to frequency changes during STANDBY."]
     #[inline(always)]
@@ -445,13 +432,6 @@ Integral part of the LFINC filter. This value is updated by Hardware to reflect 
     #[must_use]
     pub fn int(&mut self) -> IntW<LfincctlSpec> {
         IntW::new(self, 8)
-    }
-    #[doc = "Bit 30 - 30:30\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved30(&mut self) -> Reserved30W<LfincctlSpec> {
-        Reserved30W::new(self, 30)
     }
     #[doc = "Bit 31 - 31:31\\]
 Controls if the LFINC filter prevents STANBY entry until settled."]

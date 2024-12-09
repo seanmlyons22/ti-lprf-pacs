@@ -17,29 +17,6 @@ impl From<Ecbdone> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `ECBDONE` reader - 0:0\\]
-Clear ECB Done interrupt"]
-pub type EcbdoneR = crate::BitReader<Ecbdone>;
-impl EcbdoneR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Ecbdone {
-        match self.bits {
-            true => Ecbdone::Clr,
-            false => Ecbdone::Noeff,
-        }
-    }
-    #[doc = "Clear interrupt"]
-    #[inline(always)]
-    pub fn is_clr(&self) -> bool {
-        *self == Ecbdone::Clr
-    }
-    #[doc = "`0`"]
-    #[inline(always)]
-    pub fn is_noeff(&self) -> bool {
-        *self == Ecbdone::Noeff
-    }
-}
 #[doc = "Field `ECBDONE` writer - 0:0\\]
 Clear ECB Done interrupt"]
 pub type EcbdoneW<'a, REG> = crate::BitWriter<'a, REG, Ecbdone>;
@@ -71,29 +48,6 @@ impl From<Ecbstart> for bool {
     #[inline(always)]
     fn from(variant: Ecbstart) -> Self {
         variant as u8 != 0
-    }
-}
-#[doc = "Field `ECBSTART` reader - 1:1\\]
-Clear ECB Start interrupt"]
-pub type EcbstartR = crate::BitReader<Ecbstart>;
-impl EcbstartR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Ecbstart {
-        match self.bits {
-            true => Ecbstart::Clr,
-            false => Ecbstart::Noeff,
-        }
-    }
-    #[doc = "Clear interrupt"]
-    #[inline(always)]
-    pub fn is_clr(&self) -> bool {
-        *self == Ecbstart::Clr
-    }
-    #[doc = "Writing 0 has no effect"]
-    #[inline(always)]
-    pub fn is_noeff(&self) -> bool {
-        *self == Ecbstart::Noeff
     }
 }
 #[doc = "Field `ECBSTART` writer - 1:1\\]
@@ -129,29 +83,6 @@ impl From<Chadone> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `CHADONE` reader - 2:2\\]
-Clear DMA Channel A Done interrupt"]
-pub type ChadoneR = crate::BitReader<Chadone>;
-impl ChadoneR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Chadone {
-        match self.bits {
-            true => Chadone::Clr,
-            false => Chadone::Noeff,
-        }
-    }
-    #[doc = "Clear interrupt"]
-    #[inline(always)]
-    pub fn is_clr(&self) -> bool {
-        *self == Chadone::Clr
-    }
-    #[doc = "Writing 0 has no effect"]
-    #[inline(always)]
-    pub fn is_noeff(&self) -> bool {
-        *self == Chadone::Noeff
-    }
-}
 #[doc = "Field `CHADONE` writer - 2:2\\]
 Clear DMA Channel A Done interrupt"]
 pub type ChadoneW<'a, REG> = crate::BitWriter<'a, REG, Chadone>;
@@ -185,29 +116,6 @@ impl From<Chbdone> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `CHBDONE` reader - 3:3\\]
-Clear DMA Channel B Done interrupt"]
-pub type ChbdoneR = crate::BitReader<Chbdone>;
-impl ChbdoneR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Chbdone {
-        match self.bits {
-            true => Chbdone::Clr,
-            false => Chbdone::Noeff,
-        }
-    }
-    #[doc = "Clear interrupt"]
-    #[inline(always)]
-    pub fn is_clr(&self) -> bool {
-        *self == Chbdone::Clr
-    }
-    #[doc = "Writing 0 has no effect"]
-    #[inline(always)]
-    pub fn is_noeff(&self) -> bool {
-        *self == Chbdone::Noeff
-    }
-}
 #[doc = "Field `CHBDONE` writer - 3:3\\]
 Clear DMA Channel B Done interrupt"]
 pub type ChbdoneW<'a, REG> = crate::BitWriter<'a, REG, Chbdone>;
@@ -226,41 +134,8 @@ where
         self.variant(Chbdone::Noeff)
     }
 }
-#[doc = "Field `RESERVED2` reader - "]
-pub type Reserved2R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED2` writer - "]
 pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 28, u32>;
-impl R {
-    #[doc = "Bit 0 - 0:0\\]
-Clear ECB Done interrupt"]
-    #[inline(always)]
-    pub fn ecbdone(&self) -> EcbdoneR {
-        EcbdoneR::new((self.bits & 1) != 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Clear ECB Start interrupt"]
-    #[inline(always)]
-    pub fn ecbstart(&self) -> EcbstartR {
-        EcbstartR::new(((self.bits >> 1) & 1) != 0)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-Clear DMA Channel A Done interrupt"]
-    #[inline(always)]
-    pub fn chadone(&self) -> ChadoneR {
-        ChadoneR::new(((self.bits >> 2) & 1) != 0)
-    }
-    #[doc = "Bit 3 - 3:3\\]
-Clear DMA Channel B Done interrupt"]
-    #[inline(always)]
-    pub fn chbdone(&self) -> ChbdoneR {
-        ChbdoneR::new(((self.bits >> 3) & 1) != 0)
-    }
-    #[doc = "Bits 4:31"]
-    #[inline(always)]
-    pub fn reserved2(&self) -> Reserved2R {
-        Reserved2R::new((self.bits >> 4) & 0x0fff_ffff)
-    }
-}
 impl W {
     #[doc = "Bit 0 - 0:0\\]
 Clear ECB Done interrupt"]

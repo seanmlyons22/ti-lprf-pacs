@@ -22,30 +22,6 @@ impl crate::FieldSpec for Data {
     type Ux = u32;
 }
 impl crate::IsEnum for Data {}
-#[doc = "Field `DATA` reader - 31:0\\]
-This field can be used to write one byte of header data"]
-pub type DataR = crate::FieldReader<Data>;
-impl DataR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Option<Data> {
-        match self.bits {
-            1 => Some(Data::Maximum),
-            0 => Some(Data::Minimum),
-            _ => None,
-        }
-    }
-    #[doc = "Highest possible value"]
-    #[inline(always)]
-    pub fn is_maximum(&self) -> bool {
-        *self == Data::Maximum
-    }
-    #[doc = "Smallest possible value"]
-    #[inline(always)]
-    pub fn is_minimum(&self) -> bool {
-        *self == Data::Minimum
-    }
-}
 #[doc = "Field `DATA` writer - 31:0\\]
 This field can be used to write one byte of header data"]
 pub type DataW<'a, REG> = crate::FieldWriter<'a, REG, 32, Data>;
@@ -63,14 +39,6 @@ where
     #[inline(always)]
     pub fn minimum(self) -> &'a mut crate::W<REG> {
         self.variant(Data::Minimum)
-    }
-}
-impl R {
-    #[doc = "Bits 0:31 - 31:0\\]
-This field can be used to write one byte of header data"]
-    #[inline(always)]
-    pub fn data(&self) -> DataR {
-        DataR::new(self.bits)
     }
 }
 impl W {

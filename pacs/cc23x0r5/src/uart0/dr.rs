@@ -11,33 +11,18 @@ pub type DataW<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `FE` reader - 8:8\\]
 UART Framing Error: When set to 1, it indicates that the received character did not have a valid stop bit (a valid stop bit is 1). In FIFO mode, this error is associated with the character at the top of the FIFO (i.e., the oldest received data character since last read)."]
 pub type FeR = crate::BitReader;
-#[doc = "Field `FE` writer - 8:8\\]
-UART Framing Error: When set to 1, it indicates that the received character did not have a valid stop bit (a valid stop bit is 1). In FIFO mode, this error is associated with the character at the top of the FIFO (i.e., the oldest received data character since last read)."]
-pub type FeW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `PE` reader - 9:9\\]
 UART Parity Error: When set to 1, it indicates that the parity of the received data character does not match the parity that the LCRH.EPS and LCRH.SPS select. In FIFO mode, this error is associated with the character at the top of the FIFO (i.e., the oldest received data character since last read)."]
 pub type PeR = crate::BitReader;
-#[doc = "Field `PE` writer - 9:9\\]
-UART Parity Error: When set to 1, it indicates that the parity of the received data character does not match the parity that the LCRH.EPS and LCRH.SPS select. In FIFO mode, this error is associated with the character at the top of the FIFO (i.e., the oldest received data character since last read)."]
-pub type PeW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `BE` reader - 10:10\\]
 UART Break Error: This bit is set to 1 if a break condition was detected, indicating that the received data input (UARTRXD input pin) was held LOW for longer than a full-word transmission time (defined as start, data, parity and stop bits). In FIFO mode, this error is associated with the character at the top of the FIFO (i.e., the oldest received data character since last read). When a break occurs, a 0 character is loaded into the FIFO. The next character is enabled after the receive data input (UARTRXD input pin) goes to a 1 (marking state), and the next valid start bit is received."]
 pub type BeR = crate::BitReader;
-#[doc = "Field `BE` writer - 10:10\\]
-UART Break Error: This bit is set to 1 if a break condition was detected, indicating that the received data input (UARTRXD input pin) was held LOW for longer than a full-word transmission time (defined as start, data, parity and stop bits). In FIFO mode, this error is associated with the character at the top of the FIFO (i.e., the oldest received data character since last read). When a break occurs, a 0 character is loaded into the FIFO. The next character is enabled after the receive data input (UARTRXD input pin) goes to a 1 (marking state), and the next valid start bit is received."]
-pub type BeW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `OE` reader - 11:11\\]
 UART Overrun Error: This bit is set to 1 if data is received and the receive FIFO is already full. The FIFO contents remain valid because no more data is written when the FIFO is full, , only the contents of the shift register are overwritten. This is cleared to 0 once there is an empty space in the FIFO and a new character can be written to it."]
 pub type OeR = crate::BitReader;
-#[doc = "Field `OE` writer - 11:11\\]
-UART Overrun Error: This bit is set to 1 if data is received and the receive FIFO is already full. The FIFO contents remain valid because no more data is written when the FIFO is full, , only the contents of the shift register are overwritten. This is cleared to 0 once there is an empty space in the FIFO and a new character can be written to it."]
-pub type OeW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED12` reader - 31:12\\]
 Reads to this field return zero, writes to this field are ignored."]
 pub type Reserved12R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED12` writer - 31:12\\]
-Reads to this field return zero, writes to this field are ignored."]
-pub type Reserved12W<'a, REG> = crate::FieldWriter<'a, REG, 20, u32>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Data transmitted or received: On writes, the transmit data character is pushed into the FIFO. On reads, the oldest received data character since the last read is returned."]
@@ -83,41 +68,6 @@ Data transmitted or received: On writes, the transmit data character is pushed i
     #[must_use]
     pub fn data(&mut self) -> DataW<DrSpec> {
         DataW::new(self, 0)
-    }
-    #[doc = "Bit 8 - 8:8\\]
-UART Framing Error: When set to 1, it indicates that the received character did not have a valid stop bit (a valid stop bit is 1). In FIFO mode, this error is associated with the character at the top of the FIFO (i.e., the oldest received data character since last read)."]
-    #[inline(always)]
-    #[must_use]
-    pub fn fe(&mut self) -> FeW<DrSpec> {
-        FeW::new(self, 8)
-    }
-    #[doc = "Bit 9 - 9:9\\]
-UART Parity Error: When set to 1, it indicates that the parity of the received data character does not match the parity that the LCRH.EPS and LCRH.SPS select. In FIFO mode, this error is associated with the character at the top of the FIFO (i.e., the oldest received data character since last read)."]
-    #[inline(always)]
-    #[must_use]
-    pub fn pe(&mut self) -> PeW<DrSpec> {
-        PeW::new(self, 9)
-    }
-    #[doc = "Bit 10 - 10:10\\]
-UART Break Error: This bit is set to 1 if a break condition was detected, indicating that the received data input (UARTRXD input pin) was held LOW for longer than a full-word transmission time (defined as start, data, parity and stop bits). In FIFO mode, this error is associated with the character at the top of the FIFO (i.e., the oldest received data character since last read). When a break occurs, a 0 character is loaded into the FIFO. The next character is enabled after the receive data input (UARTRXD input pin) goes to a 1 (marking state), and the next valid start bit is received."]
-    #[inline(always)]
-    #[must_use]
-    pub fn be(&mut self) -> BeW<DrSpec> {
-        BeW::new(self, 10)
-    }
-    #[doc = "Bit 11 - 11:11\\]
-UART Overrun Error: This bit is set to 1 if data is received and the receive FIFO is already full. The FIFO contents remain valid because no more data is written when the FIFO is full, , only the contents of the shift register are overwritten. This is cleared to 0 once there is an empty space in the FIFO and a new character can be written to it."]
-    #[inline(always)]
-    #[must_use]
-    pub fn oe(&mut self) -> OeW<DrSpec> {
-        OeW::new(self, 11)
-    }
-    #[doc = "Bits 12:31 - 31:12\\]
-Reads to this field return zero, writes to this field are ignored."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved12(&mut self) -> Reserved12W<DrSpec> {
-        Reserved12W::new(self, 12)
     }
 }
 #[doc = "Data For words to be transmitted: - if the FIFOs are enabled (LCRH.FEN = 1), data written to this location is pushed onto the transmit FIFO - if the FIFOs are not enabled (LCRH.FEN = 0), data is stored in the transmitter holding register (the bottom word of the transmit FIFO). The write operation initiates transmission from the UART. The data is prefixed with a start bit, appended with the appropriate parity bit (if parity is enabled), and a stop bit. The resultant word is then transmitted. For received words: - if the FIFOs are enabled (LCRH.FEN = 1), the data byte and the 4-bit status (break, frame, parity, and overrun) is pushed onto the 12-bit wide receive FIFO - if the FIFOs are not enabled (LCRH.FEN = 0), the data byte and status are stored in the receiving holding register (the bottom word of the receive FIFO). The received data byte is read by performing reads from this register along with the corresponding status information. The status information can also be read by a read of the RSR register.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`dr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`dr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

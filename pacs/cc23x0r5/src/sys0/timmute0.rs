@@ -71,9 +71,6 @@ pub type GldodisanaW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED28` reader - 31:28\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved28R = crate::FieldReader;
-#[doc = "Field `RESERVED28` writer - 31:28\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved28W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 impl R {
     #[doc = "Bits 0:3 - 3:0\\]
 Internal. Only to be used through TI provided API."]
@@ -225,13 +222,6 @@ Internal. Only to be used through TI provided API."]
     #[must_use]
     pub fn gldodisana(&mut self) -> GldodisanaW<Timmute0Spec> {
         GldodisanaW::new(self, 27)
-    }
-    #[doc = "Bits 28:31 - 31:28\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved28(&mut self) -> Reserved28W<Timmute0Spec> {
-        Reserved28W::new(self, 28)
     }
 }
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`timmute0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`timmute0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

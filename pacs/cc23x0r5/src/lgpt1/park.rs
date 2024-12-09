@@ -430,9 +430,6 @@ where
 #[doc = "Field `RESERVED8` reader - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved8R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED8` writer - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 impl R {
     #[doc = "Bits 0:1 - 1:0\\]
 Park Control."]
@@ -532,13 +529,6 @@ IO Complementary Park State 2 Park state for IO Complementary output 2."]
     #[must_use]
     pub fn iocps2(&mut self) -> Iocps2W<ParkSpec> {
         Iocps2W::new(self, 7)
-    }
-    #[doc = "Bits 8:31 - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved8(&mut self) -> Reserved8W<ParkSpec> {
-        Reserved8W::new(self, 8)
     }
 }
 #[doc = "Park This register configures how the outputs should be set in Park mode. Park mode is either entered by debug halt or fault. Park mode is activated when the counter stops. Park mode is inactive when the counter starts. When park mode is active all outputs are set to their predefined states. For IO output signals which have enabled dead band, a dead band insertion will be done before switching to the predefined state.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`park::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`park::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

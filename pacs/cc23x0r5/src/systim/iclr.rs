@@ -17,29 +17,6 @@ impl From<Ev0> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `EV0` reader - 0:0\\]
-Clears channel 0 interrupt."]
-pub type Ev0R = crate::BitReader<Ev0>;
-impl Ev0R {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Ev0 {
-        match self.bits {
-            true => Ev0::Clr,
-            false => Ev0::Noeff,
-        }
-    }
-    #[doc = "Clear Interrupt"]
-    #[inline(always)]
-    pub fn is_clr(&self) -> bool {
-        *self == Ev0::Clr
-    }
-    #[doc = "Writing 0 has no effect"]
-    #[inline(always)]
-    pub fn is_noeff(&self) -> bool {
-        *self == Ev0::Noeff
-    }
-}
 #[doc = "Field `EV0` writer - 0:0\\]
 Clears channel 0 interrupt."]
 pub type Ev0W<'a, REG> = crate::BitWriter<'a, REG, Ev0>;
@@ -71,29 +48,6 @@ impl From<Ev1> for bool {
     #[inline(always)]
     fn from(variant: Ev1) -> Self {
         variant as u8 != 0
-    }
-}
-#[doc = "Field `EV1` reader - 1:1\\]
-Clears channel 1 interrupt."]
-pub type Ev1R = crate::BitReader<Ev1>;
-impl Ev1R {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Ev1 {
-        match self.bits {
-            true => Ev1::Clr,
-            false => Ev1::Noeff,
-        }
-    }
-    #[doc = "Clear Interrupt"]
-    #[inline(always)]
-    pub fn is_clr(&self) -> bool {
-        *self == Ev1::Clr
-    }
-    #[doc = "Writing 0 has no effect"]
-    #[inline(always)]
-    pub fn is_noeff(&self) -> bool {
-        *self == Ev1::Noeff
     }
 }
 #[doc = "Field `EV1` writer - 1:1\\]
@@ -129,29 +83,6 @@ impl From<Ev2> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `EV2` reader - 2:2\\]
-Clears channel 2 interrupt."]
-pub type Ev2R = crate::BitReader<Ev2>;
-impl Ev2R {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Ev2 {
-        match self.bits {
-            true => Ev2::Clr,
-            false => Ev2::Noeff,
-        }
-    }
-    #[doc = "Clear Interrupt"]
-    #[inline(always)]
-    pub fn is_clr(&self) -> bool {
-        *self == Ev2::Clr
-    }
-    #[doc = "Writing 0 has no effect"]
-    #[inline(always)]
-    pub fn is_noeff(&self) -> bool {
-        *self == Ev2::Noeff
-    }
-}
 #[doc = "Field `EV2` writer - 2:2\\]
 Clears channel 2 interrupt."]
 pub type Ev2W<'a, REG> = crate::BitWriter<'a, REG, Ev2>;
@@ -183,29 +114,6 @@ impl From<Ev3> for bool {
     #[inline(always)]
     fn from(variant: Ev3) -> Self {
         variant as u8 != 0
-    }
-}
-#[doc = "Field `EV3` reader - 3:3\\]
-Clears channel 3 interrupt."]
-pub type Ev3R = crate::BitReader<Ev3>;
-impl Ev3R {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Ev3 {
-        match self.bits {
-            true => Ev3::Clr,
-            false => Ev3::Noeff,
-        }
-    }
-    #[doc = "Clear Interrupt"]
-    #[inline(always)]
-    pub fn is_clr(&self) -> bool {
-        *self == Ev3::Clr
-    }
-    #[doc = "Writing 0 has no effect"]
-    #[inline(always)]
-    pub fn is_noeff(&self) -> bool {
-        *self == Ev3::Noeff
     }
 }
 #[doc = "Field `EV3` writer - 3:3\\]
@@ -241,29 +149,6 @@ impl From<Ev4> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `EV4` reader - 4:4\\]
-Clears channel 4 interrupt."]
-pub type Ev4R = crate::BitReader<Ev4>;
-impl Ev4R {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Ev4 {
-        match self.bits {
-            true => Ev4::Clr,
-            false => Ev4::Noeff,
-        }
-    }
-    #[doc = "Clear Interrupt"]
-    #[inline(always)]
-    pub fn is_clr(&self) -> bool {
-        *self == Ev4::Clr
-    }
-    #[doc = "Writing 0 has no effect"]
-    #[inline(always)]
-    pub fn is_noeff(&self) -> bool {
-        *self == Ev4::Noeff
-    }
-}
 #[doc = "Field `EV4` writer - 4:4\\]
 Clears channel 4 interrupt."]
 pub type Ev4W<'a, REG> = crate::BitWriter<'a, REG, Ev4>;
@@ -297,29 +182,6 @@ impl From<Ovfl> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `OVFL` reader - 5:5\\]
-Clears Systimer counter overflow interrupt."]
-pub type OvflR = crate::BitReader<Ovfl>;
-impl OvflR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Ovfl {
-        match self.bits {
-            true => Ovfl::Clr,
-            false => Ovfl::Noeff,
-        }
-    }
-    #[doc = "Clear Interrupt"]
-    #[inline(always)]
-    pub fn is_clr(&self) -> bool {
-        *self == Ovfl::Clr
-    }
-    #[doc = "Writing 0 has no effect"]
-    #[inline(always)]
-    pub fn is_noeff(&self) -> bool {
-        *self == Ovfl::Noeff
-    }
-}
 #[doc = "Field `OVFL` writer - 5:5\\]
 Clears Systimer counter overflow interrupt."]
 pub type OvflW<'a, REG> = crate::BitWriter<'a, REG, Ovfl>;
@@ -341,46 +203,7 @@ where
 #[doc = "Field `RESERVED6` reader - 31:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved6R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED6` writer - 31:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 26, u32>;
 impl R {
-    #[doc = "Bit 0 - 0:0\\]
-Clears channel 0 interrupt."]
-    #[inline(always)]
-    pub fn ev0(&self) -> Ev0R {
-        Ev0R::new((self.bits & 1) != 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Clears channel 1 interrupt."]
-    #[inline(always)]
-    pub fn ev1(&self) -> Ev1R {
-        Ev1R::new(((self.bits >> 1) & 1) != 0)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-Clears channel 2 interrupt."]
-    #[inline(always)]
-    pub fn ev2(&self) -> Ev2R {
-        Ev2R::new(((self.bits >> 2) & 1) != 0)
-    }
-    #[doc = "Bit 3 - 3:3\\]
-Clears channel 3 interrupt."]
-    #[inline(always)]
-    pub fn ev3(&self) -> Ev3R {
-        Ev3R::new(((self.bits >> 3) & 1) != 0)
-    }
-    #[doc = "Bit 4 - 4:4\\]
-Clears channel 4 interrupt."]
-    #[inline(always)]
-    pub fn ev4(&self) -> Ev4R {
-        Ev4R::new(((self.bits >> 4) & 1) != 0)
-    }
-    #[doc = "Bit 5 - 5:5\\]
-Clears Systimer counter overflow interrupt."]
-    #[inline(always)]
-    pub fn ovfl(&self) -> OvflR {
-        OvflR::new(((self.bits >> 5) & 1) != 0)
-    }
     #[doc = "Bits 6:31 - 31:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
@@ -430,13 +253,6 @@ Clears Systimer counter overflow interrupt."]
     #[must_use]
     pub fn ovfl(&mut self) -> OvflW<IclrSpec> {
         OvflW::new(self, 5)
-    }
-    #[doc = "Bits 6:31 - 31:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<IclrSpec> {
-        Reserved6W::new(self, 6)
     }
 }
 #[doc = "Interrupt clear register. This register allows software to clear interrupts. Writing a 1 to a bit in this register will clear the event and the corresponding RIS bit also gets cleared. If the corresponding IMASK bit is set, then the corresponding MIS register bit also gets cleared.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`iclr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`iclr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

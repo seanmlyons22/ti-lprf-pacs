@@ -5,9 +5,6 @@ pub type W = crate::W<Ris2Spec>;
 #[doc = "Field `RESERVED0` reader - 7:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved0R = crate::FieldReader;
-#[doc = "Field `RESERVED0` writer - 7:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved0W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "8:8\\]
 Raw interrupt status for MEMRES0. This bit is set to 1 when MEMRES0 is loaded with a new conversion result. Reading MEMRES0 register will clear this bit, or when the corresponding bit in ICLR is set to 1\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1505,13 +1502,6 @@ Raw interrupt status for MEMRES23. This bit is set to 1 when MEMRES23 is loaded 
     }
 }
 impl W {
-    #[doc = "Bits 0:7 - 7:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved0(&mut self) -> Reserved0W<Ris2Spec> {
-        Reserved0W::new(self, 0)
-    }
     #[doc = "Bit 8 - 8:8\\]
 Raw interrupt status for MEMRES0. This bit is set to 1 when MEMRES0 is loaded with a new conversion result. Reading MEMRES0 register will clear this bit, or when the corresponding bit in ICLR is set to 1"]
     #[inline(always)]

@@ -5,9 +5,6 @@ pub type W = crate::W<TxdpeekSpec>;
 #[doc = "Field `VAL` reader - 31:0\\]
 Transmit Data Peek Register. SACI command parameter word. TXCTL.TXDSTA not affected by read of TXDPEEK"]
 pub type ValR = crate::FieldReader<u32>;
-#[doc = "Field `VAL` writer - 31:0\\]
-Transmit Data Peek Register. SACI command parameter word. TXCTL.TXDSTA not affected by read of TXDPEEK"]
-pub type ValW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 Transmit Data Peek Register. SACI command parameter word. TXCTL.TXDSTA not affected by read of TXDPEEK"]
@@ -16,15 +13,7 @@ Transmit Data Peek Register. SACI command parameter word. TXCTL.TXDSTA not affec
         ValR::new(self.bits)
     }
 }
-impl W {
-    #[doc = "Bits 0:31 - 31:0\\]
-Transmit Data Peek Register. SACI command parameter word. TXCTL.TXDSTA not affected by read of TXDPEEK"]
-    #[inline(always)]
-    #[must_use]
-    pub fn val(&mut self) -> ValW<TxdpeekSpec> {
-        ValW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Transmit data peek register . This register is a read-only version of the TXD register that can be read by host and device without any side-effects. This register is used to peek at the values in TXD without affecting the FULL/EMPTY flag.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`txdpeek::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`txdpeek::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct TxdpeekSpec;
 impl crate::RegisterSpec for TxdpeekSpec {

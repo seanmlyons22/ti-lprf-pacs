@@ -2,20 +2,9 @@
 pub type R = crate::R<Txfhdr24Spec>;
 #[doc = "Register `TXFHDR24` writer"]
 pub type W = crate::W<Txfhdr24Spec>;
-#[doc = "Field `DATA` reader - 31:0\\]
-This field can be used to write three bytes of header data"]
-pub type DataR = crate::FieldReader<u32>;
 #[doc = "Field `DATA` writer - 31:0\\]
 This field can be used to write three bytes of header data"]
 pub type DataW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
-impl R {
-    #[doc = "Bits 0:31 - 31:0\\]
-This field can be used to write three bytes of header data"]
-    #[inline(always)]
-    pub fn data(&self) -> DataR {
-        DataR::new(self.bits)
-    }
-}
 impl W {
     #[doc = "Bits 0:31 - 31:0\\]
 This field can be used to write three bytes of header data"]

@@ -2,25 +2,13 @@
 pub type R = crate::R<MicrSpec>;
 #[doc = "Register `MICR` writer"]
 pub type W = crate::W<MicrSpec>;
-#[doc = "Field `IC` reader - 0:0\\]
-Interrupt clear 0 - Writing 0 has no effect 1 - Clear Interrupt Writing 1 to this bit clears MRIS.RIS and MMIS.MIS."]
-pub type IcR = crate::BitReader;
 #[doc = "Field `IC` writer - 0:0\\]
 Interrupt clear 0 - Writing 0 has no effect 1 - Clear Interrupt Writing 1 to this bit clears MRIS.RIS and MMIS.MIS."]
 pub type IcW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED1` reader - 31:1\\]
 Reads to this field return zero.Writes to this field are ignored."]
 pub type Reserved1R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED1` writer - 31:1\\]
-Reads to this field return zero.Writes to this field are ignored."]
-pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 31, u32>;
 impl R {
-    #[doc = "Bit 0 - 0:0\\]
-Interrupt clear 0 - Writing 0 has no effect 1 - Clear Interrupt Writing 1 to this bit clears MRIS.RIS and MMIS.MIS."]
-    #[inline(always)]
-    pub fn ic(&self) -> IcR {
-        IcR::new((self.bits & 1) != 0)
-    }
     #[doc = "Bits 1:31 - 31:1\\]
 Reads to this field return zero.Writes to this field are ignored."]
     #[inline(always)]
@@ -35,13 +23,6 @@ Interrupt clear 0 - Writing 0 has no effect 1 - Clear Interrupt Writing 1 to thi
     #[must_use]
     pub fn ic(&mut self) -> IcW<MicrSpec> {
         IcW::new(self, 0)
-    }
-    #[doc = "Bits 1:31 - 31:1\\]
-Reads to this field return zero.Writes to this field are ignored."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved1(&mut self) -> Reserved1W<MicrSpec> {
-        Reserved1W::new(self, 1)
     }
 }
 #[doc = "Master Interrupt Clear This register clears the raw and masked interrupt.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`micr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`micr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

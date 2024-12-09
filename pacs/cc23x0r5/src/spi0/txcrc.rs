@@ -11,9 +11,6 @@ pub type DataW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 #[doc = "Field `RESERVED16` reader - 30:16\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved16R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED16` writer - 30:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved16W<'a, REG> = crate::FieldWriter<'a, REG, 15, u16>;
 #[doc = "31:31\\]
 Status to indicate if Auto CRC has been inserted into TXFIFO. This is valid only if CTL0.AUTO_CRC enable bit is set\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -52,24 +49,6 @@ impl AutoCrcInsStatR {
         *self == AutoCrcInsStat::Notins
     }
 }
-#[doc = "Field `AUTO_CRC_INS_STAT` writer - 31:31\\]
-Status to indicate if Auto CRC has been inserted into TXFIFO. This is valid only if CTL0.AUTO_CRC enable bit is set"]
-pub type AutoCrcInsStatW<'a, REG> = crate::BitWriter<'a, REG, AutoCrcInsStat>;
-impl<'a, REG> AutoCrcInsStatW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Auto CRC inserted"]
-    #[inline(always)]
-    pub fn ins(self) -> &'a mut crate::W<REG> {
-        self.variant(AutoCrcInsStat::Ins)
-    }
-    #[doc = "Auto CRC not yet inserted"]
-    #[inline(always)]
-    pub fn notins(self) -> &'a mut crate::W<REG> {
-        self.variant(AutoCrcInsStat::Notins)
-    }
-}
 impl R {
     #[doc = "Bits 0:15 - 15:0\\]
 CRC value"]
@@ -97,20 +76,6 @@ CRC value"]
     #[must_use]
     pub fn data(&mut self) -> DataW<TxcrcSpec> {
         DataW::new(self, 0)
-    }
-    #[doc = "Bits 16:30 - 30:16\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved16(&mut self) -> Reserved16W<TxcrcSpec> {
-        Reserved16W::new(self, 16)
-    }
-    #[doc = "Bit 31 - 31:31\\]
-Status to indicate if Auto CRC has been inserted into TXFIFO. This is valid only if CTL0.AUTO_CRC enable bit is set"]
-    #[inline(always)]
-    #[must_use]
-    pub fn auto_crc_ins_stat(&mut self) -> AutoCrcInsStatW<TxcrcSpec> {
-        AutoCrcInsStatW::new(self, 31)
     }
 }
 #[doc = "Transmit CRC register. Reading this register provides the computed CRC value from the transmit side CRC unit. Reading this register or writing to this register with any value auto initializes the seed. The seed value is 0xFF when CTL0.CRCPOLY = 0 and 0xFFFF when CTL0.CRCPOLY = 1 for CCITT CRC polynomials. Bits\\[15:8\\]

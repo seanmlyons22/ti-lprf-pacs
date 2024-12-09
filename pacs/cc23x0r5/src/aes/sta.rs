@@ -40,24 +40,6 @@ impl StateR {
         *self == State::Idle
     }
 }
-#[doc = "Field `STATE` writer - 0:0\\]
-State Field gives the state of the ECB encryption engine."]
-pub type StateW<'a, REG> = crate::BitWriter<'a, REG, State>;
-impl<'a, REG> StateW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "ECB encryption active."]
-    #[inline(always)]
-    pub fn busy(self) -> &'a mut crate::W<REG> {
-        self.variant(State::Busy)
-    }
-    #[doc = "ECB is IDLE."]
-    #[inline(always)]
-    pub fn idle(self) -> &'a mut crate::W<REG> {
-        self.variant(State::Idle)
-    }
-}
 #[doc = "1:1\\]
 BUF Status Field gives the status of BUF, indicating EMPTY or FULL, when AUTOCFG.TRGECB = WRBUF3. If AUTOCFG.TRGECB != WRBUF3, then STA.BUFSTA will hold the value 0. Note : Useful for CBC-MAC\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -96,30 +78,9 @@ impl BufstaR {
         *self == Bufsta::Empty
     }
 }
-#[doc = "Field `BUFSTA` writer - 1:1\\]
-BUF Status Field gives the status of BUF, indicating EMPTY or FULL, when AUTOCFG.TRGECB = WRBUF3. If AUTOCFG.TRGECB != WRBUF3, then STA.BUFSTA will hold the value 0. Note : Useful for CBC-MAC"]
-pub type BufstaW<'a, REG> = crate::BitWriter<'a, REG, Bufsta>;
-impl<'a, REG> BufstaW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Data stored in BUF is not yet consumed by the AES engine. Next block of data cannot be written into BUF until STA.STATE = IDLE."]
-    #[inline(always)]
-    pub fn full(self) -> &'a mut crate::W<REG> {
-        self.variant(Bufsta::Full)
-    }
-    #[doc = "Data stored in BUF is already consumed by the AES engine and next block of data can be written in BUF"]
-    #[inline(always)]
-    pub fn empty(self) -> &'a mut crate::W<REG> {
-        self.variant(Bufsta::Empty)
-    }
-}
 #[doc = "Field `RESERVED2` reader - 31:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED2` writer - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 30, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 State Field gives the state of the ECB encryption engine."]
@@ -140,29 +101,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved2R::new((self.bits >> 2) & 0x3fff_ffff)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-State Field gives the state of the ECB encryption engine."]
-    #[inline(always)]
-    #[must_use]
-    pub fn state(&mut self) -> StateW<StaSpec> {
-        StateW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-BUF Status Field gives the status of BUF, indicating EMPTY or FULL, when AUTOCFG.TRGECB = WRBUF3. If AUTOCFG.TRGECB != WRBUF3, then STA.BUFSTA will hold the value 0. Note : Useful for CBC-MAC"]
-    #[inline(always)]
-    #[must_use]
-    pub fn bufsta(&mut self) -> BufstaW<StaSpec> {
-        BufstaW::new(self, 1)
-    }
-    #[doc = "Bits 2:31 - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<StaSpec> {
-        Reserved2W::new(self, 2)
-    }
-}
+impl W {}
 #[doc = "Status This register provides information on ECB accellerator state and BUF status.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`sta::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`sta::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct StaSpec;
 impl crate::RegisterSpec for StaSpec {

@@ -5,9 +5,6 @@ pub type W = crate::W<WkupmaskSpec>;
 #[doc = "Field `RESERVED0` reader - 1:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior"]
 pub type Reserved0R = crate::FieldReader;
-#[doc = "Field `RESERVED0` writer - 1:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior"]
-pub type Reserved0W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `AON_PMU_COMB` reader - 2:2\\]
 Wake-up mask for AON_PMU_COMB. 0 - Wakeup Disabled 1 - Wakeup Enabled"]
 pub type AonPmuCombR = crate::BitReader;
@@ -47,9 +44,6 @@ pub type AonIocCombW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED8` reader - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior"]
 pub type Reserved8R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED8` writer - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior"]
-pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 impl R {
     #[doc = "Bits 0:1 - 1:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior"]
@@ -101,13 +95,6 @@ Software should not rely on the value of a reserved. Writing any other value tha
     }
 }
 impl W {
-    #[doc = "Bits 0:1 - 1:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior"]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved0(&mut self) -> Reserved0W<WkupmaskSpec> {
-        Reserved0W::new(self, 0)
-    }
     #[doc = "Bit 2 - 2:2\\]
 Wake-up mask for AON_PMU_COMB. 0 - Wakeup Disabled 1 - Wakeup Enabled"]
     #[inline(always)]
@@ -149,13 +136,6 @@ Wake-up mask for AON_IOC_COMB. 0 - Wakeup Disabled 1 - Wakeup Enabled"]
     #[must_use]
     pub fn aon_ioc_comb(&mut self) -> AonIocCombW<WkupmaskSpec> {
         AonIocCombW::new(self, 7)
-    }
-    #[doc = "Bits 8:31 - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior"]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved8(&mut self) -> Reserved8W<WkupmaskSpec> {
-        Reserved8W::new(self, 8)
     }
 }
 #[doc = "WAKEUP Mask\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`wkupmask::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`wkupmask::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

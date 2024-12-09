@@ -40,60 +40,24 @@ impl MasterenableR {
         *self == Masterenable::Dis
     }
 }
-#[doc = "Field `MASTERENABLE` writer - 0:0\\]
-Shows the enable status of the controller as configured by CFG.MASTERENABLE:"]
-pub type MasterenableW<'a, REG> = crate::BitWriter<'a, REG, Masterenable>;
-impl<'a, REG> MasterenableW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Controller is enabled"]
-    #[inline(always)]
-    pub fn en(self) -> &'a mut crate::W<REG> {
-        self.variant(Masterenable::En)
-    }
-    #[doc = "Controller is disabled"]
-    #[inline(always)]
-    pub fn dis(self) -> &'a mut crate::W<REG> {
-        self.variant(Masterenable::Dis)
-    }
-}
 #[doc = "Field `RESERVED1` reader - 3:1\\]
 Reads to this field return zero, writes to this field are ignored."]
 pub type Reserved1R = crate::FieldReader;
-#[doc = "Field `RESERVED1` writer - 3:1\\]
-Reads to this field return zero, writes to this field are ignored."]
-pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `STATE` reader - 7:4\\]
 Current state of the control state machine. State can be one of the following: 0x0: Idle 0x1: Reading channel controller data 0x2: Reading source data end pointer 0x3: Reading destination data end pointer 0x4: Reading source data 0x5: Writing destination data 0x6: Waiting for uDMA request to clear 0x7: Writing channel controller data 0x8: Stalled 0x9: Done 0xA: Peripheral scatter-gather transition 0xB: Undefined ... 0xF: Undefined."]
 pub type StateR = crate::FieldReader;
-#[doc = "Field `STATE` writer - 7:4\\]
-Current state of the control state machine. State can be one of the following: 0x0: Idle 0x1: Reading channel controller data 0x2: Reading source data end pointer 0x3: Reading destination data end pointer 0x4: Reading source data 0x5: Writing destination data 0x6: Waiting for uDMA request to clear 0x7: Writing channel controller data 0x8: Stalled 0x9: Done 0xA: Peripheral scatter-gather transition 0xB: Undefined ... 0xF: Undefined."]
-pub type StateW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `RESERVED8` reader - 15:8\\]
 Reads to this field return zero, writes to this field are ignored."]
 pub type Reserved8R = crate::FieldReader;
-#[doc = "Field `RESERVED8` writer - 15:8\\]
-Reads to this field return zero, writes to this field are ignored."]
-pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `TOTALCHANNELS` reader - 20:16\\]
 Register value returns number of available uDMA channels minus one. For example a read out value of: 0x00: Show that the controller is configured to use 1 uDMA channel 0x01: Shows that the controller is configured to use 2 uDMA channels ... 0x1F: Shows that the controller is configured to use 32 uDMA channels (32-1=31=0x1F)"]
 pub type TotalchannelsR = crate::FieldReader;
-#[doc = "Field `TOTALCHANNELS` writer - 20:16\\]
-Register value returns number of available uDMA channels minus one. For example a read out value of: 0x00: Show that the controller is configured to use 1 uDMA channel 0x01: Shows that the controller is configured to use 2 uDMA channels ... 0x1F: Shows that the controller is configured to use 32 uDMA channels (32-1=31=0x1F)"]
-pub type TotalchannelsW<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 #[doc = "Field `RESERVED21` reader - 27:21\\]
 Reads to this field return zero, writes to this field are ignored."]
 pub type Reserved21R = crate::FieldReader;
-#[doc = "Field `RESERVED21` writer - 27:21\\]
-Reads to this field return zero, writes to this field are ignored."]
-pub type Reserved21W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "Field `TEST` reader - 31:28\\]
 0x0: Controller does not include the integration test logic 0x1: Controller includes the integration test logic 0x2: Undefined ... 0xF: Undefined"]
 pub type TestR = crate::FieldReader;
-#[doc = "Field `TEST` writer - 31:28\\]
-0x0: Controller does not include the integration test logic 0x1: Controller includes the integration test logic 0x2: Undefined ... 0xF: Undefined"]
-pub type TestW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Shows the enable status of the controller as configured by CFG.MASTERENABLE:"]
@@ -138,57 +102,7 @@ Reads to this field return zero, writes to this field are ignored."]
         TestR::new(((self.bits >> 28) & 0x0f) as u8)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Shows the enable status of the controller as configured by CFG.MASTERENABLE:"]
-    #[inline(always)]
-    #[must_use]
-    pub fn masterenable(&mut self) -> MasterenableW<StatusSpec> {
-        MasterenableW::new(self, 0)
-    }
-    #[doc = "Bits 1:3 - 3:1\\]
-Reads to this field return zero, writes to this field are ignored."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved1(&mut self) -> Reserved1W<StatusSpec> {
-        Reserved1W::new(self, 1)
-    }
-    #[doc = "Bits 4:7 - 7:4\\]
-Current state of the control state machine. State can be one of the following: 0x0: Idle 0x1: Reading channel controller data 0x2: Reading source data end pointer 0x3: Reading destination data end pointer 0x4: Reading source data 0x5: Writing destination data 0x6: Waiting for uDMA request to clear 0x7: Writing channel controller data 0x8: Stalled 0x9: Done 0xA: Peripheral scatter-gather transition 0xB: Undefined ... 0xF: Undefined."]
-    #[inline(always)]
-    #[must_use]
-    pub fn state(&mut self) -> StateW<StatusSpec> {
-        StateW::new(self, 4)
-    }
-    #[doc = "Bits 8:15 - 15:8\\]
-Reads to this field return zero, writes to this field are ignored."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved8(&mut self) -> Reserved8W<StatusSpec> {
-        Reserved8W::new(self, 8)
-    }
-    #[doc = "Bits 16:20 - 20:16\\]
-Register value returns number of available uDMA channels minus one. For example a read out value of: 0x00: Show that the controller is configured to use 1 uDMA channel 0x01: Shows that the controller is configured to use 2 uDMA channels ... 0x1F: Shows that the controller is configured to use 32 uDMA channels (32-1=31=0x1F)"]
-    #[inline(always)]
-    #[must_use]
-    pub fn totalchannels(&mut self) -> TotalchannelsW<StatusSpec> {
-        TotalchannelsW::new(self, 16)
-    }
-    #[doc = "Bits 21:27 - 27:21\\]
-Reads to this field return zero, writes to this field are ignored."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved21(&mut self) -> Reserved21W<StatusSpec> {
-        Reserved21W::new(self, 21)
-    }
-    #[doc = "Bits 28:31 - 31:28\\]
-0x0: Controller does not include the integration test logic 0x1: Controller includes the integration test logic 0x2: Undefined ... 0xF: Undefined"]
-    #[inline(always)]
-    #[must_use]
-    pub fn test(&mut self) -> TestW<StatusSpec> {
-        TestW::new(self, 28)
-    }
-}
+impl W {}
 #[doc = "Status Register.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`status::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`status::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct StatusSpec;
 impl crate::RegisterSpec for StatusSpec {

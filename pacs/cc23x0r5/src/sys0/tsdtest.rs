@@ -32,60 +32,6 @@ impl crate::FieldSpec for Atbset {
     type Ux = u8;
 }
 impl crate::IsEnum for Atbset {}
-#[doc = "Field `ATBSET` reader - 2:0\\]
-Internal. Only to be used through TI provided API."]
-pub type AtbsetR = crate::FieldReader<Atbset>;
-impl AtbsetR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Atbset {
-        match self.bits {
-            6 => Atbset::Tsdout,
-            5 => Atbset::Compout,
-            4 => Atbset::EnDelay,
-            3 => Atbset::EaCur,
-            2 => Atbset::Vref,
-            1 => Atbset::Vsense,
-            0 => Atbset::Open,
-            _ => unreachable!(),
-        }
-    }
-    #[doc = "Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    pub fn is_tsdout(&self) -> bool {
-        *self == Atbset::Tsdout
-    }
-    #[doc = "Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    pub fn is_compout(&self) -> bool {
-        *self == Atbset::Compout
-    }
-    #[doc = "Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    pub fn is_en_delay(&self) -> bool {
-        *self == Atbset::EnDelay
-    }
-    #[doc = "Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    pub fn is_ea_cur(&self) -> bool {
-        *self == Atbset::EaCur
-    }
-    #[doc = "Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    pub fn is_vref(&self) -> bool {
-        *self == Atbset::Vref
-    }
-    #[doc = "Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    pub fn is_vsense(&self) -> bool {
-        *self == Atbset::Vsense
-    }
-    #[doc = "Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    pub fn is_open(&self) -> bool {
-        *self == Atbset::Open
-    }
-}
 #[doc = "Field `ATBSET` writer - 2:0\\]
 Internal. Only to be used through TI provided API."]
 pub type AtbsetW<'a, REG> = crate::FieldWriter<'a, REG, 3, Atbset>;
@@ -130,31 +76,13 @@ where
         self.variant(Atbset::Open)
     }
 }
-#[doc = "Field `ATBCLR` reader - 5:3\\]
-Internal. Only to be used through TI provided API."]
-pub type AtbclrR = crate::FieldReader;
 #[doc = "Field `ATBCLR` writer - 5:3\\]
 Internal. Only to be used through TI provided API."]
 pub type AtbclrW<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `RESERVED6` reader - 31:6\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved6R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED6` writer - 31:6\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 26, u32>;
 impl R {
-    #[doc = "Bits 0:2 - 2:0\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    pub fn atbset(&self) -> AtbsetR {
-        AtbsetR::new((self.bits & 7) as u8)
-    }
-    #[doc = "Bits 3:5 - 5:3\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    pub fn atbclr(&self) -> AtbclrR {
-        AtbclrR::new(((self.bits >> 3) & 7) as u8)
-    }
     #[doc = "Bits 6:31 - 31:6\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
@@ -176,13 +104,6 @@ Internal. Only to be used through TI provided API."]
     #[must_use]
     pub fn atbclr(&mut self) -> AtbclrW<TsdtestSpec> {
         AtbclrW::new(self, 3)
-    }
-    #[doc = "Bits 6:31 - 31:6\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<TsdtestSpec> {
-        Reserved6W::new(self, 6)
     }
 }
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`tsdtest::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`tsdtest::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

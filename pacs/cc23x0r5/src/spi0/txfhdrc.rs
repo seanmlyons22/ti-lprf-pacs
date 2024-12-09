@@ -217,9 +217,6 @@ where
 #[doc = "Field `RESERVED4` reader - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved4R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED4` writer - 31:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved4W<'a, REG> = crate::FieldWriter<'a, REG, 28, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Header enable field. When CS_GATE is set to BLK, this bit has to be set by software to enable this feature. When CS_GATE is set to UNBLK, this field is set automatically whenever a write to header update registers occurs MMR_TXFHDRn"]
@@ -280,13 +277,6 @@ Chip Select Gating control register. If this bit is set header update register w
     #[must_use]
     pub fn cs_gate(&mut self) -> CsGateW<TxfhdrcSpec> {
         CsGateW::new(self, 3)
-    }
-    #[doc = "Bits 4:31 - 31:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved4(&mut self) -> Reserved4W<TxfhdrcSpec> {
-        Reserved4W::new(self, 4)
     }
 }
 #[doc = "Atomic Header Control register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`txfhdrc::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`txfhdrc::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

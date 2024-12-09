@@ -70,40 +70,6 @@ impl ResetsrcR {
         *self == Resetsrc::Pwron
     }
 }
-#[doc = "Field `RESETSRC` writer - 2:0\\]
-Shows the root cause of the last system reset. More than one reported reset source can have been active during the last system reset, but only the root cause is reported. If reset cause is SYSRESET or PINRESET, the other reset flags must be read to determine actual root cause."]
-pub type ResetsrcW<'a, REG> = crate::FieldWriter<'a, REG, 3, Resetsrc>;
-impl<'a, REG> ResetsrcW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "Digital system reset. Actual root cause is given by SYSSRC."]
-    #[inline(always)]
-    pub fn sysreset(self) -> &'a mut crate::W<REG> {
-        self.variant(Resetsrc::Sysreset)
-    }
-    #[doc = "Brown out detect on VDDR"]
-    #[inline(always)]
-    pub fn vddrloss(self) -> &'a mut crate::W<REG> {
-        self.variant(Resetsrc::Vddrloss)
-    }
-    #[doc = "Brown out detect on VDDS"]
-    #[inline(always)]
-    pub fn vddsloss(self) -> &'a mut crate::W<REG> {
-        self.variant(Resetsrc::Vddsloss)
-    }
-    #[doc = "Reset pin. TSD will also trigger a pin reset, so actual root cause is given by TSDEV reset flag status."]
-    #[inline(always)]
-    pub fn pinreset(self) -> &'a mut crate::W<REG> {
-        self.variant(Resetsrc::Pinreset)
-    }
-    #[doc = "Power on reset"]
-    #[inline(always)]
-    pub fn pwron(self) -> &'a mut crate::W<REG> {
-        self.variant(Resetsrc::Pwron)
-    }
-}
 #[doc = "3:3\\]
 System reset triggered by TSD event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -140,24 +106,6 @@ impl TsdevR {
     #[inline(always)]
     pub fn is_no_trig(&self) -> bool {
         *self == Tsdev::NoTrig
-    }
-}
-#[doc = "Field `TSDEV` writer - 3:3\\]
-System reset triggered by TSD event"]
-pub type TsdevW<'a, REG> = crate::BitWriter<'a, REG, Tsdev>;
-impl<'a, REG> TsdevW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "System reset triggered by TSD event"]
-    #[inline(always)]
-    pub fn trig(self) -> &'a mut crate::W<REG> {
-        self.variant(Tsdev::Trig)
-    }
-    #[doc = "TSD event not triggered"]
-    #[inline(always)]
-    pub fn no_trig(self) -> &'a mut crate::W<REG> {
-        self.variant(Tsdev::NoTrig)
     }
 }
 #[doc = "7:4\\]
@@ -260,66 +208,9 @@ impl SyssrcR {
         *self == Syssrc::Lflossev
     }
 }
-#[doc = "Field `SYSSRC` writer - 7:4\\]
-Shows which reset event that triggered SYSRESET in RESETSRC"]
-pub type SyssrcW<'a, REG> = crate::FieldWriter<'a, REG, 4, Syssrc>;
-impl<'a, REG> SyssrcW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "Digital Error reset event"]
-    #[inline(always)]
-    pub fn derrev(self) -> &'a mut crate::W<REG> {
-        self.variant(Syssrc::Derrev)
-    }
-    #[doc = "Analog Error reset event"]
-    #[inline(always)]
-    pub fn aerrev(self) -> &'a mut crate::W<REG> {
-        self.variant(Syssrc::Aerrev)
-    }
-    #[doc = "Analog FSM timeout event"]
-    #[inline(always)]
-    pub fn afsmev(self) -> &'a mut crate::W<REG> {
-        self.variant(Syssrc::Afsmev)
-    }
-    #[doc = "Serial Wire Debug reset event"]
-    #[inline(always)]
-    pub fn swdrstev(self) -> &'a mut crate::W<REG> {
-        self.variant(Syssrc::Swdrstev)
-    }
-    #[doc = "System reset event"]
-    #[inline(always)]
-    pub fn sysrstev(self) -> &'a mut crate::W<REG> {
-        self.variant(Syssrc::Sysrstev)
-    }
-    #[doc = "Watchdog timeout event"]
-    #[inline(always)]
-    pub fn wdtev(self) -> &'a mut crate::W<REG> {
-        self.variant(Syssrc::Wdtev)
-    }
-    #[doc = "CPU LOCKUP event"]
-    #[inline(always)]
-    pub fn lockupev(self) -> &'a mut crate::W<REG> {
-        self.variant(Syssrc::Lockupev)
-    }
-    #[doc = "CPU reset event"]
-    #[inline(always)]
-    pub fn cpurstev(self) -> &'a mut crate::W<REG> {
-        self.variant(Syssrc::Cpurstev)
-    }
-    #[doc = "LF clock loss event"]
-    #[inline(always)]
-    pub fn lflossev(self) -> &'a mut crate::W<REG> {
-        self.variant(Syssrc::Lflossev)
-    }
-}
 #[doc = "Field `RESERVED8` reader - 15:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved8R = crate::FieldReader;
-#[doc = "Field `RESERVED8` writer - 15:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "16:16\\]
 Wakeup from SHUTDOWN on an I/O event flag. Note: This flag will be cleared when SLPCTL.SLPN is asserted.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -356,24 +247,6 @@ impl IowusdR {
     #[inline(always)]
     pub fn is_no_trig(&self) -> bool {
         *self == Iowusd::NoTrig
-    }
-}
-#[doc = "Field `IOWUSD` writer - 16:16\\]
-Wakeup from SHUTDOWN on an I/O event flag. Note: This flag will be cleared when SLPCTL.SLPN is asserted."]
-pub type IowusdW<'a, REG> = crate::BitWriter<'a, REG, Iowusd>;
-impl<'a, REG> IowusdW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Wakeup from SHUTDOWN triggered by an I/O event."]
-    #[inline(always)]
-    pub fn trig(self) -> &'a mut crate::W<REG> {
-        self.variant(Iowusd::Trig)
-    }
-    #[doc = "Wakeup from SHUTDOWN not triggered by an I/O event."]
-    #[inline(always)]
-    pub fn no_trig(self) -> &'a mut crate::W<REG> {
-        self.variant(Iowusd::NoTrig)
     }
 }
 #[doc = "17:17\\]
@@ -414,30 +287,9 @@ impl SddetR {
         *self == Sddet::NoTrig
     }
 }
-#[doc = "Field `SDDET` writer - 17:17\\]
-Wakeup from SHUTDOWN flag. Note: This flag will be cleared when SLPCTL.SLPN is asserted."]
-pub type SddetW<'a, REG> = crate::BitWriter<'a, REG, Sddet>;
-impl<'a, REG> SddetW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Wakeup from SHUTDOWN mode"]
-    #[inline(always)]
-    pub fn trig(self) -> &'a mut crate::W<REG> {
-        self.variant(Sddet::Trig)
-    }
-    #[doc = "Wakeup from SHUTDOWN mode not triggered"]
-    #[inline(always)]
-    pub fn no_trig(self) -> &'a mut crate::W<REG> {
-        self.variant(Sddet::NoTrig)
-    }
-}
 #[doc = "Field `RESERVED18` reader - 31:18\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved18R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED18` writer - 31:18\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved18W<'a, REG> = crate::FieldWriter<'a, REG, 14, u16>;
 impl R {
     #[doc = "Bits 0:2 - 2:0\\]
 Shows the root cause of the last system reset. More than one reported reset source can have been active during the last system reset, but only the root cause is reported. If reset cause is SYSRESET or PINRESET, the other reset flags must be read to determine actual root cause."]
@@ -482,57 +334,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved18R::new(((self.bits >> 18) & 0x3fff) as u16)
     }
 }
-impl W {
-    #[doc = "Bits 0:2 - 2:0\\]
-Shows the root cause of the last system reset. More than one reported reset source can have been active during the last system reset, but only the root cause is reported. If reset cause is SYSRESET or PINRESET, the other reset flags must be read to determine actual root cause."]
-    #[inline(always)]
-    #[must_use]
-    pub fn resetsrc(&mut self) -> ResetsrcW<RststaSpec> {
-        ResetsrcW::new(self, 0)
-    }
-    #[doc = "Bit 3 - 3:3\\]
-System reset triggered by TSD event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn tsdev(&mut self) -> TsdevW<RststaSpec> {
-        TsdevW::new(self, 3)
-    }
-    #[doc = "Bits 4:7 - 7:4\\]
-Shows which reset event that triggered SYSRESET in RESETSRC"]
-    #[inline(always)]
-    #[must_use]
-    pub fn syssrc(&mut self) -> SyssrcW<RststaSpec> {
-        SyssrcW::new(self, 4)
-    }
-    #[doc = "Bits 8:15 - 15:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved8(&mut self) -> Reserved8W<RststaSpec> {
-        Reserved8W::new(self, 8)
-    }
-    #[doc = "Bit 16 - 16:16\\]
-Wakeup from SHUTDOWN on an I/O event flag. Note: This flag will be cleared when SLPCTL.SLPN is asserted."]
-    #[inline(always)]
-    #[must_use]
-    pub fn iowusd(&mut self) -> IowusdW<RststaSpec> {
-        IowusdW::new(self, 16)
-    }
-    #[doc = "Bit 17 - 17:17\\]
-Wakeup from SHUTDOWN flag. Note: This flag will be cleared when SLPCTL.SLPN is asserted."]
-    #[inline(always)]
-    #[must_use]
-    pub fn sddet(&mut self) -> SddetW<RststaSpec> {
-        SddetW::new(self, 17)
-    }
-    #[doc = "Bits 18:31 - 31:18\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved18(&mut self) -> Reserved18W<RststaSpec> {
-        Reserved18W::new(self, 18)
-    }
-}
+impl W {}
 #[doc = "Reset Status. This register contains the reset source and SHUTDOWN wakeup source for the system. Check WUSTA.SRC first to ensure that wakeup from STANDBY is not set. The capture feature is not rearmed until all of the possible reset sources have been released and the result has been copied to this register. During the copy and rearm process it is one 24MHz period in which an eventual new system reset will be reported as Power on reset regardless of the root cause.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`rststa::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`rststa::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct RststaSpec;
 impl crate::RegisterSpec for RststaSpec {

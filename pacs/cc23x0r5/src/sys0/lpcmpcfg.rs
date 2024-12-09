@@ -616,9 +616,6 @@ where
 #[doc = "Field `RESERVED15` reader - 15:15\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved15R = crate::BitReader;
-#[doc = "Field `RESERVED15` writer - 15:15\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved15W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "16:16\\]
 Internal. Only to be used through TI provided API.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -790,9 +787,6 @@ where
 #[doc = "Field `RESERVED19` reader - 19:19\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved19R = crate::BitReader;
-#[doc = "Field `RESERVED19` writer - 19:19\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved19W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "20:20\\]
 Internal. Only to be used through TI provided API.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -829,24 +823,6 @@ impl CoutR {
     #[inline(always)]
     pub fn is_low(&self) -> bool {
         *self == Cout::Low
-    }
-}
-#[doc = "Field `COUT` writer - 20:20\\]
-Internal. Only to be used through TI provided API."]
-pub type CoutW<'a, REG> = crate::BitWriter<'a, REG, Cout>;
-impl<'a, REG> CoutW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    pub fn high(self) -> &'a mut crate::W<REG> {
-        self.variant(Cout::High)
-    }
-    #[doc = "Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    pub fn low(self) -> &'a mut crate::W<REG> {
-        self.variant(Cout::Low)
     }
 }
 #[doc = "21:21\\]
@@ -908,9 +884,6 @@ where
 #[doc = "Field `RESERVED22` reader - 23:22\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved22R = crate::FieldReader;
-#[doc = "Field `RESERVED22` writer - 23:22\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved22W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "24:24\\]
 Internal. Only to be used through TI provided API.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -970,9 +943,6 @@ where
 #[doc = "Field `RESERVED25` reader - 27:25\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved25R = crate::FieldReader;
-#[doc = "Field `RESERVED25` writer - 27:25\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved25W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "29:28\\]
 Internal. Only to be used through TI provided API.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1071,9 +1041,6 @@ pub type HyspolW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED31` reader - 31:31\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved31R = crate::BitReader;
-#[doc = "Field `RESERVED31` writer - 31:31\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved31W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Internal. Only to be used through TI provided API."]
@@ -1233,13 +1200,6 @@ Internal. Only to be used through TI provided API."]
     pub fn nsel(&mut self) -> NselW<LpcmpcfgSpec> {
         NselW::new(self, 12)
     }
-    #[doc = "Bit 15 - 15:15\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved15(&mut self) -> Reserved15W<LpcmpcfgSpec> {
-        Reserved15W::new(self, 15)
-    }
     #[doc = "Bit 16 - 16:16\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
@@ -1261,20 +1221,6 @@ Internal. Only to be used through TI provided API."]
     pub fn wuensb(&mut self) -> WuensbW<LpcmpcfgSpec> {
         WuensbW::new(self, 18)
     }
-    #[doc = "Bit 19 - 19:19\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved19(&mut self) -> Reserved19W<LpcmpcfgSpec> {
-        Reserved19W::new(self, 19)
-    }
-    #[doc = "Bit 20 - 20:20\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn cout(&mut self) -> CoutW<LpcmpcfgSpec> {
-        CoutW::new(self, 20)
-    }
     #[doc = "Bit 21 - 21:21\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
@@ -1282,26 +1228,12 @@ Internal. Only to be used through TI provided API."]
     pub fn couten(&mut self) -> CoutenW<LpcmpcfgSpec> {
         CoutenW::new(self, 21)
     }
-    #[doc = "Bits 22:23 - 23:22\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved22(&mut self) -> Reserved22W<LpcmpcfgSpec> {
-        Reserved22W::new(self, 22)
-    }
     #[doc = "Bit 24 - 24:24\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
     pub fn evtifg(&mut self) -> EvtifgW<LpcmpcfgSpec> {
         EvtifgW::new(self, 24)
-    }
-    #[doc = "Bits 25:27 - 27:25\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved25(&mut self) -> Reserved25W<LpcmpcfgSpec> {
-        Reserved25W::new(self, 25)
     }
     #[doc = "Bits 28:29 - 29:28\\]
 Internal. Only to be used through TI provided API."]
@@ -1316,13 +1248,6 @@ Internal. Only to be used through TI provided API."]
     #[must_use]
     pub fn hyspol(&mut self) -> HyspolW<LpcmpcfgSpec> {
         HyspolW::new(self, 30)
-    }
-    #[doc = "Bit 31 - 31:31\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved31(&mut self) -> Reserved31W<LpcmpcfgSpec> {
-        Reserved31W::new(self, 31)
     }
 }
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`lpcmpcfg::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`lpcmpcfg::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

@@ -380,9 +380,6 @@ where
 #[doc = "Field `RESERVED5` reader - 7:5\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved5R = crate::FieldReader;
-#[doc = "Field `RESERVED5` writer - 7:5\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved5W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "12:8\\]
 Select source of radio GPO line 5\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -761,9 +758,6 @@ where
 #[doc = "Field `RESERVED13` reader - 15:13\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved13R = crate::FieldReader;
-#[doc = "Field `RESERVED13` writer - 15:13\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved13W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "20:16\\]
 Select source of radio GPO line 6\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1142,9 +1136,6 @@ where
 #[doc = "Field `RESERVED21` reader - 23:21\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved21R = crate::FieldReader;
-#[doc = "Field `RESERVED21` writer - 23:21\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved21W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "28:24\\]
 Select source of radio GPO line 7\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1523,9 +1514,6 @@ where
 #[doc = "Field `RESERVED29` reader - 31:29\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved29R = crate::FieldReader;
-#[doc = "Field `RESERVED29` writer - 31:29\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved29W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 impl R {
     #[doc = "Bits 0:4 - 4:0\\]
 Select source of radio GPO line 4"]
@@ -1584,26 +1572,12 @@ Select source of radio GPO line 4"]
     pub fn src4(&mut self) -> Src4W<Gposel1Spec> {
         Src4W::new(self, 0)
     }
-    #[doc = "Bits 5:7 - 7:5\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved5(&mut self) -> Reserved5W<Gposel1Spec> {
-        Reserved5W::new(self, 5)
-    }
     #[doc = "Bits 8:12 - 12:8\\]
 Select source of radio GPO line 5"]
     #[inline(always)]
     #[must_use]
     pub fn src5(&mut self) -> Src5W<Gposel1Spec> {
         Src5W::new(self, 8)
-    }
-    #[doc = "Bits 13:15 - 15:13\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved13(&mut self) -> Reserved13W<Gposel1Spec> {
-        Reserved13W::new(self, 13)
     }
     #[doc = "Bits 16:20 - 20:16\\]
 Select source of radio GPO line 6"]
@@ -1612,26 +1586,12 @@ Select source of radio GPO line 6"]
     pub fn src6(&mut self) -> Src6W<Gposel1Spec> {
         Src6W::new(self, 16)
     }
-    #[doc = "Bits 21:23 - 23:21\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved21(&mut self) -> Reserved21W<Gposel1Spec> {
-        Reserved21W::new(self, 21)
-    }
     #[doc = "Bits 24:28 - 28:24\\]
 Select source of radio GPO line 7"]
     #[inline(always)]
     #[must_use]
     pub fn src7(&mut self) -> Src7W<Gposel1Spec> {
         Src7W::new(self, 24)
-    }
-    #[doc = "Bits 29:31 - 31:29\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved29(&mut self) -> Reserved29W<Gposel1Spec> {
-        Reserved29W::new(self, 29)
     }
 }
 #[doc = "Controls routing of GPO signals from MDM, RFE and PBE to the radio GPO lines\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`gposel1::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`gposel1::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

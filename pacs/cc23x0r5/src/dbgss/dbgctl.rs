@@ -96,24 +96,6 @@ impl SwdselR {
         *self == Swdsel::Dis
     }
 }
-#[doc = "Field `SWDSEL` writer - 1:1\\]
-This bit field specifies the status of SWD MODE for connection."]
-pub type SwdselW<'a, REG> = crate::BitWriter<'a, REG, Swdsel>;
-impl<'a, REG> SwdselW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "debug connection enabled."]
-    #[inline(always)]
-    pub fn en(self) -> &'a mut crate::W<REG> {
-        self.variant(Swdsel::En)
-    }
-    #[doc = "debug connection disabled."]
-    #[inline(always)]
-    pub fn dis(self) -> &'a mut crate::W<REG> {
-        self.variant(Swdsel::Dis)
-    }
-}
 #[doc = "2:2\\]
 This bit field specifies the status of JTAG MODE for TEST TAP.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -150,24 +132,6 @@ impl JtagselR {
     #[inline(always)]
     pub fn is_dis(&self) -> bool {
         *self == Jtagsel::Dis
-    }
-}
-#[doc = "Field `JTAGSEL` writer - 2:2\\]
-This bit field specifies the status of JTAG MODE for TEST TAP."]
-pub type JtagselW<'a, REG> = crate::BitWriter<'a, REG, Jtagsel>;
-impl<'a, REG> JtagselW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "TEST TAP enabled"]
-    #[inline(always)]
-    pub fn en(self) -> &'a mut crate::W<REG> {
-        self.variant(Jtagsel::En)
-    }
-    #[doc = "TEST TAP disabled"]
-    #[inline(always)]
-    pub fn dis(self) -> &'a mut crate::W<REG> {
-        self.variant(Jtagsel::Dis)
     }
 }
 #[doc = "3:3\\]
@@ -208,24 +172,6 @@ impl SyspwrupackR {
         *self == Syspwrupack::Dis
     }
 }
-#[doc = "Field `SYSPWRUPACK` writer - 3:3\\]
-This bit field specify the status of syspwrupack from pmctl."]
-pub type SyspwrupackW<'a, REG> = crate::BitWriter<'a, REG, Syspwrupack>;
-impl<'a, REG> SyspwrupackW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "syspwrupreq is acknowledged"]
-    #[inline(always)]
-    pub fn en(self) -> &'a mut crate::W<REG> {
-        self.variant(Syspwrupack::En)
-    }
-    #[doc = "syspwrupreq is not acknowledged"]
-    #[inline(always)]
-    pub fn dis(self) -> &'a mut crate::W<REG> {
-        self.variant(Syspwrupack::Dis)
-    }
-}
 #[doc = "4:4\\]
 This bit field specifies the status of dbgpwrupack from pmctl.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -262,24 +208,6 @@ impl DbgpwrupackR {
     #[inline(always)]
     pub fn is_dis(&self) -> bool {
         *self == Dbgpwrupack::Dis
-    }
-}
-#[doc = "Field `DBGPWRUPACK` writer - 4:4\\]
-This bit field specifies the status of dbgpwrupack from pmctl."]
-pub type DbgpwrupackW<'a, REG> = crate::BitWriter<'a, REG, Dbgpwrupack>;
-impl<'a, REG> DbgpwrupackW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "dbgpwrupreq is acknowledged."]
-    #[inline(always)]
-    pub fn en(self) -> &'a mut crate::W<REG> {
-        self.variant(Dbgpwrupack::En)
-    }
-    #[doc = "dbgpwrupreq is not acknowledged"]
-    #[inline(always)]
-    pub fn dis(self) -> &'a mut crate::W<REG> {
-        self.variant(Dbgpwrupack::Dis)
     }
 }
 #[doc = "5:5\\]
@@ -341,9 +269,6 @@ where
 #[doc = "Field `RESERVED6` reader - 31:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved6R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED6` writer - 31:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 26, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 This bit is used for connecting to IO pads to SWCLK/IO on SW-DP through a software request and establish SWD connection without icemelter trigger for debug purpose."]
@@ -396,47 +321,12 @@ This bit is used for connecting to IO pads to SWCLK/IO on SW-DP through a softwa
     pub fn swdovr(&mut self) -> SwdovrW<DbgctlSpec> {
         SwdovrW::new(self, 0)
     }
-    #[doc = "Bit 1 - 1:1\\]
-This bit field specifies the status of SWD MODE for connection."]
-    #[inline(always)]
-    #[must_use]
-    pub fn swdsel(&mut self) -> SwdselW<DbgctlSpec> {
-        SwdselW::new(self, 1)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-This bit field specifies the status of JTAG MODE for TEST TAP."]
-    #[inline(always)]
-    #[must_use]
-    pub fn jtagsel(&mut self) -> JtagselW<DbgctlSpec> {
-        JtagselW::new(self, 2)
-    }
-    #[doc = "Bit 3 - 3:3\\]
-This bit field specify the status of syspwrupack from pmctl."]
-    #[inline(always)]
-    #[must_use]
-    pub fn syspwrupack(&mut self) -> SyspwrupackW<DbgctlSpec> {
-        SyspwrupackW::new(self, 3)
-    }
-    #[doc = "Bit 4 - 4:4\\]
-This bit field specifies the status of dbgpwrupack from pmctl."]
-    #[inline(always)]
-    #[must_use]
-    pub fn dbgpwrupack(&mut self) -> DbgpwrupackW<DbgctlSpec> {
-        DbgpwrupackW::new(self, 4)
-    }
     #[doc = "Bit 5 - 5:5\\]
 This bit is used to enable connection between SWD pads and IceMelter"]
     #[inline(always)]
     #[must_use]
     pub fn swdcen(&mut self) -> SwdcenW<DbgctlSpec> {
         SwdcenW::new(self, 5)
-    }
-    #[doc = "Bits 6:31 - 31:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<DbgctlSpec> {
-        Reserved6W::new(self, 6)
     }
 }
 #[doc = "Debug control register. This register is used for controlling debug connection and read out debug status.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`dbgctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`dbgctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

@@ -2,20 +2,9 @@
 pub type R = crate::R<MunlockSpec>;
 #[doc = "Register `MUNLOCK` writer"]
 pub type W = crate::W<MunlockSpec>;
-#[doc = "Field `KEY` reader - 31:0\\]
-Write the unlock key 0xC5AF_6927 to temporarily unlock registers in mutable section. The lock is set automatically if no write accesses, to the mutable section, are detected for consecutive 32 CLKULL (24MHz) clock cycles. Writing any value other that the unlock key will immediately lock the mutable register space for write access."]
-pub type KeyR = crate::FieldReader<u32>;
 #[doc = "Field `KEY` writer - 31:0\\]
 Write the unlock key 0xC5AF_6927 to temporarily unlock registers in mutable section. The lock is set automatically if no write accesses, to the mutable section, are detected for consecutive 32 CLKULL (24MHz) clock cycles. Writing any value other that the unlock key will immediately lock the mutable register space for write access."]
 pub type KeyW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
-impl R {
-    #[doc = "Bits 0:31 - 31:0\\]
-Write the unlock key 0xC5AF_6927 to temporarily unlock registers in mutable section. The lock is set automatically if no write accesses, to the mutable section, are detected for consecutive 32 CLKULL (24MHz) clock cycles. Writing any value other that the unlock key will immediately lock the mutable register space for write access."]
-    #[inline(always)]
-    pub fn key(&self) -> KeyR {
-        KeyR::new(self.bits)
-    }
-}
 impl W {
     #[doc = "Bits 0:31 - 31:0\\]
 Write the unlock key 0xC5AF_6927 to temporarily unlock registers in mutable section. The lock is set automatically if no write accesses, to the mutable section, are detected for consecutive 32 CLKULL (24MHz) clock cycles. Writing any value other that the unlock key will immediately lock the mutable register space for write access."]

@@ -623,9 +623,6 @@ where
 #[doc = "Field `RESERVED12` reader - 31:12\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved12R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED12` writer - 31:12\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved12W<'a, REG> = crate::FieldWriter<'a, REG, 20, u32>;
 impl R {
     #[doc = "Bits 0:3 - 3:0\\]
 Select source of systimer output event 0 (capture source)"]
@@ -673,13 +670,6 @@ Select source of systimer output event 2 (capture source)"]
     #[must_use]
     pub fn src2(&mut self) -> Src2W<SystimoevSpec> {
         Src2W::new(self, 8)
-    }
-    #[doc = "Bits 12:31 - 31:12\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved12(&mut self) -> Reserved12W<SystimoevSpec> {
-        Reserved12W::new(self, 12)
     }
 }
 #[doc = "Systimer Output Event Control Register. Controls routing of internal events to the three systimer output events\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`systimoev::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`systimoev::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

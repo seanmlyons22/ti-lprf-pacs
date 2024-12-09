@@ -5,27 +5,15 @@ pub type W = crate::W<SrisSpec>;
 #[doc = "Field `DATARIS` reader - 0:0\\]
 Data raw interrupt status 0 - Interrupt did not occur 1 - Interrupt occured This bit is cleared by writing a 1 to the SICR.DATAIC."]
 pub type DatarisR = crate::BitReader;
-#[doc = "Field `DATARIS` writer - 0:0\\]
-Data raw interrupt status 0 - Interrupt did not occur 1 - Interrupt occured This bit is cleared by writing a 1 to the SICR.DATAIC."]
-pub type DatarisW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `STARTRIS` reader - 1:1\\]
 Start condition raw interrupt status 0 - Interrupt did not occur 1 - Interrupt occured This bit is cleared by writing a 1 to SICR.STARTIC."]
 pub type StartrisR = crate::BitReader;
-#[doc = "Field `STARTRIS` writer - 1:1\\]
-Start condition raw interrupt status 0 - Interrupt did not occur 1 - Interrupt occured This bit is cleared by writing a 1 to SICR.STARTIC."]
-pub type StartrisW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `STOPRIS` reader - 2:2\\]
 Stop condition raw interrupt status 0 - Interrupt did not occur 1 - Interrupt occured This bit is cleared by writing a 1 to SICR.STOPIC."]
 pub type StoprisR = crate::BitReader;
-#[doc = "Field `STOPRIS` writer - 2:2\\]
-Stop condition raw interrupt status 0 - Interrupt did not occur 1 - Interrupt occured This bit is cleared by writing a 1 to SICR.STOPIC."]
-pub type StoprisW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED3` reader - 31:3\\]
 Reads to this field return zero.Writes to this field are ignored."]
 pub type Reserved3R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED3` writer - 31:3\\]
-Reads to this field return zero.Writes to this field are ignored."]
-pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 29, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Data raw interrupt status 0 - Interrupt did not occur 1 - Interrupt occured This bit is cleared by writing a 1 to the SICR.DATAIC."]
@@ -52,36 +40,7 @@ Reads to this field return zero.Writes to this field are ignored."]
         Reserved3R::new((self.bits >> 3) & 0x1fff_ffff)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Data raw interrupt status 0 - Interrupt did not occur 1 - Interrupt occured This bit is cleared by writing a 1 to the SICR.DATAIC."]
-    #[inline(always)]
-    #[must_use]
-    pub fn dataris(&mut self) -> DatarisW<SrisSpec> {
-        DatarisW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Start condition raw interrupt status 0 - Interrupt did not occur 1 - Interrupt occured This bit is cleared by writing a 1 to SICR.STARTIC."]
-    #[inline(always)]
-    #[must_use]
-    pub fn startris(&mut self) -> StartrisW<SrisSpec> {
-        StartrisW::new(self, 1)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-Stop condition raw interrupt status 0 - Interrupt did not occur 1 - Interrupt occured This bit is cleared by writing a 1 to SICR.STOPIC."]
-    #[inline(always)]
-    #[must_use]
-    pub fn stopris(&mut self) -> StoprisW<SrisSpec> {
-        StoprisW::new(self, 2)
-    }
-    #[doc = "Bits 3:31 - 31:3\\]
-Reads to this field return zero.Writes to this field are ignored."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<SrisSpec> {
-        Reserved3W::new(self, 3)
-    }
-}
+impl W {}
 #[doc = "Slave Raw Interrupt Status This register shows the unmasked interrupt status.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`sris::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`sris::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct SrisSpec;
 impl crate::RegisterSpec for SrisSpec {

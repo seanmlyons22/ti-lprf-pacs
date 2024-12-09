@@ -17,29 +17,6 @@ impl From<Vdds2> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `VDDS2` reader - 0:0\\]
-Internal. Only to be used through TI provided API."]
-pub type Vdds2R = crate::BitReader<Vdds2>;
-impl Vdds2R {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Vdds2 {
-        match self.bits {
-            true => Vdds2::En,
-            false => Vdds2::Noeff,
-        }
-    }
-    #[doc = "Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    pub fn is_en(&self) -> bool {
-        *self == Vdds2::En
-    }
-    #[doc = "Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    pub fn is_noeff(&self) -> bool {
-        *self == Vdds2::Noeff
-    }
-}
 #[doc = "Field `VDDS2` writer - 0:0\\]
 Internal. Only to be used through TI provided API."]
 pub type Vdds2W<'a, REG> = crate::BitWriter<'a, REG, Vdds2>;
@@ -73,29 +50,6 @@ impl From<Vdds3> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `VDDS3` reader - 1:1\\]
-Internal. Only to be used through TI provided API."]
-pub type Vdds3R = crate::BitReader<Vdds3>;
-impl Vdds3R {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Vdds3 {
-        match self.bits {
-            true => Vdds3::En,
-            false => Vdds3::Noeff,
-        }
-    }
-    #[doc = "Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    pub fn is_en(&self) -> bool {
-        *self == Vdds3::En
-    }
-    #[doc = "Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    pub fn is_noeff(&self) -> bool {
-        *self == Vdds3::Noeff
-    }
-}
 #[doc = "Field `VDDS3` writer - 1:1\\]
 Internal. Only to be used through TI provided API."]
 pub type Vdds3W<'a, REG> = crate::BitWriter<'a, REG, Vdds3>;
@@ -117,22 +71,7 @@ where
 #[doc = "Field `RESERVED2` reader - 31:2\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved2R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED2` writer - 31:2\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 30, u32>;
 impl R {
-    #[doc = "Bit 0 - 0:0\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    pub fn vdds2(&self) -> Vdds2R {
-        Vdds2R::new((self.bits & 1) != 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    pub fn vdds3(&self) -> Vdds3R {
-        Vdds3R::new(((self.bits >> 1) & 1) != 0)
-    }
     #[doc = "Bits 2:31 - 31:2\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
@@ -154,13 +93,6 @@ Internal. Only to be used through TI provided API."]
     #[must_use]
     pub fn vdds3(&mut self) -> Vdds3W<IosegsetSpec> {
         Vdds3W::new(self, 1)
-    }
-    #[doc = "Bits 2:31 - 31:2\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<IosegsetSpec> {
-        Reserved2W::new(self, 2)
     }
 }
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`iosegset::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`iosegset::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

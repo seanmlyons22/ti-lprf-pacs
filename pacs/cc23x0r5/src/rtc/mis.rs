@@ -40,24 +40,6 @@ impl Ev0R {
         *self == Ev0::Clr
     }
 }
-#[doc = "Field `EV0` writer - 0:0\\]
-Masked interrupt status for channel 0 event."]
-pub type Ev0W<'a, REG> = crate::BitWriter<'a, REG, Ev0>;
-impl<'a, REG> Ev0W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occured"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Ev0::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Ev0::Clr)
-    }
-}
 #[doc = "1:1\\]
 Masked interrupt status for channel 1 event.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -96,30 +78,9 @@ impl Ev1R {
         *self == Ev1::Clr
     }
 }
-#[doc = "Field `EV1` writer - 1:1\\]
-Masked interrupt status for channel 1 event."]
-pub type Ev1W<'a, REG> = crate::BitWriter<'a, REG, Ev1>;
-impl<'a, REG> Ev1W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occured"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Ev1::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Ev1::Clr)
-    }
-}
 #[doc = "Field `RESERVED2` reader - 31:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED2` writer - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 30, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Masked interrupt status for channel 0 event."]
@@ -140,29 +101,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved2R::new((self.bits >> 2) & 0x3fff_ffff)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Masked interrupt status for channel 0 event."]
-    #[inline(always)]
-    #[must_use]
-    pub fn ev0(&mut self) -> Ev0W<MisSpec> {
-        Ev0W::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Masked interrupt status for channel 1 event."]
-    #[inline(always)]
-    #[must_use]
-    pub fn ev1(&mut self) -> Ev1W<MisSpec> {
-        Ev1W::new(self, 1)
-    }
-    #[doc = "Bits 2:31 - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<MisSpec> {
-        Reserved2W::new(self, 2)
-    }
-}
+impl W {}
 #[doc = "Masked interrupt status. This register is simply a bitwise AND of the contents of IMASK and RIS.*\\]
 registers. A flag set in this register can be cleared by writing 1 to the corresponding ICLR register bit.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`mis::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`mis::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct MisSpec;

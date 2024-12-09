@@ -2,20 +2,9 @@
 pub type R = crate::R<Key1Spec>;
 #[doc = "Register `KEY1` writer"]
 pub type W = crate::W<Key1Spec>;
-#[doc = "Field `VAL` reader - 31:0\\]
-Value of KEY\\[63:32\\]"]
-pub type ValR = crate::FieldReader<u32>;
 #[doc = "Field `VAL` writer - 31:0\\]
 Value of KEY\\[63:32\\]"]
 pub type ValW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
-impl R {
-    #[doc = "Bits 0:31 - 31:0\\]
-Value of KEY\\[63:32\\]"]
-    #[inline(always)]
-    pub fn val(&self) -> ValR {
-        ValR::new(self.bits)
-    }
-}
 impl W {
     #[doc = "Bits 0:31 - 31:0\\]
 Value of KEY\\[63:32\\]"]

@@ -40,30 +40,9 @@ impl Dio12R {
         *self == Dio12::Zero
     }
 }
-#[doc = "Field `DIO12` writer - 0:0\\]
-Data input from DIO12"]
-pub type Dio12W<'a, REG> = crate::BitWriter<'a, REG, Dio12>;
-impl<'a, REG> Dio12W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio12::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio12::Zero)
-    }
-}
 #[doc = "Field `RESERVED1` reader - 7:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved1R = crate::FieldReader;
-#[doc = "Field `RESERVED1` writer - 7:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "8:8\\]
 Data input from DIO13\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -102,30 +81,9 @@ impl Dio13R {
         *self == Dio13::Zero
     }
 }
-#[doc = "Field `DIO13` writer - 8:8\\]
-Data input from DIO13"]
-pub type Dio13W<'a, REG> = crate::BitWriter<'a, REG, Dio13>;
-impl<'a, REG> Dio13W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio13::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio13::Zero)
-    }
-}
 #[doc = "Field `RESERVED9` reader - 15:9\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved9R = crate::FieldReader;
-#[doc = "Field `RESERVED9` writer - 15:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved9W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "16:16\\]
 Data input from DIO14\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -164,30 +122,9 @@ impl Dio14R {
         *self == Dio14::Zero
     }
 }
-#[doc = "Field `DIO14` writer - 16:16\\]
-Data input from DIO14"]
-pub type Dio14W<'a, REG> = crate::BitWriter<'a, REG, Dio14>;
-impl<'a, REG> Dio14W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio14::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio14::Zero)
-    }
-}
 #[doc = "Field `RESERVED17` reader - 23:17\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved17R = crate::FieldReader;
-#[doc = "Field `RESERVED17` writer - 23:17\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved17W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "24:24\\]
 Data input from DIO15\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -226,30 +163,9 @@ impl Dio15R {
         *self == Dio15::Zero
     }
 }
-#[doc = "Field `DIO15` writer - 24:24\\]
-Data input from DIO15"]
-pub type Dio15W<'a, REG> = crate::BitWriter<'a, REG, Dio15>;
-impl<'a, REG> Dio15W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio15::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio15::Zero)
-    }
-}
 #[doc = "Field `RESERVED25` reader - 31:25\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved25R = crate::FieldReader;
-#[doc = "Field `RESERVED25` writer - 31:25\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved25W<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Data input from DIO12"]
@@ -300,64 +216,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved25R::new(((self.bits >> 25) & 0x7f) as u8)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Data input from DIO12"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio12(&mut self) -> Dio12W<Din15_12Spec> {
-        Dio12W::new(self, 0)
-    }
-    #[doc = "Bits 1:7 - 7:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved1(&mut self) -> Reserved1W<Din15_12Spec> {
-        Reserved1W::new(self, 1)
-    }
-    #[doc = "Bit 8 - 8:8\\]
-Data input from DIO13"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio13(&mut self) -> Dio13W<Din15_12Spec> {
-        Dio13W::new(self, 8)
-    }
-    #[doc = "Bits 9:15 - 15:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved9(&mut self) -> Reserved9W<Din15_12Spec> {
-        Reserved9W::new(self, 9)
-    }
-    #[doc = "Bit 16 - 16:16\\]
-Data input from DIO14"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio14(&mut self) -> Dio14W<Din15_12Spec> {
-        Dio14W::new(self, 16)
-    }
-    #[doc = "Bits 17:23 - 23:17\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved17(&mut self) -> Reserved17W<Din15_12Spec> {
-        Reserved17W::new(self, 17)
-    }
-    #[doc = "Bit 24 - 24:24\\]
-Data input from DIO15"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio15(&mut self) -> Dio15W<Din15_12Spec> {
-        Dio15W::new(self, 24)
-    }
-    #[doc = "Bits 25:31 - 31:25\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved25(&mut self) -> Reserved25W<Din15_12Spec> {
-        Reserved25W::new(self, 25)
-    }
-}
+impl W {}
 #[doc = "Data input 15 to 12. Alias register for byte access to DIN31_0\\[15:12\\]
 bits.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`din15_12::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`din15_12::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Din15_12Spec;

@@ -2,176 +2,48 @@
 pub type R = crate::R<IcrSpec>;
 #[doc = "Register `ICR` writer"]
 pub type W = crate::W<IcrSpec>;
-#[doc = "Field `RESERVED0` reader - 0:0\\]
-Reads to this field return zero, writes to this field are ignored. Write 0."]
-pub type Reserved0R = crate::BitReader;
 #[doc = "Field `RESERVED0` writer - 0:0\\]
 Reads to this field return zero, writes to this field are ignored. Write 0."]
 pub type Reserved0W<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `CTSMIC` reader - 1:1\\]
-Clear to Send (CTS) modem interrupt clear: Writing 1 to this field clears the clear to send interrupt (RIS.CTSRMIS). Writing 0 has no effect."]
-pub type CtsmicR = crate::BitReader;
 #[doc = "Field `CTSMIC` writer - 1:1\\]
 Clear to Send (CTS) modem interrupt clear: Writing 1 to this field clears the clear to send interrupt (RIS.CTSRMIS). Writing 0 has no effect."]
 pub type CtsmicW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `RESERVED2` reader - 3:2\\]
-Reads to this field return zero, writes to this field are ignored. Write 0"]
-pub type Reserved2R = crate::FieldReader;
 #[doc = "Field `RESERVED2` writer - 3:2\\]
 Reads to this field return zero, writes to this field are ignored. Write 0"]
 pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
-#[doc = "Field `RXIC` reader - 4:4\\]
-Receive interrupt clear: Writing 1 to this field clears the receive interrupt (RIS.RXRIS). Writing 0 has no effect."]
-pub type RxicR = crate::BitReader;
 #[doc = "Field `RXIC` writer - 4:4\\]
 Receive interrupt clear: Writing 1 to this field clears the receive interrupt (RIS.RXRIS). Writing 0 has no effect."]
 pub type RxicW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `TXIC` reader - 5:5\\]
-Transmit interrupt clear: Writing 1 to this field clears the transmit interrupt (RIS.TXRIS). Writing 0 has no effect."]
-pub type TxicR = crate::BitReader;
 #[doc = "Field `TXIC` writer - 5:5\\]
 Transmit interrupt clear: Writing 1 to this field clears the transmit interrupt (RIS.TXRIS). Writing 0 has no effect."]
 pub type TxicW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `RTIC` reader - 6:6\\]
-Receive timeout interrupt clear: Writing 1 to this field clears the receive timeout interrupt (RIS.RTRIS). Writing 0 has no effect."]
-pub type RticR = crate::BitReader;
 #[doc = "Field `RTIC` writer - 6:6\\]
 Receive timeout interrupt clear: Writing 1 to this field clears the receive timeout interrupt (RIS.RTRIS). Writing 0 has no effect."]
 pub type RticW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `FEIC` reader - 7:7\\]
-Framing error interrupt clear: Writing 1 to this field clears the framing error interrupt (RIS.FERIS). Writing 0 has no effect."]
-pub type FeicR = crate::BitReader;
 #[doc = "Field `FEIC` writer - 7:7\\]
 Framing error interrupt clear: Writing 1 to this field clears the framing error interrupt (RIS.FERIS). Writing 0 has no effect."]
 pub type FeicW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `PEIC` reader - 8:8\\]
-Parity error interrupt clear: Writing 1 to this field clears the parity error interrupt (RIS.PERIS). Writing 0 has no effect."]
-pub type PeicR = crate::BitReader;
 #[doc = "Field `PEIC` writer - 8:8\\]
 Parity error interrupt clear: Writing 1 to this field clears the parity error interrupt (RIS.PERIS). Writing 0 has no effect."]
 pub type PeicW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `BEIC` reader - 9:9\\]
-Break error interrupt clear: Writing 1 to this field clears the break error interrupt (RIS.BERIS). Writing 0 has no effect."]
-pub type BeicR = crate::BitReader;
 #[doc = "Field `BEIC` writer - 9:9\\]
 Break error interrupt clear: Writing 1 to this field clears the break error interrupt (RIS.BERIS). Writing 0 has no effect."]
 pub type BeicW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `OEIC` reader - 10:10\\]
-Overrun error interrupt clear: Writing 1 to this field clears the overrun error interrupt (RIS.OERIS). Writing 0 has no effect."]
-pub type OeicR = crate::BitReader;
 #[doc = "Field `OEIC` writer - 10:10\\]
 Overrun error interrupt clear: Writing 1 to this field clears the overrun error interrupt (RIS.OERIS). Writing 0 has no effect."]
 pub type OeicW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `EOTIC` reader - 11:11\\]
-End of Transmission interrupt clear: Writing 1 to this field clears the End of Transmission interrupt (RIS.EOTRIS). Writing 0 has no effect."]
-pub type EoticR = crate::BitReader;
 #[doc = "Field `EOTIC` writer - 11:11\\]
 End of Transmission interrupt clear: Writing 1 to this field clears the End of Transmission interrupt (RIS.EOTRIS). Writing 0 has no effect."]
 pub type EoticW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `TXDMADONEIC` reader - 12:12\\]
-Tx DMA Done interrupt clear: Writing 1 to this field clears the txdma done interrupt (RIS.TXDMADONERIS). Writing 0 has no effect."]
-pub type TxdmadoneicR = crate::BitReader;
 #[doc = "Field `TXDMADONEIC` writer - 12:12\\]
 Tx DMA Done interrupt clear: Writing 1 to this field clears the txdma done interrupt (RIS.TXDMADONERIS). Writing 0 has no effect."]
 pub type TxdmadoneicW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `RXDMADONEIC` reader - 13:13\\]
-Rx DMA Done interrupt clear: Writing 1 to this field clears the rxdma done interrupt (RIS.RXDMADONERIS). Writing 0 has no effect."]
-pub type RxdmadoneicR = crate::BitReader;
 #[doc = "Field `RXDMADONEIC` writer - 13:13\\]
 Rx DMA Done interrupt clear: Writing 1 to this field clears the rxdma done interrupt (RIS.RXDMADONERIS). Writing 0 has no effect."]
 pub type RxdmadoneicW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `RESERVED16` reader - 31:14\\]
-Reads to this field return zero, writes to this field are ignored. Read as zero, do not modify"]
-pub type Reserved16R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED16` writer - 31:14\\]
 Reads to this field return zero, writes to this field are ignored. Read as zero, do not modify"]
 pub type Reserved16W<'a, REG> = crate::FieldWriter<'a, REG, 18, u32>;
-impl R {
-    #[doc = "Bit 0 - 0:0\\]
-Reads to this field return zero, writes to this field are ignored. Write 0."]
-    #[inline(always)]
-    pub fn reserved0(&self) -> Reserved0R {
-        Reserved0R::new((self.bits & 1) != 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Clear to Send (CTS) modem interrupt clear: Writing 1 to this field clears the clear to send interrupt (RIS.CTSRMIS). Writing 0 has no effect."]
-    #[inline(always)]
-    pub fn ctsmic(&self) -> CtsmicR {
-        CtsmicR::new(((self.bits >> 1) & 1) != 0)
-    }
-    #[doc = "Bits 2:3 - 3:2\\]
-Reads to this field return zero, writes to this field are ignored. Write 0"]
-    #[inline(always)]
-    pub fn reserved2(&self) -> Reserved2R {
-        Reserved2R::new(((self.bits >> 2) & 3) as u8)
-    }
-    #[doc = "Bit 4 - 4:4\\]
-Receive interrupt clear: Writing 1 to this field clears the receive interrupt (RIS.RXRIS). Writing 0 has no effect."]
-    #[inline(always)]
-    pub fn rxic(&self) -> RxicR {
-        RxicR::new(((self.bits >> 4) & 1) != 0)
-    }
-    #[doc = "Bit 5 - 5:5\\]
-Transmit interrupt clear: Writing 1 to this field clears the transmit interrupt (RIS.TXRIS). Writing 0 has no effect."]
-    #[inline(always)]
-    pub fn txic(&self) -> TxicR {
-        TxicR::new(((self.bits >> 5) & 1) != 0)
-    }
-    #[doc = "Bit 6 - 6:6\\]
-Receive timeout interrupt clear: Writing 1 to this field clears the receive timeout interrupt (RIS.RTRIS). Writing 0 has no effect."]
-    #[inline(always)]
-    pub fn rtic(&self) -> RticR {
-        RticR::new(((self.bits >> 6) & 1) != 0)
-    }
-    #[doc = "Bit 7 - 7:7\\]
-Framing error interrupt clear: Writing 1 to this field clears the framing error interrupt (RIS.FERIS). Writing 0 has no effect."]
-    #[inline(always)]
-    pub fn feic(&self) -> FeicR {
-        FeicR::new(((self.bits >> 7) & 1) != 0)
-    }
-    #[doc = "Bit 8 - 8:8\\]
-Parity error interrupt clear: Writing 1 to this field clears the parity error interrupt (RIS.PERIS). Writing 0 has no effect."]
-    #[inline(always)]
-    pub fn peic(&self) -> PeicR {
-        PeicR::new(((self.bits >> 8) & 1) != 0)
-    }
-    #[doc = "Bit 9 - 9:9\\]
-Break error interrupt clear: Writing 1 to this field clears the break error interrupt (RIS.BERIS). Writing 0 has no effect."]
-    #[inline(always)]
-    pub fn beic(&self) -> BeicR {
-        BeicR::new(((self.bits >> 9) & 1) != 0)
-    }
-    #[doc = "Bit 10 - 10:10\\]
-Overrun error interrupt clear: Writing 1 to this field clears the overrun error interrupt (RIS.OERIS). Writing 0 has no effect."]
-    #[inline(always)]
-    pub fn oeic(&self) -> OeicR {
-        OeicR::new(((self.bits >> 10) & 1) != 0)
-    }
-    #[doc = "Bit 11 - 11:11\\]
-End of Transmission interrupt clear: Writing 1 to this field clears the End of Transmission interrupt (RIS.EOTRIS). Writing 0 has no effect."]
-    #[inline(always)]
-    pub fn eotic(&self) -> EoticR {
-        EoticR::new(((self.bits >> 11) & 1) != 0)
-    }
-    #[doc = "Bit 12 - 12:12\\]
-Tx DMA Done interrupt clear: Writing 1 to this field clears the txdma done interrupt (RIS.TXDMADONERIS). Writing 0 has no effect."]
-    #[inline(always)]
-    pub fn txdmadoneic(&self) -> TxdmadoneicR {
-        TxdmadoneicR::new(((self.bits >> 12) & 1) != 0)
-    }
-    #[doc = "Bit 13 - 13:13\\]
-Rx DMA Done interrupt clear: Writing 1 to this field clears the rxdma done interrupt (RIS.RXDMADONERIS). Writing 0 has no effect."]
-    #[inline(always)]
-    pub fn rxdmadoneic(&self) -> RxdmadoneicR {
-        RxdmadoneicR::new(((self.bits >> 13) & 1) != 0)
-    }
-    #[doc = "Bits 14:31 - 31:14\\]
-Reads to this field return zero, writes to this field are ignored. Read as zero, do not modify"]
-    #[inline(always)]
-    pub fn reserved16(&self) -> Reserved16R {
-        Reserved16R::new((self.bits >> 14) & 0x0003_ffff)
-    }
-}
 impl W {
     #[doc = "Bit 0 - 0:0\\]
 Reads to this field return zero, writes to this field are ignored. Write 0."]

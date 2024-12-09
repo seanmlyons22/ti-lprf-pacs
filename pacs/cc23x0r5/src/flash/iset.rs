@@ -17,29 +17,6 @@ impl From<Done> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `DONE` reader - 0:0\\]
-0: No effect 1: Set the DONE interrupt in the RIS register"]
-pub type DoneR = crate::BitReader<Done>;
-impl DoneR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Done {
-        match self.bits {
-            true => Done::Set,
-            false => Done::NoEffect,
-        }
-    }
-    #[doc = "Set IPSTANDARD.RIS bit"]
-    #[inline(always)]
-    pub fn is_set(&self) -> bool {
-        *self == Done::Set
-    }
-    #[doc = "Writing a 0 has no effect"]
-    #[inline(always)]
-    pub fn is_no_effect(&self) -> bool {
-        *self == Done::NoEffect
-    }
-}
 #[doc = "Field `DONE` writer - 0:0\\]
 0: No effect 1: Set the DONE interrupt in the RIS register"]
 pub type DoneW<'a, REG> = crate::BitWriter<'a, REG, Done>;
@@ -58,26 +35,9 @@ where
         self.variant(Done::NoEffect)
     }
 }
-#[doc = "Field `RESERVED_31_1` reader - 31:1\\]
-Reserved"]
-pub type Reserved31_1R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED_31_1` writer - 31:1\\]
 Reserved"]
 pub type Reserved31_1W<'a, REG> = crate::FieldWriter<'a, REG, 31, u32>;
-impl R {
-    #[doc = "Bit 0 - 0:0\\]
-0: No effect 1: Set the DONE interrupt in the RIS register"]
-    #[inline(always)]
-    pub fn done(&self) -> DoneR {
-        DoneR::new((self.bits & 1) != 0)
-    }
-    #[doc = "Bits 1:31 - 31:1\\]
-Reserved"]
-    #[inline(always)]
-    pub fn reserved_31_1(&self) -> Reserved31_1R {
-        Reserved31_1R::new((self.bits >> 1) & 0x7fff_ffff)
-    }
-}
 impl W {
     #[doc = "Bit 0 - 0:0\\]
 0: No effect 1: Set the DONE interrupt in the RIS register"]

@@ -11,9 +11,6 @@ pub type BoostEnzW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED1` reader - 3:1\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved1R = crate::FieldReader;
-#[doc = "Field `RESERVED1` writer - 3:1\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `DEC0_DIS` reader - 4:4\\]
 Internal. Only to be used through TI provided API."]
 pub type Dec0DisR = crate::BitReader;
@@ -29,9 +26,6 @@ pub type Dec1DisW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED6` reader - 31:6\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved6R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED6` writer - 31:6\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 26, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Internal. Only to be used through TI provided API."]
@@ -72,13 +66,6 @@ Internal. Only to be used through TI provided API."]
     pub fn boost_enz(&mut self) -> BoostEnzW<Debug3Spec> {
         BoostEnzW::new(self, 0)
     }
-    #[doc = "Bits 1:3 - 3:1\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved1(&mut self) -> Reserved1W<Debug3Spec> {
-        Reserved1W::new(self, 1)
-    }
     #[doc = "Bit 4 - 4:4\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
@@ -92,13 +79,6 @@ Internal. Only to be used through TI provided API."]
     #[must_use]
     pub fn dec1_dis(&mut self) -> Dec1DisW<Debug3Spec> {
         Dec1DisW::new(self, 5)
-    }
-    #[doc = "Bits 6:31 - 31:6\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<Debug3Spec> {
-        Reserved6W::new(self, 6)
     }
 }
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`debug3::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`debug3::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

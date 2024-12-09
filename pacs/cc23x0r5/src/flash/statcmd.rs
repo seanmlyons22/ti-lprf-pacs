@@ -40,24 +40,6 @@ impl CmddoneR {
         *self == Cmddone::Statnotdone
     }
 }
-#[doc = "Field `CMDDONE` writer - 0:0\\]
-Command Done"]
-pub type CmddoneW<'a, REG> = crate::BitWriter<'a, REG, Cmddone>;
-impl<'a, REG> CmddoneW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Done"]
-    #[inline(always)]
-    pub fn statdone(self) -> &'a mut crate::W<REG> {
-        self.variant(Cmddone::Statdone)
-    }
-    #[doc = "Not Done"]
-    #[inline(always)]
-    pub fn statnotdone(self) -> &'a mut crate::W<REG> {
-        self.variant(Cmddone::Statnotdone)
-    }
-}
 #[doc = "1:1\\]
 Command Pass - valid when CMD_DONE field is 1\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -94,24 +76,6 @@ impl CmdpassR {
     #[inline(always)]
     pub fn is_statfail(&self) -> bool {
         *self == Cmdpass::Statfail
-    }
-}
-#[doc = "Field `CMDPASS` writer - 1:1\\]
-Command Pass - valid when CMD_DONE field is 1"]
-pub type CmdpassW<'a, REG> = crate::BitWriter<'a, REG, Cmdpass>;
-impl<'a, REG> CmdpassW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Pass"]
-    #[inline(always)]
-    pub fn statpass(self) -> &'a mut crate::W<REG> {
-        self.variant(Cmdpass::Statpass)
-    }
-    #[doc = "Fail"]
-    #[inline(always)]
-    pub fn statfail(self) -> &'a mut crate::W<REG> {
-        self.variant(Cmdpass::Statfail)
     }
 }
 #[doc = "2:2\\]
@@ -152,30 +116,9 @@ impl CmdinprogressR {
         *self == Cmdinprogress::Statcomplete
     }
 }
-#[doc = "Field `CMDINPROGRESS` writer - 2:2\\]
-Command In Progress"]
-pub type CmdinprogressW<'a, REG> = crate::BitWriter<'a, REG, Cmdinprogress>;
-impl<'a, REG> CmdinprogressW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "In Progress"]
-    #[inline(always)]
-    pub fn statinprogress(self) -> &'a mut crate::W<REG> {
-        self.variant(Cmdinprogress::Statinprogress)
-    }
-    #[doc = "Complete"]
-    #[inline(always)]
-    pub fn statcomplete(self) -> &'a mut crate::W<REG> {
-        self.variant(Cmdinprogress::Statcomplete)
-    }
-}
 #[doc = "Field `RESERVED_3` reader - 3:3\\]
 Reserved"]
 pub type Reserved3R = crate::BitReader;
-#[doc = "Field `RESERVED_3` writer - 3:3\\]
-Reserved"]
-pub type Reserved3W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "4:4\\]
 Command failed due to Write/Erase Protect Sector Violation\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -212,24 +155,6 @@ impl FailweprotR {
     #[inline(always)]
     pub fn is_statnofail(&self) -> bool {
         *self == Failweprot::Statnofail
-    }
-}
-#[doc = "Field `FAILWEPROT` writer - 4:4\\]
-Command failed due to Write/Erase Protect Sector Violation"]
-pub type FailweprotW<'a, REG> = crate::BitWriter<'a, REG, Failweprot>;
-impl<'a, REG> FailweprotW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Fail"]
-    #[inline(always)]
-    pub fn statfail(self) -> &'a mut crate::W<REG> {
-        self.variant(Failweprot::Statfail)
-    }
-    #[doc = "No Fail"]
-    #[inline(always)]
-    pub fn statnofail(self) -> &'a mut crate::W<REG> {
-        self.variant(Failweprot::Statnofail)
     }
 }
 #[doc = "5:5\\]
@@ -270,24 +195,6 @@ impl FailverifyR {
         *self == Failverify::Statnofail
     }
 }
-#[doc = "Field `FAILVERIFY` writer - 5:5\\]
-Command failed due to verify error"]
-pub type FailverifyW<'a, REG> = crate::BitWriter<'a, REG, Failverify>;
-impl<'a, REG> FailverifyW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Fail"]
-    #[inline(always)]
-    pub fn statfail(self) -> &'a mut crate::W<REG> {
-        self.variant(Failverify::Statfail)
-    }
-    #[doc = "No Fail"]
-    #[inline(always)]
-    pub fn statnofail(self) -> &'a mut crate::W<REG> {
-        self.variant(Failverify::Statnofail)
-    }
-}
 #[doc = "6:6\\]
 Command failed due to the use of an illegal address\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -324,24 +231,6 @@ impl FaililladdrR {
     #[inline(always)]
     pub fn is_statnofail(&self) -> bool {
         *self == Faililladdr::Statnofail
-    }
-}
-#[doc = "Field `FAILILLADDR` writer - 6:6\\]
-Command failed due to the use of an illegal address"]
-pub type FaililladdrW<'a, REG> = crate::BitWriter<'a, REG, Faililladdr>;
-impl<'a, REG> FaililladdrW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Fail"]
-    #[inline(always)]
-    pub fn statfail(self) -> &'a mut crate::W<REG> {
-        self.variant(Faililladdr::Statfail)
-    }
-    #[doc = "No Fail"]
-    #[inline(always)]
-    pub fn statnofail(self) -> &'a mut crate::W<REG> {
-        self.variant(Faililladdr::Statnofail)
     }
 }
 #[doc = "7:7\\]
@@ -382,24 +271,6 @@ impl FailmodeR {
         *self == Failmode::Statnofail
     }
 }
-#[doc = "Field `FAILMODE` writer - 7:7\\]
-Command failed because a bank has been set to a mode other than READ. Program and Erase commands cannot be initiated unless all banks are in READ mode."]
-pub type FailmodeW<'a, REG> = crate::BitWriter<'a, REG, Failmode>;
-impl<'a, REG> FailmodeW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Fail"]
-    #[inline(always)]
-    pub fn statfail(self) -> &'a mut crate::W<REG> {
-        self.variant(Failmode::Statfail)
-    }
-    #[doc = "No Fail"]
-    #[inline(always)]
-    pub fn statnofail(self) -> &'a mut crate::W<REG> {
-        self.variant(Failmode::Statnofail)
-    }
-}
 #[doc = "8:8\\]
 Program command failed because an attempt was made to program a stored 0 value to a 1.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -438,30 +309,9 @@ impl FailinvdataR {
         *self == Failinvdata::Statnofail
     }
 }
-#[doc = "Field `FAILINVDATA` writer - 8:8\\]
-Program command failed because an attempt was made to program a stored 0 value to a 1."]
-pub type FailinvdataW<'a, REG> = crate::BitWriter<'a, REG, Failinvdata>;
-impl<'a, REG> FailinvdataW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Fail"]
-    #[inline(always)]
-    pub fn statfail(self) -> &'a mut crate::W<REG> {
-        self.variant(Failinvdata::Statfail)
-    }
-    #[doc = "No Fail"]
-    #[inline(always)]
-    pub fn statnofail(self) -> &'a mut crate::W<REG> {
-        self.variant(Failinvdata::Statnofail)
-    }
-}
 #[doc = "Field `RESERVED_11_9` reader - 11:9\\]
 Reserved"]
 pub type Reserved11_9R = crate::FieldReader;
-#[doc = "Field `RESERVED_11_9` writer - 11:9\\]
-Reserved"]
-pub type Reserved11_9W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "12:12\\]
 Command failed due to error other than write/erase protect violation or verify error. This is an extra bit in case a new failure mechanism is added which requires a status bit.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -500,30 +350,9 @@ impl FailmiscR {
         *self == Failmisc::Statnofail
     }
 }
-#[doc = "Field `FAILMISC` writer - 12:12\\]
-Command failed due to error other than write/erase protect violation or verify error. This is an extra bit in case a new failure mechanism is added which requires a status bit."]
-pub type FailmiscW<'a, REG> = crate::BitWriter<'a, REG, Failmisc>;
-impl<'a, REG> FailmiscW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Fail"]
-    #[inline(always)]
-    pub fn statfail(self) -> &'a mut crate::W<REG> {
-        self.variant(Failmisc::Statfail)
-    }
-    #[doc = "No Fail"]
-    #[inline(always)]
-    pub fn statnofail(self) -> &'a mut crate::W<REG> {
-        self.variant(Failmisc::Statnofail)
-    }
-}
 #[doc = "Field `RESERVED_31_13` reader - 31:13\\]
 Reserved"]
 pub type Reserved31_13R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED_31_13` writer - 31:13\\]
-Reserved"]
-pub type Reserved31_13W<'a, REG> = crate::FieldWriter<'a, REG, 19, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Command Done"]
@@ -598,92 +427,7 @@ Reserved"]
         Reserved31_13R::new((self.bits >> 13) & 0x0007_ffff)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Command Done"]
-    #[inline(always)]
-    #[must_use]
-    pub fn cmddone(&mut self) -> CmddoneW<StatcmdSpec> {
-        CmddoneW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Command Pass - valid when CMD_DONE field is 1"]
-    #[inline(always)]
-    #[must_use]
-    pub fn cmdpass(&mut self) -> CmdpassW<StatcmdSpec> {
-        CmdpassW::new(self, 1)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-Command In Progress"]
-    #[inline(always)]
-    #[must_use]
-    pub fn cmdinprogress(&mut self) -> CmdinprogressW<StatcmdSpec> {
-        CmdinprogressW::new(self, 2)
-    }
-    #[doc = "Bit 3 - 3:3\\]
-Reserved"]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved_3(&mut self) -> Reserved3W<StatcmdSpec> {
-        Reserved3W::new(self, 3)
-    }
-    #[doc = "Bit 4 - 4:4\\]
-Command failed due to Write/Erase Protect Sector Violation"]
-    #[inline(always)]
-    #[must_use]
-    pub fn failweprot(&mut self) -> FailweprotW<StatcmdSpec> {
-        FailweprotW::new(self, 4)
-    }
-    #[doc = "Bit 5 - 5:5\\]
-Command failed due to verify error"]
-    #[inline(always)]
-    #[must_use]
-    pub fn failverify(&mut self) -> FailverifyW<StatcmdSpec> {
-        FailverifyW::new(self, 5)
-    }
-    #[doc = "Bit 6 - 6:6\\]
-Command failed due to the use of an illegal address"]
-    #[inline(always)]
-    #[must_use]
-    pub fn faililladdr(&mut self) -> FaililladdrW<StatcmdSpec> {
-        FaililladdrW::new(self, 6)
-    }
-    #[doc = "Bit 7 - 7:7\\]
-Command failed because a bank has been set to a mode other than READ. Program and Erase commands cannot be initiated unless all banks are in READ mode."]
-    #[inline(always)]
-    #[must_use]
-    pub fn failmode(&mut self) -> FailmodeW<StatcmdSpec> {
-        FailmodeW::new(self, 7)
-    }
-    #[doc = "Bit 8 - 8:8\\]
-Program command failed because an attempt was made to program a stored 0 value to a 1."]
-    #[inline(always)]
-    #[must_use]
-    pub fn failinvdata(&mut self) -> FailinvdataW<StatcmdSpec> {
-        FailinvdataW::new(self, 8)
-    }
-    #[doc = "Bits 9:11 - 11:9\\]
-Reserved"]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved_11_9(&mut self) -> Reserved11_9W<StatcmdSpec> {
-        Reserved11_9W::new(self, 9)
-    }
-    #[doc = "Bit 12 - 12:12\\]
-Command failed due to error other than write/erase protect violation or verify error. This is an extra bit in case a new failure mechanism is added which requires a status bit."]
-    #[inline(always)]
-    #[must_use]
-    pub fn failmisc(&mut self) -> FailmiscW<StatcmdSpec> {
-        FailmiscW::new(self, 12)
-    }
-    #[doc = "Bits 13:31 - 31:13\\]
-Reserved"]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved_31_13(&mut self) -> Reserved31_13W<StatcmdSpec> {
-        Reserved31_13W::new(self, 13)
-    }
-}
+impl W {}
 #[doc = "Command Status Register This register contains status regarding completion and errors of command execution.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`statcmd::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`statcmd::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct StatcmdSpec;
 impl crate::RegisterSpec for StatcmdSpec {

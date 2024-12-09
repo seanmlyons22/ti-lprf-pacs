@@ -46,25 +46,6 @@ impl MinrevR {
         *self == Minrev::Minimum
     }
 }
-#[doc = "Field `MINREV` writer - 3:0\\]
-Minor revision version of IP"]
-pub type MinrevW<'a, REG> = crate::FieldWriter<'a, REG, 4, Minrev>;
-impl<'a, REG> MinrevW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "Highest possible value"]
-    #[inline(always)]
-    pub fn maximum(self) -> &'a mut crate::W<REG> {
-        self.variant(Minrev::Maximum)
-    }
-    #[doc = "Smallest value"]
-    #[inline(always)]
-    pub fn minimum(self) -> &'a mut crate::W<REG> {
-        self.variant(Minrev::Minimum)
-    }
-}
 #[doc = "7:4\\]
 Major revision version of IP\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -107,25 +88,6 @@ impl MajrevR {
     #[inline(always)]
     pub fn is_minimum(&self) -> bool {
         *self == Majrev::Minimum
-    }
-}
-#[doc = "Field `MAJREV` writer - 7:4\\]
-Major revision version of IP"]
-pub type MajrevW<'a, REG> = crate::FieldWriter<'a, REG, 4, Majrev>;
-impl<'a, REG> MajrevW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "Highest possible value"]
-    #[inline(always)]
-    pub fn maximum(self) -> &'a mut crate::W<REG> {
-        self.variant(Majrev::Maximum)
-    }
-    #[doc = "Smallest value"]
-    #[inline(always)]
-    pub fn minimum(self) -> &'a mut crate::W<REG> {
-        self.variant(Majrev::Minimum)
     }
 }
 #[doc = "11:8\\]
@@ -172,25 +134,6 @@ impl InstidxR {
         *self == Instidx::Minimum
     }
 }
-#[doc = "Field `INSTIDX` writer - 11:8\\]
-If multiple instances of IP exists in SOC, this field can identify the instance number 0-15"]
-pub type InstidxW<'a, REG> = crate::FieldWriter<'a, REG, 4, Instidx>;
-impl<'a, REG> InstidxW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "Highest possible value"]
-    #[inline(always)]
-    pub fn maximum(self) -> &'a mut crate::W<REG> {
-        self.variant(Instidx::Maximum)
-    }
-    #[doc = "Smallest value"]
-    #[inline(always)]
-    pub fn minimum(self) -> &'a mut crate::W<REG> {
-        self.variant(Instidx::Minimum)
-    }
-}
 #[doc = "15:12\\]
 0: STDIP MMRs do not exist 1:15: These MMRs begin at offset 64*STDIPOFF from IP base address\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -233,25 +176,6 @@ impl StdipoffR {
     #[inline(always)]
     pub fn is_minimum(&self) -> bool {
         *self == Stdipoff::Minimum
-    }
-}
-#[doc = "Field `STDIPOFF` writer - 15:12\\]
-0: STDIP MMRs do not exist 1:15: These MMRs begin at offset 64*STDIPOFF from IP base address"]
-pub type StdipoffW<'a, REG> = crate::FieldWriter<'a, REG, 4, Stdipoff>;
-impl<'a, REG> StdipoffW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "Highest possible value"]
-    #[inline(always)]
-    pub fn maximum(self) -> &'a mut crate::W<REG> {
-        self.variant(Stdipoff::Maximum)
-    }
-    #[doc = "Smallest value"]
-    #[inline(always)]
-    pub fn minimum(self) -> &'a mut crate::W<REG> {
-        self.variant(Stdipoff::Minimum)
     }
 }
 #[doc = "31:16\\]
@@ -298,25 +222,6 @@ impl ModidR {
         *self == Modid::Minimum
     }
 }
-#[doc = "Field `MODID` writer - 31:16\\]
-Module identifier"]
-pub type ModidW<'a, REG> = crate::FieldWriter<'a, REG, 16, Modid>;
-impl<'a, REG> ModidW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u16>,
-{
-    #[doc = "Highest possible value"]
-    #[inline(always)]
-    pub fn maximum(self) -> &'a mut crate::W<REG> {
-        self.variant(Modid::Maximum)
-    }
-    #[doc = "Smallest value"]
-    #[inline(always)]
-    pub fn minimum(self) -> &'a mut crate::W<REG> {
-        self.variant(Modid::Minimum)
-    }
-}
 impl R {
     #[doc = "Bits 0:3 - 3:0\\]
 Minor revision version of IP"]
@@ -349,43 +254,7 @@ Module identifier"]
         ModidR::new(((self.bits >> 16) & 0xffff) as u16)
     }
 }
-impl W {
-    #[doc = "Bits 0:3 - 3:0\\]
-Minor revision version of IP"]
-    #[inline(always)]
-    #[must_use]
-    pub fn minrev(&mut self) -> MinrevW<DescSpec> {
-        MinrevW::new(self, 0)
-    }
-    #[doc = "Bits 4:7 - 7:4\\]
-Major revision version of IP"]
-    #[inline(always)]
-    #[must_use]
-    pub fn majrev(&mut self) -> MajrevW<DescSpec> {
-        MajrevW::new(self, 4)
-    }
-    #[doc = "Bits 8:11 - 11:8\\]
-If multiple instances of IP exists in SOC, this field can identify the instance number 0-15"]
-    #[inline(always)]
-    #[must_use]
-    pub fn instidx(&mut self) -> InstidxW<DescSpec> {
-        InstidxW::new(self, 8)
-    }
-    #[doc = "Bits 12:15 - 15:12\\]
-0: STDIP MMRs do not exist 1:15: These MMRs begin at offset 64*STDIPOFF from IP base address"]
-    #[inline(always)]
-    #[must_use]
-    pub fn stdipoff(&mut self) -> StdipoffW<DescSpec> {
-        StdipoffW::new(self, 12)
-    }
-    #[doc = "Bits 16:31 - 31:16\\]
-Module identifier"]
-    #[inline(always)]
-    #[must_use]
-    pub fn modid(&mut self) -> ModidW<DescSpec> {
-        ModidW::new(self, 16)
-    }
-}
+impl W {}
 #[doc = "Provides module ID, revision information, instance index\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`desc::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`desc::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct DescSpec;
 impl crate::RegisterSpec for DescSpec {

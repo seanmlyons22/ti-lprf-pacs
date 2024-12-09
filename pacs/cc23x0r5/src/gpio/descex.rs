@@ -46,31 +46,9 @@ impl NumdioR {
         *self == Numdio::Minimum
     }
 }
-#[doc = "Field `NUMDIO` writer - 5:0\\]
-This provides the total number of DIOs supported by GPIO. The number of DIOs supprted is NUMDIO + 1"]
-pub type NumdioW<'a, REG> = crate::FieldWriter<'a, REG, 6, Numdio>;
-impl<'a, REG> NumdioW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "Highest possible value"]
-    #[inline(always)]
-    pub fn maximum(self) -> &'a mut crate::W<REG> {
-        self.variant(Numdio::Maximum)
-    }
-    #[doc = "Smallest value"]
-    #[inline(always)]
-    pub fn minimum(self) -> &'a mut crate::W<REG> {
-        self.variant(Numdio::Minimum)
-    }
-}
 #[doc = "Field `RESERVED6` reader - 31:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved6R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED6` writer - 31:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 26, u32>;
 impl R {
     #[doc = "Bits 0:5 - 5:0\\]
 This provides the total number of DIOs supported by GPIO. The number of DIOs supprted is NUMDIO + 1"]
@@ -85,22 +63,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved6R::new((self.bits >> 6) & 0x03ff_ffff)
     }
 }
-impl W {
-    #[doc = "Bits 0:5 - 5:0\\]
-This provides the total number of DIOs supported by GPIO. The number of DIOs supprted is NUMDIO + 1"]
-    #[inline(always)]
-    #[must_use]
-    pub fn numdio(&mut self) -> NumdioW<DescexSpec> {
-        NumdioW::new(self, 0)
-    }
-    #[doc = "Bits 6:31 - 31:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<DescexSpec> {
-        Reserved6W::new(self, 6)
-    }
-}
+impl W {}
 #[doc = "Provide IP-specific instance information\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`descex::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`descex::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct DescexSpec;
 impl crate::RegisterSpec for DescexSpec {

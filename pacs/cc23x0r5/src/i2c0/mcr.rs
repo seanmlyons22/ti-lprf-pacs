@@ -61,9 +61,6 @@ where
 #[doc = "Field `RESERVED1` reader - 3:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved1R = crate::FieldReader;
-#[doc = "Field `RESERVED1` writer - 3:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "4:4\\]
 I2C master function enable\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -179,9 +176,6 @@ where
 #[doc = "Field `RESERVED6` reader - 31:6\\]
 Reads to this field return zero.Writes to this field are ignored."]
 pub type Reserved6R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED6` writer - 31:6\\]
-Reads to this field return zero.Writes to this field are ignored."]
-pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 26, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 I2C loopback"]
@@ -222,13 +216,6 @@ I2C loopback"]
     pub fn lpbk(&mut self) -> LpbkW<McrSpec> {
         LpbkW::new(self, 0)
     }
-    #[doc = "Bits 1:3 - 3:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved1(&mut self) -> Reserved1W<McrSpec> {
-        Reserved1W::new(self, 1)
-    }
     #[doc = "Bit 4 - 4:4\\]
 I2C master function enable"]
     #[inline(always)]
@@ -242,13 +229,6 @@ I2C slave function enable"]
     #[must_use]
     pub fn sfe(&mut self) -> SfeW<McrSpec> {
         SfeW::new(self, 5)
-    }
-    #[doc = "Bits 6:31 - 31:6\\]
-Reads to this field return zero.Writes to this field are ignored."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<McrSpec> {
-        Reserved6W::new(self, 6)
     }
 }
 #[doc = "Master Configuration This register configures the mode (Master or Slave) and sets the interface for test mode loopback.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`mcr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`mcr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

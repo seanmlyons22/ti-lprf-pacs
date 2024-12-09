@@ -68,9 +68,6 @@ where
 #[doc = "Field `RESERVED5` reader - 7:5\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved5R = crate::FieldReader;
-#[doc = "Field `RESERVED5` writer - 7:5\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved5W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "12:8\\]
 ULL DTB Mux selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -137,9 +134,6 @@ where
 #[doc = "Field `RESERVED13` reader - 15:13\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved13R = crate::FieldReader;
-#[doc = "Field `RESERVED13` writer - 15:13\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved13W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "18:16\\]
 Selects which 3 DTB lines out of total 16 are routed to DTB pins 15 to 13.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -276,9 +270,6 @@ selected"]
 #[doc = "Field `RESERVED19` reader - 22:19\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved19R = crate::FieldReader;
-#[doc = "Field `RESERVED19` writer - 22:19\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved19W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "23:23\\]
 This bit is used to divide DTB\\[0\\]
 output by 8.\n\nValue on reset: 0"]
@@ -344,9 +335,6 @@ output by 8"]
 #[doc = "Field `RESERVED24` reader - 31:24\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved24R = crate::FieldReader;
-#[doc = "Field `RESERVED24` writer - 31:24\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved24W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 impl R {
     #[doc = "Bits 0:4 - 4:0\\]
 SVT DTB Mux selection"]
@@ -406,26 +394,12 @@ SVT DTB Mux selection"]
     pub fn svtsel(&mut self) -> SvtselW<DtbcfgSpec> {
         SvtselW::new(self, 0)
     }
-    #[doc = "Bits 5:7 - 7:5\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved5(&mut self) -> Reserved5W<DtbcfgSpec> {
-        Reserved5W::new(self, 5)
-    }
     #[doc = "Bits 8:12 - 12:8\\]
 ULL DTB Mux selection"]
     #[inline(always)]
     #[must_use]
     pub fn ullsel(&mut self) -> UllselW<DtbcfgSpec> {
         UllselW::new(self, 8)
-    }
-    #[doc = "Bits 13:15 - 15:13\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved13(&mut self) -> Reserved13W<DtbcfgSpec> {
-        Reserved13W::new(self, 13)
     }
     #[doc = "Bits 16:18 - 18:16\\]
 Selects which 3 DTB lines out of total 16 are routed to DTB pins 15 to 13."]
@@ -434,13 +408,6 @@ Selects which 3 DTB lines out of total 16 are routed to DTB pins 15 to 13."]
     pub fn padsel(&mut self) -> PadselW<DtbcfgSpec> {
         PadselW::new(self, 16)
     }
-    #[doc = "Bits 19:22 - 22:19\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved19(&mut self) -> Reserved19W<DtbcfgSpec> {
-        Reserved19W::new(self, 19)
-    }
     #[doc = "Bit 23 - 23:23\\]
 This bit is used to divide DTB\\[0\\]
 output by 8."]
@@ -448,13 +415,6 @@ output by 8."]
     #[must_use]
     pub fn dtb0div(&mut self) -> Dtb0divW<DtbcfgSpec> {
         Dtb0divW::new(self, 23)
-    }
-    #[doc = "Bits 24:31 - 31:24\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved24(&mut self) -> Reserved24W<DtbcfgSpec> {
-        Reserved24W::new(self, 24)
     }
 }
 #[doc = "DTB configuration\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`dtbcfg::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`dtbcfg::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

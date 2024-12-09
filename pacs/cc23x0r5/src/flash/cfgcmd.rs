@@ -68,9 +68,6 @@ where
 #[doc = "Field `RESERVED4` reader - 6:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved4R = crate::FieldReader;
-#[doc = "Field `RESERVED4` writer - 6:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved4W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `RESERVED_31_7` reader - 31:7\\]
 Reserved"]
 pub type Reserved31_7R = crate::FieldReader<u32>;
@@ -104,13 +101,6 @@ Wait State setting for program verify, erase verify and read verify"]
     #[must_use]
     pub fn waitstate(&mut self) -> WaitstateW<CfgcmdSpec> {
         WaitstateW::new(self, 0)
-    }
-    #[doc = "Bits 4:6 - 6:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved4(&mut self) -> Reserved4W<CfgcmdSpec> {
-        Reserved4W::new(self, 4)
     }
     #[doc = "Bits 7:31 - 31:7\\]
 Reserved"]

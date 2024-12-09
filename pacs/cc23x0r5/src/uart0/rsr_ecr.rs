@@ -229,9 +229,6 @@ where
 #[doc = "Field `RESERVED4` reader - 31:4\\]
 Reads to this field return zero, writes to this field are ignored."]
 pub type Reserved4R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED4` writer - 31:4\\]
-Reads to this field return zero, writes to this field are ignored."]
-pub type Reserved4W<'a, REG> = crate::FieldWriter<'a, REG, 28, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 UART Framing Error: When set to 1, it indicates that the received character did not have a valid stop bit (a valid stop bit is 1)."]
@@ -292,13 +289,6 @@ UART Overrun Error: This bit is set to 1 if data is received and the receive FIF
     #[must_use]
     pub fn oe(&mut self) -> OeW<RsrEcrSpec> {
         OeW::new(self, 3)
-    }
-    #[doc = "Bits 4:31 - 31:4\\]
-Reads to this field return zero, writes to this field are ignored."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved4(&mut self) -> Reserved4W<RsrEcrSpec> {
-        Reserved4W::new(self, 4)
     }
 }
 #[doc = "Status This register is mapped to the same address as ECR register. Reads from this address are associated with RSR_ECR register and return the receive status. Writes to this address are associated with ECR register and clear the receive status flags (framing, parity, break, and overrun errors). If the status is read from this register, then the status information for break, framing and parity corresponds to the data character read from the Data Register, DR prior to reading the RSR_ECR. The status information for overrun is set immediately when an overrun condition occurs.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`rsr_ecr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`rsr_ecr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

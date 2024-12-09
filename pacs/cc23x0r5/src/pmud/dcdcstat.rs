@@ -46,31 +46,9 @@ impl LoadR {
         *self == Load::Min
     }
 }
-#[doc = "Field `LOAD` writer - 6:0\\]
-This indicates DCDC load meter output value in percentage scale. Valid range is 0x1 to 0x64."]
-pub type LoadW<'a, REG> = crate::FieldWriter<'a, REG, 7, Load>;
-impl<'a, REG> LoadW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "Maximum value"]
-    #[inline(always)]
-    pub fn max(self) -> &'a mut crate::W<REG> {
-        self.variant(Load::Max)
-    }
-    #[doc = "Minimum value"]
-    #[inline(always)]
-    pub fn min(self) -> &'a mut crate::W<REG> {
-        self.variant(Load::Min)
-    }
-}
 #[doc = "Field `RESERVED7` reader - 7:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved7R = crate::BitReader;
-#[doc = "Field `RESERVED7` writer - 7:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved7W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "10:8\\]
 DCDC IPEAK value. This value is same as what is programmed in SYS0.TDCDC.IPEAK when adaptive IPEAK adjustment scheme is not enabled and it shows current IPEAK value applied by hardware when adaptive IPEAK adjustment scheme is enabled.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -115,31 +93,9 @@ impl IpeakR {
         *self == Ipeak::Min
     }
 }
-#[doc = "Field `IPEAK` writer - 10:8\\]
-DCDC IPEAK value. This value is same as what is programmed in SYS0.TDCDC.IPEAK when adaptive IPEAK adjustment scheme is not enabled and it shows current IPEAK value applied by hardware when adaptive IPEAK adjustment scheme is enabled."]
-pub type IpeakW<'a, REG> = crate::FieldWriter<'a, REG, 3, Ipeak>;
-impl<'a, REG> IpeakW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "Maximum value"]
-    #[inline(always)]
-    pub fn max(self) -> &'a mut crate::W<REG> {
-        self.variant(Ipeak::Max)
-    }
-    #[doc = "Minimum value"]
-    #[inline(always)]
-    pub fn min(self) -> &'a mut crate::W<REG> {
-        self.variant(Ipeak::Min)
-    }
-}
 #[doc = "Field `RESERVED11` reader - 31:11\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved11R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED11` writer - 31:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved11W<'a, REG> = crate::FieldWriter<'a, REG, 21, u32>;
 impl R {
     #[doc = "Bits 0:6 - 6:0\\]
 This indicates DCDC load meter output value in percentage scale. Valid range is 0x1 to 0x64."]
@@ -166,36 +122,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved11R::new((self.bits >> 11) & 0x001f_ffff)
     }
 }
-impl W {
-    #[doc = "Bits 0:6 - 6:0\\]
-This indicates DCDC load meter output value in percentage scale. Valid range is 0x1 to 0x64."]
-    #[inline(always)]
-    #[must_use]
-    pub fn load(&mut self) -> LoadW<DcdcstatSpec> {
-        LoadW::new(self, 0)
-    }
-    #[doc = "Bit 7 - 7:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved7(&mut self) -> Reserved7W<DcdcstatSpec> {
-        Reserved7W::new(self, 7)
-    }
-    #[doc = "Bits 8:10 - 10:8\\]
-DCDC IPEAK value. This value is same as what is programmed in SYS0.TDCDC.IPEAK when adaptive IPEAK adjustment scheme is not enabled and it shows current IPEAK value applied by hardware when adaptive IPEAK adjustment scheme is enabled."]
-    #[inline(always)]
-    #[must_use]
-    pub fn ipeak(&mut self) -> IpeakW<DcdcstatSpec> {
-        IpeakW::new(self, 8)
-    }
-    #[doc = "Bits 11:31 - 31:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved11(&mut self) -> Reserved11W<DcdcstatSpec> {
-        Reserved11W::new(self, 11)
-    }
-}
+impl W {}
 #[doc = "DCDC status register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`dcdcstat::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`dcdcstat::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct DcdcstatSpec;
 impl crate::RegisterSpec for DcdcstatSpec {

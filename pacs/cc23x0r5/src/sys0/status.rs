@@ -40,24 +40,6 @@ impl GlockR {
         *self == Glock::Unlocked
     }
 }
-#[doc = "Field `GLOCK` writer - 0:0\\]
-Status of Global lock"]
-pub type GlockW<'a, REG> = crate::BitWriter<'a, REG, Glock>;
-impl<'a, REG> GlockW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Locked"]
-    #[inline(always)]
-    pub fn locked(self) -> &'a mut crate::W<REG> {
-        self.variant(Glock::Locked)
-    }
-    #[doc = "Unlocked"]
-    #[inline(always)]
-    pub fn unlocked(self) -> &'a mut crate::W<REG> {
-        self.variant(Glock::Unlocked)
-    }
-}
 #[doc = "1:1\\]
 Lock status of registers in mutable section.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -96,30 +78,9 @@ impl MlockR {
         *self == Mlock::Unlocked
     }
 }
-#[doc = "Field `MLOCK` writer - 1:1\\]
-Lock status of registers in mutable section."]
-pub type MlockW<'a, REG> = crate::BitWriter<'a, REG, Mlock>;
-impl<'a, REG> MlockW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Registers in the mutable section are locked for write"]
-    #[inline(always)]
-    pub fn locked(self) -> &'a mut crate::W<REG> {
-        self.variant(Mlock::Locked)
-    }
-    #[doc = "Registers in the mutable section are not locked, and are writable"]
-    #[inline(always)]
-    pub fn unlocked(self) -> &'a mut crate::W<REG> {
-        self.variant(Mlock::Unlocked)
-    }
-}
 #[doc = "Field `RESERVED2` reader - 31:2\\]
 RESERVED"]
 pub type Reserved2R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED2` writer - 31:2\\]
-RESERVED"]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 30, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Status of Global lock"]
@@ -140,29 +101,7 @@ RESERVED"]
         Reserved2R::new((self.bits >> 2) & 0x3fff_ffff)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Status of Global lock"]
-    #[inline(always)]
-    #[must_use]
-    pub fn glock(&mut self) -> GlockW<StatusSpec> {
-        GlockW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Lock status of registers in mutable section."]
-    #[inline(always)]
-    #[must_use]
-    pub fn mlock(&mut self) -> MlockW<StatusSpec> {
-        MlockW::new(self, 1)
-    }
-    #[doc = "Bits 2:31 - 31:2\\]
-RESERVED"]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<StatusSpec> {
-        Reserved2W::new(self, 2)
-    }
-}
+impl W {}
 #[doc = "Lock Status Register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`status::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`status::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct StatusSpec;
 impl crate::RegisterSpec for StatusSpec {

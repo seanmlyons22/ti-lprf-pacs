@@ -23,9 +23,6 @@ pub type AutoenW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED3` reader - 5:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3R = crate::FieldReader;
-#[doc = "Field `RESERVED3` writer - 5:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "6:6\\]
 Type of temperature compensated crystal used. Only has effect if TCXOMODE is set.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -171,13 +168,6 @@ Automatic HFXT enable. If this bit is set, EN will automatically be set at wakeu
     #[must_use]
     pub fn autoen(&mut self) -> AutoenW<HfxtctlSpec> {
         AutoenW::new(self, 2)
-    }
-    #[doc = "Bits 3:5 - 5:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<HfxtctlSpec> {
-        Reserved3W::new(self, 3)
     }
     #[doc = "Bit 6 - 6:6\\]
 Type of temperature compensated crystal used. Only has effect if TCXOMODE is set."]

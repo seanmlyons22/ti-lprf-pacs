@@ -107,9 +107,6 @@ where
 #[doc = "Field `RESERVED5` reader - 7:5\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved5R = crate::FieldReader;
-#[doc = "Field `RESERVED5` writer - 7:5\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved5W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "12:8\\]
 Internal. Only to be used through TI provided API.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -215,9 +212,6 @@ where
 #[doc = "Field `RESERVED13` reader - 28:13\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved13R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED13` writer - 28:13\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved13W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
 #[doc = "29:29\\]
 Internal. Only to be used through TI provided API.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -333,9 +327,6 @@ where
 #[doc = "Field `RESERVED31` reader - 31:31\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved31R = crate::BitReader;
-#[doc = "Field `RESERVED31` writer - 31:31\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved31W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bits 0:4 - 4:0\\]
 Internal. Only to be used through TI provided API."]
@@ -388,26 +379,12 @@ Internal. Only to be used through TI provided API."]
     pub fn atest0_muxsel(&mut self) -> Atest0MuxselW<Test0Spec> {
         Atest0MuxselW::new(self, 0)
     }
-    #[doc = "Bits 5:7 - 7:5\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved5(&mut self) -> Reserved5W<Test0Spec> {
-        Reserved5W::new(self, 5)
-    }
     #[doc = "Bits 8:12 - 12:8\\]
 Internal. Only to be used through TI provided API."]
     #[inline(always)]
     #[must_use]
     pub fn atest1_muxsel(&mut self) -> Atest1MuxselW<Test0Spec> {
         Atest1MuxselW::new(self, 8)
-    }
-    #[doc = "Bits 13:28 - 28:13\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved13(&mut self) -> Reserved13W<Test0Spec> {
-        Reserved13W::new(self, 13)
     }
     #[doc = "Bit 29 - 29:29\\]
 Internal. Only to be used through TI provided API."]
@@ -422,13 +399,6 @@ Internal. Only to be used through TI provided API."]
     #[must_use]
     pub fn atest0_en(&mut self) -> Atest0EnW<Test0Spec> {
         Atest0EnW::new(self, 30)
-    }
-    #[doc = "Bit 31 - 31:31\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved31(&mut self) -> Reserved31W<Test0Spec> {
-        Reserved31W::new(self, 31)
     }
 }
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`test0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`test0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

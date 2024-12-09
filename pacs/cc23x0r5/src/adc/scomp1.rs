@@ -11,9 +11,6 @@ pub type ValW<'a, REG> = crate::FieldWriter<'a, REG, 10, u16>;
 #[doc = "Field `RESERVED10` reader - 31:10\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved10R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED10` writer - 31:10\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved10W<'a, REG> = crate::FieldWriter<'a, REG, 22, u32>;
 impl R {
     #[doc = "Bits 0:9 - 9:0\\]
 Specifies the number of sample clocks. When VAL = 0 or 1, number of sample clocks = Sample clock divide value. When VAL $gt; 1, number of sample clocks = VAL x Sample clock divide value. Note: Sample clock divide value is not the value written to SCLKDIV but the actual divide value (SCLKDIV = 2 implies divide value is 4). Example: VAL = 4, SCLKDIV = 3 implies 32 sample clock cycles."]
@@ -35,13 +32,6 @@ Specifies the number of sample clocks. When VAL = 0 or 1, number of sample clock
     #[must_use]
     pub fn val(&mut self) -> ValW<Scomp1Spec> {
         ValW::new(self, 0)
-    }
-    #[doc = "Bits 10:31 - 31:10\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved10(&mut self) -> Reserved10W<Scomp1Spec> {
-        Reserved10W::new(self, 10)
     }
 }
 #[doc = "Sample time compare 1 register. Specifies the sample time, in number of ADC sample clock cycles. CTL0.ENC must be set to 0 to write to this register.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`scomp1::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`scomp1::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

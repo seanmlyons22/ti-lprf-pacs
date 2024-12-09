@@ -46,25 +46,6 @@ impl DatawidthR {
         *self == Datawidth::W64bit
     }
 }
-#[doc = "Field `DATAWIDTH` writer - 7:0\\]
-Data width in bits"]
-pub type DatawidthW<'a, REG> = crate::FieldWriter<'a, REG, 8, Datawidth>;
-impl<'a, REG> DatawidthW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "Data width is 128 bits"]
-    #[inline(always)]
-    pub fn w128bit(self) -> &'a mut crate::W<REG> {
-        self.variant(Datawidth::W128bit)
-    }
-    #[doc = "Data width is 64 bits"]
-    #[inline(always)]
-    pub fn w64bit(self) -> &'a mut crate::W<REG> {
-        self.variant(Datawidth::W64bit)
-    }
-}
 #[doc = "12:8\\]
 ECC data width in bits\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -117,36 +98,9 @@ impl EccwidthR {
         *self == Eccwidth::W0bit
     }
 }
-#[doc = "Field `ECCWIDTH` writer - 12:8\\]
-ECC data width in bits"]
-pub type EccwidthW<'a, REG> = crate::FieldWriter<'a, REG, 5, Eccwidth>;
-impl<'a, REG> EccwidthW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "ECC data width is 16 bits"]
-    #[inline(always)]
-    pub fn w16bit(self) -> &'a mut crate::W<REG> {
-        self.variant(Eccwidth::W16bit)
-    }
-    #[doc = "ECC data width is 8 bits"]
-    #[inline(always)]
-    pub fn w8bit(self) -> &'a mut crate::W<REG> {
-        self.variant(Eccwidth::W8bit)
-    }
-    #[doc = "ECC data width is 0. ECC not used."]
-    #[inline(always)]
-    pub fn w0bit(self) -> &'a mut crate::W<REG> {
-        self.variant(Eccwidth::W0bit)
-    }
-}
 #[doc = "Field `RESERVED_15_13` reader - 15:13\\]
 Reserved"]
 pub type Reserved15_13R = crate::FieldReader;
-#[doc = "Field `RESERVED_15_13` writer - 15:13\\]
-Reserved"]
-pub type Reserved15_13W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "18:16\\]
 Redundant data width in bits\n\nValue on reset: 4"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -199,36 +153,9 @@ impl RedwidthR {
         *self == Redwidth::W0bit
     }
 }
-#[doc = "Field `REDWIDTH` writer - 18:16\\]
-Redundant data width in bits"]
-pub type RedwidthW<'a, REG> = crate::FieldWriter<'a, REG, 3, Redwidth>;
-impl<'a, REG> RedwidthW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "Redundant data width is 4 bits"]
-    #[inline(always)]
-    pub fn w4bit(self) -> &'a mut crate::W<REG> {
-        self.variant(Redwidth::W4bit)
-    }
-    #[doc = "Redundant data width is 2 bits"]
-    #[inline(always)]
-    pub fn w2bit(self) -> &'a mut crate::W<REG> {
-        self.variant(Redwidth::W2bit)
-    }
-    #[doc = "Redundant data width is 0. Redundancy/Repair not present."]
-    #[inline(always)]
-    pub fn w0bit(self) -> &'a mut crate::W<REG> {
-        self.variant(Redwidth::W0bit)
-    }
-}
 #[doc = "Field `RESERVED_31_19` reader - 31:19\\]
 Reserved"]
 pub type Reserved31_19R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED_31_19` writer - 31:19\\]
-Reserved"]
-pub type Reserved31_19W<'a, REG> = crate::FieldWriter<'a, REG, 13, u16>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Data width in bits"]
@@ -261,43 +188,7 @@ Reserved"]
         Reserved31_19R::new(((self.bits >> 19) & 0x1fff) as u16)
     }
 }
-impl W {
-    #[doc = "Bits 0:7 - 7:0\\]
-Data width in bits"]
-    #[inline(always)]
-    #[must_use]
-    pub fn datawidth(&mut self) -> DatawidthW<Gblinfo1Spec> {
-        DatawidthW::new(self, 0)
-    }
-    #[doc = "Bits 8:12 - 12:8\\]
-ECC data width in bits"]
-    #[inline(always)]
-    #[must_use]
-    pub fn eccwidth(&mut self) -> EccwidthW<Gblinfo1Spec> {
-        EccwidthW::new(self, 8)
-    }
-    #[doc = "Bits 13:15 - 15:13\\]
-Reserved"]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved_15_13(&mut self) -> Reserved15_13W<Gblinfo1Spec> {
-        Reserved15_13W::new(self, 13)
-    }
-    #[doc = "Bits 16:18 - 18:16\\]
-Redundant data width in bits"]
-    #[inline(always)]
-    #[must_use]
-    pub fn redwidth(&mut self) -> RedwidthW<Gblinfo1Spec> {
-        RedwidthW::new(self, 16)
-    }
-    #[doc = "Bits 19:31 - 31:19\\]
-Reserved"]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved_31_19(&mut self) -> Reserved31_19W<Gblinfo1Spec> {
-        Reserved31_19W::new(self, 19)
-    }
-}
+impl W {}
 #[doc = "Global Info 1 Register Read only register detailing information about data, ecc and redundant data widths in bits.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`gblinfo1::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`gblinfo1::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Gblinfo1Spec;
 impl crate::RegisterSpec for Gblinfo1Spec {

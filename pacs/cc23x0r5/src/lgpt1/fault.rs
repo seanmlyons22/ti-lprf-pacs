@@ -94,9 +94,6 @@ where
 #[doc = "Field `RESERVED2` reader - 31:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED2` writer - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 30, u32>;
 impl R {
     #[doc = "Bits 0:1 - 1:0\\]
 Fault control On active fault input the counter can optionally stop. If the counter stops this is done by hardware, software must then restart the timer if wanted. The fault input overrides channel 0 IOC input when CTL != DIS. This means that channel 0 receives fault as input signal when C0CFG.INPUT = IO and CTL != DIS. CHFILT can be used to avoid glitching on the fault input. Fault is level triggered, the polarity is set by the C0CFG.EDGE field. Here C0CFG.EDGE = RISE gives active high and C0CFG.EDGE = FALL gives active low polarity. Fault is typically used together with PARK to stop the PWM signal to an external motor control circuit safely. Configure PARK to ensure predefined values of the PWM outputs. If CTL != DIS the RIS.FAULT interrupt is set immediately when the fault input is active while CTL.MODE != DIS. The three modes of fault is described below: CTL = IMMEDIATE In this mode the counter stops immediately on an active fault input. This is done by hardware by setting CTL.MODE = DIS. To start the counter software must set CTL.MODE != DIS. When the counter has stopped, the input synchronizers and the channel filter is not running. This means that if RIS.FAULT is cleared it will not be set again while CTL.MODE = DIS. CTL = ZEROCOND In this mode the counter stops when CNTR = 0 after an active fault input. If the RIS.FAULT interrupt has been cleared by software before CNTR = 0, and the fault input is inactive, the counter will continue as normal. When the counter stops on zero, it can be started again by clearing the RIS.FAULT interrupt if the fault input is inactive. To change the counter mode set CTL.MODE = DIS, clear the RIS.FAULT interrupt, then start timer in wanted mode. CTL = IRQ In this mode only the RIS.FAULT flag is set on an active fault input."]
@@ -118,13 +115,6 @@ Fault control On active fault input the counter can optionally stop. If the coun
     #[must_use]
     pub fn ctl(&mut self) -> CtlW<FaultSpec> {
         CtlW::new(self, 0)
-    }
-    #[doc = "Bits 2:31 - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<FaultSpec> {
-        Reserved2W::new(self, 2)
     }
 }
 #[doc = "Fault This register is used to configure the fault input logic. Primary use scenario is to select CTL before starting the timer. Follow these steps to configure CTL while CTL.MODE is different from DIS: - Set C0CFG.EDGE to NONE. - Configure CTL. - Wait for three system clock periods before setting C0CFG.EDGE different from NONE. These steps prevent fault detection caused by expired signal values in synchronizers and edge-detection circuit.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`fault::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`fault::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

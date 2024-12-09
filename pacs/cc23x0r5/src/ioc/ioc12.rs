@@ -146,9 +146,6 @@ where
 #[doc = "Field `RESERVED3` reader - 7:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3R = crate::FieldReader;
-#[doc = "Field `RESERVED3` writer - 7:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 #[doc = "9:8\\]
 Drive strength configuration\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -449,9 +446,6 @@ where
 #[doc = "Field `RESERVED15` reader - 15:15\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved15R = crate::BitReader;
-#[doc = "Field `RESERVED15` writer - 15:15\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved15W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "17:16\\]
 Edge detect configuration\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -600,9 +594,6 @@ where
 #[doc = "Field `RESERVED19` reader - 19:19\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved19R = crate::BitReader;
-#[doc = "Field `RESERVED19` writer - 19:19\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved19W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "21:20\\]
 Wakeup configuration from shutdown\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -695,9 +686,6 @@ where
 #[doc = "Field `RESERVED22` reader - 23:22\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved22R = crate::FieldReader;
-#[doc = "Field `RESERVED22` writer - 23:22\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved22W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "26:24\\]
 IO Mode. Setting this to value 0x6 or 0x7 will default to normal IO behavior.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -816,9 +804,6 @@ where
 #[doc = "Field `RESERVED27` reader - 28:27\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved27R = crate::FieldReader;
-#[doc = "Field `RESERVED27` writer - 28:27\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved27W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "29:29\\]
 Input enable\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -934,9 +919,6 @@ where
 #[doc = "Field `RESERVED31` reader - 31:31\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved31R = crate::BitReader;
-#[doc = "Field `RESERVED31` writer - 31:31\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved31W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bits 0:2 - 2:0\\]
 Port configuration."]
@@ -1049,13 +1031,6 @@ Port configuration."]
     pub fn portcfg(&mut self) -> PortcfgW<Ioc12Spec> {
         PortcfgW::new(self, 0)
     }
-    #[doc = "Bits 3:7 - 7:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<Ioc12Spec> {
-        Reserved3W::new(self, 3)
-    }
     #[doc = "Bits 8:9 - 9:8\\]
 Drive strength configuration"]
     #[inline(always)]
@@ -1084,13 +1059,6 @@ Pull control. Setting this to value 0x3 disables pull."]
     pub fn pullctl(&mut self) -> PullctlW<Ioc12Spec> {
         PullctlW::new(self, 13)
     }
-    #[doc = "Bit 15 - 15:15\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved15(&mut self) -> Reserved15W<Ioc12Spec> {
-        Reserved15W::new(self, 15)
-    }
     #[doc = "Bits 16:17 - 17:16\\]
 Edge detect configuration"]
     #[inline(always)]
@@ -1105,13 +1073,6 @@ Wakeup enable from standby"]
     pub fn wuensb(&mut self) -> WuensbW<Ioc12Spec> {
         WuensbW::new(self, 18)
     }
-    #[doc = "Bit 19 - 19:19\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved19(&mut self) -> Reserved19W<Ioc12Spec> {
-        Reserved19W::new(self, 19)
-    }
     #[doc = "Bits 20:21 - 21:20\\]
 Wakeup configuration from shutdown"]
     #[inline(always)]
@@ -1119,26 +1080,12 @@ Wakeup configuration from shutdown"]
     pub fn wucfgsd(&mut self) -> WucfgsdW<Ioc12Spec> {
         WucfgsdW::new(self, 20)
     }
-    #[doc = "Bits 22:23 - 23:22\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved22(&mut self) -> Reserved22W<Ioc12Spec> {
-        Reserved22W::new(self, 22)
-    }
     #[doc = "Bits 24:26 - 26:24\\]
 IO Mode. Setting this to value 0x6 or 0x7 will default to normal IO behavior."]
     #[inline(always)]
     #[must_use]
     pub fn iomode(&mut self) -> IomodeW<Ioc12Spec> {
         IomodeW::new(self, 24)
-    }
-    #[doc = "Bits 27:28 - 28:27\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved27(&mut self) -> Reserved27W<Ioc12Spec> {
-        Reserved27W::new(self, 27)
     }
     #[doc = "Bit 29 - 29:29\\]
 Input enable"]
@@ -1153,13 +1100,6 @@ This field controls input hysteresis"]
     #[must_use]
     pub fn hysten(&mut self) -> HystenW<Ioc12Spec> {
         HystenW::new(self, 30)
-    }
-    #[doc = "Bit 31 - 31:31\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved31(&mut self) -> Reserved31W<Ioc12Spec> {
-        Reserved31W::new(self, 31)
     }
 }
 #[doc = "Configuration of DIO12\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ioc12::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ioc12::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

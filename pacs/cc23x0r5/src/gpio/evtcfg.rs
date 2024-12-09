@@ -68,9 +68,6 @@ where
 #[doc = "Field `RESERVED6` reader - 7:6\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved6R = crate::FieldReader;
-#[doc = "Field `RESERVED6` writer - 7:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved6W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "8:8\\]
 Enables GPIO to publish edge qualified selected DIO event on SVT event fabric. Design note: The edge detector flop is cleared automatically for the selected DIO once the event is published.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -130,9 +127,6 @@ where
 #[doc = "Field `RESERVED9` reader - 31:9\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved9R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED9` writer - 31:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved9W<'a, REG> = crate::FieldWriter<'a, REG, 23, u32>;
 impl R {
     #[doc = "Bits 0:5 - 5:0\\]
 This is used to select DIO for event generation. For example, DIOSEL = 0x0 selects DIO0 and DIOSEL = 0x8 selects DIO8."]
@@ -167,26 +161,12 @@ This is used to select DIO for event generation. For example, DIOSEL = 0x0 selec
     pub fn diosel(&mut self) -> DioselW<EvtcfgSpec> {
         DioselW::new(self, 0)
     }
-    #[doc = "Bits 6:7 - 7:6\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved6(&mut self) -> Reserved6W<EvtcfgSpec> {
-        Reserved6W::new(self, 6)
-    }
     #[doc = "Bit 8 - 8:8\\]
 Enables GPIO to publish edge qualified selected DIO event on SVT event fabric. Design note: The edge detector flop is cleared automatically for the selected DIO once the event is published."]
     #[inline(always)]
     #[must_use]
     pub fn evten(&mut self) -> EvtenW<EvtcfgSpec> {
         EvtenW::new(self, 8)
-    }
-    #[doc = "Bits 9:31 - 31:9\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved9(&mut self) -> Reserved9W<EvtcfgSpec> {
-        Reserved9W::new(self, 9)
     }
 }
 #[doc = "Event configuration. This register is used to select DIO for GPIO to publish event on SVT event fabric. It also contains enable bit that is used to mask the event.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`evtcfg::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`evtcfg::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

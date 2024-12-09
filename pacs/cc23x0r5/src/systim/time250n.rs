@@ -5,9 +5,6 @@ pub type W = crate::W<Time250nSpec>;
 #[doc = "Field `VAL` reader - 31:0\\]
 32-bit counter value \\[31:0\\]. This will provide a 250ns resolution and a range of 17.9m."]
 pub type ValR = crate::FieldReader<u32>;
-#[doc = "Field `VAL` writer - 31:0\\]
-32-bit counter value \\[31:0\\]. This will provide a 250ns resolution and a range of 17.9m."]
-pub type ValW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
 impl R {
     #[doc = "Bits 0:31 - 31:0\\]
 32-bit counter value \\[31:0\\]. This will provide a 250ns resolution and a range of 17.9m."]
@@ -16,15 +13,7 @@ impl R {
         ValR::new(self.bits)
     }
 }
-impl W {
-    #[doc = "Bits 0:31 - 31:0\\]
-32-bit counter value \\[31:0\\]. This will provide a 250ns resolution and a range of 17.9m."]
-    #[inline(always)]
-    #[must_use]
-    pub fn val(&mut self) -> ValW<Time250nSpec> {
-        ValW::new(self, 0)
-    }
-}
+impl W {}
 #[doc = "Systimer Counter Value. This 32-bit value reads out bits \\[31:0\\]
 of the systimer counter. The counter is 34-bit and runs on CLKSVT/12. It maintains a resolution of 250ns with a range of about 17.9m.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`time250n::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`time250n::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Time250nSpec;

@@ -68,15 +68,9 @@ where
 #[doc = "Field `RESERVED3` reader - 28:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior"]
 pub type Reserved3R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED3` writer - 28:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior"]
-pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 26, u32>;
 #[doc = "Field `RESERVED29` reader - 31:29\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved29R = crate::FieldReader;
-#[doc = "Field `RESERVED29` writer - 31:29\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved29W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 impl R {
     #[doc = "Bits 0:2 - 2:0\\]
 Read/write selection value. Writing any other value than values defined by a ENUM may result in undefined behavior."]
@@ -104,20 +98,6 @@ Read/write selection value. Writing any other value than values defined by a ENU
     #[must_use]
     pub fn ipid(&mut self) -> IpidW<Dmach0selSpec> {
         IpidW::new(self, 0)
-    }
-    #[doc = "Bits 3:28 - 28:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior"]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<Dmach0selSpec> {
-        Reserved3W::new(self, 3)
-    }
-    #[doc = "Bits 29:31 - 31:29\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved29(&mut self) -> Reserved29W<Dmach0selSpec> {
-        Reserved29W::new(self, 29)
     }
 }
 #[doc = "Output Selection for DMA CH0\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`dmach0sel::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`dmach0sel::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

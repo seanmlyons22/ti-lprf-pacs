@@ -40,24 +40,6 @@ impl B1trdyR {
         *self == B1trdy::Notready
     }
 }
-#[doc = "Field `B1TRDY` writer - 0:0\\]
-This bit indicates if flash is ready in 1T mode."]
-pub type B1trdyW<'a, REG> = crate::BitWriter<'a, REG, B1trdy>;
-impl<'a, REG> B1trdyW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Ready"]
-    #[inline(always)]
-    pub fn ready(self) -> &'a mut crate::W<REG> {
-        self.variant(B1trdy::Ready)
-    }
-    #[doc = "Not Ready"]
-    #[inline(always)]
-    pub fn notready(self) -> &'a mut crate::W<REG> {
-        self.variant(B1trdy::Notready)
-    }
-}
 #[doc = "1:1\\]
 This bit indicates if flash is ready in 2T mode.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -94,24 +76,6 @@ impl B2trdyR {
     #[inline(always)]
     pub fn is_notready(&self) -> bool {
         *self == B2trdy::Notready
-    }
-}
-#[doc = "Field `B2TRDY` writer - 1:1\\]
-This bit indicates if flash is ready in 2T mode."]
-pub type B2trdyW<'a, REG> = crate::BitWriter<'a, REG, B2trdy>;
-impl<'a, REG> B2trdyW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Ready"]
-    #[inline(always)]
-    pub fn ready(self) -> &'a mut crate::W<REG> {
-        self.variant(B2trdy::Ready)
-    }
-    #[doc = "Not Ready"]
-    #[inline(always)]
-    pub fn notready(self) -> &'a mut crate::W<REG> {
-        self.variant(B2trdy::Notready)
     }
 }
 #[doc = "2:2\\]
@@ -152,24 +116,6 @@ impl B0bsyR {
         *self == B0bsy::Idle
     }
 }
-#[doc = "Field `B0BSY` writer - 2:2\\]
-This bit indicates if flash is busy."]
-pub type B0bsyW<'a, REG> = crate::BitWriter<'a, REG, B0bsy>;
-impl<'a, REG> B0bsyW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Busy"]
-    #[inline(always)]
-    pub fn busy(self) -> &'a mut crate::W<REG> {
-        self.variant(B0bsy::Busy)
-    }
-    #[doc = "Idle"]
-    #[inline(always)]
-    pub fn idle(self) -> &'a mut crate::W<REG> {
-        self.variant(B0bsy::Idle)
-    }
-}
 #[doc = "3:3\\]
 This bit indicates parity error on write/erase $amp; read protection MMRs. This bit is sticky when set to 1 by hardware.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -208,30 +154,9 @@ impl ParerrR {
         *self == Parerr::Noerror
     }
 }
-#[doc = "Field `PARERR` writer - 3:3\\]
-This bit indicates parity error on write/erase $amp; read protection MMRs. This bit is sticky when set to 1 by hardware."]
-pub type ParerrW<'a, REG> = crate::BitWriter<'a, REG, Parerr>;
-impl<'a, REG> ParerrW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Error"]
-    #[inline(always)]
-    pub fn error(self) -> &'a mut crate::W<REG> {
-        self.variant(Parerr::Error)
-    }
-    #[doc = "No Error"]
-    #[inline(always)]
-    pub fn noerror(self) -> &'a mut crate::W<REG> {
-        self.variant(Parerr::Noerror)
-    }
-}
 #[doc = "Field `RESERVED4` reader - 31:4\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved4R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED4` writer - 31:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved4W<'a, REG> = crate::FieldWriter<'a, REG, 28, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 This bit indicates if flash is ready in 1T mode."]
@@ -264,43 +189,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved4R::new((self.bits >> 4) & 0x0fff_ffff)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-This bit indicates if flash is ready in 1T mode."]
-    #[inline(always)]
-    #[must_use]
-    pub fn b1trdy(&mut self) -> B1trdyW<FlbstatSpec> {
-        B1trdyW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-This bit indicates if flash is ready in 2T mode."]
-    #[inline(always)]
-    #[must_use]
-    pub fn b2trdy(&mut self) -> B2trdyW<FlbstatSpec> {
-        B2trdyW::new(self, 1)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-This bit indicates if flash is busy."]
-    #[inline(always)]
-    #[must_use]
-    pub fn b0bsy(&mut self) -> B0bsyW<FlbstatSpec> {
-        B0bsyW::new(self, 2)
-    }
-    #[doc = "Bit 3 - 3:3\\]
-This bit indicates parity error on write/erase $amp; read protection MMRs. This bit is sticky when set to 1 by hardware."]
-    #[inline(always)]
-    #[must_use]
-    pub fn parerr(&mut self) -> ParerrW<FlbstatSpec> {
-        ParerrW::new(self, 3)
-    }
-    #[doc = "Bits 4:31 - 31:4\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved4(&mut self) -> Reserved4W<FlbstatSpec> {
-        Reserved4W::new(self, 4)
-    }
-}
+impl W {}
 #[doc = "This register is used to indicate status of flash.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`flbstat::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`flbstat::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct FlbstatSpec;
 impl crate::RegisterSpec for FlbstatSpec {

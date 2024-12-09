@@ -40,24 +40,6 @@ impl Pbe0R {
         *self == Pbe0::Clr
     }
 }
-#[doc = "Field `PBE0` writer - 0:0\\]
-PBE0 event"]
-pub type Pbe0W<'a, REG> = crate::BitWriter<'a, REG, Pbe0>;
-impl<'a, REG> Pbe0W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe0::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe0::Clr)
-    }
-}
 #[doc = "1:1\\]
 PBE1 event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -94,24 +76,6 @@ impl Pbe1R {
     #[inline(always)]
     pub fn is_clr(&self) -> bool {
         *self == Pbe1::Clr
-    }
-}
-#[doc = "Field `PBE1` writer - 1:1\\]
-PBE1 event"]
-pub type Pbe1W<'a, REG> = crate::BitWriter<'a, REG, Pbe1>;
-impl<'a, REG> Pbe1W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe1::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe1::Clr)
     }
 }
 #[doc = "2:2\\]
@@ -152,24 +116,6 @@ impl Pbe2R {
         *self == Pbe2::Clr
     }
 }
-#[doc = "Field `PBE2` writer - 2:2\\]
-PBE2 event"]
-pub type Pbe2W<'a, REG> = crate::BitWriter<'a, REG, Pbe2>;
-impl<'a, REG> Pbe2W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe2::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe2::Clr)
-    }
-}
 #[doc = "3:3\\]
 PBE3 event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -206,24 +152,6 @@ impl Pbe3R {
     #[inline(always)]
     pub fn is_clr(&self) -> bool {
         *self == Pbe3::Clr
-    }
-}
-#[doc = "Field `PBE3` writer - 3:3\\]
-PBE3 event"]
-pub type Pbe3W<'a, REG> = crate::BitWriter<'a, REG, Pbe3>;
-impl<'a, REG> Pbe3W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe3::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe3::Clr)
     }
 }
 #[doc = "4:4\\]
@@ -264,24 +192,6 @@ impl Pbe4R {
         *self == Pbe4::Clr
     }
 }
-#[doc = "Field `PBE4` writer - 4:4\\]
-PBE4 event"]
-pub type Pbe4W<'a, REG> = crate::BitWriter<'a, REG, Pbe4>;
-impl<'a, REG> Pbe4W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe4::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe4::Clr)
-    }
-}
 #[doc = "5:5\\]
 PBE5 event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -318,24 +228,6 @@ impl Pbe5R {
     #[inline(always)]
     pub fn is_clr(&self) -> bool {
         *self == Pbe5::Clr
-    }
-}
-#[doc = "Field `PBE5` writer - 5:5\\]
-PBE5 event"]
-pub type Pbe5W<'a, REG> = crate::BitWriter<'a, REG, Pbe5>;
-impl<'a, REG> Pbe5W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe5::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe5::Clr)
     }
 }
 #[doc = "6:6\\]
@@ -376,24 +268,6 @@ impl Pbe6R {
         *self == Pbe6::Clr
     }
 }
-#[doc = "Field `PBE6` writer - 6:6\\]
-PBE6 event"]
-pub type Pbe6W<'a, REG> = crate::BitWriter<'a, REG, Pbe6>;
-impl<'a, REG> Pbe6W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe6::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe6::Clr)
-    }
-}
 #[doc = "7:7\\]
 PBE7 event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -430,24 +304,6 @@ impl Pbe7R {
     #[inline(always)]
     pub fn is_clr(&self) -> bool {
         *self == Pbe7::Clr
-    }
-}
-#[doc = "Field `PBE7` writer - 7:7\\]
-PBE7 event"]
-pub type Pbe7W<'a, REG> = crate::BitWriter<'a, REG, Pbe7>;
-impl<'a, REG> Pbe7W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe7::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe7::Clr)
     }
 }
 #[doc = "8:8\\]
@@ -488,24 +344,6 @@ impl Pbe8R {
         *self == Pbe8::Clr
     }
 }
-#[doc = "Field `PBE8` writer - 8:8\\]
-PBE8 event"]
-pub type Pbe8W<'a, REG> = crate::BitWriter<'a, REG, Pbe8>;
-impl<'a, REG> Pbe8W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe8::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe8::Clr)
-    }
-}
 #[doc = "9:9\\]
 PBE9 event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -542,24 +380,6 @@ impl Pbe9R {
     #[inline(always)]
     pub fn is_clr(&self) -> bool {
         *self == Pbe9::Clr
-    }
-}
-#[doc = "Field `PBE9` writer - 9:9\\]
-PBE9 event"]
-pub type Pbe9W<'a, REG> = crate::BitWriter<'a, REG, Pbe9>;
-impl<'a, REG> Pbe9W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe9::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe9::Clr)
     }
 }
 #[doc = "10:10\\]
@@ -600,24 +420,6 @@ impl Pbe10R {
         *self == Pbe10::Clr
     }
 }
-#[doc = "Field `PBE10` writer - 10:10\\]
-PBE10 event"]
-pub type Pbe10W<'a, REG> = crate::BitWriter<'a, REG, Pbe10>;
-impl<'a, REG> Pbe10W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe10::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe10::Clr)
-    }
-}
 #[doc = "11:11\\]
 PBE11 event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -654,24 +456,6 @@ impl Pbe11R {
     #[inline(always)]
     pub fn is_clr(&self) -> bool {
         *self == Pbe11::Clr
-    }
-}
-#[doc = "Field `PBE11` writer - 11:11\\]
-PBE11 event"]
-pub type Pbe11W<'a, REG> = crate::BitWriter<'a, REG, Pbe11>;
-impl<'a, REG> Pbe11W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe11::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe11::Clr)
     }
 }
 #[doc = "12:12\\]
@@ -712,24 +496,6 @@ impl Pbe12R {
         *self == Pbe12::Clr
     }
 }
-#[doc = "Field `PBE12` writer - 12:12\\]
-PBE12 event"]
-pub type Pbe12W<'a, REG> = crate::BitWriter<'a, REG, Pbe12>;
-impl<'a, REG> Pbe12W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe12::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe12::Clr)
-    }
-}
 #[doc = "13:13\\]
 PBE13 event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -766,24 +532,6 @@ impl Pbe13R {
     #[inline(always)]
     pub fn is_clr(&self) -> bool {
         *self == Pbe13::Clr
-    }
-}
-#[doc = "Field `PBE13` writer - 13:13\\]
-PBE13 event"]
-pub type Pbe13W<'a, REG> = crate::BitWriter<'a, REG, Pbe13>;
-impl<'a, REG> Pbe13W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe13::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe13::Clr)
     }
 }
 #[doc = "14:14\\]
@@ -824,24 +572,6 @@ impl Pbe14R {
         *self == Pbe14::Clr
     }
 }
-#[doc = "Field `PBE14` writer - 14:14\\]
-PBE14 event"]
-pub type Pbe14W<'a, REG> = crate::BitWriter<'a, REG, Pbe14>;
-impl<'a, REG> Pbe14W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe14::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe14::Clr)
-    }
-}
 #[doc = "15:15\\]
 PBE15 event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -878,24 +608,6 @@ impl Pbe15R {
     #[inline(always)]
     pub fn is_clr(&self) -> bool {
         *self == Pbe15::Clr
-    }
-}
-#[doc = "Field `PBE15` writer - 15:15\\]
-PBE15 event"]
-pub type Pbe15W<'a, REG> = crate::BitWriter<'a, REG, Pbe15>;
-impl<'a, REG> Pbe15W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe15::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Pbe15::Clr)
     }
 }
 #[doc = "16:16\\]
@@ -936,24 +648,6 @@ impl RxfifoR {
         *self == Rxfifo::Clr
     }
 }
-#[doc = "Field `RXFIFO` writer - 16:16\\]
-RXFIFO event"]
-pub type RxfifoW<'a, REG> = crate::BitWriter<'a, REG, Rxfifo>;
-impl<'a, REG> RxfifoW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Rxfifo::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Rxfifo::Clr)
-    }
-}
 #[doc = "17:17\\]
 TXFIFO event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -990,24 +684,6 @@ impl TxfifoR {
     #[inline(always)]
     pub fn is_clr(&self) -> bool {
         *self == Txfifo::Clr
-    }
-}
-#[doc = "Field `TXFIFO` writer - 17:17\\]
-TXFIFO event"]
-pub type TxfifoW<'a, REG> = crate::BitWriter<'a, REG, Txfifo>;
-impl<'a, REG> TxfifoW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Txfifo::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Txfifo::Clr)
     }
 }
 #[doc = "18:18\\]
@@ -1048,24 +724,6 @@ impl LolR {
         *self == Lol::Clr
     }
 }
-#[doc = "Field `LOL` writer - 18:18\\]
-LOSS_OF_LOCK event"]
-pub type LolW<'a, REG> = crate::BitWriter<'a, REG, Lol>;
-impl<'a, REG> LolW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Lol::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Lol::Clr)
-    }
-}
 #[doc = "19:19\\]
 LOCK event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1102,24 +760,6 @@ impl LockR {
     #[inline(always)]
     pub fn is_clr(&self) -> bool {
         *self == Lock::Clr
-    }
-}
-#[doc = "Field `LOCK` writer - 19:19\\]
-LOCK event"]
-pub type LockW<'a, REG> = crate::BitWriter<'a, REG, Lock>;
-impl<'a, REG> LockW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Lock::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Lock::Clr)
     }
 }
 #[doc = "20:20\\]
@@ -1160,24 +800,6 @@ impl Rfesoft0R {
         *self == Rfesoft0::Clr
     }
 }
-#[doc = "Field `RFESOFT0` writer - 20:20\\]
-RFESOFT0 event"]
-pub type Rfesoft0W<'a, REG> = crate::BitWriter<'a, REG, Rfesoft0>;
-impl<'a, REG> Rfesoft0W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Rfesoft0::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Rfesoft0::Clr)
-    }
-}
 #[doc = "21:21\\]
 RFESOFT1 event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1214,24 +836,6 @@ impl Rfesoft1R {
     #[inline(always)]
     pub fn is_clr(&self) -> bool {
         *self == Rfesoft1::Clr
-    }
-}
-#[doc = "Field `RFESOFT1` writer - 21:21\\]
-RFESOFT1 event"]
-pub type Rfesoft1W<'a, REG> = crate::BitWriter<'a, REG, Rfesoft1>;
-impl<'a, REG> Rfesoft1W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Rfesoft1::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Rfesoft1::Clr)
     }
 }
 #[doc = "22:22\\]
@@ -1272,24 +876,6 @@ impl RfedoneR {
         *self == Rfedone::Clr
     }
 }
-#[doc = "Field `RFEDONE` writer - 22:22\\]
-RFEDONE event"]
-pub type RfedoneW<'a, REG> = crate::BitWriter<'a, REG, Rfedone>;
-impl<'a, REG> RfedoneW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Rfedone::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Rfedone::Clr)
-    }
-}
 #[doc = "23:23\\]
 MDMSOFT event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1326,24 +912,6 @@ impl Mdmsoft0R {
     #[inline(always)]
     pub fn is_clr(&self) -> bool {
         *self == Mdmsoft0::Clr
-    }
-}
-#[doc = "Field `MDMSOFT0` writer - 23:23\\]
-MDMSOFT event"]
-pub type Mdmsoft0W<'a, REG> = crate::BitWriter<'a, REG, Mdmsoft0>;
-impl<'a, REG> Mdmsoft0W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Mdmsoft0::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Mdmsoft0::Clr)
     }
 }
 #[doc = "24:24\\]
@@ -1384,24 +952,6 @@ impl Mdmsoft1R {
         *self == Mdmsoft1::Clr
     }
 }
-#[doc = "Field `MDMSOFT1` writer - 24:24\\]
-MDMSOFT1 event"]
-pub type Mdmsoft1W<'a, REG> = crate::BitWriter<'a, REG, Mdmsoft1>;
-impl<'a, REG> Mdmsoft1W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Mdmsoft1::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Mdmsoft1::Clr)
-    }
-}
 #[doc = "25:25\\]
 MDMSOFT event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1438,24 +988,6 @@ impl Mdmsoft2R {
     #[inline(always)]
     pub fn is_clr(&self) -> bool {
         *self == Mdmsoft2::Clr
-    }
-}
-#[doc = "Field `MDMSOFT2` writer - 25:25\\]
-MDMSOFT event"]
-pub type Mdmsoft2W<'a, REG> = crate::BitWriter<'a, REG, Mdmsoft2>;
-impl<'a, REG> Mdmsoft2W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Mdmsoft2::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Mdmsoft2::Clr)
     }
 }
 #[doc = "26:26\\]
@@ -1496,24 +1028,6 @@ impl MdmoutR {
         *self == Mdmout::Clr
     }
 }
-#[doc = "Field `MDMOUT` writer - 26:26\\]
-MDMOUT event"]
-pub type MdmoutW<'a, REG> = crate::BitWriter<'a, REG, Mdmout>;
-impl<'a, REG> MdmoutW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Mdmout::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Mdmout::Clr)
-    }
-}
 #[doc = "27:27\\]
 MDMIN event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1550,24 +1064,6 @@ impl MdminR {
     #[inline(always)]
     pub fn is_clr(&self) -> bool {
         *self == Mdmin::Clr
-    }
-}
-#[doc = "Field `MDMIN` writer - 27:27\\]
-MDMIN event"]
-pub type MdminW<'a, REG> = crate::BitWriter<'a, REG, Mdmin>;
-impl<'a, REG> MdminW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Mdmin::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Mdmin::Clr)
     }
 }
 #[doc = "28:28\\]
@@ -1608,24 +1104,6 @@ impl MdmdoneR {
         *self == Mdmdone::Clr
     }
 }
-#[doc = "Field `MDMDONE` writer - 28:28\\]
-MDMDONE event"]
-pub type MdmdoneW<'a, REG> = crate::BitWriter<'a, REG, Mdmdone>;
-impl<'a, REG> MdmdoneW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Mdmdone::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Mdmdone::Clr)
-    }
-}
 #[doc = "29:29\\]
 SYSTIM0 event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1662,24 +1140,6 @@ impl Systim0R {
     #[inline(always)]
     pub fn is_clr(&self) -> bool {
         *self == Systim0::Clr
-    }
-}
-#[doc = "Field `SYSTIM0` writer - 29:29\\]
-SYSTIM0 event"]
-pub type Systim0W<'a, REG> = crate::BitWriter<'a, REG, Systim0>;
-impl<'a, REG> Systim0W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Systim0::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Systim0::Clr)
     }
 }
 #[doc = "30:30\\]
@@ -1720,24 +1180,6 @@ impl Systim1R {
         *self == Systim1::Clr
     }
 }
-#[doc = "Field `SYSTIM1` writer - 30:30\\]
-SYSTIM1 event"]
-pub type Systim1W<'a, REG> = crate::BitWriter<'a, REG, Systim1>;
-impl<'a, REG> Systim1W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Systim1::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Systim1::Clr)
-    }
-}
 #[doc = "31:31\\]
 SYSTIM2 event\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1774,24 +1216,6 @@ impl Systim2R {
     #[inline(always)]
     pub fn is_clr(&self) -> bool {
         *self == Systim2::Clr
-    }
-}
-#[doc = "Field `SYSTIM2` writer - 31:31\\]
-SYSTIM2 event"]
-pub type Systim2W<'a, REG> = crate::BitWriter<'a, REG, Systim2>;
-impl<'a, REG> Systim2W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Interrupt occurred"]
-    #[inline(always)]
-    pub fn set_(self) -> &'a mut crate::W<REG> {
-        self.variant(Systim2::Set)
-    }
-    #[doc = "Interrupt did not occur"]
-    #[inline(always)]
-    pub fn clr(self) -> &'a mut crate::W<REG> {
-        self.variant(Systim2::Clr)
     }
 }
 impl R {
@@ -1988,232 +1412,7 @@ SYSTIM2 event"]
         Systim2R::new(((self.bits >> 31) & 1) != 0)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-PBE0 event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn pbe0(&mut self) -> Pbe0W<Ris0Spec> {
-        Pbe0W::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-PBE1 event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn pbe1(&mut self) -> Pbe1W<Ris0Spec> {
-        Pbe1W::new(self, 1)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-PBE2 event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn pbe2(&mut self) -> Pbe2W<Ris0Spec> {
-        Pbe2W::new(self, 2)
-    }
-    #[doc = "Bit 3 - 3:3\\]
-PBE3 event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn pbe3(&mut self) -> Pbe3W<Ris0Spec> {
-        Pbe3W::new(self, 3)
-    }
-    #[doc = "Bit 4 - 4:4\\]
-PBE4 event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn pbe4(&mut self) -> Pbe4W<Ris0Spec> {
-        Pbe4W::new(self, 4)
-    }
-    #[doc = "Bit 5 - 5:5\\]
-PBE5 event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn pbe5(&mut self) -> Pbe5W<Ris0Spec> {
-        Pbe5W::new(self, 5)
-    }
-    #[doc = "Bit 6 - 6:6\\]
-PBE6 event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn pbe6(&mut self) -> Pbe6W<Ris0Spec> {
-        Pbe6W::new(self, 6)
-    }
-    #[doc = "Bit 7 - 7:7\\]
-PBE7 event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn pbe7(&mut self) -> Pbe7W<Ris0Spec> {
-        Pbe7W::new(self, 7)
-    }
-    #[doc = "Bit 8 - 8:8\\]
-PBE8 event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn pbe8(&mut self) -> Pbe8W<Ris0Spec> {
-        Pbe8W::new(self, 8)
-    }
-    #[doc = "Bit 9 - 9:9\\]
-PBE9 event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn pbe9(&mut self) -> Pbe9W<Ris0Spec> {
-        Pbe9W::new(self, 9)
-    }
-    #[doc = "Bit 10 - 10:10\\]
-PBE10 event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn pbe10(&mut self) -> Pbe10W<Ris0Spec> {
-        Pbe10W::new(self, 10)
-    }
-    #[doc = "Bit 11 - 11:11\\]
-PBE11 event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn pbe11(&mut self) -> Pbe11W<Ris0Spec> {
-        Pbe11W::new(self, 11)
-    }
-    #[doc = "Bit 12 - 12:12\\]
-PBE12 event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn pbe12(&mut self) -> Pbe12W<Ris0Spec> {
-        Pbe12W::new(self, 12)
-    }
-    #[doc = "Bit 13 - 13:13\\]
-PBE13 event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn pbe13(&mut self) -> Pbe13W<Ris0Spec> {
-        Pbe13W::new(self, 13)
-    }
-    #[doc = "Bit 14 - 14:14\\]
-PBE14 event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn pbe14(&mut self) -> Pbe14W<Ris0Spec> {
-        Pbe14W::new(self, 14)
-    }
-    #[doc = "Bit 15 - 15:15\\]
-PBE15 event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn pbe15(&mut self) -> Pbe15W<Ris0Spec> {
-        Pbe15W::new(self, 15)
-    }
-    #[doc = "Bit 16 - 16:16\\]
-RXFIFO event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn rxfifo(&mut self) -> RxfifoW<Ris0Spec> {
-        RxfifoW::new(self, 16)
-    }
-    #[doc = "Bit 17 - 17:17\\]
-TXFIFO event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn txfifo(&mut self) -> TxfifoW<Ris0Spec> {
-        TxfifoW::new(self, 17)
-    }
-    #[doc = "Bit 18 - 18:18\\]
-LOSS_OF_LOCK event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn lol(&mut self) -> LolW<Ris0Spec> {
-        LolW::new(self, 18)
-    }
-    #[doc = "Bit 19 - 19:19\\]
-LOCK event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn lock(&mut self) -> LockW<Ris0Spec> {
-        LockW::new(self, 19)
-    }
-    #[doc = "Bit 20 - 20:20\\]
-RFESOFT0 event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn rfesoft0(&mut self) -> Rfesoft0W<Ris0Spec> {
-        Rfesoft0W::new(self, 20)
-    }
-    #[doc = "Bit 21 - 21:21\\]
-RFESOFT1 event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn rfesoft1(&mut self) -> Rfesoft1W<Ris0Spec> {
-        Rfesoft1W::new(self, 21)
-    }
-    #[doc = "Bit 22 - 22:22\\]
-RFEDONE event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn rfedone(&mut self) -> RfedoneW<Ris0Spec> {
-        RfedoneW::new(self, 22)
-    }
-    #[doc = "Bit 23 - 23:23\\]
-MDMSOFT event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn mdmsoft0(&mut self) -> Mdmsoft0W<Ris0Spec> {
-        Mdmsoft0W::new(self, 23)
-    }
-    #[doc = "Bit 24 - 24:24\\]
-MDMSOFT1 event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn mdmsoft1(&mut self) -> Mdmsoft1W<Ris0Spec> {
-        Mdmsoft1W::new(self, 24)
-    }
-    #[doc = "Bit 25 - 25:25\\]
-MDMSOFT event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn mdmsoft2(&mut self) -> Mdmsoft2W<Ris0Spec> {
-        Mdmsoft2W::new(self, 25)
-    }
-    #[doc = "Bit 26 - 26:26\\]
-MDMOUT event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn mdmout(&mut self) -> MdmoutW<Ris0Spec> {
-        MdmoutW::new(self, 26)
-    }
-    #[doc = "Bit 27 - 27:27\\]
-MDMIN event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn mdmin(&mut self) -> MdminW<Ris0Spec> {
-        MdminW::new(self, 27)
-    }
-    #[doc = "Bit 28 - 28:28\\]
-MDMDONE event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn mdmdone(&mut self) -> MdmdoneW<Ris0Spec> {
-        MdmdoneW::new(self, 28)
-    }
-    #[doc = "Bit 29 - 29:29\\]
-SYSTIM0 event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn systim0(&mut self) -> Systim0W<Ris0Spec> {
-        Systim0W::new(self, 29)
-    }
-    #[doc = "Bit 30 - 30:30\\]
-SYSTIM1 event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn systim1(&mut self) -> Systim1W<Ris0Spec> {
-        Systim1W::new(self, 30)
-    }
-    #[doc = "Bit 31 - 31:31\\]
-SYSTIM2 event"]
-    #[inline(always)]
-    #[must_use]
-    pub fn systim2(&mut self) -> Systim2W<Ris0Spec> {
-        Systim2W::new(self, 31)
-    }
-}
+impl W {}
 #[doc = "Raw interrupt status. This register reflects the state of all pending interrupts, regardless of masking. This register allows the user to implement a poll scheme. A flag set in this register can be cleared by writing 1 to the corresponding ICLR register bit.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ris0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ris0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Ris0Spec;
 impl crate::RegisterSpec for Ris0Spec {

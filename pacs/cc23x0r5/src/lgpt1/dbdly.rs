@@ -11,9 +11,6 @@ pub type RisedlyW<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
 #[doc = "Field `RESERVED12` reader - 15:12\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved12R = crate::FieldReader;
-#[doc = "Field `RESERVED12` writer - 15:12\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved12W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Field `FALLDLY` reader - 27:16\\]
 Fall delay. The number of system clock periods inserted between the fall of the dead band reference signal and the rise of the inverted output signal."]
 pub type FalldlyR = crate::FieldReader<u16>;
@@ -23,9 +20,6 @@ pub type FalldlyW<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
 #[doc = "Field `RESERVED28` reader - 31:28\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved28R = crate::FieldReader;
-#[doc = "Field `RESERVED28` writer - 31:28\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved28W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 impl R {
     #[doc = "Bits 0:11 - 11:0\\]
 Rise delay. The number of system clock periods inserted between the rise of the dead band reference signal and the rise of the output signal."]
@@ -60,26 +54,12 @@ Rise delay. The number of system clock periods inserted between the rise of the 
     pub fn risedly(&mut self) -> RisedlyW<DbdlySpec> {
         RisedlyW::new(self, 0)
     }
-    #[doc = "Bits 12:15 - 15:12\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved12(&mut self) -> Reserved12W<DbdlySpec> {
-        Reserved12W::new(self, 12)
-    }
     #[doc = "Bits 16:27 - 27:16\\]
 Fall delay. The number of system clock periods inserted between the fall of the dead band reference signal and the rise of the inverted output signal."]
     #[inline(always)]
     #[must_use]
     pub fn falldly(&mut self) -> FalldlyW<DbdlySpec> {
         FalldlyW::new(self, 16)
-    }
-    #[doc = "Bits 28:31 - 31:28\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved28(&mut self) -> Reserved28W<DbdlySpec> {
-        Reserved28W::new(self, 28)
     }
 }
 #[doc = "Dead Band Delay This register is used to insert a dead band delay when generating complementary PWM signals. To enable dead band, on for example IO output 0, create a reference PWM signal on Output 0, then set DBCTL.IOC0 = EN. TBD: 12-bit width fall delay and rise delay may be excessive, if 8-bits are enough we can join DBDLY and DBCTL.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`dbdly::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`dbdly::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

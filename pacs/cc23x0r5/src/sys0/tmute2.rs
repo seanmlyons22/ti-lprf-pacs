@@ -41,9 +41,6 @@ pub type IbtrimW<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 #[doc = "Field `RESERVED31` reader - 31:31\\]
 RESERVED"]
 pub type Reserved31R = crate::BitReader;
-#[doc = "Field `RESERVED31` writer - 31:31\\]
-RESERVED"]
-pub type Reserved31W<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bits 0:1 - 1:0\\]
 SOCADC: Upper 2 bits of CDAC trim. These bits are used in DTC."]
@@ -130,13 +127,6 @@ LPCOMP: Bias current trim, 250nA to be terminated across I2V, 1M ohm setting. Re
     #[must_use]
     pub fn ibtrim(&mut self) -> IbtrimW<Tmute2Spec> {
         IbtrimW::new(self, 26)
-    }
-    #[doc = "Bit 31 - 31:31\\]
-RESERVED"]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved31(&mut self) -> Reserved31W<Tmute2Spec> {
-        Reserved31W::new(self, 31)
     }
 }
 #[doc = "TMUTE2 trim Register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`tmute2::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`tmute2::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

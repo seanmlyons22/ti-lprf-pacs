@@ -2,32 +2,12 @@
 pub type R = crate::R<AbortSpec>;
 #[doc = "Register `ABORT` writer"]
 pub type W = crate::W<AbortSpec>;
-#[doc = "Field `ECB` reader - 0:0\\]
-Electronic Codebook Write 1 to this field to abort an ongoing ECB encryption. An abort will clear TXT, BUF, DMA, AUTOCFG registers"]
-pub type EcbR = crate::BitReader;
 #[doc = "Field `ECB` writer - 0:0\\]
 Electronic Codebook Write 1 to this field to abort an ongoing ECB encryption. An abort will clear TXT, BUF, DMA, AUTOCFG registers"]
 pub type EcbW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `RESERVED1` reader - 31:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved1R = crate::FieldReader<u32>;
 #[doc = "Field `RESERVED1` writer - 31:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 31, u32>;
-impl R {
-    #[doc = "Bit 0 - 0:0\\]
-Electronic Codebook Write 1 to this field to abort an ongoing ECB encryption. An abort will clear TXT, BUF, DMA, AUTOCFG registers"]
-    #[inline(always)]
-    pub fn ecb(&self) -> EcbR {
-        EcbR::new((self.bits & 1) != 0)
-    }
-    #[doc = "Bits 1:31 - 31:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    pub fn reserved1(&self) -> Reserved1R {
-        Reserved1R::new((self.bits >> 1) & 0x7fff_ffff)
-    }
-}
 impl W {
     #[doc = "Bit 0 - 0:0\\]
 Electronic Codebook Write 1 to this field to abort an ongoing ECB encryption. An abort will clear TXT, BUF, DMA, AUTOCFG registers"]

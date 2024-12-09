@@ -40,24 +40,6 @@ impl Flag0R {
         *self == Flag0::Val0
     }
 }
-#[doc = "Field `FLAG0` writer - 0:0\\]
-Internal. Only to be used through TI provided API."]
-pub type Flag0W<'a, REG> = crate::BitWriter<'a, REG, Flag0>;
-impl<'a, REG> Flag0W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    pub fn val1(self) -> &'a mut crate::W<REG> {
-        self.variant(Flag0::Val1)
-    }
-    #[doc = "Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    pub fn val0(self) -> &'a mut crate::W<REG> {
-        self.variant(Flag0::Val0)
-    }
-}
 #[doc = "1:1\\]
 Internal. Only to be used through TI provided API.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -87,19 +69,6 @@ impl Flag1R {
     #[inline(always)]
     pub fn is_val1(&self) -> bool {
         *self == Flag1::Val1
-    }
-}
-#[doc = "Field `FLAG1` writer - 1:1\\]
-Internal. Only to be used through TI provided API."]
-pub type Flag1W<'a, REG> = crate::BitWriter<'a, REG, Flag1>;
-impl<'a, REG> Flag1W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    pub fn val1(self) -> &'a mut crate::W<REG> {
-        self.variant(Flag1::Val1)
     }
 }
 #[doc = "2:2\\]
@@ -140,30 +109,9 @@ impl Flag2R {
         *self == Flag2::Val0
     }
 }
-#[doc = "Field `FLAG2` writer - 2:2\\]
-Internal. Only to be used through TI provided API."]
-pub type Flag2W<'a, REG> = crate::BitWriter<'a, REG, Flag2>;
-impl<'a, REG> Flag2W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    pub fn val1(self) -> &'a mut crate::W<REG> {
-        self.variant(Flag2::Val1)
-    }
-    #[doc = "Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    pub fn val0(self) -> &'a mut crate::W<REG> {
-        self.variant(Flag2::Val0)
-    }
-}
 #[doc = "Field `RESERVED3` reader - 31:3\\]
 Internal. Only to be used through TI provided API."]
 pub type Reserved3R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED3` writer - 31:3\\]
-Internal. Only to be used through TI provided API."]
-pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 29, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Internal. Only to be used through TI provided API."]
@@ -190,36 +138,7 @@ Internal. Only to be used through TI provided API."]
         Reserved3R::new((self.bits >> 3) & 0x1fff_ffff)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn flag0(&mut self) -> Flag0W<SysfstaSpec> {
-        Flag0W::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn flag1(&mut self) -> Flag1W<SysfstaSpec> {
-        Flag1W::new(self, 1)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn flag2(&mut self) -> Flag2W<SysfstaSpec> {
-        Flag2W::new(self, 2)
-    }
-    #[doc = "Bits 3:31 - 31:3\\]
-Internal. Only to be used through TI provided API."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<SysfstaSpec> {
-        Reserved3W::new(self, 3)
-    }
-}
+impl W {}
 #[doc = "Internal. Only to be used through TI provided API.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`sysfsta::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`sysfsta::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct SysfstaSpec;
 impl crate::RegisterSpec for SysfstaSpec {

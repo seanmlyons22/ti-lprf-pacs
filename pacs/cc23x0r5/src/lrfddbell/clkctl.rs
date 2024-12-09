@@ -789,9 +789,6 @@ where
 #[doc = "Field `RESERVED14` reader - 31:14\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved14R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED14` writer - 31:14\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved14W<'a, REG> = crate::FieldWriter<'a, REG, 18, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Clock enable to AHB bridge. The bridge will request it's own clock, this bit it to override that feature to have a free running clock."]
@@ -982,13 +979,6 @@ Enable the clock to the demodulator. The modem will request this clock automatic
     #[must_use]
     pub fn dem(&mut self) -> DemW<ClkctlSpec> {
         DemW::new(self, 13)
-    }
-    #[doc = "Bits 14:31 - 31:14\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved14(&mut self) -> Reserved14W<ClkctlSpec> {
-        Reserved14W::new(self, 14)
     }
 }
 #[doc = "Controls the functional clock gates for the individual sub-modules. Writing a bit to zero does not necessarily switch off the corresponding clock. It can also be requested internally. A clock will only be switched off if internal and external requests are removed\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`clkctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`clkctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

@@ -17,27 +17,15 @@ pub type TickintW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `CLKSOURCE` reader - 2:2\\]
 SysTick clock source. Always reads as one if STCALIB reports NOREF. 0x0:Systick driven by external reference clock. 0x1:Systick driven by processor clock, hclk."]
 pub type ClksourceR = crate::BitReader;
-#[doc = "Field `CLKSOURCE` writer - 2:2\\]
-SysTick clock source. Always reads as one if STCALIB reports NOREF. 0x0:Systick driven by external reference clock. 0x1:Systick driven by processor clock, hclk."]
-pub type ClksourceW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED3` reader - 15:3\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved3R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED3` writer - 15:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved3W<'a, REG> = crate::FieldWriter<'a, REG, 13, u16>;
 #[doc = "Field `COUNTFLAG` reader - 16:16\\]
 Returns 1 if timer counted to 0 since last time this was read. Clears on read by application or debugger."]
 pub type CountflagR = crate::BitReader;
-#[doc = "Field `COUNTFLAG` writer - 16:16\\]
-Returns 1 if timer counted to 0 since last time this was read. Clears on read by application or debugger."]
-pub type CountflagW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED17` reader - 31:17\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved17R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED17` writer - 31:17\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved17W<'a, REG> = crate::FieldWriter<'a, REG, 15, u16>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Enable SysTick counter 0x0:Counter disabled 0x1:Counter operates in a multi-shot way. that is, counter loads with the reload value and then begins counting down. on reaching 0, it sets the countflag to 1 and optionally pends the systick handler, based on tickint. it then loads the reload value again, and begins counting."]
@@ -90,34 +78,6 @@ Enable SysTick counter 0x0:Counter disabled 0x1:Counter operates in a multi-shot
     #[must_use]
     pub fn tickint(&mut self) -> TickintW<CsrSpec> {
         TickintW::new(self, 1)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-SysTick clock source. Always reads as one if STCALIB reports NOREF. 0x0:Systick driven by external reference clock. 0x1:Systick driven by processor clock, hclk."]
-    #[inline(always)]
-    #[must_use]
-    pub fn clksource(&mut self) -> ClksourceW<CsrSpec> {
-        ClksourceW::new(self, 2)
-    }
-    #[doc = "Bits 3:15 - 15:3\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved3(&mut self) -> Reserved3W<CsrSpec> {
-        Reserved3W::new(self, 3)
-    }
-    #[doc = "Bit 16 - 16:16\\]
-Returns 1 if timer counted to 0 since last time this was read. Clears on read by application or debugger."]
-    #[inline(always)]
-    #[must_use]
-    pub fn countflag(&mut self) -> CountflagW<CsrSpec> {
-        CountflagW::new(self, 16)
-    }
-    #[doc = "Bits 17:31 - 31:17\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved17(&mut self) -> Reserved17W<CsrSpec> {
-        Reserved17W::new(self, 17)
     }
 }
 #[doc = "Use the SysTick Control and Status Register to enable the SysTick features.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`csr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`csr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

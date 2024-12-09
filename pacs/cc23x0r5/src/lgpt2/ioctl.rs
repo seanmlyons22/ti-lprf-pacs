@@ -539,9 +539,6 @@ where
 #[doc = "Field `RESERVED12` reader - 31:12\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved12R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED12` writer - 31:12\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved12W<'a, REG> = crate::FieldWriter<'a, REG, 20, u32>;
 impl R {
     #[doc = "Bits 0:1 - 1:0\\]
 IO output 0 control This bit field controls IO output 0."]
@@ -628,13 +625,6 @@ IO complementary output 2 control This bit field controls IO complementary outpu
     #[must_use]
     pub fn cout2(&mut self) -> Cout2W<IoctlSpec> {
         Cout2W::new(self, 10)
-    }
-    #[doc = "Bits 12:31 - 31:12\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved12(&mut self) -> Reserved12W<IoctlSpec> {
-        Reserved12W::new(self, 12)
     }
 }
 #[doc = "IO Controller This register controls the IO outputs.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ioctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ioctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

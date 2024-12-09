@@ -17,29 +17,6 @@ impl From<Tgt> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `TGT` reader - 0:0\\]
-Clear the MIS.TGT mask."]
-pub type TgtR = crate::BitReader<Tgt>;
-impl TgtR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Tgt {
-        match self.bits {
-            true => Tgt::Clr,
-            false => Tgt::NoEffect,
-        }
-    }
-    #[doc = "Clear"]
-    #[inline(always)]
-    pub fn is_clr(&self) -> bool {
-        *self == Tgt::Clr
-    }
-    #[doc = "No effect"]
-    #[inline(always)]
-    pub fn is_no_effect(&self) -> bool {
-        *self == Tgt::NoEffect
-    }
-}
 #[doc = "Field `TGT` writer - 0:0\\]
 Clear the MIS.TGT mask."]
 pub type TgtW<'a, REG> = crate::BitWriter<'a, REG, Tgt>;
@@ -71,29 +48,6 @@ impl From<Zero> for bool {
     #[inline(always)]
     fn from(variant: Zero) -> Self {
         variant as u8 != 0
-    }
-}
-#[doc = "Field `ZERO` reader - 1:1\\]
-Clear the MIS.ZERO mask."]
-pub type ZeroR = crate::BitReader<Zero>;
-impl ZeroR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Zero {
-        match self.bits {
-            true => Zero::Clr,
-            false => Zero::NoEffect,
-        }
-    }
-    #[doc = "Clear"]
-    #[inline(always)]
-    pub fn is_clr(&self) -> bool {
-        *self == Zero::Clr
-    }
-    #[doc = "No effect"]
-    #[inline(always)]
-    pub fn is_no_effect(&self) -> bool {
-        *self == Zero::NoEffect
     }
 }
 #[doc = "Field `ZERO` writer - 1:1\\]
@@ -129,29 +83,6 @@ impl From<Dbltrans> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `DBLTRANS` reader - 2:2\\]
-Clear the MIS.DBLTRANS mask."]
-pub type DbltransR = crate::BitReader<Dbltrans>;
-impl DbltransR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Dbltrans {
-        match self.bits {
-            true => Dbltrans::Clr,
-            false => Dbltrans::NoEffect,
-        }
-    }
-    #[doc = "Clear"]
-    #[inline(always)]
-    pub fn is_clr(&self) -> bool {
-        *self == Dbltrans::Clr
-    }
-    #[doc = "No effect"]
-    #[inline(always)]
-    pub fn is_no_effect(&self) -> bool {
-        *self == Dbltrans::NoEffect
-    }
-}
 #[doc = "Field `DBLTRANS` writer - 2:2\\]
 Clear the MIS.DBLTRANS mask."]
 pub type DbltransW<'a, REG> = crate::BitWriter<'a, REG, Dbltrans>;
@@ -183,29 +114,6 @@ impl From<Cntrchng> for bool {
     #[inline(always)]
     fn from(variant: Cntrchng) -> Self {
         variant as u8 != 0
-    }
-}
-#[doc = "Field `CNTRCHNG` reader - 3:3\\]
-Clear the MIS.CNTRCHNG mask."]
-pub type CntrchngR = crate::BitReader<Cntrchng>;
-impl CntrchngR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Cntrchng {
-        match self.bits {
-            true => Cntrchng::Clr,
-            false => Cntrchng::NoEffect,
-        }
-    }
-    #[doc = "Clear"]
-    #[inline(always)]
-    pub fn is_clr(&self) -> bool {
-        *self == Cntrchng::Clr
-    }
-    #[doc = "No effect"]
-    #[inline(always)]
-    pub fn is_no_effect(&self) -> bool {
-        *self == Cntrchng::NoEffect
     }
 }
 #[doc = "Field `CNTRCHNG` writer - 3:3\\]
@@ -241,29 +149,6 @@ impl From<Dirchng> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `DIRCHNG` reader - 4:4\\]
-Clear the MIS.DIRCHNG mask."]
-pub type DirchngR = crate::BitReader<Dirchng>;
-impl DirchngR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Dirchng {
-        match self.bits {
-            true => Dirchng::Clr,
-            false => Dirchng::NoEffect,
-        }
-    }
-    #[doc = "Clear"]
-    #[inline(always)]
-    pub fn is_clr(&self) -> bool {
-        *self == Dirchng::Clr
-    }
-    #[doc = "No effect"]
-    #[inline(always)]
-    pub fn is_no_effect(&self) -> bool {
-        *self == Dirchng::NoEffect
-    }
-}
 #[doc = "Field `DIRCHNG` writer - 4:4\\]
 Clear the MIS.DIRCHNG mask."]
 pub type DirchngW<'a, REG> = crate::BitWriter<'a, REG, Dirchng>;
@@ -295,29 +180,6 @@ impl From<Idx> for bool {
     #[inline(always)]
     fn from(variant: Idx) -> Self {
         variant as u8 != 0
-    }
-}
-#[doc = "Field `IDX` reader - 5:5\\]
-Clear the MIS.IDX mask."]
-pub type IdxR = crate::BitReader<Idx>;
-impl IdxR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Idx {
-        match self.bits {
-            true => Idx::Clr,
-            false => Idx::NoEffect,
-        }
-    }
-    #[doc = "Clear"]
-    #[inline(always)]
-    pub fn is_clr(&self) -> bool {
-        *self == Idx::Clr
-    }
-    #[doc = "No effect"]
-    #[inline(always)]
-    pub fn is_no_effect(&self) -> bool {
-        *self == Idx::NoEffect
     }
 }
 #[doc = "Field `IDX` writer - 5:5\\]
@@ -353,29 +215,6 @@ impl From<Fault> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `FAULT` reader - 6:6\\]
-Clear the MIS.FAULT mask."]
-pub type FaultR = crate::BitReader<Fault>;
-impl FaultR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> Fault {
-        match self.bits {
-            true => Fault::Clr,
-            false => Fault::NoEffect,
-        }
-    }
-    #[doc = "Clear"]
-    #[inline(always)]
-    pub fn is_clr(&self) -> bool {
-        *self == Fault::Clr
-    }
-    #[doc = "No effect"]
-    #[inline(always)]
-    pub fn is_no_effect(&self) -> bool {
-        *self == Fault::NoEffect
-    }
-}
 #[doc = "Field `FAULT` writer - 6:6\\]
 Clear the MIS.FAULT mask."]
 pub type FaultW<'a, REG> = crate::BitWriter<'a, REG, Fault>;
@@ -397,9 +236,6 @@ where
 #[doc = "Field `RESERVED7` reader - 7:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved7R = crate::BitReader;
-#[doc = "Field `RESERVED7` writer - 7:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved7W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "8:8\\]
 Clear the MIS.C0CC mask.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -413,29 +249,6 @@ impl From<C0cc> for bool {
     #[inline(always)]
     fn from(variant: C0cc) -> Self {
         variant as u8 != 0
-    }
-}
-#[doc = "Field `C0CC` reader - 8:8\\]
-Clear the MIS.C0CC mask."]
-pub type C0ccR = crate::BitReader<C0cc>;
-impl C0ccR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> C0cc {
-        match self.bits {
-            true => C0cc::Clr,
-            false => C0cc::NoEffect,
-        }
-    }
-    #[doc = "Clear"]
-    #[inline(always)]
-    pub fn is_clr(&self) -> bool {
-        *self == C0cc::Clr
-    }
-    #[doc = "No effect"]
-    #[inline(always)]
-    pub fn is_no_effect(&self) -> bool {
-        *self == C0cc::NoEffect
     }
 }
 #[doc = "Field `C0CC` writer - 8:8\\]
@@ -471,29 +284,6 @@ impl From<C1cc> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `C1CC` reader - 9:9\\]
-Clear the MIS.C1CC mask."]
-pub type C1ccR = crate::BitReader<C1cc>;
-impl C1ccR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> C1cc {
-        match self.bits {
-            true => C1cc::Clr,
-            false => C1cc::NoEffect,
-        }
-    }
-    #[doc = "Clear"]
-    #[inline(always)]
-    pub fn is_clr(&self) -> bool {
-        *self == C1cc::Clr
-    }
-    #[doc = "No effect"]
-    #[inline(always)]
-    pub fn is_no_effect(&self) -> bool {
-        *self == C1cc::NoEffect
-    }
-}
 #[doc = "Field `C1CC` writer - 9:9\\]
 Clear the MIS.C1CC mask."]
 pub type C1ccW<'a, REG> = crate::BitWriter<'a, REG, C1cc>;
@@ -527,29 +317,6 @@ impl From<C2cc> for bool {
         variant as u8 != 0
     }
 }
-#[doc = "Field `C2CC` reader - 10:10\\]
-Clear the MIS.C2CC mask."]
-pub type C2ccR = crate::BitReader<C2cc>;
-impl C2ccR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> C2cc {
-        match self.bits {
-            true => C2cc::Clr,
-            false => C2cc::NoEffect,
-        }
-    }
-    #[doc = "Clear"]
-    #[inline(always)]
-    pub fn is_clr(&self) -> bool {
-        *self == C2cc::Clr
-    }
-    #[doc = "No effect"]
-    #[inline(always)]
-    pub fn is_no_effect(&self) -> bool {
-        *self == C2cc::NoEffect
-    }
-}
 #[doc = "Field `C2CC` writer - 10:10\\]
 Clear the MIS.C2CC mask."]
 pub type C2ccW<'a, REG> = crate::BitWriter<'a, REG, C2cc>;
@@ -571,75 +338,12 @@ where
 #[doc = "Field `RESERVED11` reader - 31:11\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved11R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED11` writer - 31:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved11W<'a, REG> = crate::FieldWriter<'a, REG, 21, u32>;
 impl R {
-    #[doc = "Bit 0 - 0:0\\]
-Clear the MIS.TGT mask."]
-    #[inline(always)]
-    pub fn tgt(&self) -> TgtR {
-        TgtR::new((self.bits & 1) != 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Clear the MIS.ZERO mask."]
-    #[inline(always)]
-    pub fn zero(&self) -> ZeroR {
-        ZeroR::new(((self.bits >> 1) & 1) != 0)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-Clear the MIS.DBLTRANS mask."]
-    #[inline(always)]
-    pub fn dbltrans(&self) -> DbltransR {
-        DbltransR::new(((self.bits >> 2) & 1) != 0)
-    }
-    #[doc = "Bit 3 - 3:3\\]
-Clear the MIS.CNTRCHNG mask."]
-    #[inline(always)]
-    pub fn cntrchng(&self) -> CntrchngR {
-        CntrchngR::new(((self.bits >> 3) & 1) != 0)
-    }
-    #[doc = "Bit 4 - 4:4\\]
-Clear the MIS.DIRCHNG mask."]
-    #[inline(always)]
-    pub fn dirchng(&self) -> DirchngR {
-        DirchngR::new(((self.bits >> 4) & 1) != 0)
-    }
-    #[doc = "Bit 5 - 5:5\\]
-Clear the MIS.IDX mask."]
-    #[inline(always)]
-    pub fn idx(&self) -> IdxR {
-        IdxR::new(((self.bits >> 5) & 1) != 0)
-    }
-    #[doc = "Bit 6 - 6:6\\]
-Clear the MIS.FAULT mask."]
-    #[inline(always)]
-    pub fn fault(&self) -> FaultR {
-        FaultR::new(((self.bits >> 6) & 1) != 0)
-    }
     #[doc = "Bit 7 - 7:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
     #[inline(always)]
     pub fn reserved7(&self) -> Reserved7R {
         Reserved7R::new(((self.bits >> 7) & 1) != 0)
-    }
-    #[doc = "Bit 8 - 8:8\\]
-Clear the MIS.C0CC mask."]
-    #[inline(always)]
-    pub fn c0cc(&self) -> C0ccR {
-        C0ccR::new(((self.bits >> 8) & 1) != 0)
-    }
-    #[doc = "Bit 9 - 9:9\\]
-Clear the MIS.C1CC mask."]
-    #[inline(always)]
-    pub fn c1cc(&self) -> C1ccR {
-        C1ccR::new(((self.bits >> 9) & 1) != 0)
-    }
-    #[doc = "Bit 10 - 10:10\\]
-Clear the MIS.C2CC mask."]
-    #[inline(always)]
-    pub fn c2cc(&self) -> C2ccR {
-        C2ccR::new(((self.bits >> 10) & 1) != 0)
     }
     #[doc = "Bits 11:31 - 31:11\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
@@ -698,13 +402,6 @@ Clear the MIS.FAULT mask."]
     pub fn fault(&mut self) -> FaultW<ImclrSpec> {
         FaultW::new(self, 6)
     }
-    #[doc = "Bit 7 - 7:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved7(&mut self) -> Reserved7W<ImclrSpec> {
-        Reserved7W::new(self, 7)
-    }
     #[doc = "Bit 8 - 8:8\\]
 Clear the MIS.C0CC mask."]
     #[inline(always)]
@@ -725,13 +422,6 @@ Clear the MIS.C2CC mask."]
     #[must_use]
     pub fn c2cc(&mut self) -> C2ccW<ImclrSpec> {
         C2ccW::new(self, 10)
-    }
-    #[doc = "Bits 11:31 - 31:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved11(&mut self) -> Reserved11W<ImclrSpec> {
-        Reserved11W::new(self, 11)
     }
 }
 #[doc = "Interrupt mask clear register. Writing a 1 to a bit in this register will clear the corresponding IMASK bit.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`imclr::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`imclr::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

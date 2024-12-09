@@ -35,9 +35,6 @@ pub type AmpthrW<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "Field `RESERVED30` reader - 31:30\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved30R = crate::FieldReader;
-#[doc = "Field `RESERVED30` writer - 31:30\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved30W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 impl R {
     #[doc = "Bits 0:5 - 5:0\\]
 Initial HFXT Q1 cap trim"]
@@ -111,13 +108,6 @@ Amplitude threshold during HFXT ramping"]
     #[must_use]
     pub fn ampthr(&mut self) -> AmpthrW<HfxtinitSpec> {
         AmpthrW::new(self, 23)
-    }
-    #[doc = "Bits 30:31 - 31:30\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved30(&mut self) -> Reserved30W<HfxtinitSpec> {
-        Reserved30W::new(self, 30)
     }
 }
 #[doc = "Initial values for HFXT ramping\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`hfxtinit::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`hfxtinit::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

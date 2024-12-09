@@ -395,9 +395,6 @@ where
 #[doc = "Field `RESERVED7` reader - 7:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved7R = crate::BitReader;
-#[doc = "Field `RESERVED7` writer - 7:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved7W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "8:8\\]
 Output 0 enable. When 0 $lt; CCACT $lt; 8, OUT0 becomes zero after a capture or compare event.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -569,9 +566,6 @@ where
 #[doc = "Field `RESERVED11` reader - 31:11\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved11R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED11` writer - 31:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved11W<'a, REG> = crate::FieldWriter<'a, REG, 21, u32>;
 impl R {
     #[doc = "Bits 0:3 - 3:0\\]
 Capture-Compare action. Capture-Compare action defines 15 different channel functions that utilize capture, compare, and zero events. In every compare event the timer looks at the current value of CNTR. The corresponding output event will be set 1 timer period after CNTR = C1CC."]
@@ -644,13 +638,6 @@ Select channel input."]
     pub fn input(&mut self) -> InputW<C1cfgSpec> {
         InputW::new(self, 6)
     }
-    #[doc = "Bit 7 - 7:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved7(&mut self) -> Reserved7W<C1cfgSpec> {
-        Reserved7W::new(self, 7)
-    }
     #[doc = "Bit 8 - 8:8\\]
 Output 0 enable. When 0 $lt; CCACT $lt; 8, OUT0 becomes zero after a capture or compare event."]
     #[inline(always)]
@@ -671,13 +658,6 @@ Output 2 enable. When 0 $lt; CCACT $lt; 8, OUT2 becomes zero after a capture or 
     #[must_use]
     pub fn out2(&mut self) -> Out2W<C1cfgSpec> {
         Out2W::new(self, 10)
-    }
-    #[doc = "Bits 11:31 - 31:11\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved11(&mut self) -> Reserved11W<C1cfgSpec> {
-        Reserved11W::new(self, 11)
     }
 }
 #[doc = "Channel 1 Configuration This register configures channel function and enables outputs. Each channel has an edge-detection circuit. The the edge-detection circuit is: - enabled while CCACT selects a capture function and CTL.MODE is different from DIS. - flushed while CCACT selects a capture function and CTL.MODE is changed from DIS to another mode. The flush action uses two system clock periods. It prevents capture events caused by expired signal values stored in the edge-detection circuit. The channel input signal enters the edge-detection circuit. False capture events can occur when: - the edge-detection circuit contains expired signal samples and the circuit is enabled without flush as described above. - the CCACT field is reconfigured while CTL.MODE is different from DIS. Primary use scenario is to select CCACT before starting the timer. Follow these steps to configure CCACT to a capture action while CTL.MODE is different from DIS: - Set EDGE to NONE. - Configure CCACT. - Wait for three system clock periods before setting EDGE different from NONE. These steps prevent capture events caused by expired signal values in edge-detection circuit.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`c1cfg::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`c1cfg::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

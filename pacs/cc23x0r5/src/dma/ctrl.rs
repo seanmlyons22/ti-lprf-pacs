@@ -5,9 +5,6 @@ pub type W = crate::W<CtrlSpec>;
 #[doc = "Field `RESERVED0` reader - 7:0\\]
 Reads to this field return zero, writes to this field are ignored."]
 pub type Reserved0R = crate::FieldReader;
-#[doc = "Field `RESERVED0` writer - 7:0\\]
-Reads to this field return zero, writes to this field are ignored."]
-pub type Reserved0W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `BASEPTR` reader - 31:8\\]
 This register point to the base address for the primary data structures of each uDMA channel. This is not stored in module, but in system memory, thus space must be allocated for this usage when uDMA is in usage"]
 pub type BaseptrR = crate::FieldReader<u32>;
@@ -29,13 +26,6 @@ This register point to the base address for the primary data structures of each 
     }
 }
 impl W {
-    #[doc = "Bits 0:7 - 7:0\\]
-Reads to this field return zero, writes to this field are ignored."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved0(&mut self) -> Reserved0W<CtrlSpec> {
-        Reserved0W::new(self, 0)
-    }
     #[doc = "Bits 8:31 - 31:8\\]
 This register point to the base address for the primary data structures of each uDMA channel. This is not stored in module, but in system memory, thus space must be allocated for this usage when uDMA is in usage"]
     #[inline(always)]

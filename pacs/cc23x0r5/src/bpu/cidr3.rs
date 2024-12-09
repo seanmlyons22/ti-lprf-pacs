@@ -6,16 +6,9 @@ pub type W = crate::W<Cidr3Spec>;
 Contains bits \\[31:24\\]
 of the component identification"]
 pub type Prmbl3R = crate::FieldReader;
-#[doc = "Field `PRMBL_3` writer - 7:0\\]
-Contains bits \\[31:24\\]
-of the component identification"]
-pub type Prmbl3W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 #[doc = "Field `RESERVED8` reader - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved8R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED8` writer - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 impl R {
     #[doc = "Bits 0:7 - 7:0\\]
 Contains bits \\[31:24\\]
@@ -31,23 +24,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved8R::new((self.bits >> 8) & 0x00ff_ffff)
     }
 }
-impl W {
-    #[doc = "Bits 0:7 - 7:0\\]
-Contains bits \\[31:24\\]
-of the component identification"]
-    #[inline(always)]
-    #[must_use]
-    pub fn prmbl_3(&mut self) -> Prmbl3W<Cidr3Spec> {
-        Prmbl3W::new(self, 0)
-    }
-    #[doc = "Bits 8:31 - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved8(&mut self) -> Reserved8W<Cidr3Spec> {
-        Reserved8W::new(self, 8)
-    }
-}
+impl W {}
 #[doc = "A component identification register, that indicates that the identification registers are present.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`cidr3::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`cidr3::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Cidr3Spec;
 impl crate::RegisterSpec for Cidr3Spec {

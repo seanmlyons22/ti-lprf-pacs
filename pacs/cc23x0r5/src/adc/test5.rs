@@ -13,9 +13,6 @@ pub type CalCapCtlW<'a, REG> = crate::FieldWriter<'a, REG, 10, u16>;
 #[doc = "Field `RESERVED10` reader - 31:10\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved10R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED10` writer - 31:10\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved10W<'a, REG> = crate::FieldWriter<'a, REG, 22, u32>;
 impl R {
     #[doc = "Bits 0:9 - 9:0\\]
 This regsiter updated ull_usc_ulpadchp_dft_i\\[26:0\\]
@@ -39,13 +36,6 @@ value if Test 5: HW_STEP_SEL_DIS bit enabled ull_usc_ulpadchp_dft_i\\[26:0\\]"]
     #[must_use]
     pub fn cal_cap_ctl(&mut self) -> CalCapCtlW<Test5Spec> {
         CalCapCtlW::new(self, 0)
-    }
-    #[doc = "Bits 10:31 - 31:10\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved10(&mut self) -> Reserved10W<Test5Spec> {
-        Reserved10W::new(self, 10)
     }
 }
 #[doc = "This regsiter updated ull_usc_ulpadchp_dft_i\\[26:0\\]

@@ -11,9 +11,6 @@ pub type EnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED1` reader - 3:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved1R = crate::FieldReader;
-#[doc = "Field `RESERVED1` writer - 3:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved1W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "Field `CLKSEL` reader - 7:4\\]
 Select clock to output on DTB\\[0\\]"]
 pub type ClkselR = crate::FieldReader;
@@ -41,9 +38,6 @@ pub type Dsel2W<'a, REG> = crate::FieldWriter<'a, REG, 5>;
 #[doc = "Field `RESERVED23` reader - 31:23\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved23R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED23` writer - 31:23\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved23W<'a, REG> = crate::FieldWriter<'a, REG, 9, u16>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Enable DTB output"]
@@ -96,13 +90,6 @@ Enable DTB output"]
     pub fn en(&mut self) -> EnW<DtbctlSpec> {
         EnW::new(self, 0)
     }
-    #[doc = "Bits 1:3 - 3:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved1(&mut self) -> Reserved1W<DtbctlSpec> {
-        Reserved1W::new(self, 1)
-    }
     #[doc = "Bits 4:7 - 7:4\\]
 Select clock to output on DTB\\[0\\]"]
     #[inline(always)]
@@ -130,13 +117,6 @@ Select data to output on DTB\\[15:11\\]"]
     #[must_use]
     pub fn dsel2(&mut self) -> Dsel2W<DtbctlSpec> {
         Dsel2W::new(self, 18)
-    }
-    #[doc = "Bits 23:31 - 31:23\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved23(&mut self) -> Reserved23W<DtbctlSpec> {
-        Reserved23W::new(self, 23)
     }
 }
 #[doc = "Digital test bus mux control\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`dtbctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`dtbctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

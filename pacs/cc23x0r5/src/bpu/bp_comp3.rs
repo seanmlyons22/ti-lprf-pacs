@@ -61,9 +61,6 @@ where
 #[doc = "Field `RESERVED1` reader - 1:1\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved1R = crate::BitReader;
-#[doc = "Field `RESERVED1` writer - 1:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved1W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `COMP` reader - 28:2\\]
 Comparison address, UNKNOWN on reset."]
 pub type CompR = crate::FieldReader<u32>;
@@ -73,9 +70,6 @@ pub type CompW<'a, REG> = crate::FieldWriter<'a, REG, 27, u32>;
 #[doc = "Field `RESERVED29` reader - 29:29\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved29R = crate::BitReader;
-#[doc = "Field `RESERVED29` writer - 29:29\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved29W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "31:30\\]
 This selects what happens when the COMP address is matched\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -205,26 +199,12 @@ Compare enable for Breakpoint Comparator Register 3. The ENABLE bit of BP_CTRL m
     pub fn enable(&mut self) -> EnableW<BpComp3Spec> {
         EnableW::new(self, 0)
     }
-    #[doc = "Bit 1 - 1:1\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved1(&mut self) -> Reserved1W<BpComp3Spec> {
-        Reserved1W::new(self, 1)
-    }
     #[doc = "Bits 2:28 - 28:2\\]
 Comparison address, UNKNOWN on reset."]
     #[inline(always)]
     #[must_use]
     pub fn comp(&mut self) -> CompW<BpComp3Spec> {
         CompW::new(self, 2)
-    }
-    #[doc = "Bit 29 - 29:29\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved29(&mut self) -> Reserved29W<BpComp3Spec> {
-        Reserved29W::new(self, 29)
     }
     #[doc = "Bits 30:31 - 31:30\\]
 This selects what happens when the COMP address is matched"]

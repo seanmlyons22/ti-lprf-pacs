@@ -117,9 +117,6 @@ where
 #[doc = "Field `RESERVED2` reader - 31:2\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved2R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED2` writer - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved2W<'a, REG> = crate::FieldWriter<'a, REG, 30, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 No effect on arming the channel. Read will give the status of the Channel 0."]
@@ -154,13 +151,6 @@ Arming Channel 1 for capture operation."]
     #[must_use]
     pub fn ch1(&mut self) -> Ch1W<ArmsetSpec> {
         Ch1W::new(self, 1)
-    }
-    #[doc = "Bits 2:31 - 31:2\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved2(&mut self) -> Reserved2W<ArmsetSpec> {
-        Reserved2W::new(self, 2)
     }
 }
 #[doc = "RTC channel mode set register. Read to each bit field of this register provides the current channel mode. - Read of 1'b0 indicates the channel is unarmed. - Read of 1'b1 indicates the channel is either in capture or compare mode. A write to each bitfield of this register the following effect: - Write of 1'b0 has no effect on channel mode. - Write of 1'b1 has no effect on the compare channel. While write of 1'b1 for capture channel will arm it in capture mode if it is disabled.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`armset::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`armset::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

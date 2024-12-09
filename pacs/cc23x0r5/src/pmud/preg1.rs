@@ -5,9 +5,6 @@ pub type W = crate::W<Preg1Spec>;
 #[doc = "Field `RESERVED0` reader - 0:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved0R = crate::BitReader;
-#[doc = "Field `RESERVED0` writer - 0:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved0W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "4:1\\]
 GLDO ATB selection bits.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -231,9 +228,6 @@ pub type SpareW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `RESERVED8` reader - 11:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved8R = crate::FieldReader;
-#[doc = "Field `RESERVED8` writer - 11:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "12:12\\]
 Enable/Disable the 32 kHz clock to the recharge comparator.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -685,9 +679,6 @@ where
 #[doc = "Field `RESERVED20` reader - 31:20\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved20R = crate::FieldReader<u16>;
-#[doc = "Field `RESERVED20` writer - 31:20\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved20W<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
@@ -781,13 +772,6 @@ Software should not rely on the value of a reserved. Writing any other value tha
     }
 }
 impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved0(&mut self) -> Reserved0W<Preg1Spec> {
-        Reserved0W::new(self, 0)
-    }
     #[doc = "Bits 1:4 - 4:1\\]
 GLDO ATB selection bits."]
     #[inline(always)]
@@ -815,13 +799,6 @@ Spare bit."]
     #[must_use]
     pub fn spare(&mut self) -> SpareW<Preg1Spec> {
         SpareW::new(self, 7)
-    }
-    #[doc = "Bits 8:11 - 11:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved8(&mut self) -> Reserved8W<Preg1Spec> {
-        Reserved8W::new(self, 8)
     }
     #[doc = "Bit 12 - 12:12\\]
 Enable/Disable the 32 kHz clock to the recharge comparator."]
@@ -878,13 +855,6 @@ This bit is used to turn on DCDC NMOS switch. TEST_DCDC_PMOS and TEST_DCDC_NMOS 
     #[must_use]
     pub fn test_dcdc_nmos(&mut self) -> TestDcdcNmosW<Preg1Spec> {
         TestDcdcNmosW::new(self, 19)
-    }
-    #[doc = "Bits 20:31 - 31:20\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved20(&mut self) -> Reserved20W<Preg1Spec> {
-        Reserved20W::new(self, 20)
     }
 }
 #[doc = "PMU REG 1 register. Note: All bits in this register except DITHER_EN are write-protected based on global lock signal from SYS0 on production devices.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`preg1::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`preg1::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

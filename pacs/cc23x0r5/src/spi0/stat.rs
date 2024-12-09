@@ -40,24 +40,6 @@ impl TfeR {
         *self == Tfe::NotEmpty
     }
 }
-#[doc = "Field `TFE` writer - 0:0\\]
-Transmit FIFO empty status."]
-pub type TfeW<'a, REG> = crate::BitWriter<'a, REG, Tfe>;
-impl<'a, REG> TfeW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Transmit FIFO is empty."]
-    #[inline(always)]
-    pub fn empty(self) -> &'a mut crate::W<REG> {
-        self.variant(Tfe::Empty)
-    }
-    #[doc = "Transmit FIFO is not empty."]
-    #[inline(always)]
-    pub fn not_empty(self) -> &'a mut crate::W<REG> {
-        self.variant(Tfe::NotEmpty)
-    }
-}
 #[doc = "1:1\\]
 Transmit FIFO not full status.\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -94,24 +76,6 @@ impl TnfR {
     #[inline(always)]
     pub fn is_full(&self) -> bool {
         *self == Tnf::Full
-    }
-}
-#[doc = "Field `TNF` writer - 1:1\\]
-Transmit FIFO not full status."]
-pub type TnfW<'a, REG> = crate::BitWriter<'a, REG, Tnf>;
-impl<'a, REG> TnfW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Transmit FIFO is not full."]
-    #[inline(always)]
-    pub fn not_full(self) -> &'a mut crate::W<REG> {
-        self.variant(Tnf::NotFull)
-    }
-    #[doc = "Transmit FIFO is full."]
-    #[inline(always)]
-    pub fn full(self) -> &'a mut crate::W<REG> {
-        self.variant(Tnf::Full)
     }
 }
 #[doc = "2:2\\]
@@ -152,24 +116,6 @@ impl RfeR {
         *self == Rfe::NotEmpty
     }
 }
-#[doc = "Field `RFE` writer - 2:2\\]
-Receive FIFO empty status."]
-pub type RfeW<'a, REG> = crate::BitWriter<'a, REG, Rfe>;
-impl<'a, REG> RfeW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Receive FIFO is empty."]
-    #[inline(always)]
-    pub fn empty(self) -> &'a mut crate::W<REG> {
-        self.variant(Rfe::Empty)
-    }
-    #[doc = "Receive FIFO is not empty."]
-    #[inline(always)]
-    pub fn not_empty(self) -> &'a mut crate::W<REG> {
-        self.variant(Rfe::NotEmpty)
-    }
-}
 #[doc = "3:3\\]
 Receive FIFO not full status.\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -208,24 +154,6 @@ impl RnfR {
         *self == Rnf::Full
     }
 }
-#[doc = "Field `RNF` writer - 3:3\\]
-Receive FIFO not full status."]
-pub type RnfW<'a, REG> = crate::BitWriter<'a, REG, Rnf>;
-impl<'a, REG> RnfW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Receive FIFO is not full."]
-    #[inline(always)]
-    pub fn not_full(self) -> &'a mut crate::W<REG> {
-        self.variant(Rnf::NotFull)
-    }
-    #[doc = "Receive FIFO is full."]
-    #[inline(always)]
-    pub fn full(self) -> &'a mut crate::W<REG> {
-        self.variant(Rnf::Full)
-    }
-}
 #[doc = "4:4\\]
 SPI Busy status\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -262,24 +190,6 @@ impl BusyR {
     #[inline(always)]
     pub fn is_idle(&self) -> bool {
         *self == Busy::Idle
-    }
-}
-#[doc = "Field `BUSY` writer - 4:4\\]
-SPI Busy status"]
-pub type BusyW<'a, REG> = crate::BitWriter<'a, REG, Busy>;
-impl<'a, REG> BusyW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "SPI is currently transmitting and/or recieving data, or transmit FIFO is not empty."]
-    #[inline(always)]
-    pub fn active(self) -> &'a mut crate::W<REG> {
-        self.variant(Busy::Active)
-    }
-    #[doc = "SPI is in idle mode."]
-    #[inline(always)]
-    pub fn idle(self) -> &'a mut crate::W<REG> {
-        self.variant(Busy::Idle)
     }
 }
 #[doc = "5:5\\]
@@ -397,21 +307,12 @@ where
 #[doc = "Field `RESERVED7` reader - 7:7\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved7R = crate::BitReader;
-#[doc = "Field `RESERVED7` writer - 7:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved7W<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `TXFIFO_FILL_LVL` reader - 13:8\\]
 Indicates how many locations of TXFIFO is currently filled with data"]
 pub type TxfifoFillLvlR = crate::FieldReader;
-#[doc = "Field `TXFIFO_FILL_LVL` writer - 13:8\\]
-Indicates how many locations of TXFIFO is currently filled with data"]
-pub type TxfifoFillLvlW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `RESERVED14` reader - 31:14\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved14R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED14` writer - 31:14\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved14W<'a, REG> = crate::FieldWriter<'a, REG, 18, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Transmit FIFO empty status."]
@@ -475,41 +376,6 @@ Software should not rely on the value of a reserved. Writing any other value tha
     }
 }
 impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Transmit FIFO empty status."]
-    #[inline(always)]
-    #[must_use]
-    pub fn tfe(&mut self) -> TfeW<StatSpec> {
-        TfeW::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Transmit FIFO not full status."]
-    #[inline(always)]
-    #[must_use]
-    pub fn tnf(&mut self) -> TnfW<StatSpec> {
-        TnfW::new(self, 1)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-Receive FIFO empty status."]
-    #[inline(always)]
-    #[must_use]
-    pub fn rfe(&mut self) -> RfeW<StatSpec> {
-        RfeW::new(self, 2)
-    }
-    #[doc = "Bit 3 - 3:3\\]
-Receive FIFO not full status."]
-    #[inline(always)]
-    #[must_use]
-    pub fn rnf(&mut self) -> RnfW<StatSpec> {
-        RnfW::new(self, 3)
-    }
-    #[doc = "Bit 4 - 4:4\\]
-SPI Busy status"]
-    #[inline(always)]
-    #[must_use]
-    pub fn busy(&mut self) -> BusyW<StatSpec> {
-        BusyW::new(self, 4)
-    }
     #[doc = "Bit 5 - 5:5\\]
 Detection of CS deassertion in the middle of a word transmission results in this error being set. This feature is only available in the peripheral mode."]
     #[inline(always)]
@@ -523,27 +389,6 @@ Transmit done. Indicates whether the last bit left the Shift register after a tr
     #[must_use]
     pub fn trans_done(&mut self) -> TransDoneW<StatSpec> {
         TransDoneW::new(self, 6)
-    }
-    #[doc = "Bit 7 - 7:7\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved7(&mut self) -> Reserved7W<StatSpec> {
-        Reserved7W::new(self, 7)
-    }
-    #[doc = "Bits 8:13 - 13:8\\]
-Indicates how many locations of TXFIFO is currently filled with data"]
-    #[inline(always)]
-    #[must_use]
-    pub fn txfifo_fill_lvl(&mut self) -> TxfifoFillLvlW<StatSpec> {
-        TxfifoFillLvlW::new(self, 8)
-    }
-    #[doc = "Bits 14:31 - 31:14\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved14(&mut self) -> Reserved14W<StatSpec> {
-        Reserved14W::new(self, 14)
     }
 }
 #[doc = "Status Register\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`stat::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`stat::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

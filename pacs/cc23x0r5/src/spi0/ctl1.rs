@@ -453,9 +453,6 @@ where
 #[doc = "Field `RESERVED8` reader - 10:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved8R = crate::FieldReader;
-#[doc = "Field `RESERVED8` writer - 10:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 3>;
 #[doc = "11:11\\]
 Command/Data mode enable. This feature is applicable only in controller mode and for 8-bit transfers (CTL0.DSS = 7). The chip select pin is used for command/data signaling in Motorola SPI frame format (3-wire) operation.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -634,9 +631,6 @@ pub type RtoutW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 #[doc = "Field `RESERVED30` reader - 31:30\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved30R = crate::FieldReader;
-#[doc = "Field `RESERVED30` writer - 31:30\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved30W<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 SPI enable."]
@@ -780,13 +774,6 @@ Parity bit select"]
     pub fn pbs(&mut self) -> PbsW<Ctl1Spec> {
         PbsW::new(self, 7)
     }
-    #[doc = "Bits 8:10 - 10:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved8(&mut self) -> Reserved8W<Ctl1Spec> {
-        Reserved8W::new(self, 8)
-    }
     #[doc = "Bit 11 - 11:11\\]
 Command/Data mode enable. This feature is applicable only in controller mode and for 8-bit transfers (CTL0.DSS = 7). The chip select pin is used for command/data signaling in Motorola SPI frame format (3-wire) operation."]
     #[inline(always)]
@@ -814,13 +801,6 @@ Receive Timeout (only for Peripheral mode) Defines the number of Clock Cycles be
     #[must_use]
     pub fn rtout(&mut self) -> RtoutW<Ctl1Spec> {
         RtoutW::new(self, 24)
-    }
-    #[doc = "Bits 30:31 - 31:30\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved30(&mut self) -> Reserved30W<Ctl1Spec> {
-        Reserved30W::new(self, 30)
     }
 }
 #[doc = "SPI control register 1\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`ctl1::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`ctl1::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

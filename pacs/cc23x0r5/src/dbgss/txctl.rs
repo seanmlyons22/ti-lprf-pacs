@@ -42,37 +42,12 @@ impl TxdstaR {
         *self == Txdsta::Empty
     }
 }
-#[doc = "Field `TXDSTA` writer - 0:0\\]
-Indicates whether the host has written a word to the TXD register, which can be read by the device: TXDSTA is automatically set upon write to \\[SWD_TAP::SECAP.TXD.*\\]
-and automatically cleared upon read from TXD"]
-pub type TxdstaW<'a, REG> = crate::BitWriter<'a, REG, Txdsta>;
-impl<'a, REG> TxdstaW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "The TXD register contains a new SACI parameter word from the host, which can be read by the device."]
-    #[inline(always)]
-    pub fn full(self) -> &'a mut crate::W<REG> {
-        self.variant(Txdsta::Full)
-    }
-    #[doc = "The TXD register does not contain a new SACI parameter word from the host, and should not be read by the device."]
-    #[inline(always)]
-    pub fn empty(self) -> &'a mut crate::W<REG> {
-        self.variant(Txdsta::Empty)
-    }
-}
 #[doc = "Field `FLAGS` reader - 7:1\\]
 Software defined flags that are used by the SACI protocol (host to device)."]
 pub type FlagsR = crate::FieldReader;
-#[doc = "Field `FLAGS` writer - 7:1\\]
-Software defined flags that are used by the SACI protocol (host to device)."]
-pub type FlagsW<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "Field `RESERVED8` reader - 31:8\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved8R = crate::FieldReader<u32>;
-#[doc = "Field `RESERVED8` writer - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved8W<'a, REG> = crate::FieldWriter<'a, REG, 24, u32>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Indicates whether the host has written a word to the TXD register, which can be read by the device: TXDSTA is automatically set upon write to \\[SWD_TAP::SECAP.TXD.*\\]
@@ -94,30 +69,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved8R::new((self.bits >> 8) & 0x00ff_ffff)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Indicates whether the host has written a word to the TXD register, which can be read by the device: TXDSTA is automatically set upon write to \\[SWD_TAP::SECAP.TXD.*\\]
-and automatically cleared upon read from TXD"]
-    #[inline(always)]
-    #[must_use]
-    pub fn txdsta(&mut self) -> TxdstaW<TxctlSpec> {
-        TxdstaW::new(self, 0)
-    }
-    #[doc = "Bits 1:7 - 7:1\\]
-Software defined flags that are used by the SACI protocol (host to device)."]
-    #[inline(always)]
-    #[must_use]
-    pub fn flags(&mut self) -> FlagsW<TxctlSpec> {
-        FlagsW::new(self, 1)
-    }
-    #[doc = "Bits 8:31 - 31:8\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved8(&mut self) -> Reserved8W<TxctlSpec> {
-        Reserved8W::new(self, 8)
-    }
-}
+impl W {}
 #[doc = "Transmit control register. This register contains status of the TXD register (full/empty), and also software defined flags that are used by the SACI protocol. The host (SWD interface) can write the FLAGS field of the TXCTL register. The host (SWD interface) can read the TXCTL register. The device (boot code) can only read the TXCTL register.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`txctl::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`txctl::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct TxctlSpec;
 impl crate::RegisterSpec for TxctlSpec {

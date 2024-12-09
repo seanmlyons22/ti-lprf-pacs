@@ -40,24 +40,6 @@ impl Dio0R {
         *self == Dio0::Zero
     }
 }
-#[doc = "Field `DIO0` writer - 0:0\\]
-Data input from DIO0"]
-pub type Dio0W<'a, REG> = crate::BitWriter<'a, REG, Dio0>;
-impl<'a, REG> Dio0W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio0::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio0::Zero)
-    }
-}
 #[doc = "1:1\\]
 Data input from DIO1\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -94,24 +76,6 @@ impl Dio1R {
     #[inline(always)]
     pub fn is_zero(&self) -> bool {
         *self == Dio1::Zero
-    }
-}
-#[doc = "Field `DIO1` writer - 1:1\\]
-Data input from DIO1"]
-pub type Dio1W<'a, REG> = crate::BitWriter<'a, REG, Dio1>;
-impl<'a, REG> Dio1W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio1::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio1::Zero)
     }
 }
 #[doc = "2:2\\]
@@ -152,24 +116,6 @@ impl Dio2R {
         *self == Dio2::Zero
     }
 }
-#[doc = "Field `DIO2` writer - 2:2\\]
-Data input from DIO2"]
-pub type Dio2W<'a, REG> = crate::BitWriter<'a, REG, Dio2>;
-impl<'a, REG> Dio2W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio2::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio2::Zero)
-    }
-}
 #[doc = "3:3\\]
 Data input from DIO3\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -206,24 +152,6 @@ impl Dio3R {
     #[inline(always)]
     pub fn is_zero(&self) -> bool {
         *self == Dio3::Zero
-    }
-}
-#[doc = "Field `DIO3` writer - 3:3\\]
-Data input from DIO3"]
-pub type Dio3W<'a, REG> = crate::BitWriter<'a, REG, Dio3>;
-impl<'a, REG> Dio3W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio3::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio3::Zero)
     }
 }
 #[doc = "4:4\\]
@@ -264,24 +192,6 @@ impl Dio4R {
         *self == Dio4::Zero
     }
 }
-#[doc = "Field `DIO4` writer - 4:4\\]
-Data input from DIO4"]
-pub type Dio4W<'a, REG> = crate::BitWriter<'a, REG, Dio4>;
-impl<'a, REG> Dio4W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio4::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio4::Zero)
-    }
-}
 #[doc = "5:5\\]
 Data input from DIO5\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -318,24 +228,6 @@ impl Dio5R {
     #[inline(always)]
     pub fn is_zero(&self) -> bool {
         *self == Dio5::Zero
-    }
-}
-#[doc = "Field `DIO5` writer - 5:5\\]
-Data input from DIO5"]
-pub type Dio5W<'a, REG> = crate::BitWriter<'a, REG, Dio5>;
-impl<'a, REG> Dio5W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio5::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio5::Zero)
     }
 }
 #[doc = "6:6\\]
@@ -376,24 +268,6 @@ impl Dio6R {
         *self == Dio6::Zero
     }
 }
-#[doc = "Field `DIO6` writer - 6:6\\]
-Data input from DIO6"]
-pub type Dio6W<'a, REG> = crate::BitWriter<'a, REG, Dio6>;
-impl<'a, REG> Dio6W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio6::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio6::Zero)
-    }
-}
 #[doc = "7:7\\]
 Data input from DIO7\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -430,24 +304,6 @@ impl Dio7R {
     #[inline(always)]
     pub fn is_zero(&self) -> bool {
         *self == Dio7::Zero
-    }
-}
-#[doc = "Field `DIO7` writer - 7:7\\]
-Data input from DIO7"]
-pub type Dio7W<'a, REG> = crate::BitWriter<'a, REG, Dio7>;
-impl<'a, REG> Dio7W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio7::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio7::Zero)
     }
 }
 #[doc = "8:8\\]
@@ -488,24 +344,6 @@ impl Dio8R {
         *self == Dio8::Zero
     }
 }
-#[doc = "Field `DIO8` writer - 8:8\\]
-Data input from DIO8"]
-pub type Dio8W<'a, REG> = crate::BitWriter<'a, REG, Dio8>;
-impl<'a, REG> Dio8W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio8::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio8::Zero)
-    }
-}
 #[doc = "9:9\\]
 Data input from DIO9\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -542,24 +380,6 @@ impl Dio9R {
     #[inline(always)]
     pub fn is_zero(&self) -> bool {
         *self == Dio9::Zero
-    }
-}
-#[doc = "Field `DIO9` writer - 9:9\\]
-Data input from DIO9"]
-pub type Dio9W<'a, REG> = crate::BitWriter<'a, REG, Dio9>;
-impl<'a, REG> Dio9W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio9::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio9::Zero)
     }
 }
 #[doc = "10:10\\]
@@ -600,24 +420,6 @@ impl Dio10R {
         *self == Dio10::Zero
     }
 }
-#[doc = "Field `DIO10` writer - 10:10\\]
-Data input from DIO10"]
-pub type Dio10W<'a, REG> = crate::BitWriter<'a, REG, Dio10>;
-impl<'a, REG> Dio10W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio10::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio10::Zero)
-    }
-}
 #[doc = "11:11\\]
 Data input from DIO11\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -654,24 +456,6 @@ impl Dio11R {
     #[inline(always)]
     pub fn is_zero(&self) -> bool {
         *self == Dio11::Zero
-    }
-}
-#[doc = "Field `DIO11` writer - 11:11\\]
-Data input from DIO11"]
-pub type Dio11W<'a, REG> = crate::BitWriter<'a, REG, Dio11>;
-impl<'a, REG> Dio11W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio11::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio11::Zero)
     }
 }
 #[doc = "12:12\\]
@@ -712,24 +496,6 @@ impl Dio12R {
         *self == Dio12::Zero
     }
 }
-#[doc = "Field `DIO12` writer - 12:12\\]
-Data input from DIO12"]
-pub type Dio12W<'a, REG> = crate::BitWriter<'a, REG, Dio12>;
-impl<'a, REG> Dio12W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio12::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio12::Zero)
-    }
-}
 #[doc = "13:13\\]
 Data input from DIO13\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -766,24 +532,6 @@ impl Dio13R {
     #[inline(always)]
     pub fn is_zero(&self) -> bool {
         *self == Dio13::Zero
-    }
-}
-#[doc = "Field `DIO13` writer - 13:13\\]
-Data input from DIO13"]
-pub type Dio13W<'a, REG> = crate::BitWriter<'a, REG, Dio13>;
-impl<'a, REG> Dio13W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio13::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio13::Zero)
     }
 }
 #[doc = "14:14\\]
@@ -824,24 +572,6 @@ impl Dio14R {
         *self == Dio14::Zero
     }
 }
-#[doc = "Field `DIO14` writer - 14:14\\]
-Data input from DIO14"]
-pub type Dio14W<'a, REG> = crate::BitWriter<'a, REG, Dio14>;
-impl<'a, REG> Dio14W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio14::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio14::Zero)
-    }
-}
 #[doc = "15:15\\]
 Data input from DIO15\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -878,24 +608,6 @@ impl Dio15R {
     #[inline(always)]
     pub fn is_zero(&self) -> bool {
         *self == Dio15::Zero
-    }
-}
-#[doc = "Field `DIO15` writer - 15:15\\]
-Data input from DIO15"]
-pub type Dio15W<'a, REG> = crate::BitWriter<'a, REG, Dio15>;
-impl<'a, REG> Dio15W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio15::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio15::Zero)
     }
 }
 #[doc = "16:16\\]
@@ -936,24 +648,6 @@ impl Dio16R {
         *self == Dio16::Zero
     }
 }
-#[doc = "Field `DIO16` writer - 16:16\\]
-Data input from DIO16"]
-pub type Dio16W<'a, REG> = crate::BitWriter<'a, REG, Dio16>;
-impl<'a, REG> Dio16W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio16::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio16::Zero)
-    }
-}
 #[doc = "17:17\\]
 Data input from DIO17\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -990,24 +684,6 @@ impl Dio17R {
     #[inline(always)]
     pub fn is_zero(&self) -> bool {
         *self == Dio17::Zero
-    }
-}
-#[doc = "Field `DIO17` writer - 17:17\\]
-Data input from DIO17"]
-pub type Dio17W<'a, REG> = crate::BitWriter<'a, REG, Dio17>;
-impl<'a, REG> Dio17W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio17::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio17::Zero)
     }
 }
 #[doc = "18:18\\]
@@ -1048,24 +724,6 @@ impl Dio18R {
         *self == Dio18::Zero
     }
 }
-#[doc = "Field `DIO18` writer - 18:18\\]
-Data input from DIO18"]
-pub type Dio18W<'a, REG> = crate::BitWriter<'a, REG, Dio18>;
-impl<'a, REG> Dio18W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio18::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio18::Zero)
-    }
-}
 #[doc = "19:19\\]
 Data input from DIO19\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1102,24 +760,6 @@ impl Dio19R {
     #[inline(always)]
     pub fn is_zero(&self) -> bool {
         *self == Dio19::Zero
-    }
-}
-#[doc = "Field `DIO19` writer - 19:19\\]
-Data input from DIO19"]
-pub type Dio19W<'a, REG> = crate::BitWriter<'a, REG, Dio19>;
-impl<'a, REG> Dio19W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio19::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio19::Zero)
     }
 }
 #[doc = "20:20\\]
@@ -1160,24 +800,6 @@ impl Dio20R {
         *self == Dio20::Zero
     }
 }
-#[doc = "Field `DIO20` writer - 20:20\\]
-Data input from DIO20"]
-pub type Dio20W<'a, REG> = crate::BitWriter<'a, REG, Dio20>;
-impl<'a, REG> Dio20W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio20::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio20::Zero)
-    }
-}
 #[doc = "21:21\\]
 Data input from DIO21\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1214,24 +836,6 @@ impl Dio21R {
     #[inline(always)]
     pub fn is_zero(&self) -> bool {
         *self == Dio21::Zero
-    }
-}
-#[doc = "Field `DIO21` writer - 21:21\\]
-Data input from DIO21"]
-pub type Dio21W<'a, REG> = crate::BitWriter<'a, REG, Dio21>;
-impl<'a, REG> Dio21W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio21::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio21::Zero)
     }
 }
 #[doc = "22:22\\]
@@ -1272,24 +876,6 @@ impl Dio22R {
         *self == Dio22::Zero
     }
 }
-#[doc = "Field `DIO22` writer - 22:22\\]
-Data input from DIO22"]
-pub type Dio22W<'a, REG> = crate::BitWriter<'a, REG, Dio22>;
-impl<'a, REG> Dio22W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio22::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio22::Zero)
-    }
-}
 #[doc = "23:23\\]
 Data input from DIO23\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1326,24 +912,6 @@ impl Dio23R {
     #[inline(always)]
     pub fn is_zero(&self) -> bool {
         *self == Dio23::Zero
-    }
-}
-#[doc = "Field `DIO23` writer - 23:23\\]
-Data input from DIO23"]
-pub type Dio23W<'a, REG> = crate::BitWriter<'a, REG, Dio23>;
-impl<'a, REG> Dio23W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio23::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio23::Zero)
     }
 }
 #[doc = "24:24\\]
@@ -1384,24 +952,6 @@ impl Dio24R {
         *self == Dio24::Zero
     }
 }
-#[doc = "Field `DIO24` writer - 24:24\\]
-Data input from DIO24"]
-pub type Dio24W<'a, REG> = crate::BitWriter<'a, REG, Dio24>;
-impl<'a, REG> Dio24W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio24::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio24::Zero)
-    }
-}
 #[doc = "25:25\\]
 Data input from DIO25\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -1440,30 +990,9 @@ impl Dio25R {
         *self == Dio25::Zero
     }
 }
-#[doc = "Field `DIO25` writer - 25:25\\]
-Data input from DIO25"]
-pub type Dio25W<'a, REG> = crate::BitWriter<'a, REG, Dio25>;
-impl<'a, REG> Dio25W<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-{
-    #[doc = "Input value is 1"]
-    #[inline(always)]
-    pub fn one(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio25::One)
-    }
-    #[doc = "Input value is 0"]
-    #[inline(always)]
-    pub fn zero(self) -> &'a mut crate::W<REG> {
-        self.variant(Dio25::Zero)
-    }
-}
 #[doc = "Field `RESERVED26` reader - 31:26\\]
 Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
 pub type Reserved26R = crate::FieldReader;
-#[doc = "Field `RESERVED26` writer - 31:26\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-pub type Reserved26W<'a, REG> = crate::FieldWriter<'a, REG, 6>;
 impl R {
     #[doc = "Bit 0 - 0:0\\]
 Data input from DIO0"]
@@ -1628,197 +1157,7 @@ Software should not rely on the value of a reserved. Writing any other value tha
         Reserved26R::new(((self.bits >> 26) & 0x3f) as u8)
     }
 }
-impl W {
-    #[doc = "Bit 0 - 0:0\\]
-Data input from DIO0"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio0(&mut self) -> Dio0W<Din31_0Spec> {
-        Dio0W::new(self, 0)
-    }
-    #[doc = "Bit 1 - 1:1\\]
-Data input from DIO1"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio1(&mut self) -> Dio1W<Din31_0Spec> {
-        Dio1W::new(self, 1)
-    }
-    #[doc = "Bit 2 - 2:2\\]
-Data input from DIO2"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio2(&mut self) -> Dio2W<Din31_0Spec> {
-        Dio2W::new(self, 2)
-    }
-    #[doc = "Bit 3 - 3:3\\]
-Data input from DIO3"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio3(&mut self) -> Dio3W<Din31_0Spec> {
-        Dio3W::new(self, 3)
-    }
-    #[doc = "Bit 4 - 4:4\\]
-Data input from DIO4"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio4(&mut self) -> Dio4W<Din31_0Spec> {
-        Dio4W::new(self, 4)
-    }
-    #[doc = "Bit 5 - 5:5\\]
-Data input from DIO5"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio5(&mut self) -> Dio5W<Din31_0Spec> {
-        Dio5W::new(self, 5)
-    }
-    #[doc = "Bit 6 - 6:6\\]
-Data input from DIO6"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio6(&mut self) -> Dio6W<Din31_0Spec> {
-        Dio6W::new(self, 6)
-    }
-    #[doc = "Bit 7 - 7:7\\]
-Data input from DIO7"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio7(&mut self) -> Dio7W<Din31_0Spec> {
-        Dio7W::new(self, 7)
-    }
-    #[doc = "Bit 8 - 8:8\\]
-Data input from DIO8"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio8(&mut self) -> Dio8W<Din31_0Spec> {
-        Dio8W::new(self, 8)
-    }
-    #[doc = "Bit 9 - 9:9\\]
-Data input from DIO9"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio9(&mut self) -> Dio9W<Din31_0Spec> {
-        Dio9W::new(self, 9)
-    }
-    #[doc = "Bit 10 - 10:10\\]
-Data input from DIO10"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio10(&mut self) -> Dio10W<Din31_0Spec> {
-        Dio10W::new(self, 10)
-    }
-    #[doc = "Bit 11 - 11:11\\]
-Data input from DIO11"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio11(&mut self) -> Dio11W<Din31_0Spec> {
-        Dio11W::new(self, 11)
-    }
-    #[doc = "Bit 12 - 12:12\\]
-Data input from DIO12"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio12(&mut self) -> Dio12W<Din31_0Spec> {
-        Dio12W::new(self, 12)
-    }
-    #[doc = "Bit 13 - 13:13\\]
-Data input from DIO13"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio13(&mut self) -> Dio13W<Din31_0Spec> {
-        Dio13W::new(self, 13)
-    }
-    #[doc = "Bit 14 - 14:14\\]
-Data input from DIO14"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio14(&mut self) -> Dio14W<Din31_0Spec> {
-        Dio14W::new(self, 14)
-    }
-    #[doc = "Bit 15 - 15:15\\]
-Data input from DIO15"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio15(&mut self) -> Dio15W<Din31_0Spec> {
-        Dio15W::new(self, 15)
-    }
-    #[doc = "Bit 16 - 16:16\\]
-Data input from DIO16"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio16(&mut self) -> Dio16W<Din31_0Spec> {
-        Dio16W::new(self, 16)
-    }
-    #[doc = "Bit 17 - 17:17\\]
-Data input from DIO17"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio17(&mut self) -> Dio17W<Din31_0Spec> {
-        Dio17W::new(self, 17)
-    }
-    #[doc = "Bit 18 - 18:18\\]
-Data input from DIO18"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio18(&mut self) -> Dio18W<Din31_0Spec> {
-        Dio18W::new(self, 18)
-    }
-    #[doc = "Bit 19 - 19:19\\]
-Data input from DIO19"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio19(&mut self) -> Dio19W<Din31_0Spec> {
-        Dio19W::new(self, 19)
-    }
-    #[doc = "Bit 20 - 20:20\\]
-Data input from DIO20"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio20(&mut self) -> Dio20W<Din31_0Spec> {
-        Dio20W::new(self, 20)
-    }
-    #[doc = "Bit 21 - 21:21\\]
-Data input from DIO21"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio21(&mut self) -> Dio21W<Din31_0Spec> {
-        Dio21W::new(self, 21)
-    }
-    #[doc = "Bit 22 - 22:22\\]
-Data input from DIO22"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio22(&mut self) -> Dio22W<Din31_0Spec> {
-        Dio22W::new(self, 22)
-    }
-    #[doc = "Bit 23 - 23:23\\]
-Data input from DIO23"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio23(&mut self) -> Dio23W<Din31_0Spec> {
-        Dio23W::new(self, 23)
-    }
-    #[doc = "Bit 24 - 24:24\\]
-Data input from DIO24"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio24(&mut self) -> Dio24W<Din31_0Spec> {
-        Dio24W::new(self, 24)
-    }
-    #[doc = "Bit 25 - 25:25\\]
-Data input from DIO25"]
-    #[inline(always)]
-    #[must_use]
-    pub fn dio25(&mut self) -> Dio25W<Din31_0Spec> {
-        Dio25W::new(self, 25)
-    }
-    #[doc = "Bits 26:31 - 31:26\\]
-Software should not rely on the value of a reserved. Writing any other value than the reset value may result in undefined behavior."]
-    #[inline(always)]
-    #[must_use]
-    pub fn reserved26(&mut self) -> Reserved26W<Din31_0Spec> {
-        Reserved26W::new(self, 26)
-    }
-}
+impl W {}
 #[doc = "Data input from DIO 31 to 0 pins.\n\nYou can [`read`](crate::generic::Reg::read) this register and get [`din31_0::R`](R).  You can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero) this register using [`din31_0::W`](W). You can also [`modify`](crate::generic::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Din31_0Spec;
 impl crate::RegisterSpec for Din31_0Spec {
