@@ -121,6 +121,8 @@ pub static __INTERRUPTS: [Vector; 47] = [
     Vector { _handler: INT_SWEV4 }
 ];
 
+#[doc = r"Enumeration of all the interrupts."]
+#[derive(Copy, Clone, Debug, PartialEq, Eq)]
 pub enum Interrupt {
     INT_AON_GPIO_EDGE = 0,
     INT_I2C = 1,
@@ -171,13 +173,11 @@ pub enum Interrupt {
     INT_SWEV4 = 46,
 }
 
-#[doc = r"Enumeration of all the interrupts."]
-#[derive(Copy, Clone, Debug, PartialEq, Eq)]
-pub enum Interrupt {}
+
 unsafe impl cortex_m::interrupt::InterruptNumber for Interrupt {
     #[inline(always)]
     fn number(self) -> u16 {
-        match self {}
+        self as u16
     }
 }
 #[doc = "Configuration registers controlling analog peripherals of AUX. Registers Fields should be considered static unless otherwise noted (as dynamic)"]

@@ -93,6 +93,8 @@ pub static __INTERRUPTS: [Vector; 33] = [
     Vector { _handler: INT_TRNG }
 ];
 
+#[doc = r"Enumeration of all the interrupts."]
+#[derive(Copy, Clone, Debug, PartialEq, Eq)]
 pub enum Interrupt {
     INT_AON_GPIO_EDGE = 0,
     INT_I2C = 1,
@@ -129,13 +131,11 @@ pub enum Interrupt {
     INT_TRNG = 32,
 }
 
-#[doc = r"Enumeration of all the interrupts."]
-#[derive(Copy, Clone, Debug, PartialEq, Eq)]
-pub enum Interrupt {}
+
 unsafe impl cortex_m::interrupt::InterruptNumber for Interrupt {
     #[inline(always)]
     fn number(self) -> u16 {
-        match self {}
+        self as u16
     }
 }
 #[doc = "Always On (AON) Battery And Temperature MONitor (BATMON) residing in the AON domain Note: This module only supports 32 bit Read/Write access from MCU."]

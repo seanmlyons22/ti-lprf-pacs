@@ -110,17 +110,23 @@ def patch_vectors(pac_path: str, int_rs_path: str, device_x_path: str):
     lib_rs_path = Path("src/lib.rs").as_posix()
     with open(lib_rs_path, mode="r+") as lib_file, open(int_rs_path, mode="r") as ints:
         # There are two parts of the input files. The C declarations and the rust based vector table
-        # These are delimited by `}` and two newlines.
-        extern_string = ints.read().split("}\n\n")
+        # These are delimited by two newlines.
+        extern_string = ints.read().split("\n\n")
         lib_string = lib_file.read()
 
         # Replace the generated (empty) extern C section
-        lib_string = lib_string.replace('extern "C" {}\n', extern_string[0] + "}\n")
+        lib_string = lib_string.replace('extern "C" {}\n', extern_string[0] + "\n")
 
         # Replace the empty generated vector table
         lib_string = lib_string.replace(
-            "pub static __INTERRUPTS: [Vector; 0] = [];", extern_string[1]
+            "pub static __INTERRUPTS: [Vector; 0] = [];", extern_string[1] + "\n"
         )
+
+        # Replace interrupt enum
+        lib_string = lib_string.replace("pub enum Interrupt {}", extern_string[2] + "\n")
+
+        # Replace enum match of interrupt vector to return self as u16
+        lib_string = lib_string.replace("match self {}", "self as u16")
 
         # Write the contents back to lib.rs
         lib_file.seek(0)
