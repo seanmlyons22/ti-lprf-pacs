@@ -13,13 +13,21 @@ cortex-m-rt.workspace = true
 critical-section.workspace = true
 panic-halt = "0.2.0"
 cc23x0r5_pac = { path = "../../pacs/cc23x0r5", features = ["critical-section", "rt"]}
-rtt-target = { version = "0.3", features = ["cortex-m"] }
+rtt-target = { version = "0.6.1", features = ["defmt"] }
+defmt = { version = "0.3.8"}
+
+[dev-dependencies]
+embedded-test = { version = "0.6.0", features=["defmt"]}
 
 # this lets you use `cargo fix`!
 [[bin]]
 name = "cc23x0r5"
 test = false
 bench = false
+
+[[test]]
+name = "example_test"
+harness = false # Important: As we bring our own test harness, we need to disable the default one
 
 [profile.release]
 codegen-units = 1 # better optimizations

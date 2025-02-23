@@ -1,6 +1,7 @@
 [default.probe]
 # The protocol to be used for communicating with the target.
 protocol = "Swd"
+speed = 5500
 
 [default.flashing]
 # Whether to verify flash contents after downloading

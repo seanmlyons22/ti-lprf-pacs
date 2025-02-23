@@ -40,4 +40,10 @@ fn main() {
 
     // Set the linker script to the one provided by cortex-m-rt.
     println!("cargo:rustc-link-arg=-Tlink.x");
+
+    // Linker script for running tests
+    println!("cargo::rustc-link-arg-tests=-Tembedded-test.x");
+
+    // Linker script for running defmt
+    println!("cargo:rustc-link-arg=-Tdefmt.x");
 }
