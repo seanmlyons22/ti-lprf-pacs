@@ -20,8 +20,3 @@ rtt-target = { version = "0.3", features = ["cortex-m"] }
 name = "cc2640r2"
 test = false
 bench = false
-
-[profile.release]
-codegen-units = 1 # better optimizations
-debug = true # symbols are nice and they don't increase the size on Flash
-lto = true # better optimizations

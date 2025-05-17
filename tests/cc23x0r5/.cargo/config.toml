@@ -21,7 +21,7 @@ rustflags = [
   # use GCC as the linker by uncommenting the three lines below:
   # "-C", "linker=arm-none-eabi-gcc",
   # "-C", "link-arg=-Wl,-Tlink.x",
-  "-Clink-args=-Map=app.map" # Generate a map file
+  # "-Clink-args=-Map=app.map" # Generate a map file
   # "-C", "link-arg=-nostartfiles",
 ]
 
