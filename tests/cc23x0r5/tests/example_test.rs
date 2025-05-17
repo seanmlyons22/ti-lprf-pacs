@@ -1,6 +1,9 @@
 #![no_std]
 #![no_main]
 use cc23x0r5_pac::ccfg::Ccfg;
+
+// The exception crate provides the vector table
+#[allow(unused_imports)]
 use cortex_m_rt::exception;
 
 
